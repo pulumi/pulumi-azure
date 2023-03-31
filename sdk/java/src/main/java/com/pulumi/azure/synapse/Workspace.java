@@ -170,7 +170,8 @@ import javax.annotation.Nullable;
  *                 &#34;Create&#34;,
  *                 &#34;Get&#34;,
  *                 &#34;Delete&#34;,
- *                 &#34;Purge&#34;)
+ *                 &#34;Purge&#34;,
+ *                 &#34;GetRotationPolicy&#34;)
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
@@ -247,7 +248,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * An `aad_admin` block as defined below. Conflicts with `customer_managed_key`.
      * 
      */
-    @Export(name="aadAdmin", type=WorkspaceAadAdmin.class, parameters={})
+    @Export(name="aadAdmin", refs={WorkspaceAadAdmin.class}, tree="[0]")
     private Output<WorkspaceAadAdmin> aadAdmin;
 
     /**
@@ -261,7 +262,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * An `azure_devops_repo` block as defined below.
      * 
      */
-    @Export(name="azureDevopsRepo", type=WorkspaceAzureDevopsRepo.class, parameters={})
+    @Export(name="azureDevopsRepo", refs={WorkspaceAzureDevopsRepo.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceAzureDevopsRepo> azureDevopsRepo;
 
     /**
@@ -275,7 +276,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="computeSubnetId", type=String.class, parameters={})
+    @Export(name="computeSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> computeSubnetId;
 
     /**
@@ -289,7 +290,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * A list of Connectivity endpoints for this Synapse Workspace.
      * 
      */
-    @Export(name="connectivityEndpoints", type=Map.class, parameters={String.class, String.class})
+    @Export(name="connectivityEndpoints", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> connectivityEndpoints;
 
     /**
@@ -303,7 +304,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * A `customer_managed_key` block as defined below. Conflicts with `aad_admin`.
      * 
      */
-    @Export(name="customerManagedKey", type=WorkspaceCustomerManagedKey.class, parameters={})
+    @Export(name="customerManagedKey", refs={WorkspaceCustomerManagedKey.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceCustomerManagedKey> customerManagedKey;
 
     /**
@@ -317,7 +318,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="dataExfiltrationProtectionEnabled", type=Boolean.class, parameters={})
+    @Export(name="dataExfiltrationProtectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dataExfiltrationProtectionEnabled;
 
     /**
@@ -331,7 +332,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * A `github_repo` block as defined below.
      * 
      */
-    @Export(name="githubRepo", type=WorkspaceGithubRepo.class, parameters={})
+    @Export(name="githubRepo", refs={WorkspaceGithubRepo.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceGithubRepo> githubRepo;
 
     /**
@@ -345,7 +346,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=WorkspaceIdentity.class, parameters={})
+    @Export(name="identity", refs={WorkspaceIdentity.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceIdentity> identity;
 
     /**
@@ -359,7 +360,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Allowed AAD Tenant Ids For Linking.
      * 
      */
-    @Export(name="linkingAllowedForAadTenantIds", type=List.class, parameters={String.class})
+    @Export(name="linkingAllowedForAadTenantIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> linkingAllowedForAadTenantIds;
 
     /**
@@ -373,7 +374,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -387,7 +388,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Workspace managed resource group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managedResourceGroupName", type=String.class, parameters={})
+    @Export(name="managedResourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> managedResourceGroupName;
 
     /**
@@ -401,7 +402,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managedVirtualNetworkEnabled", type=Boolean.class, parameters={})
+    @Export(name="managedVirtualNetworkEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> managedVirtualNetworkEnabled;
 
     /**
@@ -415,7 +416,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -429,7 +430,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -443,7 +444,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The ID of purview account.
      * 
      */
-    @Export(name="purviewId", type=String.class, parameters={})
+    @Export(name="purviewId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> purviewId;
 
     /**
@@ -457,7 +458,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -471,7 +472,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * An `sql_aad_admin` block as defined below.
      * 
      */
-    @Export(name="sqlAadAdmin", type=WorkspaceSqlAadAdmin.class, parameters={})
+    @Export(name="sqlAadAdmin", refs={WorkspaceSqlAadAdmin.class}, tree="[0]")
     private Output<WorkspaceSqlAadAdmin> sqlAadAdmin;
 
     /**
@@ -485,7 +486,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
      * 
      */
-    @Export(name="sqlAdministratorLogin", type=String.class, parameters={})
+    @Export(name="sqlAdministratorLogin", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqlAdministratorLogin;
 
     /**
@@ -499,7 +500,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
      * 
      */
-    @Export(name="sqlAdministratorLoginPassword", type=String.class, parameters={})
+    @Export(name="sqlAdministratorLoginPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sqlAdministratorLoginPassword;
 
     /**
@@ -513,7 +514,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Are pipelines (running as workspace&#39;s system assigned identity) allowed to access SQL pools?
      * 
      */
-    @Export(name="sqlIdentityControlEnabled", type=Boolean.class, parameters={})
+    @Export(name="sqlIdentityControlEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sqlIdentityControlEnabled;
 
     /**
@@ -527,7 +528,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageDataLakeGen2FilesystemId", type=String.class, parameters={})
+    @Export(name="storageDataLakeGen2FilesystemId", refs={String.class}, tree="[0]")
     private Output<String> storageDataLakeGen2FilesystemId;
 
     /**
@@ -541,7 +542,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Synapse Workspace.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

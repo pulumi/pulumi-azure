@@ -128,6 +128,7 @@ import * as synapse from "./synapse";
 import * as trafficmanager from "./trafficmanager";
 import * as types from "./types";
 import * as videoanalyzer from "./videoanalyzer";
+import * as voice from "./voice";
 import * as waf from "./waf";
 import * as webpubsub from "./webpubsub";
 
@@ -246,6 +247,7 @@ export {
     trafficmanager,
     types,
     videoanalyzer,
+    voice,
     waf,
     webpubsub,
 };

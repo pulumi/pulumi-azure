@@ -134,7 +134,7 @@ public class NetworkManagerAdminRule extends com.pulumi.resources.CustomResource
      * Specifies the action allowed for this Network Manager Admin Rule. Possible values are `Allow`, `AlwaysAllow`, and `Deny`.
      * 
      */
-    @Export(name="action", type=String.class, parameters={})
+    @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
@@ -148,7 +148,7 @@ public class NetworkManagerAdminRule extends com.pulumi.resources.CustomResource
      * Specifies the ID of the Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule to be created.
      * 
      */
-    @Export(name="adminRuleCollectionId", type=String.class, parameters={})
+    @Export(name="adminRuleCollectionId", refs={String.class}, tree="[0]")
     private Output<String> adminRuleCollectionId;
 
     /**
@@ -162,7 +162,7 @@ public class NetworkManagerAdminRule extends com.pulumi.resources.CustomResource
      * A description of the Network Manager Admin Rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -176,7 +176,7 @@ public class NetworkManagerAdminRule extends com.pulumi.resources.CustomResource
      * A list of string specifies the destination port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
      * 
      */
-    @Export(name="destinationPortRanges", type=List.class, parameters={String.class})
+    @Export(name="destinationPortRanges", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destinationPortRanges;
 
     /**
@@ -190,7 +190,7 @@ public class NetworkManagerAdminRule extends com.pulumi.resources.CustomResource
      * One or more `destination` blocks as defined below.
      * 
      */
-    @Export(name="destinations", type=List.class, parameters={NetworkManagerAdminRuleDestination.class})
+    @Export(name="destinations", refs={List.class,NetworkManagerAdminRuleDestination.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NetworkManagerAdminRuleDestination>> destinations;
 
     /**
@@ -204,7 +204,7 @@ public class NetworkManagerAdminRule extends com.pulumi.resources.CustomResource
      * Indicates if the traffic matched against the rule in inbound or outbound. Possible values are `Inbound` and `Outbound`.
      * 
      */
-    @Export(name="direction", type=String.class, parameters={})
+    @Export(name="direction", refs={String.class}, tree="[0]")
     private Output<String> direction;
 
     /**
@@ -218,7 +218,7 @@ public class NetworkManagerAdminRule extends com.pulumi.resources.CustomResource
      * Specifies the name which should be used for this Network Manager Admin Rule. Changing this forces a new Network Manager Admin Rule to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -232,7 +232,7 @@ public class NetworkManagerAdminRule extends com.pulumi.resources.CustomResource
      * The priority of the rule. Possible values are integers between `1` and `4096`. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
@@ -246,7 +246,7 @@ public class NetworkManagerAdminRule extends com.pulumi.resources.CustomResource
      * Specifies which network protocol this Network Manager Admin Rule applies to. Possible values are `Ah`, `Any`, `Esp`, `Icmp`, `Tcp`, and `Udp`.
      * 
      */
-    @Export(name="protocol", type=String.class, parameters={})
+    @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
@@ -260,7 +260,7 @@ public class NetworkManagerAdminRule extends com.pulumi.resources.CustomResource
      * A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
      * 
      */
-    @Export(name="sourcePortRanges", type=List.class, parameters={String.class})
+    @Export(name="sourcePortRanges", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourcePortRanges;
 
     /**
@@ -274,7 +274,7 @@ public class NetworkManagerAdminRule extends com.pulumi.resources.CustomResource
      * One or more `source` blocks as defined below.
      * 
      */
-    @Export(name="sources", type=List.class, parameters={NetworkManagerAdminRuleSource.class})
+    @Export(name="sources", refs={List.class,NetworkManagerAdminRuleSource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NetworkManagerAdminRuleSource>> sources;
 
     /**

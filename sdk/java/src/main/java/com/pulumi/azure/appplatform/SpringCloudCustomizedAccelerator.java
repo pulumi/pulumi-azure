@@ -96,7 +96,7 @@ public class SpringCloudCustomizedAccelerator extends com.pulumi.resources.Custo
      * Specifies a list of accelerator tags.
      * 
      */
-    @Export(name="acceleratorTags", type=List.class, parameters={String.class})
+    @Export(name="acceleratorTags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> acceleratorTags;
 
     /**
@@ -110,7 +110,7 @@ public class SpringCloudCustomizedAccelerator extends com.pulumi.resources.Custo
      * Specifies the description of the Spring Cloud Customized Accelerator.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -124,7 +124,7 @@ public class SpringCloudCustomizedAccelerator extends com.pulumi.resources.Custo
      * Specifies the display name of the Spring Cloud Customized Accelerator..
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -138,7 +138,7 @@ public class SpringCloudCustomizedAccelerator extends com.pulumi.resources.Custo
      * A `git_repository` block as defined below.
      * 
      */
-    @Export(name="gitRepository", type=SpringCloudCustomizedAcceleratorGitRepository.class, parameters={})
+    @Export(name="gitRepository", refs={SpringCloudCustomizedAcceleratorGitRepository.class}, tree="[0]")
     private Output<SpringCloudCustomizedAcceleratorGitRepository> gitRepository;
 
     /**
@@ -152,7 +152,7 @@ public class SpringCloudCustomizedAccelerator extends com.pulumi.resources.Custo
      * Specifies the icon URL of the Spring Cloud Customized Accelerator..
      * 
      */
-    @Export(name="iconUrl", type=String.class, parameters={})
+    @Export(name="iconUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iconUrl;
 
     /**
@@ -166,7 +166,7 @@ public class SpringCloudCustomizedAccelerator extends com.pulumi.resources.Custo
      * The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -180,7 +180,7 @@ public class SpringCloudCustomizedAccelerator extends com.pulumi.resources.Custo
      * The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      * 
      */
-    @Export(name="springCloudAcceleratorId", type=String.class, parameters={})
+    @Export(name="springCloudAcceleratorId", refs={String.class}, tree="[0]")
     private Output<String> springCloudAcceleratorId;
 
     /**

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// Evaluation of metric on a particular column.
         /// </summary>
-        public readonly string MetricColumn;
+        public readonly string? MetricColumn;
         /// <summary>
         /// Metric Trigger Type - 'Consecutive' or 'Total'.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
         [OutputConstructor]
         private ScheduledQueryRulesAlertTriggerMetricTrigger(
-            string metricColumn,
+            string? metricColumn,
 
             string metricTriggerType,
 

@@ -104,7 +104,7 @@ public class NetworkInterfaceSecurityGroupAssociation extends com.pulumi.resourc
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkInterfaceId", type=String.class, parameters={})
+    @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
     /**
@@ -118,7 +118,7 @@ public class NetworkInterfaceSecurityGroupAssociation extends com.pulumi.resourc
      * The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkSecurityGroupId", type=String.class, parameters={})
+    @Export(name="networkSecurityGroupId", refs={String.class}, tree="[0]")
     private Output<String> networkSecurityGroupId;
 
     /**

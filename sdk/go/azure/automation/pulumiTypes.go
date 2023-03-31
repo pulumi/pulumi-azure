@@ -11,7 +11,7 @@ import (
 )
 
 type AccountEncryption struct {
-	// The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
+	// Deprecated: This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
 	KeySource *string `pulumi:"keySource"`
 	// The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
@@ -31,7 +31,7 @@ type AccountEncryptionInput interface {
 }
 
 type AccountEncryptionArgs struct {
-	// The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
+	// Deprecated: This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
 	// The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
@@ -90,7 +90,7 @@ func (o AccountEncryptionOutput) ToAccountEncryptionOutputWithContext(ctx contex
 	return o
 }
 
-// The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
+// Deprecated: This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
 func (o AccountEncryptionOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountEncryption) *string { return v.KeySource }).(pulumi.StringPtrOutput)
 }

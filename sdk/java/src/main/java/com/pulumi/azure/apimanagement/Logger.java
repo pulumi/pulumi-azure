@@ -95,7 +95,7 @@ public class Logger extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", type=String.class, parameters={})
+    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
     private Output<String> apiManagementName;
 
     /**
@@ -109,7 +109,7 @@ public class Logger extends com.pulumi.resources.CustomResource {
      * An `application_insights` block as documented below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="applicationInsights", type=LoggerApplicationInsights.class, parameters={})
+    @Export(name="applicationInsights", refs={LoggerApplicationInsights.class}, tree="[0]")
     private Output</* @Nullable */ LoggerApplicationInsights> applicationInsights;
 
     /**
@@ -123,7 +123,7 @@ public class Logger extends com.pulumi.resources.CustomResource {
      * Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
      * 
      */
-    @Export(name="buffered", type=Boolean.class, parameters={})
+    @Export(name="buffered", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> buffered;
 
     /**
@@ -137,7 +137,7 @@ public class Logger extends com.pulumi.resources.CustomResource {
      * A description of this Logger.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -151,7 +151,7 @@ public class Logger extends com.pulumi.resources.CustomResource {
      * An `eventhub` block as documented below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventhub", type=LoggerEventhub.class, parameters={})
+    @Export(name="eventhub", refs={LoggerEventhub.class}, tree="[0]")
     private Output</* @Nullable */ LoggerEventhub> eventhub;
 
     /**
@@ -165,7 +165,7 @@ public class Logger extends com.pulumi.resources.CustomResource {
      * The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -179,7 +179,7 @@ public class Logger extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -193,7 +193,7 @@ public class Logger extends com.pulumi.resources.CustomResource {
      * The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceId;
 
     /**

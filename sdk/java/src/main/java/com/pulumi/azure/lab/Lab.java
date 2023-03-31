@@ -39,7 +39,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * An `auto_shutdown` block as defined below.
      * 
      */
-    @Export(name="autoShutdown", type=LabAutoShutdown.class, parameters={})
+    @Export(name="autoShutdown", refs={LabAutoShutdown.class}, tree="[0]")
     private Output</* @Nullable */ LabAutoShutdown> autoShutdown;
 
     /**
@@ -53,7 +53,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * A `connection_setting` block as defined below.
      * 
      */
-    @Export(name="connectionSetting", type=LabConnectionSetting.class, parameters={})
+    @Export(name="connectionSetting", refs={LabConnectionSetting.class}, tree="[0]")
     private Output</* @Nullable */ LabConnectionSetting> connectionSetting;
 
     /**
@@ -67,7 +67,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * The description of the Lab Service Lab.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -81,7 +81,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * The resource ID of the Lab Plan that is used during resource creation to provide defaults and acts as a permission container when creating a Lab Service Lab via `labs.azure.com`.
      * 
      */
-    @Export(name="labPlanId", type=String.class, parameters={})
+    @Export(name="labPlanId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> labPlanId;
 
     /**
@@ -95,7 +95,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Lab Service Lab should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -109,7 +109,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Lab Service Lab. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -123,7 +123,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * A `network` block as defined below.
      * 
      */
-    @Export(name="network", type=LabNetwork.class, parameters={})
+    @Export(name="network", refs={LabNetwork.class}, tree="[0]")
     private Output</* @Nullable */ LabNetwork> network;
 
     /**
@@ -137,7 +137,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Lab Service Lab should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -151,7 +151,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * A `roster` block as defined below.
      * 
      */
-    @Export(name="roster", type=LabRoster.class, parameters={})
+    @Export(name="roster", refs={LabRoster.class}, tree="[0]")
     private Output</* @Nullable */ LabRoster> roster;
 
     /**
@@ -165,7 +165,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * A `security` block as defined below.
      * 
      */
-    @Export(name="security", type=LabSecurity.class, parameters={})
+    @Export(name="security", refs={LabSecurity.class}, tree="[0]")
     private Output<LabSecurity> security;
 
     /**
@@ -179,7 +179,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Lab Service Lab.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -193,7 +193,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * The title of the Lab Service Lab.
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**
@@ -207,7 +207,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * A `virtual_machine` block as defined below.
      * 
      */
-    @Export(name="virtualMachine", type=LabVirtualMachine.class, parameters={})
+    @Export(name="virtualMachine", refs={LabVirtualMachine.class}, tree="[0]")
     private Output<LabVirtualMachine> virtualMachine;
 
     /**

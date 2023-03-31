@@ -363,6 +363,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "List",
                 "Decrypt",
                 "Sign",
+                "GetRotationPolicy",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,
@@ -465,6 +466,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 "List",
                 "Decrypt",
                 "Sign",
+                "GetRotationPolicy",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,

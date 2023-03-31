@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
  * import com.pulumi.azure.sentinel.DataConnectorMicrosoftThreatIntelligence;
  * import com.pulumi.azure.sentinel.DataConnectorMicrosoftThreatIntelligenceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,17 +56,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .workspaceName(exampleAnalyticsWorkspace.name())
+ *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
  *         var exampleDataConnectorMicrosoftThreatIntelligence = new DataConnectorMicrosoftThreatIntelligence(&#34;exampleDataConnectorMicrosoftThreatIntelligence&#34;, DataConnectorMicrosoftThreatIntelligenceArgs.builder()        
- *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
+ *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
  *             .bingSafetyPhishingUrlLookbackDate(&#34;1970-01-01T00:00:00Z&#34;)
  *             .microsoftEmergingThreatFeedLookbackDate(&#34;1970-01-01T00:00:00Z&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(azurerm_sentinel_log_analytics_workspace_onboarding.test())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -88,7 +84,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
      * 
      */
-    @Export(name="bingSafetyPhishingUrlLookbackDate", type=String.class, parameters={})
+    @Export(name="bingSafetyPhishingUrlLookbackDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bingSafetyPhishingUrlLookbackDate;
 
     /**
@@ -102,7 +98,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -116,7 +112,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
      * 
      */
-    @Export(name="microsoftEmergingThreatFeedLookbackDate", type=String.class, parameters={})
+    @Export(name="microsoftEmergingThreatFeedLookbackDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> microsoftEmergingThreatFeedLookbackDate;
 
     /**
@@ -130,7 +126,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -144,7 +140,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

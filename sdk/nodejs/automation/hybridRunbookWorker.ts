@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     vmResourceId: azurerm_linux_virtual_machine.test.id,
  *     workerId: "00000000-0000-0000-0000-000000000000",
  * });
+ * //unique uuid
  * ```
  *
  * ## Import
@@ -87,7 +88,7 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
      */
     public readonly workerGroupName!: pulumi.Output<string>;
     /**
-     * The ID of the HybridWorker. Changing this forces a new Automation to be created.
+     * Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
      */
     public readonly workerId!: pulumi.Output<string>;
     /**
@@ -188,7 +189,7 @@ export interface HybridRunbookWorkerState {
      */
     workerGroupName?: pulumi.Input<string>;
     /**
-     * The ID of the HybridWorker. Changing this forces a new Automation to be created.
+     * Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
      */
     workerId?: pulumi.Input<string>;
     /**
@@ -222,7 +223,7 @@ export interface HybridRunbookWorkerArgs {
      */
     workerGroupName: pulumi.Input<string>;
     /**
-     * The ID of the HybridWorker. Changing this forces a new Automation to be created.
+     * Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
      */
     workerId: pulumi.Input<string>;
 }

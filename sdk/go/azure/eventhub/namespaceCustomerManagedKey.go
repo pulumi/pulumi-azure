@@ -99,6 +99,7 @@ import (
 //					pulumi.String("List"),
 //					pulumi.String("Purge"),
 //					pulumi.String("Recover"),
+//					pulumi.String("GetRotationPolicy"),
 //				},
 //			})
 //			if err != nil {

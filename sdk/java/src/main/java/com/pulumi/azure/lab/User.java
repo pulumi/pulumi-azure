@@ -101,7 +101,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The amount of usage quota time the Lab Service User gets in addition to the lab usage quota. Defaults to `PT0S`.
      * 
      */
-    @Export(name="additionalUsageQuota", type=String.class, parameters={})
+    @Export(name="additionalUsageQuota", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> additionalUsageQuota;
 
     /**
@@ -115,7 +115,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The email address of the Lab Service User. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
@@ -129,7 +129,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The resource ID of the Lab Service Lab. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="labId", type=String.class, parameters={})
+    @Export(name="labId", refs={String.class}, tree="[0]")
     private Output<String> labId;
 
     /**
@@ -143,7 +143,7 @@ public class User extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Lab Service User. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

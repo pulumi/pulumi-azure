@@ -19,7 +19,7 @@ public final class FrontdoorRoutingRuleForwardingConfiguration {
      */
     private String backendPoolName;
     /**
-     * @return Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+     * @return Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
      * 
      */
     private @Nullable String cacheDuration;
@@ -63,7 +63,7 @@ public final class FrontdoorRoutingRuleForwardingConfiguration {
         return this.backendPoolName;
     }
     /**
-     * @return Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+     * @return Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
      * 
      */
     public Optional<String> cacheDuration() {

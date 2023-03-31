@@ -72,7 +72,7 @@ public class RouteFilter extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -86,7 +86,7 @@ public class RouteFilter extends com.pulumi.resources.CustomResource {
      * The Name which should be used for this Route Filter.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -100,7 +100,7 @@ public class RouteFilter extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -114,7 +114,7 @@ public class RouteFilter extends com.pulumi.resources.CustomResource {
      * A `rule` block as defined below.
      * 
      */
-    @Export(name="rule", type=RouteFilterRule.class, parameters={})
+    @Export(name="rule", refs={RouteFilterRule.class}, tree="[0]")
     private Output<RouteFilterRule> rule;
 
     /**
@@ -128,7 +128,7 @@ public class RouteFilter extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Route Filter.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

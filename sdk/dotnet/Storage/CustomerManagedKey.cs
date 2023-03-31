@@ -97,6 +97,7 @@ namespace Pulumi.Azure.Storage
     ///             "Decrypt",
     ///             "Sign",
     ///             "Verify",
+    ///             "GetRotationPolicy",
     ///         },
     ///         SecretPermissions = new[]
     ///         {

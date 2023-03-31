@@ -27,9 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
- * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
  * import com.pulumi.azure.sentinel.DataConnectorOfficePowerBi;
  * import com.pulumi.azure.sentinel.DataConnectorOfficePowerBiArgs;
  * import java.util.List;
@@ -55,20 +54,12 @@ import javax.annotation.Nullable;
  *             .sku(&#34;PerGB2018&#34;)
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution(&#34;exampleAnalyticsSolution&#34;, AnalyticsSolutionArgs.builder()        
- *             .solutionName(&#34;SecurityInsights&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
- *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/SecurityInsights&#34;)
- *                 .build())
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
  *         var exampleDataConnectorOfficePowerBi = new DataConnectorOfficePowerBi(&#34;exampleDataConnectorOfficePowerBi&#34;, DataConnectorOfficePowerBiArgs.builder()        
- *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
+ *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
  *             .build());
  * 
  *     }
@@ -90,7 +81,7 @@ public class DataConnectorOfficePowerBi extends com.pulumi.resources.CustomResou
      * The ID of the Log Analytics Workspace that this Office Power BI Data Connector resides in. Changing this forces a new Office Power BI Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -104,7 +95,7 @@ public class DataConnectorOfficePowerBi extends com.pulumi.resources.CustomResou
      * The name which should be used for this Office Power BI Data Connector. Changing this forces a new Office Power BI Data Connector to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -118,7 +109,7 @@ public class DataConnectorOfficePowerBi extends com.pulumi.resources.CustomResou
      * The ID of the tenant that this Office Power BI Data Connector connects to. Changing this forces a new Office Power BI Data Connector to be created.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

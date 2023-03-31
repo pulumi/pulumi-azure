@@ -100,7 +100,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * The name of the automation account in which the Webhook is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", type=String.class, parameters={})
+    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
     private Output<String> automationAccountName;
 
     /**
@@ -114,7 +114,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * Controls if Webhook is enabled. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -128,7 +128,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * Timestamp when the webhook expires. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="expiryTime", type=String.class, parameters={})
+    @Export(name="expiryTime", refs={String.class}, tree="[0]")
     private Output<String> expiryTime;
 
     /**
@@ -142,7 +142,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Webhook. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -156,7 +156,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * Map of input parameters passed to runbook.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -170,7 +170,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Webhook is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -184,7 +184,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * Name of the hybrid worker group the Webhook job will run on.
      * 
      */
-    @Export(name="runOnWorkerGroup", type=String.class, parameters={})
+    @Export(name="runOnWorkerGroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runOnWorkerGroup;
 
     /**
@@ -198,7 +198,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * Name of the Automation Runbook to execute by Webhook.
      * 
      */
-    @Export(name="runbookName", type=String.class, parameters={})
+    @Export(name="runbookName", refs={String.class}, tree="[0]")
     private Output<String> runbookName;
 
     /**
@@ -212,7 +212,7 @@ public class Webhook extends com.pulumi.resources.CustomResource {
      * URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="uri", type=String.class, parameters={})
+    @Export(name="uri", refs={String.class}, tree="[0]")
     private Output<String> uri;
 
     /**

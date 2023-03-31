@@ -122,7 +122,7 @@ public class FallbackRoute extends com.pulumi.resources.CustomResource {
      * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
      * 
      */
-    @Export(name="condition", type=String.class, parameters={})
+    @Export(name="condition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> condition;
 
     /**
@@ -136,7 +136,7 @@ public class FallbackRoute extends com.pulumi.resources.CustomResource {
      * Used to specify whether the fallback route is enabled.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -150,7 +150,7 @@ public class FallbackRoute extends com.pulumi.resources.CustomResource {
      * The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
      * 
      */
-    @Export(name="endpointNames", type=String.class, parameters={})
+    @Export(name="endpointNames", refs={String.class}, tree="[0]")
     private Output<String> endpointNames;
 
     /**
@@ -164,7 +164,7 @@ public class FallbackRoute extends com.pulumi.resources.CustomResource {
      * The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iothubName", type=String.class, parameters={})
+    @Export(name="iothubName", refs={String.class}, tree="[0]")
     private Output<String> iothubName;
 
     /**
@@ -178,7 +178,7 @@ public class FallbackRoute extends com.pulumi.resources.CustomResource {
      * The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -192,7 +192,7 @@ public class FallbackRoute extends com.pulumi.resources.CustomResource {
      * The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
      * 
      */
-    @Export(name="source", type=String.class, parameters={})
+    @Export(name="source", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> source;
 
     /**

@@ -22,7 +22,11 @@ public final class KubernetesClusterNetworkProfile {
     /**
      * @return IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
      * 
+     * @deprecated
+     * `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+     * 
      */
+    @Deprecated /* `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
     private @Nullable String dockerBridgeCidr;
     /**
      * @return Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
@@ -106,7 +110,11 @@ public final class KubernetesClusterNetworkProfile {
     /**
      * @return IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
      * 
+     * @deprecated
+     * `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+     * 
      */
+    @Deprecated /* `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
     public Optional<String> dockerBridgeCidr() {
         return Optional.ofNullable(this.dockerBridgeCidr);
     }

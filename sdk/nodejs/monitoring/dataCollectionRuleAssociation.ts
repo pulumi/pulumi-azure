@@ -132,7 +132,7 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
+     * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -191,7 +191,7 @@ export interface DataCollectionRuleAssociationState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
+     * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -217,7 +217,7 @@ export interface DataCollectionRuleAssociationArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
+     * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
      */
     name?: pulumi.Input<string>;
     /**

@@ -98,7 +98,7 @@ public class SubnetRouteTableAssociation extends com.pulumi.resources.CustomReso
      * The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="routeTableId", type=String.class, parameters={})
+    @Export(name="routeTableId", refs={String.class}, tree="[0]")
     private Output<String> routeTableId;
 
     /**
@@ -112,7 +112,7 @@ public class SubnetRouteTableAssociation extends com.pulumi.resources.CustomReso
      * The ID of the Subnet. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**

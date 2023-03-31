@@ -43,20 +43,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "exampleLogAnalyticsWorkspaceOnboarding", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				WorkspaceName:     exampleAnalyticsWorkspace.Name,
+//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "exampleLogAnalyticsWorkspaceOnboarding", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
+//				WorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = sentinel.NewDataConnectorMicrosoftThreatIntelligence(ctx, "exampleDataConnectorMicrosoftThreatIntelligence", &sentinel.DataConnectorMicrosoftThreatIntelligenceArgs{
-//				LogAnalyticsWorkspaceId:                 exampleAnalyticsWorkspace.ID(),
+//				LogAnalyticsWorkspaceId:                 exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
 //				BingSafetyPhishingUrlLookbackDate:       pulumi.String("1970-01-01T00:00:00Z"),
 //				MicrosoftEmergingThreatFeedLookbackDate: pulumi.String("1970-01-01T00:00:00Z"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				azurerm_sentinel_log_analytics_workspace_onboarding.Test,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

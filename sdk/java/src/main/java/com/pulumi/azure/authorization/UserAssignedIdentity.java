@@ -70,7 +70,7 @@ public class UserAssignedIdentity extends com.pulumi.resources.CustomResource {
      * The ID of the app associated with the Identity.
      * 
      */
-    @Export(name="clientId", type=String.class, parameters={})
+    @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output<String> clientId;
 
     /**
@@ -84,7 +84,7 @@ public class UserAssignedIdentity extends com.pulumi.resources.CustomResource {
      * The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -98,7 +98,7 @@ public class UserAssignedIdentity extends com.pulumi.resources.CustomResource {
      * Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -112,7 +112,7 @@ public class UserAssignedIdentity extends com.pulumi.resources.CustomResource {
      * The ID of the Service Principal object associated with the created Identity.
      * 
      */
-    @Export(name="principalId", type=String.class, parameters={})
+    @Export(name="principalId", refs={String.class}, tree="[0]")
     private Output<String> principalId;
 
     /**
@@ -126,7 +126,7 @@ public class UserAssignedIdentity extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -140,7 +140,7 @@ public class UserAssignedIdentity extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the User Assigned Identity.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -154,7 +154,7 @@ public class UserAssignedIdentity extends com.pulumi.resources.CustomResource {
      * The ID of the Tenant which the Identity belongs to.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

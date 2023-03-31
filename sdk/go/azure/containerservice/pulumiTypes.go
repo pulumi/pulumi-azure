@@ -4635,7 +4635,7 @@ type KubernetesClusterDefaultNodePool struct {
 	VmSize string `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
-	// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+	// Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
 	Zones []string `pulumi:"zones"`
@@ -4723,7 +4723,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrInput `pulumi:"vnetSubnetId"`
-	// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+	// Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
 	WorkloadRuntime pulumi.StringPtrInput `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
 	Zones pulumi.StringArrayInput `pulumi:"zones"`
@@ -4989,7 +4989,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) VnetSubnetId() pulumi.StringPtrO
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+// Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
 func (o KubernetesClusterDefaultNodePoolOutput) WorkloadRuntime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.WorkloadRuntime }).(pulumi.StringPtrOutput)
 }
@@ -5373,7 +5373,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) VnetSubnetId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+// Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) WorkloadRuntime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -9484,6 +9484,8 @@ type KubernetesClusterNetworkProfile struct {
 	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
 	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
 	// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
 	EbpfDataPlane *string `pulumi:"ebpfDataPlane"`
@@ -9530,6 +9532,8 @@ type KubernetesClusterNetworkProfileArgs struct {
 	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 	DnsServiceIp pulumi.StringPtrInput `pulumi:"dnsServiceIp"`
 	// IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
+	//
+	// Deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
 	// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
 	EbpfDataPlane pulumi.StringPtrInput `pulumi:"ebpfDataPlane"`
@@ -9644,6 +9648,8 @@ func (o KubernetesClusterNetworkProfileOutput) DnsServiceIp() pulumi.StringPtrOu
 }
 
 // IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 func (o KubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
@@ -9757,6 +9763,8 @@ func (o KubernetesClusterNetworkProfilePtrOutput) DnsServiceIp() pulumi.StringPt
 }
 
 // IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
+//
+// Deprecated: `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 func (o KubernetesClusterNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -19668,6 +19676,8 @@ func (o GetKubernetesClusterNetworkProfileArrayOutput) Index(i pulumi.IntInput) 
 type GetKubernetesClusterOmsAgent struct {
 	// The ID of the Log Analytics Workspace to which the OMS Agent should send data.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
+	// Is managed identity authentication for monitoring enabled?
+	MsiAuthForMonitoringEnabled bool `pulumi:"msiAuthForMonitoringEnabled"`
 	// An `omsAgentIdentity` block as defined below.
 	OmsAgentIdentities []GetKubernetesClusterOmsAgentOmsAgentIdentity `pulumi:"omsAgentIdentities"`
 }
@@ -19686,6 +19696,8 @@ type GetKubernetesClusterOmsAgentInput interface {
 type GetKubernetesClusterOmsAgentArgs struct {
 	// The ID of the Log Analytics Workspace to which the OMS Agent should send data.
 	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
+	// Is managed identity authentication for monitoring enabled?
+	MsiAuthForMonitoringEnabled pulumi.BoolInput `pulumi:"msiAuthForMonitoringEnabled"`
 	// An `omsAgentIdentity` block as defined below.
 	OmsAgentIdentities GetKubernetesClusterOmsAgentOmsAgentIdentityArrayInput `pulumi:"omsAgentIdentities"`
 }
@@ -19744,6 +19756,11 @@ func (o GetKubernetesClusterOmsAgentOutput) ToGetKubernetesClusterOmsAgentOutput
 // The ID of the Log Analytics Workspace to which the OMS Agent should send data.
 func (o GetKubernetesClusterOmsAgentOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterOmsAgent) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+}
+
+// Is managed identity authentication for monitoring enabled?
+func (o GetKubernetesClusterOmsAgentOutput) MsiAuthForMonitoringEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterOmsAgent) bool { return v.MsiAuthForMonitoringEnabled }).(pulumi.BoolOutput)
 }
 
 // An `omsAgentIdentity` block as defined below.

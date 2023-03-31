@@ -84,10 +84,14 @@ type SubscriptionPolicyAssignment struct {
 	NonComplianceMessages SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput `pulumi:"nonComplianceMessages"`
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes pulumi.StringArrayOutput `pulumi:"notScopes"`
+	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+	Overrides SubscriptionPolicyAssignmentOverrideArrayOutput `pulumi:"overrides"`
 	// A JSON mapping of any Parameters for this Policy.
 	Parameters pulumi.StringPtrOutput `pulumi:"parameters"`
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId pulumi.StringOutput `pulumi:"policyDefinitionId"`
+	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
+	ResourceSelectors SubscriptionPolicyAssignmentResourceSelectorArrayOutput `pulumi:"resourceSelectors"`
 	// The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 }
@@ -145,10 +149,14 @@ type subscriptionPolicyAssignmentState struct {
 	NonComplianceMessages []SubscriptionPolicyAssignmentNonComplianceMessage `pulumi:"nonComplianceMessages"`
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes []string `pulumi:"notScopes"`
+	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+	Overrides []SubscriptionPolicyAssignmentOverride `pulumi:"overrides"`
 	// A JSON mapping of any Parameters for this Policy.
 	Parameters *string `pulumi:"parameters"`
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
+	ResourceSelectors []SubscriptionPolicyAssignmentResourceSelector `pulumi:"resourceSelectors"`
 	// The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 }
@@ -172,10 +180,14 @@ type SubscriptionPolicyAssignmentState struct {
 	NonComplianceMessages SubscriptionPolicyAssignmentNonComplianceMessageArrayInput
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes pulumi.StringArrayInput
+	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+	Overrides SubscriptionPolicyAssignmentOverrideArrayInput
 	// A JSON mapping of any Parameters for this Policy.
 	Parameters pulumi.StringPtrInput
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId pulumi.StringPtrInput
+	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
+	ResourceSelectors SubscriptionPolicyAssignmentResourceSelectorArrayInput
 	// The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
 	SubscriptionId pulumi.StringPtrInput
 }
@@ -203,10 +215,14 @@ type subscriptionPolicyAssignmentArgs struct {
 	NonComplianceMessages []SubscriptionPolicyAssignmentNonComplianceMessage `pulumi:"nonComplianceMessages"`
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes []string `pulumi:"notScopes"`
+	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+	Overrides []SubscriptionPolicyAssignmentOverride `pulumi:"overrides"`
 	// A JSON mapping of any Parameters for this Policy.
 	Parameters *string `pulumi:"parameters"`
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
+	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
+	ResourceSelectors []SubscriptionPolicyAssignmentResourceSelector `pulumi:"resourceSelectors"`
 	// The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
 	SubscriptionId string `pulumi:"subscriptionId"`
 }
@@ -231,10 +247,14 @@ type SubscriptionPolicyAssignmentArgs struct {
 	NonComplianceMessages SubscriptionPolicyAssignmentNonComplianceMessageArrayInput
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes pulumi.StringArrayInput
+	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+	Overrides SubscriptionPolicyAssignmentOverrideArrayInput
 	// A JSON mapping of any Parameters for this Policy.
 	Parameters pulumi.StringPtrInput
 	// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 	PolicyDefinitionId pulumi.StringInput
+	// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
+	ResourceSelectors SubscriptionPolicyAssignmentResourceSelectorArrayInput
 	// The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
 	SubscriptionId pulumi.StringInput
 }
@@ -373,6 +393,13 @@ func (o SubscriptionPolicyAssignmentOutput) NotScopes() pulumi.StringArrayOutput
 	return o.ApplyT(func(v *SubscriptionPolicyAssignment) pulumi.StringArrayOutput { return v.NotScopes }).(pulumi.StringArrayOutput)
 }
 
+// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+func (o SubscriptionPolicyAssignmentOutput) Overrides() SubscriptionPolicyAssignmentOverrideArrayOutput {
+	return o.ApplyT(func(v *SubscriptionPolicyAssignment) SubscriptionPolicyAssignmentOverrideArrayOutput {
+		return v.Overrides
+	}).(SubscriptionPolicyAssignmentOverrideArrayOutput)
+}
+
 // A JSON mapping of any Parameters for this Policy.
 func (o SubscriptionPolicyAssignmentOutput) Parameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyAssignment) pulumi.StringPtrOutput { return v.Parameters }).(pulumi.StringPtrOutput)
@@ -381,6 +408,13 @@ func (o SubscriptionPolicyAssignmentOutput) Parameters() pulumi.StringPtrOutput 
 // The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
 func (o SubscriptionPolicyAssignmentOutput) PolicyDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyAssignment) pulumi.StringOutput { return v.PolicyDefinitionId }).(pulumi.StringOutput)
+}
+
+// One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
+func (o SubscriptionPolicyAssignmentOutput) ResourceSelectors() SubscriptionPolicyAssignmentResourceSelectorArrayOutput {
+	return o.ApplyT(func(v *SubscriptionPolicyAssignment) SubscriptionPolicyAssignmentResourceSelectorArrayOutput {
+		return v.ResourceSelectors
+	}).(SubscriptionPolicyAssignmentResourceSelectorArrayOutput)
 }
 
 // The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.

@@ -105,7 +105,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
      * 
      */
-    @Export(name="ignoreMissingVnetServiceEndpoint", type=Boolean.class, parameters={})
+    @Export(name="ignoreMissingVnetServiceEndpoint", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreMissingVnetServiceEndpoint;
 
     /**
@@ -119,7 +119,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -133,7 +133,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -147,7 +147,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The name of the SQL Server to which this PostgreSQL virtual network rule will be applied to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", type=String.class, parameters={})
+    @Export(name="serverName", refs={String.class}, tree="[0]")
     private Output<String> serverName;
 
     /**
@@ -161,7 +161,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The ID of the subnet that the PostgreSQL server will be connected to.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**

@@ -87,7 +87,7 @@ public class ManagedDiskSasToken extends com.pulumi.resources.CustomResource {
      * The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accessLevel", type=String.class, parameters={})
+    @Export(name="accessLevel", refs={String.class}, tree="[0]")
     private Output<String> accessLevel;
 
     /**
@@ -101,7 +101,7 @@ public class ManagedDiskSasToken extends com.pulumi.resources.CustomResource {
      * The duration for which the export should be allowed. Should be between 30 &amp; 4294967295 seconds. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="durationInSeconds", type=Integer.class, parameters={})
+    @Export(name="durationInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> durationInSeconds;
 
     /**
@@ -115,7 +115,7 @@ public class ManagedDiskSasToken extends com.pulumi.resources.CustomResource {
      * The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managedDiskId", type=String.class, parameters={})
+    @Export(name="managedDiskId", refs={String.class}, tree="[0]")
     private Output<String> managedDiskId;
 
     /**
@@ -129,7 +129,7 @@ public class ManagedDiskSasToken extends com.pulumi.resources.CustomResource {
      * The computed Shared Access Signature (SAS) of the Managed Disk.
      * 
      */
-    @Export(name="sasUrl", type=String.class, parameters={})
+    @Export(name="sasUrl", refs={String.class}, tree="[0]")
     private Output<String> sasUrl;
 
     /**

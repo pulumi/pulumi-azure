@@ -90,7 +90,8 @@ import javax.annotation.Nullable;
  *                 &#34;Create&#34;,
  *                 &#34;Get&#34;,
  *                 &#34;Delete&#34;,
- *                 &#34;Purge&#34;)
+ *                 &#34;Purge&#34;,
+ *                 &#34;GetRotationPolicy&#34;)
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
@@ -142,7 +143,7 @@ public class WorkspaceSqlAadAdmin extends com.pulumi.resources.CustomResource {
      * The login name of the Azure AD Administrator of this Synapse Workspace.
      * 
      */
-    @Export(name="login", type=String.class, parameters={})
+    @Export(name="login", refs={String.class}, tree="[0]")
     private Output<String> login;
 
     /**
@@ -156,7 +157,7 @@ public class WorkspaceSqlAadAdmin extends com.pulumi.resources.CustomResource {
      * The object id of the Azure AD Administrator of this Synapse Workspace.
      * 
      */
-    @Export(name="objectId", type=String.class, parameters={})
+    @Export(name="objectId", refs={String.class}, tree="[0]")
     private Output<String> objectId;
 
     /**
@@ -170,7 +171,7 @@ public class WorkspaceSqlAadAdmin extends com.pulumi.resources.CustomResource {
      * The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
      * 
      */
-    @Export(name="synapseWorkspaceId", type=String.class, parameters={})
+    @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> synapseWorkspaceId;
 
     /**
@@ -184,7 +185,7 @@ public class WorkspaceSqlAadAdmin extends com.pulumi.resources.CustomResource {
      * The tenant id of the Azure AD Administrator of this Synapse Workspace.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

@@ -227,7 +227,7 @@ public class VirtualNetworkSwiftConnection extends com.pulumi.resources.CustomRe
      * The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="appServiceId", type=String.class, parameters={})
+    @Export(name="appServiceId", refs={String.class}, tree="[0]")
     private Output<String> appServiceId;
 
     /**
@@ -241,7 +241,7 @@ public class VirtualNetworkSwiftConnection extends com.pulumi.resources.CustomRe
      * The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**

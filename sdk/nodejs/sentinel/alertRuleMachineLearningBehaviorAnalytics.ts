@@ -19,19 +19,9 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "PerGB2018",
  * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
- *     solutionName: "SecurityInsights",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     workspaceResourceId: exampleAnalyticsWorkspace.id,
- *     workspaceName: exampleAnalyticsWorkspace.name,
- *     plan: {
- *         publisher: "Microsoft",
- *         product: "OMSGallery/SecurityInsights",
- *     },
- * });
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {workspaceId: exampleAnalyticsWorkspace.id});
  * const exampleAlertRuleMachineLearningBehaviorAnalytics = new azure.sentinel.AlertRuleMachineLearningBehaviorAnalytics("exampleAlertRuleMachineLearningBehaviorAnalytics", {
- *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
+ *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
  *     alertRuleTemplateGuid: "737a2ce1-70a3-4968-9e90-3e6aca836abf",
  * });
  * ```

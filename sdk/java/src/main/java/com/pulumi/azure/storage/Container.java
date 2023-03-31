@@ -81,7 +81,7 @@ public class Container extends com.pulumi.resources.CustomResource {
      * The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
      * 
      */
-    @Export(name="containerAccessType", type=String.class, parameters={})
+    @Export(name="containerAccessType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> containerAccessType;
 
     /**
@@ -95,7 +95,7 @@ public class Container extends com.pulumi.resources.CustomResource {
      * Is there an Immutability Policy configured on this Storage Container?
      * 
      */
-    @Export(name="hasImmutabilityPolicy", type=Boolean.class, parameters={})
+    @Export(name="hasImmutabilityPolicy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hasImmutabilityPolicy;
 
     /**
@@ -109,7 +109,7 @@ public class Container extends com.pulumi.resources.CustomResource {
      * Is there a Legal Hold configured on this Storage Container?
      * 
      */
-    @Export(name="hasLegalHold", type=Boolean.class, parameters={})
+    @Export(name="hasLegalHold", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hasLegalHold;
 
     /**
@@ -123,7 +123,7 @@ public class Container extends com.pulumi.resources.CustomResource {
      * A mapping of MetaData for this Container. All metadata keys should be lowercase.
      * 
      */
-    @Export(name="metadata", type=Map.class, parameters={String.class, String.class})
+    @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> metadata;
 
     /**
@@ -137,7 +137,7 @@ public class Container extends com.pulumi.resources.CustomResource {
      * The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -151,7 +151,7 @@ public class Container extends com.pulumi.resources.CustomResource {
      * The Resource Manager ID of this Storage Container.
      * 
      */
-    @Export(name="resourceManagerId", type=String.class, parameters={})
+    @Export(name="resourceManagerId", refs={String.class}, tree="[0]")
     private Output<String> resourceManagerId;
 
     /**
@@ -165,7 +165,7 @@ public class Container extends com.pulumi.resources.CustomResource {
      * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountName", type=String.class, parameters={})
+    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output<String> storageAccountName;
 
     /**

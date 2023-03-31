@@ -77,6 +77,7 @@ namespace Pulumi.Azure.Kusto
     ///             "Create",
     ///             "Delete",
     ///             "Recover",
+    ///             "GetRotationPolicy",
     ///         },
     ///     });
     /// 

@@ -4,6 +4,7 @@
 package com.pulumi.azure.signalr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -11,6 +12,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceResult {
+    /**
+     * @return Is aad auth enabled for this SignalR service?
+     * 
+     */
+    private Boolean aadAuthEnabled;
     /**
      * @return The FQDN of the SignalR service.
      * 
@@ -27,6 +33,11 @@ public final class GetServiceResult {
      */
     private String ipAddress;
     /**
+     * @return Is local auth enable for this SignalR serviced?
+     * 
+     */
+    private Boolean localAuthEnabled;
+    /**
      * @return Specifies the supported Azure location where the SignalR service exists.
      * 
      */
@@ -42,6 +53,11 @@ public final class GetServiceResult {
      * 
      */
     private String primaryConnectionString;
+    /**
+     * @return Is public network access enabled for this SignalR service?
+     * 
+     */
+    private Boolean publicNetworkAccessEnabled;
     /**
      * @return The publicly accessible port of the SignalR service which is designed for browser/client use.
      * 
@@ -63,9 +79,26 @@ public final class GetServiceResult {
      * 
      */
     private Integer serverPort;
+    /**
+     * @return The serverless connection timeout of this SignalR service.
+     * 
+     */
+    private Integer serverlessConnectionTimeoutInSeconds;
     private Map<String,String> tags;
+    /**
+     * @return Is tls client cert enabled for this SignalR service?
+     * 
+     */
+    private Boolean tlsClientCertEnabled;
 
     private GetServiceResult() {}
+    /**
+     * @return Is aad auth enabled for this SignalR service?
+     * 
+     */
+    public Boolean aadAuthEnabled() {
+        return this.aadAuthEnabled;
+    }
     /**
      * @return The FQDN of the SignalR service.
      * 
@@ -86,6 +119,13 @@ public final class GetServiceResult {
      */
     public String ipAddress() {
         return this.ipAddress;
+    }
+    /**
+     * @return Is local auth enable for this SignalR serviced?
+     * 
+     */
+    public Boolean localAuthEnabled() {
+        return this.localAuthEnabled;
     }
     /**
      * @return Specifies the supported Azure location where the SignalR service exists.
@@ -110,6 +150,13 @@ public final class GetServiceResult {
      */
     public String primaryConnectionString() {
         return this.primaryConnectionString;
+    }
+    /**
+     * @return Is public network access enabled for this SignalR service?
+     * 
+     */
+    public Boolean publicNetworkAccessEnabled() {
+        return this.publicNetworkAccessEnabled;
     }
     /**
      * @return The publicly accessible port of the SignalR service which is designed for browser/client use.
@@ -142,8 +189,22 @@ public final class GetServiceResult {
     public Integer serverPort() {
         return this.serverPort;
     }
+    /**
+     * @return The serverless connection timeout of this SignalR service.
+     * 
+     */
+    public Integer serverlessConnectionTimeoutInSeconds() {
+        return this.serverlessConnectionTimeoutInSeconds;
+    }
     public Map<String,String> tags() {
         return this.tags;
+    }
+    /**
+     * @return Is tls client cert enabled for this SignalR service?
+     * 
+     */
+    public Boolean tlsClientCertEnabled() {
+        return this.tlsClientCertEnabled;
     }
 
     public static Builder builder() {
@@ -155,37 +216,52 @@ public final class GetServiceResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean aadAuthEnabled;
         private String hostname;
         private String id;
         private String ipAddress;
+        private Boolean localAuthEnabled;
         private String location;
         private String name;
         private String primaryAccessKey;
         private String primaryConnectionString;
+        private Boolean publicNetworkAccessEnabled;
         private Integer publicPort;
         private String resourceGroupName;
         private String secondaryAccessKey;
         private String secondaryConnectionString;
         private Integer serverPort;
+        private Integer serverlessConnectionTimeoutInSeconds;
         private Map<String,String> tags;
+        private Boolean tlsClientCertEnabled;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.aadAuthEnabled = defaults.aadAuthEnabled;
     	      this.hostname = defaults.hostname;
     	      this.id = defaults.id;
     	      this.ipAddress = defaults.ipAddress;
+    	      this.localAuthEnabled = defaults.localAuthEnabled;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.primaryAccessKey = defaults.primaryAccessKey;
     	      this.primaryConnectionString = defaults.primaryConnectionString;
+    	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.publicPort = defaults.publicPort;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.secondaryAccessKey = defaults.secondaryAccessKey;
     	      this.secondaryConnectionString = defaults.secondaryConnectionString;
     	      this.serverPort = defaults.serverPort;
+    	      this.serverlessConnectionTimeoutInSeconds = defaults.serverlessConnectionTimeoutInSeconds;
     	      this.tags = defaults.tags;
+    	      this.tlsClientCertEnabled = defaults.tlsClientCertEnabled;
         }
 
+        @CustomType.Setter
+        public Builder aadAuthEnabled(Boolean aadAuthEnabled) {
+            this.aadAuthEnabled = Objects.requireNonNull(aadAuthEnabled);
+            return this;
+        }
         @CustomType.Setter
         public Builder hostname(String hostname) {
             this.hostname = Objects.requireNonNull(hostname);
@@ -199,6 +275,11 @@ public final class GetServiceResult {
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
             this.ipAddress = Objects.requireNonNull(ipAddress);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder localAuthEnabled(Boolean localAuthEnabled) {
+            this.localAuthEnabled = Objects.requireNonNull(localAuthEnabled);
             return this;
         }
         @CustomType.Setter
@@ -219,6 +300,11 @@ public final class GetServiceResult {
         @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
             this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
             return this;
         }
         @CustomType.Setter
@@ -247,25 +333,40 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder serverlessConnectionTimeoutInSeconds(Integer serverlessConnectionTimeoutInSeconds) {
+            this.serverlessConnectionTimeoutInSeconds = Objects.requireNonNull(serverlessConnectionTimeoutInSeconds);
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
+        public Builder tlsClientCertEnabled(Boolean tlsClientCertEnabled) {
+            this.tlsClientCertEnabled = Objects.requireNonNull(tlsClientCertEnabled);
+            return this;
+        }
         public GetServiceResult build() {
             final var o = new GetServiceResult();
+            o.aadAuthEnabled = aadAuthEnabled;
             o.hostname = hostname;
             o.id = id;
             o.ipAddress = ipAddress;
+            o.localAuthEnabled = localAuthEnabled;
             o.location = location;
             o.name = name;
             o.primaryAccessKey = primaryAccessKey;
             o.primaryConnectionString = primaryConnectionString;
+            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             o.publicPort = publicPort;
             o.resourceGroupName = resourceGroupName;
             o.secondaryAccessKey = secondaryAccessKey;
             o.secondaryConnectionString = secondaryConnectionString;
             o.serverPort = serverPort;
+            o.serverlessConnectionTimeoutInSeconds = serverlessConnectionTimeoutInSeconds;
             o.tags = tags;
+            o.tlsClientCertEnabled = tlsClientCertEnabled;
             return o;
         }
     }

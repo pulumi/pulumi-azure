@@ -73,7 +73,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * A `device_properties` block as defined below.
      * 
      */
-    @Export(name="deviceProperties", type=List.class, parameters={DeviceDeviceProperty.class})
+    @Export(name="deviceProperties", refs={List.class,DeviceDeviceProperty.class}, tree="[0,1]")
     private Output<List<DeviceDeviceProperty>> deviceProperties;
 
     /**
@@ -87,7 +87,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -101,7 +101,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Databox Edge Device. Changing this forces a new Databox Edge Device to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -115,7 +115,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -129,7 +129,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * The `sku_name` is comprised of two segments separated by a hyphen (e.g. `TEA_1Node_UPS_Heater-Standard`). The first segment of the `sku_name` defines the `name` of the SKU, possible values are `Gateway`, `EdgeMR_Mini`, `EdgeP_Base`, `EdgeP_High`, `EdgePR_Base`, `EdgePR_Base_UPS`, `GPU`, `RCA_Large`, `RCA_Small`, `RDC`, `TCA_Large`, `TCA_Small`, `TDC`, `TEA_1Node`, `TEA_1Node_UPS`, `TEA_1Node_Heater`, `TEA_1Node_UPS_Heater`, `TEA_4Node_Heater`, `TEA_4Node_UPS_Heater` or `TMA`. The second segment defines the `tier` of the `sku_name`, possible values are `Standard`. For more information see the product documentation. Changing this forces a new Databox Edge Device to be created.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -143,7 +143,7 @@ public class Device extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Databox Edge Device.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

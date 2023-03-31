@@ -81,7 +81,7 @@ public class IdentityProviderMicrosoft extends com.pulumi.resources.CustomResour
      * The Name of the API Management Service where this Microsoft Identity Provider should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", type=String.class, parameters={})
+    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
     private Output<String> apiManagementName;
 
     /**
@@ -95,7 +95,7 @@ public class IdentityProviderMicrosoft extends com.pulumi.resources.CustomResour
      * Client Id of the Azure AD Application.
      * 
      */
-    @Export(name="clientId", type=String.class, parameters={})
+    @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output<String> clientId;
 
     /**
@@ -109,7 +109,7 @@ public class IdentityProviderMicrosoft extends com.pulumi.resources.CustomResour
      * Client secret of the Azure AD Application.
      * 
      */
-    @Export(name="clientSecret", type=String.class, parameters={})
+    @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output<String> clientSecret;
 
     /**
@@ -123,7 +123,7 @@ public class IdentityProviderMicrosoft extends com.pulumi.resources.CustomResour
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

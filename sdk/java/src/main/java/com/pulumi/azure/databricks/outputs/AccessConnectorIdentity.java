@@ -5,6 +5,7 @@ package com.pulumi.azure.databricks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -12,38 +13,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccessConnectorIdentity {
     /**
-     * @return The Principal ID associated with this system-assigned managed identity.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+     * 
+     */
+    private @Nullable List<String> identityIds;
+    /**
+     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
      * 
      */
     private @Nullable String principalId;
     /**
-     * @return The Tenant ID associated with this system-assigned managed identity.
+     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
      * 
      */
     private @Nullable String tenantId;
     /**
-     * @return The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+     * @return Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
      * 
      */
     private String type;
 
     private AccessConnectorIdentity() {}
     /**
-     * @return The Principal ID associated with this system-assigned managed identity.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+     * 
+     */
+    public List<String> identityIds() {
+        return this.identityIds == null ? List.of() : this.identityIds;
+    }
+    /**
+     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
      * 
      */
     public Optional<String> principalId() {
         return Optional.ofNullable(this.principalId);
     }
     /**
-     * @return The Tenant ID associated with this system-assigned managed identity.
+     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
      * 
      */
     public Optional<String> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+     * @return Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
      * 
      */
     public String type() {
@@ -59,17 +72,27 @@ public final class AccessConnectorIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> identityIds;
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private String type;
         public Builder() {}
         public Builder(AccessConnectorIdentity defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identityIds = defaults.identityIds;
     	      this.principalId = defaults.principalId;
     	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder identityIds(@Nullable List<String> identityIds) {
+            this.identityIds = identityIds;
+            return this;
+        }
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
+        }
         @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
             this.principalId = principalId;
@@ -87,6 +110,7 @@ public final class AccessConnectorIdentity {
         }
         public AccessConnectorIdentity build() {
             final var o = new AccessConnectorIdentity();
+            o.identityIds = identityIds;
             o.principalId = principalId;
             o.tenantId = tenantId;
             o.type = type;

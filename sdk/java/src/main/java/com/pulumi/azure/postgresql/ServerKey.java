@@ -107,7 +107,8 @@ import javax.annotation.Nullable;
  *                 &#34;Encrypt&#34;,
  *                 &#34;Decrypt&#34;,
  *                 &#34;Sign&#34;,
- *                 &#34;Verify&#34;)
+ *                 &#34;Verify&#34;,
+ *                 &#34;GetRotationPolicy&#34;)
  *             .secretPermissions(&#34;Get&#34;)
  *             .build());
  * 
@@ -152,7 +153,7 @@ public class ServerKey extends com.pulumi.resources.CustomResource {
      * The URL to a Key Vault Key.
      * 
      */
-    @Export(name="keyVaultKeyId", type=String.class, parameters={})
+    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultKeyId;
 
     /**
@@ -166,7 +167,7 @@ public class ServerKey extends com.pulumi.resources.CustomResource {
      * The ID of the PostgreSQL Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverId", type=String.class, parameters={})
+    @Export(name="serverId", refs={String.class}, tree="[0]")
     private Output<String> serverId;
 
     /**

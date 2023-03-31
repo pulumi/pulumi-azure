@@ -102,6 +102,7 @@ import (
 //					pulumi.String("Decrypt"),
 //					pulumi.String("Sign"),
 //					pulumi.String("Verify"),
+//					pulumi.String("GetRotationPolicy"),
 //				},
 //				SecretPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),

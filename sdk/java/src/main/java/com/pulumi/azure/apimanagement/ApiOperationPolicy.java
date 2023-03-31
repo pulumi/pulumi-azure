@@ -108,7 +108,7 @@ public class ApiOperationPolicy extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", type=String.class, parameters={})
+    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
     private Output<String> apiManagementName;
 
     /**
@@ -122,7 +122,7 @@ public class ApiOperationPolicy extends com.pulumi.resources.CustomResource {
      * The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiName", type=String.class, parameters={})
+    @Export(name="apiName", refs={String.class}, tree="[0]")
     private Output<String> apiName;
 
     /**
@@ -136,7 +136,7 @@ public class ApiOperationPolicy extends com.pulumi.resources.CustomResource {
      * The operation identifier within an API. Must be unique in the current API Management service instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="operationId", type=String.class, parameters={})
+    @Export(name="operationId", refs={String.class}, tree="[0]")
     private Output<String> operationId;
 
     /**
@@ -150,7 +150,7 @@ public class ApiOperationPolicy extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -164,7 +164,7 @@ public class ApiOperationPolicy extends com.pulumi.resources.CustomResource {
      * The XML Content for this Policy.
      * 
      */
-    @Export(name="xmlContent", type=String.class, parameters={})
+    @Export(name="xmlContent", refs={String.class}, tree="[0]")
     private Output<String> xmlContent;
 
     /**
@@ -178,7 +178,7 @@ public class ApiOperationPolicy extends com.pulumi.resources.CustomResource {
      * A link to a Policy XML Document, which must be publicly available.
      * 
      */
-    @Export(name="xmlLink", type=String.class, parameters={})
+    @Export(name="xmlLink", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> xmlLink;
 
     /**

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string BackendPoolName;
         /// <summary>
-        /// Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+        /// Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
         /// </summary>
         public readonly string? CacheDuration;
         /// <summary>

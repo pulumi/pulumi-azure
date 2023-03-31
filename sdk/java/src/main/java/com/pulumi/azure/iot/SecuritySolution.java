@@ -88,7 +88,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * A `additional_workspace` block as defined below.
      * 
      */
-    @Export(name="additionalWorkspaces", type=List.class, parameters={SecuritySolutionAdditionalWorkspace.class})
+    @Export(name="additionalWorkspaces", refs={List.class,SecuritySolutionAdditionalWorkspace.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SecuritySolutionAdditionalWorkspace>> additionalWorkspaces;
 
     /**
@@ -102,7 +102,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
      * 
      */
-    @Export(name="disabledDataSources", type=List.class, parameters={String.class})
+    @Export(name="disabledDataSources", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> disabledDataSources;
 
     /**
@@ -116,7 +116,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * Specifies the Display Name for this Iot Security Solution.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -130,7 +130,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * Is the Iot Security Solution enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -144,7 +144,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * A list of data which is to exported to analytic workspace. Valid values include `RawEvents`.
      * 
      */
-    @Export(name="eventsToExports", type=List.class, parameters={String.class})
+    @Export(name="eventsToExports", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> eventsToExports;
 
     /**
@@ -158,7 +158,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied.
      * 
      */
-    @Export(name="iothubIds", type=List.class, parameters={String.class})
+    @Export(name="iothubIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> iothubIds;
 
     /**
@@ -172,7 +172,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -186,7 +186,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * Specifies the Log Analytics Workspace ID to which the security data will be sent.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logAnalyticsWorkspaceId;
 
     /**
@@ -200,7 +200,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * Should IP addressed be unmasked in the log? Defaults to `false`.
      * 
      */
-    @Export(name="logUnmaskedIpsEnabled", type=Boolean.class, parameters={})
+    @Export(name="logUnmaskedIpsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> logUnmaskedIpsEnabled;
 
     /**
@@ -214,7 +214,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -228,7 +228,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * An Azure Resource Graph query used to set the resources monitored.
      * 
      */
-    @Export(name="queryForResources", type=String.class, parameters={})
+    @Export(name="queryForResources", refs={String.class}, tree="[0]")
     private Output<String> queryForResources;
 
     /**
@@ -242,7 +242,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * A list of subscription Ids on which the user defined resources query should be executed.
      * 
      */
-    @Export(name="querySubscriptionIds", type=List.class, parameters={String.class})
+    @Export(name="querySubscriptionIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> querySubscriptionIds;
 
     /**
@@ -256,7 +256,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * A `recommendations_enabled` block of options to enable or disable as defined below.
      * 
      */
-    @Export(name="recommendationsEnabled", type=SecuritySolutionRecommendationsEnabled.class, parameters={})
+    @Export(name="recommendationsEnabled", refs={SecuritySolutionRecommendationsEnabled.class}, tree="[0]")
     private Output<SecuritySolutionRecommendationsEnabled> recommendationsEnabled;
 
     /**
@@ -270,7 +270,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -284,7 +284,7 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

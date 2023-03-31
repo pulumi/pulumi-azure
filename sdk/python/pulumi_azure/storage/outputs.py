@@ -3565,29 +3565,57 @@ class GetPolicyRuleActionResult(dict):
 @pulumi.output_type
 class GetPolicyRuleActionBaseBlobResult(dict):
     def __init__(__self__, *,
+                 auto_tier_to_hot_from_cool_enabled: bool,
+                 delete_after_days_since_creation_greater_than: int,
                  delete_after_days_since_last_access_time_greater_than: int,
                  delete_after_days_since_modification_greater_than: int,
+                 tier_to_archive_after_days_since_creation_greater_than: int,
                  tier_to_archive_after_days_since_last_access_time_greater_than: int,
                  tier_to_archive_after_days_since_last_tier_change_greater_than: int,
                  tier_to_archive_after_days_since_modification_greater_than: int,
+                 tier_to_cool_after_days_since_creation_greater_than: int,
                  tier_to_cool_after_days_since_last_access_time_greater_than: int,
                  tier_to_cool_after_days_since_modification_greater_than: int):
         """
+        :param bool auto_tier_to_hot_from_cool_enabled: Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
+        :param int delete_after_days_since_creation_greater_than: The age in days after creation to delete the blob snapshot.
         :param int delete_after_days_since_last_access_time_greater_than: The age in days after last access time to delete the blob.
         :param int delete_after_days_since_modification_greater_than: The age in days after last modification to delete the blob.
-        :param int tier_to_archive_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+        :param int tier_to_archive_after_days_since_creation_greater_than: The age in days after creation to archive storage.
+        :param int tier_to_archive_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to archive storage.
         :param int tier_to_archive_after_days_since_last_tier_change_greater_than: The age in days after last tier change to the blobs to skip to be archived.
-        :param int tier_to_archive_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+        :param int tier_to_archive_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to archive storage.
+        :param int tier_to_cool_after_days_since_creation_greater_than: Optional The age in days after creation to cool storage. Supports blob currently at Hot tier.
         :param int tier_to_cool_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier.
         :param int tier_to_cool_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier.
         """
+        pulumi.set(__self__, "auto_tier_to_hot_from_cool_enabled", auto_tier_to_hot_from_cool_enabled)
+        pulumi.set(__self__, "delete_after_days_since_creation_greater_than", delete_after_days_since_creation_greater_than)
         pulumi.set(__self__, "delete_after_days_since_last_access_time_greater_than", delete_after_days_since_last_access_time_greater_than)
         pulumi.set(__self__, "delete_after_days_since_modification_greater_than", delete_after_days_since_modification_greater_than)
+        pulumi.set(__self__, "tier_to_archive_after_days_since_creation_greater_than", tier_to_archive_after_days_since_creation_greater_than)
         pulumi.set(__self__, "tier_to_archive_after_days_since_last_access_time_greater_than", tier_to_archive_after_days_since_last_access_time_greater_than)
         pulumi.set(__self__, "tier_to_archive_after_days_since_last_tier_change_greater_than", tier_to_archive_after_days_since_last_tier_change_greater_than)
         pulumi.set(__self__, "tier_to_archive_after_days_since_modification_greater_than", tier_to_archive_after_days_since_modification_greater_than)
+        pulumi.set(__self__, "tier_to_cool_after_days_since_creation_greater_than", tier_to_cool_after_days_since_creation_greater_than)
         pulumi.set(__self__, "tier_to_cool_after_days_since_last_access_time_greater_than", tier_to_cool_after_days_since_last_access_time_greater_than)
         pulumi.set(__self__, "tier_to_cool_after_days_since_modification_greater_than", tier_to_cool_after_days_since_modification_greater_than)
+
+    @property
+    @pulumi.getter(name="autoTierToHotFromCoolEnabled")
+    def auto_tier_to_hot_from_cool_enabled(self) -> bool:
+        """
+        Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
+        """
+        return pulumi.get(self, "auto_tier_to_hot_from_cool_enabled")
+
+    @property
+    @pulumi.getter(name="deleteAfterDaysSinceCreationGreaterThan")
+    def delete_after_days_since_creation_greater_than(self) -> int:
+        """
+        The age in days after creation to delete the blob snapshot.
+        """
+        return pulumi.get(self, "delete_after_days_since_creation_greater_than")
 
     @property
     @pulumi.getter(name="deleteAfterDaysSinceLastAccessTimeGreaterThan")
@@ -3606,10 +3634,18 @@ class GetPolicyRuleActionBaseBlobResult(dict):
         return pulumi.get(self, "delete_after_days_since_modification_greater_than")
 
     @property
+    @pulumi.getter(name="tierToArchiveAfterDaysSinceCreationGreaterThan")
+    def tier_to_archive_after_days_since_creation_greater_than(self) -> int:
+        """
+        The age in days after creation to archive storage.
+        """
+        return pulumi.get(self, "tier_to_archive_after_days_since_creation_greater_than")
+
+    @property
     @pulumi.getter(name="tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan")
     def tier_to_archive_after_days_since_last_access_time_greater_than(self) -> int:
         """
-        The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+        The age in days after last access time to tier blobs to archive storage.
         """
         return pulumi.get(self, "tier_to_archive_after_days_since_last_access_time_greater_than")
 
@@ -3625,9 +3661,17 @@ class GetPolicyRuleActionBaseBlobResult(dict):
     @pulumi.getter(name="tierToArchiveAfterDaysSinceModificationGreaterThan")
     def tier_to_archive_after_days_since_modification_greater_than(self) -> int:
         """
-        The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+        The age in days after last modification to tier blobs to archive storage.
         """
         return pulumi.get(self, "tier_to_archive_after_days_since_modification_greater_than")
+
+    @property
+    @pulumi.getter(name="tierToCoolAfterDaysSinceCreationGreaterThan")
+    def tier_to_cool_after_days_since_creation_greater_than(self) -> int:
+        """
+        Optional The age in days after creation to cool storage. Supports blob currently at Hot tier.
+        """
+        return pulumi.get(self, "tier_to_cool_after_days_since_creation_greater_than")
 
     @property
     @pulumi.getter(name="tierToCoolAfterDaysSinceLastAccessTimeGreaterThan")

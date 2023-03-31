@@ -144,7 +144,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The name of the blueprint assigned
      * 
      */
-    @Export(name="blueprintName", type=String.class, parameters={})
+    @Export(name="blueprintName", refs={String.class}, tree="[0]")
     private Output<String> blueprintName;
 
     /**
@@ -158,7 +158,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The Description on the Blueprint
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -172,7 +172,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The display name of the blueprint
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -186,7 +186,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=AssignmentIdentity.class, parameters={})
+    @Export(name="identity", refs={AssignmentIdentity.class}, tree="[0]")
     private Output<AssignmentIdentity> identity;
 
     /**
@@ -200,7 +200,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The Azure location of the Assignment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -214,7 +214,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
      * 
      */
-    @Export(name="lockExcludeActions", type=List.class, parameters={String.class})
+    @Export(name="lockExcludeActions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> lockExcludeActions;
 
     /**
@@ -228,7 +228,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
      * 
      */
-    @Export(name="lockExcludePrincipals", type=List.class, parameters={String.class})
+    @Export(name="lockExcludePrincipals", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> lockExcludePrincipals;
 
     /**
@@ -242,7 +242,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
      * 
      */
-    @Export(name="lockMode", type=String.class, parameters={})
+    @Export(name="lockMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lockMode;
 
     /**
@@ -256,7 +256,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The name of the Blueprint Assignment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -270,7 +270,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * a JSON string to supply Blueprint Assignment parameter values.
      * 
      */
-    @Export(name="parameterValues", type=String.class, parameters={})
+    @Export(name="parameterValues", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parameterValues;
 
     /**
@@ -284,7 +284,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * a JSON string to supply the Blueprint Resource Group information.
      * 
      */
-    @Export(name="resourceGroups", type=String.class, parameters={})
+    @Export(name="resourceGroups", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceGroups;
 
     /**
@@ -298,7 +298,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetSubscriptionId", type=String.class, parameters={})
+    @Export(name="targetSubscriptionId", refs={String.class}, tree="[0]")
     private Output<String> targetSubscriptionId;
 
     /**
@@ -312,7 +312,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -326,7 +326,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * The ID of the Published Version of the blueprint to be assigned.
      * 
      */
-    @Export(name="versionId", type=String.class, parameters={})
+    @Export(name="versionId", refs={String.class}, tree="[0]")
     private Output<String> versionId;
 
     /**

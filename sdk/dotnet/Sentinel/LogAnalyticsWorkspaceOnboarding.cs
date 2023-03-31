@@ -66,6 +66,9 @@ namespace Pulumi.Azure.Sentinel
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        [Output("workspaceId")]
+        public Output<string> WorkspaceId { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         /// </summary>
@@ -80,7 +83,7 @@ namespace Pulumi.Azure.Sentinel
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public LogAnalyticsWorkspaceOnboarding(string name, LogAnalyticsWorkspaceOnboardingArgs args, CustomResourceOptions? options = null)
+        public LogAnalyticsWorkspaceOnboarding(string name, LogAnalyticsWorkspaceOnboardingArgs? args = null, CustomResourceOptions? options = null)
             : base("azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding", name, args ?? new LogAnalyticsWorkspaceOnboardingArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -127,14 +130,17 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
         /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
+        [Input("resourceGroupName")]
+        public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("workspaceId")]
+        public Input<string>? WorkspaceId { get; set; }
 
         /// <summary>
         /// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("workspaceName", required: true)]
-        public Input<string> WorkspaceName { get; set; } = null!;
+        [Input("workspaceName")]
+        public Input<string>? WorkspaceName { get; set; }
 
         public LogAnalyticsWorkspaceOnboardingArgs()
         {
@@ -155,6 +161,9 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("workspaceId")]
+        public Input<string>? WorkspaceId { get; set; }
 
         /// <summary>
         /// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.

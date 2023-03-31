@@ -85,7 +85,7 @@ public class EndpointEventGrid extends com.pulumi.resources.CustomResource {
      * The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can&#39;t deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
      * 
      */
-    @Export(name="deadLetterStorageSecret", type=String.class, parameters={})
+    @Export(name="deadLetterStorageSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deadLetterStorageSecret;
 
     /**
@@ -99,7 +99,7 @@ public class EndpointEventGrid extends com.pulumi.resources.CustomResource {
      * The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
      * 
      */
-    @Export(name="digitalTwinsId", type=String.class, parameters={})
+    @Export(name="digitalTwinsId", refs={String.class}, tree="[0]")
     private Output<String> digitalTwinsId;
 
     /**
@@ -113,7 +113,7 @@ public class EndpointEventGrid extends com.pulumi.resources.CustomResource {
      * The endpoint of the Event Grid Topic.
      * 
      */
-    @Export(name="eventgridTopicEndpoint", type=String.class, parameters={})
+    @Export(name="eventgridTopicEndpoint", refs={String.class}, tree="[0]")
     private Output<String> eventgridTopicEndpoint;
 
     /**
@@ -127,7 +127,7 @@ public class EndpointEventGrid extends com.pulumi.resources.CustomResource {
      * The primary access key of the Event Grid Topic.
      * 
      */
-    @Export(name="eventgridTopicPrimaryAccessKey", type=String.class, parameters={})
+    @Export(name="eventgridTopicPrimaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> eventgridTopicPrimaryAccessKey;
 
     /**
@@ -141,7 +141,7 @@ public class EndpointEventGrid extends com.pulumi.resources.CustomResource {
      * The secondary access key of the Event Grid Topic.
      * 
      */
-    @Export(name="eventgridTopicSecondaryAccessKey", type=String.class, parameters={})
+    @Export(name="eventgridTopicSecondaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> eventgridTopicSecondaryAccessKey;
 
     /**
@@ -155,7 +155,7 @@ public class EndpointEventGrid extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Digital Twins Eventgrid Endpoint. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

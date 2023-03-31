@@ -157,7 +157,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * The time at which the Stream Analytics job last produced an output.
      * 
      */
-    @Export(name="lastOutputTime", type=String.class, parameters={})
+    @Export(name="lastOutputTime", refs={String.class}, tree="[0]")
     private Output<String> lastOutputTime;
 
     /**
@@ -171,7 +171,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
      * 
      */
-    @Export(name="startMode", type=String.class, parameters={})
+    @Export(name="startMode", refs={String.class}, tree="[0]")
     private Output<String> startMode;
 
     /**
@@ -185,7 +185,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
      * 
      */
-    @Export(name="startTime", type=String.class, parameters={})
+    @Export(name="startTime", refs={String.class}, tree="[0]")
     private Output<String> startTime;
 
     /**
@@ -199,7 +199,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * The ID of the Stream Analytics Job that should be scheduled or started. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobId", type=String.class, parameters={})
+    @Export(name="streamAnalyticsJobId", refs={String.class}, tree="[0]")
     private Output<String> streamAnalyticsJobId;
 
     /**

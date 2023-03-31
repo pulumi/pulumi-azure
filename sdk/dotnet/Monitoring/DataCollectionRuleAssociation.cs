@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
+        /// The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -245,7 +245,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
+        /// The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
+        /// The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

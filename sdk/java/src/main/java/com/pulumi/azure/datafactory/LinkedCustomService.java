@@ -107,7 +107,7 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -121,7 +121,7 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Data Factory Linked Service.
      * 
      */
-    @Export(name="annotations", type=List.class, parameters={String.class})
+    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -135,7 +135,7 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", type=String.class, parameters={})
+    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
@@ -149,7 +149,7 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
      * The description for the Data Factory Linked Service.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -163,7 +163,7 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
      * An `integration_runtime` block as defined below.
      * 
      */
-    @Export(name="integrationRuntime", type=LinkedCustomServiceIntegrationRuntime.class, parameters={})
+    @Export(name="integrationRuntime", refs={LinkedCustomServiceIntegrationRuntime.class}, tree="[0]")
     private Output</* @Nullable */ LinkedCustomServiceIntegrationRuntime> integrationRuntime;
 
     /**
@@ -177,7 +177,7 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -191,7 +191,7 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
      * A map of parameters to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -205,7 +205,7 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
      * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -219,7 +219,7 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
      * A JSON object that contains the properties of the Data Factory Linked Service.
      * 
      */
-    @Export(name="typePropertiesJson", type=String.class, parameters={})
+    @Export(name="typePropertiesJson", refs={String.class}, tree="[0]")
     private Output<String> typePropertiesJson;
 
     /**

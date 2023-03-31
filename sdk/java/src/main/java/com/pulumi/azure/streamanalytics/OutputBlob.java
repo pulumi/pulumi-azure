@@ -107,7 +107,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      * 
      */
-    @Export(name="authenticationMode", type=String.class, parameters={})
+    @Export(name="authenticationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authenticationMode;
 
     /**
@@ -121,7 +121,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
      * 
      */
-    @Export(name="batchMaxWaitTime", type=String.class, parameters={})
+    @Export(name="batchMaxWaitTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> batchMaxWaitTime;
 
     /**
@@ -135,7 +135,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * The minimum number of rows per batch (must be between `0` and `10000`).
      * 
      */
-    @Export(name="batchMinRows", type=Integer.class, parameters={})
+    @Export(name="batchMinRows", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> batchMinRows;
 
     /**
@@ -149,7 +149,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
      * 
      */
-    @Export(name="dateFormat", type=String.class, parameters={})
+    @Export(name="dateFormat", refs={String.class}, tree="[0]")
     private Output<String> dateFormat;
 
     /**
@@ -163,7 +163,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * The name of the Stream Output. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -177,7 +177,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
      * 
      */
-    @Export(name="pathPattern", type=String.class, parameters={})
+    @Export(name="pathPattern", refs={String.class}, tree="[0]")
     private Output<String> pathPattern;
 
     /**
@@ -191,7 +191,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -205,7 +205,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * A `serialization` block as defined below.
      * 
      */
-    @Export(name="serialization", type=OutputBlobSerialization.class, parameters={})
+    @Export(name="serialization", refs={OutputBlobSerialization.class}, tree="[0]")
     private Output<OutputBlobSerialization> serialization;
 
     /**
@@ -219,7 +219,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * The Access Key which should be used to connect to this Storage Account.
      * 
      */
-    @Export(name="storageAccountKey", type=String.class, parameters={})
+    @Export(name="storageAccountKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountKey;
 
     /**
@@ -233,7 +233,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * The name of the Storage Account.
      * 
      */
-    @Export(name="storageAccountName", type=String.class, parameters={})
+    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output<String> storageAccountName;
 
     /**
@@ -247,7 +247,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * The name of the Container within the Storage Account.
      * 
      */
-    @Export(name="storageContainerName", type=String.class, parameters={})
+    @Export(name="storageContainerName", refs={String.class}, tree="[0]")
     private Output<String> storageContainerName;
 
     /**
@@ -261,7 +261,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobName", type=String.class, parameters={})
+    @Export(name="streamAnalyticsJobName", refs={String.class}, tree="[0]")
     private Output<String> streamAnalyticsJobName;
 
     /**
@@ -275,7 +275,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
      * 
      */
-    @Export(name="timeFormat", type=String.class, parameters={})
+    @Export(name="timeFormat", refs={String.class}, tree="[0]")
     private Output<String> timeFormat;
 
     /**

@@ -75,7 +75,7 @@ public class DataCollectionEndpoint extends com.pulumi.resources.CustomResource 
      * The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
      * 
      */
-    @Export(name="configurationAccessEndpoint", type=String.class, parameters={})
+    @Export(name="configurationAccessEndpoint", refs={String.class}, tree="[0]")
     private Output<String> configurationAccessEndpoint;
 
     /**
@@ -89,7 +89,7 @@ public class DataCollectionEndpoint extends com.pulumi.resources.CustomResource 
      * Specifies a description for the Data Collection Endpoint.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -103,7 +103,7 @@ public class DataCollectionEndpoint extends com.pulumi.resources.CustomResource 
      * The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
      * 
      */
-    @Export(name="kind", type=String.class, parameters={})
+    @Export(name="kind", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kind;
 
     /**
@@ -117,7 +117,7 @@ public class DataCollectionEndpoint extends com.pulumi.resources.CustomResource 
      * The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -131,7 +131,7 @@ public class DataCollectionEndpoint extends com.pulumi.resources.CustomResource 
      * The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
      * 
      */
-    @Export(name="logsIngestionEndpoint", type=String.class, parameters={})
+    @Export(name="logsIngestionEndpoint", refs={String.class}, tree="[0]")
     private Output<String> logsIngestionEndpoint;
 
     /**
@@ -145,7 +145,7 @@ public class DataCollectionEndpoint extends com.pulumi.resources.CustomResource 
      * The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -159,7 +159,7 @@ public class DataCollectionEndpoint extends com.pulumi.resources.CustomResource 
      * Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`. Default to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -173,7 +173,7 @@ public class DataCollectionEndpoint extends com.pulumi.resources.CustomResource 
      * The name of the Resource Group where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -187,7 +187,7 @@ public class DataCollectionEndpoint extends com.pulumi.resources.CustomResource 
      * A mapping of tags which should be assigned to the Data Collection Endpoint.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

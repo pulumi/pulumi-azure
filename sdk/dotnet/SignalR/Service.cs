@@ -45,6 +45,7 @@ namespace Pulumi.Azure.SignalR
     ///                 },
     ///             },
     ///         },
+    ///         PublicNetworkAccessEnabled = false,
     ///         ConnectivityLogsEnabled = true,
     ///         MessagingLogsEnabled = true,
     ///         ServiceMode = "Default",
@@ -85,6 +86,12 @@ namespace Pulumi.Azure.SignalR
     public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether to enable AAD auth? Defaults to `true`.
+        /// </summary>
+        [Output("aadAuthEnabled")]
+        public Output<bool?> AadAuthEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         /// </summary>
         [Output("connectivityLogsEnabled")]
@@ -103,6 +110,12 @@ namespace Pulumi.Azure.SignalR
         public Output<string> Hostname { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ServiceIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The publicly accessible IP of the SignalR service.
         /// </summary>
         [Output("ipAddress")]
@@ -119,6 +132,12 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         [Output("liveTraceEnabled")]
         public Output<bool?> LiveTraceEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to enable local auth? Defaults to `true`.
+        /// </summary>
+        [Output("localAuthEnabled")]
+        public Output<bool?> LocalAuthEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
@@ -151,6 +170,12 @@ namespace Pulumi.Azure.SignalR
         public Output<string> PrimaryConnectionString { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to enable public network access? Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The publicly accessible port of the SignalR service which is designed for browser/client use.
         /// </summary>
         [Output("publicPort")]
@@ -181,6 +206,12 @@ namespace Pulumi.Azure.SignalR
         public Output<int> ServerPort { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the client connection timeout. Defaults to `30`.
+        /// </summary>
+        [Output("serverlessConnectionTimeoutInSeconds")]
+        public Output<int?> ServerlessConnectionTimeoutInSeconds { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         /// </summary>
         [Output("serviceMode")]
@@ -197,6 +228,12 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to request client certificate during TLS handshake? Defaults to `false`.
+        /// </summary>
+        [Output("tlsClientCertEnabled")]
+        public Output<bool?> TlsClientCertEnabled { get; private set; } = null!;
 
         /// <summary>
         /// An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
@@ -258,6 +295,12 @@ namespace Pulumi.Azure.SignalR
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to enable AAD auth? Defaults to `true`.
+        /// </summary>
+        [Input("aadAuthEnabled")]
+        public Input<bool>? AadAuthEnabled { get; set; }
+
+        /// <summary>
         /// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         /// </summary>
         [Input("connectivityLogsEnabled")]
@@ -276,6 +319,12 @@ namespace Pulumi.Azure.SignalR
         }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// A `live_trace` block as defined below.
         /// </summary>
         [Input("liveTrace")]
@@ -286,6 +335,12 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         [Input("liveTraceEnabled")]
         public Input<bool>? LiveTraceEnabled { get; set; }
+
+        /// <summary>
+        /// Whether to enable local auth? Defaults to `true`.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
@@ -306,10 +361,22 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether to enable public network access? Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the client connection timeout. Defaults to `30`.
+        /// </summary>
+        [Input("serverlessConnectionTimeoutInSeconds")]
+        public Input<int>? ServerlessConnectionTimeoutInSeconds { get; set; }
 
         /// <summary>
         /// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
@@ -335,6 +402,12 @@ namespace Pulumi.Azure.SignalR
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Whether to request client certificate during TLS handshake? Defaults to `false`.
+        /// </summary>
+        [Input("tlsClientCertEnabled")]
+        public Input<bool>? TlsClientCertEnabled { get; set; }
+
         [Input("upstreamEndpoints")]
         private InputList<Inputs.ServiceUpstreamEndpointArgs>? _upstreamEndpoints;
 
@@ -355,6 +428,12 @@ namespace Pulumi.Azure.SignalR
 
     public sealed class ServiceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable AAD auth? Defaults to `true`.
+        /// </summary>
+        [Input("aadAuthEnabled")]
+        public Input<bool>? AadAuthEnabled { get; set; }
+
         /// <summary>
         /// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         /// </summary>
@@ -380,6 +459,12 @@ namespace Pulumi.Azure.SignalR
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ServiceIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The publicly accessible IP of the SignalR service.
         /// </summary>
         [Input("ipAddress")]
@@ -396,6 +481,12 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         [Input("liveTraceEnabled")]
         public Input<bool>? LiveTraceEnabled { get; set; }
+
+        /// <summary>
+        /// Whether to enable local auth? Defaults to `true`.
+        /// </summary>
+        [Input("localAuthEnabled")]
+        public Input<bool>? LocalAuthEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
@@ -448,6 +539,12 @@ namespace Pulumi.Azure.SignalR
         }
 
         /// <summary>
+        /// Whether to enable public network access? Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The publicly accessible port of the SignalR service which is designed for browser/client use.
         /// </summary>
         [Input("publicPort")]
@@ -498,6 +595,12 @@ namespace Pulumi.Azure.SignalR
         public Input<int>? ServerPort { get; set; }
 
         /// <summary>
+        /// Specifies the client connection timeout. Defaults to `30`.
+        /// </summary>
+        [Input("serverlessConnectionTimeoutInSeconds")]
+        public Input<int>? ServerlessConnectionTimeoutInSeconds { get; set; }
+
+        /// <summary>
         /// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         /// </summary>
         [Input("serviceMode")]
@@ -520,6 +623,12 @@ namespace Pulumi.Azure.SignalR
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Whether to request client certificate during TLS handshake? Defaults to `false`.
+        /// </summary>
+        [Input("tlsClientCertEnabled")]
+        public Input<bool>? TlsClientCertEnabled { get; set; }
 
         [Input("upstreamEndpoints")]
         private InputList<Inputs.ServiceUpstreamEndpointGetArgs>? _upstreamEndpoints;

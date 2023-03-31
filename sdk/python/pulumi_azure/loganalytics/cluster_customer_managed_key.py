@@ -126,6 +126,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                     key_permissions=[
                         "Create",
                         "Get",
+                        "GetRotationPolicy",
                     ],
                     secret_permissions=["Set"],
                 ),
@@ -207,6 +208,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                     key_permissions=[
                         "Create",
                         "Get",
+                        "GetRotationPolicy",
                     ],
                     secret_permissions=["Set"],
                 ),

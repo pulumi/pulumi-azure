@@ -85,7 +85,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the Charset for the MariaDB Database, which needs [to be a valid MariaDB Charset](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="charset", type=String.class, parameters={})
+    @Export(name="charset", refs={String.class}, tree="[0]")
     private Output<String> charset;
 
     /**
@@ -99,7 +99,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the Collation for the MariaDB Database, which needs [to be a valid MariaDB Collation](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="collation", type=String.class, parameters={})
+    @Export(name="collation", refs={String.class}, tree="[0]")
     private Output<String> collation;
 
     /**
@@ -113,7 +113,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -127,7 +127,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -141,7 +141,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", type=String.class, parameters={})
+    @Export(name="serverName", refs={String.class}, tree="[0]")
     private Output<String> serverName;
 
     /**

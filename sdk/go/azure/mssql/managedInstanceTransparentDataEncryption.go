@@ -198,6 +198,7 @@ import (
 //							pulumi.String("Update"),
 //							pulumi.String("Recover"),
 //							pulumi.String("Purge"),
+//							pulumi.String("GetRotationPolicy"),
 //						},
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{

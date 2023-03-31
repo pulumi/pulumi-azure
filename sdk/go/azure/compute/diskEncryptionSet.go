@@ -67,6 +67,7 @@ import (
 //					pulumi.String("List"),
 //					pulumi.String("Decrypt"),
 //					pulumi.String("Sign"),
+//					pulumi.String("GetRotationPolicy"),
 //				},
 //			})
 //			if err != nil {

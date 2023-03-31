@@ -19,24 +19,12 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "PerGB2018",
  * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
- *     solutionName: "SecurityInsights",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     workspaceResourceId: exampleAnalyticsWorkspace.id,
- *     workspaceName: exampleAnalyticsWorkspace.name,
- *     plan: {
- *         publisher: "Microsoft",
- *         product: "OMSGallery/SecurityInsights",
- *     },
- * });
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {workspaceId: exampleAnalyticsWorkspace.id});
  * const exampleDataConnectorAwsS3 = new azure.sentinel.DataConnectorAwsS3("exampleDataConnectorAwsS3", {
- *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
+ *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
  *     awsRoleArn: "arn:aws:iam::000000000000:role/role1",
  *     destinationTable: "AWSGuardDuty",
  *     sqsUrls: ["https://sqs.us-east-1.amazonaws.com/000000000000/example"],
- * }, {
- *     dependsOn: [exampleAnalyticsSolution],
  * });
  * ```
  *

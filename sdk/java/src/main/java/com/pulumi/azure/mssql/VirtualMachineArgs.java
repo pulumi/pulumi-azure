@@ -178,15 +178,15 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
      * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="sqlLicenseType", required=true)
-    private Output<String> sqlLicenseType;
+    @Import(name="sqlLicenseType")
+    private @Nullable Output<String> sqlLicenseType;
 
     /**
      * @return The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> sqlLicenseType() {
-        return this.sqlLicenseType;
+    public Optional<Output<String>> sqlLicenseType() {
+        return Optional.ofNullable(this.sqlLicenseType);
     }
 
     /**
@@ -487,7 +487,7 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder sqlLicenseType(Output<String> sqlLicenseType) {
+        public Builder sqlLicenseType(@Nullable Output<String> sqlLicenseType) {
             $.sqlLicenseType = sqlLicenseType;
             return this;
         }
@@ -566,7 +566,6 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public VirtualMachineArgs build() {
-            $.sqlLicenseType = Objects.requireNonNull($.sqlLicenseType, "expected parameter 'sqlLicenseType' to be non-null");
             $.virtualMachineId = Objects.requireNonNull($.virtualMachineId, "expected parameter 'virtualMachineId' to be non-null");
             return $;
         }

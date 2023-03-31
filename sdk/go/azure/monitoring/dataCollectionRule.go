@@ -118,7 +118,7 @@ import (
 //								pulumi.String("Microsoft-Perf"),
 //								pulumi.String("Microsoft-InsightsMetrics"),
 //							},
-//							SamplingFrequencyInSeconds: pulumi.Int(10),
+//							SamplingFrequencyInSeconds: pulumi.Int(60),
 //							CounterSpecifiers: pulumi.StringArray{
 //								pulumi.String("Processor(*)\\% Processor Time"),
 //							},
@@ -131,7 +131,7 @@ import (
 //								pulumi.String("Microsoft-WindowsEvent"),
 //							},
 //							XPathQueries: pulumi.StringArray{
-//								pulumi.String("*[System/Level=1]"),
+//								pulumi.String("*![System/Level=1]"),
 //							},
 //							Name: pulumi.String("test-datasource-wineventlog"),
 //						},

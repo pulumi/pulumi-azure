@@ -131,7 +131,7 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
      * 
      */
-    @Export(name="azureadAuthenticationOnly", type=Boolean.class, parameters={})
+    @Export(name="azureadAuthenticationOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> azureadAuthenticationOnly;
 
     /**
@@ -145,7 +145,7 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * The login name of the principal to set as the Managed Instance Administrator.
      * 
      */
-    @Export(name="loginUsername", type=String.class, parameters={})
+    @Export(name="loginUsername", refs={String.class}, tree="[0]")
     private Output<String> loginUsername;
 
     /**
@@ -159,7 +159,7 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managedInstanceId", type=String.class, parameters={})
+    @Export(name="managedInstanceId", refs={String.class}, tree="[0]")
     private Output<String> managedInstanceId;
 
     /**
@@ -173,7 +173,7 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * The Object ID of the principal to set as the Managed Instance Administrator.
      * 
      */
-    @Export(name="objectId", type=String.class, parameters={})
+    @Export(name="objectId", refs={String.class}, tree="[0]")
     private Output<String> objectId;
 
     /**
@@ -187,7 +187,7 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * The Azure Active Directory Tenant ID.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

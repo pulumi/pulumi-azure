@@ -279,7 +279,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * A `certificate` block as defined below, used to Import an existing certificate.
      * 
      */
-    @Export(name="certificate", type=CertifiateCertificate.class, parameters={})
+    @Export(name="certificate", refs={CertifiateCertificate.class}, tree="[0]")
     private Output</* @Nullable */ CertifiateCertificate> certificate;
 
     /**
@@ -293,7 +293,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * A `certificate_attribute` block as defined below.
      * 
      */
-    @Export(name="certificateAttributes", type=List.class, parameters={CertifiateCertificateAttribute.class})
+    @Export(name="certificateAttributes", refs={List.class,CertifiateCertificateAttribute.class}, tree="[0,1]")
     private Output<List<CertifiateCertificateAttribute>> certificateAttributes;
 
     /**
@@ -307,7 +307,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * The raw Key Vault Certificate data represented as a hexadecimal string.
      * 
      */
-    @Export(name="certificateData", type=String.class, parameters={})
+    @Export(name="certificateData", refs={String.class}, tree="[0]")
     private Output<String> certificateData;
 
     /**
@@ -321,7 +321,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * The Base64 encoded Key Vault Certificate data.
      * 
      */
-    @Export(name="certificateDataBase64", type=String.class, parameters={})
+    @Export(name="certificateDataBase64", refs={String.class}, tree="[0]")
     private Output<String> certificateDataBase64;
 
     /**
@@ -335,7 +335,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="certificatePolicy", type=CertifiateCertificatePolicy.class, parameters={})
+    @Export(name="certificatePolicy", refs={CertifiateCertificatePolicy.class}, tree="[0]")
     private Output<CertifiateCertificatePolicy> certificatePolicy;
 
     /**
@@ -349,7 +349,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keyVaultId", type=String.class, parameters={})
+    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultId;
 
     /**
@@ -363,7 +363,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -377,7 +377,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * The ID of the associated Key Vault Secret.
      * 
      */
-    @Export(name="secretId", type=String.class, parameters={})
+    @Export(name="secretId", refs={String.class}, tree="[0]")
     private Output<String> secretId;
 
     /**
@@ -391,7 +391,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -405,7 +405,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
      * 
      */
-    @Export(name="thumbprint", type=String.class, parameters={})
+    @Export(name="thumbprint", refs={String.class}, tree="[0]")
     private Output<String> thumbprint;
 
     /**
@@ -419,7 +419,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * The current version of the Key Vault Certificate.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
@@ -433,7 +433,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * The Base ID of the Key Vault Certificate.
      * 
      */
-    @Export(name="versionlessId", type=String.class, parameters={})
+    @Export(name="versionlessId", refs={String.class}, tree="[0]")
     private Output<String> versionlessId;
 
     /**
@@ -447,7 +447,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * The Base ID of the Key Vault Secret.
      * 
      */
-    @Export(name="versionlessSecretId", type=String.class, parameters={})
+    @Export(name="versionlessSecretId", refs={String.class}, tree="[0]")
     private Output<String> versionlessSecretId;
 
     /**

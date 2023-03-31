@@ -124,7 +124,7 @@ namespace Pulumi.Azure.MSSql
         /// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         /// </summary>
         [Output("sqlLicenseType")]
-        public Output<string> SqlLicenseType { get; private set; } = null!;
+        public Output<string?> SqlLicenseType { get; private set; } = null!;
 
         /// <summary>
         /// An `storage_configuration` block as defined below.
@@ -278,8 +278,8 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         /// </summary>
-        [Input("sqlLicenseType", required: true)]
-        public Input<string> SqlLicenseType { get; set; } = null!;
+        [Input("sqlLicenseType")]
+        public Input<string>? SqlLicenseType { get; set; }
 
         /// <summary>
         /// An `storage_configuration` block as defined below.

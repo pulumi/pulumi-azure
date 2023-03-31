@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationGatewaySslCertificate {
     /**
-     * @return PFX certificate. Required if `key_vault_secret_id` is not set.
+     * @return The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
      * 
      */
     private @Nullable String data;
@@ -44,7 +44,7 @@ public final class ApplicationGatewaySslCertificate {
 
     private ApplicationGatewaySslCertificate() {}
     /**
-     * @return PFX certificate. Required if `key_vault_secret_id` is not set.
+     * @return The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
      * 
      */
     public Optional<String> data() {

@@ -89,7 +89,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="dataFactoryId", type=String.class, parameters={})
+    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
@@ -103,7 +103,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * Fully qualified domain names. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="fqdns", type=List.class, parameters={String.class})
+    @Export(name="fqdns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> fqdns;
 
     /**
@@ -117,7 +117,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -131,7 +131,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subresourceName", type=String.class, parameters={})
+    @Export(name="subresourceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subresourceName;
 
     /**
@@ -145,7 +145,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetResourceId", type=String.class, parameters={})
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**

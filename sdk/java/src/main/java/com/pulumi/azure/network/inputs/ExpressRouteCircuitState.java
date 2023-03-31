@@ -36,6 +36,21 @@ public final class ExpressRouteCircuitState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+     * 
+     */
+    @Import(name="authorizationKey")
+    private @Nullable Output<String> authorizationKey;
+
+    /**
+     * @return The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+     * 
+     */
+    public Optional<Output<String>> authorizationKey() {
+        return Optional.ofNullable(this.authorizationKey);
+    }
+
+    /**
      * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      * 
      */
@@ -219,6 +234,7 @@ public final class ExpressRouteCircuitState extends com.pulumi.resources.Resourc
 
     private ExpressRouteCircuitState(ExpressRouteCircuitState $) {
         this.allowClassicOperations = $.allowClassicOperations;
+        this.authorizationKey = $.authorizationKey;
         this.bandwidthInGbps = $.bandwidthInGbps;
         this.bandwidthInMbps = $.bandwidthInMbps;
         this.expressRoutePortId = $.expressRoutePortId;
@@ -270,6 +286,27 @@ public final class ExpressRouteCircuitState extends com.pulumi.resources.Resourc
          */
         public Builder allowClassicOperations(Boolean allowClassicOperations) {
             return allowClassicOperations(Output.of(allowClassicOperations));
+        }
+
+        /**
+         * @param authorizationKey The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authorizationKey(@Nullable Output<String> authorizationKey) {
+            $.authorizationKey = authorizationKey;
+            return this;
+        }
+
+        /**
+         * @param authorizationKey The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authorizationKey(String authorizationKey) {
+            return authorizationKey(Output.of(authorizationKey));
         }
 
         /**

@@ -21,19 +21,9 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "PerGB2018",
  * });
- * const sentinel = new azure.operationalinsights.AnalyticsSolution("sentinel", {
- *     solutionName: "SecurityInsights",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     workspaceResourceId: exampleAnalyticsWorkspace.id,
- *     workspaceName: exampleAnalyticsWorkspace.name,
- *     plan: {
- *         publisher: "Microsoft",
- *         product: "OMSGallery/SecurityInsights",
- *     },
- * });
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {workspaceId: exampleAnalyticsWorkspace.id});
  * const exampleAutomationRule = new azure.sentinel.AutomationRule("exampleAutomationRule", {
- *     logAnalyticsWorkspaceId: sentinel.workspaceResourceId,
+ *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
  *     displayName: "automation_rule1",
  *     order: 1,
  *     actionIncidents: [{

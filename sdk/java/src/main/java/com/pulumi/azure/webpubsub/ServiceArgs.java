@@ -156,14 +156,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
+     * Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
      * 
      */
     @Import(name="sku", required=true)
     private Output<String> sku;
 
     /**
-     * @return Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
+     * @return Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
      * 
      */
     public Output<String> sku() {
@@ -425,7 +425,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
+         * @param sku Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku Specifies which SKU to use. Possible values are `Free_F1` and `Standard_S1`.
+         * @param sku Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`.
          * 
          * @return builder
          * 

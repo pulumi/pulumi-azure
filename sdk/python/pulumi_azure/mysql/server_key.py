@@ -155,6 +155,7 @@ class ServerKey(pulumi.CustomResource):
                 "Decrypt",
                 "Sign",
                 "Verify",
+                "GetRotationPolicy",
             ],
             secret_permissions=["Get"])
         example_key = azure.keyvault.Key("exampleKey",
@@ -255,6 +256,7 @@ class ServerKey(pulumi.CustomResource):
                 "Decrypt",
                 "Sign",
                 "Verify",
+                "GetRotationPolicy",
             ],
             secret_permissions=["Get"])
         example_key = azure.keyvault.Key("exampleKey",

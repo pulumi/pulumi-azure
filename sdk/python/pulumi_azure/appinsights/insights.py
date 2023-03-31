@@ -45,7 +45,7 @@ class InsightsArgs:
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource.
         """
         pulumi.set(__self__, "application_type", application_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -248,7 +248,7 @@ class InsightsArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
+        Specifies the id of a log analytics workspace resource.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -297,7 +297,7 @@ class _InsightsState:
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource.
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -544,7 +544,7 @@ class _InsightsState:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
+        Specifies the id of a log analytics workspace resource.
         """
         return pulumi.get(self, "workspace_id")
 
@@ -636,7 +636,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource.
         """
         ...
     @overload
@@ -805,7 +805,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -971,7 +971,7 @@ class Insights(pulumi.CustomResource):
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
+        Specifies the id of a log analytics workspace resource.
         """
         return pulumi.get(self, "workspace_id")
 

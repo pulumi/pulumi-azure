@@ -105,7 +105,7 @@ public class SqlRoleAssignment extends com.pulumi.resources.CustomResource {
      * The name of the Cosmos DB Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", type=String.class, parameters={})
+    @Export(name="accountName", refs={String.class}, tree="[0]")
     private Output<String> accountName;
 
     /**
@@ -119,7 +119,7 @@ public class SqlRoleAssignment extends com.pulumi.resources.CustomResource {
      * The GUID as the name of the Cosmos DB SQL Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -133,7 +133,7 @@ public class SqlRoleAssignment extends com.pulumi.resources.CustomResource {
      * The ID of the Principal (Client) in Azure Active Directory. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="principalId", type=String.class, parameters={})
+    @Export(name="principalId", refs={String.class}, tree="[0]")
     private Output<String> principalId;
 
     /**
@@ -147,7 +147,7 @@ public class SqlRoleAssignment extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Cosmos DB SQL Role Assignment is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -161,7 +161,7 @@ public class SqlRoleAssignment extends com.pulumi.resources.CustomResource {
      * The resource ID of the Cosmos DB SQL Role Definition.
      * 
      */
-    @Export(name="roleDefinitionId", type=String.class, parameters={})
+    @Export(name="roleDefinitionId", refs={String.class}, tree="[0]")
     private Output<String> roleDefinitionId;
 
     /**
@@ -175,7 +175,7 @@ public class SqlRoleAssignment extends com.pulumi.resources.CustomResource {
      * The data plane resource path for which access is being granted through this Cosmos DB SQL Role Assignment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="scope", type=String.class, parameters={})
+    @Export(name="scope", refs={String.class}, tree="[0]")
     private Output<String> scope;
 
     /**

@@ -93,9 +93,9 @@ type VirtualNetworkPeering struct {
 	pulumi.CustomResourceState
 
 	// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
-	AllowForwardedTraffic pulumi.BoolOutput `pulumi:"allowForwardedTraffic"`
-	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
-	AllowGatewayTransit pulumi.BoolOutput `pulumi:"allowGatewayTransit"`
+	AllowForwardedTraffic pulumi.BoolPtrOutput `pulumi:"allowForwardedTraffic"`
+	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
+	AllowGatewayTransit pulumi.BoolPtrOutput `pulumi:"allowGatewayTransit"`
 	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess pulumi.BoolPtrOutput `pulumi:"allowVirtualNetworkAccess"`
 	// The name of the virtual network peering. Changing this forces a new resource to be created.
@@ -106,7 +106,7 @@ type VirtualNetworkPeering struct {
 	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
 	Triggers          pulumi.StringMapOutput `pulumi:"triggers"`
 	// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
-	UseRemoteGateways pulumi.BoolOutput `pulumi:"useRemoteGateways"`
+	UseRemoteGateways pulumi.BoolPtrOutput `pulumi:"useRemoteGateways"`
 	// The name of the virtual network. Changing this forces a new resource to be created.
 	VirtualNetworkName pulumi.StringOutput `pulumi:"virtualNetworkName"`
 }
@@ -151,7 +151,7 @@ func GetVirtualNetworkPeering(ctx *pulumi.Context,
 type virtualNetworkPeeringState struct {
 	// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
 	AllowForwardedTraffic *bool `pulumi:"allowForwardedTraffic"`
-	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
 	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
@@ -171,7 +171,7 @@ type virtualNetworkPeeringState struct {
 type VirtualNetworkPeeringState struct {
 	// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
 	AllowForwardedTraffic pulumi.BoolPtrInput
-	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
 	AllowGatewayTransit pulumi.BoolPtrInput
 	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
@@ -195,7 +195,7 @@ func (VirtualNetworkPeeringState) ElementType() reflect.Type {
 type virtualNetworkPeeringArgs struct {
 	// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
 	AllowForwardedTraffic *bool `pulumi:"allowForwardedTraffic"`
-	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
 	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
 	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
@@ -216,7 +216,7 @@ type virtualNetworkPeeringArgs struct {
 type VirtualNetworkPeeringArgs struct {
 	// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
 	AllowForwardedTraffic pulumi.BoolPtrInput
-	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+	// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
 	AllowGatewayTransit pulumi.BoolPtrInput
 	// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
 	AllowVirtualNetworkAccess pulumi.BoolPtrInput
@@ -321,13 +321,13 @@ func (o VirtualNetworkPeeringOutput) ToVirtualNetworkPeeringOutputWithContext(ct
 }
 
 // Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
-func (o VirtualNetworkPeeringOutput) AllowForwardedTraffic() pulumi.BoolOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolOutput { return v.AllowForwardedTraffic }).(pulumi.BoolOutput)
+func (o VirtualNetworkPeeringOutput) AllowForwardedTraffic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolPtrOutput { return v.AllowForwardedTraffic }).(pulumi.BoolPtrOutput)
 }
 
-// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
-func (o VirtualNetworkPeeringOutput) AllowGatewayTransit() pulumi.BoolOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolOutput { return v.AllowGatewayTransit }).(pulumi.BoolOutput)
+// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
+func (o VirtualNetworkPeeringOutput) AllowGatewayTransit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolPtrOutput { return v.AllowGatewayTransit }).(pulumi.BoolPtrOutput)
 }
 
 // Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
@@ -355,8 +355,8 @@ func (o VirtualNetworkPeeringOutput) Triggers() pulumi.StringMapOutput {
 }
 
 // Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
-func (o VirtualNetworkPeeringOutput) UseRemoteGateways() pulumi.BoolOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolOutput { return v.UseRemoteGateways }).(pulumi.BoolOutput)
+func (o VirtualNetworkPeeringOutput) UseRemoteGateways() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolPtrOutput { return v.UseRemoteGateways }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the virtual network. Changing this forces a new resource to be created.

@@ -127,7 +127,7 @@ public class NetworkService extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Mobile Network Service should exist. Changing this forces a new Mobile Network Service to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -141,7 +141,7 @@ public class NetworkService extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
      * 
      */
-    @Export(name="mobileNetworkId", type=String.class, parameters={})
+    @Export(name="mobileNetworkId", refs={String.class}, tree="[0]")
     private Output<String> mobileNetworkId;
 
     /**
@@ -155,7 +155,7 @@ public class NetworkService extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -169,7 +169,7 @@ public class NetworkService extends com.pulumi.resources.CustomResource {
      * A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
      * 
      */
-    @Export(name="pccRules", type=List.class, parameters={NetworkServicePccRule.class})
+    @Export(name="pccRules", refs={List.class,NetworkServicePccRule.class}, tree="[0,1]")
     private Output<List<NetworkServicePccRule>> pccRules;
 
     /**
@@ -183,7 +183,7 @@ public class NetworkService extends com.pulumi.resources.CustomResource {
      * A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network. Must be between `0` and `255`.
      * 
      */
-    @Export(name="servicePrecedence", type=Integer.class, parameters={})
+    @Export(name="servicePrecedence", refs={Integer.class}, tree="[0]")
     private Output<Integer> servicePrecedence;
 
     /**
@@ -197,7 +197,7 @@ public class NetworkService extends com.pulumi.resources.CustomResource {
      * A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
      * 
      */
-    @Export(name="serviceQosPolicy", type=NetworkServiceServiceQosPolicy.class, parameters={})
+    @Export(name="serviceQosPolicy", refs={NetworkServiceServiceQosPolicy.class}, tree="[0]")
     private Output</* @Nullable */ NetworkServiceServiceQosPolicy> serviceQosPolicy;
 
     /**
@@ -211,7 +211,7 @@ public class NetworkService extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Mobile Network Service.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -8915,26 +8915,27 @@ class LinuxFunctionAppSiteConfigApplicationStackDockerArgs:
 @pulumi.input_type
 class LinuxFunctionAppSiteConfigCorsArgs:
     def __init__(__self__, *,
-                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
         :param pulumi.Input[bool] support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of origins that should be allowed to make cross-origin calls.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @property
@@ -12460,26 +12461,27 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs:
 @pulumi.input_type
 class LinuxFunctionAppSlotSiteConfigCorsArgs:
     def __init__(__self__, *,
-                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: an `allowed_origins` block as detailed below.
         :param pulumi.Input[bool] support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         an `allowed_origins` block as detailed below.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @property
@@ -16681,26 +16683,27 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
 @pulumi.input_type
 class LinuxWebAppSiteConfigCorsArgs:
     def __init__(__self__, *,
-                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
         :param pulumi.Input[bool] support_credentials: Whether CORS requests with credentials are allowed. Defaults to `false`
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of origins that should be allowed to make cross-origin calls.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @property
@@ -20683,26 +20686,27 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigCorsArgs:
     def __init__(__self__, *,
-                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
         :param pulumi.Input[bool] support_credentials: Whether CORS requests with credentials are allowed. Defaults to `false`
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of origins that should be allowed to make cross-origin calls.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @property
@@ -26687,26 +26691,27 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
 @pulumi.input_type
 class WindowsFunctionAppSiteConfigCorsArgs:
     def __init__(__self__, *,
-                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
         :param pulumi.Input[bool] support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of origins that should be allowed to make cross-origin calls.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @property
@@ -30084,26 +30089,27 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
 @pulumi.input_type
 class WindowsFunctionAppSlotSiteConfigCorsArgs:
     def __init__(__self__, *,
-                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: an `allowed_origins` block as detailed below.
         :param pulumi.Input[bool] support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         an `allowed_origins` block as detailed below.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @property
@@ -34462,26 +34468,27 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
 @pulumi.input_type
 class WindowsWebAppSiteConfigCorsArgs:
     def __init__(__self__, *,
-                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
         :param pulumi.Input[bool] support_credentials: Whether CORS requests with credentials are allowed. Defaults to `false`
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of origins that should be allowed to make cross-origin calls.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @property
@@ -38716,26 +38723,27 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigCorsArgs:
     def __init__(__self__, *,
-                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  support_credentials: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
         :param pulumi.Input[bool] support_credentials: Whether CORS requests with credentials are allowed. Defaults to `false`
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def allowed_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of origins that should be allowed to make cross-origin calls.
         """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
-    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def allowed_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_origins", value)
 
     @property

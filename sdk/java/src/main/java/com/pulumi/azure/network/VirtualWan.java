@@ -71,7 +71,7 @@ public class VirtualWan extends com.pulumi.resources.CustomResource {
      * Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
      * 
      */
-    @Export(name="allowBranchToBranchTraffic", type=Boolean.class, parameters={})
+    @Export(name="allowBranchToBranchTraffic", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowBranchToBranchTraffic;
 
     /**
@@ -85,7 +85,7 @@ public class VirtualWan extends com.pulumi.resources.CustomResource {
      * Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
      * 
      */
-    @Export(name="disableVpnEncryption", type=Boolean.class, parameters={})
+    @Export(name="disableVpnEncryption", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableVpnEncryption;
 
     /**
@@ -99,7 +99,7 @@ public class VirtualWan extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -113,7 +113,7 @@ public class VirtualWan extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -127,7 +127,7 @@ public class VirtualWan extends com.pulumi.resources.CustomResource {
      * Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
      * 
      */
-    @Export(name="office365LocalBreakoutCategory", type=String.class, parameters={})
+    @Export(name="office365LocalBreakoutCategory", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> office365LocalBreakoutCategory;
 
     /**
@@ -141,7 +141,7 @@ public class VirtualWan extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -155,7 +155,7 @@ public class VirtualWan extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Virtual WAN.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -169,7 +169,7 @@ public class VirtualWan extends com.pulumi.resources.CustomResource {
      * Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**

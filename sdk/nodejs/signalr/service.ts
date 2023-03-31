@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  *     cors: [{
  *         allowedOrigins: ["http://www.example.com"],
  *     }],
+ *     publicNetworkAccessEnabled: false,
  *     connectivityLogsEnabled: true,
  *     messagingLogsEnabled: true,
  *     serviceMode: "Default",
@@ -78,6 +79,10 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
+     * Whether to enable AAD auth? Defaults to `true`.
+     */
+    public readonly aadAuthEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
      */
     public readonly connectivityLogsEnabled!: pulumi.Output<boolean | undefined>;
@@ -89,6 +94,10 @@ export class Service extends pulumi.CustomResource {
      * The FQDN of the SignalR service.
      */
     public /*out*/ readonly hostname!: pulumi.Output<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.signalr.ServiceIdentity | undefined>;
     /**
      * The publicly accessible IP of the SignalR service.
      */
@@ -103,6 +112,10 @@ export class Service extends pulumi.CustomResource {
      * @deprecated `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
      */
     public readonly liveTraceEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether to enable local auth? Defaults to `true`.
+     */
+    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
@@ -124,6 +137,10 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
     /**
+     * Whether to enable public network access? Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The publicly accessible port of the SignalR service which is designed for browser/client use.
      */
     public /*out*/ readonly publicPort!: pulumi.Output<number>;
@@ -144,6 +161,10 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly serverPort!: pulumi.Output<number>;
     /**
+     * Specifies the client connection timeout. Defaults to `30`.
+     */
+    public readonly serverlessConnectionTimeoutInSeconds!: pulumi.Output<number | undefined>;
+    /**
      * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
      */
     public readonly serviceMode!: pulumi.Output<string | undefined>;
@@ -155,6 +176,10 @@ export class Service extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Whether to request client certificate during TLS handshake? Defaults to `false`.
+     */
+    public readonly tlsClientCertEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      */
@@ -173,25 +198,31 @@ export class Service extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
+            resourceInputs["aadAuthEnabled"] = state ? state.aadAuthEnabled : undefined;
             resourceInputs["connectivityLogsEnabled"] = state ? state.connectivityLogsEnabled : undefined;
             resourceInputs["cors"] = state ? state.cors : undefined;
             resourceInputs["hostname"] = state ? state.hostname : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
             resourceInputs["liveTrace"] = state ? state.liveTrace : undefined;
             resourceInputs["liveTraceEnabled"] = state ? state.liveTraceEnabled : undefined;
+            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["messagingLogsEnabled"] = state ? state.messagingLogsEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
             resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["publicPort"] = state ? state.publicPort : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
             resourceInputs["serverPort"] = state ? state.serverPort : undefined;
+            resourceInputs["serverlessConnectionTimeoutInSeconds"] = state ? state.serverlessConnectionTimeoutInSeconds : undefined;
             resourceInputs["serviceMode"] = state ? state.serviceMode : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tlsClientCertEnabled"] = state ? state.tlsClientCertEnabled : undefined;
             resourceInputs["upstreamEndpoints"] = state ? state.upstreamEndpoints : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
@@ -201,17 +232,23 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["aadAuthEnabled"] = args ? args.aadAuthEnabled : undefined;
             resourceInputs["connectivityLogsEnabled"] = args ? args.connectivityLogsEnabled : undefined;
             resourceInputs["cors"] = args ? args.cors : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["liveTrace"] = args ? args.liveTrace : undefined;
             resourceInputs["liveTraceEnabled"] = args ? args.liveTraceEnabled : undefined;
+            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["messagingLogsEnabled"] = args ? args.messagingLogsEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverlessConnectionTimeoutInSeconds"] = args ? args.serverlessConnectionTimeoutInSeconds : undefined;
             resourceInputs["serviceMode"] = args ? args.serviceMode : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tlsClientCertEnabled"] = args ? args.tlsClientCertEnabled : undefined;
             resourceInputs["upstreamEndpoints"] = args ? args.upstreamEndpoints : undefined;
             resourceInputs["hostname"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
@@ -234,6 +271,10 @@ export class Service extends pulumi.CustomResource {
  */
 export interface ServiceState {
     /**
+     * Whether to enable AAD auth? Defaults to `true`.
+     */
+    aadAuthEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
      */
     connectivityLogsEnabled?: pulumi.Input<boolean>;
@@ -245,6 +286,10 @@ export interface ServiceState {
      * The FQDN of the SignalR service.
      */
     hostname?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.signalr.ServiceIdentity>;
     /**
      * The publicly accessible IP of the SignalR service.
      */
@@ -259,6 +304,10 @@ export interface ServiceState {
      * @deprecated `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
      */
     liveTraceEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether to enable local auth? Defaults to `true`.
+     */
+    localAuthEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
@@ -280,6 +329,10 @@ export interface ServiceState {
      */
     primaryConnectionString?: pulumi.Input<string>;
     /**
+     * Whether to enable public network access? Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * The publicly accessible port of the SignalR service which is designed for browser/client use.
      */
     publicPort?: pulumi.Input<number>;
@@ -300,6 +353,10 @@ export interface ServiceState {
      */
     serverPort?: pulumi.Input<number>;
     /**
+     * Specifies the client connection timeout. Defaults to `30`.
+     */
+    serverlessConnectionTimeoutInSeconds?: pulumi.Input<number>;
+    /**
      * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
      */
     serviceMode?: pulumi.Input<string>;
@@ -312,6 +369,10 @@ export interface ServiceState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Whether to request client certificate during TLS handshake? Defaults to `false`.
+     */
+    tlsClientCertEnabled?: pulumi.Input<boolean>;
+    /**
      * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      */
     upstreamEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceUpstreamEndpoint>[]>;
@@ -322,6 +383,10 @@ export interface ServiceState {
  */
 export interface ServiceArgs {
     /**
+     * Whether to enable AAD auth? Defaults to `true`.
+     */
+    aadAuthEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
      */
     connectivityLogsEnabled?: pulumi.Input<boolean>;
@@ -329,6 +394,10 @@ export interface ServiceArgs {
      * A `cors` block as documented below.
      */
     cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.signalr.ServiceIdentity>;
     /**
      * A `liveTrace` block as defined below.
      */
@@ -339,6 +408,10 @@ export interface ServiceArgs {
      * @deprecated `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
      */
     liveTraceEnabled?: pulumi.Input<boolean>;
+    /**
+     * Whether to enable local auth? Defaults to `true`.
+     */
+    localAuthEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
@@ -352,9 +425,17 @@ export interface ServiceArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Whether to enable public network access? Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the client connection timeout. Defaults to `30`.
+     */
+    serverlessConnectionTimeoutInSeconds?: pulumi.Input<number>;
     /**
      * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
      */
@@ -367,6 +448,10 @@ export interface ServiceArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether to request client certificate during TLS handshake? Defaults to `false`.
+     */
+    tlsClientCertEnabled?: pulumi.Input<boolean>;
     /**
      * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      */

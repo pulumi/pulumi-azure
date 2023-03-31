@@ -71,7 +71,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account used for Artifact Storage.
      * 
      */
-    @Export(name="artifactsStorageAccountId", type=String.class, parameters={})
+    @Export(name="artifactsStorageAccountId", refs={String.class}, tree="[0]")
     private Output<String> artifactsStorageAccountId;
 
     /**
@@ -85,7 +85,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * The ID of the Default Premium Storage Account for this Dev Test Lab.
      * 
      */
-    @Export(name="defaultPremiumStorageAccountId", type=String.class, parameters={})
+    @Export(name="defaultPremiumStorageAccountId", refs={String.class}, tree="[0]")
     private Output<String> defaultPremiumStorageAccountId;
 
     /**
@@ -99,7 +99,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * The ID of the Default Storage Account for this Dev Test Lab.
      * 
      */
-    @Export(name="defaultStorageAccountId", type=String.class, parameters={})
+    @Export(name="defaultStorageAccountId", refs={String.class}, tree="[0]")
     private Output<String> defaultStorageAccountId;
 
     /**
@@ -113,7 +113,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * The ID of the Key used for this Dev Test Lab.
      * 
      */
-    @Export(name="keyVaultId", type=String.class, parameters={})
+    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultId;
 
     /**
@@ -127,7 +127,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -141,7 +141,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -155,7 +155,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account used for Storage of Premium Data Disk.
      * 
      */
-    @Export(name="premiumDataDiskStorageAccountId", type=String.class, parameters={})
+    @Export(name="premiumDataDiskStorageAccountId", refs={String.class}, tree="[0]")
     private Output<String> premiumDataDiskStorageAccountId;
 
     /**
@@ -169,7 +169,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -187,7 +187,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. */
-    @Export(name="storageType", type=String.class, parameters={})
+    @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageType;
 
     /**
@@ -201,7 +201,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -215,7 +215,7 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * The unique immutable identifier of the Dev Test Lab.
      * 
      */
-    @Export(name="uniqueIdentifier", type=String.class, parameters={})
+    @Export(name="uniqueIdentifier", refs={String.class}, tree="[0]")
     private Output<String> uniqueIdentifier;
 
     /**

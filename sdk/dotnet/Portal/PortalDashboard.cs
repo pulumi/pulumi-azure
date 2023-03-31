@@ -102,8 +102,8 @@ namespace Pulumi.Azure.Portal
         /// <summary>
         /// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
         /// </summary>
-        [Input("dashboardProperties")]
-        public Input<string>? DashboardProperties { get; set; }
+        [Input("dashboardProperties", required: true)]
+        public Input<string> DashboardProperties { get; set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

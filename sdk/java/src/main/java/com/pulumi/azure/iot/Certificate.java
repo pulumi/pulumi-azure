@@ -85,7 +85,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
      * 
      */
-    @Export(name="certificateContent", type=String.class, parameters={})
+    @Export(name="certificateContent", refs={String.class}, tree="[0]")
     private Output<String> certificateContent;
 
     /**
@@ -99,7 +99,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The name of the IoTHub that this certificate will be attached to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iothubName", type=String.class, parameters={})
+    @Export(name="iothubName", refs={String.class}, tree="[0]")
     private Output<String> iothubName;
 
     /**
@@ -113,7 +113,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Is the certificate verified? Defaults to `false`.
      * 
      */
-    @Export(name="isVerified", type=Boolean.class, parameters={})
+    @Export(name="isVerified", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isVerified;
 
     /**
@@ -127,7 +127,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Specifies the name of the IotHub Certificate resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -141,7 +141,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The name of the resource group under which the IotHub Certificate resource has to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

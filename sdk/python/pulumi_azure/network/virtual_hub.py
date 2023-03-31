@@ -18,6 +18,7 @@ class VirtualHubArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  address_prefix: Optional[pulumi.Input[str]] = None,
+                 hub_routing_preference: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]]] = None,
@@ -28,6 +29,7 @@ class VirtualHubArgs:
         The set of arguments for constructing a VirtualHub resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] address_prefix: The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
+        :param pulumi.Input[str] hub_routing_preference: The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]] routes: One or more `route` blocks as defined below.
@@ -38,6 +40,8 @@ class VirtualHubArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if address_prefix is not None:
             pulumi.set(__self__, "address_prefix", address_prefix)
+        if hub_routing_preference is not None:
+            pulumi.set(__self__, "hub_routing_preference", hub_routing_preference)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -74,6 +78,18 @@ class VirtualHubArgs:
     @address_prefix.setter
     def address_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter(name="hubRoutingPreference")
+    def hub_routing_preference(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+        """
+        return pulumi.get(self, "hub_routing_preference")
+
+    @hub_routing_preference.setter
+    def hub_routing_preference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hub_routing_preference", value)
 
     @property
     @pulumi.getter
@@ -153,6 +169,7 @@ class _VirtualHubState:
     def __init__(__self__, *,
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  default_route_table_id: Optional[pulumi.Input[str]] = None,
+                 hub_routing_preference: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -166,6 +183,7 @@ class _VirtualHubState:
         Input properties used for looking up and filtering VirtualHub resources.
         :param pulumi.Input[str] address_prefix: The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
         :param pulumi.Input[str] default_route_table_id: The ID of the default Route Table in the Virtual Hub.
+        :param pulumi.Input[str] hub_routing_preference: The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
@@ -180,6 +198,8 @@ class _VirtualHubState:
             pulumi.set(__self__, "address_prefix", address_prefix)
         if default_route_table_id is not None:
             pulumi.set(__self__, "default_route_table_id", default_route_table_id)
+        if hub_routing_preference is not None:
+            pulumi.set(__self__, "hub_routing_preference", hub_routing_preference)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -222,6 +242,18 @@ class _VirtualHubState:
     @default_route_table_id.setter
     def default_route_table_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_route_table_id", value)
+
+    @property
+    @pulumi.getter(name="hubRoutingPreference")
+    def hub_routing_preference(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+        """
+        return pulumi.get(self, "hub_routing_preference")
+
+    @hub_routing_preference.setter
+    def hub_routing_preference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hub_routing_preference", value)
 
     @property
     @pulumi.getter
@@ -338,6 +370,7 @@ class VirtualHub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
+                 hub_routing_preference: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -377,6 +410,7 @@ class VirtualHub(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
+        :param pulumi.Input[str] hub_routing_preference: The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
@@ -435,6 +469,7 @@ class VirtualHub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefix: Optional[pulumi.Input[str]] = None,
+                 hub_routing_preference: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -452,6 +487,7 @@ class VirtualHub(pulumi.CustomResource):
             __props__ = VirtualHubArgs.__new__(VirtualHubArgs)
 
             __props__.__dict__["address_prefix"] = address_prefix
+            __props__.__dict__["hub_routing_preference"] = hub_routing_preference
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -476,6 +512,7 @@ class VirtualHub(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             address_prefix: Optional[pulumi.Input[str]] = None,
             default_route_table_id: Optional[pulumi.Input[str]] = None,
+            hub_routing_preference: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -494,6 +531,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
         :param pulumi.Input[str] default_route_table_id: The ID of the default Route Table in the Virtual Hub.
+        :param pulumi.Input[str] hub_routing_preference: The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
@@ -510,6 +548,7 @@ class VirtualHub(pulumi.CustomResource):
 
         __props__.__dict__["address_prefix"] = address_prefix
         __props__.__dict__["default_route_table_id"] = default_route_table_id
+        __props__.__dict__["hub_routing_preference"] = hub_routing_preference
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -536,6 +575,14 @@ class VirtualHub(pulumi.CustomResource):
         The ID of the default Route Table in the Virtual Hub.
         """
         return pulumi.get(self, "default_route_table_id")
+
+    @property
+    @pulumi.getter(name="hubRoutingPreference")
+    def hub_routing_preference(self) -> pulumi.Output[Optional[str]]:
+        """
+        The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+        """
+        return pulumi.get(self, "hub_routing_preference")
 
     @property
     @pulumi.getter

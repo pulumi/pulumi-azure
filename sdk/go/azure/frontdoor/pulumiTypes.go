@@ -2374,7 +2374,7 @@ func (o FrontdoorRoutingRuleArrayOutput) Index(i pulumi.IntInput) FrontdoorRouti
 type FrontdoorRoutingRuleForwardingConfiguration struct {
 	// Specifies the name of the Backend Pool to forward the incoming traffic to.
 	BackendPoolName string `pulumi:"backendPoolName"`
-	// Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
+	// Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
 	CacheDuration *string `pulumi:"cacheDuration"`
 	// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
 	CacheEnabled *bool `pulumi:"cacheEnabled"`
@@ -2404,7 +2404,7 @@ type FrontdoorRoutingRuleForwardingConfigurationInput interface {
 type FrontdoorRoutingRuleForwardingConfigurationArgs struct {
 	// Specifies the name of the Backend Pool to forward the incoming traffic to.
 	BackendPoolName pulumi.StringInput `pulumi:"backendPoolName"`
-	// Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
+	// Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
 	CacheDuration pulumi.StringPtrInput `pulumi:"cacheDuration"`
 	// Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
 	CacheEnabled pulumi.BoolPtrInput `pulumi:"cacheEnabled"`
@@ -2502,7 +2502,7 @@ func (o FrontdoorRoutingRuleForwardingConfigurationOutput) BackendPoolName() pul
 	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) string { return v.BackendPoolName }).(pulumi.StringOutput)
 }
 
-// Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
+// Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
 func (o FrontdoorRoutingRuleForwardingConfigurationOutput) CacheDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRoutingRuleForwardingConfiguration) *string { return v.CacheDuration }).(pulumi.StringPtrOutput)
 }
@@ -2573,7 +2573,7 @@ func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) BackendPoolName() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
+// Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) CacheDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoutingRuleForwardingConfiguration) *string {
 		if v == nil {

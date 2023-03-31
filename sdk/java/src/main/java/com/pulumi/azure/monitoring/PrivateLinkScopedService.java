@@ -83,7 +83,7 @@ public class PrivateLinkScopedService extends com.pulumi.resources.CustomResourc
      * The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="linkedResourceId", type=String.class, parameters={})
+    @Export(name="linkedResourceId", refs={String.class}, tree="[0]")
     private Output<String> linkedResourceId;
 
     /**
@@ -97,7 +97,7 @@ public class PrivateLinkScopedService extends com.pulumi.resources.CustomResourc
      * The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -111,7 +111,7 @@ public class PrivateLinkScopedService extends com.pulumi.resources.CustomResourc
      * The name of the Resource Group where the Azure Monitor Private Link Scoped Service should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -125,7 +125,7 @@ public class PrivateLinkScopedService extends com.pulumi.resources.CustomResourc
      * The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="scopeName", type=String.class, parameters={})
+    @Export(name="scopeName", refs={String.class}, tree="[0]")
     private Output<String> scopeName;
 
     /**

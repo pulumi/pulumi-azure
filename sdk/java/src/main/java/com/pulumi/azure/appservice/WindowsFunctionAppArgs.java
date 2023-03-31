@@ -462,6 +462,21 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.virtualNetworkSubnetId);
     }
 
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+     * 
+     */
+    @Import(name="zipDeployFile")
+    private @Nullable Output<String> zipDeployFile;
+
+    /**
+     * @return The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+     * 
+     */
+    public Optional<Output<String>> zipDeployFile() {
+        return Optional.ofNullable(this.zipDeployFile);
+    }
+
     private WindowsFunctionAppArgs() {}
 
     private WindowsFunctionAppArgs(WindowsFunctionAppArgs $) {
@@ -494,6 +509,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         this.storageUsesManagedIdentity = $.storageUsesManagedIdentity;
         this.tags = $.tags;
         this.virtualNetworkSubnetId = $.virtualNetworkSubnetId;
+        this.zipDeployFile = $.zipDeployFile;
     }
 
     public static Builder builder() {
@@ -1141,6 +1157,27 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
          */
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
+        }
+
+        /**
+         * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zipDeployFile(@Nullable Output<String> zipDeployFile) {
+            $.zipDeployFile = zipDeployFile;
+            return this;
+        }
+
+        /**
+         * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zipDeployFile(String zipDeployFile) {
+            return zipDeployFile(Output.of(zipDeployFile));
         }
 
         public WindowsFunctionAppArgs build() {

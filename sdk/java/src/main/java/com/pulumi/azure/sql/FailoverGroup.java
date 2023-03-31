@@ -108,7 +108,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * A list of database ids to add to the failover group
      * 
      */
-    @Export(name="databases", type=List.class, parameters={String.class})
+    @Export(name="databases", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> databases;
 
     /**
@@ -122,7 +122,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * the location of the failover group.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -136,7 +136,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * The name of the failover group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -150,7 +150,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * A list of secondary servers as documented below
      * 
      */
-    @Export(name="partnerServers", type=List.class, parameters={FailoverGroupPartnerServer.class})
+    @Export(name="partnerServers", refs={List.class,FailoverGroupPartnerServer.class}, tree="[0,1]")
     private Output<List<FailoverGroupPartnerServer>> partnerServers;
 
     /**
@@ -164,7 +164,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * A read/write policy as documented below
      * 
      */
-    @Export(name="readWriteEndpointFailoverPolicy", type=FailoverGroupReadWriteEndpointFailoverPolicy.class, parameters={})
+    @Export(name="readWriteEndpointFailoverPolicy", refs={FailoverGroupReadWriteEndpointFailoverPolicy.class}, tree="[0]")
     private Output<FailoverGroupReadWriteEndpointFailoverPolicy> readWriteEndpointFailoverPolicy;
 
     /**
@@ -178,7 +178,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * a read-only policy as documented below
      * 
      */
-    @Export(name="readonlyEndpointFailoverPolicy", type=FailoverGroupReadonlyEndpointFailoverPolicy.class, parameters={})
+    @Export(name="readonlyEndpointFailoverPolicy", refs={FailoverGroupReadonlyEndpointFailoverPolicy.class}, tree="[0]")
     private Output<FailoverGroupReadonlyEndpointFailoverPolicy> readonlyEndpointFailoverPolicy;
 
     /**
@@ -192,7 +192,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * The name of the resource group containing the SQL server Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -206,7 +206,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * local replication role of the failover group instance.
      * 
      */
-    @Export(name="role", type=String.class, parameters={})
+    @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
@@ -220,7 +220,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * The name of the primary SQL server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", type=String.class, parameters={})
+    @Export(name="serverName", refs={String.class}, tree="[0]")
     private Output<String> serverName;
 
     /**
@@ -234,7 +234,7 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

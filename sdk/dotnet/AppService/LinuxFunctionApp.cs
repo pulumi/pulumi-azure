@@ -288,6 +288,12 @@ namespace Pulumi.Azure.AppService
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
+        /// <summary>
+        /// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+        /// </summary>
+        [Output("zipDeployFile")]
+        public Output<string> ZipDeployFile { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LinuxFunctionApp resource with the given unique name, arguments, and options.
@@ -546,6 +552,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
+
+        /// <summary>
+        /// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+        /// </summary>
+        [Input("zipDeployFile")]
+        public Input<string>? ZipDeployFile { get; set; }
 
         public LinuxFunctionAppArgs()
         {
@@ -838,6 +850,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
+
+        /// <summary>
+        /// The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+        /// </summary>
+        [Input("zipDeployFile")]
+        public Input<string>? ZipDeployFile { get; set; }
 
         public LinuxFunctionAppState()
         {

@@ -38,6 +38,7 @@ from .get_alert_rule_anomaly import *
 from .get_alert_rule_template import *
 from .log_analytics_workspace_onboarding import *
 from .metadata import *
+from .threat_intelligence_indicator import *
 from .watchlist import *
 from .watchlist_item import *
 from ._inputs import *

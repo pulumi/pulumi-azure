@@ -17186,7 +17186,7 @@ func (o ScheduledQueryRulesAlertTriggerPtrOutput) Threshold() pulumi.Float64PtrO
 
 type ScheduledQueryRulesAlertTriggerMetricTrigger struct {
 	// Evaluation of metric on a particular column.
-	MetricColumn string `pulumi:"metricColumn"`
+	MetricColumn *string `pulumi:"metricColumn"`
 	// Metric Trigger Type - 'Consecutive' or 'Total'.
 	MetricTriggerType string `pulumi:"metricTriggerType"`
 	// Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
@@ -17208,7 +17208,7 @@ type ScheduledQueryRulesAlertTriggerMetricTriggerInput interface {
 
 type ScheduledQueryRulesAlertTriggerMetricTriggerArgs struct {
 	// Evaluation of metric on a particular column.
-	MetricColumn pulumi.StringInput `pulumi:"metricColumn"`
+	MetricColumn pulumi.StringPtrInput `pulumi:"metricColumn"`
 	// Metric Trigger Type - 'Consecutive' or 'Total'.
 	MetricTriggerType pulumi.StringInput `pulumi:"metricTriggerType"`
 	// Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
@@ -17295,8 +17295,8 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToScheduledQueryRule
 }
 
 // Evaluation of metric on a particular column.
-func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) MetricColumn() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) string { return v.MetricColumn }).(pulumi.StringOutput)
+func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) MetricColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertTriggerMetricTrigger) *string { return v.MetricColumn }).(pulumi.StringPtrOutput)
 }
 
 // Metric Trigger Type - 'Consecutive' or 'Total'.
@@ -17344,7 +17344,7 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) MetricColumn() pu
 		if v == nil {
 			return nil
 		}
-		return &v.MetricColumn
+		return v.MetricColumn
 	}).(pulumi.StringPtrOutput)
 }
 

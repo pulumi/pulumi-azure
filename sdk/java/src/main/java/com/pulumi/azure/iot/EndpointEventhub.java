@@ -114,7 +114,7 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
      * Type used to authenticate against the Event Hub endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
      * 
      */
-    @Export(name="authenticationType", type=String.class, parameters={})
+    @Export(name="authenticationType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authenticationType;
 
     /**
@@ -128,7 +128,7 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
      * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
      * 
      */
-    @Export(name="connectionString", type=String.class, parameters={})
+    @Export(name="connectionString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionString;
 
     /**
@@ -142,7 +142,7 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
      * URI of the Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
      * 
      */
-    @Export(name="endpointUri", type=String.class, parameters={})
+    @Export(name="endpointUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpointUri;
 
     /**
@@ -156,7 +156,7 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
      * Name of the Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
      * 
      */
-    @Export(name="entityPath", type=String.class, parameters={})
+    @Export(name="entityPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> entityPath;
 
     /**
@@ -170,7 +170,7 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
      * ID of the User Managed Identity used to authenticate against the Event Hub endpoint.
      * 
      */
-    @Export(name="identityId", type=String.class, parameters={})
+    @Export(name="identityId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> identityId;
 
     /**
@@ -184,7 +184,7 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
      * The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iothubId", type=String.class, parameters={})
+    @Export(name="iothubId", refs={String.class}, tree="[0]")
     private Output<String> iothubId;
 
     /**
@@ -198,7 +198,7 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -212,7 +212,7 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
      * The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

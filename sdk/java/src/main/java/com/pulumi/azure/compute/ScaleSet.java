@@ -370,7 +370,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
      * 
      */
-    @Export(name="automaticOsUpgrade", type=Boolean.class, parameters={})
+    @Export(name="automaticOsUpgrade", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automaticOsUpgrade;
 
     /**
@@ -384,7 +384,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * A boot diagnostics profile block as referenced below.
      * 
      */
-    @Export(name="bootDiagnostics", type=ScaleSetBootDiagnostics.class, parameters={})
+    @Export(name="bootDiagnostics", refs={ScaleSetBootDiagnostics.class}, tree="[0]")
     private Output</* @Nullable */ ScaleSetBootDiagnostics> bootDiagnostics;
 
     /**
@@ -398,7 +398,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="evictionPolicy", type=String.class, parameters={})
+    @Export(name="evictionPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> evictionPolicy;
 
     /**
@@ -412,7 +412,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
      * 
      */
-    @Export(name="extensions", type=List.class, parameters={ScaleSetExtension.class})
+    @Export(name="extensions", refs={List.class,ScaleSetExtension.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScaleSetExtension>> extensions;
 
     /**
@@ -426,7 +426,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
      * 
      */
-    @Export(name="healthProbeId", type=String.class, parameters={})
+    @Export(name="healthProbeId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> healthProbeId;
 
     /**
@@ -440,7 +440,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=ScaleSetIdentity.class, parameters={})
+    @Export(name="identity", refs={ScaleSetIdentity.class}, tree="[0]")
     private Output<ScaleSetIdentity> identity;
 
     /**
@@ -454,7 +454,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
      * 
      */
-    @Export(name="licenseType", type=String.class, parameters={})
+    @Export(name="licenseType", refs={String.class}, tree="[0]")
     private Output<String> licenseType;
 
     /**
@@ -468,7 +468,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -482,7 +482,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -496,7 +496,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * A collection of network profile block as documented below.
      * 
      */
-    @Export(name="networkProfiles", type=List.class, parameters={ScaleSetNetworkProfile.class})
+    @Export(name="networkProfiles", refs={List.class,ScaleSetNetworkProfile.class}, tree="[0,1]")
     private Output<List<ScaleSetNetworkProfile>> networkProfiles;
 
     /**
@@ -510,7 +510,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * A Virtual Machine OS Profile block as documented below.
      * 
      */
-    @Export(name="osProfile", type=ScaleSetOsProfile.class, parameters={})
+    @Export(name="osProfile", refs={ScaleSetOsProfile.class}, tree="[0]")
     private Output<ScaleSetOsProfile> osProfile;
 
     /**
@@ -524,7 +524,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * A Linux config block as documented below.
      * 
      */
-    @Export(name="osProfileLinuxConfig", type=ScaleSetOsProfileLinuxConfig.class, parameters={})
+    @Export(name="osProfileLinuxConfig", refs={ScaleSetOsProfileLinuxConfig.class}, tree="[0]")
     private Output<ScaleSetOsProfileLinuxConfig> osProfileLinuxConfig;
 
     /**
@@ -538,7 +538,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * A collection of Secret blocks as documented below.
      * 
      */
-    @Export(name="osProfileSecrets", type=List.class, parameters={ScaleSetOsProfileSecret.class})
+    @Export(name="osProfileSecrets", refs={List.class,ScaleSetOsProfileSecret.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScaleSetOsProfileSecret>> osProfileSecrets;
 
     /**
@@ -552,7 +552,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * A Windows config block as documented below.
      * 
      */
-    @Export(name="osProfileWindowsConfig", type=ScaleSetOsProfileWindowsConfig.class, parameters={})
+    @Export(name="osProfileWindowsConfig", refs={ScaleSetOsProfileWindowsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ScaleSetOsProfileWindowsConfig> osProfileWindowsConfig;
 
     /**
@@ -566,7 +566,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
      * 
      */
-    @Export(name="overprovision", type=Boolean.class, parameters={})
+    @Export(name="overprovision", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overprovision;
 
     /**
@@ -580,7 +580,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * A plan block as documented below.
      * 
      */
-    @Export(name="plan", type=ScaleSetPlan.class, parameters={})
+    @Export(name="plan", refs={ScaleSetPlan.class}, tree="[0]")
     private Output</* @Nullable */ ScaleSetPlan> plan;
 
     /**
@@ -594,7 +594,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="priority", type=String.class, parameters={})
+    @Export(name="priority", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> priority;
 
     /**
@@ -608,7 +608,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
      * 
      */
-    @Export(name="proximityPlacementGroupId", type=String.class, parameters={})
+    @Export(name="proximityPlacementGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proximityPlacementGroupId;
 
     /**
@@ -622,7 +622,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -636,7 +636,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
      * 
      */
-    @Export(name="rollingUpgradePolicy", type=ScaleSetRollingUpgradePolicy.class, parameters={})
+    @Export(name="rollingUpgradePolicy", refs={ScaleSetRollingUpgradePolicy.class}, tree="[0]")
     private Output</* @Nullable */ ScaleSetRollingUpgradePolicy> rollingUpgradePolicy;
 
     /**
@@ -650,7 +650,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
      * 
      */
-    @Export(name="singlePlacementGroup", type=Boolean.class, parameters={})
+    @Export(name="singlePlacementGroup", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> singlePlacementGroup;
 
     /**
@@ -664,7 +664,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * A SKU block as documented below.
      * 
      */
-    @Export(name="sku", type=ScaleSetSku.class, parameters={})
+    @Export(name="sku", refs={ScaleSetSku.class}, tree="[0]")
     private Output<ScaleSetSku> sku;
 
     /**
@@ -678,7 +678,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * A storage profile data disk block as documented below
      * 
      */
-    @Export(name="storageProfileDataDisks", type=List.class, parameters={ScaleSetStorageProfileDataDisk.class})
+    @Export(name="storageProfileDataDisks", refs={List.class,ScaleSetStorageProfileDataDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScaleSetStorageProfileDataDisk>> storageProfileDataDisks;
 
     /**
@@ -692,7 +692,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * A storage profile image reference block as documented below.
      * 
      */
-    @Export(name="storageProfileImageReference", type=ScaleSetStorageProfileImageReference.class, parameters={})
+    @Export(name="storageProfileImageReference", refs={ScaleSetStorageProfileImageReference.class}, tree="[0]")
     private Output<ScaleSetStorageProfileImageReference> storageProfileImageReference;
 
     /**
@@ -706,7 +706,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * A storage profile os disk block as documented below
      * 
      */
-    @Export(name="storageProfileOsDisk", type=ScaleSetStorageProfileOsDisk.class, parameters={})
+    @Export(name="storageProfileOsDisk", refs={ScaleSetStorageProfileOsDisk.class}, tree="[0]")
     private Output<ScaleSetStorageProfileOsDisk> storageProfileOsDisk;
 
     /**
@@ -720,7 +720,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -734,7 +734,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
      * 
      */
-    @Export(name="upgradePolicyMode", type=String.class, parameters={})
+    @Export(name="upgradePolicyMode", refs={String.class}, tree="[0]")
     private Output<String> upgradePolicyMode;
 
     /**
@@ -748,7 +748,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zones", type=List.class, parameters={String.class})
+    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**

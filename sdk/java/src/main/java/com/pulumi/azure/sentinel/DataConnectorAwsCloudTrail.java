@@ -27,9 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
- * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
  * import com.pulumi.azure.sentinel.DataConnectorAwsCloudTrail;
  * import com.pulumi.azure.sentinel.DataConnectorAwsCloudTrailArgs;
  * import java.util.List;
@@ -55,20 +54,12 @@ import javax.annotation.Nullable;
  *             .sku(&#34;PerGB2018&#34;)
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution(&#34;exampleAnalyticsSolution&#34;, AnalyticsSolutionArgs.builder()        
- *             .solutionName(&#34;SecurityInsights&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
- *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/SecurityInsights&#34;)
- *                 .build())
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
  *         var exampleDataConnectorAwsCloudTrail = new DataConnectorAwsCloudTrail(&#34;exampleDataConnectorAwsCloudTrail&#34;, DataConnectorAwsCloudTrailArgs.builder()        
- *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
+ *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
  *             .awsRoleArn(&#34;arn:aws:iam::000000000000:role/role1&#34;)
  *             .build());
  * 
@@ -91,7 +82,7 @@ public class DataConnectorAwsCloudTrail extends com.pulumi.resources.CustomResou
      * The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
      * 
      */
-    @Export(name="awsRoleArn", type=String.class, parameters={})
+    @Export(name="awsRoleArn", refs={String.class}, tree="[0]")
     private Output<String> awsRoleArn;
 
     /**
@@ -105,7 +96,7 @@ public class DataConnectorAwsCloudTrail extends com.pulumi.resources.CustomResou
      * The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -119,7 +110,7 @@ public class DataConnectorAwsCloudTrail extends com.pulumi.resources.CustomResou
      * The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

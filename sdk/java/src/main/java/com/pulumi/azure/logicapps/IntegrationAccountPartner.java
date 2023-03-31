@@ -84,7 +84,7 @@ public class IntegrationAccountPartner extends com.pulumi.resources.CustomResour
      * A `business_identity` block as documented below.
      * 
      */
-    @Export(name="businessIdentities", type=List.class, parameters={IntegrationAccountPartnerBusinessIdentity.class})
+    @Export(name="businessIdentities", refs={List.class,IntegrationAccountPartnerBusinessIdentity.class}, tree="[0,1]")
     private Output<List<IntegrationAccountPartnerBusinessIdentity>> businessIdentities;
 
     /**
@@ -98,7 +98,7 @@ public class IntegrationAccountPartner extends com.pulumi.resources.CustomResour
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
      * 
      */
-    @Export(name="integrationAccountName", type=String.class, parameters={})
+    @Export(name="integrationAccountName", refs={String.class}, tree="[0]")
     private Output<String> integrationAccountName;
 
     /**
@@ -112,7 +112,7 @@ public class IntegrationAccountPartner extends com.pulumi.resources.CustomResour
      * A JSON mapping of any Metadata for this Logic App Integration Account Partner.
      * 
      */
-    @Export(name="metadata", type=String.class, parameters={})
+    @Export(name="metadata", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metadata;
 
     /**
@@ -126,7 +126,7 @@ public class IntegrationAccountPartner extends com.pulumi.resources.CustomResour
      * The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -140,7 +140,7 @@ public class IntegrationAccountPartner extends com.pulumi.resources.CustomResour
      * The name of the Resource Group where the Logic App Integration Account Partner should exist. Changing this forces a new Logic App Integration Account Partner to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

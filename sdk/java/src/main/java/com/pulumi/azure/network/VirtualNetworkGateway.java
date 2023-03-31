@@ -147,7 +147,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
      * 
      */
-    @Export(name="activeActive", type=Boolean.class, parameters={})
+    @Export(name="activeActive", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> activeActive;
 
     /**
@@ -161,7 +161,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
      * 
      */
-    @Export(name="bgpSettings", type=VirtualNetworkGatewayBgpSettings.class, parameters={})
+    @Export(name="bgpSettings", refs={VirtualNetworkGatewayBgpSettings.class}, tree="[0]")
     private Output<VirtualNetworkGatewayBgpSettings> bgpSettings;
 
     /**
@@ -175,7 +175,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
      * 
      */
-    @Export(name="customRoute", type=VirtualNetworkGatewayCustomRoute.class, parameters={})
+    @Export(name="customRoute", refs={VirtualNetworkGatewayCustomRoute.class}, tree="[0]")
     private Output</* @Nullable */ VirtualNetworkGatewayCustomRoute> customRoute;
 
     /**
@@ -189,7 +189,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
      * 
      */
-    @Export(name="defaultLocalNetworkGatewayId", type=String.class, parameters={})
+    @Export(name="defaultLocalNetworkGatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultLocalNetworkGatewayId;
 
     /**
@@ -203,7 +203,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
      * 
      */
-    @Export(name="edgeZone", type=String.class, parameters={})
+    @Export(name="edgeZone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> edgeZone;
 
     /**
@@ -217,7 +217,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
      * 
      */
-    @Export(name="enableBgp", type=Boolean.class, parameters={})
+    @Export(name="enableBgp", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableBgp;
 
     /**
@@ -231,7 +231,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="generation", type=String.class, parameters={})
+    @Export(name="generation", refs={String.class}, tree="[0]")
     private Output<String> generation;
 
     /**
@@ -248,7 +248,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
      * 
      */
-    @Export(name="ipConfigurations", type=List.class, parameters={VirtualNetworkGatewayIpConfiguration.class})
+    @Export(name="ipConfigurations", refs={List.class,VirtualNetworkGatewayIpConfiguration.class}, tree="[0,1]")
     private Output<List<VirtualNetworkGatewayIpConfiguration>> ipConfigurations;
 
     /**
@@ -265,7 +265,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -279,7 +279,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -293,7 +293,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="privateIpAddressEnabled", type=Boolean.class, parameters={})
+    @Export(name="privateIpAddressEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> privateIpAddressEnabled;
 
     /**
@@ -307,7 +307,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -321,7 +321,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
      * 
      */
-    @Export(name="sku", type=String.class, parameters={})
+    @Export(name="sku", refs={String.class}, tree="[0]")
     private Output<String> sku;
 
     /**
@@ -335,7 +335,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -349,7 +349,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -363,7 +363,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      * 
      */
-    @Export(name="vpnClientConfiguration", type=VirtualNetworkGatewayVpnClientConfiguration.class, parameters={})
+    @Export(name="vpnClientConfiguration", refs={VirtualNetworkGatewayVpnClientConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ VirtualNetworkGatewayVpnClientConfiguration> vpnClientConfiguration;
 
     /**
@@ -377,7 +377,7 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="vpnType", type=String.class, parameters={})
+    @Export(name="vpnType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpnType;
 
     /**

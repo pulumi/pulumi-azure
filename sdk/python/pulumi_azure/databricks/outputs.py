@@ -24,7 +24,9 @@ class AccessConnectorIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
@@ -42,14 +44,18 @@ class AccessConnectorIdentity(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
-        :param str principal_id: The Principal ID associated with this system-assigned managed identity.
-        :param str tenant_id: The Tenant ID associated with this system-assigned managed identity.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+        :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
+        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -59,15 +65,23 @@ class AccessConnectorIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+        Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+        """
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
         """
-        The Principal ID associated with this system-assigned managed identity.
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         """
         return pulumi.get(self, "principal_id")
 
@@ -75,7 +89,7 @@ class AccessConnectorIdentity(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
-        The Tenant ID associated with this system-assigned managed identity.
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         """
         return pulumi.get(self, "tenant_id")
 

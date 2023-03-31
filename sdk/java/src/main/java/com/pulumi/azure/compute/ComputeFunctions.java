@@ -24,6 +24,8 @@ import com.pulumi.azure.compute.inputs.GetImagesArgs;
 import com.pulumi.azure.compute.inputs.GetImagesPlainArgs;
 import com.pulumi.azure.compute.inputs.GetManagedDiskArgs;
 import com.pulumi.azure.compute.inputs.GetManagedDiskPlainArgs;
+import com.pulumi.azure.compute.inputs.GetOrchestratedVirtualMachineScaleSetArgs;
+import com.pulumi.azure.compute.inputs.GetOrchestratedVirtualMachineScaleSetPlainArgs;
 import com.pulumi.azure.compute.inputs.GetPlatformImageArgs;
 import com.pulumi.azure.compute.inputs.GetPlatformImagePlainArgs;
 import com.pulumi.azure.compute.inputs.GetSharedImageArgs;
@@ -52,6 +54,7 @@ import com.pulumi.azure.compute.outputs.GetDiskEncryptionSetResult;
 import com.pulumi.azure.compute.outputs.GetImageResult;
 import com.pulumi.azure.compute.outputs.GetImagesResult;
 import com.pulumi.azure.compute.outputs.GetManagedDiskResult;
+import com.pulumi.azure.compute.outputs.GetOrchestratedVirtualMachineScaleSetResult;
 import com.pulumi.azure.compute.outputs.GetPlatformImageResult;
 import com.pulumi.azure.compute.outputs.GetSharedImageGalleryResult;
 import com.pulumi.azure.compute.outputs.GetSharedImageResult;
@@ -1623,6 +1626,162 @@ public final class ComputeFunctions {
      */
     public static CompletableFuture<GetManagedDiskResult> getManagedDiskPlain(GetManagedDiskPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getManagedDisk:getManagedDisk", TypeShape.of(GetManagedDiskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetOrchestratedVirtualMachineScaleSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getOrchestratedVirtualMachineScaleSetResult -&gt; getOrchestratedVirtualMachineScaleSetResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args) {
+        return getOrchestratedVirtualMachineScaleSet(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetOrchestratedVirtualMachineScaleSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getOrchestratedVirtualMachineScaleSetResult -&gt; getOrchestratedVirtualMachineScaleSetResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSetPlain(GetOrchestratedVirtualMachineScaleSetPlainArgs args) {
+        return getOrchestratedVirtualMachineScaleSetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetOrchestratedVirtualMachineScaleSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getOrchestratedVirtualMachineScaleSetResult -&gt; getOrchestratedVirtualMachineScaleSetResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", TypeShape.of(GetOrchestratedVirtualMachineScaleSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetOrchestratedVirtualMachineScaleSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ComputeFunctions.getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getOrchestratedVirtualMachineScaleSetResult -&gt; getOrchestratedVirtualMachineScaleSetResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSetPlain(GetOrchestratedVirtualMachineScaleSetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", TypeShape.of(GetOrchestratedVirtualMachineScaleSetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about a Platform Image.

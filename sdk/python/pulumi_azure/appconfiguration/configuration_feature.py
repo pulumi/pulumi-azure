@@ -414,13 +414,13 @@ class ConfigurationFeature(pulumi.CustomResource):
         App Configuration Features can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/label1
+         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test https://appconfname1.azconfig.io/kv/.appconfig.featureflag%2FkeyName?label=labelName
         ```
 
-         If you wish to import a key with an empty label then sustitute the label's name with `%00`, like this
+         If you wish to import with an empty label then simply leave the label's name blank
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/%00
+         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test https://appconfname1.azconfig.io/kv/.appconfig.featureflag%2FkeyName?label=
         ```
 
         :param str resource_name: The name of the resource.
@@ -467,13 +467,13 @@ class ConfigurationFeature(pulumi.CustomResource):
         App Configuration Features can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/label1
+         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test https://appconfname1.azconfig.io/kv/.appconfig.featureflag%2FkeyName?label=labelName
         ```
 
-         If you wish to import a key with an empty label then sustitute the label's name with `%00`, like this
+         If you wish to import with an empty label then simply leave the label's name blank
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationFeature/appConfFeature1/Label/%00
+         $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test https://appconfname1.azconfig.io/kv/.appconfig.featureflag%2FkeyName?label=
         ```
 
         :param str resource_name: The name of the resource.

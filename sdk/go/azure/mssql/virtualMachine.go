@@ -93,7 +93,7 @@ type VirtualMachine struct {
 	// A `sqlInstance` block as defined below.
 	SqlInstance VirtualMachineSqlInstancePtrOutput `pulumi:"sqlInstance"`
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
-	SqlLicenseType pulumi.StringOutput `pulumi:"sqlLicenseType"`
+	SqlLicenseType pulumi.StringPtrOutput `pulumi:"sqlLicenseType"`
 	// An `storageConfiguration` block as defined below.
 	StorageConfiguration VirtualMachineStorageConfigurationPtrOutput `pulumi:"storageConfiguration"`
 	// A mapping of tags to assign to the resource.
@@ -109,9 +109,6 @@ func NewVirtualMachine(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.SqlLicenseType == nil {
-		return nil, errors.New("invalid value for required argument 'SqlLicenseType'")
-	}
 	if args.VirtualMachineId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachineId'")
 	}
@@ -235,7 +232,7 @@ type virtualMachineArgs struct {
 	// A `sqlInstance` block as defined below.
 	SqlInstance *VirtualMachineSqlInstance `pulumi:"sqlInstance"`
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
-	SqlLicenseType string `pulumi:"sqlLicenseType"`
+	SqlLicenseType *string `pulumi:"sqlLicenseType"`
 	// An `storageConfiguration` block as defined below.
 	StorageConfiguration *VirtualMachineStorageConfiguration `pulumi:"storageConfiguration"`
 	// A mapping of tags to assign to the resource.
@@ -267,7 +264,7 @@ type VirtualMachineArgs struct {
 	// A `sqlInstance` block as defined below.
 	SqlInstance VirtualMachineSqlInstancePtrInput
 	// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
-	SqlLicenseType pulumi.StringInput
+	SqlLicenseType pulumi.StringPtrInput
 	// An `storageConfiguration` block as defined below.
 	StorageConfiguration VirtualMachineStorageConfigurationPtrInput
 	// A mapping of tags to assign to the resource.
@@ -414,8 +411,8 @@ func (o VirtualMachineOutput) SqlInstance() VirtualMachineSqlInstancePtrOutput {
 }
 
 // The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
-func (o VirtualMachineOutput) SqlLicenseType() pulumi.StringOutput {
-	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.SqlLicenseType }).(pulumi.StringOutput)
+func (o VirtualMachineOutput) SqlLicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.SqlLicenseType }).(pulumi.StringPtrOutput)
 }
 
 // An `storageConfiguration` block as defined below.

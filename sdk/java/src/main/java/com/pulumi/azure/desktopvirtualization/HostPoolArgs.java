@@ -65,7 +65,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
+     * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
      * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
      * `Persistent` should be used if the host pool type is `Personal`
      * 
@@ -74,7 +74,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> loadBalancerType;
 
     /**
-     * @return `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
+     * @return `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
      * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
      * `Persistent` should be used if the host pool type is `Personal`
      * 
@@ -352,7 +352,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerType `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
+         * @param loadBalancerType `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
          * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
          * `Persistent` should be used if the host pool type is `Personal`
          * 
@@ -365,7 +365,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerType `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
+         * @param loadBalancerType `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
          * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
          * `Persistent` should be used if the host pool type is `Personal`
          * 

@@ -2419,7 +2419,7 @@ class KubernetesClusterDefaultNodePool(dict):
         :param bool ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         :param 'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs' upgrade_settings: A `upgrade_settings` block as documented below.
         :param str vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
-        :param str workload_runtime: Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+        :param str workload_runtime: Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
         :param Sequence[str] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
         """
         pulumi.set(__self__, "name", name)
@@ -2779,7 +2779,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="workloadRuntime")
     def workload_runtime(self) -> Optional[str]:
         """
-        Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+        Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
         """
         return pulumi.get(self, "workload_runtime")
 
@@ -8723,12 +8723,15 @@ class GetKubernetesClusterNetworkProfileResult(dict):
 class GetKubernetesClusterOmsAgentResult(dict):
     def __init__(__self__, *,
                  log_analytics_workspace_id: str,
+                 msi_auth_for_monitoring_enabled: bool,
                  oms_agent_identities: Sequence['outputs.GetKubernetesClusterOmsAgentOmsAgentIdentityResult']):
         """
         :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace to which the OMS Agent should send data.
+        :param bool msi_auth_for_monitoring_enabled: Is managed identity authentication for monitoring enabled?
         :param Sequence['GetKubernetesClusterOmsAgentOmsAgentIdentityArgs'] oms_agent_identities: An `oms_agent_identity` block as defined below.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "msi_auth_for_monitoring_enabled", msi_auth_for_monitoring_enabled)
         pulumi.set(__self__, "oms_agent_identities", oms_agent_identities)
 
     @property
@@ -8738,6 +8741,14 @@ class GetKubernetesClusterOmsAgentResult(dict):
         The ID of the Log Analytics Workspace to which the OMS Agent should send data.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
+
+    @property
+    @pulumi.getter(name="msiAuthForMonitoringEnabled")
+    def msi_auth_for_monitoring_enabled(self) -> bool:
+        """
+        Is managed identity authentication for monitoring enabled?
+        """
+        return pulumi.get(self, "msi_auth_for_monitoring_enabled")
 
     @property
     @pulumi.getter(name="omsAgentIdentities")

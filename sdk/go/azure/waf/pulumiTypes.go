@@ -144,13 +144,13 @@ func (o PolicyCustomRuleArrayOutput) Index(i pulumi.IntInput) PolicyCustomRuleOu
 }
 
 type PolicyCustomRuleMatchCondition struct {
-	// A list of match values.
+	// A list of match values. This is **Required** when the `operator` is not `Any`.
 	MatchValues []string `pulumi:"matchValues"`
 	// One or more `matchVariables` blocks as defined below.
 	MatchVariables []PolicyCustomRuleMatchConditionMatchVariable `pulumi:"matchVariables"`
 	// Describes if this is negate condition or not
 	NegationCondition *bool `pulumi:"negationCondition"`
-	// Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+	// Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
 	Operator string `pulumi:"operator"`
 	// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
 	Transforms []string `pulumi:"transforms"`
@@ -168,13 +168,13 @@ type PolicyCustomRuleMatchConditionInput interface {
 }
 
 type PolicyCustomRuleMatchConditionArgs struct {
-	// A list of match values.
+	// A list of match values. This is **Required** when the `operator` is not `Any`.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// One or more `matchVariables` blocks as defined below.
 	MatchVariables PolicyCustomRuleMatchConditionMatchVariableArrayInput `pulumi:"matchVariables"`
 	// Describes if this is negate condition or not
 	NegationCondition pulumi.BoolPtrInput `pulumi:"negationCondition"`
-	// Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+	// Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
@@ -231,7 +231,7 @@ func (o PolicyCustomRuleMatchConditionOutput) ToPolicyCustomRuleMatchConditionOu
 	return o
 }
 
-// A list of match values.
+// A list of match values. This is **Required** when the `operator` is not `Any`.
 func (o PolicyCustomRuleMatchConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
@@ -248,7 +248,7 @@ func (o PolicyCustomRuleMatchConditionOutput) NegationCondition() pulumi.BoolPtr
 	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) *bool { return v.NegationCondition }).(pulumi.BoolPtrOutput)
 }
 
-// Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+// Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
 func (o PolicyCustomRuleMatchConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyCustomRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
 }

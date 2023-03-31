@@ -741,6 +741,7 @@ class Workspace(pulumi.CustomResource):
                 "Get",
                 "Delete",
                 "Purge",
+                "GetRotationPolicy",
             ])
         example_account = azure.storage.Account("exampleAccount",
             location=example_resource_group.location,
@@ -835,6 +836,7 @@ class Workspace(pulumi.CustomResource):
                 "Recover",
                 "Delete",
                 "Purge",
+                "GetRotationPolicy",
             ])
         test = azuread.get_service_principal(display_name="Azure Cosmos DB")
         example_cosmosdb = azure.keyvault.AccessPolicy("example-cosmosdb",
@@ -1007,6 +1009,7 @@ class Workspace(pulumi.CustomResource):
                 "Get",
                 "Delete",
                 "Purge",
+                "GetRotationPolicy",
             ])
         example_account = azure.storage.Account("exampleAccount",
             location=example_resource_group.location,
@@ -1101,6 +1104,7 @@ class Workspace(pulumi.CustomResource):
                 "Recover",
                 "Delete",
                 "Purge",
+                "GetRotationPolicy",
             ])
         test = azuread.get_service_principal(display_name="Azure Cosmos DB")
         example_cosmosdb = azure.keyvault.AccessPolicy("example-cosmosdb",

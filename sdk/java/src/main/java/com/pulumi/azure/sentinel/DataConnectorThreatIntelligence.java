@@ -28,9 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
- * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
  * import com.pulumi.azure.sentinel.DataConnectorThreatIntelligence;
  * import com.pulumi.azure.sentinel.DataConnectorThreatIntelligenceArgs;
  * import java.util.List;
@@ -56,20 +55,12 @@ import javax.annotation.Nullable;
  *             .sku(&#34;PerGB2018&#34;)
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution(&#34;exampleAnalyticsSolution&#34;, AnalyticsSolutionArgs.builder()        
- *             .solutionName(&#34;SecurityInsights&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
- *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/SecurityInsights&#34;)
- *                 .build())
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
  *         var exampleDataConnectorThreatIntelligence = new DataConnectorThreatIntelligence(&#34;exampleDataConnectorThreatIntelligence&#34;, DataConnectorThreatIntelligenceArgs.builder()        
- *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
+ *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
  *             .build());
  * 
  *     }
@@ -91,7 +82,7 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
      * The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -105,7 +96,7 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
      * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
      * 
      */
-    @Export(name="lookbackDate", type=String.class, parameters={})
+    @Export(name="lookbackDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lookbackDate;
 
     /**
@@ -119,7 +110,7 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
      * The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -133,7 +124,7 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
      * The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

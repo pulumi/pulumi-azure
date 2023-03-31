@@ -95,7 +95,8 @@ import javax.annotation.Nullable;
  *                 &#34;Create&#34;,
  *                 &#34;Get&#34;,
  *                 &#34;Delete&#34;,
- *                 &#34;Purge&#34;)
+ *                 &#34;Purge&#34;,
+ *                 &#34;GetRotationPolicy&#34;)
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
@@ -163,7 +164,7 @@ public class WorkspaceKey extends com.pulumi.resources.CustomResource {
      * Specifies if the workspace should be encrypted with this key.
      * 
      */
-    @Export(name="active", type=Boolean.class, parameters={})
+    @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> active;
 
     /**
@@ -177,7 +178,7 @@ public class WorkspaceKey extends com.pulumi.resources.CustomResource {
      * Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
      * 
      */
-    @Export(name="customerManagedKeyName", type=String.class, parameters={})
+    @Export(name="customerManagedKeyName", refs={String.class}, tree="[0]")
     private Output<String> customerManagedKeyName;
 
     /**
@@ -191,7 +192,7 @@ public class WorkspaceKey extends com.pulumi.resources.CustomResource {
      * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
      * 
      */
-    @Export(name="customerManagedKeyVersionlessId", type=String.class, parameters={})
+    @Export(name="customerManagedKeyVersionlessId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerManagedKeyVersionlessId;
 
     /**
@@ -205,7 +206,7 @@ public class WorkspaceKey extends com.pulumi.resources.CustomResource {
      * The ID of the Synapse Workspace where the encryption key should be configured.
      * 
      */
-    @Export(name="synapseWorkspaceId", type=String.class, parameters={})
+    @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> synapseWorkspaceId;
 
     /**

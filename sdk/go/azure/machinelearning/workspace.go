@@ -140,6 +140,7 @@ import (
 //					pulumi.String("Get"),
 //					pulumi.String("Delete"),
 //					pulumi.String("Purge"),
+//					pulumi.String("GetRotationPolicy"),
 //				},
 //			})
 //			if err != nil {
@@ -294,6 +295,7 @@ import (
 //					pulumi.String("Recover"),
 //					pulumi.String("Delete"),
 //					pulumi.String("Purge"),
+//					pulumi.String("GetRotationPolicy"),
 //				},
 //			})
 //			if err != nil {

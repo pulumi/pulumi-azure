@@ -115,7 +115,7 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", type=String.class, parameters={})
+    @Export(name="accountName", refs={String.class}, tree="[0]")
     private Output<String> accountName;
 
     /**
@@ -129,7 +129,7 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * Sets a daily snapshot schedule. See details in below `daily_schedule` block.
      * 
      */
-    @Export(name="dailySchedule", type=SnapshotPolicyDailySchedule.class, parameters={})
+    @Export(name="dailySchedule", refs={SnapshotPolicyDailySchedule.class}, tree="[0]")
     private Output<SnapshotPolicyDailySchedule> dailySchedule;
 
     /**
@@ -143,7 +143,7 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * Defines that the NetApp Snapshot Policy is enabled or not.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -157,7 +157,7 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * Sets an hourly snapshot schedule. See details in below `hourly_schedule` block.
      * 
      */
-    @Export(name="hourlySchedule", type=SnapshotPolicyHourlySchedule.class, parameters={})
+    @Export(name="hourlySchedule", refs={SnapshotPolicyHourlySchedule.class}, tree="[0]")
     private Output<SnapshotPolicyHourlySchedule> hourlySchedule;
 
     /**
@@ -171,7 +171,7 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -185,7 +185,7 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * Sets a monthly snapshot schedule. See details in below `monthly_schedule` block.
      * 
      */
-    @Export(name="monthlySchedule", type=SnapshotPolicyMonthlySchedule.class, parameters={})
+    @Export(name="monthlySchedule", refs={SnapshotPolicyMonthlySchedule.class}, tree="[0]")
     private Output<SnapshotPolicyMonthlySchedule> monthlySchedule;
 
     /**
@@ -199,7 +199,7 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -213,7 +213,7 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -227,7 +227,7 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -241,7 +241,7 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * Sets a weekly snapshot schedule. See details in below `weekly_schedule` block.
      * 
      */
-    @Export(name="weeklySchedule", type=SnapshotPolicyWeeklySchedule.class, parameters={})
+    @Export(name="weeklySchedule", refs={SnapshotPolicyWeeklySchedule.class}, tree="[0]")
     private Output<SnapshotPolicyWeeklySchedule> weeklySchedule;
 
     /**

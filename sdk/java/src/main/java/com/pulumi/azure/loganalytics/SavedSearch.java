@@ -82,7 +82,7 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
      * The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="category", type=String.class, parameters={})
+    @Export(name="category", refs={String.class}, tree="[0]")
     private Output<String> category;
 
     /**
@@ -96,7 +96,7 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
      * The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -110,7 +110,7 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
      * The function alias if the query serves as a function. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="functionAlias", type=String.class, parameters={})
+    @Export(name="functionAlias", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> functionAlias;
 
     /**
@@ -124,7 +124,7 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
      * The function parameters if the query serves as a function. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="functionParameters", type=List.class, parameters={String.class})
+    @Export(name="functionParameters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> functionParameters;
 
     /**
@@ -138,7 +138,7 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -152,7 +152,7 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -166,7 +166,7 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
      * The query expression for the saved search. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="query", type=String.class, parameters={})
+    @Export(name="query", refs={String.class}, tree="[0]")
     private Output<String> query;
 
     /**
@@ -180,7 +180,7 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

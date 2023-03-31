@@ -129,7 +129,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
      */
-    @Export(name="administratorLogin", type=String.class, parameters={})
+    @Export(name="administratorLogin", refs={String.class}, tree="[0]")
     private Output<String> administratorLogin;
 
     /**
@@ -143,7 +143,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
      */
-    @Export(name="administratorPassword", type=String.class, parameters={})
+    @Export(name="administratorPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> administratorPassword;
 
     /**
@@ -157,7 +157,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * An `authentication` block as defined below.
      * 
      */
-    @Export(name="authentication", type=FlexibleServerAuthentication.class, parameters={})
+    @Export(name="authentication", refs={FlexibleServerAuthentication.class}, tree="[0]")
     private Output<FlexibleServerAuthentication> authentication;
 
     /**
@@ -171,7 +171,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      * 
      */
-    @Export(name="backupRetentionDays", type=Integer.class, parameters={})
+    @Export(name="backupRetentionDays", refs={Integer.class}, tree="[0]")
     private Output<Integer> backupRetentionDays;
 
     /**
@@ -185,7 +185,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
-    @Export(name="createMode", type=String.class, parameters={})
+    @Export(name="createMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> createMode;
 
     /**
@@ -199,7 +199,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="customerManagedKey", type=FlexibleServerCustomerManagedKey.class, parameters={})
+    @Export(name="customerManagedKey", refs={FlexibleServerCustomerManagedKey.class}, tree="[0]")
     private Output</* @Nullable */ FlexibleServerCustomerManagedKey> customerManagedKey;
 
     /**
@@ -213,7 +213,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
-    @Export(name="delegatedSubnetId", type=String.class, parameters={})
+    @Export(name="delegatedSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> delegatedSubnetId;
 
     /**
@@ -227,7 +227,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The FQDN of the PostgreSQL Flexible Server.
      * 
      */
-    @Export(name="fqdn", type=String.class, parameters={})
+    @Export(name="fqdn", refs={String.class}, tree="[0]")
     private Output<String> fqdn;
 
     /**
@@ -241,7 +241,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
-    @Export(name="geoRedundantBackupEnabled", type=Boolean.class, parameters={})
+    @Export(name="geoRedundantBackupEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> geoRedundantBackupEnabled;
 
     /**
@@ -255,7 +255,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * A `high_availability` block as defined below.
      * 
      */
-    @Export(name="highAvailability", type=FlexibleServerHighAvailability.class, parameters={})
+    @Export(name="highAvailability", refs={FlexibleServerHighAvailability.class}, tree="[0]")
     private Output</* @Nullable */ FlexibleServerHighAvailability> highAvailability;
 
     /**
@@ -269,7 +269,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=FlexibleServerIdentity.class, parameters={})
+    @Export(name="identity", refs={FlexibleServerIdentity.class}, tree="[0]")
     private Output</* @Nullable */ FlexibleServerIdentity> identity;
 
     /**
@@ -283,7 +283,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -297,7 +297,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * A `maintenance_window` block as defined below.
      * 
      */
-    @Export(name="maintenanceWindow", type=FlexibleServerMaintenanceWindow.class, parameters={})
+    @Export(name="maintenanceWindow", refs={FlexibleServerMaintenanceWindow.class}, tree="[0]")
     private Output</* @Nullable */ FlexibleServerMaintenanceWindow> maintenanceWindow;
 
     /**
@@ -311,7 +311,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -325,7 +325,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The point in time to restore from `source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
-    @Export(name="pointInTimeRestoreTimeInUtc", type=String.class, parameters={})
+    @Export(name="pointInTimeRestoreTimeInUtc", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pointInTimeRestoreTimeInUtc;
 
     /**
@@ -339,7 +339,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
-    @Export(name="privateDnsZoneId", type=String.class, parameters={})
+    @Export(name="privateDnsZoneId", refs={String.class}, tree="[0]")
     private Output<String> privateDnsZoneId;
 
     /**
@@ -353,7 +353,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * Is public network access enabled?
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -367,7 +367,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
      * 
      */
-    @Export(name="replicationRole", type=String.class, parameters={})
+    @Export(name="replicationRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> replicationRole;
 
     /**
@@ -381,7 +381,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -395,7 +395,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -409,7 +409,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
-    @Export(name="sourceServerId", type=String.class, parameters={})
+    @Export(name="sourceServerId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceServerId;
 
     /**
@@ -423,7 +423,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
      * 
      */
-    @Export(name="storageMb", type=Integer.class, parameters={})
+    @Export(name="storageMb", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageMb;
 
     /**
@@ -437,7 +437,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -451,7 +451,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
@@ -465,7 +465,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      * Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
      * 
      */
-    @Export(name="zone", type=String.class, parameters={})
+    @Export(name="zone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zone;
 
     /**

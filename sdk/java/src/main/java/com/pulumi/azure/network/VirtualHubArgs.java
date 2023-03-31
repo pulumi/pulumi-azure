@@ -34,6 +34,21 @@ public final class VirtualHubArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+     * 
+     */
+    @Import(name="hubRoutingPreference")
+    private @Nullable Output<String> hubRoutingPreference;
+
+    /**
+     * @return The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+     * 
+     */
+    public Optional<Output<String>> hubRoutingPreference() {
+        return Optional.ofNullable(this.hubRoutingPreference);
+    }
+
+    /**
      * Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -142,6 +157,7 @@ public final class VirtualHubArgs extends com.pulumi.resources.ResourceArgs {
 
     private VirtualHubArgs(VirtualHubArgs $) {
         this.addressPrefix = $.addressPrefix;
+        this.hubRoutingPreference = $.hubRoutingPreference;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -188,6 +204,27 @@ public final class VirtualHubArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder addressPrefix(String addressPrefix) {
             return addressPrefix(Output.of(addressPrefix));
+        }
+
+        /**
+         * @param hubRoutingPreference The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hubRoutingPreference(@Nullable Output<String> hubRoutingPreference) {
+            $.hubRoutingPreference = hubRoutingPreference;
+            return this;
+        }
+
+        /**
+         * @param hubRoutingPreference The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hubRoutingPreference(String hubRoutingPreference) {
+            return hubRoutingPreference(Output.of(hubRoutingPreference));
         }
 
         /**

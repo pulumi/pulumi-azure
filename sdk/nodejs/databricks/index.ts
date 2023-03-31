@@ -20,6 +20,11 @@ export const getWorkspacePrivateEndpointConnection: typeof import("./getWorkspac
 export const getWorkspacePrivateEndpointConnectionOutput: typeof import("./getWorkspacePrivateEndpointConnection").getWorkspacePrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspacePrivateEndpointConnection","getWorkspacePrivateEndpointConnectionOutput"], () => require("./getWorkspacePrivateEndpointConnection"));
 
+export { VirtualNetworkPeeringArgs, VirtualNetworkPeeringState } from "./virtualNetworkPeering";
+export type VirtualNetworkPeering = import("./virtualNetworkPeering").VirtualNetworkPeering;
+export const VirtualNetworkPeering: typeof import("./virtualNetworkPeering").VirtualNetworkPeering = null as any;
+utilities.lazyLoad(exports, ["VirtualNetworkPeering"], () => require("./virtualNetworkPeering"));
+
 export { WorkspaceArgs, WorkspaceState } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
@@ -37,6 +42,8 @@ const _module = {
         switch (type) {
             case "azure:databricks/accessConnector:AccessConnector":
                 return new AccessConnector(name, <any>undefined, { urn })
+            case "azure:databricks/virtualNetworkPeering:VirtualNetworkPeering":
+                return new VirtualNetworkPeering(name, <any>undefined, { urn })
             case "azure:databricks/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             case "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey":
@@ -47,5 +54,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "databricks/accessConnector", _module)
+pulumi.runtime.registerResourceModule("azure", "databricks/virtualNetworkPeering", _module)
 pulumi.runtime.registerResourceModule("azure", "databricks/workspace", _module)
 pulumi.runtime.registerResourceModule("azure", "databricks/workspaceCustomerManagedKey", _module)

@@ -151,7 +151,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
      * 
      */
-    @Export(name="accessTier", type=String.class, parameters={})
+    @Export(name="accessTier", refs={String.class}, tree="[0]")
     private Output<String> accessTier;
 
     /**
@@ -165,7 +165,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
      * 
      */
-    @Export(name="accountKind", type=String.class, parameters={})
+    @Export(name="accountKind", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountKind;
 
     /**
@@ -179,7 +179,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
      * 
      */
-    @Export(name="accountReplicationType", type=String.class, parameters={})
+    @Export(name="accountReplicationType", refs={String.class}, tree="[0]")
     private Output<String> accountReplicationType;
 
     /**
@@ -193,7 +193,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountTier", type=String.class, parameters={})
+    @Export(name="accountTier", refs={String.class}, tree="[0]")
     private Output<String> accountTier;
 
     /**
@@ -207,7 +207,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
      * 
      */
-    @Export(name="allowNestedItemsToBePublic", type=Boolean.class, parameters={})
+    @Export(name="allowNestedItemsToBePublic", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowNestedItemsToBePublic;
 
     /**
@@ -221,7 +221,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
      * 
      */
-    @Export(name="allowedCopyScope", type=String.class, parameters={})
+    @Export(name="allowedCopyScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowedCopyScope;
 
     /**
@@ -235,7 +235,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `azure_files_authentication` block as defined below.
      * 
      */
-    @Export(name="azureFilesAuthentication", type=AccountAzureFilesAuthentication.class, parameters={})
+    @Export(name="azureFilesAuthentication", refs={AccountAzureFilesAuthentication.class}, tree="[0]")
     private Output</* @Nullable */ AccountAzureFilesAuthentication> azureFilesAuthentication;
 
     /**
@@ -249,7 +249,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `blob_properties` block as defined below.
      * 
      */
-    @Export(name="blobProperties", type=AccountBlobProperties.class, parameters={})
+    @Export(name="blobProperties", refs={AccountBlobProperties.class}, tree="[0]")
     private Output<AccountBlobProperties> blobProperties;
 
     /**
@@ -263,7 +263,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Should cross Tenant replication be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="crossTenantReplicationEnabled", type=Boolean.class, parameters={})
+    @Export(name="crossTenantReplicationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> crossTenantReplicationEnabled;
 
     /**
@@ -277,7 +277,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `custom_domain` block as documented below.
      * 
      */
-    @Export(name="customDomain", type=AccountCustomDomain.class, parameters={})
+    @Export(name="customDomain", refs={AccountCustomDomain.class}, tree="[0]")
     private Output</* @Nullable */ AccountCustomDomain> customDomain;
 
     /**
@@ -291,7 +291,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `customer_managed_key` block as documented below.
      * 
      */
-    @Export(name="customerManagedKey", type=AccountCustomerManagedKey.class, parameters={})
+    @Export(name="customerManagedKey", refs={AccountCustomerManagedKey.class}, tree="[0]")
     private Output</* @Nullable */ AccountCustomerManagedKey> customerManagedKey;
 
     /**
@@ -305,7 +305,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
      * 
      */
-    @Export(name="defaultToOauthAuthentication", type=Boolean.class, parameters={})
+    @Export(name="defaultToOauthAuthentication", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> defaultToOauthAuthentication;
 
     /**
@@ -319,7 +319,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      * 
      */
-    @Export(name="edgeZone", type=String.class, parameters={})
+    @Export(name="edgeZone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> edgeZone;
 
     /**
@@ -333,7 +333,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      * 
      */
-    @Export(name="enableHttpsTrafficOnly", type=Boolean.class, parameters={})
+    @Export(name="enableHttpsTrafficOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableHttpsTrafficOnly;
 
     /**
@@ -347,7 +347,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=AccountIdentity.class, parameters={})
+    @Export(name="identity", refs={AccountIdentity.class}, tree="[0]")
     private Output</* @Nullable */ AccountIdentity> identity;
 
     /**
@@ -361,7 +361,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="immutabilityPolicy", type=AccountImmutabilityPolicy.class, parameters={})
+    @Export(name="immutabilityPolicy", refs={AccountImmutabilityPolicy.class}, tree="[0]")
     private Output</* @Nullable */ AccountImmutabilityPolicy> immutabilityPolicy;
 
     /**
@@ -375,7 +375,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
-    @Export(name="infrastructureEncryptionEnabled", type=Boolean.class, parameters={})
+    @Export(name="infrastructureEncryptionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> infrastructureEncryptionEnabled;
 
     /**
@@ -389,7 +389,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="isHnsEnabled", type=Boolean.class, parameters={})
+    @Export(name="isHnsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isHnsEnabled;
 
     /**
@@ -403,7 +403,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Is Large File Share Enabled?
      * 
      */
-    @Export(name="largeFileShareEnabled", type=Boolean.class, parameters={})
+    @Export(name="largeFileShareEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> largeFileShareEnabled;
 
     /**
@@ -417,7 +417,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -431,7 +431,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      * 
      */
-    @Export(name="minTlsVersion", type=String.class, parameters={})
+    @Export(name="minTlsVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> minTlsVersion;
 
     /**
@@ -445,7 +445,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -459,7 +459,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `network_rules` block as documented below.
      * 
      */
-    @Export(name="networkRules", type=AccountNetworkRules.class, parameters={})
+    @Export(name="networkRules", refs={AccountNetworkRules.class}, tree="[0]")
     private Output<AccountNetworkRules> networkRules;
 
     /**
@@ -473,7 +473,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
-    @Export(name="nfsv3Enabled", type=Boolean.class, parameters={})
+    @Export(name="nfsv3Enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> nfsv3Enabled;
 
     /**
@@ -487,7 +487,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The primary access key for the storage account.
      * 
      */
-    @Export(name="primaryAccessKey", type=String.class, parameters={})
+    @Export(name="primaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> primaryAccessKey;
 
     /**
@@ -501,7 +501,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The connection string associated with the primary blob location.
      * 
      */
-    @Export(name="primaryBlobConnectionString", type=String.class, parameters={})
+    @Export(name="primaryBlobConnectionString", refs={String.class}, tree="[0]")
     private Output<String> primaryBlobConnectionString;
 
     /**
@@ -515,7 +515,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The endpoint URL for blob storage in the primary location.
      * 
      */
-    @Export(name="primaryBlobEndpoint", type=String.class, parameters={})
+    @Export(name="primaryBlobEndpoint", refs={String.class}, tree="[0]")
     private Output<String> primaryBlobEndpoint;
 
     /**
@@ -529,7 +529,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The hostname with port if applicable for blob storage in the primary location.
      * 
      */
-    @Export(name="primaryBlobHost", type=String.class, parameters={})
+    @Export(name="primaryBlobHost", refs={String.class}, tree="[0]")
     private Output<String> primaryBlobHost;
 
     /**
@@ -543,7 +543,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The connection string associated with the primary location.
      * 
      */
-    @Export(name="primaryConnectionString", type=String.class, parameters={})
+    @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> primaryConnectionString;
 
     /**
@@ -557,7 +557,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The endpoint URL for DFS storage in the primary location.
      * 
      */
-    @Export(name="primaryDfsEndpoint", type=String.class, parameters={})
+    @Export(name="primaryDfsEndpoint", refs={String.class}, tree="[0]")
     private Output<String> primaryDfsEndpoint;
 
     /**
@@ -571,7 +571,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The hostname with port if applicable for DFS storage in the primary location.
      * 
      */
-    @Export(name="primaryDfsHost", type=String.class, parameters={})
+    @Export(name="primaryDfsHost", refs={String.class}, tree="[0]")
     private Output<String> primaryDfsHost;
 
     /**
@@ -585,7 +585,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The endpoint URL for file storage in the primary location.
      * 
      */
-    @Export(name="primaryFileEndpoint", type=String.class, parameters={})
+    @Export(name="primaryFileEndpoint", refs={String.class}, tree="[0]")
     private Output<String> primaryFileEndpoint;
 
     /**
@@ -599,7 +599,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The hostname with port if applicable for file storage in the primary location.
      * 
      */
-    @Export(name="primaryFileHost", type=String.class, parameters={})
+    @Export(name="primaryFileHost", refs={String.class}, tree="[0]")
     private Output<String> primaryFileHost;
 
     /**
@@ -613,7 +613,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The primary location of the storage account.
      * 
      */
-    @Export(name="primaryLocation", type=String.class, parameters={})
+    @Export(name="primaryLocation", refs={String.class}, tree="[0]")
     private Output<String> primaryLocation;
 
     /**
@@ -627,7 +627,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The endpoint URL for queue storage in the primary location.
      * 
      */
-    @Export(name="primaryQueueEndpoint", type=String.class, parameters={})
+    @Export(name="primaryQueueEndpoint", refs={String.class}, tree="[0]")
     private Output<String> primaryQueueEndpoint;
 
     /**
@@ -641,7 +641,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The hostname with port if applicable for queue storage in the primary location.
      * 
      */
-    @Export(name="primaryQueueHost", type=String.class, parameters={})
+    @Export(name="primaryQueueHost", refs={String.class}, tree="[0]")
     private Output<String> primaryQueueHost;
 
     /**
@@ -655,7 +655,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The endpoint URL for table storage in the primary location.
      * 
      */
-    @Export(name="primaryTableEndpoint", type=String.class, parameters={})
+    @Export(name="primaryTableEndpoint", refs={String.class}, tree="[0]")
     private Output<String> primaryTableEndpoint;
 
     /**
@@ -669,7 +669,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The hostname with port if applicable for table storage in the primary location.
      * 
      */
-    @Export(name="primaryTableHost", type=String.class, parameters={})
+    @Export(name="primaryTableHost", refs={String.class}, tree="[0]")
     private Output<String> primaryTableHost;
 
     /**
@@ -683,7 +683,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The endpoint URL for web storage in the primary location.
      * 
      */
-    @Export(name="primaryWebEndpoint", type=String.class, parameters={})
+    @Export(name="primaryWebEndpoint", refs={String.class}, tree="[0]")
     private Output<String> primaryWebEndpoint;
 
     /**
@@ -697,7 +697,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The hostname with port if applicable for web storage in the primary location.
      * 
      */
-    @Export(name="primaryWebHost", type=String.class, parameters={})
+    @Export(name="primaryWebHost", refs={String.class}, tree="[0]")
     private Output<String> primaryWebHost;
 
     /**
@@ -711,7 +711,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Whether the public network access is enabled? Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -725,7 +725,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      * 
      */
-    @Export(name="queueEncryptionKeyType", type=String.class, parameters={})
+    @Export(name="queueEncryptionKeyType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> queueEncryptionKeyType;
 
     /**
@@ -739,7 +739,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `queue_properties` block as defined below.
      * 
      */
-    @Export(name="queueProperties", type=AccountQueueProperties.class, parameters={})
+    @Export(name="queueProperties", refs={AccountQueueProperties.class}, tree="[0]")
     private Output<AccountQueueProperties> queueProperties;
 
     /**
@@ -753,7 +753,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -767,7 +767,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `routing` block as defined below.
      * 
      */
-    @Export(name="routing", type=AccountRouting.class, parameters={})
+    @Export(name="routing", refs={AccountRouting.class}, tree="[0]")
     private Output<AccountRouting> routing;
 
     /**
@@ -781,7 +781,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `sas_policy` block as defined below.
      * 
      */
-    @Export(name="sasPolicy", type=AccountSasPolicy.class, parameters={})
+    @Export(name="sasPolicy", refs={AccountSasPolicy.class}, tree="[0]")
     private Output</* @Nullable */ AccountSasPolicy> sasPolicy;
 
     /**
@@ -795,7 +795,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The secondary access key for the storage account.
      * 
      */
-    @Export(name="secondaryAccessKey", type=String.class, parameters={})
+    @Export(name="secondaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> secondaryAccessKey;
 
     /**
@@ -809,7 +809,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The connection string associated with the secondary blob location.
      * 
      */
-    @Export(name="secondaryBlobConnectionString", type=String.class, parameters={})
+    @Export(name="secondaryBlobConnectionString", refs={String.class}, tree="[0]")
     private Output<String> secondaryBlobConnectionString;
 
     /**
@@ -823,7 +823,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The endpoint URL for blob storage in the secondary location.
      * 
      */
-    @Export(name="secondaryBlobEndpoint", type=String.class, parameters={})
+    @Export(name="secondaryBlobEndpoint", refs={String.class}, tree="[0]")
     private Output<String> secondaryBlobEndpoint;
 
     /**
@@ -837,7 +837,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The hostname with port if applicable for blob storage in the secondary location.
      * 
      */
-    @Export(name="secondaryBlobHost", type=String.class, parameters={})
+    @Export(name="secondaryBlobHost", refs={String.class}, tree="[0]")
     private Output<String> secondaryBlobHost;
 
     /**
@@ -851,7 +851,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The connection string associated with the secondary location.
      * 
      */
-    @Export(name="secondaryConnectionString", type=String.class, parameters={})
+    @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> secondaryConnectionString;
 
     /**
@@ -865,7 +865,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The endpoint URL for DFS storage in the secondary location.
      * 
      */
-    @Export(name="secondaryDfsEndpoint", type=String.class, parameters={})
+    @Export(name="secondaryDfsEndpoint", refs={String.class}, tree="[0]")
     private Output<String> secondaryDfsEndpoint;
 
     /**
@@ -879,7 +879,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The hostname with port if applicable for DFS storage in the secondary location.
      * 
      */
-    @Export(name="secondaryDfsHost", type=String.class, parameters={})
+    @Export(name="secondaryDfsHost", refs={String.class}, tree="[0]")
     private Output<String> secondaryDfsHost;
 
     /**
@@ -893,7 +893,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The endpoint URL for file storage in the secondary location.
      * 
      */
-    @Export(name="secondaryFileEndpoint", type=String.class, parameters={})
+    @Export(name="secondaryFileEndpoint", refs={String.class}, tree="[0]")
     private Output<String> secondaryFileEndpoint;
 
     /**
@@ -907,7 +907,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The hostname with port if applicable for file storage in the secondary location.
      * 
      */
-    @Export(name="secondaryFileHost", type=String.class, parameters={})
+    @Export(name="secondaryFileHost", refs={String.class}, tree="[0]")
     private Output<String> secondaryFileHost;
 
     /**
@@ -921,7 +921,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The secondary location of the storage account.
      * 
      */
-    @Export(name="secondaryLocation", type=String.class, parameters={})
+    @Export(name="secondaryLocation", refs={String.class}, tree="[0]")
     private Output<String> secondaryLocation;
 
     /**
@@ -935,7 +935,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The endpoint URL for queue storage in the secondary location.
      * 
      */
-    @Export(name="secondaryQueueEndpoint", type=String.class, parameters={})
+    @Export(name="secondaryQueueEndpoint", refs={String.class}, tree="[0]")
     private Output<String> secondaryQueueEndpoint;
 
     /**
@@ -949,7 +949,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The hostname with port if applicable for queue storage in the secondary location.
      * 
      */
-    @Export(name="secondaryQueueHost", type=String.class, parameters={})
+    @Export(name="secondaryQueueHost", refs={String.class}, tree="[0]")
     private Output<String> secondaryQueueHost;
 
     /**
@@ -963,7 +963,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The endpoint URL for table storage in the secondary location.
      * 
      */
-    @Export(name="secondaryTableEndpoint", type=String.class, parameters={})
+    @Export(name="secondaryTableEndpoint", refs={String.class}, tree="[0]")
     private Output<String> secondaryTableEndpoint;
 
     /**
@@ -977,7 +977,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The hostname with port if applicable for table storage in the secondary location.
      * 
      */
-    @Export(name="secondaryTableHost", type=String.class, parameters={})
+    @Export(name="secondaryTableHost", refs={String.class}, tree="[0]")
     private Output<String> secondaryTableHost;
 
     /**
@@ -991,7 +991,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The endpoint URL for web storage in the secondary location.
      * 
      */
-    @Export(name="secondaryWebEndpoint", type=String.class, parameters={})
+    @Export(name="secondaryWebEndpoint", refs={String.class}, tree="[0]")
     private Output<String> secondaryWebEndpoint;
 
     /**
@@ -1005,7 +1005,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The hostname with port if applicable for web storage in the secondary location.
      * 
      */
-    @Export(name="secondaryWebHost", type=String.class, parameters={})
+    @Export(name="secondaryWebHost", refs={String.class}, tree="[0]")
     private Output<String> secondaryWebHost;
 
     /**
@@ -1019,7 +1019,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Boolean, enable SFTP for the storage account
      * 
      */
-    @Export(name="sftpEnabled", type=Boolean.class, parameters={})
+    @Export(name="sftpEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sftpEnabled;
 
     /**
@@ -1033,7 +1033,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `share_properties` block as defined below.
      * 
      */
-    @Export(name="shareProperties", type=AccountShareProperties.class, parameters={})
+    @Export(name="shareProperties", refs={AccountShareProperties.class}, tree="[0]")
     private Output<AccountShareProperties> shareProperties;
 
     /**
@@ -1047,7 +1047,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is `true`.
      * 
      */
-    @Export(name="sharedAccessKeyEnabled", type=Boolean.class, parameters={})
+    @Export(name="sharedAccessKeyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sharedAccessKeyEnabled;
 
     /**
@@ -1061,7 +1061,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `static_website` block as defined below.
      * 
      */
-    @Export(name="staticWebsite", type=AccountStaticWebsite.class, parameters={})
+    @Export(name="staticWebsite", refs={AccountStaticWebsite.class}, tree="[0]")
     private Output</* @Nullable */ AccountStaticWebsite> staticWebsite;
 
     /**
@@ -1075,7 +1075,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      * 
      */
-    @Export(name="tableEncryptionKeyType", type=String.class, parameters={})
+    @Export(name="tableEncryptionKeyType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tableEncryptionKeyType;
 
     /**
@@ -1089,7 +1089,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

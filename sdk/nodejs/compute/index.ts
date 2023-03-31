@@ -135,6 +135,11 @@ export const getManagedDisk: typeof import("./getManagedDisk").getManagedDisk = 
 export const getManagedDiskOutput: typeof import("./getManagedDisk").getManagedDiskOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedDisk","getManagedDiskOutput"], () => require("./getManagedDisk"));
 
+export { GetOrchestratedVirtualMachineScaleSetArgs, GetOrchestratedVirtualMachineScaleSetResult, GetOrchestratedVirtualMachineScaleSetOutputArgs } from "./getOrchestratedVirtualMachineScaleSet";
+export const getOrchestratedVirtualMachineScaleSet: typeof import("./getOrchestratedVirtualMachineScaleSet").getOrchestratedVirtualMachineScaleSet = null as any;
+export const getOrchestratedVirtualMachineScaleSetOutput: typeof import("./getOrchestratedVirtualMachineScaleSet").getOrchestratedVirtualMachineScaleSetOutput = null as any;
+utilities.lazyLoad(exports, ["getOrchestratedVirtualMachineScaleSet","getOrchestratedVirtualMachineScaleSetOutput"], () => require("./getOrchestratedVirtualMachineScaleSet"));
+
 export { GetPlatformImageArgs, GetPlatformImageResult, GetPlatformImageOutputArgs } from "./getPlatformImage";
 export const getPlatformImage: typeof import("./getPlatformImage").getPlatformImage = null as any;
 export const getPlatformImageOutput: typeof import("./getPlatformImage").getPlatformImageOutput = null as any;

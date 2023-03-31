@@ -131,7 +131,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The ID of the data source web app. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="appServiceId", type=String.class, parameters={})
+    @Export(name="appServiceId", refs={String.class}, tree="[0]")
     private Output<String> appServiceId;
 
     /**
@@ -145,7 +145,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The authentication info. An `authentication` block as defined below.
      * 
      */
-    @Export(name="authentication", type=ConnectionAuthentication.class, parameters={})
+    @Export(name="authentication", refs={ConnectionAuthentication.class}, tree="[0]")
     private Output<ConnectionAuthentication> authentication;
 
     /**
@@ -159,7 +159,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
      * 
      */
-    @Export(name="clientType", type=String.class, parameters={})
+    @Export(name="clientType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientType;
 
     /**
@@ -173,7 +173,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The name of the service connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -187,7 +187,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * An option to store secret value in secure place. An `secret_store` block as defined below.
      * 
      */
-    @Export(name="secretStore", type=ConnectionSecretStore.class, parameters={})
+    @Export(name="secretStore", refs={ConnectionSecretStore.class}, tree="[0]")
     private Output</* @Nullable */ ConnectionSecretStore> secretStore;
 
     /**
@@ -201,7 +201,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
      * 
      */
-    @Export(name="targetResourceId", type=String.class, parameters={})
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**
@@ -215,7 +215,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
      * 
      */
-    @Export(name="vnetSolution", type=String.class, parameters={})
+    @Export(name="vnetSolution", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vnetSolution;
 
     /**

@@ -35,7 +35,7 @@ public class VirtualNetworkGatewayNatRule extends com.pulumi.resources.CustomRes
      * One or more `external_mapping` blocks as documented below.
      * 
      */
-    @Export(name="externalMappings", type=List.class, parameters={VirtualNetworkGatewayNatRuleExternalMapping.class})
+    @Export(name="externalMappings", refs={List.class,VirtualNetworkGatewayNatRuleExternalMapping.class}, tree="[0,1]")
     private Output<List<VirtualNetworkGatewayNatRuleExternalMapping>> externalMappings;
 
     /**
@@ -49,7 +49,7 @@ public class VirtualNetworkGatewayNatRule extends com.pulumi.resources.CustomRes
      * One or more `internal_mapping` blocks as documented below.
      * 
      */
-    @Export(name="internalMappings", type=List.class, parameters={VirtualNetworkGatewayNatRuleInternalMapping.class})
+    @Export(name="internalMappings", refs={List.class,VirtualNetworkGatewayNatRuleInternalMapping.class}, tree="[0,1]")
     private Output<List<VirtualNetworkGatewayNatRuleInternalMapping>> internalMappings;
 
     /**
@@ -63,7 +63,7 @@ public class VirtualNetworkGatewayNatRule extends com.pulumi.resources.CustomRes
      * The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
      * 
      */
-    @Export(name="ipConfigurationId", type=String.class, parameters={})
+    @Export(name="ipConfigurationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipConfigurationId;
 
     /**
@@ -77,7 +77,7 @@ public class VirtualNetworkGatewayNatRule extends com.pulumi.resources.CustomRes
      * The source Nat direction of the Virtual Network Gateway Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="mode", type=String.class, parameters={})
+    @Export(name="mode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mode;
 
     /**
@@ -91,7 +91,7 @@ public class VirtualNetworkGatewayNatRule extends com.pulumi.resources.CustomRes
      * The name which should be used for this Virtual Network Gateway Nat Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -105,7 +105,7 @@ public class VirtualNetworkGatewayNatRule extends com.pulumi.resources.CustomRes
      * The Name of the Resource Group in which this Virtual Network Gateway Nat Rule should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -119,7 +119,7 @@ public class VirtualNetworkGatewayNatRule extends com.pulumi.resources.CustomRes
      * The type of the Virtual Network Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
@@ -133,7 +133,7 @@ public class VirtualNetworkGatewayNatRule extends com.pulumi.resources.CustomRes
      * The ID of the Virtual Network Gateway that this Virtual Network Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualNetworkGatewayId", type=String.class, parameters={})
+    @Export(name="virtualNetworkGatewayId", refs={String.class}, tree="[0]")
     private Output<String> virtualNetworkGatewayId;
 
     /**

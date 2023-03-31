@@ -34,6 +34,7 @@ import * as utilities from "../utilities";
  *             keyPermissions: [
  *                 "Create",
  *                 "Get",
+ *                 "GetRotationPolicy",
  *             ],
  *             secretPermissions: ["Set"],
  *         },

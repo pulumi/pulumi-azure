@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private Input<string>? _data;
 
         /// <summary>
-        /// PFX certificate. Required if `key_vault_secret_id` is not set.
+        /// The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
         /// </summary>
         public Input<string>? Data
         {

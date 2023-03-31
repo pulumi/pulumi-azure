@@ -79,7 +79,7 @@ public class LinkedServiceWeb extends com.pulumi.resources.CustomResource {
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -93,7 +93,7 @@ public class LinkedServiceWeb extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Data Factory Linked Service.
      * 
      */
-    @Export(name="annotations", type=List.class, parameters={String.class})
+    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -107,7 +107,7 @@ public class LinkedServiceWeb extends com.pulumi.resources.CustomResource {
      * The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
      * 
      */
-    @Export(name="authenticationType", type=String.class, parameters={})
+    @Export(name="authenticationType", refs={String.class}, tree="[0]")
     private Output<String> authenticationType;
 
     /**
@@ -121,7 +121,7 @@ public class LinkedServiceWeb extends com.pulumi.resources.CustomResource {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", type=String.class, parameters={})
+    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
@@ -135,7 +135,7 @@ public class LinkedServiceWeb extends com.pulumi.resources.CustomResource {
      * The description for the Data Factory Linked Service.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -149,7 +149,7 @@ public class LinkedServiceWeb extends com.pulumi.resources.CustomResource {
      * The integration runtime reference to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="integrationRuntimeName", type=String.class, parameters={})
+    @Export(name="integrationRuntimeName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integrationRuntimeName;
 
     /**
@@ -163,7 +163,7 @@ public class LinkedServiceWeb extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -177,7 +177,7 @@ public class LinkedServiceWeb extends com.pulumi.resources.CustomResource {
      * A map of parameters to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -191,7 +191,7 @@ public class LinkedServiceWeb extends com.pulumi.resources.CustomResource {
      * The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -205,7 +205,7 @@ public class LinkedServiceWeb extends com.pulumi.resources.CustomResource {
      * The URL of the web service endpoint (e.g. &lt;https://www.microsoft.com&gt;).
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
@@ -219,7 +219,7 @@ public class LinkedServiceWeb extends com.pulumi.resources.CustomResource {
      * The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**

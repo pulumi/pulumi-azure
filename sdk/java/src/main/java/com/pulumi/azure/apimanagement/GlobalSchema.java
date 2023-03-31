@@ -82,7 +82,7 @@ public class GlobalSchema extends com.pulumi.resources.CustomResource {
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", type=String.class, parameters={})
+    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
     private Output<String> apiManagementName;
 
     /**
@@ -96,7 +96,7 @@ public class GlobalSchema extends com.pulumi.resources.CustomResource {
      * The description of the schema.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -110,7 +110,7 @@ public class GlobalSchema extends com.pulumi.resources.CustomResource {
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -124,7 +124,7 @@ public class GlobalSchema extends com.pulumi.resources.CustomResource {
      * A unique identifier for this Schema. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="schemaId", type=String.class, parameters={})
+    @Export(name="schemaId", refs={String.class}, tree="[0]")
     private Output<String> schemaId;
 
     /**
@@ -138,7 +138,7 @@ public class GlobalSchema extends com.pulumi.resources.CustomResource {
      * The content type of the Schema. Possible values are `xml` and `json`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -152,7 +152,7 @@ public class GlobalSchema extends com.pulumi.resources.CustomResource {
      * The string defining the document representing the Schema.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

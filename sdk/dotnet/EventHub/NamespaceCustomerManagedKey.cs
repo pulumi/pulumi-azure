@@ -84,6 +84,7 @@ namespace Pulumi.Azure.EventHub
     ///             "List",
     ///             "Purge",
     ///             "Recover",
+    ///             "GetRotationPolicy",
     ///         },
     ///     });
     /// 

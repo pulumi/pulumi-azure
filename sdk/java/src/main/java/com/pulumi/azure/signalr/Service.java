@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.signalr.ServiceArgs;
 import com.pulumi.azure.signalr.inputs.ServiceState;
 import com.pulumi.azure.signalr.outputs.ServiceCor;
+import com.pulumi.azure.signalr.outputs.ServiceIdentity;
 import com.pulumi.azure.signalr.outputs.ServiceLiveTrace;
 import com.pulumi.azure.signalr.outputs.ServiceSku;
 import com.pulumi.azure.signalr.outputs.ServiceUpstreamEndpoint;
@@ -66,6 +67,7 @@ import javax.annotation.Nullable;
  *             .cors(ServiceCorArgs.builder()
  *                 .allowedOrigins(&#34;http://www.example.com&#34;)
  *                 .build())
+ *             .publicNetworkAccessEnabled(false)
  *             .connectivityLogsEnabled(true)
  *             .messagingLogsEnabled(true)
  *             .serviceMode(&#34;Default&#34;)
@@ -95,10 +97,24 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:signalr/service:Service")
 public class Service extends com.pulumi.resources.CustomResource {
     /**
+     * Whether to enable AAD auth? Defaults to `true`.
+     * 
+     */
+    @Export(name="aadAuthEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> aadAuthEnabled;
+
+    /**
+     * @return Whether to enable AAD auth? Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> aadAuthEnabled() {
+        return Codegen.optional(this.aadAuthEnabled);
+    }
+    /**
      * Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
      * 
      */
-    @Export(name="connectivityLogsEnabled", type=Boolean.class, parameters={})
+    @Export(name="connectivityLogsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> connectivityLogsEnabled;
 
     /**
@@ -112,7 +128,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `cors` block as documented below.
      * 
      */
-    @Export(name="cors", type=List.class, parameters={ServiceCor.class})
+    @Export(name="cors", refs={List.class,ServiceCor.class}, tree="[0,1]")
     private Output<List<ServiceCor>> cors;
 
     /**
@@ -126,7 +142,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The FQDN of the SignalR service.
      * 
      */
-    @Export(name="hostname", type=String.class, parameters={})
+    @Export(name="hostname", refs={String.class}, tree="[0]")
     private Output<String> hostname;
 
     /**
@@ -137,10 +153,24 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.hostname;
     }
     /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", refs={ServiceIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ ServiceIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<ServiceIdentity>> identity() {
+        return Codegen.optional(this.identity);
+    }
+    /**
      * The publicly accessible IP of the SignalR service.
      * 
      */
-    @Export(name="ipAddress", type=String.class, parameters={})
+    @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
@@ -154,7 +184,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `live_trace` block as defined below.
      * 
      */
-    @Export(name="liveTrace", type=ServiceLiveTrace.class, parameters={})
+    @Export(name="liveTrace", refs={ServiceLiveTrace.class}, tree="[0]")
     private Output</* @Nullable */ ServiceLiveTrace> liveTrace;
 
     /**
@@ -172,7 +202,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0. */
-    @Export(name="liveTraceEnabled", type=Boolean.class, parameters={})
+    @Export(name="liveTraceEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> liveTraceEnabled;
 
     /**
@@ -183,10 +213,24 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.liveTraceEnabled);
     }
     /**
+     * Whether to enable local auth? Defaults to `true`.
+     * 
+     */
+    @Export(name="localAuthEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> localAuthEnabled;
+
+    /**
+     * @return Whether to enable local auth? Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> localAuthEnabled() {
+        return Codegen.optional(this.localAuthEnabled);
+    }
+    /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -200,7 +244,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Specifies if Messaging Logs are enabled or not. Defaults to `false`.
      * 
      */
-    @Export(name="messagingLogsEnabled", type=Boolean.class, parameters={})
+    @Export(name="messagingLogsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> messagingLogsEnabled;
 
     /**
@@ -214,7 +258,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of the SignalR service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -228,7 +272,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The primary access key for the SignalR service.
      * 
      */
-    @Export(name="primaryAccessKey", type=String.class, parameters={})
+    @Export(name="primaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> primaryAccessKey;
 
     /**
@@ -242,7 +286,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The primary connection string for the SignalR service.
      * 
      */
-    @Export(name="primaryConnectionString", type=String.class, parameters={})
+    @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> primaryConnectionString;
 
     /**
@@ -253,10 +297,24 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.primaryConnectionString;
     }
     /**
+     * Whether to enable public network access? Defaults to `true`.
+     * 
+     */
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Whether to enable public network access? Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
+    }
+    /**
      * The publicly accessible port of the SignalR service which is designed for browser/client use.
      * 
      */
-    @Export(name="publicPort", type=Integer.class, parameters={})
+    @Export(name="publicPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> publicPort;
 
     /**
@@ -270,7 +328,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -284,7 +342,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The secondary access key for the SignalR service.
      * 
      */
-    @Export(name="secondaryAccessKey", type=String.class, parameters={})
+    @Export(name="secondaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> secondaryAccessKey;
 
     /**
@@ -298,7 +356,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The secondary connection string for the SignalR service.
      * 
      */
-    @Export(name="secondaryConnectionString", type=String.class, parameters={})
+    @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> secondaryConnectionString;
 
     /**
@@ -312,7 +370,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The publicly accessible port of the SignalR service which is designed for customer server side use.
      * 
      */
-    @Export(name="serverPort", type=Integer.class, parameters={})
+    @Export(name="serverPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> serverPort;
 
     /**
@@ -323,10 +381,24 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.serverPort;
     }
     /**
+     * Specifies the client connection timeout. Defaults to `30`.
+     * 
+     */
+    @Export(name="serverlessConnectionTimeoutInSeconds", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> serverlessConnectionTimeoutInSeconds;
+
+    /**
+     * @return Specifies the client connection timeout. Defaults to `30`.
+     * 
+     */
+    public Output<Optional<Integer>> serverlessConnectionTimeoutInSeconds() {
+        return Codegen.optional(this.serverlessConnectionTimeoutInSeconds);
+    }
+    /**
      * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
      * 
      */
-    @Export(name="serviceMode", type=String.class, parameters={})
+    @Export(name="serviceMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceMode;
 
     /**
@@ -340,7 +412,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `sku` block as documented below.
      * 
      */
-    @Export(name="sku", type=ServiceSku.class, parameters={})
+    @Export(name="sku", refs={ServiceSku.class}, tree="[0]")
     private Output<ServiceSku> sku;
 
     /**
@@ -354,7 +426,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -365,10 +437,24 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
+     * Whether to request client certificate during TLS handshake? Defaults to `false`.
+     * 
+     */
+    @Export(name="tlsClientCertEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> tlsClientCertEnabled;
+
+    /**
+     * @return Whether to request client certificate during TLS handshake? Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> tlsClientCertEnabled() {
+        return Codegen.optional(this.tlsClientCertEnabled);
+    }
+    /**
      * An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      * 
      */
-    @Export(name="upstreamEndpoints", type=List.class, parameters={ServiceUpstreamEndpoint.class})
+    @Export(name="upstreamEndpoints", refs={List.class,ServiceUpstreamEndpoint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceUpstreamEndpoint>> upstreamEndpoints;
 
     /**

@@ -121,14 +121,14 @@ public final class HybridRunbookWorkerState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ID of the HybridWorker. Changing this forces a new Automation to be created.
+     * Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
      * 
      */
     @Import(name="workerId")
     private @Nullable Output<String> workerId;
 
     /**
-     * @return The ID of the HybridWorker. Changing this forces a new Automation to be created.
+     * @return Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
      * 
      */
     public Optional<Output<String>> workerId() {
@@ -346,7 +346,7 @@ public final class HybridRunbookWorkerState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param workerId The ID of the HybridWorker. Changing this forces a new Automation to be created.
+         * @param workerId Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class HybridRunbookWorkerState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param workerId The ID of the HybridWorker. Changing this forces a new Automation to be created.
+         * @param workerId Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
          * 
          * @return builder
          * 

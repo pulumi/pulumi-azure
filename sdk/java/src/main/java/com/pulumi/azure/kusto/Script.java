@@ -138,7 +138,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * Flag that indicates whether to continue if one of the command fails.
      * 
      */
-    @Export(name="continueOnErrorsEnabled", type=Boolean.class, parameters={})
+    @Export(name="continueOnErrorsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> continueOnErrorsEnabled;
 
     /**
@@ -152,7 +152,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
      * 
      */
-    @Export(name="databaseId", type=String.class, parameters={})
+    @Export(name="databaseId", refs={String.class}, tree="[0]")
     private Output<String> databaseId;
 
     /**
@@ -166,7 +166,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * A unique string. If changed the script will be applied again.
      * 
      */
-    @Export(name="forceAnUpdateWhenValueChanged", type=String.class, parameters={})
+    @Export(name="forceAnUpdateWhenValueChanged", refs={String.class}, tree="[0]")
     private Output<String> forceAnUpdateWhenValueChanged;
 
     /**
@@ -180,7 +180,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -194,7 +194,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sasToken", type=String.class, parameters={})
+    @Export(name="sasToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sasToken;
 
     /**
@@ -208,7 +208,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sas_token` properties. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="scriptContent", type=String.class, parameters={})
+    @Export(name="scriptContent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scriptContent;
 
     /**
@@ -222,7 +222,7 @@ public class Script extends com.pulumi.resources.CustomResource {
      * The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> url;
 
     /**

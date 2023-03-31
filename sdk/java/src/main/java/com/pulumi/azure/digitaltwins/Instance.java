@@ -72,7 +72,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The API endpoint to work with this Digital Twins instance.
      * 
      */
-    @Export(name="hostName", type=String.class, parameters={})
+    @Export(name="hostName", refs={String.class}, tree="[0]")
     private Output<String> hostName;
 
     /**
@@ -86,7 +86,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=InstanceIdentity.class, parameters={})
+    @Export(name="identity", refs={InstanceIdentity.class}, tree="[0]")
     private Output</* @Nullable */ InstanceIdentity> identity;
 
     /**
@@ -101,7 +101,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * *
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -116,7 +116,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -130,7 +130,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -144,7 +144,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Digital Twins instance.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

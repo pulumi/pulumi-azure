@@ -2953,6 +2953,2364 @@ func (o EnvironmentDaprComponentSecretArrayOutput) Index(i pulumi.IntInput) Envi
 	}).(EnvironmentDaprComponentSecretOutput)
 }
 
+type GetAppDapr struct {
+	// The Dapr Application Identifier.
+	AppId string `pulumi:"appId"`
+	// The port which the application is listening on. This is the same as the `ingress` port.
+	AppPort int `pulumi:"appPort"`
+	// The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+	AppProtocol string `pulumi:"appProtocol"`
+}
+
+// GetAppDaprInput is an input type that accepts GetAppDaprArgs and GetAppDaprOutput values.
+// You can construct a concrete instance of `GetAppDaprInput` via:
+//
+//	GetAppDaprArgs{...}
+type GetAppDaprInput interface {
+	pulumi.Input
+
+	ToGetAppDaprOutput() GetAppDaprOutput
+	ToGetAppDaprOutputWithContext(context.Context) GetAppDaprOutput
+}
+
+type GetAppDaprArgs struct {
+	// The Dapr Application Identifier.
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// The port which the application is listening on. This is the same as the `ingress` port.
+	AppPort pulumi.IntInput `pulumi:"appPort"`
+	// The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+	AppProtocol pulumi.StringInput `pulumi:"appProtocol"`
+}
+
+func (GetAppDaprArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppDapr)(nil)).Elem()
+}
+
+func (i GetAppDaprArgs) ToGetAppDaprOutput() GetAppDaprOutput {
+	return i.ToGetAppDaprOutputWithContext(context.Background())
+}
+
+func (i GetAppDaprArgs) ToGetAppDaprOutputWithContext(ctx context.Context) GetAppDaprOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppDaprOutput)
+}
+
+// GetAppDaprArrayInput is an input type that accepts GetAppDaprArray and GetAppDaprArrayOutput values.
+// You can construct a concrete instance of `GetAppDaprArrayInput` via:
+//
+//	GetAppDaprArray{ GetAppDaprArgs{...} }
+type GetAppDaprArrayInput interface {
+	pulumi.Input
+
+	ToGetAppDaprArrayOutput() GetAppDaprArrayOutput
+	ToGetAppDaprArrayOutputWithContext(context.Context) GetAppDaprArrayOutput
+}
+
+type GetAppDaprArray []GetAppDaprInput
+
+func (GetAppDaprArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppDapr)(nil)).Elem()
+}
+
+func (i GetAppDaprArray) ToGetAppDaprArrayOutput() GetAppDaprArrayOutput {
+	return i.ToGetAppDaprArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppDaprArray) ToGetAppDaprArrayOutputWithContext(ctx context.Context) GetAppDaprArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppDaprArrayOutput)
+}
+
+type GetAppDaprOutput struct{ *pulumi.OutputState }
+
+func (GetAppDaprOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppDapr)(nil)).Elem()
+}
+
+func (o GetAppDaprOutput) ToGetAppDaprOutput() GetAppDaprOutput {
+	return o
+}
+
+func (o GetAppDaprOutput) ToGetAppDaprOutputWithContext(ctx context.Context) GetAppDaprOutput {
+	return o
+}
+
+// The Dapr Application Identifier.
+func (o GetAppDaprOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppDapr) string { return v.AppId }).(pulumi.StringOutput)
+}
+
+// The port which the application is listening on. This is the same as the `ingress` port.
+func (o GetAppDaprOutput) AppPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppDapr) int { return v.AppPort }).(pulumi.IntOutput)
+}
+
+// The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+func (o GetAppDaprOutput) AppProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppDapr) string { return v.AppProtocol }).(pulumi.StringOutput)
+}
+
+type GetAppDaprArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppDaprArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppDapr)(nil)).Elem()
+}
+
+func (o GetAppDaprArrayOutput) ToGetAppDaprArrayOutput() GetAppDaprArrayOutput {
+	return o
+}
+
+func (o GetAppDaprArrayOutput) ToGetAppDaprArrayOutputWithContext(ctx context.Context) GetAppDaprArrayOutput {
+	return o
+}
+
+func (o GetAppDaprArrayOutput) Index(i pulumi.IntInput) GetAppDaprOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppDapr {
+		return vs[0].([]GetAppDapr)[vs[1].(int)]
+	}).(GetAppDaprOutput)
+}
+
+type GetAppIdentity struct {
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId string   `pulumi:"principalId"`
+	TenantId    string   `pulumi:"tenantId"`
+	// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+	Type string `pulumi:"type"`
+}
+
+// GetAppIdentityInput is an input type that accepts GetAppIdentityArgs and GetAppIdentityOutput values.
+// You can construct a concrete instance of `GetAppIdentityInput` via:
+//
+//	GetAppIdentityArgs{...}
+type GetAppIdentityInput interface {
+	pulumi.Input
+
+	ToGetAppIdentityOutput() GetAppIdentityOutput
+	ToGetAppIdentityOutputWithContext(context.Context) GetAppIdentityOutput
+}
+
+type GetAppIdentityArgs struct {
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringInput      `pulumi:"principalId"`
+	TenantId    pulumi.StringInput      `pulumi:"tenantId"`
+	// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetAppIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppIdentity)(nil)).Elem()
+}
+
+func (i GetAppIdentityArgs) ToGetAppIdentityOutput() GetAppIdentityOutput {
+	return i.ToGetAppIdentityOutputWithContext(context.Background())
+}
+
+func (i GetAppIdentityArgs) ToGetAppIdentityOutputWithContext(ctx context.Context) GetAppIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppIdentityOutput)
+}
+
+// GetAppIdentityArrayInput is an input type that accepts GetAppIdentityArray and GetAppIdentityArrayOutput values.
+// You can construct a concrete instance of `GetAppIdentityArrayInput` via:
+//
+//	GetAppIdentityArray{ GetAppIdentityArgs{...} }
+type GetAppIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetAppIdentityArrayOutput() GetAppIdentityArrayOutput
+	ToGetAppIdentityArrayOutputWithContext(context.Context) GetAppIdentityArrayOutput
+}
+
+type GetAppIdentityArray []GetAppIdentityInput
+
+func (GetAppIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppIdentity)(nil)).Elem()
+}
+
+func (i GetAppIdentityArray) ToGetAppIdentityArrayOutput() GetAppIdentityArrayOutput {
+	return i.ToGetAppIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppIdentityArray) ToGetAppIdentityArrayOutputWithContext(ctx context.Context) GetAppIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppIdentityArrayOutput)
+}
+
+type GetAppIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetAppIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppIdentity)(nil)).Elem()
+}
+
+func (o GetAppIdentityOutput) ToGetAppIdentityOutput() GetAppIdentityOutput {
+	return o
+}
+
+func (o GetAppIdentityOutput) ToGetAppIdentityOutputWithContext(ctx context.Context) GetAppIdentityOutput {
+	return o
+}
+
+// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+func (o GetAppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAppIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetAppIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+func (o GetAppIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetAppIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppIdentity)(nil)).Elem()
+}
+
+func (o GetAppIdentityArrayOutput) ToGetAppIdentityArrayOutput() GetAppIdentityArrayOutput {
+	return o
+}
+
+func (o GetAppIdentityArrayOutput) ToGetAppIdentityArrayOutputWithContext(ctx context.Context) GetAppIdentityArrayOutput {
+	return o
+}
+
+func (o GetAppIdentityArrayOutput) Index(i pulumi.IntInput) GetAppIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppIdentity {
+		return vs[0].([]GetAppIdentity)[vs[1].(int)]
+	}).(GetAppIdentityOutput)
+}
+
+type GetAppIngress struct {
+	// Should this ingress allow insecure connections?
+	AllowInsecureConnections bool `pulumi:"allowInsecureConnections"`
+	// One or more `customDomain` block as detailed below.
+	CustomDomains []GetAppIngressCustomDomain `pulumi:"customDomains"`
+	// Is this an external Ingress.
+	ExternalEnabled bool `pulumi:"externalEnabled"`
+	// The FQDN of the ingress.
+	Fqdn string `pulumi:"fqdn"`
+	// The target port on the container for the Ingress traffic.
+	TargetPort int `pulumi:"targetPort"`
+	// A `trafficWeight` block as detailed below.
+	TrafficWeights []GetAppIngressTrafficWeight `pulumi:"trafficWeights"`
+	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	Transport string `pulumi:"transport"`
+}
+
+// GetAppIngressInput is an input type that accepts GetAppIngressArgs and GetAppIngressOutput values.
+// You can construct a concrete instance of `GetAppIngressInput` via:
+//
+//	GetAppIngressArgs{...}
+type GetAppIngressInput interface {
+	pulumi.Input
+
+	ToGetAppIngressOutput() GetAppIngressOutput
+	ToGetAppIngressOutputWithContext(context.Context) GetAppIngressOutput
+}
+
+type GetAppIngressArgs struct {
+	// Should this ingress allow insecure connections?
+	AllowInsecureConnections pulumi.BoolInput `pulumi:"allowInsecureConnections"`
+	// One or more `customDomain` block as detailed below.
+	CustomDomains GetAppIngressCustomDomainArrayInput `pulumi:"customDomains"`
+	// Is this an external Ingress.
+	ExternalEnabled pulumi.BoolInput `pulumi:"externalEnabled"`
+	// The FQDN of the ingress.
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
+	// The target port on the container for the Ingress traffic.
+	TargetPort pulumi.IntInput `pulumi:"targetPort"`
+	// A `trafficWeight` block as detailed below.
+	TrafficWeights GetAppIngressTrafficWeightArrayInput `pulumi:"trafficWeights"`
+	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	Transport pulumi.StringInput `pulumi:"transport"`
+}
+
+func (GetAppIngressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppIngress)(nil)).Elem()
+}
+
+func (i GetAppIngressArgs) ToGetAppIngressOutput() GetAppIngressOutput {
+	return i.ToGetAppIngressOutputWithContext(context.Background())
+}
+
+func (i GetAppIngressArgs) ToGetAppIngressOutputWithContext(ctx context.Context) GetAppIngressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressOutput)
+}
+
+// GetAppIngressArrayInput is an input type that accepts GetAppIngressArray and GetAppIngressArrayOutput values.
+// You can construct a concrete instance of `GetAppIngressArrayInput` via:
+//
+//	GetAppIngressArray{ GetAppIngressArgs{...} }
+type GetAppIngressArrayInput interface {
+	pulumi.Input
+
+	ToGetAppIngressArrayOutput() GetAppIngressArrayOutput
+	ToGetAppIngressArrayOutputWithContext(context.Context) GetAppIngressArrayOutput
+}
+
+type GetAppIngressArray []GetAppIngressInput
+
+func (GetAppIngressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppIngress)(nil)).Elem()
+}
+
+func (i GetAppIngressArray) ToGetAppIngressArrayOutput() GetAppIngressArrayOutput {
+	return i.ToGetAppIngressArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppIngressArray) ToGetAppIngressArrayOutputWithContext(ctx context.Context) GetAppIngressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressArrayOutput)
+}
+
+type GetAppIngressOutput struct{ *pulumi.OutputState }
+
+func (GetAppIngressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppIngress)(nil)).Elem()
+}
+
+func (o GetAppIngressOutput) ToGetAppIngressOutput() GetAppIngressOutput {
+	return o
+}
+
+func (o GetAppIngressOutput) ToGetAppIngressOutputWithContext(ctx context.Context) GetAppIngressOutput {
+	return o
+}
+
+// Should this ingress allow insecure connections?
+func (o GetAppIngressOutput) AllowInsecureConnections() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAppIngress) bool { return v.AllowInsecureConnections }).(pulumi.BoolOutput)
+}
+
+// One or more `customDomain` block as detailed below.
+func (o GetAppIngressOutput) CustomDomains() GetAppIngressCustomDomainArrayOutput {
+	return o.ApplyT(func(v GetAppIngress) []GetAppIngressCustomDomain { return v.CustomDomains }).(GetAppIngressCustomDomainArrayOutput)
+}
+
+// Is this an external Ingress.
+func (o GetAppIngressOutput) ExternalEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAppIngress) bool { return v.ExternalEnabled }).(pulumi.BoolOutput)
+}
+
+// The FQDN of the ingress.
+func (o GetAppIngressOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIngress) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// The target port on the container for the Ingress traffic.
+func (o GetAppIngressOutput) TargetPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppIngress) int { return v.TargetPort }).(pulumi.IntOutput)
+}
+
+// A `trafficWeight` block as detailed below.
+func (o GetAppIngressOutput) TrafficWeights() GetAppIngressTrafficWeightArrayOutput {
+	return o.ApplyT(func(v GetAppIngress) []GetAppIngressTrafficWeight { return v.TrafficWeights }).(GetAppIngressTrafficWeightArrayOutput)
+}
+
+// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+func (o GetAppIngressOutput) Transport() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIngress) string { return v.Transport }).(pulumi.StringOutput)
+}
+
+type GetAppIngressArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppIngressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppIngress)(nil)).Elem()
+}
+
+func (o GetAppIngressArrayOutput) ToGetAppIngressArrayOutput() GetAppIngressArrayOutput {
+	return o
+}
+
+func (o GetAppIngressArrayOutput) ToGetAppIngressArrayOutputWithContext(ctx context.Context) GetAppIngressArrayOutput {
+	return o
+}
+
+func (o GetAppIngressArrayOutput) Index(i pulumi.IntInput) GetAppIngressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppIngress {
+		return vs[0].([]GetAppIngress)[vs[1].(int)]
+	}).(GetAppIngressOutput)
+}
+
+type GetAppIngressCustomDomain struct {
+	// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+	CertificateBindingType string `pulumi:"certificateBindingType"`
+	// The ID of the Container App Environment Certificate.
+	CertificateId string `pulumi:"certificateId"`
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+}
+
+// GetAppIngressCustomDomainInput is an input type that accepts GetAppIngressCustomDomainArgs and GetAppIngressCustomDomainOutput values.
+// You can construct a concrete instance of `GetAppIngressCustomDomainInput` via:
+//
+//	GetAppIngressCustomDomainArgs{...}
+type GetAppIngressCustomDomainInput interface {
+	pulumi.Input
+
+	ToGetAppIngressCustomDomainOutput() GetAppIngressCustomDomainOutput
+	ToGetAppIngressCustomDomainOutputWithContext(context.Context) GetAppIngressCustomDomainOutput
+}
+
+type GetAppIngressCustomDomainArgs struct {
+	// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+	CertificateBindingType pulumi.StringInput `pulumi:"certificateBindingType"`
+	// The ID of the Container App Environment Certificate.
+	CertificateId pulumi.StringInput `pulumi:"certificateId"`
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetAppIngressCustomDomainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppIngressCustomDomain)(nil)).Elem()
+}
+
+func (i GetAppIngressCustomDomainArgs) ToGetAppIngressCustomDomainOutput() GetAppIngressCustomDomainOutput {
+	return i.ToGetAppIngressCustomDomainOutputWithContext(context.Background())
+}
+
+func (i GetAppIngressCustomDomainArgs) ToGetAppIngressCustomDomainOutputWithContext(ctx context.Context) GetAppIngressCustomDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressCustomDomainOutput)
+}
+
+// GetAppIngressCustomDomainArrayInput is an input type that accepts GetAppIngressCustomDomainArray and GetAppIngressCustomDomainArrayOutput values.
+// You can construct a concrete instance of `GetAppIngressCustomDomainArrayInput` via:
+//
+//	GetAppIngressCustomDomainArray{ GetAppIngressCustomDomainArgs{...} }
+type GetAppIngressCustomDomainArrayInput interface {
+	pulumi.Input
+
+	ToGetAppIngressCustomDomainArrayOutput() GetAppIngressCustomDomainArrayOutput
+	ToGetAppIngressCustomDomainArrayOutputWithContext(context.Context) GetAppIngressCustomDomainArrayOutput
+}
+
+type GetAppIngressCustomDomainArray []GetAppIngressCustomDomainInput
+
+func (GetAppIngressCustomDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppIngressCustomDomain)(nil)).Elem()
+}
+
+func (i GetAppIngressCustomDomainArray) ToGetAppIngressCustomDomainArrayOutput() GetAppIngressCustomDomainArrayOutput {
+	return i.ToGetAppIngressCustomDomainArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppIngressCustomDomainArray) ToGetAppIngressCustomDomainArrayOutputWithContext(ctx context.Context) GetAppIngressCustomDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressCustomDomainArrayOutput)
+}
+
+type GetAppIngressCustomDomainOutput struct{ *pulumi.OutputState }
+
+func (GetAppIngressCustomDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppIngressCustomDomain)(nil)).Elem()
+}
+
+func (o GetAppIngressCustomDomainOutput) ToGetAppIngressCustomDomainOutput() GetAppIngressCustomDomainOutput {
+	return o
+}
+
+func (o GetAppIngressCustomDomainOutput) ToGetAppIngressCustomDomainOutputWithContext(ctx context.Context) GetAppIngressCustomDomainOutput {
+	return o
+}
+
+// The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+func (o GetAppIngressCustomDomainOutput) CertificateBindingType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIngressCustomDomain) string { return v.CertificateBindingType }).(pulumi.StringOutput)
+}
+
+// The ID of the Container App Environment Certificate.
+func (o GetAppIngressCustomDomainOutput) CertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIngressCustomDomain) string { return v.CertificateId }).(pulumi.StringOutput)
+}
+
+// The name of the Container App.
+func (o GetAppIngressCustomDomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIngressCustomDomain) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetAppIngressCustomDomainArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppIngressCustomDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppIngressCustomDomain)(nil)).Elem()
+}
+
+func (o GetAppIngressCustomDomainArrayOutput) ToGetAppIngressCustomDomainArrayOutput() GetAppIngressCustomDomainArrayOutput {
+	return o
+}
+
+func (o GetAppIngressCustomDomainArrayOutput) ToGetAppIngressCustomDomainArrayOutputWithContext(ctx context.Context) GetAppIngressCustomDomainArrayOutput {
+	return o
+}
+
+func (o GetAppIngressCustomDomainArrayOutput) Index(i pulumi.IntInput) GetAppIngressCustomDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppIngressCustomDomain {
+		return vs[0].([]GetAppIngressCustomDomain)[vs[1].(int)]
+	}).(GetAppIngressCustomDomainOutput)
+}
+
+type GetAppIngressTrafficWeight struct {
+	// The label to apply to the revision as a name prefix for routing traffic.
+	Label string `pulumi:"label"`
+	// This traffic Weight relates to the latest stable Container Revision.
+	LatestRevision bool `pulumi:"latestRevision"`
+	// The percentage of traffic which should be sent this revision.
+	Percentage int `pulumi:"percentage"`
+	// The suffix string to which this `trafficWeight` applies.
+	RevisionSuffix string `pulumi:"revisionSuffix"`
+}
+
+// GetAppIngressTrafficWeightInput is an input type that accepts GetAppIngressTrafficWeightArgs and GetAppIngressTrafficWeightOutput values.
+// You can construct a concrete instance of `GetAppIngressTrafficWeightInput` via:
+//
+//	GetAppIngressTrafficWeightArgs{...}
+type GetAppIngressTrafficWeightInput interface {
+	pulumi.Input
+
+	ToGetAppIngressTrafficWeightOutput() GetAppIngressTrafficWeightOutput
+	ToGetAppIngressTrafficWeightOutputWithContext(context.Context) GetAppIngressTrafficWeightOutput
+}
+
+type GetAppIngressTrafficWeightArgs struct {
+	// The label to apply to the revision as a name prefix for routing traffic.
+	Label pulumi.StringInput `pulumi:"label"`
+	// This traffic Weight relates to the latest stable Container Revision.
+	LatestRevision pulumi.BoolInput `pulumi:"latestRevision"`
+	// The percentage of traffic which should be sent this revision.
+	Percentage pulumi.IntInput `pulumi:"percentage"`
+	// The suffix string to which this `trafficWeight` applies.
+	RevisionSuffix pulumi.StringInput `pulumi:"revisionSuffix"`
+}
+
+func (GetAppIngressTrafficWeightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppIngressTrafficWeight)(nil)).Elem()
+}
+
+func (i GetAppIngressTrafficWeightArgs) ToGetAppIngressTrafficWeightOutput() GetAppIngressTrafficWeightOutput {
+	return i.ToGetAppIngressTrafficWeightOutputWithContext(context.Background())
+}
+
+func (i GetAppIngressTrafficWeightArgs) ToGetAppIngressTrafficWeightOutputWithContext(ctx context.Context) GetAppIngressTrafficWeightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressTrafficWeightOutput)
+}
+
+// GetAppIngressTrafficWeightArrayInput is an input type that accepts GetAppIngressTrafficWeightArray and GetAppIngressTrafficWeightArrayOutput values.
+// You can construct a concrete instance of `GetAppIngressTrafficWeightArrayInput` via:
+//
+//	GetAppIngressTrafficWeightArray{ GetAppIngressTrafficWeightArgs{...} }
+type GetAppIngressTrafficWeightArrayInput interface {
+	pulumi.Input
+
+	ToGetAppIngressTrafficWeightArrayOutput() GetAppIngressTrafficWeightArrayOutput
+	ToGetAppIngressTrafficWeightArrayOutputWithContext(context.Context) GetAppIngressTrafficWeightArrayOutput
+}
+
+type GetAppIngressTrafficWeightArray []GetAppIngressTrafficWeightInput
+
+func (GetAppIngressTrafficWeightArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppIngressTrafficWeight)(nil)).Elem()
+}
+
+func (i GetAppIngressTrafficWeightArray) ToGetAppIngressTrafficWeightArrayOutput() GetAppIngressTrafficWeightArrayOutput {
+	return i.ToGetAppIngressTrafficWeightArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppIngressTrafficWeightArray) ToGetAppIngressTrafficWeightArrayOutputWithContext(ctx context.Context) GetAppIngressTrafficWeightArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressTrafficWeightArrayOutput)
+}
+
+type GetAppIngressTrafficWeightOutput struct{ *pulumi.OutputState }
+
+func (GetAppIngressTrafficWeightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppIngressTrafficWeight)(nil)).Elem()
+}
+
+func (o GetAppIngressTrafficWeightOutput) ToGetAppIngressTrafficWeightOutput() GetAppIngressTrafficWeightOutput {
+	return o
+}
+
+func (o GetAppIngressTrafficWeightOutput) ToGetAppIngressTrafficWeightOutputWithContext(ctx context.Context) GetAppIngressTrafficWeightOutput {
+	return o
+}
+
+// The label to apply to the revision as a name prefix for routing traffic.
+func (o GetAppIngressTrafficWeightOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIngressTrafficWeight) string { return v.Label }).(pulumi.StringOutput)
+}
+
+// This traffic Weight relates to the latest stable Container Revision.
+func (o GetAppIngressTrafficWeightOutput) LatestRevision() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAppIngressTrafficWeight) bool { return v.LatestRevision }).(pulumi.BoolOutput)
+}
+
+// The percentage of traffic which should be sent this revision.
+func (o GetAppIngressTrafficWeightOutput) Percentage() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppIngressTrafficWeight) int { return v.Percentage }).(pulumi.IntOutput)
+}
+
+// The suffix string to which this `trafficWeight` applies.
+func (o GetAppIngressTrafficWeightOutput) RevisionSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIngressTrafficWeight) string { return v.RevisionSuffix }).(pulumi.StringOutput)
+}
+
+type GetAppIngressTrafficWeightArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppIngressTrafficWeightArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppIngressTrafficWeight)(nil)).Elem()
+}
+
+func (o GetAppIngressTrafficWeightArrayOutput) ToGetAppIngressTrafficWeightArrayOutput() GetAppIngressTrafficWeightArrayOutput {
+	return o
+}
+
+func (o GetAppIngressTrafficWeightArrayOutput) ToGetAppIngressTrafficWeightArrayOutputWithContext(ctx context.Context) GetAppIngressTrafficWeightArrayOutput {
+	return o
+}
+
+func (o GetAppIngressTrafficWeightArrayOutput) Index(i pulumi.IntInput) GetAppIngressTrafficWeightOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppIngressTrafficWeight {
+		return vs[0].([]GetAppIngressTrafficWeight)[vs[1].(int)]
+	}).(GetAppIngressTrafficWeightOutput)
+}
+
+type GetAppRegistry struct {
+	// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+	Identity string `pulumi:"identity"`
+	// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+	PasswordSecretName string `pulumi:"passwordSecretName"`
+	// The hostname for the Container Registry.
+	Server string `pulumi:"server"`
+	// The username to use for this Container Registry, `passwordSecretName` must also be supplied..
+	Username string `pulumi:"username"`
+}
+
+// GetAppRegistryInput is an input type that accepts GetAppRegistryArgs and GetAppRegistryOutput values.
+// You can construct a concrete instance of `GetAppRegistryInput` via:
+//
+//	GetAppRegistryArgs{...}
+type GetAppRegistryInput interface {
+	pulumi.Input
+
+	ToGetAppRegistryOutput() GetAppRegistryOutput
+	ToGetAppRegistryOutputWithContext(context.Context) GetAppRegistryOutput
+}
+
+type GetAppRegistryArgs struct {
+	// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+	Identity pulumi.StringInput `pulumi:"identity"`
+	// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+	PasswordSecretName pulumi.StringInput `pulumi:"passwordSecretName"`
+	// The hostname for the Container Registry.
+	Server pulumi.StringInput `pulumi:"server"`
+	// The username to use for this Container Registry, `passwordSecretName` must also be supplied..
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (GetAppRegistryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppRegistry)(nil)).Elem()
+}
+
+func (i GetAppRegistryArgs) ToGetAppRegistryOutput() GetAppRegistryOutput {
+	return i.ToGetAppRegistryOutputWithContext(context.Background())
+}
+
+func (i GetAppRegistryArgs) ToGetAppRegistryOutputWithContext(ctx context.Context) GetAppRegistryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppRegistryOutput)
+}
+
+// GetAppRegistryArrayInput is an input type that accepts GetAppRegistryArray and GetAppRegistryArrayOutput values.
+// You can construct a concrete instance of `GetAppRegistryArrayInput` via:
+//
+//	GetAppRegistryArray{ GetAppRegistryArgs{...} }
+type GetAppRegistryArrayInput interface {
+	pulumi.Input
+
+	ToGetAppRegistryArrayOutput() GetAppRegistryArrayOutput
+	ToGetAppRegistryArrayOutputWithContext(context.Context) GetAppRegistryArrayOutput
+}
+
+type GetAppRegistryArray []GetAppRegistryInput
+
+func (GetAppRegistryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppRegistry)(nil)).Elem()
+}
+
+func (i GetAppRegistryArray) ToGetAppRegistryArrayOutput() GetAppRegistryArrayOutput {
+	return i.ToGetAppRegistryArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppRegistryArray) ToGetAppRegistryArrayOutputWithContext(ctx context.Context) GetAppRegistryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppRegistryArrayOutput)
+}
+
+type GetAppRegistryOutput struct{ *pulumi.OutputState }
+
+func (GetAppRegistryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppRegistry)(nil)).Elem()
+}
+
+func (o GetAppRegistryOutput) ToGetAppRegistryOutput() GetAppRegistryOutput {
+	return o
+}
+
+func (o GetAppRegistryOutput) ToGetAppRegistryOutputWithContext(ctx context.Context) GetAppRegistryOutput {
+	return o
+}
+
+// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+func (o GetAppRegistryOutput) Identity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppRegistry) string { return v.Identity }).(pulumi.StringOutput)
+}
+
+// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+func (o GetAppRegistryOutput) PasswordSecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppRegistry) string { return v.PasswordSecretName }).(pulumi.StringOutput)
+}
+
+// The hostname for the Container Registry.
+func (o GetAppRegistryOutput) Server() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppRegistry) string { return v.Server }).(pulumi.StringOutput)
+}
+
+// The username to use for this Container Registry, `passwordSecretName` must also be supplied..
+func (o GetAppRegistryOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppRegistry) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type GetAppRegistryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppRegistryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppRegistry)(nil)).Elem()
+}
+
+func (o GetAppRegistryArrayOutput) ToGetAppRegistryArrayOutput() GetAppRegistryArrayOutput {
+	return o
+}
+
+func (o GetAppRegistryArrayOutput) ToGetAppRegistryArrayOutputWithContext(ctx context.Context) GetAppRegistryArrayOutput {
+	return o
+}
+
+func (o GetAppRegistryArrayOutput) Index(i pulumi.IntInput) GetAppRegistryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppRegistry {
+		return vs[0].([]GetAppRegistry)[vs[1].(int)]
+	}).(GetAppRegistryOutput)
+}
+
+type GetAppSecret struct {
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+	// The HTTP Header value.
+	Value string `pulumi:"value"`
+}
+
+// GetAppSecretInput is an input type that accepts GetAppSecretArgs and GetAppSecretOutput values.
+// You can construct a concrete instance of `GetAppSecretInput` via:
+//
+//	GetAppSecretArgs{...}
+type GetAppSecretInput interface {
+	pulumi.Input
+
+	ToGetAppSecretOutput() GetAppSecretOutput
+	ToGetAppSecretOutputWithContext(context.Context) GetAppSecretOutput
+}
+
+type GetAppSecretArgs struct {
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The HTTP Header value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAppSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppSecret)(nil)).Elem()
+}
+
+func (i GetAppSecretArgs) ToGetAppSecretOutput() GetAppSecretOutput {
+	return i.ToGetAppSecretOutputWithContext(context.Background())
+}
+
+func (i GetAppSecretArgs) ToGetAppSecretOutputWithContext(ctx context.Context) GetAppSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppSecretOutput)
+}
+
+// GetAppSecretArrayInput is an input type that accepts GetAppSecretArray and GetAppSecretArrayOutput values.
+// You can construct a concrete instance of `GetAppSecretArrayInput` via:
+//
+//	GetAppSecretArray{ GetAppSecretArgs{...} }
+type GetAppSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetAppSecretArrayOutput() GetAppSecretArrayOutput
+	ToGetAppSecretArrayOutputWithContext(context.Context) GetAppSecretArrayOutput
+}
+
+type GetAppSecretArray []GetAppSecretInput
+
+func (GetAppSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppSecret)(nil)).Elem()
+}
+
+func (i GetAppSecretArray) ToGetAppSecretArrayOutput() GetAppSecretArrayOutput {
+	return i.ToGetAppSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppSecretArray) ToGetAppSecretArrayOutputWithContext(ctx context.Context) GetAppSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppSecretArrayOutput)
+}
+
+type GetAppSecretOutput struct{ *pulumi.OutputState }
+
+func (GetAppSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppSecret)(nil)).Elem()
+}
+
+func (o GetAppSecretOutput) ToGetAppSecretOutput() GetAppSecretOutput {
+	return o
+}
+
+func (o GetAppSecretOutput) ToGetAppSecretOutputWithContext(ctx context.Context) GetAppSecretOutput {
+	return o
+}
+
+// The name of the Container App.
+func (o GetAppSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The HTTP Header value.
+func (o GetAppSecretOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppSecret) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAppSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppSecret)(nil)).Elem()
+}
+
+func (o GetAppSecretArrayOutput) ToGetAppSecretArrayOutput() GetAppSecretArrayOutput {
+	return o
+}
+
+func (o GetAppSecretArrayOutput) ToGetAppSecretArrayOutputWithContext(ctx context.Context) GetAppSecretArrayOutput {
+	return o
+}
+
+func (o GetAppSecretArrayOutput) Index(i pulumi.IntInput) GetAppSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppSecret {
+		return vs[0].([]GetAppSecret)[vs[1].(int)]
+	}).(GetAppSecretOutput)
+}
+
+type GetAppTemplate struct {
+	// One or more `container` blocks as detailed below.
+	Containers []GetAppTemplateContainer `pulumi:"containers"`
+	// The maximum number of replicas for this container.
+	MaxReplicas int `pulumi:"maxReplicas"`
+	// The minimum number of replicas for this container.
+	MinReplicas int `pulumi:"minReplicas"`
+	// The suffix string to which this `trafficWeight` applies.
+	RevisionSuffix string `pulumi:"revisionSuffix"`
+	// A `volume` block as detailed below.
+	Volumes []GetAppTemplateVolume `pulumi:"volumes"`
+}
+
+// GetAppTemplateInput is an input type that accepts GetAppTemplateArgs and GetAppTemplateOutput values.
+// You can construct a concrete instance of `GetAppTemplateInput` via:
+//
+//	GetAppTemplateArgs{...}
+type GetAppTemplateInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateOutput() GetAppTemplateOutput
+	ToGetAppTemplateOutputWithContext(context.Context) GetAppTemplateOutput
+}
+
+type GetAppTemplateArgs struct {
+	// One or more `container` blocks as detailed below.
+	Containers GetAppTemplateContainerArrayInput `pulumi:"containers"`
+	// The maximum number of replicas for this container.
+	MaxReplicas pulumi.IntInput `pulumi:"maxReplicas"`
+	// The minimum number of replicas for this container.
+	MinReplicas pulumi.IntInput `pulumi:"minReplicas"`
+	// The suffix string to which this `trafficWeight` applies.
+	RevisionSuffix pulumi.StringInput `pulumi:"revisionSuffix"`
+	// A `volume` block as detailed below.
+	Volumes GetAppTemplateVolumeArrayInput `pulumi:"volumes"`
+}
+
+func (GetAppTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplate)(nil)).Elem()
+}
+
+func (i GetAppTemplateArgs) ToGetAppTemplateOutput() GetAppTemplateOutput {
+	return i.ToGetAppTemplateOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateArgs) ToGetAppTemplateOutputWithContext(ctx context.Context) GetAppTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateOutput)
+}
+
+// GetAppTemplateArrayInput is an input type that accepts GetAppTemplateArray and GetAppTemplateArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateArrayInput` via:
+//
+//	GetAppTemplateArray{ GetAppTemplateArgs{...} }
+type GetAppTemplateArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateArrayOutput() GetAppTemplateArrayOutput
+	ToGetAppTemplateArrayOutputWithContext(context.Context) GetAppTemplateArrayOutput
+}
+
+type GetAppTemplateArray []GetAppTemplateInput
+
+func (GetAppTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplate)(nil)).Elem()
+}
+
+func (i GetAppTemplateArray) ToGetAppTemplateArrayOutput() GetAppTemplateArrayOutput {
+	return i.ToGetAppTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateArray) ToGetAppTemplateArrayOutputWithContext(ctx context.Context) GetAppTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateArrayOutput)
+}
+
+type GetAppTemplateOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplate)(nil)).Elem()
+}
+
+func (o GetAppTemplateOutput) ToGetAppTemplateOutput() GetAppTemplateOutput {
+	return o
+}
+
+func (o GetAppTemplateOutput) ToGetAppTemplateOutputWithContext(ctx context.Context) GetAppTemplateOutput {
+	return o
+}
+
+// One or more `container` blocks as detailed below.
+func (o GetAppTemplateOutput) Containers() GetAppTemplateContainerArrayOutput {
+	return o.ApplyT(func(v GetAppTemplate) []GetAppTemplateContainer { return v.Containers }).(GetAppTemplateContainerArrayOutput)
+}
+
+// The maximum number of replicas for this container.
+func (o GetAppTemplateOutput) MaxReplicas() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplate) int { return v.MaxReplicas }).(pulumi.IntOutput)
+}
+
+// The minimum number of replicas for this container.
+func (o GetAppTemplateOutput) MinReplicas() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplate) int { return v.MinReplicas }).(pulumi.IntOutput)
+}
+
+// The suffix string to which this `trafficWeight` applies.
+func (o GetAppTemplateOutput) RevisionSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplate) string { return v.RevisionSuffix }).(pulumi.StringOutput)
+}
+
+// A `volume` block as detailed below.
+func (o GetAppTemplateOutput) Volumes() GetAppTemplateVolumeArrayOutput {
+	return o.ApplyT(func(v GetAppTemplate) []GetAppTemplateVolume { return v.Volumes }).(GetAppTemplateVolumeArrayOutput)
+}
+
+type GetAppTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplate)(nil)).Elem()
+}
+
+func (o GetAppTemplateArrayOutput) ToGetAppTemplateArrayOutput() GetAppTemplateArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateArrayOutput) ToGetAppTemplateArrayOutputWithContext(ctx context.Context) GetAppTemplateArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateArrayOutput) Index(i pulumi.IntInput) GetAppTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplate {
+		return vs[0].([]GetAppTemplate)[vs[1].(int)]
+	}).(GetAppTemplateOutput)
+}
+
+type GetAppTemplateContainer struct {
+	// A list of extra arguments to pass to the container.
+	Args []string `pulumi:"args"`
+	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+	Commands []string `pulumi:"commands"`
+	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	Cpu float64 `pulumi:"cpu"`
+	// One or more `env` blocks as detailed below.
+	Envs []GetAppTemplateContainerEnv `pulumi:"envs"`
+	// The amount of ephemeral storage available to the Container App.
+	EphemeralStorage string `pulumi:"ephemeralStorage"`
+	// The image to use to create the container.
+	Image string `pulumi:"image"`
+	// A `livenessProbe` block as detailed below.
+	LivenessProbes []GetAppTemplateContainerLivenessProbe `pulumi:"livenessProbes"`
+	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+	Memory string `pulumi:"memory"`
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+	// A `readinessProbe` block as detailed below.
+	ReadinessProbes []GetAppTemplateContainerReadinessProbe `pulumi:"readinessProbes"`
+	// A `startupProbe` block as detailed below.
+	StartupProbes []GetAppTemplateContainerStartupProbe `pulumi:"startupProbes"`
+	// A `volumeMounts` block as detailed below.
+	VolumeMounts []GetAppTemplateContainerVolumeMount `pulumi:"volumeMounts"`
+}
+
+// GetAppTemplateContainerInput is an input type that accepts GetAppTemplateContainerArgs and GetAppTemplateContainerOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerInput` via:
+//
+//	GetAppTemplateContainerArgs{...}
+type GetAppTemplateContainerInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerOutput() GetAppTemplateContainerOutput
+	ToGetAppTemplateContainerOutputWithContext(context.Context) GetAppTemplateContainerOutput
+}
+
+type GetAppTemplateContainerArgs struct {
+	// A list of extra arguments to pass to the container.
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	Cpu pulumi.Float64Input `pulumi:"cpu"`
+	// One or more `env` blocks as detailed below.
+	Envs GetAppTemplateContainerEnvArrayInput `pulumi:"envs"`
+	// The amount of ephemeral storage available to the Container App.
+	EphemeralStorage pulumi.StringInput `pulumi:"ephemeralStorage"`
+	// The image to use to create the container.
+	Image pulumi.StringInput `pulumi:"image"`
+	// A `livenessProbe` block as detailed below.
+	LivenessProbes GetAppTemplateContainerLivenessProbeArrayInput `pulumi:"livenessProbes"`
+	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+	Memory pulumi.StringInput `pulumi:"memory"`
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `readinessProbe` block as detailed below.
+	ReadinessProbes GetAppTemplateContainerReadinessProbeArrayInput `pulumi:"readinessProbes"`
+	// A `startupProbe` block as detailed below.
+	StartupProbes GetAppTemplateContainerStartupProbeArrayInput `pulumi:"startupProbes"`
+	// A `volumeMounts` block as detailed below.
+	VolumeMounts GetAppTemplateContainerVolumeMountArrayInput `pulumi:"volumeMounts"`
+}
+
+func (GetAppTemplateContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainer)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerArgs) ToGetAppTemplateContainerOutput() GetAppTemplateContainerOutput {
+	return i.ToGetAppTemplateContainerOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerArgs) ToGetAppTemplateContainerOutputWithContext(ctx context.Context) GetAppTemplateContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerOutput)
+}
+
+// GetAppTemplateContainerArrayInput is an input type that accepts GetAppTemplateContainerArray and GetAppTemplateContainerArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerArrayInput` via:
+//
+//	GetAppTemplateContainerArray{ GetAppTemplateContainerArgs{...} }
+type GetAppTemplateContainerArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerArrayOutput() GetAppTemplateContainerArrayOutput
+	ToGetAppTemplateContainerArrayOutputWithContext(context.Context) GetAppTemplateContainerArrayOutput
+}
+
+type GetAppTemplateContainerArray []GetAppTemplateContainerInput
+
+func (GetAppTemplateContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainer)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerArray) ToGetAppTemplateContainerArrayOutput() GetAppTemplateContainerArrayOutput {
+	return i.ToGetAppTemplateContainerArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerArray) ToGetAppTemplateContainerArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerArrayOutput)
+}
+
+type GetAppTemplateContainerOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainer)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerOutput) ToGetAppTemplateContainerOutput() GetAppTemplateContainerOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerOutput) ToGetAppTemplateContainerOutputWithContext(ctx context.Context) GetAppTemplateContainerOutput {
+	return o
+}
+
+// A list of extra arguments to pass to the container.
+func (o GetAppTemplateContainerOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
+// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+func (o GetAppTemplateContainerOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+func (o GetAppTemplateContainerOutput) Cpu() pulumi.Float64Output {
+	return o.ApplyT(func(v GetAppTemplateContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
+}
+
+// One or more `env` blocks as detailed below.
+func (o GetAppTemplateContainerOutput) Envs() GetAppTemplateContainerEnvArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateContainer) []GetAppTemplateContainerEnv { return v.Envs }).(GetAppTemplateContainerEnvArrayOutput)
+}
+
+// The amount of ephemeral storage available to the Container App.
+func (o GetAppTemplateContainerOutput) EphemeralStorage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainer) string { return v.EphemeralStorage }).(pulumi.StringOutput)
+}
+
+// The image to use to create the container.
+func (o GetAppTemplateContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// A `livenessProbe` block as detailed below.
+func (o GetAppTemplateContainerOutput) LivenessProbes() GetAppTemplateContainerLivenessProbeArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateContainer) []GetAppTemplateContainerLivenessProbe { return v.LivenessProbes }).(GetAppTemplateContainerLivenessProbeArrayOutput)
+}
+
+// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+func (o GetAppTemplateContainerOutput) Memory() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainer) string { return v.Memory }).(pulumi.StringOutput)
+}
+
+// The name of the Container App.
+func (o GetAppTemplateContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainer) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `readinessProbe` block as detailed below.
+func (o GetAppTemplateContainerOutput) ReadinessProbes() GetAppTemplateContainerReadinessProbeArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateContainer) []GetAppTemplateContainerReadinessProbe { return v.ReadinessProbes }).(GetAppTemplateContainerReadinessProbeArrayOutput)
+}
+
+// A `startupProbe` block as detailed below.
+func (o GetAppTemplateContainerOutput) StartupProbes() GetAppTemplateContainerStartupProbeArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateContainer) []GetAppTemplateContainerStartupProbe { return v.StartupProbes }).(GetAppTemplateContainerStartupProbeArrayOutput)
+}
+
+// A `volumeMounts` block as detailed below.
+func (o GetAppTemplateContainerOutput) VolumeMounts() GetAppTemplateContainerVolumeMountArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateContainer) []GetAppTemplateContainerVolumeMount { return v.VolumeMounts }).(GetAppTemplateContainerVolumeMountArrayOutput)
+}
+
+type GetAppTemplateContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainer)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerArrayOutput) ToGetAppTemplateContainerArrayOutput() GetAppTemplateContainerArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerArrayOutput) ToGetAppTemplateContainerArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateContainer {
+		return vs[0].([]GetAppTemplateContainer)[vs[1].(int)]
+	}).(GetAppTemplateContainerOutput)
+}
+
+type GetAppTemplateContainerEnv struct {
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+	// The name of the secret that contains the value for this environment variable.
+	SecretName string `pulumi:"secretName"`
+	// The HTTP Header value.
+	Value string `pulumi:"value"`
+}
+
+// GetAppTemplateContainerEnvInput is an input type that accepts GetAppTemplateContainerEnvArgs and GetAppTemplateContainerEnvOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerEnvInput` via:
+//
+//	GetAppTemplateContainerEnvArgs{...}
+type GetAppTemplateContainerEnvInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerEnvOutput() GetAppTemplateContainerEnvOutput
+	ToGetAppTemplateContainerEnvOutputWithContext(context.Context) GetAppTemplateContainerEnvOutput
+}
+
+type GetAppTemplateContainerEnvArgs struct {
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the secret that contains the value for this environment variable.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+	// The HTTP Header value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAppTemplateContainerEnvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerEnv)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerEnvArgs) ToGetAppTemplateContainerEnvOutput() GetAppTemplateContainerEnvOutput {
+	return i.ToGetAppTemplateContainerEnvOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerEnvArgs) ToGetAppTemplateContainerEnvOutputWithContext(ctx context.Context) GetAppTemplateContainerEnvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerEnvOutput)
+}
+
+// GetAppTemplateContainerEnvArrayInput is an input type that accepts GetAppTemplateContainerEnvArray and GetAppTemplateContainerEnvArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerEnvArrayInput` via:
+//
+//	GetAppTemplateContainerEnvArray{ GetAppTemplateContainerEnvArgs{...} }
+type GetAppTemplateContainerEnvArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerEnvArrayOutput() GetAppTemplateContainerEnvArrayOutput
+	ToGetAppTemplateContainerEnvArrayOutputWithContext(context.Context) GetAppTemplateContainerEnvArrayOutput
+}
+
+type GetAppTemplateContainerEnvArray []GetAppTemplateContainerEnvInput
+
+func (GetAppTemplateContainerEnvArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerEnv)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerEnvArray) ToGetAppTemplateContainerEnvArrayOutput() GetAppTemplateContainerEnvArrayOutput {
+	return i.ToGetAppTemplateContainerEnvArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerEnvArray) ToGetAppTemplateContainerEnvArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerEnvArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerEnvArrayOutput)
+}
+
+type GetAppTemplateContainerEnvOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerEnvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerEnv)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerEnvOutput) ToGetAppTemplateContainerEnvOutput() GetAppTemplateContainerEnvOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerEnvOutput) ToGetAppTemplateContainerEnvOutputWithContext(ctx context.Context) GetAppTemplateContainerEnvOutput {
+	return o
+}
+
+// The name of the Container App.
+func (o GetAppTemplateContainerEnvOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerEnv) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the secret that contains the value for this environment variable.
+func (o GetAppTemplateContainerEnvOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerEnv) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// The HTTP Header value.
+func (o GetAppTemplateContainerEnvOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerEnv) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateContainerEnvArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerEnvArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerEnv)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerEnvArrayOutput) ToGetAppTemplateContainerEnvArrayOutput() GetAppTemplateContainerEnvArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerEnvArrayOutput) ToGetAppTemplateContainerEnvArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerEnvArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerEnvArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerEnvOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateContainerEnv {
+		return vs[0].([]GetAppTemplateContainerEnv)[vs[1].(int)]
+	}).(GetAppTemplateContainerEnvOutput)
+}
+
+type GetAppTemplateContainerLivenessProbe struct {
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	FailureCountThreshold int `pulumi:"failureCountThreshold"`
+	// A `header` block as detailed below.
+	Headers []GetAppTemplateContainerLivenessProbeHeader `pulumi:"headers"`
+	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	Host string `pulumi:"host"`
+	// The time in seconds to wait after the container has started before the probe is started.
+	InitialDelay int `pulumi:"initialDelay"`
+	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	IntervalSeconds int `pulumi:"intervalSeconds"`
+	// The path in the container at which to mount this volume.
+	Path string `pulumi:"path"`
+	// The port number on which to connect. Possible values are between `1` and `65535`.
+	Port int `pulumi:"port"`
+	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+	TerminationGracePeriodSeconds int `pulumi:"terminationGracePeriodSeconds"`
+	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	Timeout int `pulumi:"timeout"`
+	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	Transport string `pulumi:"transport"`
+}
+
+// GetAppTemplateContainerLivenessProbeInput is an input type that accepts GetAppTemplateContainerLivenessProbeArgs and GetAppTemplateContainerLivenessProbeOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerLivenessProbeInput` via:
+//
+//	GetAppTemplateContainerLivenessProbeArgs{...}
+type GetAppTemplateContainerLivenessProbeInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerLivenessProbeOutput() GetAppTemplateContainerLivenessProbeOutput
+	ToGetAppTemplateContainerLivenessProbeOutputWithContext(context.Context) GetAppTemplateContainerLivenessProbeOutput
+}
+
+type GetAppTemplateContainerLivenessProbeArgs struct {
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	FailureCountThreshold pulumi.IntInput `pulumi:"failureCountThreshold"`
+	// A `header` block as detailed below.
+	Headers GetAppTemplateContainerLivenessProbeHeaderArrayInput `pulumi:"headers"`
+	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	Host pulumi.StringInput `pulumi:"host"`
+	// The time in seconds to wait after the container has started before the probe is started.
+	InitialDelay pulumi.IntInput `pulumi:"initialDelay"`
+	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	IntervalSeconds pulumi.IntInput `pulumi:"intervalSeconds"`
+	// The path in the container at which to mount this volume.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The port number on which to connect. Possible values are between `1` and `65535`.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+	TerminationGracePeriodSeconds pulumi.IntInput `pulumi:"terminationGracePeriodSeconds"`
+	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	Timeout pulumi.IntInput `pulumi:"timeout"`
+	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	Transport pulumi.StringInput `pulumi:"transport"`
+}
+
+func (GetAppTemplateContainerLivenessProbeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerLivenessProbe)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerLivenessProbeArgs) ToGetAppTemplateContainerLivenessProbeOutput() GetAppTemplateContainerLivenessProbeOutput {
+	return i.ToGetAppTemplateContainerLivenessProbeOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerLivenessProbeArgs) ToGetAppTemplateContainerLivenessProbeOutputWithContext(ctx context.Context) GetAppTemplateContainerLivenessProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerLivenessProbeOutput)
+}
+
+// GetAppTemplateContainerLivenessProbeArrayInput is an input type that accepts GetAppTemplateContainerLivenessProbeArray and GetAppTemplateContainerLivenessProbeArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerLivenessProbeArrayInput` via:
+//
+//	GetAppTemplateContainerLivenessProbeArray{ GetAppTemplateContainerLivenessProbeArgs{...} }
+type GetAppTemplateContainerLivenessProbeArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerLivenessProbeArrayOutput() GetAppTemplateContainerLivenessProbeArrayOutput
+	ToGetAppTemplateContainerLivenessProbeArrayOutputWithContext(context.Context) GetAppTemplateContainerLivenessProbeArrayOutput
+}
+
+type GetAppTemplateContainerLivenessProbeArray []GetAppTemplateContainerLivenessProbeInput
+
+func (GetAppTemplateContainerLivenessProbeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerLivenessProbe)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerLivenessProbeArray) ToGetAppTemplateContainerLivenessProbeArrayOutput() GetAppTemplateContainerLivenessProbeArrayOutput {
+	return i.ToGetAppTemplateContainerLivenessProbeArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerLivenessProbeArray) ToGetAppTemplateContainerLivenessProbeArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerLivenessProbeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerLivenessProbeArrayOutput)
+}
+
+type GetAppTemplateContainerLivenessProbeOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerLivenessProbeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerLivenessProbe)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerLivenessProbeOutput) ToGetAppTemplateContainerLivenessProbeOutput() GetAppTemplateContainerLivenessProbeOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerLivenessProbeOutput) ToGetAppTemplateContainerLivenessProbeOutputWithContext(ctx context.Context) GetAppTemplateContainerLivenessProbeOutput {
+	return o
+}
+
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+func (o GetAppTemplateContainerLivenessProbeOutput) FailureCountThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.FailureCountThreshold }).(pulumi.IntOutput)
+}
+
+// A `header` block as detailed below.
+func (o GetAppTemplateContainerLivenessProbeOutput) Headers() GetAppTemplateContainerLivenessProbeHeaderArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) []GetAppTemplateContainerLivenessProbeHeader {
+		return v.Headers
+	}).(GetAppTemplateContainerLivenessProbeHeaderArrayOutput)
+}
+
+// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+func (o GetAppTemplateContainerLivenessProbeOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// The time in seconds to wait after the container has started before the probe is started.
+func (o GetAppTemplateContainerLivenessProbeOutput) InitialDelay() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.InitialDelay }).(pulumi.IntOutput)
+}
+
+// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+func (o GetAppTemplateContainerLivenessProbeOutput) IntervalSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.IntervalSeconds }).(pulumi.IntOutput)
+}
+
+// The path in the container at which to mount this volume.
+func (o GetAppTemplateContainerLivenessProbeOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The port number on which to connect. Possible values are between `1` and `65535`.
+func (o GetAppTemplateContainerLivenessProbeOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+func (o GetAppTemplateContainerLivenessProbeOutput) TerminationGracePeriodSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.TerminationGracePeriodSeconds }).(pulumi.IntOutput)
+}
+
+// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+func (o GetAppTemplateContainerLivenessProbeOutput) Timeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.Timeout }).(pulumi.IntOutput)
+}
+
+// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+func (o GetAppTemplateContainerLivenessProbeOutput) Transport() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) string { return v.Transport }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateContainerLivenessProbeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerLivenessProbeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerLivenessProbe)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerLivenessProbeArrayOutput) ToGetAppTemplateContainerLivenessProbeArrayOutput() GetAppTemplateContainerLivenessProbeArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerLivenessProbeArrayOutput) ToGetAppTemplateContainerLivenessProbeArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerLivenessProbeArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerLivenessProbeArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerLivenessProbeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateContainerLivenessProbe {
+		return vs[0].([]GetAppTemplateContainerLivenessProbe)[vs[1].(int)]
+	}).(GetAppTemplateContainerLivenessProbeOutput)
+}
+
+type GetAppTemplateContainerLivenessProbeHeader struct {
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+	// The HTTP Header value.
+	Value string `pulumi:"value"`
+}
+
+// GetAppTemplateContainerLivenessProbeHeaderInput is an input type that accepts GetAppTemplateContainerLivenessProbeHeaderArgs and GetAppTemplateContainerLivenessProbeHeaderOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerLivenessProbeHeaderInput` via:
+//
+//	GetAppTemplateContainerLivenessProbeHeaderArgs{...}
+type GetAppTemplateContainerLivenessProbeHeaderInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerLivenessProbeHeaderOutput() GetAppTemplateContainerLivenessProbeHeaderOutput
+	ToGetAppTemplateContainerLivenessProbeHeaderOutputWithContext(context.Context) GetAppTemplateContainerLivenessProbeHeaderOutput
+}
+
+type GetAppTemplateContainerLivenessProbeHeaderArgs struct {
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The HTTP Header value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAppTemplateContainerLivenessProbeHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerLivenessProbeHeader)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerLivenessProbeHeaderArgs) ToGetAppTemplateContainerLivenessProbeHeaderOutput() GetAppTemplateContainerLivenessProbeHeaderOutput {
+	return i.ToGetAppTemplateContainerLivenessProbeHeaderOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerLivenessProbeHeaderArgs) ToGetAppTemplateContainerLivenessProbeHeaderOutputWithContext(ctx context.Context) GetAppTemplateContainerLivenessProbeHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerLivenessProbeHeaderOutput)
+}
+
+// GetAppTemplateContainerLivenessProbeHeaderArrayInput is an input type that accepts GetAppTemplateContainerLivenessProbeHeaderArray and GetAppTemplateContainerLivenessProbeHeaderArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerLivenessProbeHeaderArrayInput` via:
+//
+//	GetAppTemplateContainerLivenessProbeHeaderArray{ GetAppTemplateContainerLivenessProbeHeaderArgs{...} }
+type GetAppTemplateContainerLivenessProbeHeaderArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerLivenessProbeHeaderArrayOutput() GetAppTemplateContainerLivenessProbeHeaderArrayOutput
+	ToGetAppTemplateContainerLivenessProbeHeaderArrayOutputWithContext(context.Context) GetAppTemplateContainerLivenessProbeHeaderArrayOutput
+}
+
+type GetAppTemplateContainerLivenessProbeHeaderArray []GetAppTemplateContainerLivenessProbeHeaderInput
+
+func (GetAppTemplateContainerLivenessProbeHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerLivenessProbeHeader)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerLivenessProbeHeaderArray) ToGetAppTemplateContainerLivenessProbeHeaderArrayOutput() GetAppTemplateContainerLivenessProbeHeaderArrayOutput {
+	return i.ToGetAppTemplateContainerLivenessProbeHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerLivenessProbeHeaderArray) ToGetAppTemplateContainerLivenessProbeHeaderArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerLivenessProbeHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerLivenessProbeHeaderArrayOutput)
+}
+
+type GetAppTemplateContainerLivenessProbeHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerLivenessProbeHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerLivenessProbeHeader)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerLivenessProbeHeaderOutput) ToGetAppTemplateContainerLivenessProbeHeaderOutput() GetAppTemplateContainerLivenessProbeHeaderOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerLivenessProbeHeaderOutput) ToGetAppTemplateContainerLivenessProbeHeaderOutputWithContext(ctx context.Context) GetAppTemplateContainerLivenessProbeHeaderOutput {
+	return o
+}
+
+// The name of the Container App.
+func (o GetAppTemplateContainerLivenessProbeHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbeHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The HTTP Header value.
+func (o GetAppTemplateContainerLivenessProbeHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbeHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateContainerLivenessProbeHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerLivenessProbeHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerLivenessProbeHeader)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerLivenessProbeHeaderArrayOutput) ToGetAppTemplateContainerLivenessProbeHeaderArrayOutput() GetAppTemplateContainerLivenessProbeHeaderArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerLivenessProbeHeaderArrayOutput) ToGetAppTemplateContainerLivenessProbeHeaderArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerLivenessProbeHeaderArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerLivenessProbeHeaderArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerLivenessProbeHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateContainerLivenessProbeHeader {
+		return vs[0].([]GetAppTemplateContainerLivenessProbeHeader)[vs[1].(int)]
+	}).(GetAppTemplateContainerLivenessProbeHeaderOutput)
+}
+
+type GetAppTemplateContainerReadinessProbe struct {
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	FailureCountThreshold int `pulumi:"failureCountThreshold"`
+	// A `header` block as detailed below.
+	Headers []GetAppTemplateContainerReadinessProbeHeader `pulumi:"headers"`
+	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	Host string `pulumi:"host"`
+	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	IntervalSeconds int `pulumi:"intervalSeconds"`
+	// The path in the container at which to mount this volume.
+	Path string `pulumi:"path"`
+	// The port number on which to connect. Possible values are between `1` and `65535`.
+	Port int `pulumi:"port"`
+	// The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+	SuccessCountThreshold int `pulumi:"successCountThreshold"`
+	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	Timeout int `pulumi:"timeout"`
+	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	Transport string `pulumi:"transport"`
+}
+
+// GetAppTemplateContainerReadinessProbeInput is an input type that accepts GetAppTemplateContainerReadinessProbeArgs and GetAppTemplateContainerReadinessProbeOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerReadinessProbeInput` via:
+//
+//	GetAppTemplateContainerReadinessProbeArgs{...}
+type GetAppTemplateContainerReadinessProbeInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerReadinessProbeOutput() GetAppTemplateContainerReadinessProbeOutput
+	ToGetAppTemplateContainerReadinessProbeOutputWithContext(context.Context) GetAppTemplateContainerReadinessProbeOutput
+}
+
+type GetAppTemplateContainerReadinessProbeArgs struct {
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	FailureCountThreshold pulumi.IntInput `pulumi:"failureCountThreshold"`
+	// A `header` block as detailed below.
+	Headers GetAppTemplateContainerReadinessProbeHeaderArrayInput `pulumi:"headers"`
+	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	Host pulumi.StringInput `pulumi:"host"`
+	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	IntervalSeconds pulumi.IntInput `pulumi:"intervalSeconds"`
+	// The path in the container at which to mount this volume.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The port number on which to connect. Possible values are between `1` and `65535`.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+	SuccessCountThreshold pulumi.IntInput `pulumi:"successCountThreshold"`
+	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	Timeout pulumi.IntInput `pulumi:"timeout"`
+	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	Transport pulumi.StringInput `pulumi:"transport"`
+}
+
+func (GetAppTemplateContainerReadinessProbeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerReadinessProbe)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerReadinessProbeArgs) ToGetAppTemplateContainerReadinessProbeOutput() GetAppTemplateContainerReadinessProbeOutput {
+	return i.ToGetAppTemplateContainerReadinessProbeOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerReadinessProbeArgs) ToGetAppTemplateContainerReadinessProbeOutputWithContext(ctx context.Context) GetAppTemplateContainerReadinessProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerReadinessProbeOutput)
+}
+
+// GetAppTemplateContainerReadinessProbeArrayInput is an input type that accepts GetAppTemplateContainerReadinessProbeArray and GetAppTemplateContainerReadinessProbeArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerReadinessProbeArrayInput` via:
+//
+//	GetAppTemplateContainerReadinessProbeArray{ GetAppTemplateContainerReadinessProbeArgs{...} }
+type GetAppTemplateContainerReadinessProbeArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerReadinessProbeArrayOutput() GetAppTemplateContainerReadinessProbeArrayOutput
+	ToGetAppTemplateContainerReadinessProbeArrayOutputWithContext(context.Context) GetAppTemplateContainerReadinessProbeArrayOutput
+}
+
+type GetAppTemplateContainerReadinessProbeArray []GetAppTemplateContainerReadinessProbeInput
+
+func (GetAppTemplateContainerReadinessProbeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerReadinessProbe)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerReadinessProbeArray) ToGetAppTemplateContainerReadinessProbeArrayOutput() GetAppTemplateContainerReadinessProbeArrayOutput {
+	return i.ToGetAppTemplateContainerReadinessProbeArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerReadinessProbeArray) ToGetAppTemplateContainerReadinessProbeArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerReadinessProbeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerReadinessProbeArrayOutput)
+}
+
+type GetAppTemplateContainerReadinessProbeOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerReadinessProbeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerReadinessProbe)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerReadinessProbeOutput) ToGetAppTemplateContainerReadinessProbeOutput() GetAppTemplateContainerReadinessProbeOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerReadinessProbeOutput) ToGetAppTemplateContainerReadinessProbeOutputWithContext(ctx context.Context) GetAppTemplateContainerReadinessProbeOutput {
+	return o
+}
+
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+func (o GetAppTemplateContainerReadinessProbeOutput) FailureCountThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) int { return v.FailureCountThreshold }).(pulumi.IntOutput)
+}
+
+// A `header` block as detailed below.
+func (o GetAppTemplateContainerReadinessProbeOutput) Headers() GetAppTemplateContainerReadinessProbeHeaderArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) []GetAppTemplateContainerReadinessProbeHeader {
+		return v.Headers
+	}).(GetAppTemplateContainerReadinessProbeHeaderArrayOutput)
+}
+
+// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+func (o GetAppTemplateContainerReadinessProbeOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+func (o GetAppTemplateContainerReadinessProbeOutput) IntervalSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) int { return v.IntervalSeconds }).(pulumi.IntOutput)
+}
+
+// The path in the container at which to mount this volume.
+func (o GetAppTemplateContainerReadinessProbeOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The port number on which to connect. Possible values are between `1` and `65535`.
+func (o GetAppTemplateContainerReadinessProbeOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+func (o GetAppTemplateContainerReadinessProbeOutput) SuccessCountThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) int { return v.SuccessCountThreshold }).(pulumi.IntOutput)
+}
+
+// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+func (o GetAppTemplateContainerReadinessProbeOutput) Timeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) int { return v.Timeout }).(pulumi.IntOutput)
+}
+
+// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+func (o GetAppTemplateContainerReadinessProbeOutput) Transport() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbe) string { return v.Transport }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateContainerReadinessProbeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerReadinessProbeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerReadinessProbe)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerReadinessProbeArrayOutput) ToGetAppTemplateContainerReadinessProbeArrayOutput() GetAppTemplateContainerReadinessProbeArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerReadinessProbeArrayOutput) ToGetAppTemplateContainerReadinessProbeArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerReadinessProbeArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerReadinessProbeArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerReadinessProbeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateContainerReadinessProbe {
+		return vs[0].([]GetAppTemplateContainerReadinessProbe)[vs[1].(int)]
+	}).(GetAppTemplateContainerReadinessProbeOutput)
+}
+
+type GetAppTemplateContainerReadinessProbeHeader struct {
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+	// The HTTP Header value.
+	Value string `pulumi:"value"`
+}
+
+// GetAppTemplateContainerReadinessProbeHeaderInput is an input type that accepts GetAppTemplateContainerReadinessProbeHeaderArgs and GetAppTemplateContainerReadinessProbeHeaderOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerReadinessProbeHeaderInput` via:
+//
+//	GetAppTemplateContainerReadinessProbeHeaderArgs{...}
+type GetAppTemplateContainerReadinessProbeHeaderInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerReadinessProbeHeaderOutput() GetAppTemplateContainerReadinessProbeHeaderOutput
+	ToGetAppTemplateContainerReadinessProbeHeaderOutputWithContext(context.Context) GetAppTemplateContainerReadinessProbeHeaderOutput
+}
+
+type GetAppTemplateContainerReadinessProbeHeaderArgs struct {
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The HTTP Header value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAppTemplateContainerReadinessProbeHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerReadinessProbeHeader)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerReadinessProbeHeaderArgs) ToGetAppTemplateContainerReadinessProbeHeaderOutput() GetAppTemplateContainerReadinessProbeHeaderOutput {
+	return i.ToGetAppTemplateContainerReadinessProbeHeaderOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerReadinessProbeHeaderArgs) ToGetAppTemplateContainerReadinessProbeHeaderOutputWithContext(ctx context.Context) GetAppTemplateContainerReadinessProbeHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerReadinessProbeHeaderOutput)
+}
+
+// GetAppTemplateContainerReadinessProbeHeaderArrayInput is an input type that accepts GetAppTemplateContainerReadinessProbeHeaderArray and GetAppTemplateContainerReadinessProbeHeaderArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerReadinessProbeHeaderArrayInput` via:
+//
+//	GetAppTemplateContainerReadinessProbeHeaderArray{ GetAppTemplateContainerReadinessProbeHeaderArgs{...} }
+type GetAppTemplateContainerReadinessProbeHeaderArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerReadinessProbeHeaderArrayOutput() GetAppTemplateContainerReadinessProbeHeaderArrayOutput
+	ToGetAppTemplateContainerReadinessProbeHeaderArrayOutputWithContext(context.Context) GetAppTemplateContainerReadinessProbeHeaderArrayOutput
+}
+
+type GetAppTemplateContainerReadinessProbeHeaderArray []GetAppTemplateContainerReadinessProbeHeaderInput
+
+func (GetAppTemplateContainerReadinessProbeHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerReadinessProbeHeader)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerReadinessProbeHeaderArray) ToGetAppTemplateContainerReadinessProbeHeaderArrayOutput() GetAppTemplateContainerReadinessProbeHeaderArrayOutput {
+	return i.ToGetAppTemplateContainerReadinessProbeHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerReadinessProbeHeaderArray) ToGetAppTemplateContainerReadinessProbeHeaderArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerReadinessProbeHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerReadinessProbeHeaderArrayOutput)
+}
+
+type GetAppTemplateContainerReadinessProbeHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerReadinessProbeHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerReadinessProbeHeader)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerReadinessProbeHeaderOutput) ToGetAppTemplateContainerReadinessProbeHeaderOutput() GetAppTemplateContainerReadinessProbeHeaderOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerReadinessProbeHeaderOutput) ToGetAppTemplateContainerReadinessProbeHeaderOutputWithContext(ctx context.Context) GetAppTemplateContainerReadinessProbeHeaderOutput {
+	return o
+}
+
+// The name of the Container App.
+func (o GetAppTemplateContainerReadinessProbeHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbeHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The HTTP Header value.
+func (o GetAppTemplateContainerReadinessProbeHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerReadinessProbeHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateContainerReadinessProbeHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerReadinessProbeHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerReadinessProbeHeader)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerReadinessProbeHeaderArrayOutput) ToGetAppTemplateContainerReadinessProbeHeaderArrayOutput() GetAppTemplateContainerReadinessProbeHeaderArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerReadinessProbeHeaderArrayOutput) ToGetAppTemplateContainerReadinessProbeHeaderArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerReadinessProbeHeaderArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerReadinessProbeHeaderArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerReadinessProbeHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateContainerReadinessProbeHeader {
+		return vs[0].([]GetAppTemplateContainerReadinessProbeHeader)[vs[1].(int)]
+	}).(GetAppTemplateContainerReadinessProbeHeaderOutput)
+}
+
+type GetAppTemplateContainerStartupProbe struct {
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	FailureCountThreshold int `pulumi:"failureCountThreshold"`
+	// A `header` block as detailed below.
+	Headers []GetAppTemplateContainerStartupProbeHeader `pulumi:"headers"`
+	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	Host string `pulumi:"host"`
+	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	IntervalSeconds int `pulumi:"intervalSeconds"`
+	// The path in the container at which to mount this volume.
+	Path string `pulumi:"path"`
+	// The port number on which to connect. Possible values are between `1` and `65535`.
+	Port int `pulumi:"port"`
+	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+	TerminationGracePeriodSeconds int `pulumi:"terminationGracePeriodSeconds"`
+	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	Timeout int `pulumi:"timeout"`
+	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	Transport string `pulumi:"transport"`
+}
+
+// GetAppTemplateContainerStartupProbeInput is an input type that accepts GetAppTemplateContainerStartupProbeArgs and GetAppTemplateContainerStartupProbeOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerStartupProbeInput` via:
+//
+//	GetAppTemplateContainerStartupProbeArgs{...}
+type GetAppTemplateContainerStartupProbeInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerStartupProbeOutput() GetAppTemplateContainerStartupProbeOutput
+	ToGetAppTemplateContainerStartupProbeOutputWithContext(context.Context) GetAppTemplateContainerStartupProbeOutput
+}
+
+type GetAppTemplateContainerStartupProbeArgs struct {
+	// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+	FailureCountThreshold pulumi.IntInput `pulumi:"failureCountThreshold"`
+	// A `header` block as detailed below.
+	Headers GetAppTemplateContainerStartupProbeHeaderArrayInput `pulumi:"headers"`
+	// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+	Host pulumi.StringInput `pulumi:"host"`
+	// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+	IntervalSeconds pulumi.IntInput `pulumi:"intervalSeconds"`
+	// The path in the container at which to mount this volume.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The port number on which to connect. Possible values are between `1` and `65535`.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+	TerminationGracePeriodSeconds pulumi.IntInput `pulumi:"terminationGracePeriodSeconds"`
+	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+	Timeout pulumi.IntInput `pulumi:"timeout"`
+	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	Transport pulumi.StringInput `pulumi:"transport"`
+}
+
+func (GetAppTemplateContainerStartupProbeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerStartupProbe)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerStartupProbeArgs) ToGetAppTemplateContainerStartupProbeOutput() GetAppTemplateContainerStartupProbeOutput {
+	return i.ToGetAppTemplateContainerStartupProbeOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerStartupProbeArgs) ToGetAppTemplateContainerStartupProbeOutputWithContext(ctx context.Context) GetAppTemplateContainerStartupProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerStartupProbeOutput)
+}
+
+// GetAppTemplateContainerStartupProbeArrayInput is an input type that accepts GetAppTemplateContainerStartupProbeArray and GetAppTemplateContainerStartupProbeArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerStartupProbeArrayInput` via:
+//
+//	GetAppTemplateContainerStartupProbeArray{ GetAppTemplateContainerStartupProbeArgs{...} }
+type GetAppTemplateContainerStartupProbeArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerStartupProbeArrayOutput() GetAppTemplateContainerStartupProbeArrayOutput
+	ToGetAppTemplateContainerStartupProbeArrayOutputWithContext(context.Context) GetAppTemplateContainerStartupProbeArrayOutput
+}
+
+type GetAppTemplateContainerStartupProbeArray []GetAppTemplateContainerStartupProbeInput
+
+func (GetAppTemplateContainerStartupProbeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerStartupProbe)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerStartupProbeArray) ToGetAppTemplateContainerStartupProbeArrayOutput() GetAppTemplateContainerStartupProbeArrayOutput {
+	return i.ToGetAppTemplateContainerStartupProbeArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerStartupProbeArray) ToGetAppTemplateContainerStartupProbeArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerStartupProbeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerStartupProbeArrayOutput)
+}
+
+type GetAppTemplateContainerStartupProbeOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerStartupProbeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerStartupProbe)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerStartupProbeOutput) ToGetAppTemplateContainerStartupProbeOutput() GetAppTemplateContainerStartupProbeOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerStartupProbeOutput) ToGetAppTemplateContainerStartupProbeOutputWithContext(ctx context.Context) GetAppTemplateContainerStartupProbeOutput {
+	return o
+}
+
+// The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+func (o GetAppTemplateContainerStartupProbeOutput) FailureCountThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.FailureCountThreshold }).(pulumi.IntOutput)
+}
+
+// A `header` block as detailed below.
+func (o GetAppTemplateContainerStartupProbeOutput) Headers() GetAppTemplateContainerStartupProbeHeaderArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) []GetAppTemplateContainerStartupProbeHeader {
+		return v.Headers
+	}).(GetAppTemplateContainerStartupProbeHeaderArrayOutput)
+}
+
+// The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+func (o GetAppTemplateContainerStartupProbeOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+func (o GetAppTemplateContainerStartupProbeOutput) IntervalSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.IntervalSeconds }).(pulumi.IntOutput)
+}
+
+// The path in the container at which to mount this volume.
+func (o GetAppTemplateContainerStartupProbeOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The port number on which to connect. Possible values are between `1` and `65535`.
+func (o GetAppTemplateContainerStartupProbeOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+func (o GetAppTemplateContainerStartupProbeOutput) TerminationGracePeriodSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.TerminationGracePeriodSeconds }).(pulumi.IntOutput)
+}
+
+// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+func (o GetAppTemplateContainerStartupProbeOutput) Timeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.Timeout }).(pulumi.IntOutput)
+}
+
+// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+func (o GetAppTemplateContainerStartupProbeOutput) Transport() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) string { return v.Transport }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateContainerStartupProbeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerStartupProbeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerStartupProbe)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerStartupProbeArrayOutput) ToGetAppTemplateContainerStartupProbeArrayOutput() GetAppTemplateContainerStartupProbeArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerStartupProbeArrayOutput) ToGetAppTemplateContainerStartupProbeArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerStartupProbeArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerStartupProbeArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerStartupProbeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateContainerStartupProbe {
+		return vs[0].([]GetAppTemplateContainerStartupProbe)[vs[1].(int)]
+	}).(GetAppTemplateContainerStartupProbeOutput)
+}
+
+type GetAppTemplateContainerStartupProbeHeader struct {
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+	// The HTTP Header value.
+	Value string `pulumi:"value"`
+}
+
+// GetAppTemplateContainerStartupProbeHeaderInput is an input type that accepts GetAppTemplateContainerStartupProbeHeaderArgs and GetAppTemplateContainerStartupProbeHeaderOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerStartupProbeHeaderInput` via:
+//
+//	GetAppTemplateContainerStartupProbeHeaderArgs{...}
+type GetAppTemplateContainerStartupProbeHeaderInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerStartupProbeHeaderOutput() GetAppTemplateContainerStartupProbeHeaderOutput
+	ToGetAppTemplateContainerStartupProbeHeaderOutputWithContext(context.Context) GetAppTemplateContainerStartupProbeHeaderOutput
+}
+
+type GetAppTemplateContainerStartupProbeHeaderArgs struct {
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The HTTP Header value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAppTemplateContainerStartupProbeHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerStartupProbeHeader)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerStartupProbeHeaderArgs) ToGetAppTemplateContainerStartupProbeHeaderOutput() GetAppTemplateContainerStartupProbeHeaderOutput {
+	return i.ToGetAppTemplateContainerStartupProbeHeaderOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerStartupProbeHeaderArgs) ToGetAppTemplateContainerStartupProbeHeaderOutputWithContext(ctx context.Context) GetAppTemplateContainerStartupProbeHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerStartupProbeHeaderOutput)
+}
+
+// GetAppTemplateContainerStartupProbeHeaderArrayInput is an input type that accepts GetAppTemplateContainerStartupProbeHeaderArray and GetAppTemplateContainerStartupProbeHeaderArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerStartupProbeHeaderArrayInput` via:
+//
+//	GetAppTemplateContainerStartupProbeHeaderArray{ GetAppTemplateContainerStartupProbeHeaderArgs{...} }
+type GetAppTemplateContainerStartupProbeHeaderArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerStartupProbeHeaderArrayOutput() GetAppTemplateContainerStartupProbeHeaderArrayOutput
+	ToGetAppTemplateContainerStartupProbeHeaderArrayOutputWithContext(context.Context) GetAppTemplateContainerStartupProbeHeaderArrayOutput
+}
+
+type GetAppTemplateContainerStartupProbeHeaderArray []GetAppTemplateContainerStartupProbeHeaderInput
+
+func (GetAppTemplateContainerStartupProbeHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerStartupProbeHeader)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerStartupProbeHeaderArray) ToGetAppTemplateContainerStartupProbeHeaderArrayOutput() GetAppTemplateContainerStartupProbeHeaderArrayOutput {
+	return i.ToGetAppTemplateContainerStartupProbeHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerStartupProbeHeaderArray) ToGetAppTemplateContainerStartupProbeHeaderArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerStartupProbeHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerStartupProbeHeaderArrayOutput)
+}
+
+type GetAppTemplateContainerStartupProbeHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerStartupProbeHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerStartupProbeHeader)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerStartupProbeHeaderOutput) ToGetAppTemplateContainerStartupProbeHeaderOutput() GetAppTemplateContainerStartupProbeHeaderOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerStartupProbeHeaderOutput) ToGetAppTemplateContainerStartupProbeHeaderOutputWithContext(ctx context.Context) GetAppTemplateContainerStartupProbeHeaderOutput {
+	return o
+}
+
+// The name of the Container App.
+func (o GetAppTemplateContainerStartupProbeHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerStartupProbeHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The HTTP Header value.
+func (o GetAppTemplateContainerStartupProbeHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerStartupProbeHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateContainerStartupProbeHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerStartupProbeHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerStartupProbeHeader)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerStartupProbeHeaderArrayOutput) ToGetAppTemplateContainerStartupProbeHeaderArrayOutput() GetAppTemplateContainerStartupProbeHeaderArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerStartupProbeHeaderArrayOutput) ToGetAppTemplateContainerStartupProbeHeaderArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerStartupProbeHeaderArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerStartupProbeHeaderArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerStartupProbeHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateContainerStartupProbeHeader {
+		return vs[0].([]GetAppTemplateContainerStartupProbeHeader)[vs[1].(int)]
+	}).(GetAppTemplateContainerStartupProbeHeaderOutput)
+}
+
+type GetAppTemplateContainerVolumeMount struct {
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+	// The path in the container at which to mount this volume.
+	Path string `pulumi:"path"`
+}
+
+// GetAppTemplateContainerVolumeMountInput is an input type that accepts GetAppTemplateContainerVolumeMountArgs and GetAppTemplateContainerVolumeMountOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerVolumeMountInput` via:
+//
+//	GetAppTemplateContainerVolumeMountArgs{...}
+type GetAppTemplateContainerVolumeMountInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerVolumeMountOutput() GetAppTemplateContainerVolumeMountOutput
+	ToGetAppTemplateContainerVolumeMountOutputWithContext(context.Context) GetAppTemplateContainerVolumeMountOutput
+}
+
+type GetAppTemplateContainerVolumeMountArgs struct {
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The path in the container at which to mount this volume.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (GetAppTemplateContainerVolumeMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerVolumeMount)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerVolumeMountArgs) ToGetAppTemplateContainerVolumeMountOutput() GetAppTemplateContainerVolumeMountOutput {
+	return i.ToGetAppTemplateContainerVolumeMountOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerVolumeMountArgs) ToGetAppTemplateContainerVolumeMountOutputWithContext(ctx context.Context) GetAppTemplateContainerVolumeMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerVolumeMountOutput)
+}
+
+// GetAppTemplateContainerVolumeMountArrayInput is an input type that accepts GetAppTemplateContainerVolumeMountArray and GetAppTemplateContainerVolumeMountArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateContainerVolumeMountArrayInput` via:
+//
+//	GetAppTemplateContainerVolumeMountArray{ GetAppTemplateContainerVolumeMountArgs{...} }
+type GetAppTemplateContainerVolumeMountArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateContainerVolumeMountArrayOutput() GetAppTemplateContainerVolumeMountArrayOutput
+	ToGetAppTemplateContainerVolumeMountArrayOutputWithContext(context.Context) GetAppTemplateContainerVolumeMountArrayOutput
+}
+
+type GetAppTemplateContainerVolumeMountArray []GetAppTemplateContainerVolumeMountInput
+
+func (GetAppTemplateContainerVolumeMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerVolumeMount)(nil)).Elem()
+}
+
+func (i GetAppTemplateContainerVolumeMountArray) ToGetAppTemplateContainerVolumeMountArrayOutput() GetAppTemplateContainerVolumeMountArrayOutput {
+	return i.ToGetAppTemplateContainerVolumeMountArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateContainerVolumeMountArray) ToGetAppTemplateContainerVolumeMountArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerVolumeMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerVolumeMountArrayOutput)
+}
+
+type GetAppTemplateContainerVolumeMountOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerVolumeMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateContainerVolumeMount)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerVolumeMountOutput) ToGetAppTemplateContainerVolumeMountOutput() GetAppTemplateContainerVolumeMountOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerVolumeMountOutput) ToGetAppTemplateContainerVolumeMountOutputWithContext(ctx context.Context) GetAppTemplateContainerVolumeMountOutput {
+	return o
+}
+
+// The name of the Container App.
+func (o GetAppTemplateContainerVolumeMountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerVolumeMount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The path in the container at which to mount this volume.
+func (o GetAppTemplateContainerVolumeMountOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateContainerVolumeMount) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateContainerVolumeMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateContainerVolumeMount)(nil)).Elem()
+}
+
+func (o GetAppTemplateContainerVolumeMountArrayOutput) ToGetAppTemplateContainerVolumeMountArrayOutput() GetAppTemplateContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerVolumeMountArrayOutput) ToGetAppTemplateContainerVolumeMountArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerVolumeMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateContainerVolumeMount {
+		return vs[0].([]GetAppTemplateContainerVolumeMount)[vs[1].(int)]
+	}).(GetAppTemplateContainerVolumeMountOutput)
+}
+
+type GetAppTemplateVolume struct {
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+	// The name of the `AzureFile` storage.
+	StorageName *string `pulumi:"storageName"`
+	// The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+	StorageType *string `pulumi:"storageType"`
+}
+
+// GetAppTemplateVolumeInput is an input type that accepts GetAppTemplateVolumeArgs and GetAppTemplateVolumeOutput values.
+// You can construct a concrete instance of `GetAppTemplateVolumeInput` via:
+//
+//	GetAppTemplateVolumeArgs{...}
+type GetAppTemplateVolumeInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateVolumeOutput() GetAppTemplateVolumeOutput
+	ToGetAppTemplateVolumeOutputWithContext(context.Context) GetAppTemplateVolumeOutput
+}
+
+type GetAppTemplateVolumeArgs struct {
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the `AzureFile` storage.
+	StorageName pulumi.StringPtrInput `pulumi:"storageName"`
+	// The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+}
+
+func (GetAppTemplateVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateVolume)(nil)).Elem()
+}
+
+func (i GetAppTemplateVolumeArgs) ToGetAppTemplateVolumeOutput() GetAppTemplateVolumeOutput {
+	return i.ToGetAppTemplateVolumeOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateVolumeArgs) ToGetAppTemplateVolumeOutputWithContext(ctx context.Context) GetAppTemplateVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateVolumeOutput)
+}
+
+// GetAppTemplateVolumeArrayInput is an input type that accepts GetAppTemplateVolumeArray and GetAppTemplateVolumeArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateVolumeArrayInput` via:
+//
+//	GetAppTemplateVolumeArray{ GetAppTemplateVolumeArgs{...} }
+type GetAppTemplateVolumeArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateVolumeArrayOutput() GetAppTemplateVolumeArrayOutput
+	ToGetAppTemplateVolumeArrayOutputWithContext(context.Context) GetAppTemplateVolumeArrayOutput
+}
+
+type GetAppTemplateVolumeArray []GetAppTemplateVolumeInput
+
+func (GetAppTemplateVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateVolume)(nil)).Elem()
+}
+
+func (i GetAppTemplateVolumeArray) ToGetAppTemplateVolumeArrayOutput() GetAppTemplateVolumeArrayOutput {
+	return i.ToGetAppTemplateVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateVolumeArray) ToGetAppTemplateVolumeArrayOutputWithContext(ctx context.Context) GetAppTemplateVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateVolumeArrayOutput)
+}
+
+type GetAppTemplateVolumeOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateVolume)(nil)).Elem()
+}
+
+func (o GetAppTemplateVolumeOutput) ToGetAppTemplateVolumeOutput() GetAppTemplateVolumeOutput {
+	return o
+}
+
+func (o GetAppTemplateVolumeOutput) ToGetAppTemplateVolumeOutputWithContext(ctx context.Context) GetAppTemplateVolumeOutput {
+	return o
+}
+
+// The name of the Container App.
+func (o GetAppTemplateVolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateVolume) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the `AzureFile` storage.
+func (o GetAppTemplateVolumeOutput) StorageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAppTemplateVolume) *string { return v.StorageName }).(pulumi.StringPtrOutput)
+}
+
+// The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+func (o GetAppTemplateVolumeOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAppTemplateVolume) *string { return v.StorageType }).(pulumi.StringPtrOutput)
+}
+
+type GetAppTemplateVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateVolume)(nil)).Elem()
+}
+
+func (o GetAppTemplateVolumeArrayOutput) ToGetAppTemplateVolumeArrayOutput() GetAppTemplateVolumeArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateVolumeArrayOutput) ToGetAppTemplateVolumeArrayOutputWithContext(ctx context.Context) GetAppTemplateVolumeArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateVolumeArrayOutput) Index(i pulumi.IntInput) GetAppTemplateVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateVolume {
+		return vs[0].([]GetAppTemplateVolume)[vs[1].(int)]
+	}).(GetAppTemplateVolumeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppDaprInput)(nil)).Elem(), AppDaprArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppDaprPtrInput)(nil)).Elem(), AppDaprArgs{})
@@ -2994,6 +5352,42 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDaprComponentMetadataArrayInput)(nil)).Elem(), EnvironmentDaprComponentMetadataArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDaprComponentSecretInput)(nil)).Elem(), EnvironmentDaprComponentSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDaprComponentSecretArrayInput)(nil)).Elem(), EnvironmentDaprComponentSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppDaprInput)(nil)).Elem(), GetAppDaprArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppDaprArrayInput)(nil)).Elem(), GetAppDaprArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIdentityInput)(nil)).Elem(), GetAppIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIdentityArrayInput)(nil)).Elem(), GetAppIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressInput)(nil)).Elem(), GetAppIngressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressArrayInput)(nil)).Elem(), GetAppIngressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressCustomDomainInput)(nil)).Elem(), GetAppIngressCustomDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressCustomDomainArrayInput)(nil)).Elem(), GetAppIngressCustomDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressTrafficWeightInput)(nil)).Elem(), GetAppIngressTrafficWeightArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressTrafficWeightArrayInput)(nil)).Elem(), GetAppIngressTrafficWeightArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppRegistryInput)(nil)).Elem(), GetAppRegistryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppRegistryArrayInput)(nil)).Elem(), GetAppRegistryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppSecretInput)(nil)).Elem(), GetAppSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppSecretArrayInput)(nil)).Elem(), GetAppSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateInput)(nil)).Elem(), GetAppTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateArrayInput)(nil)).Elem(), GetAppTemplateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerInput)(nil)).Elem(), GetAppTemplateContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerArrayInput)(nil)).Elem(), GetAppTemplateContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerEnvInput)(nil)).Elem(), GetAppTemplateContainerEnvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerEnvArrayInput)(nil)).Elem(), GetAppTemplateContainerEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerLivenessProbeInput)(nil)).Elem(), GetAppTemplateContainerLivenessProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerLivenessProbeArrayInput)(nil)).Elem(), GetAppTemplateContainerLivenessProbeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerLivenessProbeHeaderInput)(nil)).Elem(), GetAppTemplateContainerLivenessProbeHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerLivenessProbeHeaderArrayInput)(nil)).Elem(), GetAppTemplateContainerLivenessProbeHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerReadinessProbeInput)(nil)).Elem(), GetAppTemplateContainerReadinessProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerReadinessProbeArrayInput)(nil)).Elem(), GetAppTemplateContainerReadinessProbeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerReadinessProbeHeaderInput)(nil)).Elem(), GetAppTemplateContainerReadinessProbeHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerReadinessProbeHeaderArrayInput)(nil)).Elem(), GetAppTemplateContainerReadinessProbeHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerStartupProbeInput)(nil)).Elem(), GetAppTemplateContainerStartupProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerStartupProbeArrayInput)(nil)).Elem(), GetAppTemplateContainerStartupProbeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerStartupProbeHeaderInput)(nil)).Elem(), GetAppTemplateContainerStartupProbeHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerStartupProbeHeaderArrayInput)(nil)).Elem(), GetAppTemplateContainerStartupProbeHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerVolumeMountInput)(nil)).Elem(), GetAppTemplateContainerVolumeMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateContainerVolumeMountArrayInput)(nil)).Elem(), GetAppTemplateContainerVolumeMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateVolumeInput)(nil)).Elem(), GetAppTemplateVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateVolumeArrayInput)(nil)).Elem(), GetAppTemplateVolumeArray{})
 	pulumi.RegisterOutputType(AppDaprOutput{})
 	pulumi.RegisterOutputType(AppDaprPtrOutput{})
 	pulumi.RegisterOutputType(AppIdentityOutput{})
@@ -3034,4 +5428,40 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentDaprComponentMetadataArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentDaprComponentSecretOutput{})
 	pulumi.RegisterOutputType(EnvironmentDaprComponentSecretArrayOutput{})
+	pulumi.RegisterOutputType(GetAppDaprOutput{})
+	pulumi.RegisterOutputType(GetAppDaprArrayOutput{})
+	pulumi.RegisterOutputType(GetAppIdentityOutput{})
+	pulumi.RegisterOutputType(GetAppIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetAppIngressOutput{})
+	pulumi.RegisterOutputType(GetAppIngressArrayOutput{})
+	pulumi.RegisterOutputType(GetAppIngressCustomDomainOutput{})
+	pulumi.RegisterOutputType(GetAppIngressCustomDomainArrayOutput{})
+	pulumi.RegisterOutputType(GetAppIngressTrafficWeightOutput{})
+	pulumi.RegisterOutputType(GetAppIngressTrafficWeightArrayOutput{})
+	pulumi.RegisterOutputType(GetAppRegistryOutput{})
+	pulumi.RegisterOutputType(GetAppRegistryArrayOutput{})
+	pulumi.RegisterOutputType(GetAppSecretOutput{})
+	pulumi.RegisterOutputType(GetAppSecretArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerEnvOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerEnvArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerLivenessProbeOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerLivenessProbeArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerLivenessProbeHeaderOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerLivenessProbeHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerReadinessProbeOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerReadinessProbeArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerReadinessProbeHeaderOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerReadinessProbeHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerStartupProbeOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerStartupProbeArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerStartupProbeHeaderOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerStartupProbeHeaderArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerVolumeMountOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateContainerVolumeMountArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateVolumeOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateVolumeArrayOutput{})
 }

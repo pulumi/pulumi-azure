@@ -184,6 +184,11 @@ __all__ = [
     'GetManagedDiskEncryptionSettingResult',
     'GetManagedDiskEncryptionSettingDiskEncryptionKeyResult',
     'GetManagedDiskEncryptionSettingKeyEncryptionKeyResult',
+    'GetOrchestratedVirtualMachineScaleSetIdentityResult',
+    'GetOrchestratedVirtualMachineScaleSetNetworkInterfaceResult',
+    'GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult',
+    'GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult',
+    'GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult',
     'GetSharedImageIdentifierResult',
     'GetSharedImagePurchasePlanResult',
     'GetSharedImageVersionTargetRegionResult',
@@ -11089,6 +11094,327 @@ class GetManagedDiskEncryptionSettingKeyEncryptionKeyResult(dict):
         The ID of the source Key Vault.
         """
         return pulumi.get(self, "source_vault_id")
+
+
+@pulumi.output_type
+class GetOrchestratedVirtualMachineScaleSetIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 type: str):
+        """
+        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Orchestrated Virtual Machine Scale Set.
+        :param str type: The Type of IP Tag.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Orchestrated Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Type of IP Tag.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceResult(dict):
+    def __init__(__self__, *,
+                 accelerated_networking_enabled: bool,
+                 dns_servers: Sequence[str],
+                 ip_configurations: Sequence['outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult'],
+                 ip_forwarding_enabled: bool,
+                 name: str,
+                 network_security_group_id: str,
+                 primary: bool):
+        """
+        :param bool accelerated_networking_enabled: Is accelerated networking enabled?
+        :param Sequence[str] dns_servers: An array of the DNS servers in use.
+        :param Sequence['GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: An `ip_configuration` block as documented below.
+        :param bool ip_forwarding_enabled: Is IP forwarding enabled?
+        :param str name: The name of this Orchestrated Virtual Machine Scale Set.
+        :param str network_security_group_id: The identifier for the network security group.
+        :param bool primary: If this ip_configuration is the primary one.
+        """
+        pulumi.set(__self__, "accelerated_networking_enabled", accelerated_networking_enabled)
+        pulumi.set(__self__, "dns_servers", dns_servers)
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        pulumi.set(__self__, "ip_forwarding_enabled", ip_forwarding_enabled)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_security_group_id", network_security_group_id)
+        pulumi.set(__self__, "primary", primary)
+
+    @property
+    @pulumi.getter(name="acceleratedNetworkingEnabled")
+    def accelerated_networking_enabled(self) -> bool:
+        """
+        Is accelerated networking enabled?
+        """
+        return pulumi.get(self, "accelerated_networking_enabled")
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Sequence[str]:
+        """
+        An array of the DNS servers in use.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Sequence['outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult']:
+        """
+        An `ip_configuration` block as documented below.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter(name="ipForwardingEnabled")
+    def ip_forwarding_enabled(self) -> bool:
+        """
+        Is IP forwarding enabled?
+        """
+        return pulumi.get(self, "ip_forwarding_enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Orchestrated Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkSecurityGroupId")
+    def network_security_group_id(self) -> str:
+        """
+        The identifier for the network security group.
+        """
+        return pulumi.get(self, "network_security_group_id")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> bool:
+        """
+        If this ip_configuration is the primary one.
+        """
+        return pulumi.get(self, "primary")
+
+
+@pulumi.output_type
+class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
+    def __init__(__self__, *,
+                 application_gateway_backend_address_pool_ids: Sequence[str],
+                 application_security_group_ids: Sequence[str],
+                 load_balancer_backend_address_pool_ids: Sequence[str],
+                 load_balancer_inbound_nat_rules_ids: Sequence[str],
+                 name: str,
+                 primary: bool,
+                 public_ip_addresses: Sequence['outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult'],
+                 subnet_id: str,
+                 version: str):
+        """
+        :param Sequence[str] application_gateway_backend_address_pool_ids: An array of references to backend address pools of application gateways.
+        :param Sequence[str] application_security_group_ids: The application security group IDs to use.
+        :param Sequence[str] load_balancer_backend_address_pool_ids: An array of references to backend address pools of load balancers.
+        :param Sequence[str] load_balancer_inbound_nat_rules_ids: An array of references to inbound NAT pools for load balancers.
+        :param str name: The name of this Orchestrated Virtual Machine Scale Set.
+        :param bool primary: If this ip_configuration is the primary one.
+        :param Sequence['GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
+        :param str subnet_id: The the identifier of the subnet.
+        :param str version: The Internet Protocol Version of the public IP address.
+        """
+        pulumi.set(__self__, "application_gateway_backend_address_pool_ids", application_gateway_backend_address_pool_ids)
+        pulumi.set(__self__, "application_security_group_ids", application_security_group_ids)
+        pulumi.set(__self__, "load_balancer_backend_address_pool_ids", load_balancer_backend_address_pool_ids)
+        pulumi.set(__self__, "load_balancer_inbound_nat_rules_ids", load_balancer_inbound_nat_rules_ids)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="applicationGatewayBackendAddressPoolIds")
+    def application_gateway_backend_address_pool_ids(self) -> Sequence[str]:
+        """
+        An array of references to backend address pools of application gateways.
+        """
+        return pulumi.get(self, "application_gateway_backend_address_pool_ids")
+
+    @property
+    @pulumi.getter(name="applicationSecurityGroupIds")
+    def application_security_group_ids(self) -> Sequence[str]:
+        """
+        The application security group IDs to use.
+        """
+        return pulumi.get(self, "application_security_group_ids")
+
+    @property
+    @pulumi.getter(name="loadBalancerBackendAddressPoolIds")
+    def load_balancer_backend_address_pool_ids(self) -> Sequence[str]:
+        """
+        An array of references to backend address pools of load balancers.
+        """
+        return pulumi.get(self, "load_balancer_backend_address_pool_ids")
+
+    @property
+    @pulumi.getter(name="loadBalancerInboundNatRulesIds")
+    def load_balancer_inbound_nat_rules_ids(self) -> Sequence[str]:
+        """
+        An array of references to inbound NAT pools for load balancers.
+        """
+        return pulumi.get(self, "load_balancer_inbound_nat_rules_ids")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Orchestrated Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> bool:
+        """
+        If this ip_configuration is the primary one.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="publicIpAddresses")
+    def public_ip_addresses(self) -> Sequence['outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult']:
+        """
+        The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        The the identifier of the subnet.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The Internet Protocol Version of the public IP address.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult(dict):
+    def __init__(__self__, *,
+                 domain_name_label: str,
+                 idle_timeout_in_minutes: int,
+                 ip_tags: Sequence['outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult'],
+                 name: str,
+                 public_ip_prefix_id: str,
+                 version: str):
+        """
+        :param str domain_name_label: The domain name label for the DNS settings.
+        :param int idle_timeout_in_minutes: The idle timeout in minutes.
+        :param Sequence['GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: A list of `ip_tag` blocks as defined below.
+        :param str name: The name of this Orchestrated Virtual Machine Scale Set.
+        :param str public_ip_prefix_id: The ID of the public IP prefix.
+        :param str version: The Internet Protocol Version of the public IP address.
+        """
+        pulumi.set(__self__, "domain_name_label", domain_name_label)
+        pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        pulumi.set(__self__, "ip_tags", ip_tags)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "public_ip_prefix_id", public_ip_prefix_id)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="domainNameLabel")
+    def domain_name_label(self) -> str:
+        """
+        The domain name label for the DNS settings.
+        """
+        return pulumi.get(self, "domain_name_label")
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> int:
+        """
+        The idle timeout in minutes.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> Sequence['outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult']:
+        """
+        A list of `ip_tag` blocks as defined below.
+        """
+        return pulumi.get(self, "ip_tags")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Orchestrated Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicIpPrefixId")
+    def public_ip_prefix_id(self) -> str:
+        """
+        The ID of the public IP prefix.
+        """
+        return pulumi.get(self, "public_ip_prefix_id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The Internet Protocol Version of the public IP address.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult(dict):
+    def __init__(__self__, *,
+                 tag: str,
+                 type: str):
+        """
+        :param str tag: The IP Tag associated with the Public IP.
+        :param str type: The Type of IP Tag.
+        """
+        pulumi.set(__self__, "tag", tag)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def tag(self) -> str:
+        """
+        The IP Tag associated with the Public IP.
+        """
+        return pulumi.get(self, "tag")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The Type of IP Tag.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

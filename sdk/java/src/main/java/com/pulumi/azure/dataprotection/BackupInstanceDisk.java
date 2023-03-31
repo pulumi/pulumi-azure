@@ -116,7 +116,7 @@ public class BackupInstanceDisk extends com.pulumi.resources.CustomResource {
      * The ID of the Backup Policy.
      * 
      */
-    @Export(name="backupPolicyId", type=String.class, parameters={})
+    @Export(name="backupPolicyId", refs={String.class}, tree="[0]")
     private Output<String> backupPolicyId;
 
     /**
@@ -130,7 +130,7 @@ public class BackupInstanceDisk extends com.pulumi.resources.CustomResource {
      * The ID of the source Disk. Changing this forces a new Backup Instance Disk to be created.
      * 
      */
-    @Export(name="diskId", type=String.class, parameters={})
+    @Export(name="diskId", refs={String.class}, tree="[0]")
     private Output<String> diskId;
 
     /**
@@ -144,7 +144,7 @@ public class BackupInstanceDisk extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -158,7 +158,7 @@ public class BackupInstanceDisk extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Backup Instance Disk. Changing this forces a new Backup Instance Disk to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -172,7 +172,7 @@ public class BackupInstanceDisk extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
      * 
      */
-    @Export(name="snapshotResourceGroupName", type=String.class, parameters={})
+    @Export(name="snapshotResourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> snapshotResourceGroupName;
 
     /**
@@ -186,7 +186,7 @@ public class BackupInstanceDisk extends com.pulumi.resources.CustomResource {
      * The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
      * 
      */
-    @Export(name="vaultId", type=String.class, parameters={})
+    @Export(name="vaultId", refs={String.class}, tree="[0]")
     private Output<String> vaultId;
 
     /**

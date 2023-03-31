@@ -59,6 +59,7 @@ import * as utilities from "../utilities";
  *         "List",
  *         "Purge",
  *         "Recover",
+ *         "GetRotationPolicy",
  *     ],
  * });
  * const exampleKey = new azure.keyvault.Key("exampleKey", {

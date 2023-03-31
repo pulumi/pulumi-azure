@@ -16,16 +16,20 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
     public static final AccountEncryptionArgs Empty = new AccountEncryptionArgs();
 
     /**
-     * The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
+     * @deprecated
+     * This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
      * 
      */
+    @Deprecated /* This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption */
     @Import(name="keySource")
     private @Nullable Output<String> keySource;
 
     /**
-     * @return The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
+     * @deprecated
+     * This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
      * 
      */
+    @Deprecated /* This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption */
     public Optional<Output<String>> keySource() {
         return Optional.ofNullable(this.keySource);
     }
@@ -87,22 +91,26 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keySource The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
+         * 
          */
+        @Deprecated /* This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption */
         public Builder keySource(@Nullable Output<String> keySource) {
             $.keySource = keySource;
             return this;
         }
 
         /**
-         * @param keySource The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
+         * 
          */
+        @Deprecated /* This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption */
         public Builder keySource(String keySource) {
             return keySource(Output.of(keySource));
         }

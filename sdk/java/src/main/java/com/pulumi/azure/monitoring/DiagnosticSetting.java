@@ -112,7 +112,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * One or more `enabled_log` blocks as defined below.
      * 
      */
-    @Export(name="enabledLogs", type=List.class, parameters={DiagnosticSettingEnabledLog.class})
+    @Export(name="enabledLogs", refs={List.class,DiagnosticSettingEnabledLog.class}, tree="[0,1]")
     private Output<List<DiagnosticSettingEnabledLog>> enabledLogs;
 
     /**
@@ -126,7 +126,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      * 
      */
-    @Export(name="eventhubAuthorizationRuleId", type=String.class, parameters={})
+    @Export(name="eventhubAuthorizationRuleId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventhubAuthorizationRuleId;
 
     /**
@@ -140,7 +140,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Event Hub where Diagnostics Data should be sent.
      * 
      */
-    @Export(name="eventhubName", type=String.class, parameters={})
+    @Export(name="eventhubName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventhubName;
 
     /**
@@ -154,7 +154,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      * 
      */
-    @Export(name="logAnalyticsDestinationType", type=String.class, parameters={})
+    @Export(name="logAnalyticsDestinationType", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsDestinationType;
 
     /**
@@ -168,7 +168,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logAnalyticsWorkspaceId;
 
     /**
@@ -186,7 +186,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `log` has been superseded by `enabled_log` and will be removed in version 4.0 of the AzureRM Provider. */
-    @Export(name="logs", type=List.class, parameters={DiagnosticSettingLog.class})
+    @Export(name="logs", refs={List.class,DiagnosticSettingLog.class}, tree="[0,1]")
     private Output<List<DiagnosticSettingLog>> logs;
 
     /**
@@ -200,7 +200,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * One or more `metric` blocks as defined below.
      * 
      */
-    @Export(name="metrics", type=List.class, parameters={DiagnosticSettingMetric.class})
+    @Export(name="metrics", refs={List.class,DiagnosticSettingMetric.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DiagnosticSettingMetric>> metrics;
 
     /**
@@ -214,7 +214,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -228,7 +228,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
      * 
      */
-    @Export(name="partnerSolutionId", type=String.class, parameters={})
+    @Export(name="partnerSolutionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> partnerSolutionId;
 
     /**
@@ -242,7 +242,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account where logs should be sent.
      * 
      */
-    @Export(name="storageAccountId", type=String.class, parameters={})
+    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountId;
 
     /**
@@ -256,7 +256,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetResourceId", type=String.class, parameters={})
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**

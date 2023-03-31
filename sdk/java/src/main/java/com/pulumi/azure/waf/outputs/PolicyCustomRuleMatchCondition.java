@@ -15,10 +15,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyCustomRuleMatchCondition {
     /**
-     * @return A list of match values.
+     * @return A list of match values. This is **Required** when the `operator` is not `Any`.
      * 
      */
-    private List<String> matchValues;
+    private @Nullable List<String> matchValues;
     /**
      * @return One or more `match_variables` blocks as defined below.
      * 
@@ -30,7 +30,7 @@ public final class PolicyCustomRuleMatchCondition {
      */
     private @Nullable Boolean negationCondition;
     /**
-     * @return Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+     * @return Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
      * 
      */
     private String operator;
@@ -42,11 +42,11 @@ public final class PolicyCustomRuleMatchCondition {
 
     private PolicyCustomRuleMatchCondition() {}
     /**
-     * @return A list of match values.
+     * @return A list of match values. This is **Required** when the `operator` is not `Any`.
      * 
      */
     public List<String> matchValues() {
-        return this.matchValues;
+        return this.matchValues == null ? List.of() : this.matchValues;
     }
     /**
      * @return One or more `match_variables` blocks as defined below.
@@ -63,7 +63,7 @@ public final class PolicyCustomRuleMatchCondition {
         return Optional.ofNullable(this.negationCondition);
     }
     /**
-     * @return Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+     * @return Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
      * 
      */
     public String operator() {
@@ -86,7 +86,7 @@ public final class PolicyCustomRuleMatchCondition {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> matchValues;
+        private @Nullable List<String> matchValues;
         private List<PolicyCustomRuleMatchConditionMatchVariable> matchVariables;
         private @Nullable Boolean negationCondition;
         private String operator;
@@ -102,8 +102,8 @@ public final class PolicyCustomRuleMatchCondition {
         }
 
         @CustomType.Setter
-        public Builder matchValues(List<String> matchValues) {
-            this.matchValues = Objects.requireNonNull(matchValues);
+        public Builder matchValues(@Nullable List<String> matchValues) {
+            this.matchValues = matchValues;
             return this;
         }
         public Builder matchValues(String... matchValues) {

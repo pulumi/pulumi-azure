@@ -187,7 +187,7 @@ public class Transform extends com.pulumi.resources.CustomResource {
      * An optional verbose description of the Transform.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -201,7 +201,7 @@ public class Transform extends com.pulumi.resources.CustomResource {
      * The Media Services account name. Changing this forces a new Transform to be created.
      * 
      */
-    @Export(name="mediaServicesAccountName", type=String.class, parameters={})
+    @Export(name="mediaServicesAccountName", refs={String.class}, tree="[0]")
     private Output<String> mediaServicesAccountName;
 
     /**
@@ -215,7 +215,7 @@ public class Transform extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Transform. Changing this forces a new Transform to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -229,7 +229,7 @@ public class Transform extends com.pulumi.resources.CustomResource {
      * One or more `output` blocks as defined below. At least one `output` must be defined.
      * 
      */
-    @Export(name="outputs", type=List.class, parameters={TransformOutput.class})
+    @Export(name="outputs", refs={List.class,TransformOutput.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TransformOutput>> outputs;
 
     /**
@@ -243,7 +243,7 @@ public class Transform extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

@@ -13,6 +13,8 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in this provider only a single Alias is supported.
  *
+ * > **NOTE:** When using this resource across tenants the `clientId` and `tenantId` of the `provider` config block should be for the home tenant details for the SPN / User or a permissions error will likely be encountered. See [the official documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/programmatically-create-subscription) for more details.
+ *
  * ## Example Usage
  * ### Creating A New Alias And Subscription For An Enrollment Account
  *

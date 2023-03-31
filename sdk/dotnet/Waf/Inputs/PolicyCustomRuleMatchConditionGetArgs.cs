@@ -12,11 +12,11 @@ namespace Pulumi.Azure.Waf.Inputs
 
     public sealed class PolicyCustomRuleMatchConditionGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("matchValues", required: true)]
+        [Input("matchValues")]
         private InputList<string>? _matchValues;
 
         /// <summary>
-        /// A list of match values.
+        /// A list of match values. This is **Required** when the `operator` is not `Any`.
         /// </summary>
         public InputList<string> MatchValues
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<bool>? NegationCondition { get; set; }
 
         /// <summary>
-        /// Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+        /// Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
         /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;

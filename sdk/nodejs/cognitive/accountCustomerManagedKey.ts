@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     skuName: "E0",
  *     customSubdomainName: "example-account",
  *     identity: {
- *         type: "SystemAssigned, UserAssigned",
+ *         type: "UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
  * });
@@ -75,6 +75,7 @@ import * as utilities from "../utilities";
  *                 "Decrypt",
  *                 "Sign",
  *                 "Verify",
+ *                 "GetRotationPolicy",
  *             ],
  *             secretPermissions: ["Get"],
  *         },

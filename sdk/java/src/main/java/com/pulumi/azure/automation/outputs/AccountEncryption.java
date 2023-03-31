@@ -12,9 +12,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountEncryption {
     /**
-     * @return The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
+     * @deprecated
+     * This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
      * 
      */
+    @Deprecated /* This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption */
     private @Nullable String keySource;
     /**
      * @return The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
@@ -29,9 +31,11 @@ public final class AccountEncryption {
 
     private AccountEncryption() {}
     /**
-     * @return The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
+     * @deprecated
+     * This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
      * 
      */
+    @Deprecated /* This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption */
     public Optional<String> keySource() {
         return Optional.ofNullable(this.keySource);
     }

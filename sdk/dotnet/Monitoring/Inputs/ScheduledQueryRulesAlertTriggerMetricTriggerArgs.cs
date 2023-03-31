@@ -15,8 +15,8 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// Evaluation of metric on a particular column.
         /// </summary>
-        [Input("metricColumn", required: true)]
-        public Input<string> MetricColumn { get; set; } = null!;
+        [Input("metricColumn")]
+        public Input<string>? MetricColumn { get; set; }
 
         /// <summary>
         /// Metric Trigger Type - 'Consecutive' or 'Total'.

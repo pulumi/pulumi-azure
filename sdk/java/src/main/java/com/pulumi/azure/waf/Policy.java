@@ -156,7 +156,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * One or more `custom_rules` blocks as defined below.
      * 
      */
-    @Export(name="customRules", type=List.class, parameters={PolicyCustomRule.class})
+    @Export(name="customRules", refs={List.class,PolicyCustomRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PolicyCustomRule>> customRules;
 
     /**
@@ -170,7 +170,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A list of HTTP Listener IDs from an `azure.network.ApplicationGateway`.
      * 
      */
-    @Export(name="httpListenerIds", type=List.class, parameters={String.class})
+    @Export(name="httpListenerIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> httpListenerIds;
 
     /**
@@ -184,7 +184,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Resource location. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -198,7 +198,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A `managed_rules` blocks as defined below.
      * 
      */
-    @Export(name="managedRules", type=PolicyManagedRules.class, parameters={})
+    @Export(name="managedRules", refs={PolicyManagedRules.class}, tree="[0]")
     private Output<PolicyManagedRules> managedRules;
 
     /**
@@ -212,7 +212,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * The name of the policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -226,7 +226,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A list of URL Path Map Path Rule IDs from an `azure.network.ApplicationGateway`.
      * 
      */
-    @Export(name="pathBasedRuleIds", type=List.class, parameters={String.class})
+    @Export(name="pathBasedRuleIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> pathBasedRuleIds;
 
     /**
@@ -240,7 +240,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A `policy_settings` block as defined below.
      * 
      */
-    @Export(name="policySettings", type=PolicyPolicySettings.class, parameters={})
+    @Export(name="policySettings", refs={PolicyPolicySettings.class}, tree="[0]")
     private Output</* @Nullable */ PolicyPolicySettings> policySettings;
 
     /**
@@ -254,7 +254,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * The name of the resource group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -268,7 +268,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Web Application Firewall Policy.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

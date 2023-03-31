@@ -68,7 +68,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`.
      * 
      */
-    @Export(name="billingType", type=String.class, parameters={})
+    @Export(name="billingType", refs={String.class}, tree="[0]")
     private Output<String> billingType;
 
     /**
@@ -82,7 +82,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      * 
      */
-    @Export(name="countryCode", type=String.class, parameters={})
+    @Export(name="countryCode", refs={String.class}, tree="[0]")
     private Output<String> countryCode;
 
     /**
@@ -96,7 +96,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
      * 
      */
-    @Export(name="dataResidencyLocation", type=String.class, parameters={})
+    @Export(name="dataResidencyLocation", refs={String.class}, tree="[0]")
     private Output<String> dataResidencyLocation;
 
     /**
@@ -110,7 +110,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -124,7 +124,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -138,7 +138,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * The date from which the billing type took effect. May not be populated until after the first billing cycle.
      * 
      */
-    @Export(name="effectiveStartDate", type=String.class, parameters={})
+    @Export(name="effectiveStartDate", refs={String.class}, tree="[0]")
     private Output<String> effectiveStartDate;
 
     /**
@@ -152,7 +152,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the AAD B2C Directory should exist. Changing this forces a new AAD B2C Directory to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -166,7 +166,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * Billing SKU for the B2C tenant. Must be one of: `PremiumP1` or `PremiumP2` (`Standard` is not supported). See [official docs](https://aka.ms/b2cBilling) for more information.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -180,7 +180,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the AAD B2C Directory.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -194,7 +194,7 @@ public class Directory extends com.pulumi.resources.CustomResource {
      * The Tenant ID for the AAD B2C tenant.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

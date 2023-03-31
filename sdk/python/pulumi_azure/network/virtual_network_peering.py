@@ -29,7 +29,7 @@ class VirtualNetworkPeeringArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
-        :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+        :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] use_remote_gateways: Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
@@ -102,7 +102,7 @@ class VirtualNetworkPeeringArgs:
     @pulumi.getter(name="allowGatewayTransit")
     def allow_gateway_transit(self) -> Optional[pulumi.Input[bool]]:
         """
-        Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+        Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         """
         return pulumi.get(self, "allow_gateway_transit")
 
@@ -171,7 +171,7 @@ class _VirtualNetworkPeeringState:
         """
         Input properties used for looking up and filtering VirtualNetworkPeering resources.
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
-        :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+        :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
@@ -214,7 +214,7 @@ class _VirtualNetworkPeeringState:
     @pulumi.getter(name="allowGatewayTransit")
     def allow_gateway_transit(self) -> Optional[pulumi.Input[bool]]:
         """
-        Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+        Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         """
         return pulumi.get(self, "allow_gateway_transit")
 
@@ -362,7 +362,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
-        :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+        :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
@@ -491,7 +491,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
-        :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+        :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
@@ -516,7 +516,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowForwardedTraffic")
-    def allow_forwarded_traffic(self) -> pulumi.Output[bool]:
+    def allow_forwarded_traffic(self) -> pulumi.Output[Optional[bool]]:
         """
         Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
         """
@@ -524,9 +524,9 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowGatewayTransit")
-    def allow_gateway_transit(self) -> pulumi.Output[bool]:
+    def allow_gateway_transit(self) -> pulumi.Output[Optional[bool]]:
         """
-        Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+        Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         """
         return pulumi.get(self, "allow_gateway_transit")
 
@@ -569,7 +569,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="useRemoteGateways")
-    def use_remote_gateways(self) -> pulumi.Output[bool]:
+    def use_remote_gateways(self) -> pulumi.Output[Optional[bool]]:
         """
         Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
         """

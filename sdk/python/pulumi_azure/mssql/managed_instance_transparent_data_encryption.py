@@ -241,6 +241,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                         "Update",
                         "Recover",
                         "Purge",
+                        "GetRotationPolicy",
                     ],
                 ),
                 azure.keyvault.KeyVaultAccessPolicyArgs(
@@ -397,6 +398,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                         "Update",
                         "Recover",
                         "Purge",
+                        "GetRotationPolicy",
                     ],
                 ),
                 azure.keyvault.KeyVaultAccessPolicyArgs(

@@ -119,7 +119,7 @@ namespace Pulumi.Azure.Monitoring
     ///                         "Microsoft-Perf",
     ///                         "Microsoft-InsightsMetrics",
     ///                     },
-    ///                     SamplingFrequencyInSeconds = 10,
+    ///                     SamplingFrequencyInSeconds = 60,
     ///                     CounterSpecifiers = new[]
     ///                     {
     ///                         "Processor(*)\\% Processor Time",
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.Monitoring
     ///                     },
     ///                     XPathQueries = new[]
     ///                     {
-    ///                         "*[System/Level=1]",
+    ///                         "*![System/Level=1]",
     ///                     },
     ///                     Name = "test-datasource-wineventlog",
     ///                 },

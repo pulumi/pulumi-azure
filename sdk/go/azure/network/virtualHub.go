@@ -72,6 +72,8 @@ type VirtualHub struct {
 	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
 	// The ID of the default Route Table in the Virtual Hub.
 	DefaultRouteTableId pulumi.StringOutput `pulumi:"defaultRouteTableId"`
+	// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+	HubRoutingPreference pulumi.StringPtrOutput `pulumi:"hubRoutingPreference"`
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Virtual Hub. Changing this forces a new resource to be created.
@@ -128,6 +130,8 @@ type virtualHubState struct {
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// The ID of the default Route Table in the Virtual Hub.
 	DefaultRouteTableId *string `pulumi:"defaultRouteTableId"`
+	// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+	HubRoutingPreference *string `pulumi:"hubRoutingPreference"`
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Virtual Hub. Changing this forces a new resource to be created.
@@ -153,6 +157,8 @@ type VirtualHubState struct {
 	AddressPrefix pulumi.StringPtrInput
 	// The ID of the default Route Table in the Virtual Hub.
 	DefaultRouteTableId pulumi.StringPtrInput
+	// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+	HubRoutingPreference pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Virtual Hub. Changing this forces a new resource to be created.
@@ -180,6 +186,8 @@ func (VirtualHubState) ElementType() reflect.Type {
 type virtualHubArgs struct {
 	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix *string `pulumi:"addressPrefix"`
+	// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+	HubRoutingPreference *string `pulumi:"hubRoutingPreference"`
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Virtual Hub. Changing this forces a new resource to be created.
@@ -200,6 +208,8 @@ type virtualHubArgs struct {
 type VirtualHubArgs struct {
 	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix pulumi.StringPtrInput
+	// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+	HubRoutingPreference pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Virtual Hub. Changing this forces a new resource to be created.
@@ -311,6 +321,11 @@ func (o VirtualHubOutput) AddressPrefix() pulumi.StringPtrOutput {
 // The ID of the default Route Table in the Virtual Hub.
 func (o VirtualHubOutput) DefaultRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualHub) pulumi.StringOutput { return v.DefaultRouteTableId }).(pulumi.StringOutput)
+}
+
+// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+func (o VirtualHubOutput) HubRoutingPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringPtrOutput { return v.HubRoutingPreference }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.

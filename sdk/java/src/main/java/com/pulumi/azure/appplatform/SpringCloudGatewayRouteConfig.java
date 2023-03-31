@@ -113,7 +113,7 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
      * 
      */
-    @Export(name="filters", type=List.class, parameters={String.class})
+    @Export(name="filters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> filters;
 
     /**
@@ -127,7 +127,7 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -141,7 +141,7 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * One or more `open_api` blocks as defined below.
      * 
      */
-    @Export(name="openApi", type=SpringCloudGatewayRouteConfigOpenApi.class, parameters={})
+    @Export(name="openApi", refs={SpringCloudGatewayRouteConfigOpenApi.class}, tree="[0]")
     private Output</* @Nullable */ SpringCloudGatewayRouteConfigOpenApi> openApi;
 
     /**
@@ -155,7 +155,7 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
      * 
      */
-    @Export(name="predicates", type=List.class, parameters={String.class})
+    @Export(name="predicates", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> predicates;
 
     /**
@@ -169,7 +169,7 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`.
      * 
      */
-    @Export(name="protocol", type=String.class, parameters={})
+    @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protocol;
 
     /**
@@ -183,7 +183,7 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * One or more `route` blocks as defined below.
      * 
      */
-    @Export(name="routes", type=List.class, parameters={SpringCloudGatewayRouteConfigRoute.class})
+    @Export(name="routes", refs={List.class,SpringCloudGatewayRouteConfigRoute.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SpringCloudGatewayRouteConfigRoute>> routes;
 
     /**
@@ -197,7 +197,7 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * The ID of the Spring Cloud App.
      * 
      */
-    @Export(name="springCloudAppId", type=String.class, parameters={})
+    @Export(name="springCloudAppId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> springCloudAppId;
 
     /**
@@ -211,7 +211,7 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
      * 
      */
-    @Export(name="springCloudGatewayId", type=String.class, parameters={})
+    @Export(name="springCloudGatewayId", refs={String.class}, tree="[0]")
     private Output<String> springCloudGatewayId;
 
     /**
@@ -225,7 +225,7 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * Should the sso validation be enabled in app level?
      * 
      */
-    @Export(name="ssoValidationEnabled", type=Boolean.class, parameters={})
+    @Export(name="ssoValidationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ssoValidationEnabled;
 
     /**

@@ -187,6 +187,7 @@ namespace Pulumi.Azure.MSSql
     ///                     "Update",
     ///                     "Recover",
     ///                     "Purge",
+    ///                     "GetRotationPolicy",
     ///                 },
     ///             },
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs

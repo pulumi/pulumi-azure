@@ -19,24 +19,12 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "PerGB2018",
  * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
- *     solutionName: "SecurityInsights",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     workspaceResourceId: exampleAnalyticsWorkspace.id,
- *     workspaceName: exampleAnalyticsWorkspace.name,
- *     plan: {
- *         publisher: "Microsoft",
- *         product: "OMSGallery/SecurityInsights",
- *     },
- * });
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {workspaceId: exampleAnalyticsWorkspace.id});
  * const exampleDataConnectorThreatIntelligenceTaxii = new azure.sentinel.DataConnectorThreatIntelligenceTaxii("exampleDataConnectorThreatIntelligenceTaxii", {
- *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
+ *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
  *     displayName: "example",
  *     apiRootUrl: "https://foo/taxii2/api2/",
  *     collectionId: "someid",
- * }, {
- *     dependsOn: [azurerm_log_analytics_solution.test],
  * });
  * ```
  *

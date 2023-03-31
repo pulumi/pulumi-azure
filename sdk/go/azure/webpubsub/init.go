@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:webpubsub/customCertificate:CustomCertificate":
+		r = &CustomCertificate{}
 	case "azure:webpubsub/hub:Hub":
 		r = &Hub{}
 	case "azure:webpubsub/networkAcl:NetworkAcl":
@@ -42,6 +44,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"webpubsub/customCertificate",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"webpubsub/hub",

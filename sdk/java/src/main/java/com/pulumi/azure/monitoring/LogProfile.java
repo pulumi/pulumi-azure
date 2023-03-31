@@ -103,7 +103,7 @@ public class LogProfile extends com.pulumi.resources.CustomResource {
      * List of categories of the logs.
      * 
      */
-    @Export(name="categories", type=List.class, parameters={String.class})
+    @Export(name="categories", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> categories;
 
     /**
@@ -117,7 +117,7 @@ public class LogProfile extends com.pulumi.resources.CustomResource {
      * List of regions for which Activity Log events are stored or streamed.
      * 
      */
-    @Export(name="locations", type=List.class, parameters={String.class})
+    @Export(name="locations", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> locations;
 
     /**
@@ -131,7 +131,7 @@ public class LogProfile extends com.pulumi.resources.CustomResource {
      * The name of the Log Profile. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -145,7 +145,7 @@ public class LogProfile extends com.pulumi.resources.CustomResource {
      * A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
      * 
      */
-    @Export(name="retentionPolicy", type=LogProfileRetentionPolicy.class, parameters={})
+    @Export(name="retentionPolicy", refs={LogProfileRetentionPolicy.class}, tree="[0]")
     private Output<LogProfileRetentionPolicy> retentionPolicy;
 
     /**
@@ -159,7 +159,7 @@ public class LogProfile extends com.pulumi.resources.CustomResource {
      * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
      * 
      */
-    @Export(name="servicebusRuleId", type=String.class, parameters={})
+    @Export(name="servicebusRuleId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> servicebusRuleId;
 
     /**
@@ -173,7 +173,7 @@ public class LogProfile extends com.pulumi.resources.CustomResource {
      * The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
      * 
      */
-    @Export(name="storageAccountId", type=String.class, parameters={})
+    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountId;
 
     /**

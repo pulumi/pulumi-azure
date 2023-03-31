@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ApplicationGatewaySslCertificate
     {
         /// <summary>
-        /// PFX certificate. Required if `key_vault_secret_id` is not set.
+        /// The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
         /// </summary>
         public readonly string? Data;
         /// <summary>

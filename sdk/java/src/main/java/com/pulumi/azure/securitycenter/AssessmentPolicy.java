@@ -65,7 +65,7 @@ public class AssessmentPolicy extends com.pulumi.resources.CustomResource {
      * A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
      * 
      */
-    @Export(name="categories", type=List.class, parameters={String.class})
+    @Export(name="categories", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> categories;
 
     /**
@@ -79,7 +79,7 @@ public class AssessmentPolicy extends com.pulumi.resources.CustomResource {
      * The description of the Security Center Assessment.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -93,7 +93,7 @@ public class AssessmentPolicy extends com.pulumi.resources.CustomResource {
      * The user-friendly display name of the Security Center Assessment.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -107,7 +107,7 @@ public class AssessmentPolicy extends com.pulumi.resources.CustomResource {
      * The implementation effort which is used to remediate the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
      * 
      */
-    @Export(name="implementationEffort", type=String.class, parameters={})
+    @Export(name="implementationEffort", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> implementationEffort;
 
     /**
@@ -121,7 +121,7 @@ public class AssessmentPolicy extends com.pulumi.resources.CustomResource {
      * The GUID as the name of the Security Center Assessment Policy.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -135,7 +135,7 @@ public class AssessmentPolicy extends com.pulumi.resources.CustomResource {
      * The description which is used to mitigate the security issue.
      * 
      */
-    @Export(name="remediationDescription", type=String.class, parameters={})
+    @Export(name="remediationDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> remediationDescription;
 
     /**
@@ -149,7 +149,7 @@ public class AssessmentPolicy extends com.pulumi.resources.CustomResource {
      * The severity level of the Security Center Assessment. Possible values are `Low`, `Medium` and `High`. Defaults to `Medium`.
      * 
      */
-    @Export(name="severity", type=String.class, parameters={})
+    @Export(name="severity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> severity;
 
     /**
@@ -163,7 +163,7 @@ public class AssessmentPolicy extends com.pulumi.resources.CustomResource {
      * A list of the threat impacts for the Security Center Assessment. Possible values are `AccountBreach`, `DataExfiltration`, `DataSpillage`, `DenialOfService`, `ElevationOfPrivilege`, `MaliciousInsider`, `MissingCoverage` and `ThreatResistance`.
      * 
      */
-    @Export(name="threats", type=List.class, parameters={String.class})
+    @Export(name="threats", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> threats;
 
     /**
@@ -177,7 +177,7 @@ public class AssessmentPolicy extends com.pulumi.resources.CustomResource {
      * The user impact of the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
      * 
      */
-    @Export(name="userImpact", type=String.class, parameters={})
+    @Export(name="userImpact", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userImpact;
 
     /**

@@ -90,7 +90,7 @@ public class MedtechServiceFhirDestination extends com.pulumi.resources.CustomRe
      * Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
      * 
      */
-    @Export(name="destinationFhirMappingJson", type=String.class, parameters={})
+    @Export(name="destinationFhirMappingJson", refs={String.class}, tree="[0]")
     private Output<String> destinationFhirMappingJson;
 
     /**
@@ -104,7 +104,7 @@ public class MedtechServiceFhirDestination extends com.pulumi.resources.CustomRe
      * Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
      * 
      */
-    @Export(name="destinationFhirServiceId", type=String.class, parameters={})
+    @Export(name="destinationFhirServiceId", refs={String.class}, tree="[0]")
     private Output<String> destinationFhirServiceId;
 
     /**
@@ -118,7 +118,7 @@ public class MedtechServiceFhirDestination extends com.pulumi.resources.CustomRe
      * Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
      * 
      */
-    @Export(name="destinationIdentityResolutionType", type=String.class, parameters={})
+    @Export(name="destinationIdentityResolutionType", refs={String.class}, tree="[0]")
     private Output<String> destinationIdentityResolutionType;
 
     /**
@@ -132,7 +132,7 @@ public class MedtechServiceFhirDestination extends com.pulumi.resources.CustomRe
      * Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -146,7 +146,7 @@ public class MedtechServiceFhirDestination extends com.pulumi.resources.CustomRe
      * Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
      * 
      */
-    @Export(name="medtechServiceId", type=String.class, parameters={})
+    @Export(name="medtechServiceId", refs={String.class}, tree="[0]")
     private Output<String> medtechServiceId;
 
     /**
@@ -160,7 +160,7 @@ public class MedtechServiceFhirDestination extends com.pulumi.resources.CustomRe
      * Specifies the name of the Healthcare Med Tech Service Fhir Destination. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

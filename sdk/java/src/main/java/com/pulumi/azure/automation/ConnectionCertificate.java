@@ -90,7 +90,7 @@ public class ConnectionCertificate extends com.pulumi.resources.CustomResource {
      * The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", type=String.class, parameters={})
+    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
     private Output<String> automationAccountName;
 
     /**
@@ -104,7 +104,7 @@ public class ConnectionCertificate extends com.pulumi.resources.CustomResource {
      * The name of the automation certificate.
      * 
      */
-    @Export(name="automationCertificateName", type=String.class, parameters={})
+    @Export(name="automationCertificateName", refs={String.class}, tree="[0]")
     private Output<String> automationCertificateName;
 
     /**
@@ -118,7 +118,7 @@ public class ConnectionCertificate extends com.pulumi.resources.CustomResource {
      * A description for this Connection.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -132,7 +132,7 @@ public class ConnectionCertificate extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -146,7 +146,7 @@ public class ConnectionCertificate extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -160,7 +160,7 @@ public class ConnectionCertificate extends com.pulumi.resources.CustomResource {
      * The id of subscription where the automation certificate exists.
      * 
      */
-    @Export(name="subscriptionId", type=String.class, parameters={})
+    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
     private Output<String> subscriptionId;
 
     /**

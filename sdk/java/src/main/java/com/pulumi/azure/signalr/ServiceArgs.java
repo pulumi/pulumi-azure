@@ -4,12 +4,14 @@
 package com.pulumi.azure.signalr;
 
 import com.pulumi.azure.signalr.inputs.ServiceCorArgs;
+import com.pulumi.azure.signalr.inputs.ServiceIdentityArgs;
 import com.pulumi.azure.signalr.inputs.ServiceLiveTraceArgs;
 import com.pulumi.azure.signalr.inputs.ServiceSkuArgs;
 import com.pulumi.azure.signalr.inputs.ServiceUpstreamEndpointArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +23,21 @@ import javax.annotation.Nullable;
 public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceArgs Empty = new ServiceArgs();
+
+    /**
+     * Whether to enable AAD auth? Defaults to `true`.
+     * 
+     */
+    @Import(name="aadAuthEnabled")
+    private @Nullable Output<Boolean> aadAuthEnabled;
+
+    /**
+     * @return Whether to enable AAD auth? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> aadAuthEnabled() {
+        return Optional.ofNullable(this.aadAuthEnabled);
+    }
 
     /**
      * Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
@@ -50,6 +67,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<ServiceCorArgs>>> cors() {
         return Optional.ofNullable(this.cors);
+    }
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<ServiceIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<ServiceIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -88,6 +120,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     @Deprecated /* `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0. */
     public Optional<Output<Boolean>> liveTraceEnabled() {
         return Optional.ofNullable(this.liveTraceEnabled);
+    }
+
+    /**
+     * Whether to enable local auth? Defaults to `true`.
+     * 
+     */
+    @Import(name="localAuthEnabled")
+    private @Nullable Output<Boolean> localAuthEnabled;
+
+    /**
+     * @return Whether to enable local auth? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> localAuthEnabled() {
+        return Optional.ofNullable(this.localAuthEnabled);
     }
 
     /**
@@ -136,6 +183,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to enable public network access? Defaults to `true`.
+     * 
+     */
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Whether to enable public network access? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
+    /**
      * The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
      * 
      */
@@ -148,6 +210,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+
+    /**
+     * Specifies the client connection timeout. Defaults to `30`.
+     * 
+     */
+    @Import(name="serverlessConnectionTimeoutInSeconds")
+    private @Nullable Output<Integer> serverlessConnectionTimeoutInSeconds;
+
+    /**
+     * @return Specifies the client connection timeout. Defaults to `30`.
+     * 
+     */
+    public Optional<Output<Integer>> serverlessConnectionTimeoutInSeconds() {
+        return Optional.ofNullable(this.serverlessConnectionTimeoutInSeconds);
     }
 
     /**
@@ -196,6 +273,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to request client certificate during TLS handshake? Defaults to `false`.
+     * 
+     */
+    @Import(name="tlsClientCertEnabled")
+    private @Nullable Output<Boolean> tlsClientCertEnabled;
+
+    /**
+     * @return Whether to request client certificate during TLS handshake? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> tlsClientCertEnabled() {
+        return Optional.ofNullable(this.tlsClientCertEnabled);
+    }
+
+    /**
      * An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      * 
      */
@@ -213,17 +305,23 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     private ServiceArgs() {}
 
     private ServiceArgs(ServiceArgs $) {
+        this.aadAuthEnabled = $.aadAuthEnabled;
         this.connectivityLogsEnabled = $.connectivityLogsEnabled;
         this.cors = $.cors;
+        this.identity = $.identity;
         this.liveTrace = $.liveTrace;
         this.liveTraceEnabled = $.liveTraceEnabled;
+        this.localAuthEnabled = $.localAuthEnabled;
         this.location = $.location;
         this.messagingLogsEnabled = $.messagingLogsEnabled;
         this.name = $.name;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
+        this.serverlessConnectionTimeoutInSeconds = $.serverlessConnectionTimeoutInSeconds;
         this.serviceMode = $.serviceMode;
         this.sku = $.sku;
         this.tags = $.tags;
+        this.tlsClientCertEnabled = $.tlsClientCertEnabled;
         this.upstreamEndpoints = $.upstreamEndpoints;
     }
 
@@ -243,6 +341,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ServiceArgs defaults) {
             $ = new ServiceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param aadAuthEnabled Whether to enable AAD auth? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aadAuthEnabled(@Nullable Output<Boolean> aadAuthEnabled) {
+            $.aadAuthEnabled = aadAuthEnabled;
+            return this;
+        }
+
+        /**
+         * @param aadAuthEnabled Whether to enable AAD auth? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aadAuthEnabled(Boolean aadAuthEnabled) {
+            return aadAuthEnabled(Output.of(aadAuthEnabled));
         }
 
         /**
@@ -298,6 +417,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<ServiceIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(ServiceIdentityArgs identity) {
+            return identity(Output.of(identity));
+        }
+
+        /**
          * @param liveTrace A `live_trace` block as defined below.
          * 
          * @return builder
@@ -345,6 +485,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0. */
         public Builder liveTraceEnabled(Boolean liveTraceEnabled) {
             return liveTraceEnabled(Output.of(liveTraceEnabled));
+        }
+
+        /**
+         * @param localAuthEnabled Whether to enable local auth? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthEnabled(@Nullable Output<Boolean> localAuthEnabled) {
+            $.localAuthEnabled = localAuthEnabled;
+            return this;
+        }
+
+        /**
+         * @param localAuthEnabled Whether to enable local auth? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthEnabled(Boolean localAuthEnabled) {
+            return localAuthEnabled(Output.of(localAuthEnabled));
         }
 
         /**
@@ -411,6 +572,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param publicNetworkAccessEnabled Whether to enable public network access? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Whether to enable public network access? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
+        }
+
+        /**
          * @param resourceGroupName The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -429,6 +611,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param serverlessConnectionTimeoutInSeconds Specifies the client connection timeout. Defaults to `30`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessConnectionTimeoutInSeconds(@Nullable Output<Integer> serverlessConnectionTimeoutInSeconds) {
+            $.serverlessConnectionTimeoutInSeconds = serverlessConnectionTimeoutInSeconds;
+            return this;
+        }
+
+        /**
+         * @param serverlessConnectionTimeoutInSeconds Specifies the client connection timeout. Defaults to `30`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessConnectionTimeoutInSeconds(Integer serverlessConnectionTimeoutInSeconds) {
+            return serverlessConnectionTimeoutInSeconds(Output.of(serverlessConnectionTimeoutInSeconds));
         }
 
         /**
@@ -492,6 +695,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tlsClientCertEnabled Whether to request client certificate during TLS handshake? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tlsClientCertEnabled(@Nullable Output<Boolean> tlsClientCertEnabled) {
+            $.tlsClientCertEnabled = tlsClientCertEnabled;
+            return this;
+        }
+
+        /**
+         * @param tlsClientCertEnabled Whether to request client certificate during TLS handshake? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tlsClientCertEnabled(Boolean tlsClientCertEnabled) {
+            return tlsClientCertEnabled(Output.of(tlsClientCertEnabled));
         }
 
         /**

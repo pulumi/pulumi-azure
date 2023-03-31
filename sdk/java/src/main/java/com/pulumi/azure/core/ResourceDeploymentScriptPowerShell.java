@@ -101,7 +101,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="cleanupPreference", type=String.class, parameters={})
+    @Export(name="cleanupPreference", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cleanupPreference;
 
     /**
@@ -115,7 +115,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="commandLine", type=String.class, parameters={})
+    @Export(name="commandLine", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> commandLine;
 
     /**
@@ -129,7 +129,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="container", type=ResourceDeploymentScriptPowerShellContainer.class, parameters={})
+    @Export(name="container", refs={ResourceDeploymentScriptPowerShellContainer.class}, tree="[0]")
     private Output</* @Nullable */ ResourceDeploymentScriptPowerShellContainer> container;
 
     /**
@@ -143,7 +143,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="environmentVariables", type=List.class, parameters={ResourceDeploymentScriptPowerShellEnvironmentVariable.class})
+    @Export(name="environmentVariables", refs={List.class,ResourceDeploymentScriptPowerShellEnvironmentVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourceDeploymentScriptPowerShellEnvironmentVariable>> environmentVariables;
 
     /**
@@ -157,7 +157,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="forceUpdateTag", type=String.class, parameters={})
+    @Export(name="forceUpdateTag", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> forceUpdateTag;
 
     /**
@@ -171,7 +171,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="identity", type=ResourceDeploymentScriptPowerShellIdentity.class, parameters={})
+    @Export(name="identity", refs={ResourceDeploymentScriptPowerShellIdentity.class}, tree="[0]")
     private Output</* @Nullable */ ResourceDeploymentScriptPowerShellIdentity> identity;
 
     /**
@@ -185,7 +185,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * Specifies the Azure Region where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -199,7 +199,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * Specifies the name which should be used for this Resource Deployment Script. The name length must be from 1 to 260 characters. The name can only contain alphanumeric, underscore, parentheses, hyphen and period, and it cannot end with a period. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -213,7 +213,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * List of script outputs.
      * 
      */
-    @Export(name="outputs", type=String.class, parameters={})
+    @Export(name="outputs", refs={String.class}, tree="[0]")
     private Output<String> outputs;
 
     /**
@@ -227,7 +227,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * Uri for the script. This is the entry point for the external script. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="primaryScriptUri", type=String.class, parameters={})
+    @Export(name="primaryScriptUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> primaryScriptUri;
 
     /**
@@ -241,7 +241,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -255,7 +255,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="retentionInterval", type=String.class, parameters={})
+    @Export(name="retentionInterval", refs={String.class}, tree="[0]")
     private Output<String> retentionInterval;
 
     /**
@@ -269,7 +269,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * Script body. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="scriptContent", type=String.class, parameters={})
+    @Export(name="scriptContent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scriptContent;
 
     /**
@@ -283,7 +283,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="storageAccount", type=ResourceDeploymentScriptPowerShellStorageAccount.class, parameters={})
+    @Export(name="storageAccount", refs={ResourceDeploymentScriptPowerShellStorageAccount.class}, tree="[0]")
     private Output</* @Nullable */ ResourceDeploymentScriptPowerShellStorageAccount> storageAccount;
 
     /**
@@ -297,7 +297,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="supportingScriptUris", type=List.class, parameters={String.class})
+    @Export(name="supportingScriptUris", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> supportingScriptUris;
 
     /**
@@ -311,7 +311,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * A mapping of tags which should be assigned to the Resource Deployment Script.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -325,7 +325,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="timeout", type=String.class, parameters={})
+    @Export(name="timeout", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timeout;
 
     /**
@@ -339,7 +339,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * Azure PowerShell module version to be used. The supported versions are `2.7`, `2.8`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4`, `3.5`, `3.6`, `3.7`, `3.8`, `4.1`, `4.2`, `4.3`, `4.4`, `4.5`, `4.6`, `4.7`, `4.8`, `5.0`, `5.1`, `5.2`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8`, `5.9`, `6.0`, `6.1`, `6.2`, `6.3`, `6.4`, `6.5`, `6.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `7.5`, `8.0`, `8.1`, `8.2`, `8.3`, `9.0`. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**

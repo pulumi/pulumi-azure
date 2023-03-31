@@ -139,7 +139,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterVersion", type=String.class, parameters={})
+    @Export(name="clusterVersion", refs={String.class}, tree="[0]")
     private Output<String> clusterVersion;
 
     /**
@@ -153,7 +153,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * A `component_version` block as defined below.
      * 
      */
-    @Export(name="componentVersion", type=SparkClusterComponentVersion.class, parameters={})
+    @Export(name="componentVersion", refs={SparkClusterComponentVersion.class}, tree="[0]")
     private Output<SparkClusterComponentVersion> componentVersion;
 
     /**
@@ -167,7 +167,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * A `compute_isolation` block as defined below.
      * 
      */
-    @Export(name="computeIsolation", type=SparkClusterComputeIsolation.class, parameters={})
+    @Export(name="computeIsolation", refs={SparkClusterComputeIsolation.class}, tree="[0]")
     private Output</* @Nullable */ SparkClusterComputeIsolation> computeIsolation;
 
     /**
@@ -181,7 +181,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * One or more `disk_encryption` block as defined below.
      * 
      */
-    @Export(name="diskEncryptions", type=List.class, parameters={SparkClusterDiskEncryption.class})
+    @Export(name="diskEncryptions", refs={List.class,SparkClusterDiskEncryption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SparkClusterDiskEncryption>> diskEncryptions;
 
     /**
@@ -195,7 +195,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="encryptionInTransitEnabled", type=Boolean.class, parameters={})
+    @Export(name="encryptionInTransitEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> encryptionInTransitEnabled;
 
     /**
@@ -209,7 +209,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * An `extension` block as defined below.
      * 
      */
-    @Export(name="extension", type=SparkClusterExtension.class, parameters={})
+    @Export(name="extension", refs={SparkClusterExtension.class}, tree="[0]")
     private Output</* @Nullable */ SparkClusterExtension> extension;
 
     /**
@@ -223,7 +223,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * A `gateway` block as defined below.
      * 
      */
-    @Export(name="gateway", type=SparkClusterGateway.class, parameters={})
+    @Export(name="gateway", refs={SparkClusterGateway.class}, tree="[0]")
     private Output<SparkClusterGateway> gateway;
 
     /**
@@ -237,7 +237,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
      * 
      */
-    @Export(name="httpsEndpoint", type=String.class, parameters={})
+    @Export(name="httpsEndpoint", refs={String.class}, tree="[0]")
     private Output<String> httpsEndpoint;
 
     /**
@@ -251,7 +251,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -265,7 +265,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * A `metastores` block as defined below.
      * 
      */
-    @Export(name="metastores", type=SparkClusterMetastores.class, parameters={})
+    @Export(name="metastores", refs={SparkClusterMetastores.class}, tree="[0]")
     private Output</* @Nullable */ SparkClusterMetastores> metastores;
 
     /**
@@ -279,7 +279,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * A `monitor` block as defined below.
      * 
      */
-    @Export(name="monitor", type=SparkClusterMonitor.class, parameters={})
+    @Export(name="monitor", refs={SparkClusterMonitor.class}, tree="[0]")
     private Output</* @Nullable */ SparkClusterMonitor> monitor;
 
     /**
@@ -293,7 +293,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -307,7 +307,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * A `network` block as defined below.
      * 
      */
-    @Export(name="network", type=SparkClusterNetwork.class, parameters={})
+    @Export(name="network", refs={SparkClusterNetwork.class}, tree="[0]")
     private Output</* @Nullable */ SparkClusterNetwork> network;
 
     /**
@@ -321,7 +321,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -335,7 +335,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * A `roles` block as defined below.
      * 
      */
-    @Export(name="roles", type=SparkClusterRoles.class, parameters={})
+    @Export(name="roles", refs={SparkClusterRoles.class}, tree="[0]")
     private Output<SparkClusterRoles> roles;
 
     /**
@@ -349,7 +349,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * A `security_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="securityProfile", type=SparkClusterSecurityProfile.class, parameters={})
+    @Export(name="securityProfile", refs={SparkClusterSecurityProfile.class}, tree="[0]")
     private Output</* @Nullable */ SparkClusterSecurityProfile> securityProfile;
 
     /**
@@ -363,7 +363,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
      * 
      */
-    @Export(name="sshEndpoint", type=String.class, parameters={})
+    @Export(name="sshEndpoint", refs={String.class}, tree="[0]")
     private Output<String> sshEndpoint;
 
     /**
@@ -377,7 +377,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * A `storage_account_gen2` block as defined below.
      * 
      */
-    @Export(name="storageAccountGen2", type=SparkClusterStorageAccountGen2.class, parameters={})
+    @Export(name="storageAccountGen2", refs={SparkClusterStorageAccountGen2.class}, tree="[0]")
     private Output</* @Nullable */ SparkClusterStorageAccountGen2> storageAccountGen2;
 
     /**
@@ -391,7 +391,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * One or more `storage_account` block as defined below.
      * 
      */
-    @Export(name="storageAccounts", type=List.class, parameters={SparkClusterStorageAccount.class})
+    @Export(name="storageAccounts", refs={List.class,SparkClusterStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SparkClusterStorageAccount>> storageAccounts;
 
     /**
@@ -405,7 +405,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * A map of Tags which should be assigned to this HDInsight Spark Cluster.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -419,7 +419,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tier", type=String.class, parameters={})
+    @Export(name="tier", refs={String.class}, tree="[0]")
     private Output<String> tier;
 
     /**
@@ -433,7 +433,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tlsMinVersion", type=String.class, parameters={})
+    @Export(name="tlsMinVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tlsMinVersion;
 
     /**

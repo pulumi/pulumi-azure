@@ -107,7 +107,7 @@ public class WebAppHybridConnection extends com.pulumi.resources.CustomResource 
      * The hostname of the endpoint.
      * 
      */
-    @Export(name="hostname", type=String.class, parameters={})
+    @Export(name="hostname", refs={String.class}, tree="[0]")
     private Output<String> hostname;
 
     /**
@@ -121,7 +121,7 @@ public class WebAppHybridConnection extends com.pulumi.resources.CustomResource 
      * The name of the Relay Namespace.
      * 
      */
-    @Export(name="namespaceName", type=String.class, parameters={})
+    @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
     /**
@@ -135,7 +135,7 @@ public class WebAppHybridConnection extends com.pulumi.resources.CustomResource 
      * The port to use for the endpoint.
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
@@ -149,7 +149,7 @@ public class WebAppHybridConnection extends com.pulumi.resources.CustomResource 
      * The ID of the Relay Hybrid Connection to use. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="relayId", type=String.class, parameters={})
+    @Export(name="relayId", refs={String.class}, tree="[0]")
     private Output<String> relayId;
 
     /**
@@ -163,7 +163,7 @@ public class WebAppHybridConnection extends com.pulumi.resources.CustomResource 
      * The name of the Relay in use.
      * 
      */
-    @Export(name="relayName", type=String.class, parameters={})
+    @Export(name="relayName", refs={String.class}, tree="[0]")
     private Output<String> relayName;
 
     /**
@@ -177,7 +177,7 @@ public class WebAppHybridConnection extends com.pulumi.resources.CustomResource 
      * The name of the Relay key with `Send` permission to use. Defaults to `RootManageSharedAccessKey`
      * 
      */
-    @Export(name="sendKeyName", type=String.class, parameters={})
+    @Export(name="sendKeyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sendKeyName;
 
     /**
@@ -191,7 +191,7 @@ public class WebAppHybridConnection extends com.pulumi.resources.CustomResource 
      * The Primary Access Key for the `send_key_name`
      * 
      */
-    @Export(name="sendKeyValue", type=String.class, parameters={})
+    @Export(name="sendKeyValue", refs={String.class}, tree="[0]")
     private Output<String> sendKeyValue;
 
     /**
@@ -205,7 +205,7 @@ public class WebAppHybridConnection extends com.pulumi.resources.CustomResource 
      * The Service Bus Namespace.
      * 
      */
-    @Export(name="serviceBusNamespace", type=String.class, parameters={})
+    @Export(name="serviceBusNamespace", refs={String.class}, tree="[0]")
     private Output<String> serviceBusNamespace;
 
     /**
@@ -219,7 +219,7 @@ public class WebAppHybridConnection extends com.pulumi.resources.CustomResource 
      * The suffix for the endpoint.
      * 
      */
-    @Export(name="serviceBusSuffix", type=String.class, parameters={})
+    @Export(name="serviceBusSuffix", refs={String.class}, tree="[0]")
     private Output<String> serviceBusSuffix;
 
     /**
@@ -233,7 +233,7 @@ public class WebAppHybridConnection extends com.pulumi.resources.CustomResource 
      * The ID of the Web App for this Hybrid Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="webAppId", type=String.class, parameters={})
+    @Export(name="webAppId", refs={String.class}, tree="[0]")
     private Output<String> webAppId;
 
     /**

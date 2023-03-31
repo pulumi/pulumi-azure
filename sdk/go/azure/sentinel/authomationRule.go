@@ -43,22 +43,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			sentinel, err := operationalinsights.NewAnalyticsSolution(ctx, "sentinel", &operationalinsights.AnalyticsSolutionArgs{
-//				SolutionName:        pulumi.String("SecurityInsights"),
-//				Location:            exampleResourceGroup.Location,
-//				ResourceGroupName:   exampleResourceGroup.Name,
-//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
-//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
-//					Publisher: pulumi.String("Microsoft"),
-//					Product:   pulumi.String("OMSGallery/SecurityInsights"),
-//				},
+//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "exampleLogAnalyticsWorkspaceOnboarding", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
+//				WorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = sentinel.NewAutomationRule(ctx, "exampleAutomationRule", &sentinel.AutomationRuleArgs{
-//				LogAnalyticsWorkspaceId: sentinel.WorkspaceResourceId,
+//				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
 //				DisplayName:             pulumi.String("automation_rule1"),
 //				Order:                   pulumi.Int(1),
 //				ActionIncidents: sentinel.AutomationRuleActionIncidentArray{

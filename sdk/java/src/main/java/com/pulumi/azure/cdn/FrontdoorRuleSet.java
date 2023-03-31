@@ -74,7 +74,7 @@ public class FrontdoorRuleSet extends com.pulumi.resources.CustomResource {
      * The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
      * 
      */
-    @Export(name="cdnFrontdoorProfileId", type=String.class, parameters={})
+    @Export(name="cdnFrontdoorProfileId", refs={String.class}, tree="[0]")
     private Output<String> cdnFrontdoorProfileId;
 
     /**
@@ -88,7 +88,7 @@ public class FrontdoorRuleSet extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

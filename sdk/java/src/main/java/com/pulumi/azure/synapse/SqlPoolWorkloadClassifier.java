@@ -124,7 +124,7 @@ public class SqlPoolWorkloadClassifier extends com.pulumi.resources.CustomResour
      * Specifies the session context value that a request can be classified against.
      * 
      */
-    @Export(name="context", type=String.class, parameters={})
+    @Export(name="context", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> context;
 
     /**
@@ -138,7 +138,7 @@ public class SqlPoolWorkloadClassifier extends com.pulumi.resources.CustomResour
      * The workload classifier end time for classification. It&#39;s of the `HH:MM` format in UTC time zone.
      * 
      */
-    @Export(name="endTime", type=String.class, parameters={})
+    @Export(name="endTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endTime;
 
     /**
@@ -152,7 +152,7 @@ public class SqlPoolWorkloadClassifier extends com.pulumi.resources.CustomResour
      * The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
      * 
      */
-    @Export(name="importance", type=String.class, parameters={})
+    @Export(name="importance", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> importance;
 
     /**
@@ -166,7 +166,7 @@ public class SqlPoolWorkloadClassifier extends com.pulumi.resources.CustomResour
      * Specifies the label value that a request can be classified against.
      * 
      */
-    @Export(name="label", type=String.class, parameters={})
+    @Export(name="label", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> label;
 
     /**
@@ -180,7 +180,7 @@ public class SqlPoolWorkloadClassifier extends com.pulumi.resources.CustomResour
      * The workload classifier member name used to classified against.
      * 
      */
-    @Export(name="memberName", type=String.class, parameters={})
+    @Export(name="memberName", refs={String.class}, tree="[0]")
     private Output<String> memberName;
 
     /**
@@ -194,7 +194,7 @@ public class SqlPoolWorkloadClassifier extends com.pulumi.resources.CustomResour
      * The name which should be used for this Synapse SQL Pool Workload Classifier. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -208,7 +208,7 @@ public class SqlPoolWorkloadClassifier extends com.pulumi.resources.CustomResour
      * The workload classifier start time for classification. It&#39;s of the `HH:MM` format in UTC time zone.
      * 
      */
-    @Export(name="startTime", type=String.class, parameters={})
+    @Export(name="startTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startTime;
 
     /**
@@ -222,7 +222,7 @@ public class SqlPoolWorkloadClassifier extends com.pulumi.resources.CustomResour
      * The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
      * 
      */
-    @Export(name="workloadGroupId", type=String.class, parameters={})
+    @Export(name="workloadGroupId", refs={String.class}, tree="[0]")
     private Output<String> workloadGroupId;
 
     /**

@@ -111,10 +111,10 @@ class PolicyCustomRuleMatchCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "matchValues":
-            suggest = "match_values"
-        elif key == "matchVariables":
+        if key == "matchVariables":
             suggest = "match_variables"
+        elif key == "matchValues":
+            suggest = "match_values"
         elif key == "negationCondition":
             suggest = "negation_condition"
 
@@ -130,33 +130,26 @@ class PolicyCustomRuleMatchCondition(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 match_values: Sequence[str],
                  match_variables: Sequence['outputs.PolicyCustomRuleMatchConditionMatchVariable'],
                  operator: str,
+                 match_values: Optional[Sequence[str]] = None,
                  negation_condition: Optional[bool] = None,
                  transforms: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] match_values: A list of match values.
         :param Sequence['PolicyCustomRuleMatchConditionMatchVariableArgs'] match_variables: One or more `match_variables` blocks as defined below.
-        :param str operator: Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+        :param str operator: Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+        :param Sequence[str] match_values: A list of match values. This is **Required** when the `operator` is not `Any`.
         :param bool negation_condition: Describes if this is negate condition or not
         :param Sequence[str] transforms: A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "match_variables", match_variables)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negation_condition is not None:
             pulumi.set(__self__, "negation_condition", negation_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> Sequence[str]:
-        """
-        A list of match values.
-        """
-        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="matchVariables")
@@ -170,9 +163,17 @@ class PolicyCustomRuleMatchCondition(dict):
     @pulumi.getter
     def operator(self) -> str:
         """
-        Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+        Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
         """
         return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        A list of match values. This is **Required** when the `operator` is not `Any`.
+        """
+        return pulumi.get(self, "match_values")
 
     @property
     @pulumi.getter(name="negationCondition")

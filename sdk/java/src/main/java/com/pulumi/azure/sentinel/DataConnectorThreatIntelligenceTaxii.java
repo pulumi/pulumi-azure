@@ -29,12 +29,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
- * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
  * import com.pulumi.azure.sentinel.DataConnectorThreatIntelligenceTaxii;
  * import com.pulumi.azure.sentinel.DataConnectorThreatIntelligenceTaxiiArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,26 +56,16 @@ import javax.annotation.Nullable;
  *             .sku(&#34;PerGB2018&#34;)
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution(&#34;exampleAnalyticsSolution&#34;, AnalyticsSolutionArgs.builder()        
- *             .solutionName(&#34;SecurityInsights&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
- *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/SecurityInsights&#34;)
- *                 .build())
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
  *         var exampleDataConnectorThreatIntelligenceTaxii = new DataConnectorThreatIntelligenceTaxii(&#34;exampleDataConnectorThreatIntelligenceTaxii&#34;, DataConnectorThreatIntelligenceTaxiiArgs.builder()        
- *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
+ *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
  *             .displayName(&#34;example&#34;)
  *             .apiRootUrl(&#34;https://foo/taxii2/api2/&#34;)
  *             .collectionId(&#34;someid&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(azurerm_log_analytics_solution.test())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -98,7 +86,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The API root URI of the TAXII server.
      * 
      */
-    @Export(name="apiRootUrl", type=String.class, parameters={})
+    @Export(name="apiRootUrl", refs={String.class}, tree="[0]")
     private Output<String> apiRootUrl;
 
     /**
@@ -112,7 +100,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The collection ID of the TAXII server.
      * 
      */
-    @Export(name="collectionId", type=String.class, parameters={})
+    @Export(name="collectionId", refs={String.class}, tree="[0]")
     private Output<String> collectionId;
 
     /**
@@ -126,7 +114,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The friendly name which should be used for this Threat Intelligence TAXII Data Connector.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -140,7 +128,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The ID of the Log Analytics Workspace that this Threat Intelligence TAXII Data Connector resides in. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -154,7 +142,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The lookback date for the TAXII server in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
      * 
      */
-    @Export(name="lookbackDate", type=String.class, parameters={})
+    @Export(name="lookbackDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lookbackDate;
 
     /**
@@ -168,7 +156,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The name which should be used for this Threat Intelligence TAXII Data Connector. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -182,7 +170,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The password for the TAXII server.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -196,7 +184,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
      * 
      */
-    @Export(name="pollingFrequency", type=String.class, parameters={})
+    @Export(name="pollingFrequency", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pollingFrequency;
 
     /**
@@ -210,7 +198,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**
@@ -224,7 +212,7 @@ public class DataConnectorThreatIntelligenceTaxii extends com.pulumi.resources.C
      * The user name for the TAXII server.
      * 
      */
-    @Export(name="userName", type=String.class, parameters={})
+    @Export(name="userName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userName;
 
     /**

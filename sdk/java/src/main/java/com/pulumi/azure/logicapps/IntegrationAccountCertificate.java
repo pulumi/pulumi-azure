@@ -79,7 +79,7 @@ public class IntegrationAccountCertificate extends com.pulumi.resources.CustomRe
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
      * 
      */
-    @Export(name="integrationAccountName", type=String.class, parameters={})
+    @Export(name="integrationAccountName", refs={String.class}, tree="[0]")
     private Output<String> integrationAccountName;
 
     /**
@@ -93,7 +93,7 @@ public class IntegrationAccountCertificate extends com.pulumi.resources.CustomRe
      * A `key_vault_key` block as documented below.
      * 
      */
-    @Export(name="keyVaultKey", type=IntegrationAccountCertificateKeyVaultKey.class, parameters={})
+    @Export(name="keyVaultKey", refs={IntegrationAccountCertificateKeyVaultKey.class}, tree="[0]")
     private Output</* @Nullable */ IntegrationAccountCertificateKeyVaultKey> keyVaultKey;
 
     /**
@@ -107,7 +107,7 @@ public class IntegrationAccountCertificate extends com.pulumi.resources.CustomRe
      * A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
      * 
      */
-    @Export(name="metadata", type=String.class, parameters={})
+    @Export(name="metadata", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metadata;
 
     /**
@@ -121,7 +121,7 @@ public class IntegrationAccountCertificate extends com.pulumi.resources.CustomRe
      * The name which should be used for this Logic App Integration Account Certificate. Changing this forces a new Logic App Integration Account Certificate to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -135,7 +135,7 @@ public class IntegrationAccountCertificate extends com.pulumi.resources.CustomRe
      * The public certificate for the Logic App Integration Account Certificate.
      * 
      */
-    @Export(name="publicCertificate", type=String.class, parameters={})
+    @Export(name="publicCertificate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> publicCertificate;
 
     /**
@@ -149,7 +149,7 @@ public class IntegrationAccountCertificate extends com.pulumi.resources.CustomRe
      * The name of the Resource Group where the Logic App Integration Account Certificate should exist. Changing this forces a new Logic App Integration Account Certificate to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

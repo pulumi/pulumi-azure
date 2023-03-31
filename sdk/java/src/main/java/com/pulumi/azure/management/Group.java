@@ -76,7 +76,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A friendly name for this Management Group. If not specified, this will be the same as the `name`.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -90,7 +90,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -104,7 +104,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The ID of the Parent Management Group.
      * 
      */
-    @Export(name="parentManagementGroupId", type=String.class, parameters={})
+    @Export(name="parentManagementGroupId", refs={String.class}, tree="[0]")
     private Output<String> parentManagementGroupId;
 
     /**
@@ -118,7 +118,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A list of Subscription GUIDs which should be assigned to the Management Group.
      * 
      */
-    @Export(name="subscriptionIds", type=List.class, parameters={String.class})
+    @Export(name="subscriptionIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subscriptionIds;
 
     /**

@@ -122,7 +122,7 @@ public class ProtectionContainerMapping extends com.pulumi.resources.CustomResou
      * a `automatic_update` block defined as below.
      * 
      */
-    @Export(name="automaticUpdate", type=ProtectionContainerMappingAutomaticUpdate.class, parameters={})
+    @Export(name="automaticUpdate", refs={ProtectionContainerMappingAutomaticUpdate.class}, tree="[0]")
     private Output<ProtectionContainerMappingAutomaticUpdate> automaticUpdate;
 
     /**
@@ -136,7 +136,7 @@ public class ProtectionContainerMapping extends com.pulumi.resources.CustomResou
      * The name of the protection container mapping. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -150,7 +150,7 @@ public class ProtectionContainerMapping extends com.pulumi.resources.CustomResou
      * Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryFabricName", type=String.class, parameters={})
+    @Export(name="recoveryFabricName", refs={String.class}, tree="[0]")
     private Output<String> recoveryFabricName;
 
     /**
@@ -164,7 +164,7 @@ public class ProtectionContainerMapping extends com.pulumi.resources.CustomResou
      * Id of the policy to use for this mapping. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryReplicationPolicyId", type=String.class, parameters={})
+    @Export(name="recoveryReplicationPolicyId", refs={String.class}, tree="[0]")
     private Output<String> recoveryReplicationPolicyId;
 
     /**
@@ -178,7 +178,7 @@ public class ProtectionContainerMapping extends com.pulumi.resources.CustomResou
      * Name of the source protection container to map. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoverySourceProtectionContainerName", type=String.class, parameters={})
+    @Export(name="recoverySourceProtectionContainerName", refs={String.class}, tree="[0]")
     private Output<String> recoverySourceProtectionContainerName;
 
     /**
@@ -192,7 +192,7 @@ public class ProtectionContainerMapping extends com.pulumi.resources.CustomResou
      * Id of target protection container to map to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryTargetProtectionContainerId", type=String.class, parameters={})
+    @Export(name="recoveryTargetProtectionContainerId", refs={String.class}, tree="[0]")
     private Output<String> recoveryTargetProtectionContainerId;
 
     /**
@@ -206,7 +206,7 @@ public class ProtectionContainerMapping extends com.pulumi.resources.CustomResou
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultName", type=String.class, parameters={})
+    @Export(name="recoveryVaultName", refs={String.class}, tree="[0]")
     private Output<String> recoveryVaultName;
 
     /**
@@ -220,7 +220,7 @@ public class ProtectionContainerMapping extends com.pulumi.resources.CustomResou
      * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

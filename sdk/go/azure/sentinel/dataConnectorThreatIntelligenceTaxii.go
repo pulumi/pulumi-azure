@@ -43,28 +43,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
-//				SolutionName:        pulumi.String("SecurityInsights"),
-//				Location:            exampleResourceGroup.Location,
-//				ResourceGroupName:   exampleResourceGroup.Name,
-//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
-//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
-//					Publisher: pulumi.String("Microsoft"),
-//					Product:   pulumi.String("OMSGallery/SecurityInsights"),
-//				},
+//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "exampleLogAnalyticsWorkspaceOnboarding", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
+//				WorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = sentinel.NewDataConnectorThreatIntelligenceTaxii(ctx, "exampleDataConnectorThreatIntelligenceTaxii", &sentinel.DataConnectorThreatIntelligenceTaxiiArgs{
-//				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
+//				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
 //				DisplayName:             pulumi.String("example"),
 //				ApiRootUrl:              pulumi.String("https://foo/taxii2/api2/"),
 //				CollectionId:            pulumi.String("someid"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				azurerm_log_analytics_solution.Test,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

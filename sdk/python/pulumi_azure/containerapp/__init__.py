@@ -10,6 +10,7 @@ from .environment import *
 from .environment_certificate import *
 from .environment_dapr_component import *
 from .environment_storage import *
+from .get_app import *
 from .get_environment import *
 from .get_environment_certificate import *
 from ._inputs import *

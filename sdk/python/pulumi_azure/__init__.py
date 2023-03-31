@@ -236,6 +236,8 @@ if typing.TYPE_CHECKING:
     trafficmanager = __trafficmanager
     import pulumi_azure.videoanalyzer as __videoanalyzer
     videoanalyzer = __videoanalyzer
+    import pulumi_azure.voice as __voice
+    voice = __voice
     import pulumi_azure.waf as __waf
     waf = __waf
     import pulumi_azure.webpubsub as __webpubsub
@@ -354,6 +356,7 @@ else:
     synapse = _utilities.lazy_import('pulumi_azure.synapse')
     trafficmanager = _utilities.lazy_import('pulumi_azure.trafficmanager')
     videoanalyzer = _utilities.lazy_import('pulumi_azure.videoanalyzer')
+    voice = _utilities.lazy_import('pulumi_azure.voice')
     waf = _utilities.lazy_import('pulumi_azure.waf')
     webpubsub = _utilities.lazy_import('pulumi_azure.webpubsub')
 
@@ -2846,6 +2849,14 @@ _utilities.register(
   "fqn": "pulumi_azure.databricks",
   "classes": {
    "azure:databricks/accessConnector:AccessConnector": "AccessConnector"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "databricks/virtualNetworkPeering",
+  "fqn": "pulumi_azure.databricks",
+  "classes": {
+   "azure:databricks/virtualNetworkPeering:VirtualNetworkPeering": "VirtualNetworkPeering"
   }
  },
  {
@@ -7218,6 +7229,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "sentinel/threatIntelligenceIndicator",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator": "ThreatIntelligenceIndicator"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "sentinel/watchlist",
   "fqn": "pulumi_azure.sentinel",
   "classes": {
@@ -8090,10 +8109,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "voice/servicesCommunicationsGateway",
+  "fqn": "pulumi_azure.voice",
+  "classes": {
+   "azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway": "ServicesCommunicationsGateway"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "waf/policy",
   "fqn": "pulumi_azure.waf",
   "classes": {
    "azure:waf/policy:Policy": "Policy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "webpubsub/customCertificate",
+  "fqn": "pulumi_azure.webpubsub",
+  "classes": {
+   "azure:webpubsub/customCertificate:CustomCertificate": "CustomCertificate"
   }
  },
  {

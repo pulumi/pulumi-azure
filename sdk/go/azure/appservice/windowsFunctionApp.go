@@ -156,6 +156,8 @@ type WindowsFunctionApp struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	// The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+	ZipDeployFile pulumi.StringOutput `pulumi:"zipDeployFile"`
 }
 
 // NewWindowsFunctionApp registers a new resource with the given unique name, arguments, and options.
@@ -278,6 +280,8 @@ type windowsFunctionAppState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	// The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
 type WindowsFunctionAppState struct {
@@ -355,6 +359,8 @@ type WindowsFunctionAppState struct {
 	Tags pulumi.StringMapInput
 	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId pulumi.StringPtrInput
+	// The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+	ZipDeployFile pulumi.StringPtrInput
 }
 
 func (WindowsFunctionAppState) ElementType() reflect.Type {
@@ -420,6 +426,8 @@ type windowsFunctionAppArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	// The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
 // The set of arguments for constructing a WindowsFunctionApp resource.
@@ -482,6 +490,8 @@ type WindowsFunctionAppArgs struct {
 	Tags pulumi.StringMapInput
 	// The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId pulumi.StringPtrInput
+	// The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+	ZipDeployFile pulumi.StringPtrInput
 }
 
 func (WindowsFunctionAppArgs) ElementType() reflect.Type {
@@ -754,6 +764,11 @@ func (o WindowsFunctionAppOutput) Tags() pulumi.StringMapOutput {
 // The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 func (o WindowsFunctionAppOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionApp) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+func (o WindowsFunctionAppOutput) ZipDeployFile() pulumi.StringOutput {
+	return o.ApplyT(func(v *WindowsFunctionApp) pulumi.StringOutput { return v.ZipDeployFile }).(pulumi.StringOutput)
 }
 
 type WindowsFunctionAppArrayOutput struct{ *pulumi.OutputState }

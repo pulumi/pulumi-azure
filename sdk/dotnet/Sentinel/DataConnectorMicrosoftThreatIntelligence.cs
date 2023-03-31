@@ -35,21 +35,14 @@ namespace Pulumi.Azure.Sentinel
     /// 
     ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///     });
     /// 
     ///     var exampleDataConnectorMicrosoftThreatIntelligence = new Azure.Sentinel.DataConnectorMicrosoftThreatIntelligence("exampleDataConnectorMicrosoftThreatIntelligence", new()
     ///     {
-    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
     ///         BingSafetyPhishingUrlLookbackDate = "1970-01-01T00:00:00Z",
     ///         MicrosoftEmergingThreatFeedLookbackDate = "1970-01-01T00:00:00Z",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             azurerm_sentinel_log_analytics_workspace_onboarding.Test,
-    ///         },
     ///     });
     /// 
     /// });

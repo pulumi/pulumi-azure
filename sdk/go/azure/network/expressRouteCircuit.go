@@ -71,6 +71,8 @@ type ExpressRouteCircuit struct {
 
 	// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
 	AllowClassicOperations pulumi.BoolPtrOutput `pulumi:"allowClassicOperations"`
+	// The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
 	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
 	BandwidthInGbps pulumi.Float64PtrOutput `pulumi:"bandwidthInGbps"`
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
@@ -110,7 +112,11 @@ func NewExpressRouteCircuit(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.AuthorizationKey != nil {
+		args.AuthorizationKey = pulumi.ToSecret(args.AuthorizationKey).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"authorizationKey",
 		"serviceKey",
 	})
 	opts = append(opts, secrets)
@@ -138,6 +144,8 @@ func GetExpressRouteCircuit(ctx *pulumi.Context,
 type expressRouteCircuitState struct {
 	// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
 	AllowClassicOperations *bool `pulumi:"allowClassicOperations"`
+	// The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
 	BandwidthInGbps *float64 `pulumi:"bandwidthInGbps"`
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
@@ -167,6 +175,8 @@ type expressRouteCircuitState struct {
 type ExpressRouteCircuitState struct {
 	// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
 	AllowClassicOperations pulumi.BoolPtrInput
+	// The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+	AuthorizationKey pulumi.StringPtrInput
 	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
 	BandwidthInGbps pulumi.Float64PtrInput
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
@@ -200,6 +210,8 @@ func (ExpressRouteCircuitState) ElementType() reflect.Type {
 type expressRouteCircuitArgs struct {
 	// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
 	AllowClassicOperations *bool `pulumi:"allowClassicOperations"`
+	// The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
 	BandwidthInGbps *float64 `pulumi:"bandwidthInGbps"`
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
@@ -226,6 +238,8 @@ type expressRouteCircuitArgs struct {
 type ExpressRouteCircuitArgs struct {
 	// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
 	AllowClassicOperations pulumi.BoolPtrInput
+	// The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+	AuthorizationKey pulumi.StringPtrInput
 	// The bandwidth in Gbps of the circuit being created on the Express Route Port.
 	BandwidthInGbps pulumi.Float64PtrInput
 	// The bandwidth in Mbps of the circuit being created on the Service Provider.
@@ -338,6 +352,11 @@ func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitOutputWithContext(ctx co
 // Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
 func (o ExpressRouteCircuitOutput) AllowClassicOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.BoolPtrOutput { return v.AllowClassicOperations }).(pulumi.BoolPtrOutput)
+}
+
+// The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+func (o ExpressRouteCircuitOutput) AuthorizationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
 }
 
 // The bandwidth in Gbps of the circuit being created on the Express Route Port.

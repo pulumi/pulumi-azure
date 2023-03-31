@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -62,10 +63,15 @@ public final class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
      */
     private Map<String,String> loginParameters;
     /**
-     * @return The Tenant ID of the Managed Service Identity.
+     * @return The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
      * 
      */
-    private String tenantId;
+    private String tenantAuthEndpoint;
+    /**
+     * @return Is the www-authenticate provider omitted from the request?
+     * 
+     */
+    private Boolean wwwAuthenticationDisabled;
 
     private GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2() {}
     /**
@@ -139,11 +145,18 @@ public final class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
         return this.loginParameters;
     }
     /**
-     * @return The Tenant ID of the Managed Service Identity.
+     * @return The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
      * 
      */
-    public String tenantId() {
-        return this.tenantId;
+    public String tenantAuthEndpoint() {
+        return this.tenantAuthEndpoint;
+    }
+    /**
+     * @return Is the www-authenticate provider omitted from the request?
+     * 
+     */
+    public Boolean wwwAuthenticationDisabled() {
+        return this.wwwAuthenticationDisabled;
     }
 
     public static Builder builder() {
@@ -165,7 +178,8 @@ public final class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
         private List<String> jwtAllowedClientApplications;
         private List<String> jwtAllowedGroups;
         private Map<String,String> loginParameters;
-        private String tenantId;
+        private String tenantAuthEndpoint;
+        private Boolean wwwAuthenticationDisabled;
         public Builder() {}
         public Builder(GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 defaults) {
     	      Objects.requireNonNull(defaults);
@@ -179,7 +193,8 @@ public final class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
     	      this.jwtAllowedClientApplications = defaults.jwtAllowedClientApplications;
     	      this.jwtAllowedGroups = defaults.jwtAllowedGroups;
     	      this.loginParameters = defaults.loginParameters;
-    	      this.tenantId = defaults.tenantId;
+    	      this.tenantAuthEndpoint = defaults.tenantAuthEndpoint;
+    	      this.wwwAuthenticationDisabled = defaults.wwwAuthenticationDisabled;
         }
 
         @CustomType.Setter
@@ -251,8 +266,13 @@ public final class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
             return this;
         }
         @CustomType.Setter
-        public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+        public Builder tenantAuthEndpoint(String tenantAuthEndpoint) {
+            this.tenantAuthEndpoint = Objects.requireNonNull(tenantAuthEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder wwwAuthenticationDisabled(Boolean wwwAuthenticationDisabled) {
+            this.wwwAuthenticationDisabled = Objects.requireNonNull(wwwAuthenticationDisabled);
             return this;
         }
         public GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 build() {
@@ -267,7 +287,8 @@ public final class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
             o.jwtAllowedClientApplications = jwtAllowedClientApplications;
             o.jwtAllowedGroups = jwtAllowedGroups;
             o.loginParameters = loginParameters;
-            o.tenantId = tenantId;
+            o.tenantAuthEndpoint = tenantAuthEndpoint;
+            o.wwwAuthenticationDisabled = wwwAuthenticationDisabled;
             return o;
         }
     }

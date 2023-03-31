@@ -100,7 +100,7 @@ public class ResourceProviderRegistration extends com.pulumi.resources.CustomRes
      * A list of `feature` blocks as defined below.
      * 
      */
-    @Export(name="features", type=List.class, parameters={ResourceProviderRegistrationFeature.class})
+    @Export(name="features", refs={List.class,ResourceProviderRegistrationFeature.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourceProviderRegistrationFeature>> features;
 
     /**
@@ -114,7 +114,7 @@ public class ResourceProviderRegistration extends com.pulumi.resources.CustomRes
      * The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

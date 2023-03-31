@@ -67,6 +67,12 @@ namespace Pulumi.Azure.Network
         public Output<string> DefaultRouteTableId { get; private set; } = null!;
 
         /// <summary>
+        /// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+        /// </summary>
+        [Output("hubRoutingPreference")]
+        public Output<string?> HubRoutingPreference { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -173,6 +179,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? AddressPrefix { get; set; }
 
         /// <summary>
+        /// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+        /// </summary>
+        [Input("hubRoutingPreference")]
+        public Input<string>? HubRoutingPreference { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -245,6 +257,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("defaultRouteTableId")]
         public Input<string>? DefaultRouteTableId { get; set; }
+
+        /// <summary>
+        /// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+        /// </summary>
+        [Input("hubRoutingPreference")]
+        public Input<string>? HubRoutingPreference { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.

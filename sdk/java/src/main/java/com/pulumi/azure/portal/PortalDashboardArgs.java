@@ -20,15 +20,15 @@ public final class PortalDashboardArgs extends com.pulumi.resources.ResourceArgs
      * JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
      * 
      */
-    @Import(name="dashboardProperties")
-    private @Nullable Output<String> dashboardProperties;
+    @Import(name="dashboardProperties", required=true)
+    private Output<String> dashboardProperties;
 
     /**
      * @return JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
      * 
      */
-    public Optional<Output<String>> dashboardProperties() {
-        return Optional.ofNullable(this.dashboardProperties);
+    public Output<String> dashboardProperties() {
+        return this.dashboardProperties;
     }
 
     /**
@@ -125,7 +125,7 @@ public final class PortalDashboardArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder dashboardProperties(@Nullable Output<String> dashboardProperties) {
+        public Builder dashboardProperties(Output<String> dashboardProperties) {
             $.dashboardProperties = dashboardProperties;
             return this;
         }
@@ -225,6 +225,7 @@ public final class PortalDashboardArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public PortalDashboardArgs build() {
+            $.dashboardProperties = Objects.requireNonNull($.dashboardProperties, "expected parameter 'dashboardProperties' to be non-null");
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
             return $;
         }

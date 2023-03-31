@@ -31,6 +31,24 @@ __all__ = [
     'AppTemplateVolume',
     'EnvironmentDaprComponentMetadata',
     'EnvironmentDaprComponentSecret',
+    'GetAppDaprResult',
+    'GetAppIdentityResult',
+    'GetAppIngressResult',
+    'GetAppIngressCustomDomainResult',
+    'GetAppIngressTrafficWeightResult',
+    'GetAppRegistryResult',
+    'GetAppSecretResult',
+    'GetAppTemplateResult',
+    'GetAppTemplateContainerResult',
+    'GetAppTemplateContainerEnvResult',
+    'GetAppTemplateContainerLivenessProbeResult',
+    'GetAppTemplateContainerLivenessProbeHeaderResult',
+    'GetAppTemplateContainerReadinessProbeResult',
+    'GetAppTemplateContainerReadinessProbeHeaderResult',
+    'GetAppTemplateContainerStartupProbeResult',
+    'GetAppTemplateContainerStartupProbeHeaderResult',
+    'GetAppTemplateContainerVolumeMountResult',
+    'GetAppTemplateVolumeResult',
 ]
 
 @pulumi.output_type
@@ -1506,5 +1524,1072 @@ class EnvironmentDaprComponentSecret(dict):
         The value for this secret.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAppDaprResult(dict):
+    def __init__(__self__, *,
+                 app_id: str,
+                 app_port: int,
+                 app_protocol: str):
+        """
+        :param str app_id: The Dapr Application Identifier.
+        :param int app_port: The port which the application is listening on. This is the same as the `ingress` port.
+        :param str app_protocol: The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+        """
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "app_port", app_port)
+        pulumi.set(__self__, "app_protocol", app_protocol)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> str:
+        """
+        The Dapr Application Identifier.
+        """
+        return pulumi.get(self, "app_id")
+
+    @property
+    @pulumi.getter(name="appPort")
+    def app_port(self) -> int:
+        """
+        The port which the application is listening on. This is the same as the `ingress` port.
+        """
+        return pulumi.get(self, "app_port")
+
+    @property
+    @pulumi.getter(name="appProtocol")
+    def app_protocol(self) -> str:
+        """
+        The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+        """
+        return pulumi.get(self, "app_protocol")
+
+
+@pulumi.output_type
+class GetAppIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param Sequence[str] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+        :param str type: The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetAppIngressResult(dict):
+    def __init__(__self__, *,
+                 allow_insecure_connections: bool,
+                 custom_domains: Sequence['outputs.GetAppIngressCustomDomainResult'],
+                 external_enabled: bool,
+                 fqdn: str,
+                 target_port: int,
+                 traffic_weights: Sequence['outputs.GetAppIngressTrafficWeightResult'],
+                 transport: str):
+        """
+        :param bool allow_insecure_connections: Should this ingress allow insecure connections?
+        :param Sequence['GetAppIngressCustomDomainArgs'] custom_domains: One or more `custom_domain` block as detailed below.
+        :param bool external_enabled: Is this an external Ingress.
+        :param str fqdn: The FQDN of the ingress.
+        :param int target_port: The target port on the container for the Ingress traffic.
+        :param Sequence['GetAppIngressTrafficWeightArgs'] traffic_weights: A `traffic_weight` block as detailed below.
+        :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+        """
+        pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
+        pulumi.set(__self__, "custom_domains", custom_domains)
+        pulumi.set(__self__, "external_enabled", external_enabled)
+        pulumi.set(__self__, "fqdn", fqdn)
+        pulumi.set(__self__, "target_port", target_port)
+        pulumi.set(__self__, "traffic_weights", traffic_weights)
+        pulumi.set(__self__, "transport", transport)
+
+    @property
+    @pulumi.getter(name="allowInsecureConnections")
+    def allow_insecure_connections(self) -> bool:
+        """
+        Should this ingress allow insecure connections?
+        """
+        return pulumi.get(self, "allow_insecure_connections")
+
+    @property
+    @pulumi.getter(name="customDomains")
+    def custom_domains(self) -> Sequence['outputs.GetAppIngressCustomDomainResult']:
+        """
+        One or more `custom_domain` block as detailed below.
+        """
+        return pulumi.get(self, "custom_domains")
+
+    @property
+    @pulumi.getter(name="externalEnabled")
+    def external_enabled(self) -> bool:
+        """
+        Is this an external Ingress.
+        """
+        return pulumi.get(self, "external_enabled")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The FQDN of the ingress.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="targetPort")
+    def target_port(self) -> int:
+        """
+        The target port on the container for the Ingress traffic.
+        """
+        return pulumi.get(self, "target_port")
+
+    @property
+    @pulumi.getter(name="trafficWeights")
+    def traffic_weights(self) -> Sequence['outputs.GetAppIngressTrafficWeightResult']:
+        """
+        A `traffic_weight` block as detailed below.
+        """
+        return pulumi.get(self, "traffic_weights")
+
+    @property
+    @pulumi.getter
+    def transport(self) -> str:
+        """
+        The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+        """
+        return pulumi.get(self, "transport")
+
+
+@pulumi.output_type
+class GetAppIngressCustomDomainResult(dict):
+    def __init__(__self__, *,
+                 certificate_binding_type: str,
+                 certificate_id: str,
+                 name: str):
+        """
+        :param str certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+        :param str certificate_id: The ID of the Container App Environment Certificate.
+        :param str name: The name of the Container App.
+        """
+        pulumi.set(__self__, "certificate_binding_type", certificate_binding_type)
+        pulumi.set(__self__, "certificate_id", certificate_id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="certificateBindingType")
+    def certificate_binding_type(self) -> str:
+        """
+        The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+        """
+        return pulumi.get(self, "certificate_binding_type")
+
+    @property
+    @pulumi.getter(name="certificateId")
+    def certificate_id(self) -> str:
+        """
+        The ID of the Container App Environment Certificate.
+        """
+        return pulumi.get(self, "certificate_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetAppIngressTrafficWeightResult(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 latest_revision: bool,
+                 percentage: int,
+                 revision_suffix: str):
+        """
+        :param str label: The label to apply to the revision as a name prefix for routing traffic.
+        :param bool latest_revision: This traffic Weight relates to the latest stable Container Revision.
+        :param int percentage: The percentage of traffic which should be sent this revision.
+        :param str revision_suffix: The suffix string to which this `traffic_weight` applies.
+        """
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "latest_revision", latest_revision)
+        pulumi.set(__self__, "percentage", percentage)
+        pulumi.set(__self__, "revision_suffix", revision_suffix)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        The label to apply to the revision as a name prefix for routing traffic.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="latestRevision")
+    def latest_revision(self) -> bool:
+        """
+        This traffic Weight relates to the latest stable Container Revision.
+        """
+        return pulumi.get(self, "latest_revision")
+
+    @property
+    @pulumi.getter
+    def percentage(self) -> int:
+        """
+        The percentage of traffic which should be sent this revision.
+        """
+        return pulumi.get(self, "percentage")
+
+    @property
+    @pulumi.getter(name="revisionSuffix")
+    def revision_suffix(self) -> str:
+        """
+        The suffix string to which this `traffic_weight` applies.
+        """
+        return pulumi.get(self, "revision_suffix")
+
+
+@pulumi.output_type
+class GetAppRegistryResult(dict):
+    def __init__(__self__, *,
+                 identity: str,
+                 password_secret_name: str,
+                 server: str,
+                 username: str):
+        """
+        :param str identity: Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+        :param str password_secret_name: The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+        :param str server: The hostname for the Container Registry.
+        :param str username: The username to use for this Container Registry, `password_secret_name` must also be supplied..
+        """
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "password_secret_name", password_secret_name)
+        pulumi.set(__self__, "server", server)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> str:
+        """
+        Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="passwordSecretName")
+    def password_secret_name(self) -> str:
+        """
+        The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+        """
+        return pulumi.get(self, "password_secret_name")
+
+    @property
+    @pulumi.getter
+    def server(self) -> str:
+        """
+        The hostname for the Container Registry.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The username to use for this Container Registry, `password_secret_name` must also be supplied..
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class GetAppSecretResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name of the Container App.
+        :param str value: The HTTP Header value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The HTTP Header value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAppTemplateResult(dict):
+    def __init__(__self__, *,
+                 containers: Sequence['outputs.GetAppTemplateContainerResult'],
+                 max_replicas: int,
+                 min_replicas: int,
+                 revision_suffix: str,
+                 volumes: Optional[Sequence['outputs.GetAppTemplateVolumeResult']] = None):
+        """
+        :param Sequence['GetAppTemplateContainerArgs'] containers: One or more `container` blocks as detailed below.
+        :param int max_replicas: The maximum number of replicas for this container.
+        :param int min_replicas: The minimum number of replicas for this container.
+        :param str revision_suffix: The suffix string to which this `traffic_weight` applies.
+        :param Sequence['GetAppTemplateVolumeArgs'] volumes: A `volume` block as detailed below.
+        """
+        pulumi.set(__self__, "containers", containers)
+        pulumi.set(__self__, "max_replicas", max_replicas)
+        pulumi.set(__self__, "min_replicas", min_replicas)
+        pulumi.set(__self__, "revision_suffix", revision_suffix)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Sequence['outputs.GetAppTemplateContainerResult']:
+        """
+        One or more `container` blocks as detailed below.
+        """
+        return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter(name="maxReplicas")
+    def max_replicas(self) -> int:
+        """
+        The maximum number of replicas for this container.
+        """
+        return pulumi.get(self, "max_replicas")
+
+    @property
+    @pulumi.getter(name="minReplicas")
+    def min_replicas(self) -> int:
+        """
+        The minimum number of replicas for this container.
+        """
+        return pulumi.get(self, "min_replicas")
+
+    @property
+    @pulumi.getter(name="revisionSuffix")
+    def revision_suffix(self) -> str:
+        """
+        The suffix string to which this `traffic_weight` applies.
+        """
+        return pulumi.get(self, "revision_suffix")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[Sequence['outputs.GetAppTemplateVolumeResult']]:
+        """
+        A `volume` block as detailed below.
+        """
+        return pulumi.get(self, "volumes")
+
+
+@pulumi.output_type
+class GetAppTemplateContainerResult(dict):
+    def __init__(__self__, *,
+                 args: Sequence[str],
+                 commands: Sequence[str],
+                 cpu: float,
+                 envs: Sequence['outputs.GetAppTemplateContainerEnvResult'],
+                 ephemeral_storage: str,
+                 image: str,
+                 liveness_probes: Sequence['outputs.GetAppTemplateContainerLivenessProbeResult'],
+                 memory: str,
+                 name: str,
+                 readiness_probes: Sequence['outputs.GetAppTemplateContainerReadinessProbeResult'],
+                 startup_probes: Sequence['outputs.GetAppTemplateContainerStartupProbeResult'],
+                 volume_mounts: Sequence['outputs.GetAppTemplateContainerVolumeMountResult']):
+        """
+        :param Sequence[str] args: A list of extra arguments to pass to the container.
+        :param Sequence[str] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+        :param float cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+        :param Sequence['GetAppTemplateContainerEnvArgs'] envs: One or more `env` blocks as detailed below.
+        :param str ephemeral_storage: The amount of ephemeral storage available to the Container App.
+        :param str image: The image to use to create the container.
+        :param Sequence['GetAppTemplateContainerLivenessProbeArgs'] liveness_probes: A `liveness_probe` block as detailed below.
+        :param str memory: The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+        :param str name: The name of the Container App.
+        :param Sequence['GetAppTemplateContainerReadinessProbeArgs'] readiness_probes: A `readiness_probe` block as detailed below.
+        :param Sequence['GetAppTemplateContainerStartupProbeArgs'] startup_probes: A `startup_probe` block as detailed below.
+        :param Sequence['GetAppTemplateContainerVolumeMountArgs'] volume_mounts: A `volume_mounts` block as detailed below.
+        """
+        pulumi.set(__self__, "args", args)
+        pulumi.set(__self__, "commands", commands)
+        pulumi.set(__self__, "cpu", cpu)
+        pulumi.set(__self__, "envs", envs)
+        pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "liveness_probes", liveness_probes)
+        pulumi.set(__self__, "memory", memory)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "readiness_probes", readiness_probes)
+        pulumi.set(__self__, "startup_probes", startup_probes)
+        pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Sequence[str]:
+        """
+        A list of extra arguments to pass to the container.
+        """
+        return pulumi.get(self, "args")
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Sequence[str]:
+        """
+        A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+        """
+        return pulumi.get(self, "commands")
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> float:
+        """
+        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Sequence['outputs.GetAppTemplateContainerEnvResult']:
+        """
+        One or more `env` blocks as detailed below.
+        """
+        return pulumi.get(self, "envs")
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> str:
+        """
+        The amount of ephemeral storage available to the Container App.
+        """
+        return pulumi.get(self, "ephemeral_storage")
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        The image to use to create the container.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="livenessProbes")
+    def liveness_probes(self) -> Sequence['outputs.GetAppTemplateContainerLivenessProbeResult']:
+        """
+        A `liveness_probe` block as detailed below.
+        """
+        return pulumi.get(self, "liveness_probes")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> str:
+        """
+        The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+        """
+        return pulumi.get(self, "memory")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="readinessProbes")
+    def readiness_probes(self) -> Sequence['outputs.GetAppTemplateContainerReadinessProbeResult']:
+        """
+        A `readiness_probe` block as detailed below.
+        """
+        return pulumi.get(self, "readiness_probes")
+
+    @property
+    @pulumi.getter(name="startupProbes")
+    def startup_probes(self) -> Sequence['outputs.GetAppTemplateContainerStartupProbeResult']:
+        """
+        A `startup_probe` block as detailed below.
+        """
+        return pulumi.get(self, "startup_probes")
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Sequence['outputs.GetAppTemplateContainerVolumeMountResult']:
+        """
+        A `volume_mounts` block as detailed below.
+        """
+        return pulumi.get(self, "volume_mounts")
+
+
+@pulumi.output_type
+class GetAppTemplateContainerEnvResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 secret_name: str,
+                 value: str):
+        """
+        :param str name: The name of the Container App.
+        :param str secret_name: The name of the secret that contains the value for this environment variable.
+        :param str value: The HTTP Header value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret that contains the value for this environment variable.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The HTTP Header value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAppTemplateContainerLivenessProbeResult(dict):
+    def __init__(__self__, *,
+                 failure_count_threshold: int,
+                 headers: Sequence['outputs.GetAppTemplateContainerLivenessProbeHeaderResult'],
+                 host: str,
+                 initial_delay: int,
+                 interval_seconds: int,
+                 path: str,
+                 port: int,
+                 termination_grace_period_seconds: int,
+                 timeout: int,
+                 transport: str):
+        """
+        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        :param Sequence['GetAppTemplateContainerLivenessProbeHeaderArgs'] headers: A `header` block as detailed below.
+        :param str host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param int initial_delay: The time in seconds to wait after the container has started before the probe is started.
+        :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+        :param str path: The path in the container at which to mount this volume.
+        :param int port: The port number on which to connect. Possible values are between `1` and `65535`.
+        :param int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+        :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+        :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+        """
+        pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
+        pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "initial_delay", initial_delay)
+        pulumi.set(__self__, "interval_seconds", interval_seconds)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
+        pulumi.set(__self__, "timeout", timeout)
+        pulumi.set(__self__, "transport", transport)
+
+    @property
+    @pulumi.getter(name="failureCountThreshold")
+    def failure_count_threshold(self) -> int:
+        """
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        """
+        return pulumi.get(self, "failure_count_threshold")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Sequence['outputs.GetAppTemplateContainerLivenessProbeHeaderResult']:
+        """
+        A `header` block as detailed below.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def host(self) -> str:
+        """
+        The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="initialDelay")
+    def initial_delay(self) -> int:
+        """
+        The time in seconds to wait after the container has started before the probe is started.
+        """
+        return pulumi.get(self, "initial_delay")
+
+    @property
+    @pulumi.getter(name="intervalSeconds")
+    def interval_seconds(self) -> int:
+        """
+        How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+        """
+        return pulumi.get(self, "interval_seconds")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path in the container at which to mount this volume.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port number on which to connect. Possible values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="terminationGracePeriodSeconds")
+    def termination_grace_period_seconds(self) -> int:
+        """
+        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+        """
+        return pulumi.get(self, "termination_grace_period_seconds")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> int:
+        """
+        Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+        """
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter
+    def transport(self) -> str:
+        """
+        The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+        """
+        return pulumi.get(self, "transport")
+
+
+@pulumi.output_type
+class GetAppTemplateContainerLivenessProbeHeaderResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name of the Container App.
+        :param str value: The HTTP Header value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The HTTP Header value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAppTemplateContainerReadinessProbeResult(dict):
+    def __init__(__self__, *,
+                 failure_count_threshold: int,
+                 headers: Sequence['outputs.GetAppTemplateContainerReadinessProbeHeaderResult'],
+                 host: str,
+                 interval_seconds: int,
+                 path: str,
+                 port: int,
+                 success_count_threshold: int,
+                 timeout: int,
+                 transport: str):
+        """
+        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        :param Sequence['GetAppTemplateContainerReadinessProbeHeaderArgs'] headers: A `header` block as detailed below.
+        :param str host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+        :param str path: The path in the container at which to mount this volume.
+        :param int port: The port number on which to connect. Possible values are between `1` and `65535`.
+        :param int success_count_threshold: The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+        :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+        :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+        """
+        pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
+        pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "interval_seconds", interval_seconds)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "success_count_threshold", success_count_threshold)
+        pulumi.set(__self__, "timeout", timeout)
+        pulumi.set(__self__, "transport", transport)
+
+    @property
+    @pulumi.getter(name="failureCountThreshold")
+    def failure_count_threshold(self) -> int:
+        """
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        """
+        return pulumi.get(self, "failure_count_threshold")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Sequence['outputs.GetAppTemplateContainerReadinessProbeHeaderResult']:
+        """
+        A `header` block as detailed below.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def host(self) -> str:
+        """
+        The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="intervalSeconds")
+    def interval_seconds(self) -> int:
+        """
+        How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+        """
+        return pulumi.get(self, "interval_seconds")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path in the container at which to mount this volume.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port number on which to connect. Possible values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="successCountThreshold")
+    def success_count_threshold(self) -> int:
+        """
+        The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+        """
+        return pulumi.get(self, "success_count_threshold")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> int:
+        """
+        Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+        """
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter
+    def transport(self) -> str:
+        """
+        The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+        """
+        return pulumi.get(self, "transport")
+
+
+@pulumi.output_type
+class GetAppTemplateContainerReadinessProbeHeaderResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name of the Container App.
+        :param str value: The HTTP Header value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The HTTP Header value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAppTemplateContainerStartupProbeResult(dict):
+    def __init__(__self__, *,
+                 failure_count_threshold: int,
+                 headers: Sequence['outputs.GetAppTemplateContainerStartupProbeHeaderResult'],
+                 host: str,
+                 interval_seconds: int,
+                 path: str,
+                 port: int,
+                 termination_grace_period_seconds: int,
+                 timeout: int,
+                 transport: str):
+        """
+        :param int failure_count_threshold: The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        :param Sequence['GetAppTemplateContainerStartupProbeHeaderArgs'] headers: A `header` block as detailed below.
+        :param str host: The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        :param int interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+        :param str path: The path in the container at which to mount this volume.
+        :param int port: The port number on which to connect. Possible values are between `1` and `65535`.
+        :param int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+        :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+        :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+        """
+        pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
+        pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "interval_seconds", interval_seconds)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
+        pulumi.set(__self__, "timeout", timeout)
+        pulumi.set(__self__, "transport", transport)
+
+    @property
+    @pulumi.getter(name="failureCountThreshold")
+    def failure_count_threshold(self) -> int:
+        """
+        The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+        """
+        return pulumi.get(self, "failure_count_threshold")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Sequence['outputs.GetAppTemplateContainerStartupProbeHeaderResult']:
+        """
+        A `header` block as detailed below.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
+    def host(self) -> str:
+        """
+        The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter(name="intervalSeconds")
+    def interval_seconds(self) -> int:
+        """
+        How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+        """
+        return pulumi.get(self, "interval_seconds")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path in the container at which to mount this volume.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port number on which to connect. Possible values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="terminationGracePeriodSeconds")
+    def termination_grace_period_seconds(self) -> int:
+        """
+        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+        """
+        return pulumi.get(self, "termination_grace_period_seconds")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> int:
+        """
+        Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+        """
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter
+    def transport(self) -> str:
+        """
+        The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+        """
+        return pulumi.get(self, "transport")
+
+
+@pulumi.output_type
+class GetAppTemplateContainerStartupProbeHeaderResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name of the Container App.
+        :param str value: The HTTP Header value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The HTTP Header value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAppTemplateContainerVolumeMountResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 path: str):
+        """
+        :param str name: The name of the Container App.
+        :param str path: The path in the container at which to mount this volume.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path in the container at which to mount this volume.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class GetAppTemplateVolumeResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 storage_name: Optional[str] = None,
+                 storage_type: Optional[str] = None):
+        """
+        :param str name: The name of the Container App.
+        :param str storage_name: The name of the `AzureFile` storage.
+        :param str storage_type: The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+        """
+        pulumi.set(__self__, "name", name)
+        if storage_name is not None:
+            pulumi.set(__self__, "storage_name", storage_name)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageName")
+    def storage_name(self) -> Optional[str]:
+        """
+        The name of the `AzureFile` storage.
+        """
+        return pulumi.get(self, "storage_name")
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[str]:
+        """
+        The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+        """
+        return pulumi.get(self, "storage_type")
 
 

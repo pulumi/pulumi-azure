@@ -116,7 +116,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      */
-    public readonly sqlLicenseType!: pulumi.Output<string>;
+    public readonly sqlLicenseType!: pulumi.Output<string | undefined>;
     /**
      * An `storageConfiguration` block as defined below.
      */
@@ -159,9 +159,6 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
         } else {
             const args = argsOrState as VirtualMachineArgs | undefined;
-            if ((!args || args.sqlLicenseType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sqlLicenseType'");
-            }
             if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
@@ -296,7 +293,7 @@ export interface VirtualMachineArgs {
     /**
      * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      */
-    sqlLicenseType: pulumi.Input<string>;
+    sqlLicenseType?: pulumi.Input<string>;
     /**
      * An `storageConfiguration` block as defined below.
      */

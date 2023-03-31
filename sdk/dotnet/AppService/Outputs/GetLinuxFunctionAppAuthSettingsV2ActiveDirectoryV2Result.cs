@@ -54,9 +54,13 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> LoginParameters;
         /// <summary>
-        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Linux Function App.
+        /// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
         /// </summary>
-        public readonly string TenantId;
+        public readonly string TenantAuthEndpoint;
+        /// <summary>
+        /// Is the www-authenticate provider omitted from the request?
+        /// </summary>
+        public readonly bool WwwAuthenticationDisabled;
 
         [OutputConstructor]
         private GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Result(
@@ -80,7 +84,9 @@ namespace Pulumi.Azure.AppService.Outputs
 
             ImmutableDictionary<string, string> loginParameters,
 
-            string tenantId)
+            string tenantAuthEndpoint,
+
+            bool wwwAuthenticationDisabled)
         {
             AllowedApplications = allowedApplications;
             AllowedAudiences = allowedAudiences;
@@ -92,7 +98,8 @@ namespace Pulumi.Azure.AppService.Outputs
             JwtAllowedClientApplications = jwtAllowedClientApplications;
             JwtAllowedGroups = jwtAllowedGroups;
             LoginParameters = loginParameters;
-            TenantId = tenantId;
+            TenantAuthEndpoint = tenantAuthEndpoint;
+            WwwAuthenticationDisabled = wwwAuthenticationDisabled;
         }
     }
 }

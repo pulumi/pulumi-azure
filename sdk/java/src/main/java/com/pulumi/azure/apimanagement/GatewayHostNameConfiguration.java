@@ -108,7 +108,7 @@ public class GatewayHostNameConfiguration extends com.pulumi.resources.CustomRes
      * The ID of the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementId", type=String.class, parameters={})
+    @Export(name="apiManagementId", refs={String.class}, tree="[0]")
     private Output<String> apiManagementId;
 
     /**
@@ -122,7 +122,7 @@ public class GatewayHostNameConfiguration extends com.pulumi.resources.CustomRes
      * The certificate ID to be used for TLS connection establishment.
      * 
      */
-    @Export(name="certificateId", type=String.class, parameters={})
+    @Export(name="certificateId", refs={String.class}, tree="[0]")
     private Output<String> certificateId;
 
     /**
@@ -136,7 +136,7 @@ public class GatewayHostNameConfiguration extends com.pulumi.resources.CustomRes
      * The name of the API Management Gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="gatewayName", type=String.class, parameters={})
+    @Export(name="gatewayName", refs={String.class}, tree="[0]")
     private Output<String> gatewayName;
 
     /**
@@ -150,7 +150,7 @@ public class GatewayHostNameConfiguration extends com.pulumi.resources.CustomRes
      * The host name to use for the API Management Gateway Host Name Configuration.
      * 
      */
-    @Export(name="hostName", type=String.class, parameters={})
+    @Export(name="hostName", refs={String.class}, tree="[0]")
     private Output<String> hostName;
 
     /**
@@ -164,7 +164,7 @@ public class GatewayHostNameConfiguration extends com.pulumi.resources.CustomRes
      * Whether HTTP/2.0 is supported. Defaults to `true`.
      * 
      */
-    @Export(name="http2Enabled", type=Boolean.class, parameters={})
+    @Export(name="http2Enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> http2Enabled;
 
     /**
@@ -178,7 +178,7 @@ public class GatewayHostNameConfiguration extends com.pulumi.resources.CustomRes
      * The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -192,7 +192,7 @@ public class GatewayHostNameConfiguration extends com.pulumi.resources.CustomRes
      * Whether the API Management Gateway requests a client certificate.
      * 
      */
-    @Export(name="requestClientCertificateEnabled", type=Boolean.class, parameters={})
+    @Export(name="requestClientCertificateEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requestClientCertificateEnabled;
 
     /**
@@ -206,7 +206,7 @@ public class GatewayHostNameConfiguration extends com.pulumi.resources.CustomRes
      * Whether TLS 1.0 is supported.
      * 
      */
-    @Export(name="tls10Enabled", type=Boolean.class, parameters={})
+    @Export(name="tls10Enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> tls10Enabled;
 
     /**
@@ -220,7 +220,7 @@ public class GatewayHostNameConfiguration extends com.pulumi.resources.CustomRes
      * Whether TLS 1.1 is supported.
      * 
      */
-    @Export(name="tls11Enabled", type=Boolean.class, parameters={})
+    @Export(name="tls11Enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> tls11Enabled;
 
     /**

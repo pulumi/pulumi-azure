@@ -68,13 +68,13 @@ import * as utilities from "../utilities";
  *                 "Microsoft-Perf",
  *                 "Microsoft-InsightsMetrics",
  *             ],
- *             samplingFrequencyInSeconds: 10,
+ *             samplingFrequencyInSeconds: 60,
  *             counterSpecifiers: ["Processor(*)\\% Processor Time"],
  *             name: "test-datasource-perfcounter",
  *         }],
  *         windowsEventLogs: [{
  *             streams: ["Microsoft-WindowsEvent"],
- *             xPathQueries: ["*[System/Level=1]"],
+ *             xPathQueries: ["*![System/Level=1]"],
  *             name: "test-datasource-wineventlog",
  *         }],
  *         extensions: [{

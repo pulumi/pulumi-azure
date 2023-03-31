@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CustomCertificateArgs, CustomCertificateState } from "./customCertificate";
+export type CustomCertificate = import("./customCertificate").CustomCertificate;
+export const CustomCertificate: typeof import("./customCertificate").CustomCertificate = null as any;
+utilities.lazyLoad(exports, ["CustomCertificate"], () => require("./customCertificate"));
+
 export { GetPrivateLinkResourceArgs, GetPrivateLinkResourceResult, GetPrivateLinkResourceOutputArgs } from "./getPrivateLinkResource";
 export const getPrivateLinkResource: typeof import("./getPrivateLinkResource").getPrivateLinkResource = null as any;
 export const getPrivateLinkResourceOutput: typeof import("./getPrivateLinkResource").getPrivateLinkResourceOutput = null as any;
@@ -40,6 +45,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:webpubsub/customCertificate:CustomCertificate":
+                return new CustomCertificate(name, <any>undefined, { urn })
             case "azure:webpubsub/hub:Hub":
                 return new Hub(name, <any>undefined, { urn })
             case "azure:webpubsub/networkAcl:NetworkAcl":
@@ -53,6 +60,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "webpubsub/customCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "webpubsub/hub", _module)
 pulumi.runtime.registerResourceModule("azure", "webpubsub/networkAcl", _module)
 pulumi.runtime.registerResourceModule("azure", "webpubsub/service", _module)

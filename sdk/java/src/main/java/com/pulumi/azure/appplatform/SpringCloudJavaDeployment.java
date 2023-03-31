@@ -103,7 +103,7 @@ public class SpringCloudJavaDeployment extends com.pulumi.resources.CustomResour
      * Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
      * 
      */
-    @Export(name="environmentVariables", type=Map.class, parameters={String.class, String.class})
+    @Export(name="environmentVariables", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> environmentVariables;
 
     /**
@@ -117,7 +117,7 @@ public class SpringCloudJavaDeployment extends com.pulumi.resources.CustomResour
      * Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      * 
      */
-    @Export(name="instanceCount", type=Integer.class, parameters={})
+    @Export(name="instanceCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> instanceCount;
 
     /**
@@ -131,7 +131,7 @@ public class SpringCloudJavaDeployment extends com.pulumi.resources.CustomResour
      * Specifies the jvm option of the Spring Cloud Deployment.
      * 
      */
-    @Export(name="jvmOptions", type=String.class, parameters={})
+    @Export(name="jvmOptions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> jvmOptions;
 
     /**
@@ -145,7 +145,7 @@ public class SpringCloudJavaDeployment extends com.pulumi.resources.CustomResour
      * Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -159,7 +159,7 @@ public class SpringCloudJavaDeployment extends com.pulumi.resources.CustomResour
      * A `quota` block as defined below.
      * 
      */
-    @Export(name="quota", type=SpringCloudJavaDeploymentQuota.class, parameters={})
+    @Export(name="quota", refs={SpringCloudJavaDeploymentQuota.class}, tree="[0]")
     private Output<SpringCloudJavaDeploymentQuota> quota;
 
     /**
@@ -173,7 +173,7 @@ public class SpringCloudJavaDeployment extends com.pulumi.resources.CustomResour
      * Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
      * 
      */
-    @Export(name="runtimeVersion", type=String.class, parameters={})
+    @Export(name="runtimeVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> runtimeVersion;
 
     /**
@@ -187,7 +187,7 @@ public class SpringCloudJavaDeployment extends com.pulumi.resources.CustomResour
      * Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="springCloudAppId", type=String.class, parameters={})
+    @Export(name="springCloudAppId", refs={String.class}, tree="[0]")
     private Output<String> springCloudAppId;
 
     /**

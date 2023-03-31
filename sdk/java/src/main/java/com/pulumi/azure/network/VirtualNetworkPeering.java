@@ -96,35 +96,35 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
      * 
      */
-    @Export(name="allowForwardedTraffic", type=Boolean.class, parameters={})
-    private Output<Boolean> allowForwardedTraffic;
+    @Export(name="allowForwardedTraffic", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> allowForwardedTraffic;
 
     /**
      * @return Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
      * 
      */
-    public Output<Boolean> allowForwardedTraffic() {
-        return this.allowForwardedTraffic;
+    public Output<Optional<Boolean>> allowForwardedTraffic() {
+        return Codegen.optional(this.allowForwardedTraffic);
     }
     /**
-     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
      * 
      */
-    @Export(name="allowGatewayTransit", type=Boolean.class, parameters={})
-    private Output<Boolean> allowGatewayTransit;
+    @Export(name="allowGatewayTransit", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> allowGatewayTransit;
 
     /**
-     * @return Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+     * @return Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
      * 
      */
-    public Output<Boolean> allowGatewayTransit() {
-        return this.allowGatewayTransit;
+    public Output<Optional<Boolean>> allowGatewayTransit() {
+        return Codegen.optional(this.allowGatewayTransit);
     }
     /**
      * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
      * 
      */
-    @Export(name="allowVirtualNetworkAccess", type=Boolean.class, parameters={})
+    @Export(name="allowVirtualNetworkAccess", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowVirtualNetworkAccess;
 
     /**
@@ -138,7 +138,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * The name of the virtual network peering. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -152,7 +152,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="remoteVirtualNetworkId", type=String.class, parameters={})
+    @Export(name="remoteVirtualNetworkId", refs={String.class}, tree="[0]")
     private Output<String> remoteVirtualNetworkId;
 
     /**
@@ -166,7 +166,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -176,7 +176,7 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    @Export(name="triggers", type=Map.class, parameters={String.class, String.class})
+    @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> triggers;
 
     public Output<Optional<Map<String,String>>> triggers() {
@@ -186,21 +186,21 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      * 
      */
-    @Export(name="useRemoteGateways", type=Boolean.class, parameters={})
-    private Output<Boolean> useRemoteGateways;
+    @Export(name="useRemoteGateways", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> useRemoteGateways;
 
     /**
      * @return Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      * 
      */
-    public Output<Boolean> useRemoteGateways() {
-        return this.useRemoteGateways;
+    public Output<Optional<Boolean>> useRemoteGateways() {
+        return Codegen.optional(this.useRemoteGateways);
     }
     /**
      * The name of the virtual network. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualNetworkName", type=String.class, parameters={})
+    @Export(name="virtualNetworkName", refs={String.class}, tree="[0]")
     private Output<String> virtualNetworkName;
 
     /**

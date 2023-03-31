@@ -130,7 +130,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * A map of additional properties to associate with the Synapse Linked Service.
      * 
      */
-    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -144,7 +144,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Synapse Linked Service.
      * 
      */
-    @Export(name="annotations", type=List.class, parameters={String.class})
+    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -158,7 +158,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * The description for the Synapse Linked Service.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -172,7 +172,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * A `integration_runtime` block as defined below.
      * 
      */
-    @Export(name="integrationRuntime", type=LinkedServiceIntegrationRuntime.class, parameters={})
+    @Export(name="integrationRuntime", refs={LinkedServiceIntegrationRuntime.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceIntegrationRuntime> integrationRuntime;
 
     /**
@@ -186,7 +186,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Synapse Linked Service. Changing this forces a new Synapse Linked Service to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -200,7 +200,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * A map of parameters to associate with the Synapse Linked Service.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -214,7 +214,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.
      * 
      */
-    @Export(name="synapseWorkspaceId", type=String.class, parameters={})
+    @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> synapseWorkspaceId;
 
     /**
@@ -236,7 +236,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * `SapTable`, `ServiceNow`, `Sftp`, `SharePointOnlineList`, `Shopify`, `Snowflake`, `Spark`, `Square`, `Sybase`, `Teradata`, `Vertica`, `Web`, `Xero`, `Zoho`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -258,7 +258,7 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * A JSON object that contains the properties of the Synapse Linked Service.
      * 
      */
-    @Export(name="typePropertiesJson", type=String.class, parameters={})
+    @Export(name="typePropertiesJson", refs={String.class}, tree="[0]")
     private Output<String> typePropertiesJson;
 
     /**

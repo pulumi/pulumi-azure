@@ -61,6 +61,7 @@ import (
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Create"),
 //							pulumi.String("Get"),
+//							pulumi.String("GetRotationPolicy"),
 //						},
 //						SecretPermissions: pulumi.StringArray{
 //							pulumi.String("Set"),

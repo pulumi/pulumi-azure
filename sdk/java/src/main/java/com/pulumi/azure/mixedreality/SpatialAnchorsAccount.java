@@ -70,7 +70,7 @@ public class SpatialAnchorsAccount extends com.pulumi.resources.CustomResource {
      * The domain of the Spatial Anchors Account.
      * 
      */
-    @Export(name="accountDomain", type=String.class, parameters={})
+    @Export(name="accountDomain", refs={String.class}, tree="[0]")
     private Output<String> accountDomain;
 
     /**
@@ -84,7 +84,7 @@ public class SpatialAnchorsAccount extends com.pulumi.resources.CustomResource {
      * The account ID of the Spatial Anchors Account.
      * 
      */
-    @Export(name="accountId", type=String.class, parameters={})
+    @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
@@ -98,7 +98,7 @@ public class SpatialAnchorsAccount extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -112,7 +112,7 @@ public class SpatialAnchorsAccount extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class SpatialAnchorsAccount extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -140,7 +140,7 @@ public class SpatialAnchorsAccount extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

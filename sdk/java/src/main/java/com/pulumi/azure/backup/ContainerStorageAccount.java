@@ -88,7 +88,7 @@ public class ContainerStorageAccount extends com.pulumi.resources.CustomResource
      * The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultName", type=String.class, parameters={})
+    @Export(name="recoveryVaultName", refs={String.class}, tree="[0]")
     private Output<String> recoveryVaultName;
 
     /**
@@ -102,7 +102,7 @@ public class ContainerStorageAccount extends com.pulumi.resources.CustomResource
      * Name of the resource group where the vault is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -116,7 +116,7 @@ public class ContainerStorageAccount extends com.pulumi.resources.CustomResource
      * The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountId", type=String.class, parameters={})
+    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output<String> storageAccountId;
 
     /**

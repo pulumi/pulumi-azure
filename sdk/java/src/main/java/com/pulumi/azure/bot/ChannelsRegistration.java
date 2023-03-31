@@ -77,7 +77,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
      * 
      */
-    @Export(name="cmkKeyVaultUrl", type=String.class, parameters={})
+    @Export(name="cmkKeyVaultUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cmkKeyVaultUrl;
 
     /**
@@ -91,7 +91,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * The description of the Bot Channels Registration.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -105,7 +105,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * The Application Insights API Key to associate with the Bot Channels Registration.
      * 
      */
-    @Export(name="developerAppInsightsApiKey", type=String.class, parameters={})
+    @Export(name="developerAppInsightsApiKey", refs={String.class}, tree="[0]")
     private Output<String> developerAppInsightsApiKey;
 
     /**
@@ -119,7 +119,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * The Application Insights Application ID to associate with the Bot Channels Registration.
      * 
      */
-    @Export(name="developerAppInsightsApplicationId", type=String.class, parameters={})
+    @Export(name="developerAppInsightsApplicationId", refs={String.class}, tree="[0]")
     private Output<String> developerAppInsightsApplicationId;
 
     /**
@@ -133,7 +133,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * The Application Insights Key to associate with the Bot Channels Registration.
      * 
      */
-    @Export(name="developerAppInsightsKey", type=String.class, parameters={})
+    @Export(name="developerAppInsightsKey", refs={String.class}, tree="[0]")
     private Output<String> developerAppInsightsKey;
 
     /**
@@ -147,7 +147,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -161,7 +161,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * The Bot Channels Registration endpoint.
      * 
      */
-    @Export(name="endpoint", type=String.class, parameters={})
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpoint;
 
     /**
@@ -175,7 +175,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * The icon URL to visually identify the Bot Channels Registration.
      * 
      */
-    @Export(name="iconUrl", type=String.class, parameters={})
+    @Export(name="iconUrl", refs={String.class}, tree="[0]")
     private Output<String> iconUrl;
 
     /**
@@ -193,7 +193,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider. */
-    @Export(name="isolatedNetworkEnabled", type=Boolean.class, parameters={})
+    @Export(name="isolatedNetworkEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isolatedNetworkEnabled;
 
     /**
@@ -207,7 +207,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -221,7 +221,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="microsoftAppId", type=String.class, parameters={})
+    @Export(name="microsoftAppId", refs={String.class}, tree="[0]")
     private Output<String> microsoftAppId;
 
     /**
@@ -235,7 +235,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -249,7 +249,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * Is the Bot Channels Registration in an isolated network?
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -263,7 +263,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -277,7 +277,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sku", type=String.class, parameters={})
+    @Export(name="sku", refs={String.class}, tree="[0]")
     private Output<String> sku;
 
     /**
@@ -291,7 +291,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
      * 
      */
-    @Export(name="streamingEndpointEnabled", type=Boolean.class, parameters={})
+    @Export(name="streamingEndpointEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> streamingEndpointEnabled;
 
     /**
@@ -305,7 +305,7 @@ public class ChannelsRegistration extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

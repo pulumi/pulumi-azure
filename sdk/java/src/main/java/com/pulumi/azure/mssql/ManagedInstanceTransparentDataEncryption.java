@@ -206,7 +206,8 @@ import javax.annotation.Nullable;
  *                         &#34;Delete&#34;,
  *                         &#34;Update&#34;,
  *                         &#34;Recover&#34;,
- *                         &#34;Purge&#34;)
+ *                         &#34;Purge&#34;,
+ *                         &#34;GetRotationPolicy&#34;)
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(exampleManagedInstance.identity().applyValue(identity -&gt; identity.tenantId()))
@@ -253,7 +254,7 @@ public class ManagedInstanceTransparentDataEncryption extends com.pulumi.resourc
      * When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
      * 
      */
-    @Export(name="autoRotationEnabled", type=Boolean.class, parameters={})
+    @Export(name="autoRotationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoRotationEnabled;
 
     /**
@@ -267,7 +268,7 @@ public class ManagedInstanceTransparentDataEncryption extends com.pulumi.resourc
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      * 
      */
-    @Export(name="keyVaultKeyId", type=String.class, parameters={})
+    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyVaultKeyId;
 
     /**
@@ -281,7 +282,7 @@ public class ManagedInstanceTransparentDataEncryption extends com.pulumi.resourc
      * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managedInstanceId", type=String.class, parameters={})
+    @Export(name="managedInstanceId", refs={String.class}, tree="[0]")
     private Output<String> managedInstanceId;
 
     /**

@@ -79,7 +79,7 @@ public class AdvancedThreatProtection extends com.pulumi.resources.CustomResourc
      * Should Advanced Threat Protection be enabled on this resource?
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -93,7 +93,7 @@ public class AdvancedThreatProtection extends com.pulumi.resources.CustomResourc
      * The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetResourceId", type=String.class, parameters={})
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**

@@ -48,9 +48,10 @@ import (
 //						},
 //					},
 //				},
-//				ConnectivityLogsEnabled: pulumi.Bool(true),
-//				MessagingLogsEnabled:    pulumi.Bool(true),
-//				ServiceMode:             pulumi.String("Default"),
+//				PublicNetworkAccessEnabled: pulumi.Bool(false),
+//				ConnectivityLogsEnabled:    pulumi.Bool(true),
+//				MessagingLogsEnabled:       pulumi.Bool(true),
+//				ServiceMode:                pulumi.String("Default"),
 //				UpstreamEndpoints: signalr.ServiceUpstreamEndpointArray{
 //					&signalr.ServiceUpstreamEndpointArgs{
 //						CategoryPatterns: pulumi.StringArray{
@@ -88,12 +89,16 @@ import (
 type Service struct {
 	pulumi.CustomResourceState
 
+	// Whether to enable AAD auth? Defaults to `true`.
+	AadAuthEnabled pulumi.BoolPtrOutput `pulumi:"aadAuthEnabled"`
 	// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
 	ConnectivityLogsEnabled pulumi.BoolPtrOutput `pulumi:"connectivityLogsEnabled"`
 	// A `cors` block as documented below.
 	Cors ServiceCorArrayOutput `pulumi:"cors"`
 	// The FQDN of the SignalR service.
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
+	// An `identity` block as defined below.
+	Identity ServiceIdentityPtrOutput `pulumi:"identity"`
 	// The publicly accessible IP of the SignalR service.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// A `liveTrace` block as defined below.
@@ -102,6 +107,8 @@ type Service struct {
 	//
 	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
 	LiveTraceEnabled pulumi.BoolPtrOutput `pulumi:"liveTraceEnabled"`
+	// Whether to enable local auth? Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies if Messaging Logs are enabled or not. Defaults to `false`.
@@ -112,6 +119,8 @@ type Service struct {
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
 	// The primary connection string for the SignalR service.
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
+	// Whether to enable public network access? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The publicly accessible port of the SignalR service which is designed for browser/client use.
 	PublicPort pulumi.IntOutput `pulumi:"publicPort"`
 	// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
@@ -122,12 +131,16 @@ type Service struct {
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
 	// The publicly accessible port of the SignalR service which is designed for customer server side use.
 	ServerPort pulumi.IntOutput `pulumi:"serverPort"`
+	// Specifies the client connection timeout. Defaults to `30`.
+	ServerlessConnectionTimeoutInSeconds pulumi.IntPtrOutput `pulumi:"serverlessConnectionTimeoutInSeconds"`
 	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
 	ServiceMode pulumi.StringPtrOutput `pulumi:"serviceMode"`
 	// A `sku` block as documented below.
 	Sku ServiceSkuOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Whether to request client certificate during TLS handshake? Defaults to `false`.
+	TlsClientCertEnabled pulumi.BoolPtrOutput `pulumi:"tlsClientCertEnabled"`
 	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints ServiceUpstreamEndpointArrayOutput `pulumi:"upstreamEndpoints"`
 }
@@ -174,12 +187,16 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
+	// Whether to enable AAD auth? Defaults to `true`.
+	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`
 	// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
 	ConnectivityLogsEnabled *bool `pulumi:"connectivityLogsEnabled"`
 	// A `cors` block as documented below.
 	Cors []ServiceCor `pulumi:"cors"`
 	// The FQDN of the SignalR service.
 	Hostname *string `pulumi:"hostname"`
+	// An `identity` block as defined below.
+	Identity *ServiceIdentity `pulumi:"identity"`
 	// The publicly accessible IP of the SignalR service.
 	IpAddress *string `pulumi:"ipAddress"`
 	// A `liveTrace` block as defined below.
@@ -188,6 +205,8 @@ type serviceState struct {
 	//
 	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
 	LiveTraceEnabled *bool `pulumi:"liveTraceEnabled"`
+	// Whether to enable local auth? Defaults to `true`.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies if Messaging Logs are enabled or not. Defaults to `false`.
@@ -198,6 +217,8 @@ type serviceState struct {
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
 	// The primary connection string for the SignalR service.
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
+	// Whether to enable public network access? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The publicly accessible port of the SignalR service which is designed for browser/client use.
 	PublicPort *int `pulumi:"publicPort"`
 	// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
@@ -208,23 +229,31 @@ type serviceState struct {
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// The publicly accessible port of the SignalR service which is designed for customer server side use.
 	ServerPort *int `pulumi:"serverPort"`
+	// Specifies the client connection timeout. Defaults to `30`.
+	ServerlessConnectionTimeoutInSeconds *int `pulumi:"serverlessConnectionTimeoutInSeconds"`
 	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
 	ServiceMode *string `pulumi:"serviceMode"`
 	// A `sku` block as documented below.
 	Sku *ServiceSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Whether to request client certificate during TLS handshake? Defaults to `false`.
+	TlsClientCertEnabled *bool `pulumi:"tlsClientCertEnabled"`
 	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints []ServiceUpstreamEndpoint `pulumi:"upstreamEndpoints"`
 }
 
 type ServiceState struct {
+	// Whether to enable AAD auth? Defaults to `true`.
+	AadAuthEnabled pulumi.BoolPtrInput
 	// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
 	ConnectivityLogsEnabled pulumi.BoolPtrInput
 	// A `cors` block as documented below.
 	Cors ServiceCorArrayInput
 	// The FQDN of the SignalR service.
 	Hostname pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity ServiceIdentityPtrInput
 	// The publicly accessible IP of the SignalR service.
 	IpAddress pulumi.StringPtrInput
 	// A `liveTrace` block as defined below.
@@ -233,6 +262,8 @@ type ServiceState struct {
 	//
 	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
 	LiveTraceEnabled pulumi.BoolPtrInput
+	// Whether to enable local auth? Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies if Messaging Logs are enabled or not. Defaults to `false`.
@@ -243,6 +274,8 @@ type ServiceState struct {
 	PrimaryAccessKey pulumi.StringPtrInput
 	// The primary connection string for the SignalR service.
 	PrimaryConnectionString pulumi.StringPtrInput
+	// Whether to enable public network access? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The publicly accessible port of the SignalR service which is designed for browser/client use.
 	PublicPort pulumi.IntPtrInput
 	// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
@@ -253,12 +286,16 @@ type ServiceState struct {
 	SecondaryConnectionString pulumi.StringPtrInput
 	// The publicly accessible port of the SignalR service which is designed for customer server side use.
 	ServerPort pulumi.IntPtrInput
+	// Specifies the client connection timeout. Defaults to `30`.
+	ServerlessConnectionTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
 	ServiceMode pulumi.StringPtrInput
 	// A `sku` block as documented below.
 	Sku ServiceSkuPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Whether to request client certificate during TLS handshake? Defaults to `false`.
+	TlsClientCertEnabled pulumi.BoolPtrInput
 	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints ServiceUpstreamEndpointArrayInput
 }
@@ -268,60 +305,84 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
+	// Whether to enable AAD auth? Defaults to `true`.
+	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`
 	// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
 	ConnectivityLogsEnabled *bool `pulumi:"connectivityLogsEnabled"`
 	// A `cors` block as documented below.
 	Cors []ServiceCor `pulumi:"cors"`
+	// An `identity` block as defined below.
+	Identity *ServiceIdentity `pulumi:"identity"`
 	// A `liveTrace` block as defined below.
 	LiveTrace *ServiceLiveTrace `pulumi:"liveTrace"`
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
 	//
 	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
 	LiveTraceEnabled *bool `pulumi:"liveTraceEnabled"`
+	// Whether to enable local auth? Defaults to `true`.
+	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies if Messaging Logs are enabled or not. Defaults to `false`.
 	MessagingLogsEnabled *bool `pulumi:"messagingLogsEnabled"`
 	// The name of the SignalR service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether to enable public network access? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies the client connection timeout. Defaults to `30`.
+	ServerlessConnectionTimeoutInSeconds *int `pulumi:"serverlessConnectionTimeoutInSeconds"`
 	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
 	ServiceMode *string `pulumi:"serviceMode"`
 	// A `sku` block as documented below.
 	Sku ServiceSku `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Whether to request client certificate during TLS handshake? Defaults to `false`.
+	TlsClientCertEnabled *bool `pulumi:"tlsClientCertEnabled"`
 	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints []ServiceUpstreamEndpoint `pulumi:"upstreamEndpoints"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
+	// Whether to enable AAD auth? Defaults to `true`.
+	AadAuthEnabled pulumi.BoolPtrInput
 	// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
 	ConnectivityLogsEnabled pulumi.BoolPtrInput
 	// A `cors` block as documented below.
 	Cors ServiceCorArrayInput
+	// An `identity` block as defined below.
+	Identity ServiceIdentityPtrInput
 	// A `liveTrace` block as defined below.
 	LiveTrace ServiceLiveTracePtrInput
 	// Specifies if Live Trace is enabled or not. Defaults to `false`.
 	//
 	// Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
 	LiveTraceEnabled pulumi.BoolPtrInput
+	// Whether to enable local auth? Defaults to `true`.
+	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies if Messaging Logs are enabled or not. Defaults to `false`.
 	MessagingLogsEnabled pulumi.BoolPtrInput
 	// The name of the SignalR service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether to enable public network access? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// Specifies the client connection timeout. Defaults to `30`.
+	ServerlessConnectionTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
 	ServiceMode pulumi.StringPtrInput
 	// A `sku` block as documented below.
 	Sku ServiceSkuInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Whether to request client certificate during TLS handshake? Defaults to `false`.
+	TlsClientCertEnabled pulumi.BoolPtrInput
 	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints ServiceUpstreamEndpointArrayInput
 }
@@ -413,6 +474,11 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// Whether to enable AAD auth? Defaults to `true`.
+func (o ServiceOutput) AadAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.AadAuthEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
 func (o ServiceOutput) ConnectivityLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.ConnectivityLogsEnabled }).(pulumi.BoolPtrOutput)
@@ -426,6 +492,11 @@ func (o ServiceOutput) Cors() ServiceCorArrayOutput {
 // The FQDN of the SignalR service.
 func (o ServiceOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Hostname }).(pulumi.StringOutput)
+}
+
+// An `identity` block as defined below.
+func (o ServiceOutput) Identity() ServiceIdentityPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceIdentityPtrOutput { return v.Identity }).(ServiceIdentityPtrOutput)
 }
 
 // The publicly accessible IP of the SignalR service.
@@ -443,6 +514,11 @@ func (o ServiceOutput) LiveTrace() ServiceLiveTracePtrOutput {
 // Deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.
 func (o ServiceOutput) LiveTraceEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.LiveTraceEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable local auth? Defaults to `true`.
+func (o ServiceOutput) LocalAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.LocalAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
@@ -470,6 +546,11 @@ func (o ServiceOutput) PrimaryConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.PrimaryConnectionString }).(pulumi.StringOutput)
 }
 
+// Whether to enable public network access? Defaults to `true`.
+func (o ServiceOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The publicly accessible port of the SignalR service which is designed for browser/client use.
 func (o ServiceOutput) PublicPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *Service) pulumi.IntOutput { return v.PublicPort }).(pulumi.IntOutput)
@@ -495,6 +576,11 @@ func (o ServiceOutput) ServerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *Service) pulumi.IntOutput { return v.ServerPort }).(pulumi.IntOutput)
 }
 
+// Specifies the client connection timeout. Defaults to `30`.
+func (o ServiceOutput) ServerlessConnectionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.IntPtrOutput { return v.ServerlessConnectionTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
 // Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
 func (o ServiceOutput) ServiceMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.ServiceMode }).(pulumi.StringPtrOutput)
@@ -508,6 +594,11 @@ func (o ServiceOutput) Sku() ServiceSkuOutput {
 // A mapping of tags to assign to the resource.
 func (o ServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Whether to request client certificate during TLS handshake? Defaults to `false`.
+func (o ServiceOutput) TlsClientCertEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.TlsClientCertEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.

@@ -81,6 +81,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LogAnalyticsWorkspaceOnboarding{}
 	case "azure:sentinel/metadata:Metadata":
 		r = &Metadata{}
+	case "azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator":
+		r = &ThreatIntelligenceIndicator{}
 	case "azure:sentinel/watchlist:Watchlist":
 		r = &Watchlist{}
 	case "azure:sentinel/watchlistItem:WatchlistItem":
@@ -246,6 +248,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sentinel/metadata",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/threatIntelligenceIndicator",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

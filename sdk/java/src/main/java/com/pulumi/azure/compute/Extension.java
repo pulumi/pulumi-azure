@@ -170,7 +170,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
      * 
      */
-    @Export(name="autoUpgradeMinorVersion", type=Boolean.class, parameters={})
+    @Export(name="autoUpgradeMinorVersion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoUpgradeMinorVersion;
 
     /**
@@ -184,7 +184,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      * 
      */
-    @Export(name="automaticUpgradeEnabled", type=Boolean.class, parameters={})
+    @Export(name="automaticUpgradeEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automaticUpgradeEnabled;
 
     /**
@@ -198,7 +198,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      * 
      */
-    @Export(name="failureSuppressionEnabled", type=Boolean.class, parameters={})
+    @Export(name="failureSuppressionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> failureSuppressionEnabled;
 
     /**
@@ -212,7 +212,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The name of the virtual machine extension peering. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -226,7 +226,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
      */
-    @Export(name="protectedSettings", type=String.class, parameters={})
+    @Export(name="protectedSettings", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protectedSettings;
 
     /**
@@ -240,7 +240,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * A `protected_settings_from_key_vault` block as defined below.
      * 
      */
-    @Export(name="protectedSettingsFromKeyVault", type=ExtensionProtectedSettingsFromKeyVault.class, parameters={})
+    @Export(name="protectedSettingsFromKeyVault", refs={ExtensionProtectedSettingsFromKeyVault.class}, tree="[0]")
     private Output</* @Nullable */ ExtensionProtectedSettingsFromKeyVault> protectedSettingsFromKeyVault;
 
     /**
@@ -254,7 +254,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="publisher", type=String.class, parameters={})
+    @Export(name="publisher", refs={String.class}, tree="[0]")
     private Output<String> publisher;
 
     /**
@@ -268,7 +268,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The settings passed to the extension, these are specified as a JSON object in a string.
      * 
      */
-    @Export(name="settings", type=String.class, parameters={})
+    @Export(name="settings", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> settings;
 
     /**
@@ -282,7 +282,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -296,7 +296,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The type of extension, available types for a publisher can be found using the Azure CLI.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
@@ -310,7 +310,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      * 
      */
-    @Export(name="typeHandlerVersion", type=String.class, parameters={})
+    @Export(name="typeHandlerVersion", refs={String.class}, tree="[0]")
     private Output<String> typeHandlerVersion;
 
     /**
@@ -324,7 +324,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Machine. Changing this forces a new resource to be created
      * 
      */
-    @Export(name="virtualMachineId", type=String.class, parameters={})
+    @Export(name="virtualMachineId", refs={String.class}, tree="[0]")
     private Output<String> virtualMachineId;
 
     /**

@@ -120,7 +120,7 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=AnalyzerIdentity.class, parameters={})
+    @Export(name="identity", refs={AnalyzerIdentity.class}, tree="[0]")
     private Output<AnalyzerIdentity> identity;
 
     /**
@@ -134,7 +134,7 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -148,7 +148,7 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Video Analyzer. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -162,7 +162,7 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -176,7 +176,7 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
      * A `storage_account` block as defined below.
      * 
      */
-    @Export(name="storageAccount", type=AnalyzerStorageAccount.class, parameters={})
+    @Export(name="storageAccount", refs={AnalyzerStorageAccount.class}, tree="[0]")
     private Output<AnalyzerStorageAccount> storageAccount;
 
     /**
@@ -190,7 +190,7 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
      * A mapping of tags assigned to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

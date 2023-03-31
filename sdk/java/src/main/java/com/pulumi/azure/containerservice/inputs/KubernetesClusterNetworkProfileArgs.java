@@ -36,14 +36,22 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     /**
      * IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
      * 
+     * @deprecated
+     * `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+     * 
      */
+    @Deprecated /* `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
     @Import(name="dockerBridgeCidr")
     private @Nullable Output<String> dockerBridgeCidr;
 
     /**
      * @return IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
      * 
+     * @deprecated
+     * `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+     * 
      */
+    @Deprecated /* `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
     public Optional<Output<String>> dockerBridgeCidr() {
         return Optional.ofNullable(this.dockerBridgeCidr);
     }
@@ -323,7 +331,11 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * 
          * @return builder
          * 
+         * @deprecated
+         * `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+         * 
          */
+        @Deprecated /* `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
         public Builder dockerBridgeCidr(@Nullable Output<String> dockerBridgeCidr) {
             $.dockerBridgeCidr = dockerBridgeCidr;
             return this;
@@ -334,7 +346,11 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * 
          * @return builder
          * 
+         * @deprecated
+         * `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+         * 
          */
+        @Deprecated /* `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
         public Builder dockerBridgeCidr(String dockerBridgeCidr) {
             return dockerBridgeCidr(Output.of(dockerBridgeCidr));
         }

@@ -31,9 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
- * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
  * import com.pulumi.azure.sentinel.DataConnectorMicrosoftCloudAppSecurity;
  * import com.pulumi.azure.sentinel.DataConnectorMicrosoftCloudAppSecurityArgs;
  * import java.util.List;
@@ -59,20 +58,12 @@ import javax.annotation.Nullable;
  *             .sku(&#34;PerGB2018&#34;)
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution(&#34;exampleAnalyticsSolution&#34;, AnalyticsSolutionArgs.builder()        
- *             .solutionName(&#34;SecurityInsights&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
- *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/SecurityInsights&#34;)
- *                 .build())
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
  *         var exampleDataConnectorMicrosoftCloudAppSecurity = new DataConnectorMicrosoftCloudAppSecurity(&#34;exampleDataConnectorMicrosoftCloudAppSecurity&#34;, DataConnectorMicrosoftCloudAppSecurityArgs.builder()        
- *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
+ *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
  *             .build());
  * 
  *     }
@@ -94,7 +85,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
      * Should the alerts be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="alertsEnabled", type=Boolean.class, parameters={})
+    @Export(name="alertsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> alertsEnabled;
 
     /**
@@ -108,7 +99,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
      * Should the Discovery Logs be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="discoveryLogsEnabled", type=Boolean.class, parameters={})
+    @Export(name="discoveryLogsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> discoveryLogsEnabled;
 
     /**
@@ -122,7 +113,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
      * The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -136,7 +127,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
      * The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -150,7 +141,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

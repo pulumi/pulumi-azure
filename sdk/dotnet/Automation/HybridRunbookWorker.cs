@@ -30,6 +30,7 @@ namespace Pulumi.Azure.Automation
     ///         WorkerId = "00000000-0000-0000-0000-000000000000",
     ///     });
     /// 
+    ///     //unique uuid
     /// });
     /// ```
     /// 
@@ -87,7 +88,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> WorkerGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the HybridWorker. Changing this forces a new Automation to be created.
+        /// Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
         /// </summary>
         [Output("workerId")]
         public Output<string> WorkerId { get; private set; } = null!;
@@ -175,7 +176,7 @@ namespace Pulumi.Azure.Automation
         public Input<string> WorkerGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the HybridWorker. Changing this forces a new Automation to be created.
+        /// Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
         /// </summary>
         [Input("workerId", required: true)]
         public Input<string> WorkerId { get; set; } = null!;
@@ -231,7 +232,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? WorkerGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the HybridWorker. Changing this forces a new Automation to be created.
+        /// Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
         /// </summary>
         [Input("workerId")]
         public Input<string>? WorkerId { get; set; }

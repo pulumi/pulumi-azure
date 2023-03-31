@@ -68,7 +68,7 @@ public class ActiveSlot extends com.pulumi.resources.CustomResource {
      * The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="appServiceName", type=String.class, parameters={})
+    @Export(name="appServiceName", refs={String.class}, tree="[0]")
     private Output<String> appServiceName;
 
     /**
@@ -82,7 +82,7 @@ public class ActiveSlot extends com.pulumi.resources.CustomResource {
      * The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
      * 
      */
-    @Export(name="appServiceSlotName", type=String.class, parameters={})
+    @Export(name="appServiceSlotName", refs={String.class}, tree="[0]")
     private Output<String> appServiceSlotName;
 
     /**
@@ -96,7 +96,7 @@ public class ActiveSlot extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

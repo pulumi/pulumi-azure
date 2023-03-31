@@ -61,14 +61,14 @@ public final class DataCollectionRuleAssociationArgs extends com.pulumi.resource
     }
 
     /**
-     * The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
+     * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
+     * @return The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -182,7 +182,7 @@ public final class DataCollectionRuleAssociationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
+         * @param name The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class DataCollectionRuleAssociationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. Defaults to `configurationAccessEndpoint`.
+         * @param name The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
          * 
          * @return builder
          * 

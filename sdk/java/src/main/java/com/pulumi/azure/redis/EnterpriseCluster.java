@@ -72,7 +72,7 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
      * DNS name of the cluster endpoint.
      * 
      */
-    @Export(name="hostname", type=String.class, parameters={})
+    @Export(name="hostname", refs={String.class}, tree="[0]")
     private Output<String> hostname;
 
     /**
@@ -86,7 +86,7 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -100,7 +100,7 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
      * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
      * 
      */
-    @Export(name="minimumTlsVersion", type=String.class, parameters={})
+    @Export(name="minimumTlsVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> minimumTlsVersion;
 
     /**
@@ -114,7 +114,7 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -142,7 +142,7 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
      * The `sku_name` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `sku_name` defines the `name` of the SKU, possible values are `Enterprise_E10`, `Enterprise_E20&#34;`, `Enterprise_E50`, `Enterprise_E100`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `sku_name`, possible values for `Enteprise` SKUs are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` SKUs are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -156,7 +156,7 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Redis Enterprise Cluster.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -170,7 +170,7 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
      * Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created.
      * 
      */
-    @Export(name="zones", type=List.class, parameters={String.class})
+    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**
