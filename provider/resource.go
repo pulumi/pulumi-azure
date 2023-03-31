@@ -157,6 +157,7 @@ const (
 	azureStreamAnalytics       = "StreamAnalytics"       // StreamAnalytics
 	azureSynapse               = "Synapse"               // Synapse
 	azureVideoAnalyzer         = "VideoAnalyzer"         // Video Analyzer
+	azureVoice                 = "Voice"                 // Voice
 	azureWaf                   = "Waf"                   // WAF
 	azureWebPubSub             = "WebPubSub"             // Web PubSub
 
@@ -1099,6 +1100,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_databricks_workspace_customer_managed_key": {
 				Tok: azureResource(azureDataBricks, "WorkspaceCustomerManagedKey"),
 			},
+			"azurerm_databricks_virtual_network_peering": {Tok: azureResource(azureDataBricks, "VirtualNetworkPeering")},
 
 			//Databox
 			"azurerm_databox_edge_device": {Tok: azureResource(azureDataboxEdge, "Device")},
@@ -2244,6 +2246,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_video_analyzer":             {Tok: azureResource(azureVideoAnalyzer, "Analyzer")},
 			"azurerm_video_analyzer_edge_module": {Tok: azureResource(azureVideoAnalyzer, "EdgeModule")},
 
+			// Voice
+			"azurerm_voice_services_communications_gateway": {
+				Tok: azureResource(azureVoice, "ServicesCommunicationsGateway"),
+			},
+
 			// WAF
 			"azurerm_web_application_firewall_policy": {Tok: azureResource(azureWaf, "Policy")},
 
@@ -2450,6 +2457,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_alert_rule_anomaly_duplicate": {
 				Tok: azureResource(azureSentinel, "AlertRuleAnomalyDuplicate"),
 			},
+			"azurerm_sentinel_threat_intelligence_indicator": {
+				Tok: azureResource(azureSentinel, "ThreatIntelligenceIndicator"),
+			},
 
 			// Eventgrid
 			"azurerm_eventgrid_domain_topic": {Tok: azureResource(azureEventGrid, "DomainTopic")},
@@ -2579,6 +2589,9 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{
 					Source: "web_pubsub_shared_private_link.html.markdown",
 				},
+			},
+			"azurerm_web_pubsub_custom_certificate": {
+				Tok: azureResource(azureWebPubSub, "CustomCertificate"),
 			},
 
 			// Portal
@@ -3093,6 +3106,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			"azurerm_virtual_desktop_host_pool": {Tok: azureDataSource(azureDesktopVirtualization, "getHostPool")},
 			"azurerm_hybrid_compute_machine":    {Tok: azureDataSource(azureHybrid, "getComputeMachine")},
+
+			"azurerm_orchestrated_virtual_machine_scale_set": {Tok: azureDataSource(azureCompute, "getOrchestratedVirtualMachineScaleSet")},
+			"azurerm_container_app":                          {Tok: azureDataSource(azureContainerApp, "getApp")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			TypeScriptVersion: "4.7.4",
