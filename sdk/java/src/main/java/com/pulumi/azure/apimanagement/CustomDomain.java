@@ -155,7 +155,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
      * The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
      * 
      */
-    @Export(name="apiManagementId", type=String.class, parameters={})
+    @Export(name="apiManagementId", refs={String.class}, tree="[0]")
     private Output<String> apiManagementId;
 
     /**
@@ -169,7 +169,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
      * One or more `developer_portal` blocks as defined below.
      * 
      */
-    @Export(name="developerPortals", type=List.class, parameters={CustomDomainDeveloperPortal.class})
+    @Export(name="developerPortals", refs={List.class,CustomDomainDeveloperPortal.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CustomDomainDeveloperPortal>> developerPortals;
 
     /**
@@ -183,7 +183,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
      * One or more `gateway` blocks as defined below.
      * 
      */
-    @Export(name="gateways", type=List.class, parameters={CustomDomainGateway.class})
+    @Export(name="gateways", refs={List.class,CustomDomainGateway.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CustomDomainGateway>> gateways;
 
     /**
@@ -197,7 +197,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
      * One or more `management` blocks as defined below.
      * 
      */
-    @Export(name="managements", type=List.class, parameters={CustomDomainManagement.class})
+    @Export(name="managements", refs={List.class,CustomDomainManagement.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CustomDomainManagement>> managements;
 
     /**
@@ -211,7 +211,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
      * One or more `portal` blocks as defined below.
      * 
      */
-    @Export(name="portals", type=List.class, parameters={CustomDomainPortal.class})
+    @Export(name="portals", refs={List.class,CustomDomainPortal.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CustomDomainPortal>> portals;
 
     /**
@@ -225,7 +225,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
      * One or more `scm` blocks as defined below.
      * 
      */
-    @Export(name="scms", type=List.class, parameters={CustomDomainScm.class})
+    @Export(name="scms", refs={List.class,CustomDomainScm.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CustomDomainScm>> scms;
 
     /**

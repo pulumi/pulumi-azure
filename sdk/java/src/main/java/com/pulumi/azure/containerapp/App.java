@@ -104,7 +104,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="containerAppEnvironmentId", type=String.class, parameters={})
+    @Export(name="containerAppEnvironmentId", refs={String.class}, tree="[0]")
     private Output<String> containerAppEnvironmentId;
 
     /**
@@ -118,7 +118,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The ID of the Custom Domain Verification for this Container App.
      * 
      */
-    @Export(name="customDomainVerificationId", type=String.class, parameters={})
+    @Export(name="customDomainVerificationId", refs={String.class}, tree="[0]")
     private Output<String> customDomainVerificationId;
 
     /**
@@ -132,7 +132,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * A `dapr` block as detailed below.
      * 
      */
-    @Export(name="dapr", type=AppDapr.class, parameters={})
+    @Export(name="dapr", refs={AppDapr.class}, tree="[0]")
     private Output</* @Nullable */ AppDapr> dapr;
 
     /**
@@ -146,7 +146,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * An `identity` block as detailed below.
      * 
      */
-    @Export(name="identity", type=AppIdentity.class, parameters={})
+    @Export(name="identity", refs={AppIdentity.class}, tree="[0]")
     private Output</* @Nullable */ AppIdentity> identity;
 
     /**
@@ -160,7 +160,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * An `ingress` block as detailed below.
      * 
      */
-    @Export(name="ingress", type=AppIngress.class, parameters={})
+    @Export(name="ingress", refs={AppIngress.class}, tree="[0]")
     private Output</* @Nullable */ AppIngress> ingress;
 
     /**
@@ -174,7 +174,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The FQDN of the Latest Revision of the Container App.
      * 
      */
-    @Export(name="latestRevisionFqdn", type=String.class, parameters={})
+    @Export(name="latestRevisionFqdn", refs={String.class}, tree="[0]")
     private Output<String> latestRevisionFqdn;
 
     /**
@@ -188,7 +188,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The name of the latest Container Revision.
      * 
      */
-    @Export(name="latestRevisionName", type=String.class, parameters={})
+    @Export(name="latestRevisionName", refs={String.class}, tree="[0]")
     private Output<String> latestRevisionName;
 
     /**
@@ -202,7 +202,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -216,7 +216,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The name for this Container App. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -230,7 +230,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * A list of the Public IP Addresses which the Container App uses for outbound network access.
      * 
      */
-    @Export(name="outboundIpAddresses", type=List.class, parameters={String.class})
+    @Export(name="outboundIpAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> outboundIpAddresses;
 
     /**
@@ -244,7 +244,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * A `registry` block as detailed below.
      * 
      */
-    @Export(name="registries", type=List.class, parameters={AppRegistry.class})
+    @Export(name="registries", refs={List.class,AppRegistry.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AppRegistry>> registries;
 
     /**
@@ -258,7 +258,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -272,7 +272,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
      * 
      */
-    @Export(name="revisionMode", type=String.class, parameters={})
+    @Export(name="revisionMode", refs={String.class}, tree="[0]")
     private Output<String> revisionMode;
 
     /**
@@ -286,7 +286,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * One or more `secret` block as detailed below.
      * 
      */
-    @Export(name="secrets", type=List.class, parameters={AppSecret.class})
+    @Export(name="secrets", refs={List.class,AppSecret.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AppSecret>> secrets;
 
     /**
@@ -300,7 +300,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Container App.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -314,7 +314,7 @@ public class App extends com.pulumi.resources.CustomResource {
      * A `template` block as detailed below.
      * 
      */
-    @Export(name="template", type=AppTemplate.class, parameters={})
+    @Export(name="template", refs={AppTemplate.class}, tree="[0]")
     private Output<AppTemplate> template;
 
     /**

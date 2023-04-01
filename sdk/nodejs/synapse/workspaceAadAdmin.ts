@@ -40,6 +40,7 @@ import * as utilities from "../utilities";
  *         "Get",
  *         "Delete",
  *         "Purge",
+ *         "GetRotationPolicy",
  *     ],
  * });
  * const exampleKey = new azure.keyvault.Key("exampleKey", {

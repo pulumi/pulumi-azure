@@ -114,7 +114,7 @@ public class BackupPolicyPostgresql extends com.pulumi.resources.CustomResource 
      * Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    @Export(name="backupRepeatingTimeIntervals", type=List.class, parameters={String.class})
+    @Export(name="backupRepeatingTimeIntervals", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> backupRepeatingTimeIntervals;
 
     /**
@@ -128,7 +128,7 @@ public class BackupPolicyPostgresql extends com.pulumi.resources.CustomResource 
      * The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    @Export(name="defaultRetentionDuration", type=String.class, parameters={})
+    @Export(name="defaultRetentionDuration", refs={String.class}, tree="[0]")
     private Output<String> defaultRetentionDuration;
 
     /**
@@ -142,7 +142,7 @@ public class BackupPolicyPostgresql extends com.pulumi.resources.CustomResource 
      * The name which should be used for this Backup Policy PostgreSQL. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -156,7 +156,7 @@ public class BackupPolicyPostgresql extends com.pulumi.resources.CustomResource 
      * The name of the Resource Group where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -170,7 +170,7 @@ public class BackupPolicyPostgresql extends com.pulumi.resources.CustomResource 
      * One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    @Export(name="retentionRules", type=List.class, parameters={BackupPolicyPostgresqlRetentionRule.class})
+    @Export(name="retentionRules", refs={List.class,BackupPolicyPostgresqlRetentionRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BackupPolicyPostgresqlRetentionRule>> retentionRules;
 
     /**
@@ -184,7 +184,7 @@ public class BackupPolicyPostgresql extends com.pulumi.resources.CustomResource 
      * The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    @Export(name="vaultName", type=String.class, parameters={})
+    @Export(name="vaultName", refs={String.class}, tree="[0]")
     private Output<String> vaultName;
 
     /**

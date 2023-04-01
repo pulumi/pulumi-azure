@@ -73,6 +73,10 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultRouteTableId!: pulumi.Output<string>;
     /**
+     * The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+     */
+    public readonly hubRoutingPreference!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -124,6 +128,7 @@ export class VirtualHub extends pulumi.CustomResource {
             const state = argsOrState as VirtualHubState | undefined;
             resourceInputs["addressPrefix"] = state ? state.addressPrefix : undefined;
             resourceInputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
+            resourceInputs["hubRoutingPreference"] = state ? state.hubRoutingPreference : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -139,6 +144,7 @@ export class VirtualHub extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            resourceInputs["hubRoutingPreference"] = args ? args.hubRoutingPreference : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -167,6 +173,10 @@ export interface VirtualHubState {
      * The ID of the default Route Table in the Virtual Hub.
      */
     defaultRouteTableId?: pulumi.Input<string>;
+    /**
+     * The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+     */
+    hubRoutingPreference?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
@@ -213,6 +223,10 @@ export interface VirtualHubArgs {
      * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
      */
     addressPrefix?: pulumi.Input<string>;
+    /**
+     * The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+     */
+    hubRoutingPreference?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */

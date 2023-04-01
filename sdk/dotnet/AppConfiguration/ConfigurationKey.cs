@@ -148,13 +148,13 @@ namespace Pulumi.Azure.AppConfiguration
     /// App Configuration Keys can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/label1
+    ///  $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test https://appconfname1.azconfig.io/kv/keyName?label=labelName
     /// ```
     /// 
-    ///  If you wish to import a key with an empty label then sustitute the label's name with `%00`, like this
+    ///  If you wish to import a key with an empty label then simply leave label's name blank
     /// 
     /// ```sh
-    ///  $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1/AppConfigurationKey/appConfKey1/Label/%00
+    ///  $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test https://appconfname1.azconfig.io/kv/keyName?label=
     /// ```
     /// </summary>
     [AzureResourceType("azure:appconfiguration/configurationKey:ConfigurationKey")]

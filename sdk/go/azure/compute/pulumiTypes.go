@@ -27252,6 +27252,710 @@ func (o GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput) Index(i pulu
 	}).(GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput)
 }
 
+type GetOrchestratedVirtualMachineScaleSetIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Orchestrated Virtual Machine Scale Set.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Type of IP Tag.
+	Type string `pulumi:"type"`
+}
+
+// GetOrchestratedVirtualMachineScaleSetIdentityInput is an input type that accepts GetOrchestratedVirtualMachineScaleSetIdentityArgs and GetOrchestratedVirtualMachineScaleSetIdentityOutput values.
+// You can construct a concrete instance of `GetOrchestratedVirtualMachineScaleSetIdentityInput` via:
+//
+//	GetOrchestratedVirtualMachineScaleSetIdentityArgs{...}
+type GetOrchestratedVirtualMachineScaleSetIdentityInput interface {
+	pulumi.Input
+
+	ToGetOrchestratedVirtualMachineScaleSetIdentityOutput() GetOrchestratedVirtualMachineScaleSetIdentityOutput
+	ToGetOrchestratedVirtualMachineScaleSetIdentityOutputWithContext(context.Context) GetOrchestratedVirtualMachineScaleSetIdentityOutput
+}
+
+type GetOrchestratedVirtualMachineScaleSetIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Orchestrated Virtual Machine Scale Set.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Type of IP Tag.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetOrchestratedVirtualMachineScaleSetIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetIdentityArgs) ToGetOrchestratedVirtualMachineScaleSetIdentityOutput() GetOrchestratedVirtualMachineScaleSetIdentityOutput {
+	return i.ToGetOrchestratedVirtualMachineScaleSetIdentityOutputWithContext(context.Background())
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetIdentityArgs) ToGetOrchestratedVirtualMachineScaleSetIdentityOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrchestratedVirtualMachineScaleSetIdentityOutput)
+}
+
+// GetOrchestratedVirtualMachineScaleSetIdentityArrayInput is an input type that accepts GetOrchestratedVirtualMachineScaleSetIdentityArray and GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput values.
+// You can construct a concrete instance of `GetOrchestratedVirtualMachineScaleSetIdentityArrayInput` via:
+//
+//	GetOrchestratedVirtualMachineScaleSetIdentityArray{ GetOrchestratedVirtualMachineScaleSetIdentityArgs{...} }
+type GetOrchestratedVirtualMachineScaleSetIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetOrchestratedVirtualMachineScaleSetIdentityArrayOutput() GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput
+	ToGetOrchestratedVirtualMachineScaleSetIdentityArrayOutputWithContext(context.Context) GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput
+}
+
+type GetOrchestratedVirtualMachineScaleSetIdentityArray []GetOrchestratedVirtualMachineScaleSetIdentityInput
+
+func (GetOrchestratedVirtualMachineScaleSetIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrchestratedVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetIdentityArray) ToGetOrchestratedVirtualMachineScaleSetIdentityArrayOutput() GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput {
+	return i.ToGetOrchestratedVirtualMachineScaleSetIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetIdentityArray) ToGetOrchestratedVirtualMachineScaleSetIdentityArrayOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetOrchestratedVirtualMachineScaleSetIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetIdentityOutput) ToGetOrchestratedVirtualMachineScaleSetIdentityOutput() GetOrchestratedVirtualMachineScaleSetIdentityOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetIdentityOutput) ToGetOrchestratedVirtualMachineScaleSetIdentityOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetIdentityOutput {
+	return o
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Orchestrated Virtual Machine Scale Set.
+func (o GetOrchestratedVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Type of IP Tag.
+func (o GetOrchestratedVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrchestratedVirtualMachineScaleSetIdentity)(nil)).Elem()
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput) ToGetOrchestratedVirtualMachineScaleSetIdentityArrayOutput() GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput) ToGetOrchestratedVirtualMachineScaleSetIdentityArrayOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput) Index(i pulumi.IntInput) GetOrchestratedVirtualMachineScaleSetIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrchestratedVirtualMachineScaleSetIdentity {
+		return vs[0].([]GetOrchestratedVirtualMachineScaleSetIdentity)[vs[1].(int)]
+	}).(GetOrchestratedVirtualMachineScaleSetIdentityOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterface struct {
+	// Is accelerated networking enabled?
+	AcceleratedNetworkingEnabled bool `pulumi:"acceleratedNetworkingEnabled"`
+	// An array of the DNS servers in use.
+	DnsServers []string `pulumi:"dnsServers"`
+	// An `ipConfiguration` block as documented below.
+	IpConfigurations []GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
+	// Is IP forwarding enabled?
+	IpForwardingEnabled bool `pulumi:"ipForwardingEnabled"`
+	// The name of this Orchestrated Virtual Machine Scale Set.
+	Name string `pulumi:"name"`
+	// The identifier for the network security group.
+	NetworkSecurityGroupId string `pulumi:"networkSecurityGroupId"`
+	// If this ipConfiguration is the primary one.
+	Primary bool `pulumi:"primary"`
+}
+
+// GetOrchestratedVirtualMachineScaleSetNetworkInterfaceInput is an input type that accepts GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArgs and GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput values.
+// You can construct a concrete instance of `GetOrchestratedVirtualMachineScaleSetNetworkInterfaceInput` via:
+//
+//	GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArgs{...}
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutputWithContext(context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	// Is accelerated networking enabled?
+	AcceleratedNetworkingEnabled pulumi.BoolInput `pulumi:"acceleratedNetworkingEnabled"`
+	// An array of the DNS servers in use.
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+	// An `ipConfiguration` block as documented below.
+	IpConfigurations GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
+	// Is IP forwarding enabled?
+	IpForwardingEnabled pulumi.BoolInput `pulumi:"ipForwardingEnabled"`
+	// The name of this Orchestrated Virtual Machine Scale Set.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The identifier for the network security group.
+	NetworkSecurityGroupId pulumi.StringInput `pulumi:"networkSecurityGroupId"`
+	// If this ipConfiguration is the primary one.
+	Primary pulumi.BoolInput `pulumi:"primary"`
+}
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArgs) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput {
+	return i.ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArgs) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput)
+}
+
+// GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput is an input type that accepts GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArray and GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput` via:
+//
+//	GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArray{ GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArgs{...} }
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArray []GetOrchestratedVirtualMachineScaleSetNetworkInterfaceInput
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrchestratedVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArray) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return i.ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArray) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput {
+	return o
+}
+
+// Is accelerated networking enabled?
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) AcceleratedNetworkingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterface) bool {
+		return v.AcceleratedNetworkingEnabled
+	}).(pulumi.BoolOutput)
+}
+
+// An array of the DNS servers in use.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+// An `ipConfiguration` block as documented below.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) IpConfigurations() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterface) []GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+		return v.IpConfigurations
+	}).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+// Is IP forwarding enabled?
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) IpForwardingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterface) bool { return v.IpForwardingEnabled }).(pulumi.BoolOutput)
+}
+
+// The name of this Orchestrated Virtual Machine Scale Set.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterface) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The identifier for the network security group.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) NetworkSecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterface) string { return v.NetworkSecurityGroupId }).(pulumi.StringOutput)
+}
+
+// If this ipConfiguration is the primary one.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterface) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrchestratedVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrchestratedVirtualMachineScaleSetNetworkInterface {
+		return vs[0].([]GetOrchestratedVirtualMachineScaleSetNetworkInterface)[vs[1].(int)]
+	}).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
+	// An array of references to backend address pools of application gateways.
+	ApplicationGatewayBackendAddressPoolIds []string `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	// The application security group IDs to use.
+	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
+	// An array of references to backend address pools of load balancers.
+	LoadBalancerBackendAddressPoolIds []string `pulumi:"loadBalancerBackendAddressPoolIds"`
+	// An array of references to inbound NAT pools for load balancers.
+	LoadBalancerInboundNatRulesIds []string `pulumi:"loadBalancerInboundNatRulesIds"`
+	// The name of this Orchestrated Virtual Machine Scale Set.
+	Name string `pulumi:"name"`
+	// If this ipConfiguration is the primary one.
+	Primary bool `pulumi:"primary"`
+	// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
+	PublicIpAddresses []GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
+	// The the identifier of the subnet.
+	SubnetId string `pulumi:"subnetId"`
+	// The Internet Protocol Version of the public IP address.
+	Version string `pulumi:"version"`
+}
+
+// GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput is an input type that accepts GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs and GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput values.
+// You can construct a concrete instance of `GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput` via:
+//
+//	GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...}
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput interface {
+	pulumi.Input
+
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
+	// An array of references to backend address pools of application gateways.
+	ApplicationGatewayBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	// The application security group IDs to use.
+	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
+	// An array of references to backend address pools of load balancers.
+	LoadBalancerBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolIds"`
+	// An array of references to inbound NAT pools for load balancers.
+	LoadBalancerInboundNatRulesIds pulumi.StringArrayInput `pulumi:"loadBalancerInboundNatRulesIds"`
+	// The name of this Orchestrated Virtual Machine Scale Set.
+	Name pulumi.StringInput `pulumi:"name"`
+	// If this ipConfiguration is the primary one.
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
+	PublicIpAddresses GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
+	// The the identifier of the subnet.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	// The Internet Protocol Version of the public IP address.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return i.ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
+}
+
+// GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput is an input type that accepts GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray and GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput` via:
+//
+//	GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{ GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...} }
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray []GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return i.ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return o
+}
+
+// An array of references to backend address pools of application gateways.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationGatewayBackendAddressPoolIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.ApplicationGatewayBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The application security group IDs to use.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.ApplicationSecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of references to backend address pools of load balancers.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.LoadBalancerBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of references to inbound NAT pools for load balancers.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerInboundNatRulesIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.LoadBalancerInboundNatRulesIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of this Orchestrated Virtual Machine Scale Set.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// If this ipConfiguration is the primary one.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) PublicIpAddresses() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+		return v.PublicIpAddresses
+	}).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
+}
+
+// The the identifier of the subnet.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// The Internet Protocol Version of the public IP address.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+		return vs[0].([]GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration)[vs[1].(int)]
+	}).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress struct {
+	// The domain name label for the DNS settings.
+	DomainNameLabel string `pulumi:"domainNameLabel"`
+	// The idle timeout in minutes.
+	IdleTimeoutInMinutes int `pulumi:"idleTimeoutInMinutes"`
+	// A list of `ipTag` blocks as defined below.
+	IpTags []GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag `pulumi:"ipTags"`
+	// The name of this Orchestrated Virtual Machine Scale Set.
+	Name string `pulumi:"name"`
+	// The ID of the public IP prefix.
+	PublicIpPrefixId string `pulumi:"publicIpPrefixId"`
+	// The Internet Protocol Version of the public IP address.
+	Version string `pulumi:"version"`
+}
+
+// GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput is an input type that accepts GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs and GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput values.
+// You can construct a concrete instance of `GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput` via:
+//
+//	GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...}
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput interface {
+	pulumi.Input
+
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs struct {
+	// The domain name label for the DNS settings.
+	DomainNameLabel pulumi.StringInput `pulumi:"domainNameLabel"`
+	// The idle timeout in minutes.
+	IdleTimeoutInMinutes pulumi.IntInput `pulumi:"idleTimeoutInMinutes"`
+	// A list of `ipTag` blocks as defined below.
+	IpTags GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput `pulumi:"ipTags"`
+	// The name of this Orchestrated Virtual Machine Scale Set.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the public IP prefix.
+	PublicIpPrefixId pulumi.StringInput `pulumi:"publicIpPrefixId"`
+	// The Internet Protocol Version of the public IP address.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return i.ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(context.Background())
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput)
+}
+
+// GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput is an input type that accepts GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray and GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput values.
+// You can construct a concrete instance of `GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput` via:
+//
+//	GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray{ GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...} }
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput interface {
+	pulumi.Input
+
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray []GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return i.ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput struct{ *pulumi.OutputState }
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return o
+}
+
+// The domain name label for the DNS settings.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) DomainNameLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
+		return v.DomainNameLabel
+	}).(pulumi.StringOutput)
+}
+
+// The idle timeout in minutes.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IdleTimeoutInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) int {
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntOutput)
+}
+
+// A list of `ipTag` blocks as defined below.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IpTags() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) []GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+		return v.IpTags
+	}).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
+}
+
+// The name of this Orchestrated Virtual Machine Scale Set.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the public IP prefix.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) PublicIpPrefixId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
+		return v.PublicIpPrefixId
+	}).(pulumi.StringOutput)
+}
+
+// The Internet Protocol Version of the public IP address.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
+		return v.Version
+	}).(pulumi.StringOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) Index(i pulumi.IntInput) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+		return vs[0].([]GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)[vs[1].(int)]
+	}).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag struct {
+	// The IP Tag associated with the Public IP.
+	Tag string `pulumi:"tag"`
+	// The Type of IP Tag.
+	Type string `pulumi:"type"`
+}
+
+// GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput is an input type that accepts GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs and GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput values.
+// You can construct a concrete instance of `GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput` via:
+//
+//	GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...}
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput interface {
+	pulumi.Input
+
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs struct {
+	// The IP Tag associated with the Public IP.
+	Tag pulumi.StringInput `pulumi:"tag"`
+	// The Type of IP Tag.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return i.ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(context.Background())
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput)
+}
+
+// GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput is an input type that accepts GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray and GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput values.
+// You can construct a concrete instance of `GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput` via:
+//
+//	GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{ GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...} }
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput interface {
+	pulumi.Input
+
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput
+	ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray []GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return i.ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput struct{ *pulumi.OutputState }
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return o
+}
+
+// The IP Tag associated with the Public IP.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Tag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
+		return v.Tag
+	}).(pulumi.StringOutput)
+}
+
+// The Type of IP Tag.
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ToGetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) Index(i pulumi.IntInput) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+		return vs[0].([]GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)[vs[1].(int)]
+	}).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput)
+}
+
 type GetSharedImageIdentifier struct {
 	// The Offer Name for this Shared Image.
 	Offer string `pulumi:"offer"`
@@ -29531,6 +30235,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayInput)(nil)).Elem(), GetManagedDiskEncryptionSettingDiskEncryptionKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDiskEncryptionSettingKeyEncryptionKeyInput)(nil)).Elem(), GetManagedDiskEncryptionSettingKeyEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayInput)(nil)).Elem(), GetManagedDiskEncryptionSettingKeyEncryptionKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetIdentityInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetIdentityArrayInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImageIdentifierInput)(nil)).Elem(), GetSharedImageIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImageIdentifierArrayInput)(nil)).Elem(), GetSharedImageIdentifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImagePurchasePlanInput)(nil)).Elem(), GetSharedImagePurchasePlanArgs{})
@@ -29907,6 +30621,16 @@ func init() {
 	pulumi.RegisterOutputType(GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput{})
 	pulumi.RegisterOutputType(GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetIdentityOutput{})
+	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput{})
+	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput{})
+	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput{})
+	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput{})
+	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput{})
 	pulumi.RegisterOutputType(GetSharedImageIdentifierOutput{})
 	pulumi.RegisterOutputType(GetSharedImageIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(GetSharedImagePurchasePlanOutput{})

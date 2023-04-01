@@ -104,7 +104,7 @@ public class StreamInputBlob extends com.pulumi.resources.CustomResource {
      * The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
      * 
      */
-    @Export(name="dateFormat", type=String.class, parameters={})
+    @Export(name="dateFormat", refs={String.class}, tree="[0]")
     private Output<String> dateFormat;
 
     /**
@@ -118,7 +118,7 @@ public class StreamInputBlob extends com.pulumi.resources.CustomResource {
      * The name of the Stream Input Blob. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -132,7 +132,7 @@ public class StreamInputBlob extends com.pulumi.resources.CustomResource {
      * The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
      * 
      */
-    @Export(name="pathPattern", type=String.class, parameters={})
+    @Export(name="pathPattern", refs={String.class}, tree="[0]")
     private Output<String> pathPattern;
 
     /**
@@ -146,7 +146,7 @@ public class StreamInputBlob extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -160,7 +160,7 @@ public class StreamInputBlob extends com.pulumi.resources.CustomResource {
      * A `serialization` block as defined below.
      * 
      */
-    @Export(name="serialization", type=StreamInputBlobSerialization.class, parameters={})
+    @Export(name="serialization", refs={StreamInputBlobSerialization.class}, tree="[0]")
     private Output<StreamInputBlobSerialization> serialization;
 
     /**
@@ -174,7 +174,7 @@ public class StreamInputBlob extends com.pulumi.resources.CustomResource {
      * The Access Key which should be used to connect to this Storage Account.
      * 
      */
-    @Export(name="storageAccountKey", type=String.class, parameters={})
+    @Export(name="storageAccountKey", refs={String.class}, tree="[0]")
     private Output<String> storageAccountKey;
 
     /**
@@ -188,7 +188,7 @@ public class StreamInputBlob extends com.pulumi.resources.CustomResource {
      * The name of the Storage Account.
      * 
      */
-    @Export(name="storageAccountName", type=String.class, parameters={})
+    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output<String> storageAccountName;
 
     /**
@@ -202,7 +202,7 @@ public class StreamInputBlob extends com.pulumi.resources.CustomResource {
      * The name of the Container within the Storage Account.
      * 
      */
-    @Export(name="storageContainerName", type=String.class, parameters={})
+    @Export(name="storageContainerName", refs={String.class}, tree="[0]")
     private Output<String> storageContainerName;
 
     /**
@@ -216,7 +216,7 @@ public class StreamInputBlob extends com.pulumi.resources.CustomResource {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobName", type=String.class, parameters={})
+    @Export(name="streamAnalyticsJobName", refs={String.class}, tree="[0]")
     private Output<String> streamAnalyticsJobName;
 
     /**
@@ -230,7 +230,7 @@ public class StreamInputBlob extends com.pulumi.resources.CustomResource {
      * The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
      * 
      */
-    @Export(name="timeFormat", type=String.class, parameters={})
+    @Export(name="timeFormat", refs={String.class}, tree="[0]")
     private Output<String> timeFormat;
 
     /**

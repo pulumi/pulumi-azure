@@ -116,7 +116,7 @@ public class ObjectReplication extends com.pulumi.resources.CustomResource {
      * The ID of the Object Replication in the destination storage account.
      * 
      */
-    @Export(name="destinationObjectReplicationId", type=String.class, parameters={})
+    @Export(name="destinationObjectReplicationId", refs={String.class}, tree="[0]")
     private Output<String> destinationObjectReplicationId;
 
     /**
@@ -130,7 +130,7 @@ public class ObjectReplication extends com.pulumi.resources.CustomResource {
      * The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
      * 
      */
-    @Export(name="destinationStorageAccountId", type=String.class, parameters={})
+    @Export(name="destinationStorageAccountId", refs={String.class}, tree="[0]")
     private Output<String> destinationStorageAccountId;
 
     /**
@@ -144,7 +144,7 @@ public class ObjectReplication extends com.pulumi.resources.CustomResource {
      * One or more `rules` blocks as defined below.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={ObjectReplicationRule.class})
+    @Export(name="rules", refs={List.class,ObjectReplicationRule.class}, tree="[0,1]")
     private Output<List<ObjectReplicationRule>> rules;
 
     /**
@@ -158,7 +158,7 @@ public class ObjectReplication extends com.pulumi.resources.CustomResource {
      * The ID of the Object Replication in the source storage account.
      * 
      */
-    @Export(name="sourceObjectReplicationId", type=String.class, parameters={})
+    @Export(name="sourceObjectReplicationId", refs={String.class}, tree="[0]")
     private Output<String> sourceObjectReplicationId;
 
     /**
@@ -172,7 +172,7 @@ public class ObjectReplication extends com.pulumi.resources.CustomResource {
      * The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
      * 
      */
-    @Export(name="sourceStorageAccountId", type=String.class, parameters={})
+    @Export(name="sourceStorageAccountId", refs={String.class}, tree="[0]")
     private Output<String> sourceStorageAccountId;
 
     /**

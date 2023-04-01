@@ -117,6 +117,12 @@ namespace Pulumi.Azure.Core
         public Output<ImmutableArray<string>> NotScopes { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+        /// </summary>
+        [Output("overrides")]
+        public Output<ImmutableArray<Outputs.SubscriptionPolicyAssignmentOverride>> Overrides { get; private set; } = null!;
+
+        /// <summary>
         /// A JSON mapping of any Parameters for this Policy.
         /// </summary>
         [Output("parameters")]
@@ -127,6 +133,12 @@ namespace Pulumi.Azure.Core
         /// </summary>
         [Output("policyDefinitionId")]
         public Output<string> PolicyDefinitionId { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        /// </summary>
+        [Output("resourceSelectors")]
+        public Output<ImmutableArray<Outputs.SubscriptionPolicyAssignmentResourceSelector>> ResourceSelectors { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
@@ -246,6 +258,18 @@ namespace Pulumi.Azure.Core
             set => _notScopes = value;
         }
 
+        [Input("overrides")]
+        private InputList<Inputs.SubscriptionPolicyAssignmentOverrideArgs>? _overrides;
+
+        /// <summary>
+        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+        /// </summary>
+        public InputList<Inputs.SubscriptionPolicyAssignmentOverrideArgs> Overrides
+        {
+            get => _overrides ?? (_overrides = new InputList<Inputs.SubscriptionPolicyAssignmentOverrideArgs>());
+            set => _overrides = value;
+        }
+
         /// <summary>
         /// A JSON mapping of any Parameters for this Policy.
         /// </summary>
@@ -257,6 +281,18 @@ namespace Pulumi.Azure.Core
         /// </summary>
         [Input("policyDefinitionId", required: true)]
         public Input<string> PolicyDefinitionId { get; set; } = null!;
+
+        [Input("resourceSelectors")]
+        private InputList<Inputs.SubscriptionPolicyAssignmentResourceSelectorArgs>? _resourceSelectors;
+
+        /// <summary>
+        /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        /// </summary>
+        public InputList<Inputs.SubscriptionPolicyAssignmentResourceSelectorArgs> ResourceSelectors
+        {
+            get => _resourceSelectors ?? (_resourceSelectors = new InputList<Inputs.SubscriptionPolicyAssignmentResourceSelectorArgs>());
+            set => _resourceSelectors = value;
+        }
 
         /// <summary>
         /// The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
@@ -338,6 +374,18 @@ namespace Pulumi.Azure.Core
             set => _notScopes = value;
         }
 
+        [Input("overrides")]
+        private InputList<Inputs.SubscriptionPolicyAssignmentOverrideGetArgs>? _overrides;
+
+        /// <summary>
+        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+        /// </summary>
+        public InputList<Inputs.SubscriptionPolicyAssignmentOverrideGetArgs> Overrides
+        {
+            get => _overrides ?? (_overrides = new InputList<Inputs.SubscriptionPolicyAssignmentOverrideGetArgs>());
+            set => _overrides = value;
+        }
+
         /// <summary>
         /// A JSON mapping of any Parameters for this Policy.
         /// </summary>
@@ -349,6 +397,18 @@ namespace Pulumi.Azure.Core
         /// </summary>
         [Input("policyDefinitionId")]
         public Input<string>? PolicyDefinitionId { get; set; }
+
+        [Input("resourceSelectors")]
+        private InputList<Inputs.SubscriptionPolicyAssignmentResourceSelectorGetArgs>? _resourceSelectors;
+
+        /// <summary>
+        /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        /// </summary>
+        public InputList<Inputs.SubscriptionPolicyAssignmentResourceSelectorGetArgs> ResourceSelectors
+        {
+            get => _resourceSelectors ?? (_resourceSelectors = new InputList<Inputs.SubscriptionPolicyAssignmentResourceSelectorGetArgs>());
+            set => _resourceSelectors = value;
+        }
 
         /// <summary>
         /// The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.

@@ -53,6 +53,7 @@ import * as utilities from "../utilities";
  *         "Create",
  *         "Delete",
  *         "Recover",
+ *         "GetRotationPolicy",
  *     ],
  * });
  * const exampleKey = new azure.keyvault.Key("exampleKey", {

@@ -109,37 +109,26 @@ class PolicyCustomRuleArgs:
 @pulumi.input_type
 class PolicyCustomRuleMatchConditionArgs:
     def __init__(__self__, *,
-                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  match_variables: pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionMatchVariableArgs']]],
                  operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  negation_condition: Optional[pulumi.Input[bool]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of match values.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionMatchVariableArgs']]] match_variables: One or more `match_variables` blocks as defined below.
-        :param pulumi.Input[str] operator: Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+        :param pulumi.Input[str] operator: Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of match values. This is **Required** when the `operator` is not `Any`.
         :param pulumi.Input[bool] negation_condition: Describes if this is negate condition or not
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
         """
-        pulumi.set(__self__, "match_values", match_values)
         pulumi.set(__self__, "match_variables", match_variables)
         pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
         if negation_condition is not None:
             pulumi.set(__self__, "negation_condition", negation_condition)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
-
-    @property
-    @pulumi.getter(name="matchValues")
-    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of match values.
-        """
-        return pulumi.get(self, "match_values")
-
-    @match_values.setter
-    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter(name="matchVariables")
@@ -157,13 +146,25 @@ class PolicyCustomRuleMatchConditionArgs:
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
         """
-        Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+        Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
     def operator(self, value: pulumi.Input[str]):
         pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of match values. This is **Required** when the `operator` is not `Any`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
 
     @property
     @pulumi.getter(name="negationCondition")

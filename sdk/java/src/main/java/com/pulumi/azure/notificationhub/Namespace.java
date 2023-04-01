@@ -73,7 +73,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * Is this Notification Hub Namespace enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -87,7 +87,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -101,7 +101,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -115,7 +115,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
      * 
      */
-    @Export(name="namespaceType", type=String.class, parameters={})
+    @Export(name="namespaceType", refs={String.class}, tree="[0]")
     private Output<String> namespaceType;
 
     /**
@@ -129,7 +129,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -143,7 +143,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The ServiceBus Endpoint for this Notification Hub Namespace.
      * 
      */
-    @Export(name="servicebusEndpoint", type=String.class, parameters={})
+    @Export(name="servicebusEndpoint", refs={String.class}, tree="[0]")
     private Output<String> servicebusEndpoint;
 
     /**
@@ -157,7 +157,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -171,7 +171,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

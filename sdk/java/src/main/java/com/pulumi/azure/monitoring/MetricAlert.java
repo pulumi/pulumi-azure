@@ -116,7 +116,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * One or more `action` blocks as defined below.
      * 
      */
-    @Export(name="actions", type=List.class, parameters={MetricAlertAction.class})
+    @Export(name="actions", refs={List.class,MetricAlertAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MetricAlertAction>> actions;
 
     /**
@@ -130,7 +130,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * A `application_insights_web_test_location_availability_criteria` block as defined below.
      * 
      */
-    @Export(name="applicationInsightsWebTestLocationAvailabilityCriteria", type=MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria.class, parameters={})
+    @Export(name="applicationInsightsWebTestLocationAvailabilityCriteria", refs={MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria.class}, tree="[0]")
     private Output</* @Nullable */ MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria> applicationInsightsWebTestLocationAvailabilityCriteria;
 
     /**
@@ -144,7 +144,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
      * 
      */
-    @Export(name="autoMitigate", type=Boolean.class, parameters={})
+    @Export(name="autoMitigate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoMitigate;
 
     /**
@@ -158,7 +158,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * One or more (static) `criteria` blocks as defined below.
      * 
      */
-    @Export(name="criterias", type=List.class, parameters={MetricAlertCriteria.class})
+    @Export(name="criterias", refs={List.class,MetricAlertCriteria.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MetricAlertCriteria>> criterias;
 
     /**
@@ -172,7 +172,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * The description of this Metric Alert.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -186,7 +186,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * A `dynamic_criteria` block as defined below.
      * 
      */
-    @Export(name="dynamicCriteria", type=MetricAlertDynamicCriteria.class, parameters={})
+    @Export(name="dynamicCriteria", refs={MetricAlertDynamicCriteria.class}, tree="[0]")
     private Output</* @Nullable */ MetricAlertDynamicCriteria> dynamicCriteria;
 
     /**
@@ -200,7 +200,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * Should this Metric Alert be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -214,7 +214,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
      * 
      */
-    @Export(name="frequency", type=String.class, parameters={})
+    @Export(name="frequency", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> frequency;
 
     /**
@@ -228,7 +228,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * The name of the Metric Alert. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -242,7 +242,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -256,7 +256,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * A set of strings of resource IDs at which the metric criteria should be applied.
      * 
      */
-    @Export(name="scopes", type=List.class, parameters={String.class})
+    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
     /**
@@ -270,7 +270,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
      * 
      */
-    @Export(name="severity", type=Integer.class, parameters={})
+    @Export(name="severity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> severity;
 
     /**
@@ -284,7 +284,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -298,7 +298,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * The location of the target resource.
      * 
      */
-    @Export(name="targetResourceLocation", type=String.class, parameters={})
+    @Export(name="targetResourceLocation", refs={String.class}, tree="[0]")
     private Output<String> targetResourceLocation;
 
     /**
@@ -312,7 +312,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
      * 
      */
-    @Export(name="targetResourceType", type=String.class, parameters={})
+    @Export(name="targetResourceType", refs={String.class}, tree="[0]")
     private Output<String> targetResourceType;
 
     /**
@@ -326,7 +326,7 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
      * 
      */
-    @Export(name="windowSize", type=String.class, parameters={})
+    @Export(name="windowSize", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> windowSize;
 
     /**

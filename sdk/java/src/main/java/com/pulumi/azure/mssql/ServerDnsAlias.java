@@ -77,7 +77,7 @@ public class ServerDnsAlias extends com.pulumi.resources.CustomResource {
      * The fully qualified DNS record for alias.
      * 
      */
-    @Export(name="dnsRecord", type=String.class, parameters={})
+    @Export(name="dnsRecord", refs={String.class}, tree="[0]")
     private Output<String> dnsRecord;
 
     /**
@@ -91,7 +91,7 @@ public class ServerDnsAlias extends com.pulumi.resources.CustomResource {
      * The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created.
      * 
      */
-    @Export(name="mssqlServerId", type=String.class, parameters={})
+    @Export(name="mssqlServerId", refs={String.class}, tree="[0]")
     private Output<String> mssqlServerId;
 
     /**
@@ -105,7 +105,7 @@ public class ServerDnsAlias extends com.pulumi.resources.CustomResource {
      * The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

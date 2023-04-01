@@ -34,9 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
- * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
  * import com.pulumi.azure.sentinel.AutomationRule;
  * import com.pulumi.azure.sentinel.AutomationRuleArgs;
  * import com.pulumi.azure.sentinel.inputs.AutomationRuleActionIncidentArgs;
@@ -63,20 +62,12 @@ import javax.annotation.Nullable;
  *             .sku(&#34;PerGB2018&#34;)
  *             .build());
  * 
- *         var sentinel = new AnalyticsSolution(&#34;sentinel&#34;, AnalyticsSolutionArgs.builder()        
- *             .solutionName(&#34;SecurityInsights&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
- *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/SecurityInsights&#34;)
- *                 .build())
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
  *         var exampleAutomationRule = new AutomationRule(&#34;exampleAutomationRule&#34;, AutomationRuleArgs.builder()        
- *             .logAnalyticsWorkspaceId(sentinel.workspaceResourceId())
+ *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
  *             .displayName(&#34;automation_rule1&#34;)
  *             .order(1)
  *             .actionIncidents(AutomationRuleActionIncidentArgs.builder()
@@ -108,7 +99,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * One or more `action_incident` blocks as defined below.
      * 
      */
-    @Export(name="actionIncidents", type=List.class, parameters={AuthomationRuleActionIncident.class})
+    @Export(name="actionIncidents", refs={List.class,AuthomationRuleActionIncident.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AuthomationRuleActionIncident>> actionIncidents;
 
     /**
@@ -122,7 +113,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * One or more `action_playbook` blocks as defined below.
      * 
      */
-    @Export(name="actionPlaybooks", type=List.class, parameters={AuthomationRuleActionPlaybook.class})
+    @Export(name="actionPlaybooks", refs={List.class,AuthomationRuleActionPlaybook.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AuthomationRuleActionPlaybook>> actionPlaybooks;
 
     /**
@@ -136,7 +127,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      * 
      */
-    @Export(name="conditionJson", type=String.class, parameters={})
+    @Export(name="conditionJson", refs={String.class}, tree="[0]")
     private Output<String> conditionJson;
 
     /**
@@ -154,7 +145,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* This is deprecated in favor of `condition_json` */
-    @Export(name="conditions", type=List.class, parameters={AuthomationRuleCondition.class})
+    @Export(name="conditions", refs={List.class,AuthomationRuleCondition.class}, tree="[0,1]")
     private Output<List<AuthomationRuleCondition>> conditions;
 
     /**
@@ -168,7 +159,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * The display name which should be used for this Sentinel Automation Rule.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -182,7 +173,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -196,7 +187,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
      * 
      */
-    @Export(name="expiration", type=String.class, parameters={})
+    @Export(name="expiration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expiration;
 
     /**
@@ -210,7 +201,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -224,7 +215,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -238,7 +229,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
      * 
      */
-    @Export(name="order", type=Integer.class, parameters={})
+    @Export(name="order", refs={Integer.class}, tree="[0]")
     private Output<Integer> order;
 
     /**
@@ -252,7 +243,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
      * 
      */
-    @Export(name="triggersOn", type=String.class, parameters={})
+    @Export(name="triggersOn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> triggersOn;
 
     /**
@@ -266,7 +257,7 @@ public class AuthomationRule extends com.pulumi.resources.CustomResource {
      * Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
      * 
      */
-    @Export(name="triggersWhen", type=String.class, parameters={})
+    @Export(name="triggersWhen", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> triggersWhen;
 
     /**

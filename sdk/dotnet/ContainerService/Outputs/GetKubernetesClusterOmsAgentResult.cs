@@ -18,6 +18,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string LogAnalyticsWorkspaceId;
         /// <summary>
+        /// Is managed identity authentication for monitoring enabled?
+        /// </summary>
+        public readonly bool MsiAuthForMonitoringEnabled;
+        /// <summary>
         /// An `oms_agent_identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterOmsAgentOmsAgentIdentityResult> OmsAgentIdentities;
@@ -26,9 +30,12 @@ namespace Pulumi.Azure.ContainerService.Outputs
         private GetKubernetesClusterOmsAgentResult(
             string logAnalyticsWorkspaceId,
 
+            bool msiAuthForMonitoringEnabled,
+
             ImmutableArray<Outputs.GetKubernetesClusterOmsAgentOmsAgentIdentityResult> omsAgentIdentities)
         {
             LogAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            MsiAuthForMonitoringEnabled = msiAuthForMonitoringEnabled;
             OmsAgentIdentities = omsAgentIdentities;
         }
     }

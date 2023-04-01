@@ -21,15 +21,15 @@ public final class WindowsWebAppSiteConfigCorsArgs extends com.pulumi.resources.
      * Specifies a list of origins that should be allowed to make cross-origin calls.
      * 
      */
-    @Import(name="allowedOrigins", required=true)
-    private Output<List<String>> allowedOrigins;
+    @Import(name="allowedOrigins")
+    private @Nullable Output<List<String>> allowedOrigins;
 
     /**
      * @return Specifies a list of origins that should be allowed to make cross-origin calls.
      * 
      */
-    public Output<List<String>> allowedOrigins() {
-        return this.allowedOrigins;
+    public Optional<Output<List<String>>> allowedOrigins() {
+        return Optional.ofNullable(this.allowedOrigins);
     }
 
     /**
@@ -78,7 +78,7 @@ public final class WindowsWebAppSiteConfigCorsArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder allowedOrigins(Output<List<String>> allowedOrigins) {
+        public Builder allowedOrigins(@Nullable Output<List<String>> allowedOrigins) {
             $.allowedOrigins = allowedOrigins;
             return this;
         }
@@ -125,7 +125,6 @@ public final class WindowsWebAppSiteConfigCorsArgs extends com.pulumi.resources.
         }
 
         public WindowsWebAppSiteConfigCorsArgs build() {
-            $.allowedOrigins = Objects.requireNonNull($.allowedOrigins, "expected parameter 'allowedOrigins' to be non-null");
             return $;
         }
     }

@@ -117,6 +117,7 @@ namespace Pulumi.Azure.Synapse
     ///             "Get",
     ///             "Delete",
     ///             "Purge",
+    ///             "GetRotationPolicy",
     ///         },
     ///     });
     /// 

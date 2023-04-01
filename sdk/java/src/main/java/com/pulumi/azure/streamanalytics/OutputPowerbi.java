@@ -79,7 +79,7 @@ public class OutputPowerbi extends com.pulumi.resources.CustomResource {
      * The name of the Power BI dataset.
      * 
      */
-    @Export(name="dataset", type=String.class, parameters={})
+    @Export(name="dataset", refs={String.class}, tree="[0]")
     private Output<String> dataset;
 
     /**
@@ -93,7 +93,7 @@ public class OutputPowerbi extends com.pulumi.resources.CustomResource {
      * The ID of the Power BI group, this must be a valid UUID.
      * 
      */
-    @Export(name="groupId", type=String.class, parameters={})
+    @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
     /**
@@ -107,7 +107,7 @@ public class OutputPowerbi extends com.pulumi.resources.CustomResource {
      * The name of the Power BI group. Use this property to help remember which specific Power BI group id was used.
      * 
      */
-    @Export(name="groupName", type=String.class, parameters={})
+    @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
     /**
@@ -121,7 +121,7 @@ public class OutputPowerbi extends com.pulumi.resources.CustomResource {
      * The name of the Stream Output. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -135,7 +135,7 @@ public class OutputPowerbi extends com.pulumi.resources.CustomResource {
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobId", type=String.class, parameters={})
+    @Export(name="streamAnalyticsJobId", refs={String.class}, tree="[0]")
     private Output<String> streamAnalyticsJobId;
 
     /**
@@ -149,7 +149,7 @@ public class OutputPowerbi extends com.pulumi.resources.CustomResource {
      * The name of the Power BI table under the specified dataset.
      * 
      */
-    @Export(name="table", type=String.class, parameters={})
+    @Export(name="table", refs={String.class}, tree="[0]")
     private Output<String> table;
 
     /**
@@ -163,7 +163,7 @@ public class OutputPowerbi extends com.pulumi.resources.CustomResource {
      * The user display name of the user that was used to obtain the refresh token.
      * 
      */
-    @Export(name="tokenUserDisplayName", type=String.class, parameters={})
+    @Export(name="tokenUserDisplayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenUserDisplayName;
 
     /**
@@ -177,7 +177,7 @@ public class OutputPowerbi extends com.pulumi.resources.CustomResource {
      * The user principal name (UPN) of the user that was used to obtain the refresh token.
      * 
      */
-    @Export(name="tokenUserPrincipalName", type=String.class, parameters={})
+    @Export(name="tokenUserPrincipalName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenUserPrincipalName;
 
     /**

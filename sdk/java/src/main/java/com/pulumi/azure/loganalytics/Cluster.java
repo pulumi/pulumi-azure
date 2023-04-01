@@ -78,7 +78,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The GUID of the cluster.
      * 
      */
-    @Export(name="clusterId", type=String.class, parameters={})
+    @Export(name="clusterId", refs={String.class}, tree="[0]")
     private Output<String> clusterId;
 
     /**
@@ -92,7 +92,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
      * 
      */
-    @Export(name="identity", type=ClusterIdentity.class, parameters={})
+    @Export(name="identity", refs={ClusterIdentity.class}, tree="[0]")
     private Output<ClusterIdentity> identity;
 
     /**
@@ -106,7 +106,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -120,7 +120,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -134,7 +134,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -148,7 +148,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
      * 
      */
-    @Export(name="sizeGb", type=Integer.class, parameters={})
+    @Export(name="sizeGb", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> sizeGb;
 
     /**
@@ -162,7 +162,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Log Analytics Cluster.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

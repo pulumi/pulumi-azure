@@ -76,7 +76,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="identity", type=AccountIdentity.class, parameters={})
+    @Export(name="identity", refs={AccountIdentity.class}, tree="[0]")
     private Output<AccountIdentity> identity;
 
     /**
@@ -90,7 +90,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -104,7 +104,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Data Share Account. Changing this forces a new Data Share Account to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -118,7 +118,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -132,7 +132,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Data Share Account.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -29,7 +29,6 @@ class AccountArgs:
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -81,9 +80,6 @@ class AccountArgs:
     @property
     @pulumi.getter
     def encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]]:
-        """
-        An `encryption` block as defined below.
-        """
         return pulumi.get(self, "encryptions")
 
     @encryptions.setter
@@ -185,7 +181,6 @@ class _AccountState:
         :param pulumi.Input[str] dsc_primary_access_key: The Primary Access Key for the DSC Endpoint associated with this Automation Account.
         :param pulumi.Input[str] dsc_secondary_access_key: The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
         :param pulumi.Input[str] dsc_server_endpoint: The DSC Server Endpoint associated with this Automation Account.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input[str] hybrid_service_url: The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
@@ -264,9 +259,6 @@ class _AccountState:
     @property
     @pulumi.getter
     def encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]]:
-        """
-        An `encryption` block as defined below.
-        """
         return pulumi.get(self, "encryptions")
 
     @encryptions.setter
@@ -435,7 +427,6 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -565,7 +556,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] dsc_primary_access_key: The Primary Access Key for the DSC Endpoint associated with this Automation Account.
         :param pulumi.Input[str] dsc_secondary_access_key: The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
         :param pulumi.Input[str] dsc_server_endpoint: The DSC Server Endpoint associated with this Automation Account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input[str] hybrid_service_url: The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
@@ -622,10 +612,7 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encryptions(self) -> pulumi.Output[Sequence['outputs.AccountEncryption']]:
-        """
-        An `encryption` block as defined below.
-        """
+    def encryptions(self) -> pulumi.Output[Optional[Sequence['outputs.AccountEncryption']]]:
         return pulumi.get(self, "encryptions")
 
     @property

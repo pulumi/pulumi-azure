@@ -64,7 +64,7 @@ public class DiskAccess extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Disk Access should exist. Changing this forces a new Disk to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -78,7 +78,7 @@ public class DiskAccess extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Disk Access. Changing this forces a new Disk Access to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -92,7 +92,7 @@ public class DiskAccess extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Disk Access should exist. Changing this forces a new Disk Access to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -106,7 +106,7 @@ public class DiskAccess extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Disk Access.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -2552,7 +2552,7 @@ class ApplicationGatewaySslCertificate(dict):
                  public_cert_data: Optional[str] = None):
         """
         :param str name: The Name of the SSL certificate that is unique within this Application Gateway
-        :param str data: PFX certificate. Required if `key_vault_secret_id` is not set.
+        :param str data: The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
         :param str id: The ID of the Rewrite Rule Set
         :param str key_vault_secret_id: Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
         :param str password: Password for the pfx file specified in data. Required if `data` is set.
@@ -2582,7 +2582,7 @@ class ApplicationGatewaySslCertificate(dict):
     @pulumi.getter
     def data(self) -> Optional[str]:
         """
-        PFX certificate. Required if `key_vault_secret_id` is not set.
+        The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
         """
         return pulumi.get(self, "data")
 

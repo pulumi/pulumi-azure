@@ -25,7 +25,7 @@ class HybridRunbookWorkerArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         :param pulumi.Input[str] vm_resource_id: The ID of the virtual machine used for this HybridWorker. Changing this forces a new Automation to be created.
         :param pulumi.Input[str] worker_group_name: The name of the HybridWorker Group. Changing this forces a new Automation to be created.
-        :param pulumi.Input[str] worker_id: The ID of the HybridWorker. Changing this forces a new Automation to be created.
+        :param pulumi.Input[str] worker_id: Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -85,7 +85,7 @@ class HybridRunbookWorkerArgs:
     @pulumi.getter(name="workerId")
     def worker_id(self) -> pulumi.Input[str]:
         """
-        The ID of the HybridWorker. Changing this forces a new Automation to be created.
+        Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
         """
         return pulumi.get(self, "worker_id")
 
@@ -116,7 +116,7 @@ class _HybridRunbookWorkerState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         :param pulumi.Input[str] vm_resource_id: The ID of the virtual machine used for this HybridWorker. Changing this forces a new Automation to be created.
         :param pulumi.Input[str] worker_group_name: The name of the HybridWorker Group. Changing this forces a new Automation to be created.
-        :param pulumi.Input[str] worker_id: The ID of the HybridWorker. Changing this forces a new Automation to be created.
+        :param pulumi.Input[str] worker_id: Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
         :param pulumi.Input[str] worker_name: The name of HybridWorker.
         :param pulumi.Input[str] worker_type: The type of the HybridWorker, the possible values are `HybridV1` and `HybridV2`.
         """
@@ -229,7 +229,7 @@ class _HybridRunbookWorkerState:
     @pulumi.getter(name="workerId")
     def worker_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the HybridWorker. Changing this forces a new Automation to be created.
+        Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
         """
         return pulumi.get(self, "worker_id")
 
@@ -288,6 +288,7 @@ class HybridRunbookWorker(pulumi.CustomResource):
             worker_group_name=azurerm_automation_hybrid_runbook_worker_group["test"]["name"],
             vm_resource_id=azurerm_linux_virtual_machine["test"]["id"],
             worker_id="00000000-0000-0000-0000-000000000000")
+        #unique uuid
         ```
 
         ## Import
@@ -304,7 +305,7 @@ class HybridRunbookWorker(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         :param pulumi.Input[str] vm_resource_id: The ID of the virtual machine used for this HybridWorker. Changing this forces a new Automation to be created.
         :param pulumi.Input[str] worker_group_name: The name of the HybridWorker Group. Changing this forces a new Automation to be created.
-        :param pulumi.Input[str] worker_id: The ID of the HybridWorker. Changing this forces a new Automation to be created.
+        :param pulumi.Input[str] worker_id: Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
         """
         ...
     @overload
@@ -327,6 +328,7 @@ class HybridRunbookWorker(pulumi.CustomResource):
             worker_group_name=azurerm_automation_hybrid_runbook_worker_group["test"]["name"],
             vm_resource_id=azurerm_linux_virtual_machine["test"]["id"],
             worker_id="00000000-0000-0000-0000-000000000000")
+        #unique uuid
         ```
 
         ## Import
@@ -420,7 +422,7 @@ class HybridRunbookWorker(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         :param pulumi.Input[str] vm_resource_id: The ID of the virtual machine used for this HybridWorker. Changing this forces a new Automation to be created.
         :param pulumi.Input[str] worker_group_name: The name of the HybridWorker Group. Changing this forces a new Automation to be created.
-        :param pulumi.Input[str] worker_id: The ID of the HybridWorker. Changing this forces a new Automation to be created.
+        :param pulumi.Input[str] worker_id: Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
         :param pulumi.Input[str] worker_name: The name of HybridWorker.
         :param pulumi.Input[str] worker_type: The type of the HybridWorker, the possible values are `HybridV1` and `HybridV2`.
         """
@@ -500,7 +502,7 @@ class HybridRunbookWorker(pulumi.CustomResource):
     @pulumi.getter(name="workerId")
     def worker_id(self) -> pulumi.Output[str]:
         """
-        The ID of the HybridWorker. Changing this forces a new Automation to be created.
+        Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
         """
         return pulumi.get(self, "worker_id")
 

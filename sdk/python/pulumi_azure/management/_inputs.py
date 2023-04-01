@@ -12,6 +12,10 @@ from .. import _utilities
 __all__ = [
     'GroupPolicyAssignmentIdentityArgs',
     'GroupPolicyAssignmentNonComplianceMessageArgs',
+    'GroupPolicyAssignmentOverrideArgs',
+    'GroupPolicyAssignmentOverrideSelectorArgs',
+    'GroupPolicyAssignmentResourceSelectorArgs',
+    'GroupPolicyAssignmentResourceSelectorSelectorArgs',
 ]
 
 @pulumi.input_type
@@ -120,5 +124,190 @@ class GroupPolicyAssignmentNonComplianceMessageArgs:
     @policy_definition_reference_id.setter
     def policy_definition_reference_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_definition_reference_id", value)
+
+
+@pulumi.input_type
+class GroupPolicyAssignmentOverrideArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str],
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]]] = None):
+        """
+        :param pulumi.Input[str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` as defined below.
+        """
+        pulumi.set(__self__, "value", value)
+        if selectors is not None:
+            pulumi.set(__self__, "selectors", selectors)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]]]:
+        """
+        One or more `override_selector` as defined below.
+        """
+        return pulumi.get(self, "selectors")
+
+    @selectors.setter
+    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]]]):
+        pulumi.set(self, "selectors", value)
+
+
+@pulumi.input_type
+class GroupPolicyAssignmentOverrideSelectorArgs:
+    def __init__(__self__, *,
+                 ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ins: Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
+        :param pulumi.Input[str] kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] not_ins: Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+        """
+        if ins is not None:
+            pulumi.set(__self__, "ins", ins)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if not_ins is not None:
+            pulumi.set(__self__, "not_ins", not_ins)
+
+    @property
+    @pulumi.getter
+    def ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
+        """
+        return pulumi.get(self, "ins")
+
+    @ins.setter
+    def ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ins", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="notIns")
+    def not_ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+        """
+        return pulumi.get(self, "not_ins")
+
+    @not_ins.setter
+    def not_ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "not_ins", value)
+
+
+@pulumi.input_type
+class GroupPolicyAssignmentResourceSelectorArgs:
+    def __init__(__self__, *,
+                 selectors: pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgs']]],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgs']]] selectors: One or more `resource_selector` block as defined below.
+        :param pulumi.Input[str] name: Specifies a name for the resource selector.
+        """
+        pulumi.set(__self__, "selectors", selectors)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def selectors(self) -> pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgs']]]:
+        """
+        One or more `resource_selector` block as defined below.
+        """
+        return pulumi.get(self, "selectors")
+
+    @selectors.setter
+    def selectors(self, value: pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgs']]]):
+        pulumi.set(self, "selectors", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a name for the resource selector.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class GroupPolicyAssignmentResourceSelectorSelectorArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ins: Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] not_ins: Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+        """
+        pulumi.set(__self__, "kind", kind)
+        if ins is not None:
+            pulumi.set(__self__, "ins", ins)
+        if not_ins is not None:
+            pulumi.set(__self__, "not_ins", not_ins)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
+        """
+        return pulumi.get(self, "ins")
+
+    @ins.setter
+    def ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ins", value)
+
+    @property
+    @pulumi.getter(name="notIns")
+    def not_ins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+        """
+        return pulumi.get(self, "not_ins")
+
+    @not_ins.setter
+    def not_ins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "not_ins", value)
 
 

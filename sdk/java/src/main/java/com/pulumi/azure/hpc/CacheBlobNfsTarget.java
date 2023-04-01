@@ -36,7 +36,7 @@ public class CacheBlobNfsTarget extends com.pulumi.resources.CustomResource {
      * The name of the access policy applied to this target. Defaults to `default`.
      * 
      */
-    @Export(name="accessPolicyName", type=String.class, parameters={})
+    @Export(name="accessPolicyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessPolicyName;
 
     /**
@@ -50,7 +50,7 @@ public class CacheBlobNfsTarget extends com.pulumi.resources.CustomResource {
      * The name of the HPC Cache, which the HPC Cache Blob NFS Target will be added to. Changing this forces a new HPC Cache Blob NFS Target to be created.
      * 
      */
-    @Export(name="cacheName", type=String.class, parameters={})
+    @Export(name="cacheName", refs={String.class}, tree="[0]")
     private Output<String> cacheName;
 
     /**
@@ -64,7 +64,7 @@ public class CacheBlobNfsTarget extends com.pulumi.resources.CustomResource {
      * The name which should be used for this HPC Cache Blob NFS Target. Changing this forces a new HPC Cache Blob NFS Target to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -78,7 +78,7 @@ public class CacheBlobNfsTarget extends com.pulumi.resources.CustomResource {
      * The client-facing file path of the HPC Cache Blob NFS Target.
      * 
      */
-    @Export(name="namespacePath", type=String.class, parameters={})
+    @Export(name="namespacePath", refs={String.class}, tree="[0]")
     private Output<String> namespacePath;
 
     /**
@@ -92,7 +92,7 @@ public class CacheBlobNfsTarget extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the HPC Cache Blob NFS Target should exist. Changing this forces a new HPC Cache Blob NFS Target to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -106,7 +106,7 @@ public class CacheBlobNfsTarget extends com.pulumi.resources.CustomResource {
      * The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageContainerId", type=String.class, parameters={})
+    @Export(name="storageContainerId", refs={String.class}, tree="[0]")
     private Output<String> storageContainerId;
 
     /**
@@ -120,7 +120,7 @@ public class CacheBlobNfsTarget extends com.pulumi.resources.CustomResource {
      * The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
      * 
      */
-    @Export(name="usageModel", type=String.class, parameters={})
+    @Export(name="usageModel", refs={String.class}, tree="[0]")
     private Output<String> usageModel;
 
     /**

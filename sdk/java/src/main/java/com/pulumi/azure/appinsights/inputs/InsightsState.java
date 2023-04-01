@@ -275,14 +275,14 @@ public final class InsightsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
+     * Specifies the id of a log analytics workspace resource.
      * 
      */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
     /**
-     * @return Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
+     * @return Specifies the id of a log analytics workspace resource.
      * 
      */
     public Optional<Output<String>> workspaceId() {
@@ -688,7 +688,7 @@ public final class InsightsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workspaceId Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
+         * @param workspaceId Specifies the id of a log analytics workspace resource.
          * 
          * @return builder
          * 
@@ -699,7 +699,7 @@ public final class InsightsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workspaceId Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
+         * @param workspaceId Specifies the id of a log analytics workspace resource.
          * 
          * @return builder
          * 

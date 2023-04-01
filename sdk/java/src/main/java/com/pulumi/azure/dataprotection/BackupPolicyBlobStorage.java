@@ -77,7 +77,7 @@ public class BackupPolicyBlobStorage extends com.pulumi.resources.CustomResource
      * The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -91,7 +91,7 @@ public class BackupPolicyBlobStorage extends com.pulumi.resources.CustomResource
      * Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
      */
-    @Export(name="retentionDuration", type=String.class, parameters={})
+    @Export(name="retentionDuration", refs={String.class}, tree="[0]")
     private Output<String> retentionDuration;
 
     /**
@@ -105,7 +105,7 @@ public class BackupPolicyBlobStorage extends com.pulumi.resources.CustomResource
      * The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.
      * 
      */
-    @Export(name="vaultId", type=String.class, parameters={})
+    @Export(name="vaultId", refs={String.class}, tree="[0]")
     private Output<String> vaultId;
 
     /**

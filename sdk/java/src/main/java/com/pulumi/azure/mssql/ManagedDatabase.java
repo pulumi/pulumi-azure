@@ -100,7 +100,7 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
      * A `long_term_retention_policy` block as defined below.
      * 
      */
-    @Export(name="longTermRetentionPolicy", type=ManagedDatabaseLongTermRetentionPolicy.class, parameters={})
+    @Export(name="longTermRetentionPolicy", refs={ManagedDatabaseLongTermRetentionPolicy.class}, tree="[0]")
     private Output<ManagedDatabaseLongTermRetentionPolicy> longTermRetentionPolicy;
 
     /**
@@ -114,7 +114,7 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
      * The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managedInstanceId", type=String.class, parameters={})
+    @Export(name="managedInstanceId", refs={String.class}, tree="[0]")
     private Output<String> managedInstanceId;
 
     /**
@@ -128,7 +128,7 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
      * The name of the Managed Database to create. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -142,7 +142,7 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      * 
      */
-    @Export(name="shortTermRetentionDays", type=Integer.class, parameters={})
+    @Export(name="shortTermRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> shortTermRetentionDays;
 
     /**

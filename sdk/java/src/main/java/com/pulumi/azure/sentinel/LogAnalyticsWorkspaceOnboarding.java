@@ -79,7 +79,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      * Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="customerManagedKeyEnabled", type=Boolean.class, parameters={})
+    @Export(name="customerManagedKeyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> customerManagedKeyEnabled;
 
     /**
@@ -92,8 +92,12 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
     /**
      * Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
      * 
+     * @deprecated
+     * this property has been deprecated in favour of `workspace_id`
+     * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Deprecated /* this property has been deprecated in favour of `workspace_id` */
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -103,11 +107,21 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    private Output<String> workspaceId;
+
+    public Output<String> workspaceId() {
+        return this.workspaceId;
+    }
     /**
      * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      * 
+     * @deprecated
+     * this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider
+     * 
      */
-    @Export(name="workspaceName", type=String.class, parameters={})
+    @Deprecated /* this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider */
+    @Export(name="workspaceName", refs={String.class}, tree="[0]")
     private Output<String> workspaceName;
 
     /**
@@ -130,7 +144,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LogAnalyticsWorkspaceOnboarding(String name, LogAnalyticsWorkspaceOnboardingArgs args) {
+    public LogAnalyticsWorkspaceOnboarding(String name, @Nullable LogAnalyticsWorkspaceOnboardingArgs args) {
         this(name, args, null);
     }
     /**
@@ -139,7 +153,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LogAnalyticsWorkspaceOnboarding(String name, LogAnalyticsWorkspaceOnboardingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public LogAnalyticsWorkspaceOnboarding(String name, @Nullable LogAnalyticsWorkspaceOnboardingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding", name, args == null ? LogAnalyticsWorkspaceOnboardingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

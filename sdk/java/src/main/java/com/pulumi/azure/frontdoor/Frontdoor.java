@@ -115,7 +115,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * A `backend_pool_health_probe` block as defined below.
      * 
      */
-    @Export(name="backendPoolHealthProbes", type=List.class, parameters={FrontdoorBackendPoolHealthProbe.class})
+    @Export(name="backendPoolHealthProbes", refs={List.class,FrontdoorBackendPoolHealthProbe.class}, tree="[0,1]")
     private Output<List<FrontdoorBackendPoolHealthProbe>> backendPoolHealthProbes;
 
     /**
@@ -129,7 +129,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
      * 
      */
-    @Export(name="backendPoolHealthProbesMap", type=Map.class, parameters={String.class, String.class})
+    @Export(name="backendPoolHealthProbesMap", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> backendPoolHealthProbesMap;
 
     /**
@@ -143,7 +143,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
      * 
      */
-    @Export(name="backendPoolLoadBalancingSettingsMap", type=Map.class, parameters={String.class, String.class})
+    @Export(name="backendPoolLoadBalancingSettingsMap", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> backendPoolLoadBalancingSettingsMap;
 
     /**
@@ -157,7 +157,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * A `backend_pool_load_balancing` block as defined below.
      * 
      */
-    @Export(name="backendPoolLoadBalancings", type=List.class, parameters={FrontdoorBackendPoolLoadBalancing.class})
+    @Export(name="backendPoolLoadBalancings", refs={List.class,FrontdoorBackendPoolLoadBalancing.class}, tree="[0,1]")
     private Output<List<FrontdoorBackendPoolLoadBalancing>> backendPoolLoadBalancings;
 
     /**
@@ -171,7 +171,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * A `backend_pool_settings` block as defined below.
      * 
      */
-    @Export(name="backendPoolSettings", type=List.class, parameters={FrontdoorBackendPoolSetting.class})
+    @Export(name="backendPoolSettings", refs={List.class,FrontdoorBackendPoolSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FrontdoorBackendPoolSetting>> backendPoolSettings;
 
     /**
@@ -185,7 +185,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * A `backend_pool` block as defined below.
      * 
      */
-    @Export(name="backendPools", type=List.class, parameters={FrontdoorBackendPool.class})
+    @Export(name="backendPools", refs={List.class,FrontdoorBackendPool.class}, tree="[0,1]")
     private Output<List<FrontdoorBackendPool>> backendPools;
 
     /**
@@ -199,7 +199,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
      * 
      */
-    @Export(name="backendPoolsMap", type=Map.class, parameters={String.class, String.class})
+    @Export(name="backendPoolsMap", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> backendPoolsMap;
 
     /**
@@ -213,7 +213,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * The host that each frontendEndpoint must CNAME to.
      * 
      */
-    @Export(name="cname", type=String.class, parameters={})
+    @Export(name="cname", refs={String.class}, tree="[0]")
     private Output<String> cname;
 
     /**
@@ -223,7 +223,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
     public Output<String> cname() {
         return this.cname;
     }
-    @Export(name="explicitResourceOrders", type=List.class, parameters={FrontdoorExplicitResourceOrder.class})
+    @Export(name="explicitResourceOrders", refs={List.class,FrontdoorExplicitResourceOrder.class}, tree="[0,1]")
     private Output<List<FrontdoorExplicitResourceOrder>> explicitResourceOrders;
 
     public Output<List<FrontdoorExplicitResourceOrder>> explicitResourceOrders() {
@@ -233,7 +233,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * A friendly name for the Front Door service.
      * 
      */
-    @Export(name="friendlyName", type=String.class, parameters={})
+    @Export(name="friendlyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> friendlyName;
 
     /**
@@ -247,7 +247,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * A `frontend_endpoint` block as defined below.
      * 
      */
-    @Export(name="frontendEndpoints", type=List.class, parameters={FrontdoorFrontendEndpoint.class})
+    @Export(name="frontendEndpoints", refs={List.class,FrontdoorFrontendEndpoint.class}, tree="[0,1]")
     private Output<List<FrontdoorFrontendEndpoint>> frontendEndpoints;
 
     /**
@@ -261,7 +261,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
      * 
      */
-    @Export(name="frontendEndpointsMap", type=Map.class, parameters={String.class, String.class})
+    @Export(name="frontendEndpointsMap", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> frontendEndpointsMap;
 
     /**
@@ -275,7 +275,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
      * 
      */
-    @Export(name="headerFrontdoorId", type=String.class, parameters={})
+    @Export(name="headerFrontdoorId", refs={String.class}, tree="[0]")
     private Output<String> headerFrontdoorId;
 
     /**
@@ -289,7 +289,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      * 
      */
-    @Export(name="loadBalancerEnabled", type=Boolean.class, parameters={})
+    @Export(name="loadBalancerEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> loadBalancerEnabled;
 
     /**
@@ -303,7 +303,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -317,7 +317,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -331,7 +331,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * A `routing_rule` block as defined below.
      * 
      */
-    @Export(name="routingRules", type=List.class, parameters={FrontdoorRoutingRule.class})
+    @Export(name="routingRules", refs={List.class,FrontdoorRoutingRule.class}, tree="[0,1]")
     private Output<List<FrontdoorRoutingRule>> routingRules;
 
     /**
@@ -345,7 +345,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
      * 
      */
-    @Export(name="routingRulesMap", type=Map.class, parameters={String.class, String.class})
+    @Export(name="routingRulesMap", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> routingRulesMap;
 
     /**
@@ -359,7 +359,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -114,7 +114,7 @@ public class AccessPolicy extends com.pulumi.resources.CustomResource {
      * The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="applicationId", type=String.class, parameters={})
+    @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> applicationId;
 
     /**
@@ -128,7 +128,7 @@ public class AccessPolicy extends com.pulumi.resources.CustomResource {
      * List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
      * 
      */
-    @Export(name="certificatePermissions", type=List.class, parameters={String.class})
+    @Export(name="certificatePermissions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> certificatePermissions;
 
     /**
@@ -142,7 +142,7 @@ public class AccessPolicy extends com.pulumi.resources.CustomResource {
      * List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy`, and `SetRotationPolicy`.
      * 
      */
-    @Export(name="keyPermissions", type=List.class, parameters={String.class})
+    @Export(name="keyPermissions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> keyPermissions;
 
     /**
@@ -156,7 +156,7 @@ public class AccessPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keyVaultId", type=String.class, parameters={})
+    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultId;
 
     /**
@@ -170,7 +170,7 @@ public class AccessPolicy extends com.pulumi.resources.CustomResource {
      * The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="objectId", type=String.class, parameters={})
+    @Export(name="objectId", refs={String.class}, tree="[0]")
     private Output<String> objectId;
 
     /**
@@ -184,7 +184,7 @@ public class AccessPolicy extends com.pulumi.resources.CustomResource {
      * List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
      * 
      */
-    @Export(name="secretPermissions", type=List.class, parameters={String.class})
+    @Export(name="secretPermissions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> secretPermissions;
 
     /**
@@ -198,7 +198,7 @@ public class AccessPolicy extends com.pulumi.resources.CustomResource {
      * List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
      * 
      */
-    @Export(name="storagePermissions", type=List.class, parameters={String.class})
+    @Export(name="storagePermissions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> storagePermissions;
 
     /**
@@ -212,7 +212,7 @@ public class AccessPolicy extends com.pulumi.resources.CustomResource {
      * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

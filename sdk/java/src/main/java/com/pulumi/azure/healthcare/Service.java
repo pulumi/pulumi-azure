@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:healthcare/service:Service")
 public class Service extends com.pulumi.resources.CustomResource {
-    @Export(name="accessPolicyObjectIds", type=List.class, parameters={String.class})
+    @Export(name="accessPolicyObjectIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> accessPolicyObjectIds;
 
     public Output<Optional<List<String>>> accessPolicyObjectIds() {
@@ -105,7 +105,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * An `authentication_configuration` block as defined below.
      * 
      */
-    @Export(name="authenticationConfiguration", type=ServiceAuthenticationConfiguration.class, parameters={})
+    @Export(name="authenticationConfiguration", refs={ServiceAuthenticationConfiguration.class}, tree="[0]")
     private Output<ServiceAuthenticationConfiguration> authenticationConfiguration;
 
     /**
@@ -119,7 +119,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `cors_configuration` block as defined below.
      * 
      */
-    @Export(name="corsConfiguration", type=ServiceCorsConfiguration.class, parameters={})
+    @Export(name="corsConfiguration", refs={ServiceCorsConfiguration.class}, tree="[0]")
     private Output<ServiceCorsConfiguration> corsConfiguration;
 
     /**
@@ -133,7 +133,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="cosmosdbKeyVaultKeyVersionlessId", type=String.class, parameters={})
+    @Export(name="cosmosdbKeyVaultKeyVersionlessId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cosmosdbKeyVaultKeyVersionlessId;
 
     /**
@@ -147,7 +147,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
      * 
      */
-    @Export(name="cosmosdbThroughput", type=Integer.class, parameters={})
+    @Export(name="cosmosdbThroughput", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> cosmosdbThroughput;
 
     /**
@@ -161,7 +161,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
      * 
      */
-    @Export(name="kind", type=String.class, parameters={})
+    @Export(name="kind", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kind;
 
     /**
@@ -175,7 +175,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -189,7 +189,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -203,7 +203,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -217,7 +217,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -231,7 +231,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

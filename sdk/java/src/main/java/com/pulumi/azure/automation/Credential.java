@@ -81,7 +81,7 @@ public class Credential extends com.pulumi.resources.CustomResource {
      * The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", type=String.class, parameters={})
+    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
     private Output<String> automationAccountName;
 
     /**
@@ -95,7 +95,7 @@ public class Credential extends com.pulumi.resources.CustomResource {
      * The description associated with this Automation Credential.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -109,7 +109,7 @@ public class Credential extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Credential. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -123,7 +123,7 @@ public class Credential extends com.pulumi.resources.CustomResource {
      * The password associated with this Automation Credential.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
@@ -137,7 +137,7 @@ public class Credential extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Credential is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -151,7 +151,7 @@ public class Credential extends com.pulumi.resources.CustomResource {
      * The username associated with this Automation Credential.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

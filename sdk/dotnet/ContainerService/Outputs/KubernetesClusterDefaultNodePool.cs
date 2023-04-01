@@ -154,7 +154,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? VnetSubnetId;
         /// <summary>
-        /// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+        /// Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
         /// </summary>
         public readonly string? WorkloadRuntime;
         /// <summary>

@@ -91,7 +91,7 @@ public class DataLakeGen2Path extends com.pulumi.resources.CustomResource {
      * One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
      * 
      */
-    @Export(name="aces", type=List.class, parameters={DataLakeGen2PathAce.class})
+    @Export(name="aces", refs={List.class,DataLakeGen2PathAce.class}, tree="[0,1]")
     private Output<List<DataLakeGen2PathAce>> aces;
 
     /**
@@ -105,7 +105,7 @@ public class DataLakeGen2Path extends com.pulumi.resources.CustomResource {
      * The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="filesystemName", type=String.class, parameters={})
+    @Export(name="filesystemName", refs={String.class}, tree="[0]")
     private Output<String> filesystemName;
 
     /**
@@ -119,7 +119,7 @@ public class DataLakeGen2Path extends com.pulumi.resources.CustomResource {
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
      * 
      */
-    @Export(name="group", type=String.class, parameters={})
+    @Export(name="group", refs={String.class}, tree="[0]")
     private Output<String> group;
 
     /**
@@ -133,7 +133,7 @@ public class DataLakeGen2Path extends com.pulumi.resources.CustomResource {
      * Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
      * 
      */
-    @Export(name="owner", type=String.class, parameters={})
+    @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
     /**
@@ -147,7 +147,7 @@ public class DataLakeGen2Path extends com.pulumi.resources.CustomResource {
      * The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="path", type=String.class, parameters={})
+    @Export(name="path", refs={String.class}, tree="[0]")
     private Output<String> path;
 
     /**
@@ -161,7 +161,7 @@ public class DataLakeGen2Path extends com.pulumi.resources.CustomResource {
      * Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resource", type=String.class, parameters={})
+    @Export(name="resource", refs={String.class}, tree="[0]")
     private Output<String> resource;
 
     /**
@@ -175,7 +175,7 @@ public class DataLakeGen2Path extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountId", type=String.class, parameters={})
+    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output<String> storageAccountId;
 
     /**

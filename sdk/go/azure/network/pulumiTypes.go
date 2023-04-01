@@ -4140,7 +4140,7 @@ func (o ApplicationGatewaySkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type ApplicationGatewaySslCertificate struct {
-	// PFX certificate. Required if `keyVaultSecretId` is not set.
+	// The base64-encoded PFX certificate data. Required if `keyVaultSecretId` is not set.
 	Data *string `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
@@ -4166,7 +4166,7 @@ type ApplicationGatewaySslCertificateInput interface {
 }
 
 type ApplicationGatewaySslCertificateArgs struct {
-	// PFX certificate. Required if `keyVaultSecretId` is not set.
+	// The base64-encoded PFX certificate data. Required if `keyVaultSecretId` is not set.
 	Data pulumi.StringPtrInput `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -4231,7 +4231,7 @@ func (o ApplicationGatewaySslCertificateOutput) ToApplicationGatewaySslCertifica
 	return o
 }
 
-// PFX certificate. Required if `keyVaultSecretId` is not set.
+// The base64-encoded PFX certificate data. Required if `keyVaultSecretId` is not set.
 func (o ApplicationGatewaySslCertificateOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificate) *string { return v.Data }).(pulumi.StringPtrOutput)
 }

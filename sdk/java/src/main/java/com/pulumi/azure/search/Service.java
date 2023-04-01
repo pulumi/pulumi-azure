@@ -76,7 +76,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
      * 
      */
-    @Export(name="allowedIps", type=List.class, parameters={String.class})
+    @Export(name="allowedIps", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedIps;
 
     /**
@@ -90,7 +90,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=ServiceIdentity.class, parameters={})
+    @Export(name="identity", refs={ServiceIdentity.class}, tree="[0]")
     private Output</* @Nullable */ ServiceIdentity> identity;
 
     /**
@@ -104,7 +104,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -118,7 +118,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -132,7 +132,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The number of partitions which should be created.
      * 
      */
-    @Export(name="partitionCount", type=Integer.class, parameters={})
+    @Export(name="partitionCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> partitionCount;
 
     /**
@@ -146,7 +146,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The Primary Key used for Search Service Administration.
      * 
      */
-    @Export(name="primaryKey", type=String.class, parameters={})
+    @Export(name="primaryKey", refs={String.class}, tree="[0]")
     private Output<String> primaryKey;
 
     /**
@@ -160,7 +160,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Whether or not public network access is allowed for this resource. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -174,7 +174,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `query_keys` block as defined below.
      * 
      */
-    @Export(name="queryKeys", type=List.class, parameters={ServiceQueryKey.class})
+    @Export(name="queryKeys", refs={List.class,ServiceQueryKey.class}, tree="[0,1]")
     private Output<List<ServiceQueryKey>> queryKeys;
 
     /**
@@ -188,7 +188,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The number of replica&#39;s which should be created.
      * 
      */
-    @Export(name="replicaCount", type=Integer.class, parameters={})
+    @Export(name="replicaCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> replicaCount;
 
     /**
@@ -202,7 +202,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -216,7 +216,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The Secondary Key used for Search Service Administration.
      * 
      */
-    @Export(name="secondaryKey", type=String.class, parameters={})
+    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
     private Output<String> secondaryKey;
 
     /**
@@ -230,7 +230,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
      * 
      */
-    @Export(name="sku", type=String.class, parameters={})
+    @Export(name="sku", refs={String.class}, tree="[0]")
     private Output<String> sku;
 
     /**
@@ -244,7 +244,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Search Service.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

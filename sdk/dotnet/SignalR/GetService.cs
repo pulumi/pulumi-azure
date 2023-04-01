@@ -114,6 +114,10 @@ namespace Pulumi.Azure.SignalR
     public sealed class GetServiceResult
     {
         /// <summary>
+        /// Is aad auth enabled for this SignalR service?
+        /// </summary>
+        public readonly bool AadAuthEnabled;
+        /// <summary>
         /// The FQDN of the SignalR service.
         /// </summary>
         public readonly string Hostname;
@@ -125,6 +129,10 @@ namespace Pulumi.Azure.SignalR
         /// The publicly accessible IP of the SignalR service.
         /// </summary>
         public readonly string IpAddress;
+        /// <summary>
+        /// Is local auth enable for this SignalR serviced?
+        /// </summary>
+        public readonly bool LocalAuthEnabled;
         /// <summary>
         /// Specifies the supported Azure location where the SignalR service exists.
         /// </summary>
@@ -138,6 +146,10 @@ namespace Pulumi.Azure.SignalR
         /// The primary connection string of the SignalR service.
         /// </summary>
         public readonly string PrimaryConnectionString;
+        /// <summary>
+        /// Is public network access enabled for this SignalR service?
+        /// </summary>
+        public readonly bool PublicNetworkAccessEnabled;
         /// <summary>
         /// The publicly accessible port of the SignalR service which is designed for browser/client use.
         /// </summary>
@@ -155,15 +167,27 @@ namespace Pulumi.Azure.SignalR
         /// The publicly accessible port of the SignalR service which is designed for customer server side use.
         /// </summary>
         public readonly int ServerPort;
+        /// <summary>
+        /// The serverless connection timeout of this SignalR service.
+        /// </summary>
+        public readonly int ServerlessConnectionTimeoutInSeconds;
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Is tls client cert enabled for this SignalR service?
+        /// </summary>
+        public readonly bool TlsClientCertEnabled;
 
         [OutputConstructor]
         private GetServiceResult(
+            bool aadAuthEnabled,
+
             string hostname,
 
             string id,
 
             string ipAddress,
+
+            bool localAuthEnabled,
 
             string location,
 
@@ -172,6 +196,8 @@ namespace Pulumi.Azure.SignalR
             string primaryAccessKey,
 
             string primaryConnectionString,
+
+            bool publicNetworkAccessEnabled,
 
             int publicPort,
 
@@ -183,21 +209,30 @@ namespace Pulumi.Azure.SignalR
 
             int serverPort,
 
-            ImmutableDictionary<string, string> tags)
+            int serverlessConnectionTimeoutInSeconds,
+
+            ImmutableDictionary<string, string> tags,
+
+            bool tlsClientCertEnabled)
         {
+            AadAuthEnabled = aadAuthEnabled;
             Hostname = hostname;
             Id = id;
             IpAddress = ipAddress;
+            LocalAuthEnabled = localAuthEnabled;
             Location = location;
             Name = name;
             PrimaryAccessKey = primaryAccessKey;
             PrimaryConnectionString = primaryConnectionString;
+            PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             PublicPort = publicPort;
             ResourceGroupName = resourceGroupName;
             SecondaryAccessKey = secondaryAccessKey;
             SecondaryConnectionString = secondaryConnectionString;
             ServerPort = serverPort;
+            ServerlessConnectionTimeoutInSeconds = serverlessConnectionTimeoutInSeconds;
             Tags = tags;
+            TlsClientCertEnabled = tlsClientCertEnabled;
         }
     }
 }

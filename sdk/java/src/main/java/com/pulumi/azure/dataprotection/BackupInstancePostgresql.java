@@ -191,7 +191,7 @@ public class BackupInstancePostgresql extends com.pulumi.resources.CustomResourc
      * The ID of the Backup Policy.
      * 
      */
-    @Export(name="backupPolicyId", type=String.class, parameters={})
+    @Export(name="backupPolicyId", refs={String.class}, tree="[0]")
     private Output<String> backupPolicyId;
 
     /**
@@ -205,7 +205,7 @@ public class BackupInstancePostgresql extends com.pulumi.resources.CustomResourc
      * The ID or versionless ID of the key vault secret which stores the connection string of the database.
      * 
      */
-    @Export(name="databaseCredentialKeyVaultSecretId", type=String.class, parameters={})
+    @Export(name="databaseCredentialKeyVaultSecretId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> databaseCredentialKeyVaultSecretId;
 
     /**
@@ -219,7 +219,7 @@ public class BackupInstancePostgresql extends com.pulumi.resources.CustomResourc
      * The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
      * 
      */
-    @Export(name="databaseId", type=String.class, parameters={})
+    @Export(name="databaseId", refs={String.class}, tree="[0]")
     private Output<String> databaseId;
 
     /**
@@ -233,7 +233,7 @@ public class BackupInstancePostgresql extends com.pulumi.resources.CustomResourc
      * The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -247,7 +247,7 @@ public class BackupInstancePostgresql extends com.pulumi.resources.CustomResourc
      * The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -261,7 +261,7 @@ public class BackupInstancePostgresql extends com.pulumi.resources.CustomResourc
      * The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
      * 
      */
-    @Export(name="vaultId", type=String.class, parameters={})
+    @Export(name="vaultId", refs={String.class}, tree="[0]")
     private Output<String> vaultId;
 
     /**

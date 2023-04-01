@@ -123,7 +123,7 @@ public class FirewallApplicationRuleCollection extends com.pulumi.resources.Cust
      * Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
      * 
      */
-    @Export(name="action", type=String.class, parameters={})
+    @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
@@ -137,7 +137,7 @@ public class FirewallApplicationRuleCollection extends com.pulumi.resources.Cust
      * Specifies the name of the Firewall in which the Application Rule Collection should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="azureFirewallName", type=String.class, parameters={})
+    @Export(name="azureFirewallName", refs={String.class}, tree="[0]")
     private Output<String> azureFirewallName;
 
     /**
@@ -151,7 +151,7 @@ public class FirewallApplicationRuleCollection extends com.pulumi.resources.Cust
      * Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -165,7 +165,7 @@ public class FirewallApplicationRuleCollection extends com.pulumi.resources.Cust
      * Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
@@ -179,7 +179,7 @@ public class FirewallApplicationRuleCollection extends com.pulumi.resources.Cust
      * Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -193,7 +193,7 @@ public class FirewallApplicationRuleCollection extends com.pulumi.resources.Cust
      * One or more `rule` blocks as defined below.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={FirewallApplicationRuleCollectionRule.class})
+    @Export(name="rules", refs={List.class,FirewallApplicationRuleCollectionRule.class}, tree="[0,1]")
     private Output<List<FirewallApplicationRuleCollectionRule>> rules;
 
     /**

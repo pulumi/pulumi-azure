@@ -19,18 +19,18 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
     public static final PolicyCustomRuleMatchConditionArgs Empty = new PolicyCustomRuleMatchConditionArgs();
 
     /**
-     * A list of match values.
+     * A list of match values. This is **Required** when the `operator` is not `Any`.
      * 
      */
-    @Import(name="matchValues", required=true)
-    private Output<List<String>> matchValues;
+    @Import(name="matchValues")
+    private @Nullable Output<List<String>> matchValues;
 
     /**
-     * @return A list of match values.
+     * @return A list of match values. This is **Required** when the `operator` is not `Any`.
      * 
      */
-    public Output<List<String>> matchValues() {
-        return this.matchValues;
+    public Optional<Output<List<String>>> matchValues() {
+        return Optional.ofNullable(this.matchValues);
     }
 
     /**
@@ -64,14 +64,14 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
     }
 
     /**
-     * Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+     * Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
      * 
      */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
     /**
-     * @return Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+     * @return Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
      * 
      */
     public Output<String> operator() {
@@ -122,18 +122,18 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param matchValues A list of match values.
+         * @param matchValues A list of match values. This is **Required** when the `operator` is not `Any`.
          * 
          * @return builder
          * 
          */
-        public Builder matchValues(Output<List<String>> matchValues) {
+        public Builder matchValues(@Nullable Output<List<String>> matchValues) {
             $.matchValues = matchValues;
             return this;
         }
 
         /**
-         * @param matchValues A list of match values.
+         * @param matchValues A list of match values. This is **Required** when the `operator` is not `Any`.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param matchValues A list of match values.
+         * @param matchValues A list of match values. This is **Required** when the `operator` is not `Any`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param operator Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+         * @param operator Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param operator Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+         * @param operator Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
          * 
          * @return builder
          * 
@@ -257,7 +257,6 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         public PolicyCustomRuleMatchConditionArgs build() {
-            $.matchValues = Objects.requireNonNull($.matchValues, "expected parameter 'matchValues' to be non-null");
             $.matchVariables = Objects.requireNonNull($.matchVariables, "expected parameter 'matchVariables' to be non-null");
             $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
             return $;

@@ -82,13 +82,13 @@ namespace Pulumi.Azure.Network
         /// Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
         /// </summary>
         [Output("allowForwardedTraffic")]
-        public Output<bool> AllowForwardedTraffic { get; private set; } = null!;
+        public Output<bool?> AllowForwardedTraffic { get; private set; } = null!;
 
         /// <summary>
-        /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+        /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         /// </summary>
         [Output("allowGatewayTransit")]
-        public Output<bool> AllowGatewayTransit { get; private set; } = null!;
+        public Output<bool?> AllowGatewayTransit { get; private set; } = null!;
 
         /// <summary>
         /// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
@@ -121,7 +121,7 @@ namespace Pulumi.Azure.Network
         /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
         /// </summary>
         [Output("useRemoteGateways")]
-        public Output<bool> UseRemoteGateways { get; private set; } = null!;
+        public Output<bool?> UseRemoteGateways { get; private set; } = null!;
 
         /// <summary>
         /// The name of the virtual network. Changing this forces a new resource to be created.
@@ -182,7 +182,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? AllowForwardedTraffic { get; set; }
 
         /// <summary>
-        /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+        /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         /// </summary>
         [Input("allowGatewayTransit")]
         public Input<bool>? AllowGatewayTransit { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? AllowForwardedTraffic { get; set; }
 
         /// <summary>
-        /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+        /// Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         /// </summary>
         [Input("allowGatewayTransit")]
         public Input<bool>? AllowGatewayTransit { get; set; }

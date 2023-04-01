@@ -17,7 +17,7 @@ public final class LinuxWebAppSiteConfigCors {
      * @return Specifies a list of origins that should be allowed to make cross-origin calls.
      * 
      */
-    private List<String> allowedOrigins;
+    private @Nullable List<String> allowedOrigins;
     /**
      * @return Whether CORS requests with credentials are allowed. Defaults to `false`
      * 
@@ -30,7 +30,7 @@ public final class LinuxWebAppSiteConfigCors {
      * 
      */
     public List<String> allowedOrigins() {
-        return this.allowedOrigins;
+        return this.allowedOrigins == null ? List.of() : this.allowedOrigins;
     }
     /**
      * @return Whether CORS requests with credentials are allowed. Defaults to `false`
@@ -49,7 +49,7 @@ public final class LinuxWebAppSiteConfigCors {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> allowedOrigins;
+        private @Nullable List<String> allowedOrigins;
         private @Nullable Boolean supportCredentials;
         public Builder() {}
         public Builder(LinuxWebAppSiteConfigCors defaults) {
@@ -59,8 +59,8 @@ public final class LinuxWebAppSiteConfigCors {
         }
 
         @CustomType.Setter
-        public Builder allowedOrigins(List<String> allowedOrigins) {
-            this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
+        public Builder allowedOrigins(@Nullable List<String> allowedOrigins) {
+            this.allowedOrigins = allowedOrigins;
             return this;
         }
         public Builder allowedOrigins(String... allowedOrigins) {

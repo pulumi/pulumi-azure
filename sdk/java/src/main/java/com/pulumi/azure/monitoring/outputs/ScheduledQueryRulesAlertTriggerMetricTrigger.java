@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledQueryRulesAlertTriggerMetricTrigger {
@@ -14,7 +16,7 @@ public final class ScheduledQueryRulesAlertTriggerMetricTrigger {
      * @return Evaluation of metric on a particular column.
      * 
      */
-    private String metricColumn;
+    private @Nullable String metricColumn;
     /**
      * @return Metric Trigger Type - &#39;Consecutive&#39; or &#39;Total&#39;.
      * 
@@ -36,8 +38,8 @@ public final class ScheduledQueryRulesAlertTriggerMetricTrigger {
      * @return Evaluation of metric on a particular column.
      * 
      */
-    public String metricColumn() {
-        return this.metricColumn;
+    public Optional<String> metricColumn() {
+        return Optional.ofNullable(this.metricColumn);
     }
     /**
      * @return Metric Trigger Type - &#39;Consecutive&#39; or &#39;Total&#39;.
@@ -70,7 +72,7 @@ public final class ScheduledQueryRulesAlertTriggerMetricTrigger {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String metricColumn;
+        private @Nullable String metricColumn;
         private String metricTriggerType;
         private String operator;
         private Double threshold;
@@ -84,8 +86,8 @@ public final class ScheduledQueryRulesAlertTriggerMetricTrigger {
         }
 
         @CustomType.Setter
-        public Builder metricColumn(String metricColumn) {
-            this.metricColumn = Objects.requireNonNull(metricColumn);
+        public Builder metricColumn(@Nullable String metricColumn) {
+            this.metricColumn = metricColumn;
             return this;
         }
         @CustomType.Setter

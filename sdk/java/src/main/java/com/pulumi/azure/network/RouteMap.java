@@ -101,7 +101,7 @@ public class RouteMap extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Route Map. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -115,7 +115,7 @@ public class RouteMap extends com.pulumi.resources.CustomResource {
      * A `rule` block as defined below.
      * 
      */
-    @Export(name="rules", type=List.class, parameters={RouteMapRule.class})
+    @Export(name="rules", refs={List.class,RouteMapRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RouteMapRule>> rules;
 
     /**
@@ -129,7 +129,7 @@ public class RouteMap extends com.pulumi.resources.CustomResource {
      * The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualHubId", type=String.class, parameters={})
+    @Export(name="virtualHubId", refs={String.class}, tree="[0]")
     private Output<String> virtualHubId;
 
     /**

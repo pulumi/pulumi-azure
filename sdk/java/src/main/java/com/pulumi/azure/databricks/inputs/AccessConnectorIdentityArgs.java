@@ -6,6 +6,7 @@ package com.pulumi.azure.databricks.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,14 +17,29 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
     public static final AccessConnectorIdentityArgs Empty = new AccessConnectorIdentityArgs();
 
     /**
-     * The Principal ID associated with this system-assigned managed identity.
+     * Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+     * 
+     */
+    @Import(name="identityIds")
+    private @Nullable Output<List<String>> identityIds;
+
+    /**
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+     * 
+     */
+    public Optional<Output<List<String>>> identityIds() {
+        return Optional.ofNullable(this.identityIds);
+    }
+
+    /**
+     * The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
      * 
      */
     @Import(name="principalId")
     private @Nullable Output<String> principalId;
 
     /**
-     * @return The Principal ID associated with this system-assigned managed identity.
+     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
      * 
      */
     public Optional<Output<String>> principalId() {
@@ -31,14 +47,14 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Tenant ID associated with this system-assigned managed identity.
+     * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return The Tenant ID associated with this system-assigned managed identity.
+     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -46,14 +62,14 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+     * Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+     * @return Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
      * 
      */
     public Output<String> type() {
@@ -63,6 +79,7 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
     private AccessConnectorIdentityArgs() {}
 
     private AccessConnectorIdentityArgs(AccessConnectorIdentityArgs $) {
+        this.identityIds = $.identityIds;
         this.principalId = $.principalId;
         this.tenantId = $.tenantId;
         this.type = $.type;
@@ -87,7 +104,38 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param principalId The Principal ID associated with this system-assigned managed identity.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(@Nullable Output<List<String>> identityIds) {
+            $.identityIds = identityIds;
+            return this;
+        }
+
+        /**
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(List<String> identityIds) {
+            return identityIds(Output.of(identityIds));
+        }
+
+        /**
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
+        }
+
+        /**
+         * @param principalId The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
          * 
          * @return builder
          * 
@@ -98,7 +146,7 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param principalId The Principal ID associated with this system-assigned managed identity.
+         * @param principalId The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
          * 
          * @return builder
          * 
@@ -108,7 +156,7 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tenantId The Tenant ID associated with this system-assigned managed identity.
+         * @param tenantId The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
          * 
          * @return builder
          * 
@@ -119,7 +167,7 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tenantId The Tenant ID associated with this system-assigned managed identity.
+         * @param tenantId The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
          * 
          * @return builder
          * 
@@ -129,7 +177,7 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+         * @param type Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
          * 
          * @return builder
          * 
@@ -140,7 +188,7 @@ public final class AccessConnectorIdentityArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+         * @param type Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
          * 
          * @return builder
          * 

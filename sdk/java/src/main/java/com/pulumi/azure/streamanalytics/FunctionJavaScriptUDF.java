@@ -91,7 +91,7 @@ public class FunctionJavaScriptUDF extends com.pulumi.resources.CustomResource {
      * One or more `input` blocks as defined below.
      * 
      */
-    @Export(name="inputs", type=List.class, parameters={FunctionJavaScriptUDFInput.class})
+    @Export(name="inputs", refs={List.class,FunctionJavaScriptUDFInput.class}, tree="[0,1]")
     private Output<List<FunctionJavaScriptUDFInput>> inputs;
 
     /**
@@ -105,7 +105,7 @@ public class FunctionJavaScriptUDF extends com.pulumi.resources.CustomResource {
      * The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -119,7 +119,7 @@ public class FunctionJavaScriptUDF extends com.pulumi.resources.CustomResource {
      * An `output` blocks as defined below.
      * 
      */
-    @Export(name="output", type=FunctionJavaScriptUDFOutput.class, parameters={})
+    @Export(name="output", refs={FunctionJavaScriptUDFOutput.class}, tree="[0]")
     private Output<FunctionJavaScriptUDFOutput> output;
 
     /**
@@ -133,7 +133,7 @@ public class FunctionJavaScriptUDF extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -147,7 +147,7 @@ public class FunctionJavaScriptUDF extends com.pulumi.resources.CustomResource {
      * The JavaScript of this UDF Function.
      * 
      */
-    @Export(name="script", type=String.class, parameters={})
+    @Export(name="script", refs={String.class}, tree="[0]")
     private Output<String> script;
 
     /**
@@ -161,7 +161,7 @@ public class FunctionJavaScriptUDF extends com.pulumi.resources.CustomResource {
      * The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobName", type=String.class, parameters={})
+    @Export(name="streamAnalyticsJobName", refs={String.class}, tree="[0]")
     private Output<String> streamAnalyticsJobName;
 
     /**

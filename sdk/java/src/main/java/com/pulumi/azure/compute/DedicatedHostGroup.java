@@ -73,7 +73,7 @@ public class DedicatedHostGroup extends com.pulumi.resources.CustomResource {
      * Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automaticPlacementEnabled", type=Boolean.class, parameters={})
+    @Export(name="automaticPlacementEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automaticPlacementEnabled;
 
     /**
@@ -87,7 +87,7 @@ public class DedicatedHostGroup extends com.pulumi.resources.CustomResource {
      * The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -101,7 +101,7 @@ public class DedicatedHostGroup extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -115,7 +115,7 @@ public class DedicatedHostGroup extends com.pulumi.resources.CustomResource {
      * The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="platformFaultDomainCount", type=Integer.class, parameters={})
+    @Export(name="platformFaultDomainCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> platformFaultDomainCount;
 
     /**
@@ -129,7 +129,7 @@ public class DedicatedHostGroup extends com.pulumi.resources.CustomResource {
      * Specifies the name of the resource group the Dedicated Host Group is located in. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -143,7 +143,7 @@ public class DedicatedHostGroup extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -157,7 +157,7 @@ public class DedicatedHostGroup extends com.pulumi.resources.CustomResource {
      * Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
      * 
      */
-    @Export(name="zone", type=String.class, parameters={})
+    @Export(name="zone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zone;
 
     /**

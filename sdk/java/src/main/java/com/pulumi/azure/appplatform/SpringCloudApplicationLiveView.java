@@ -77,7 +77,7 @@ public class SpringCloudApplicationLiveView extends com.pulumi.resources.CustomR
      * The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `default`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -91,7 +91,7 @@ public class SpringCloudApplicationLiveView extends com.pulumi.resources.CustomR
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Application Live View to be created.
      * 
      */
-    @Export(name="springCloudServiceId", type=String.class, parameters={})
+    @Export(name="springCloudServiceId", refs={String.class}, tree="[0]")
     private Output<String> springCloudServiceId;
 
     /**

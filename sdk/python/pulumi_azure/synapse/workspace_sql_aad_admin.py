@@ -195,6 +195,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
                 "Get",
                 "Delete",
                 "Purge",
+                "GetRotationPolicy",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,
@@ -279,6 +280,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
                 "Get",
                 "Delete",
                 "Purge",
+                "GetRotationPolicy",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,

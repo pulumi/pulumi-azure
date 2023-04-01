@@ -124,7 +124,7 @@ public class EdgeModule extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Video Analyzer Edge Module. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -138,7 +138,7 @@ public class EdgeModule extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Video Analyzer Edge Module. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -152,7 +152,7 @@ public class EdgeModule extends com.pulumi.resources.CustomResource {
      * The name of the Video Analyzer in which to create the Edge Module. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="videoAnalyzerName", type=String.class, parameters={})
+    @Export(name="videoAnalyzerName", refs={String.class}, tree="[0]")
     private Output<String> videoAnalyzerName;
 
     /**

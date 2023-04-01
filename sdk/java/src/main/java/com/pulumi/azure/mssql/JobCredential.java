@@ -95,7 +95,7 @@ public class JobCredential extends com.pulumi.resources.CustomResource {
      * The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created.
      * 
      */
-    @Export(name="jobAgentId", type=String.class, parameters={})
+    @Export(name="jobAgentId", refs={String.class}, tree="[0]")
     private Output<String> jobAgentId;
 
     /**
@@ -109,7 +109,7 @@ public class JobCredential extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -123,7 +123,7 @@ public class JobCredential extends com.pulumi.resources.CustomResource {
      * The password part of the credential.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
@@ -137,7 +137,7 @@ public class JobCredential extends com.pulumi.resources.CustomResource {
      * The username part of the credential.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

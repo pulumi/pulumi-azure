@@ -5,6 +5,8 @@ package com.pulumi.azure.core.inputs;
 
 import com.pulumi.azure.core.inputs.ResourcePolicyAssignmentIdentityArgs;
 import com.pulumi.azure.core.inputs.ResourcePolicyAssignmentNonComplianceMessageArgs;
+import com.pulumi.azure.core.inputs.ResourcePolicyAssignmentOverrideArgs;
+import com.pulumi.azure.core.inputs.ResourcePolicyAssignmentResourceSelectorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -155,6 +157,21 @@ public final class ResourcePolicyAssignmentState extends com.pulumi.resources.Re
     }
 
     /**
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     * 
+     */
+    @Import(name="overrides")
+    private @Nullable Output<List<ResourcePolicyAssignmentOverrideArgs>> overrides;
+
+    /**
+     * @return One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     * 
+     */
+    public Optional<Output<List<ResourcePolicyAssignmentOverrideArgs>>> overrides() {
+        return Optional.ofNullable(this.overrides);
+    }
+
+    /**
      * A JSON mapping of any Parameters for this Policy.
      * 
      */
@@ -199,6 +216,21 @@ public final class ResourcePolicyAssignmentState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.resourceId);
     }
 
+    /**
+     * One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+     * 
+     */
+    @Import(name="resourceSelectors")
+    private @Nullable Output<List<ResourcePolicyAssignmentResourceSelectorArgs>> resourceSelectors;
+
+    /**
+     * @return One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+     * 
+     */
+    public Optional<Output<List<ResourcePolicyAssignmentResourceSelectorArgs>>> resourceSelectors() {
+        return Optional.ofNullable(this.resourceSelectors);
+    }
+
     private ResourcePolicyAssignmentState() {}
 
     private ResourcePolicyAssignmentState(ResourcePolicyAssignmentState $) {
@@ -211,9 +243,11 @@ public final class ResourcePolicyAssignmentState extends com.pulumi.resources.Re
         this.name = $.name;
         this.nonComplianceMessages = $.nonComplianceMessages;
         this.notScopes = $.notScopes;
+        this.overrides = $.overrides;
         this.parameters = $.parameters;
         this.policyDefinitionId = $.policyDefinitionId;
         this.resourceId = $.resourceId;
+        this.resourceSelectors = $.resourceSelectors;
     }
 
     public static Builder builder() {
@@ -444,6 +478,37 @@ public final class ResourcePolicyAssignmentState extends com.pulumi.resources.Re
         }
 
         /**
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder overrides(@Nullable Output<List<ResourcePolicyAssignmentOverrideArgs>> overrides) {
+            $.overrides = overrides;
+            return this;
+        }
+
+        /**
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder overrides(List<ResourcePolicyAssignmentOverrideArgs> overrides) {
+            return overrides(Output.of(overrides));
+        }
+
+        /**
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder overrides(ResourcePolicyAssignmentOverrideArgs... overrides) {
+            return overrides(List.of(overrides));
+        }
+
+        /**
          * @param parameters A JSON mapping of any Parameters for this Policy.
          * 
          * @return builder
@@ -504,6 +569,37 @@ public final class ResourcePolicyAssignmentState extends com.pulumi.resources.Re
          */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
+        }
+
+        /**
+         * @param resourceSelectors One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceSelectors(@Nullable Output<List<ResourcePolicyAssignmentResourceSelectorArgs>> resourceSelectors) {
+            $.resourceSelectors = resourceSelectors;
+            return this;
+        }
+
+        /**
+         * @param resourceSelectors One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceSelectors(List<ResourcePolicyAssignmentResourceSelectorArgs> resourceSelectors) {
+            return resourceSelectors(Output.of(resourceSelectors));
+        }
+
+        /**
+         * @param resourceSelectors One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceSelectors(ResourcePolicyAssignmentResourceSelectorArgs... resourceSelectors) {
+            return resourceSelectors(List.of(resourceSelectors));
         }
 
         public ResourcePolicyAssignmentState build() {

@@ -100,7 +100,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -114,7 +114,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The name of the resource group where the MariaDB server resides. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -128,7 +128,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The name of the SQL Server to which this MariaDB virtual network rule will be applied to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", type=String.class, parameters={})
+    @Export(name="serverName", refs={String.class}, tree="[0]")
     private Output<String> serverName;
 
     /**
@@ -142,7 +142,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * The ID of the subnet that the MariaDB server will be connected to.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**

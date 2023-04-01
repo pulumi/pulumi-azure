@@ -211,14 +211,11 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding",
-            resource_group_name=example_resource_group.name,
-            workspace_name=example_analytics_workspace.name)
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
         example_data_connector_microsoft_threat_intelligence = azure.sentinel.DataConnectorMicrosoftThreatIntelligence("exampleDataConnectorMicrosoftThreatIntelligence",
-            log_analytics_workspace_id=example_analytics_workspace.id,
+            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             bing_safety_phishing_url_lookback_date="1970-01-01T00:00:00Z",
-            microsoft_emerging_threat_feed_lookback_date="1970-01-01T00:00:00Z",
-            opts=pulumi.ResourceOptions(depends_on=[azurerm_sentinel_log_analytics_workspace_onboarding["test"]]))
+            microsoft_emerging_threat_feed_lookback_date="1970-01-01T00:00:00Z")
         ```
 
         ## Import
@@ -257,14 +254,11 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding",
-            resource_group_name=example_resource_group.name,
-            workspace_name=example_analytics_workspace.name)
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
         example_data_connector_microsoft_threat_intelligence = azure.sentinel.DataConnectorMicrosoftThreatIntelligence("exampleDataConnectorMicrosoftThreatIntelligence",
-            log_analytics_workspace_id=example_analytics_workspace.id,
+            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             bing_safety_phishing_url_lookback_date="1970-01-01T00:00:00Z",
-            microsoft_emerging_threat_feed_lookback_date="1970-01-01T00:00:00Z",
-            opts=pulumi.ResourceOptions(depends_on=[azurerm_sentinel_log_analytics_workspace_onboarding["test"]]))
+            microsoft_emerging_threat_feed_lookback_date="1970-01-01T00:00:00Z")
         ```
 
         ## Import

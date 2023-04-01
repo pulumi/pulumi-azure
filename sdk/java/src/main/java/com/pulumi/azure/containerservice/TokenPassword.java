@@ -105,7 +105,7 @@ public class TokenPassword extends com.pulumi.resources.CustomResource {
      * The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created.
      * 
      */
-    @Export(name="containerRegistryTokenId", type=String.class, parameters={})
+    @Export(name="containerRegistryTokenId", refs={String.class}, tree="[0]")
     private Output<String> containerRegistryTokenId;
 
     /**
@@ -119,7 +119,7 @@ public class TokenPassword extends com.pulumi.resources.CustomResource {
      * One `password` block as defined below.
      * 
      */
-    @Export(name="password1", type=TokenPasswordPassword1.class, parameters={})
+    @Export(name="password1", refs={TokenPasswordPassword1.class}, tree="[0]")
     private Output<TokenPasswordPassword1> password1;
 
     /**
@@ -133,7 +133,7 @@ public class TokenPassword extends com.pulumi.resources.CustomResource {
      * One `password` block as defined below.
      * 
      */
-    @Export(name="password2", type=TokenPasswordPassword2.class, parameters={})
+    @Export(name="password2", refs={TokenPasswordPassword2.class}, tree="[0]")
     private Output</* @Nullable */ TokenPasswordPassword2> password2;
 
     /**

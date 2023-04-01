@@ -390,13 +390,13 @@ class DataCollectionRule(pulumi.CustomResource):
                         "Microsoft-Perf",
                         "Microsoft-InsightsMetrics",
                     ],
-                    sampling_frequency_in_seconds=10,
+                    sampling_frequency_in_seconds=60,
                     counter_specifiers=["Processor(*)\\\\% Processor Time"],
                     name="test-datasource-perfcounter",
                 )],
                 windows_event_logs=[azure.monitoring.DataCollectionRuleDataSourcesWindowsEventLogArgs(
                     streams=["Microsoft-WindowsEvent"],
-                    x_path_queries=["*[System/Level=1]"],
+                    x_path_queries=["*![System/Level=1]"],
                     name="test-datasource-wineventlog",
                 )],
                 extensions=[azure.monitoring.DataCollectionRuleDataSourcesExtensionArgs(
@@ -504,13 +504,13 @@ class DataCollectionRule(pulumi.CustomResource):
                         "Microsoft-Perf",
                         "Microsoft-InsightsMetrics",
                     ],
-                    sampling_frequency_in_seconds=10,
+                    sampling_frequency_in_seconds=60,
                     counter_specifiers=["Processor(*)\\\\% Processor Time"],
                     name="test-datasource-perfcounter",
                 )],
                 windows_event_logs=[azure.monitoring.DataCollectionRuleDataSourcesWindowsEventLogArgs(
                     streams=["Microsoft-WindowsEvent"],
-                    x_path_queries=["*[System/Level=1]"],
+                    x_path_queries=["*![System/Level=1]"],
                     name="test-datasource-wineventlog",
                 )],
                 extensions=[azure.monitoring.DataCollectionRuleDataSourcesExtensionArgs(

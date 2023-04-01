@@ -114,7 +114,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
      * 
      */
-    @Export(name="aciConnectorLinux", type=KubernetesClusterAciConnectorLinux.class, parameters={})
+    @Export(name="aciConnectorLinux", refs={KubernetesClusterAciConnectorLinux.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterAciConnectorLinux> aciConnectorLinux;
 
     /**
@@ -128,7 +128,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * An `api_server_access_profile` block as defined below.
      * 
      */
-    @Export(name="apiServerAccessProfile", type=KubernetesClusterApiServerAccessProfile.class, parameters={})
+    @Export(name="apiServerAccessProfile", refs={KubernetesClusterApiServerAccessProfile.class}, tree="[0]")
     private Output<KubernetesClusterApiServerAccessProfile> apiServerAccessProfile;
 
     /**
@@ -144,7 +144,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider */
-    @Export(name="apiServerAuthorizedIpRanges", type=List.class, parameters={String.class})
+    @Export(name="apiServerAuthorizedIpRanges", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> apiServerAuthorizedIpRanges;
 
     public Output<List<String>> apiServerAuthorizedIpRanges() {
@@ -154,7 +154,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `auto_scaler_profile` block as defined below.
      * 
      */
-    @Export(name="autoScalerProfile", type=KubernetesClusterAutoScalerProfile.class, parameters={})
+    @Export(name="autoScalerProfile", refs={KubernetesClusterAutoScalerProfile.class}, tree="[0]")
     private Output<KubernetesClusterAutoScalerProfile> autoScalerProfile;
 
     /**
@@ -168,7 +168,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
      * 
      */
-    @Export(name="automaticChannelUpgrade", type=String.class, parameters={})
+    @Export(name="automaticChannelUpgrade", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> automaticChannelUpgrade;
 
     /**
@@ -182,7 +182,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `azure_active_directory_role_based_access_control` block as defined below.
      * 
      */
-    @Export(name="azureActiveDirectoryRoleBasedAccessControl", type=KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl.class, parameters={})
+    @Export(name="azureActiveDirectoryRoleBasedAccessControl", refs={KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> azureActiveDirectoryRoleBasedAccessControl;
 
     /**
@@ -196,7 +196,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
      * 
      */
-    @Export(name="azurePolicyEnabled", type=Boolean.class, parameters={})
+    @Export(name="azurePolicyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> azurePolicyEnabled;
 
     /**
@@ -210,7 +210,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
      * 
      */
-    @Export(name="confidentialComputing", type=KubernetesClusterConfidentialComputing.class, parameters={})
+    @Export(name="confidentialComputing", refs={KubernetesClusterConfidentialComputing.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterConfidentialComputing> confidentialComputing;
 
     /**
@@ -224,7 +224,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `default_node_pool` block as defined below.
      * 
      */
-    @Export(name="defaultNodePool", type=KubernetesClusterDefaultNodePool.class, parameters={})
+    @Export(name="defaultNodePool", refs={KubernetesClusterDefaultNodePool.class}, tree="[0]")
     private Output<KubernetesClusterDefaultNodePool> defaultNodePool;
 
     /**
@@ -238,7 +238,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="diskEncryptionSetId", type=String.class, parameters={})
+    @Export(name="diskEncryptionSetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> diskEncryptionSetId;
 
     /**
@@ -252,7 +252,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="dnsPrefix", type=String.class, parameters={})
+    @Export(name="dnsPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dnsPrefix;
 
     /**
@@ -266,7 +266,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="dnsPrefixPrivateCluster", type=String.class, parameters={})
+    @Export(name="dnsPrefixPrivateCluster", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dnsPrefixPrivateCluster;
 
     /**
@@ -280,7 +280,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="edgeZone", type=String.class, parameters={})
+    @Export(name="edgeZone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> edgeZone;
 
     /**
@@ -296,7 +296,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy. */
-    @Export(name="enablePodSecurityPolicy", type=Boolean.class, parameters={})
+    @Export(name="enablePodSecurityPolicy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePodSecurityPolicy;
 
     public Output<Optional<Boolean>> enablePodSecurityPolicy() {
@@ -306,7 +306,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * The FQDN of the Azure Kubernetes Managed Cluster.
      * 
      */
-    @Export(name="fqdn", type=String.class, parameters={})
+    @Export(name="fqdn", refs={String.class}, tree="[0]")
     private Output<String> fqdn;
 
     /**
@@ -320,7 +320,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Should HTTP Application Routing be enabled?
      * 
      */
-    @Export(name="httpApplicationRoutingEnabled", type=Boolean.class, parameters={})
+    @Export(name="httpApplicationRoutingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> httpApplicationRoutingEnabled;
 
     /**
@@ -334,7 +334,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * The Zone Name of the HTTP Application Routing.
      * 
      */
-    @Export(name="httpApplicationRoutingZoneName", type=String.class, parameters={})
+    @Export(name="httpApplicationRoutingZoneName", refs={String.class}, tree="[0]")
     private Output<String> httpApplicationRoutingZoneName;
 
     /**
@@ -348,7 +348,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `http_proxy_config` block as defined below.
      * 
      */
-    @Export(name="httpProxyConfig", type=KubernetesClusterHttpProxyConfig.class, parameters={})
+    @Export(name="httpProxyConfig", refs={KubernetesClusterHttpProxyConfig.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterHttpProxyConfig> httpProxyConfig;
 
     /**
@@ -362,7 +362,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
      * 
      */
-    @Export(name="identity", type=KubernetesClusterIdentity.class, parameters={})
+    @Export(name="identity", refs={KubernetesClusterIdentity.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterIdentity> identity;
 
     /**
@@ -376,7 +376,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Specifies whether Image Cleaner is enabled.
      * 
      */
-    @Export(name="imageCleanerEnabled", type=Boolean.class, parameters={})
+    @Export(name="imageCleanerEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> imageCleanerEnabled;
 
     /**
@@ -390,7 +390,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
      * 
      */
-    @Export(name="imageCleanerIntervalHours", type=Integer.class, parameters={})
+    @Export(name="imageCleanerIntervalHours", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> imageCleanerIntervalHours;
 
     /**
@@ -404,7 +404,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `ingress_application_gateway` block as defined below.
      * 
      */
-    @Export(name="ingressApplicationGateway", type=KubernetesClusterIngressApplicationGateway.class, parameters={})
+    @Export(name="ingressApplicationGateway", refs={KubernetesClusterIngressApplicationGateway.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterIngressApplicationGateway> ingressApplicationGateway;
 
     /**
@@ -418,7 +418,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
      * 
      */
-    @Export(name="keyManagementService", type=KubernetesClusterKeyManagementService.class, parameters={})
+    @Export(name="keyManagementService", refs={KubernetesClusterKeyManagementService.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterKeyManagementService> keyManagementService;
 
     /**
@@ -432,7 +432,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
      * 
      */
-    @Export(name="keyVaultSecretsProvider", type=KubernetesClusterKeyVaultSecretsProvider.class, parameters={})
+    @Export(name="keyVaultSecretsProvider", refs={KubernetesClusterKeyVaultSecretsProvider.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterKeyVaultSecretsProvider> keyVaultSecretsProvider;
 
     /**
@@ -446,7 +446,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
      * 
      */
-    @Export(name="kubeAdminConfigRaw", type=String.class, parameters={})
+    @Export(name="kubeAdminConfigRaw", refs={String.class}, tree="[0]")
     private Output<String> kubeAdminConfigRaw;
 
     /**
@@ -460,7 +460,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
      * 
      */
-    @Export(name="kubeAdminConfigs", type=List.class, parameters={KubernetesClusterKubeAdminConfig.class})
+    @Export(name="kubeAdminConfigs", refs={List.class,KubernetesClusterKubeAdminConfig.class}, tree="[0,1]")
     private Output<List<KubernetesClusterKubeAdminConfig>> kubeAdminConfigs;
 
     /**
@@ -474,7 +474,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
      * 
      */
-    @Export(name="kubeConfigRaw", type=String.class, parameters={})
+    @Export(name="kubeConfigRaw", refs={String.class}, tree="[0]")
     private Output<String> kubeConfigRaw;
 
     /**
@@ -488,7 +488,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `kube_config` block as defined below.
      * 
      */
-    @Export(name="kubeConfigs", type=List.class, parameters={KubernetesClusterKubeConfig.class})
+    @Export(name="kubeConfigs", refs={List.class,KubernetesClusterKubeConfig.class}, tree="[0,1]")
     private Output<List<KubernetesClusterKubeConfig>> kubeConfigs;
 
     /**
@@ -502,7 +502,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `kubelet_identity` block as defined below.
      * 
      */
-    @Export(name="kubeletIdentity", type=KubernetesClusterKubeletIdentity.class, parameters={})
+    @Export(name="kubeletIdentity", refs={KubernetesClusterKubeletIdentity.class}, tree="[0]")
     private Output<KubernetesClusterKubeletIdentity> kubeletIdentity;
 
     /**
@@ -516,7 +516,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      * 
      */
-    @Export(name="kubernetesVersion", type=String.class, parameters={})
+    @Export(name="kubernetesVersion", refs={String.class}, tree="[0]")
     private Output<String> kubernetesVersion;
 
     /**
@@ -530,7 +530,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `linux_profile` block as defined below.
      * 
      */
-    @Export(name="linuxProfile", type=KubernetesClusterLinuxProfile.class, parameters={})
+    @Export(name="linuxProfile", refs={KubernetesClusterLinuxProfile.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterLinuxProfile> linuxProfile;
 
     /**
@@ -544,7 +544,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      * 
      */
-    @Export(name="localAccountDisabled", type=Boolean.class, parameters={})
+    @Export(name="localAccountDisabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> localAccountDisabled;
 
     /**
@@ -558,7 +558,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -572,7 +572,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `maintenance_window` block as defined below.
      * 
      */
-    @Export(name="maintenanceWindow", type=KubernetesClusterMaintenanceWindow.class, parameters={})
+    @Export(name="maintenanceWindow", refs={KubernetesClusterMaintenanceWindow.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterMaintenanceWindow> maintenanceWindow;
 
     /**
@@ -586,7 +586,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `microsoft_defender` block as defined below.
      * 
      */
-    @Export(name="microsoftDefender", type=KubernetesClusterMicrosoftDefender.class, parameters={})
+    @Export(name="microsoftDefender", refs={KubernetesClusterMicrosoftDefender.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterMicrosoftDefender> microsoftDefender;
 
     /**
@@ -600,7 +600,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
      * 
      */
-    @Export(name="monitorMetrics", type=KubernetesClusterMonitorMetrics.class, parameters={})
+    @Export(name="monitorMetrics", refs={KubernetesClusterMonitorMetrics.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterMonitorMetrics> monitorMetrics;
 
     /**
@@ -614,7 +614,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -628,7 +628,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `network_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkProfile", type=KubernetesClusterNetworkProfile.class, parameters={})
+    @Export(name="networkProfile", refs={KubernetesClusterNetworkProfile.class}, tree="[0]")
     private Output<KubernetesClusterNetworkProfile> networkProfile;
 
     /**
@@ -642,7 +642,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="nodeResourceGroup", type=String.class, parameters={})
+    @Export(name="nodeResourceGroup", refs={String.class}, tree="[0]")
     private Output<String> nodeResourceGroup;
 
     /**
@@ -656,7 +656,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
      * 
      */
-    @Export(name="nodeResourceGroupId", type=String.class, parameters={})
+    @Export(name="nodeResourceGroupId", refs={String.class}, tree="[0]")
     private Output<String> nodeResourceGroupId;
 
     /**
@@ -670,7 +670,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
      * 
      */
-    @Export(name="oidcIssuerEnabled", type=Boolean.class, parameters={})
+    @Export(name="oidcIssuerEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> oidcIssuerEnabled;
 
     /**
@@ -684,7 +684,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * The OIDC issuer URL that is associated with the cluster.
      * 
      */
-    @Export(name="oidcIssuerUrl", type=String.class, parameters={})
+    @Export(name="oidcIssuerUrl", refs={String.class}, tree="[0]")
     private Output<String> oidcIssuerUrl;
 
     /**
@@ -698,7 +698,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `oms_agent` block as defined below.
      * 
      */
-    @Export(name="omsAgent", type=KubernetesClusterOmsAgent.class, parameters={})
+    @Export(name="omsAgent", refs={KubernetesClusterOmsAgent.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterOmsAgent> omsAgent;
 
     /**
@@ -712,7 +712,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
      * 
      */
-    @Export(name="openServiceMeshEnabled", type=Boolean.class, parameters={})
+    @Export(name="openServiceMeshEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> openServiceMeshEnabled;
 
     /**
@@ -726,7 +726,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      * 
      */
-    @Export(name="portalFqdn", type=String.class, parameters={})
+    @Export(name="portalFqdn", refs={String.class}, tree="[0]")
     private Output<String> portalFqdn;
 
     /**
@@ -740,7 +740,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="privateClusterEnabled", type=Boolean.class, parameters={})
+    @Export(name="privateClusterEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> privateClusterEnabled;
 
     /**
@@ -754,7 +754,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
      * 
      */
-    @Export(name="privateClusterPublicFqdnEnabled", type=Boolean.class, parameters={})
+    @Export(name="privateClusterPublicFqdnEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> privateClusterPublicFqdnEnabled;
 
     /**
@@ -768,7 +768,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="privateDnsZoneId", type=String.class, parameters={})
+    @Export(name="privateDnsZoneId", refs={String.class}, tree="[0]")
     private Output<String> privateDnsZoneId;
 
     /**
@@ -782,7 +782,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      * 
      */
-    @Export(name="privateFqdn", type=String.class, parameters={})
+    @Export(name="privateFqdn", refs={String.class}, tree="[0]")
     private Output<String> privateFqdn;
 
     /**
@@ -796,7 +796,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -810,7 +810,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -824,7 +824,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="roleBasedAccessControlEnabled", type=Boolean.class, parameters={})
+    @Export(name="roleBasedAccessControlEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> roleBasedAccessControlEnabled;
 
     /**
@@ -838,7 +838,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Whether to enable run command for the cluster or not. Defaults to `true`.
      * 
      */
-    @Export(name="runCommandEnabled", type=Boolean.class, parameters={})
+    @Export(name="runCommandEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> runCommandEnabled;
 
     /**
@@ -852,7 +852,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
      * 
      */
-    @Export(name="servicePrincipal", type=KubernetesClusterServicePrincipal.class, parameters={})
+    @Export(name="servicePrincipal", refs={KubernetesClusterServicePrincipal.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterServicePrincipal> servicePrincipal;
 
     /**
@@ -866,7 +866,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
      * 
      */
-    @Export(name="skuTier", type=String.class, parameters={})
+    @Export(name="skuTier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> skuTier;
 
     /**
@@ -880,7 +880,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `storage_profile` block as defined below.
      * 
      */
-    @Export(name="storageProfile", type=KubernetesClusterStorageProfile.class, parameters={})
+    @Export(name="storageProfile", refs={KubernetesClusterStorageProfile.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterStorageProfile> storageProfile;
 
     /**
@@ -894,7 +894,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -908,7 +908,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `web_app_routing` block as defined below.
      * 
      */
-    @Export(name="webAppRouting", type=KubernetesClusterWebAppRouting.class, parameters={})
+    @Export(name="webAppRouting", refs={KubernetesClusterWebAppRouting.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterWebAppRouting> webAppRouting;
 
     /**
@@ -922,7 +922,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `windows_profile` block as defined below.
      * 
      */
-    @Export(name="windowsProfile", type=KubernetesClusterWindowsProfile.class, parameters={})
+    @Export(name="windowsProfile", refs={KubernetesClusterWindowsProfile.class}, tree="[0]")
     private Output<KubernetesClusterWindowsProfile> windowsProfile;
 
     /**
@@ -936,7 +936,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * A `workload_autoscaler_profile` block defined below.
      * 
      */
-    @Export(name="workloadAutoscalerProfile", type=KubernetesClusterWorkloadAutoscalerProfile.class, parameters={})
+    @Export(name="workloadAutoscalerProfile", refs={KubernetesClusterWorkloadAutoscalerProfile.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterWorkloadAutoscalerProfile> workloadAutoscalerProfile;
 
     /**
@@ -950,7 +950,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
      * 
      */
-    @Export(name="workloadIdentityEnabled", type=Boolean.class, parameters={})
+    @Export(name="workloadIdentityEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> workloadIdentityEnabled;
 
     /**

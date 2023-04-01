@@ -14,6 +14,14 @@ namespace Pulumi.Azure.MySql.Outputs
     public sealed class FlexibleServerCustomerManagedKey
     {
         /// <summary>
+        /// The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+        /// </summary>
+        public readonly string? GeoBackupKeyVaultKeyId;
+        /// <summary>
+        /// The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
+        /// </summary>
+        public readonly string? GeoBackupUserAssignedIdentityId;
+        /// <summary>
         /// The ID of the Key Vault Key.
         /// </summary>
         public readonly string? KeyVaultKeyId;
@@ -24,10 +32,16 @@ namespace Pulumi.Azure.MySql.Outputs
 
         [OutputConstructor]
         private FlexibleServerCustomerManagedKey(
+            string? geoBackupKeyVaultKeyId,
+
+            string? geoBackupUserAssignedIdentityId,
+
             string? keyVaultKeyId,
 
             string? primaryUserAssignedIdentityId)
         {
+            GeoBackupKeyVaultKeyId = geoBackupKeyVaultKeyId;
+            GeoBackupUserAssignedIdentityId = geoBackupUserAssignedIdentityId;
             KeyVaultKeyId = keyVaultKeyId;
             PrimaryUserAssignedIdentityId = primaryUserAssignedIdentityId;
         }

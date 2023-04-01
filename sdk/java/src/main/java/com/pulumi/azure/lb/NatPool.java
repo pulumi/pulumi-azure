@@ -100,7 +100,7 @@ public class NatPool extends com.pulumi.resources.CustomResource {
      * The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
      * 
      */
-    @Export(name="backendPort", type=Integer.class, parameters={})
+    @Export(name="backendPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> backendPort;
 
     /**
@@ -114,7 +114,7 @@ public class NatPool extends com.pulumi.resources.CustomResource {
      * Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group.
      * 
      */
-    @Export(name="floatingIpEnabled", type=Boolean.class, parameters={})
+    @Export(name="floatingIpEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> floatingIpEnabled;
 
     /**
@@ -124,7 +124,7 @@ public class NatPool extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> floatingIpEnabled() {
         return Codegen.optional(this.floatingIpEnabled);
     }
-    @Export(name="frontendIpConfigurationId", type=String.class, parameters={})
+    @Export(name="frontendIpConfigurationId", refs={String.class}, tree="[0]")
     private Output<String> frontendIpConfigurationId;
 
     public Output<String> frontendIpConfigurationId() {
@@ -134,7 +134,7 @@ public class NatPool extends com.pulumi.resources.CustomResource {
      * The name of the frontend IP configuration exposing this rule.
      * 
      */
-    @Export(name="frontendIpConfigurationName", type=String.class, parameters={})
+    @Export(name="frontendIpConfigurationName", refs={String.class}, tree="[0]")
     private Output<String> frontendIpConfigurationName;
 
     /**
@@ -148,7 +148,7 @@ public class NatPool extends com.pulumi.resources.CustomResource {
      * The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
      * 
      */
-    @Export(name="frontendPortEnd", type=Integer.class, parameters={})
+    @Export(name="frontendPortEnd", refs={Integer.class}, tree="[0]")
     private Output<Integer> frontendPortEnd;
 
     /**
@@ -162,7 +162,7 @@ public class NatPool extends com.pulumi.resources.CustomResource {
      * The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
      * 
      */
-    @Export(name="frontendPortStart", type=Integer.class, parameters={})
+    @Export(name="frontendPortStart", refs={Integer.class}, tree="[0]")
     private Output<Integer> frontendPortStart;
 
     /**
@@ -176,7 +176,7 @@ public class NatPool extends com.pulumi.resources.CustomResource {
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
      * 
      */
-    @Export(name="idleTimeoutInMinutes", type=Integer.class, parameters={})
+    @Export(name="idleTimeoutInMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> idleTimeoutInMinutes;
 
     /**
@@ -190,7 +190,7 @@ public class NatPool extends com.pulumi.resources.CustomResource {
      * The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="loadbalancerId", type=String.class, parameters={})
+    @Export(name="loadbalancerId", refs={String.class}, tree="[0]")
     private Output<String> loadbalancerId;
 
     /**
@@ -204,7 +204,7 @@ public class NatPool extends com.pulumi.resources.CustomResource {
      * Specifies the name of the NAT pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -218,7 +218,7 @@ public class NatPool extends com.pulumi.resources.CustomResource {
      * The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
      * 
      */
-    @Export(name="protocol", type=String.class, parameters={})
+    @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
@@ -232,7 +232,7 @@ public class NatPool extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -246,7 +246,7 @@ public class NatPool extends com.pulumi.resources.CustomResource {
      * Is TCP Reset enabled for this Load Balancer Rule?
      * 
      */
-    @Export(name="tcpResetEnabled", type=Boolean.class, parameters={})
+    @Export(name="tcpResetEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> tcpResetEnabled;
 
     /**

@@ -106,7 +106,8 @@ import javax.annotation.Nullable;
  *                 &#34;Get&#34;,
  *                 &#34;List&#34;,
  *                 &#34;Purge&#34;,
- *                 &#34;Recover&#34;)
+ *                 &#34;Recover&#34;,
+ *                 &#34;GetRotationPolicy&#34;)
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
@@ -150,7 +151,7 @@ public class NamespaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      * The ID of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventhubNamespaceId", type=String.class, parameters={})
+    @Export(name="eventhubNamespaceId", refs={String.class}, tree="[0]")
     private Output<String> eventhubNamespaceId;
 
     /**
@@ -164,7 +165,7 @@ public class NamespaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      * The list of keys of Key Vault.
      * 
      */
-    @Export(name="keyVaultKeyIds", type=List.class, parameters={String.class})
+    @Export(name="keyVaultKeyIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> keyVaultKeyIds;
 
     /**

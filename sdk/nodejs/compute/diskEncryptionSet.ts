@@ -41,6 +41,7 @@ import * as utilities from "../utilities";
  *         "List",
  *         "Decrypt",
  *         "Sign",
+ *         "GetRotationPolicy",
  *     ],
  * });
  * const exampleKey = new azure.keyvault.Key("exampleKey", {

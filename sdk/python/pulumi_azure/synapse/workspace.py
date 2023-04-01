@@ -809,6 +809,7 @@ class Workspace(pulumi.CustomResource):
                 "Get",
                 "Delete",
                 "Purge",
+                "GetRotationPolicy",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,
@@ -963,6 +964,7 @@ class Workspace(pulumi.CustomResource):
                 "Get",
                 "Delete",
                 "Purge",
+                "GetRotationPolicy",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,

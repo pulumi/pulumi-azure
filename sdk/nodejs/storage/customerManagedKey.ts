@@ -71,6 +71,7 @@ import * as utilities from "../utilities";
  *         "Decrypt",
  *         "Sign",
  *         "Verify",
+ *         "GetRotationPolicy",
  *     ],
  *     secretPermissions: ["Get"],
  * });

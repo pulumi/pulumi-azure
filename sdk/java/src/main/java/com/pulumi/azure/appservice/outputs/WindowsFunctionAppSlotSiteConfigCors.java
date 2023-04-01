@@ -17,7 +17,7 @@ public final class WindowsFunctionAppSlotSiteConfigCors {
      * @return an `allowed_origins` block as detailed below.
      * 
      */
-    private List<String> allowedOrigins;
+    private @Nullable List<String> allowedOrigins;
     /**
      * @return Are credentials allowed in CORS requests? Defaults to `false`.
      * 
@@ -30,7 +30,7 @@ public final class WindowsFunctionAppSlotSiteConfigCors {
      * 
      */
     public List<String> allowedOrigins() {
-        return this.allowedOrigins;
+        return this.allowedOrigins == null ? List.of() : this.allowedOrigins;
     }
     /**
      * @return Are credentials allowed in CORS requests? Defaults to `false`.
@@ -49,7 +49,7 @@ public final class WindowsFunctionAppSlotSiteConfigCors {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> allowedOrigins;
+        private @Nullable List<String> allowedOrigins;
         private @Nullable Boolean supportCredentials;
         public Builder() {}
         public Builder(WindowsFunctionAppSlotSiteConfigCors defaults) {
@@ -59,8 +59,8 @@ public final class WindowsFunctionAppSlotSiteConfigCors {
         }
 
         @CustomType.Setter
-        public Builder allowedOrigins(List<String> allowedOrigins) {
-            this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
+        public Builder allowedOrigins(@Nullable List<String> allowedOrigins) {
+            this.allowedOrigins = allowedOrigins;
             return this;
         }
         public Builder allowedOrigins(String... allowedOrigins) {

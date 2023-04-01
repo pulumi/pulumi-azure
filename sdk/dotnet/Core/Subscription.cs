@@ -18,6 +18,8 @@ namespace Pulumi.Azure.Core
     /// 
     /// &gt; **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in this provider only a single Alias is supported.
     /// 
+    /// &gt; **NOTE:** When using this resource across tenants the `client_id` and `tenant_id` of the `provider` config block should be for the home tenant details for the SPN / User or a permissions error will likely be encountered. See [the official documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/programmatically-create-subscription) for more details.
+    /// 
     /// ## Example Usage
     /// ### Creating A New Alias And Subscription For An Enrollment Account
     /// 

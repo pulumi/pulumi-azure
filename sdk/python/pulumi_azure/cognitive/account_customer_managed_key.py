@@ -153,7 +153,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             sku_name="E0",
             custom_subdomain_name="example-account",
             identity=azure.cognitive.AccountIdentityArgs(
-                type="SystemAssigned, UserAssigned",
+                type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
@@ -199,6 +199,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                         "Decrypt",
                         "Sign",
                         "Verify",
+                        "GetRotationPolicy",
                     ],
                     secret_permissions=["Get"],
                 ),
@@ -284,7 +285,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             sku_name="E0",
             custom_subdomain_name="example-account",
             identity=azure.cognitive.AccountIdentityArgs(
-                type="SystemAssigned, UserAssigned",
+                type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
@@ -330,6 +331,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                         "Decrypt",
                         "Sign",
                         "Verify",
+                        "GetRotationPolicy",
                     ],
                     secret_permissions=["Get"],
                 ),

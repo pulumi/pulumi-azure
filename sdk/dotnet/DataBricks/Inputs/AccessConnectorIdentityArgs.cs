@@ -12,20 +12,32 @@ namespace Pulumi.Azure.DataBricks.Inputs
 
     public sealed class AccessConnectorIdentityArgs : global::Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+
         /// <summary>
-        /// The Principal ID associated with this system-assigned managed identity.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
+        /// <summary>
+        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The Tenant ID associated with this system-assigned managed identity.
+        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+        /// Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

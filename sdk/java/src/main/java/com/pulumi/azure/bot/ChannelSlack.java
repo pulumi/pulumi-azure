@@ -88,7 +88,7 @@ public class ChannelSlack extends com.pulumi.resources.CustomResource {
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="botName", type=String.class, parameters={})
+    @Export(name="botName", refs={String.class}, tree="[0]")
     private Output<String> botName;
 
     /**
@@ -102,7 +102,7 @@ public class ChannelSlack extends com.pulumi.resources.CustomResource {
      * The Client ID that will be used to authenticate with Slack.
      * 
      */
-    @Export(name="clientId", type=String.class, parameters={})
+    @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output<String> clientId;
 
     /**
@@ -116,7 +116,7 @@ public class ChannelSlack extends com.pulumi.resources.CustomResource {
      * The Client Secret that will be used to authenticate with Slack.
      * 
      */
-    @Export(name="clientSecret", type=String.class, parameters={})
+    @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output<String> clientSecret;
 
     /**
@@ -130,7 +130,7 @@ public class ChannelSlack extends com.pulumi.resources.CustomResource {
      * The Slack Landing Page URL.
      * 
      */
-    @Export(name="landingPageUrl", type=String.class, parameters={})
+    @Export(name="landingPageUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> landingPageUrl;
 
     /**
@@ -144,7 +144,7 @@ public class ChannelSlack extends com.pulumi.resources.CustomResource {
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -158,7 +158,7 @@ public class ChannelSlack extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -172,7 +172,7 @@ public class ChannelSlack extends com.pulumi.resources.CustomResource {
      * The Signing Secret that will be used to sign the requests.
      * 
      */
-    @Export(name="signingSecret", type=String.class, parameters={})
+    @Export(name="signingSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signingSecret;
 
     /**
@@ -186,7 +186,7 @@ public class ChannelSlack extends com.pulumi.resources.CustomResource {
      * The Verification Token that will be used to authenticate with Slack.
      * 
      */
-    @Export(name="verificationToken", type=String.class, parameters={})
+    @Export(name="verificationToken", refs={String.class}, tree="[0]")
     private Output<String> verificationToken;
 
     /**

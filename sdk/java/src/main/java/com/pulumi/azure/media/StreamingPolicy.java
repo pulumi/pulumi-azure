@@ -157,7 +157,7 @@ public class StreamingPolicy extends com.pulumi.resources.CustomResource {
      * A `common_encryption_cbcs` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    @Export(name="commonEncryptionCbcs", type=StreamingPolicyCommonEncryptionCbcs.class, parameters={})
+    @Export(name="commonEncryptionCbcs", refs={StreamingPolicyCommonEncryptionCbcs.class}, tree="[0]")
     private Output</* @Nullable */ StreamingPolicyCommonEncryptionCbcs> commonEncryptionCbcs;
 
     /**
@@ -171,7 +171,7 @@ public class StreamingPolicy extends com.pulumi.resources.CustomResource {
      * A `common_encryption_cenc` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    @Export(name="commonEncryptionCenc", type=StreamingPolicyCommonEncryptionCenc.class, parameters={})
+    @Export(name="commonEncryptionCenc", refs={StreamingPolicyCommonEncryptionCenc.class}, tree="[0]")
     private Output</* @Nullable */ StreamingPolicyCommonEncryptionCenc> commonEncryptionCenc;
 
     /**
@@ -185,7 +185,7 @@ public class StreamingPolicy extends com.pulumi.resources.CustomResource {
      * Default Content Key used by current Streaming Policy. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    @Export(name="defaultContentKeyPolicyName", type=String.class, parameters={})
+    @Export(name="defaultContentKeyPolicyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultContentKeyPolicyName;
 
     /**
@@ -199,7 +199,7 @@ public class StreamingPolicy extends com.pulumi.resources.CustomResource {
      * A `envelope_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    @Export(name="envelopeEncryption", type=StreamingPolicyEnvelopeEncryption.class, parameters={})
+    @Export(name="envelopeEncryption", refs={StreamingPolicyEnvelopeEncryption.class}, tree="[0]")
     private Output</* @Nullable */ StreamingPolicyEnvelopeEncryption> envelopeEncryption;
 
     /**
@@ -213,7 +213,7 @@ public class StreamingPolicy extends com.pulumi.resources.CustomResource {
      * The Media Services account name. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    @Export(name="mediaServicesAccountName", type=String.class, parameters={})
+    @Export(name="mediaServicesAccountName", refs={String.class}, tree="[0]")
     private Output<String> mediaServicesAccountName;
 
     /**
@@ -227,7 +227,7 @@ public class StreamingPolicy extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Streaming Policy. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -241,7 +241,7 @@ public class StreamingPolicy extends com.pulumi.resources.CustomResource {
      * A `no_encryption_enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    @Export(name="noEncryptionEnabledProtocols", type=StreamingPolicyNoEncryptionEnabledProtocols.class, parameters={})
+    @Export(name="noEncryptionEnabledProtocols", refs={StreamingPolicyNoEncryptionEnabledProtocols.class}, tree="[0]")
     private Output</* @Nullable */ StreamingPolicyNoEncryptionEnabledProtocols> noEncryptionEnabledProtocols;
 
     /**
@@ -255,7 +255,7 @@ public class StreamingPolicy extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Streaming Policy should exist. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

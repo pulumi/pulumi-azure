@@ -91,6 +91,7 @@ namespace Pulumi.Azure.MySql
     ///             "Decrypt",
     ///             "Sign",
     ///             "Verify",
+    ///             "GetRotationPolicy",
     ///         },
     ///         SecretPermissions = new[]
     ///         {

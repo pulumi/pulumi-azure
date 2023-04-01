@@ -88,6 +88,7 @@ import (
 //					pulumi.String("Create"),
 //					pulumi.String("Delete"),
 //					pulumi.String("Recover"),
+//					pulumi.String("GetRotationPolicy"),
 //				},
 //			})
 //			if err != nil {

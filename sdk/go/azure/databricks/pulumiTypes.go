@@ -11,11 +11,13 @@ import (
 )
 
 type AccessConnectorIdentity struct {
-	// The Principal ID associated with this system-assigned managed identity.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 	PrincipalId *string `pulumi:"principalId"`
-	// The Tenant ID associated with this system-assigned managed identity.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 	TenantId *string `pulumi:"tenantId"`
-	// The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+	// Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -31,11 +33,13 @@ type AccessConnectorIdentityInput interface {
 }
 
 type AccessConnectorIdentityArgs struct {
-	// The Principal ID associated with this system-assigned managed identity.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The Tenant ID associated with this system-assigned managed identity.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+	// Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -116,17 +120,22 @@ func (o AccessConnectorIdentityOutput) ToAccessConnectorIdentityPtrOutputWithCon
 	}).(AccessConnectorIdentityPtrOutput)
 }
 
-// The Principal ID associated with this system-assigned managed identity.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+func (o AccessConnectorIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessConnectorIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 func (o AccessConnectorIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessConnectorIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID associated with this system-assigned managed identity.
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 func (o AccessConnectorIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessConnectorIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+// Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
 func (o AccessConnectorIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessConnectorIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -155,7 +164,17 @@ func (o AccessConnectorIdentityPtrOutput) Elem() AccessConnectorIdentityOutput {
 	}).(AccessConnectorIdentityOutput)
 }
 
-// The Principal ID associated with this system-assigned managed identity.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+func (o AccessConnectorIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccessConnectorIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 func (o AccessConnectorIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessConnectorIdentity) *string {
 		if v == nil {
@@ -165,7 +184,7 @@ func (o AccessConnectorIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID associated with this system-assigned managed identity.
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 func (o AccessConnectorIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessConnectorIdentity) *string {
 		if v == nil {
@@ -175,7 +194,7 @@ func (o AccessConnectorIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+// Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
 func (o AccessConnectorIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessConnectorIdentity) *string {
 		if v == nil {

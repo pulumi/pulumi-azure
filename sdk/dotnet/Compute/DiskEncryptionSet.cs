@@ -56,6 +56,7 @@ namespace Pulumi.Azure.Compute
     ///             "List",
     ///             "Decrypt",
     ///             "Sign",
+    ///             "GetRotationPolicy",
     ///         },
     ///     });
     /// 

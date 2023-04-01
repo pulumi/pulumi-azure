@@ -86,7 +86,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      * 
      */
-    @Export(name="listen", type=Boolean.class, parameters={})
+    @Export(name="listen", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> listen;
 
     /**
@@ -100,7 +100,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      * 
      */
-    @Export(name="manage", type=Boolean.class, parameters={})
+    @Export(name="manage", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manage;
 
     /**
@@ -114,7 +114,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="namespaceId", type=String.class, parameters={})
+    @Export(name="namespaceId", refs={String.class}, tree="[0]")
     private Output<String> namespaceId;
 
     /**
@@ -142,7 +142,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * The Primary Connection String for the ServiceBus Namespace authorization Rule.
      * 
      */
-    @Export(name="primaryConnectionString", type=String.class, parameters={})
+    @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> primaryConnectionString;
 
     /**
@@ -156,7 +156,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
      * 
      */
-    @Export(name="primaryConnectionStringAlias", type=String.class, parameters={})
+    @Export(name="primaryConnectionStringAlias", refs={String.class}, tree="[0]")
     private Output<String> primaryConnectionStringAlias;
 
     /**
@@ -170,7 +170,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * The Primary Key for the ServiceBus Namespace authorization Rule.
      * 
      */
-    @Export(name="primaryKey", type=String.class, parameters={})
+    @Export(name="primaryKey", refs={String.class}, tree="[0]")
     private Output<String> primaryKey;
 
     /**
@@ -184,7 +184,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * The Secondary Connection String for the ServiceBus Namespace authorization Rule.
      * 
      */
-    @Export(name="secondaryConnectionString", type=String.class, parameters={})
+    @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
     private Output<String> secondaryConnectionString;
 
     /**
@@ -198,7 +198,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * The alias Secondary Connection String for the ServiceBus Namespace
      * 
      */
-    @Export(name="secondaryConnectionStringAlias", type=String.class, parameters={})
+    @Export(name="secondaryConnectionStringAlias", refs={String.class}, tree="[0]")
     private Output<String> secondaryConnectionStringAlias;
 
     /**
@@ -212,7 +212,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * The Secondary Key for the ServiceBus Namespace authorization Rule.
      * 
      */
-    @Export(name="secondaryKey", type=String.class, parameters={})
+    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
     private Output<String> secondaryKey;
 
     /**
@@ -226,7 +226,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * Grants send access to this this Authorization Rule. Defaults to `false`.
      * 
      */
-    @Export(name="send", type=Boolean.class, parameters={})
+    @Export(name="send", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> send;
 
     /**

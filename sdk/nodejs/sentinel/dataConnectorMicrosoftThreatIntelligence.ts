@@ -19,16 +19,11 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "PerGB2018",
  * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     workspaceName: exampleAnalyticsWorkspace.name,
- * });
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {workspaceId: exampleAnalyticsWorkspace.id});
  * const exampleDataConnectorMicrosoftThreatIntelligence = new azure.sentinel.DataConnectorMicrosoftThreatIntelligence("exampleDataConnectorMicrosoftThreatIntelligence", {
- *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
+ *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
  *     bingSafetyPhishingUrlLookbackDate: "1970-01-01T00:00:00Z",
  *     microsoftEmergingThreatFeedLookbackDate: "1970-01-01T00:00:00Z",
- * }, {
- *     dependsOn: [azurerm_sentinel_log_analytics_workspace_onboarding.test],
  * });
  * ```
  *

@@ -241,6 +241,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                 "Create",
                 "Delete",
                 "Recover",
+                "GetRotationPolicy",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,
@@ -333,6 +334,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                 "Create",
                 "Delete",
                 "Recover",
+                "GetRotationPolicy",
             ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,

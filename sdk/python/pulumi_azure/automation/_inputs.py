@@ -45,10 +45,12 @@ class AccountEncryptionArgs:
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
-        :param pulumi.Input[str] key_source: The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
         :param pulumi.Input[str] user_assigned_identity_id: The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_source is not None:
+            warnings.warn("""This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption""", DeprecationWarning)
+            pulumi.log.warn("""key_source is deprecated: This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption""")
         if key_source is not None:
             pulumi.set(__self__, "key_source", key_source)
         if user_assigned_identity_id is not None:
@@ -69,9 +71,6 @@ class AccountEncryptionArgs:
     @property
     @pulumi.getter(name="keySource")
     def key_source(self) -> Optional[pulumi.Input[str]]:
-        """
-        The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
-        """
         return pulumi.get(self, "key_source")
 
     @key_source.setter

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.AppService.Inputs
 
     public sealed class WindowsFunctionAppSlotSiteConfigCorsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("allowedOrigins", required: true)]
+        [Input("allowedOrigins")]
         private InputList<string>? _allowedOrigins;
 
         /// <summary>

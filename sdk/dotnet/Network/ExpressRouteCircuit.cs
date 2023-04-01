@@ -65,6 +65,12 @@ namespace Pulumi.Azure.Network
         public Output<bool?> AllowClassicOperations { get; private set; } = null!;
 
         /// <summary>
+        /// The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+        /// </summary>
+        [Output("authorizationKey")]
+        public Output<string?> AuthorizationKey { get; private set; } = null!;
+
+        /// <summary>
         /// The bandwidth in Gbps of the circuit being created on the Express Route Port.
         /// </summary>
         [Output("bandwidthInGbps")]
@@ -161,6 +167,7 @@ namespace Pulumi.Azure.Network
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "authorizationKey",
                     "serviceKey",
                 },
             };
@@ -191,6 +198,22 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("allowClassicOperations")]
         public Input<bool>? AllowClassicOperations { get; set; }
+
+        [Input("authorizationKey")]
+        private Input<string>? _authorizationKey;
+
+        /// <summary>
+        /// The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+        /// </summary>
+        public Input<string>? AuthorizationKey
+        {
+            get => _authorizationKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _authorizationKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The bandwidth in Gbps of the circuit being created on the Express Route Port.
@@ -271,6 +294,22 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("allowClassicOperations")]
         public Input<bool>? AllowClassicOperations { get; set; }
+
+        [Input("authorizationKey")]
+        private Input<string>? _authorizationKey;
+
+        /// <summary>
+        /// The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+        /// </summary>
+        public Input<string>? AuthorizationKey
+        {
+            get => _authorizationKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _authorizationKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The bandwidth in Gbps of the circuit being created on the Express Route Port.

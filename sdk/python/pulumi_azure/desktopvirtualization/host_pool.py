@@ -33,7 +33,7 @@ class HostPoolArgs:
                  validate_environment: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a HostPool resource.
-        :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
                `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
                `Persistent` should be used if the host pool type is `Personal`
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
@@ -84,7 +84,7 @@ class HostPoolArgs:
     @pulumi.getter(name="loadBalancerType")
     def load_balancer_type(self) -> pulumi.Input[str]:
         """
-        `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
+        `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
         `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
         `Persistent` should be used if the host pool type is `Personal`
         """
@@ -287,7 +287,7 @@ class _HostPoolState:
         :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         :param pulumi.Input[str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
-        :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
                `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
                `Persistent` should be used if the host pool type is `Personal`
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
@@ -374,7 +374,7 @@ class _HostPoolState:
     @pulumi.getter(name="loadBalancerType")
     def load_balancer_type(self) -> Optional[pulumi.Input[str]]:
         """
-        `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
+        `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
         `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
         `Persistent` should be used if the host pool type is `Personal`
         """
@@ -582,7 +582,7 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         :param pulumi.Input[str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
-        :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
                `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
                `Persistent` should be used if the host pool type is `Personal`
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
@@ -737,7 +737,7 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
         :param pulumi.Input[str] description: A description for the Virtual Desktop Host Pool.
         :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
-        :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
                `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
                `Persistent` should be used if the host pool type is `Personal`
         :param pulumi.Input[str] location: The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
@@ -802,7 +802,7 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter(name="loadBalancerType")
     def load_balancer_type(self) -> pulumi.Output[str]:
         """
-        `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`. Changing this forces a new resource to be created.
+        `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
         `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
         `Persistent` should be used if the host pool type is `Personal`
         """

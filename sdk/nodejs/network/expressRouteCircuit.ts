@@ -73,6 +73,10 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      */
     public readonly allowClassicOperations!: pulumi.Output<boolean | undefined>;
     /**
+     * The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+     */
+    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    /**
      * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      */
     public readonly bandwidthInGbps!: pulumi.Output<number | undefined>;
@@ -135,6 +139,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ExpressRouteCircuitState | undefined;
             resourceInputs["allowClassicOperations"] = state ? state.allowClassicOperations : undefined;
+            resourceInputs["authorizationKey"] = state ? state.authorizationKey : undefined;
             resourceInputs["bandwidthInGbps"] = state ? state.bandwidthInGbps : undefined;
             resourceInputs["bandwidthInMbps"] = state ? state.bandwidthInMbps : undefined;
             resourceInputs["expressRoutePortId"] = state ? state.expressRoutePortId : undefined;
@@ -156,6 +161,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
+            resourceInputs["authorizationKey"] = args?.authorizationKey ? pulumi.secret(args.authorizationKey) : undefined;
             resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
             resourceInputs["bandwidthInMbps"] = args ? args.bandwidthInMbps : undefined;
             resourceInputs["expressRoutePortId"] = args ? args.expressRoutePortId : undefined;
@@ -170,7 +176,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             resourceInputs["serviceProviderProvisioningState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["serviceKey"] };
+        const secretOpts = { additionalSecretOutputs: ["authorizationKey", "serviceKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ExpressRouteCircuit.__pulumiType, name, resourceInputs, opts);
     }
@@ -184,6 +190,10 @@ export interface ExpressRouteCircuitState {
      * Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
      */
     allowClassicOperations?: pulumi.Input<boolean>;
+    /**
+     * The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+     */
+    authorizationKey?: pulumi.Input<string>;
     /**
      * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      */
@@ -242,6 +252,10 @@ export interface ExpressRouteCircuitArgs {
      * Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
      */
     allowClassicOperations?: pulumi.Input<boolean>;
+    /**
+     * The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+     */
+    authorizationKey?: pulumi.Input<string>;
     /**
      * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      */

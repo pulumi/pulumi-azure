@@ -114,7 +114,7 @@ public class SqlPoolWorkloadGroup extends com.pulumi.resources.CustomResource {
      * The workload group importance level. Defaults to `normal`.
      * 
      */
-    @Export(name="importance", type=String.class, parameters={})
+    @Export(name="importance", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> importance;
 
     /**
@@ -128,7 +128,7 @@ public class SqlPoolWorkloadGroup extends com.pulumi.resources.CustomResource {
      * The workload group cap percentage resource.
      * 
      */
-    @Export(name="maxResourcePercent", type=Integer.class, parameters={})
+    @Export(name="maxResourcePercent", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxResourcePercent;
 
     /**
@@ -142,7 +142,7 @@ public class SqlPoolWorkloadGroup extends com.pulumi.resources.CustomResource {
      * The workload group request maximum grant percentage. Defaults to `3`.
      * 
      */
-    @Export(name="maxResourcePercentPerRequest", type=Double.class, parameters={})
+    @Export(name="maxResourcePercentPerRequest", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> maxResourcePercentPerRequest;
 
     /**
@@ -156,7 +156,7 @@ public class SqlPoolWorkloadGroup extends com.pulumi.resources.CustomResource {
      * The workload group minimum percentage resource.
      * 
      */
-    @Export(name="minResourcePercent", type=Integer.class, parameters={})
+    @Export(name="minResourcePercent", refs={Integer.class}, tree="[0]")
     private Output<Integer> minResourcePercent;
 
     /**
@@ -170,7 +170,7 @@ public class SqlPoolWorkloadGroup extends com.pulumi.resources.CustomResource {
      * The workload group request minimum grant percentage.
      * 
      */
-    @Export(name="minResourcePercentPerRequest", type=Double.class, parameters={})
+    @Export(name="minResourcePercentPerRequest", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> minResourcePercentPerRequest;
 
     /**
@@ -184,7 +184,7 @@ public class SqlPoolWorkloadGroup extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -198,7 +198,7 @@ public class SqlPoolWorkloadGroup extends com.pulumi.resources.CustomResource {
      * The workload group query execution timeout.
      * 
      */
-    @Export(name="queryExecutionTimeoutInSeconds", type=Integer.class, parameters={})
+    @Export(name="queryExecutionTimeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> queryExecutionTimeoutInSeconds;
 
     /**
@@ -212,7 +212,7 @@ public class SqlPoolWorkloadGroup extends com.pulumi.resources.CustomResource {
      * The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
      * 
      */
-    @Export(name="sqlPoolId", type=String.class, parameters={})
+    @Export(name="sqlPoolId", refs={String.class}, tree="[0]")
     private Output<String> sqlPoolId;
 
     /**

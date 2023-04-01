@@ -63,7 +63,7 @@ public class HybridRunbookWorkerGroup extends com.pulumi.resources.CustomResourc
      * The name of the Automation Account in which the Runbook Worker Group is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", type=String.class, parameters={})
+    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
     private Output<String> automationAccountName;
 
     /**
@@ -77,7 +77,7 @@ public class HybridRunbookWorkerGroup extends com.pulumi.resources.CustomResourc
      * The name of resource type `azure.automation.Credential` to use for hybrid worker.
      * 
      */
-    @Export(name="credentialName", type=String.class, parameters={})
+    @Export(name="credentialName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> credentialName;
 
     /**
@@ -91,7 +91,7 @@ public class HybridRunbookWorkerGroup extends com.pulumi.resources.CustomResourc
      * The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -105,7 +105,7 @@ public class HybridRunbookWorkerGroup extends com.pulumi.resources.CustomResourc
      * The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

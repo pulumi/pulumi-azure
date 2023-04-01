@@ -81,7 +81,7 @@ public class DataSourceWindowsPerformanceCounter extends com.pulumi.resources.Cu
      * The friendly name of the performance counter.
      * 
      */
-    @Export(name="counterName", type=String.class, parameters={})
+    @Export(name="counterName", refs={String.class}, tree="[0]")
     private Output<String> counterName;
 
     /**
@@ -95,7 +95,7 @@ public class DataSourceWindowsPerformanceCounter extends com.pulumi.resources.Cu
      * The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
      * 
      */
-    @Export(name="instanceName", type=String.class, parameters={})
+    @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
     /**
@@ -109,7 +109,7 @@ public class DataSourceWindowsPerformanceCounter extends com.pulumi.resources.Cu
      * The time of sample interval in seconds. Supports values between 10 and 2147483647.
      * 
      */
-    @Export(name="intervalSeconds", type=Integer.class, parameters={})
+    @Export(name="intervalSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> intervalSeconds;
 
     /**
@@ -123,7 +123,7 @@ public class DataSourceWindowsPerformanceCounter extends com.pulumi.resources.Cu
      * The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -137,7 +137,7 @@ public class DataSourceWindowsPerformanceCounter extends com.pulumi.resources.Cu
      * The object name of the Log Analytics Windows Performance Counter DataSource.
      * 
      */
-    @Export(name="objectName", type=String.class, parameters={})
+    @Export(name="objectName", refs={String.class}, tree="[0]")
     private Output<String> objectName;
 
     /**
@@ -151,7 +151,7 @@ public class DataSourceWindowsPerformanceCounter extends com.pulumi.resources.Cu
      * The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -165,7 +165,7 @@ public class DataSourceWindowsPerformanceCounter extends com.pulumi.resources.Cu
      * The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      * 
      */
-    @Export(name="workspaceName", type=String.class, parameters={})
+    @Export(name="workspaceName", refs={String.class}, tree="[0]")
     private Output<String> workspaceName;
 
     /**

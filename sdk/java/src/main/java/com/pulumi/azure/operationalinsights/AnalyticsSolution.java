@@ -94,7 +94,7 @@ public class AnalyticsSolution extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -108,7 +108,7 @@ public class AnalyticsSolution extends com.pulumi.resources.CustomResource {
      * A `plan` block as documented below.
      * 
      */
-    @Export(name="plan", type=AnalyticsSolutionPlan.class, parameters={})
+    @Export(name="plan", refs={AnalyticsSolutionPlan.class}, tree="[0]")
     private Output<AnalyticsSolutionPlan> plan;
 
     /**
@@ -122,7 +122,7 @@ public class AnalyticsSolution extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -136,7 +136,7 @@ public class AnalyticsSolution extends com.pulumi.resources.CustomResource {
      * Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="solutionName", type=String.class, parameters={})
+    @Export(name="solutionName", refs={String.class}, tree="[0]")
     private Output<String> solutionName;
 
     /**
@@ -150,7 +150,7 @@ public class AnalyticsSolution extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -164,7 +164,7 @@ public class AnalyticsSolution extends com.pulumi.resources.CustomResource {
      * The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="workspaceName", type=String.class, parameters={})
+    @Export(name="workspaceName", refs={String.class}, tree="[0]")
     private Output<String> workspaceName;
 
     /**
@@ -178,7 +178,7 @@ public class AnalyticsSolution extends com.pulumi.resources.CustomResource {
      * The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="workspaceResourceId", type=String.class, parameters={})
+    @Export(name="workspaceResourceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceResourceId;
 
     /**

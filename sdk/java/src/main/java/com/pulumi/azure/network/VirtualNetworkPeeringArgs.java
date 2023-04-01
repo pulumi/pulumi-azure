@@ -33,14 +33,14 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
      * 
      */
     @Import(name="allowGatewayTransit")
     private @Nullable Output<Boolean> allowGatewayTransit;
 
     /**
-     * @return Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+     * @return Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> allowGatewayTransit() {
@@ -198,7 +198,7 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param allowGatewayTransit Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+         * @param allowGatewayTransit Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param allowGatewayTransit Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+         * @param allowGatewayTransit Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
          * 
          * @return builder
          * 

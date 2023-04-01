@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ScheduledQueryRulesAlertTriggerMetricTriggerArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,15 +20,15 @@ public final class ScheduledQueryRulesAlertTriggerMetricTriggerArgs extends com.
      * Evaluation of metric on a particular column.
      * 
      */
-    @Import(name="metricColumn", required=true)
-    private Output<String> metricColumn;
+    @Import(name="metricColumn")
+    private @Nullable Output<String> metricColumn;
 
     /**
      * @return Evaluation of metric on a particular column.
      * 
      */
-    public Output<String> metricColumn() {
-        return this.metricColumn;
+    public Optional<Output<String>> metricColumn() {
+        return Optional.ofNullable(this.metricColumn);
     }
 
     /**
@@ -107,7 +109,7 @@ public final class ScheduledQueryRulesAlertTriggerMetricTriggerArgs extends com.
          * @return builder
          * 
          */
-        public Builder metricColumn(Output<String> metricColumn) {
+        public Builder metricColumn(@Nullable Output<String> metricColumn) {
             $.metricColumn = metricColumn;
             return this;
         }
@@ -186,7 +188,6 @@ public final class ScheduledQueryRulesAlertTriggerMetricTriggerArgs extends com.
         }
 
         public ScheduledQueryRulesAlertTriggerMetricTriggerArgs build() {
-            $.metricColumn = Objects.requireNonNull($.metricColumn, "expected parameter 'metricColumn' to be non-null");
             $.metricTriggerType = Objects.requireNonNull($.metricTriggerType, "expected parameter 'metricTriggerType' to be non-null");
             $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
             $.threshold = Objects.requireNonNull($.threshold, "expected parameter 'threshold' to be non-null");

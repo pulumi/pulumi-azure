@@ -129,6 +129,12 @@ namespace Pulumi.Azure.Core
         public Output<ImmutableArray<string>> NotScopes { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+        /// </summary>
+        [Output("overrides")]
+        public Output<ImmutableArray<Outputs.ResourceGroupPolicyAssignmentOverride>> Overrides { get; private set; } = null!;
+
+        /// <summary>
         /// A JSON mapping of any Parameters for this Policy.
         /// </summary>
         [Output("parameters")]
@@ -145,6 +151,12 @@ namespace Pulumi.Azure.Core
         /// </summary>
         [Output("resourceGroupId")]
         public Output<string> ResourceGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        /// </summary>
+        [Output("resourceSelectors")]
+        public Output<ImmutableArray<Outputs.ResourceGroupPolicyAssignmentResourceSelector>> ResourceSelectors { get; private set; } = null!;
 
 
         /// <summary>
@@ -258,6 +270,18 @@ namespace Pulumi.Azure.Core
             set => _notScopes = value;
         }
 
+        [Input("overrides")]
+        private InputList<Inputs.ResourceGroupPolicyAssignmentOverrideArgs>? _overrides;
+
+        /// <summary>
+        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+        /// </summary>
+        public InputList<Inputs.ResourceGroupPolicyAssignmentOverrideArgs> Overrides
+        {
+            get => _overrides ?? (_overrides = new InputList<Inputs.ResourceGroupPolicyAssignmentOverrideArgs>());
+            set => _overrides = value;
+        }
+
         /// <summary>
         /// A JSON mapping of any Parameters for this Policy.
         /// </summary>
@@ -275,6 +299,18 @@ namespace Pulumi.Azure.Core
         /// </summary>
         [Input("resourceGroupId", required: true)]
         public Input<string> ResourceGroupId { get; set; } = null!;
+
+        [Input("resourceSelectors")]
+        private InputList<Inputs.ResourceGroupPolicyAssignmentResourceSelectorArgs>? _resourceSelectors;
+
+        /// <summary>
+        /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        /// </summary>
+        public InputList<Inputs.ResourceGroupPolicyAssignmentResourceSelectorArgs> ResourceSelectors
+        {
+            get => _resourceSelectors ?? (_resourceSelectors = new InputList<Inputs.ResourceGroupPolicyAssignmentResourceSelectorArgs>());
+            set => _resourceSelectors = value;
+        }
 
         public ResourceGroupPolicyAssignmentArgs()
         {
@@ -350,6 +386,18 @@ namespace Pulumi.Azure.Core
             set => _notScopes = value;
         }
 
+        [Input("overrides")]
+        private InputList<Inputs.ResourceGroupPolicyAssignmentOverrideGetArgs>? _overrides;
+
+        /// <summary>
+        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+        /// </summary>
+        public InputList<Inputs.ResourceGroupPolicyAssignmentOverrideGetArgs> Overrides
+        {
+            get => _overrides ?? (_overrides = new InputList<Inputs.ResourceGroupPolicyAssignmentOverrideGetArgs>());
+            set => _overrides = value;
+        }
+
         /// <summary>
         /// A JSON mapping of any Parameters for this Policy.
         /// </summary>
@@ -367,6 +415,18 @@ namespace Pulumi.Azure.Core
         /// </summary>
         [Input("resourceGroupId")]
         public Input<string>? ResourceGroupId { get; set; }
+
+        [Input("resourceSelectors")]
+        private InputList<Inputs.ResourceGroupPolicyAssignmentResourceSelectorGetArgs>? _resourceSelectors;
+
+        /// <summary>
+        /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        /// </summary>
+        public InputList<Inputs.ResourceGroupPolicyAssignmentResourceSelectorGetArgs> ResourceSelectors
+        {
+            get => _resourceSelectors ?? (_resourceSelectors = new InputList<Inputs.ResourceGroupPolicyAssignmentResourceSelectorGetArgs>());
+            set => _resourceSelectors = value;
+        }
 
         public ResourceGroupPolicyAssignmentState()
         {

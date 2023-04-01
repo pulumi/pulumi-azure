@@ -5,6 +5,8 @@ package com.pulumi.azure.core;
 
 import com.pulumi.azure.core.inputs.SubscriptionPolicyAssignmentIdentityArgs;
 import com.pulumi.azure.core.inputs.SubscriptionPolicyAssignmentNonComplianceMessageArgs;
+import com.pulumi.azure.core.inputs.SubscriptionPolicyAssignmentOverrideArgs;
+import com.pulumi.azure.core.inputs.SubscriptionPolicyAssignmentResourceSelectorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -155,6 +157,21 @@ public final class SubscriptionPolicyAssignmentArgs extends com.pulumi.resources
     }
 
     /**
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     * 
+     */
+    @Import(name="overrides")
+    private @Nullable Output<List<SubscriptionPolicyAssignmentOverrideArgs>> overrides;
+
+    /**
+     * @return One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     * 
+     */
+    public Optional<Output<List<SubscriptionPolicyAssignmentOverrideArgs>>> overrides() {
+        return Optional.ofNullable(this.overrides);
+    }
+
+    /**
      * A JSON mapping of any Parameters for this Policy.
      * 
      */
@@ -185,6 +202,21 @@ public final class SubscriptionPolicyAssignmentArgs extends com.pulumi.resources
     }
 
     /**
+     * One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+     * 
+     */
+    @Import(name="resourceSelectors")
+    private @Nullable Output<List<SubscriptionPolicyAssignmentResourceSelectorArgs>> resourceSelectors;
+
+    /**
+     * @return One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+     * 
+     */
+    public Optional<Output<List<SubscriptionPolicyAssignmentResourceSelectorArgs>>> resourceSelectors() {
+        return Optional.ofNullable(this.resourceSelectors);
+    }
+
+    /**
      * The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
      * 
      */
@@ -211,8 +243,10 @@ public final class SubscriptionPolicyAssignmentArgs extends com.pulumi.resources
         this.name = $.name;
         this.nonComplianceMessages = $.nonComplianceMessages;
         this.notScopes = $.notScopes;
+        this.overrides = $.overrides;
         this.parameters = $.parameters;
         this.policyDefinitionId = $.policyDefinitionId;
+        this.resourceSelectors = $.resourceSelectors;
         this.subscriptionId = $.subscriptionId;
     }
 
@@ -444,6 +478,37 @@ public final class SubscriptionPolicyAssignmentArgs extends com.pulumi.resources
         }
 
         /**
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder overrides(@Nullable Output<List<SubscriptionPolicyAssignmentOverrideArgs>> overrides) {
+            $.overrides = overrides;
+            return this;
+        }
+
+        /**
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder overrides(List<SubscriptionPolicyAssignmentOverrideArgs> overrides) {
+            return overrides(Output.of(overrides));
+        }
+
+        /**
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder overrides(SubscriptionPolicyAssignmentOverrideArgs... overrides) {
+            return overrides(List.of(overrides));
+        }
+
+        /**
          * @param parameters A JSON mapping of any Parameters for this Policy.
          * 
          * @return builder
@@ -483,6 +548,37 @@ public final class SubscriptionPolicyAssignmentArgs extends com.pulumi.resources
          */
         public Builder policyDefinitionId(String policyDefinitionId) {
             return policyDefinitionId(Output.of(policyDefinitionId));
+        }
+
+        /**
+         * @param resourceSelectors One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceSelectors(@Nullable Output<List<SubscriptionPolicyAssignmentResourceSelectorArgs>> resourceSelectors) {
+            $.resourceSelectors = resourceSelectors;
+            return this;
+        }
+
+        /**
+         * @param resourceSelectors One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceSelectors(List<SubscriptionPolicyAssignmentResourceSelectorArgs> resourceSelectors) {
+            return resourceSelectors(Output.of(resourceSelectors));
+        }
+
+        /**
+         * @param resourceSelectors One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceSelectors(SubscriptionPolicyAssignmentResourceSelectorArgs... resourceSelectors) {
+            return resourceSelectors(List.of(resourceSelectors));
         }
 
         /**

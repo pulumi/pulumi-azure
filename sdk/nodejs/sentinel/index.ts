@@ -170,6 +170,11 @@ export type Metadata = import("./metadata").Metadata;
 export const Metadata: typeof import("./metadata").Metadata = null as any;
 utilities.lazyLoad(exports, ["Metadata"], () => require("./metadata"));
 
+export { ThreatIntelligenceIndicatorArgs, ThreatIntelligenceIndicatorState } from "./threatIntelligenceIndicator";
+export type ThreatIntelligenceIndicator = import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator;
+export const ThreatIntelligenceIndicator: typeof import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator = null as any;
+utilities.lazyLoad(exports, ["ThreatIntelligenceIndicator"], () => require("./threatIntelligenceIndicator"));
+
 export { WatchlistArgs, WatchlistState } from "./watchlist";
 export type Watchlist = import("./watchlist").Watchlist;
 export const Watchlist: typeof import("./watchlist").Watchlist = null as any;
@@ -245,6 +250,8 @@ const _module = {
                 return new LogAnalyticsWorkspaceOnboarding(name, <any>undefined, { urn })
             case "azure:sentinel/metadata:Metadata":
                 return new Metadata(name, <any>undefined, { urn })
+            case "azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator":
+                return new ThreatIntelligenceIndicator(name, <any>undefined, { urn })
             case "azure:sentinel/watchlist:Watchlist":
                 return new Watchlist(name, <any>undefined, { urn })
             case "azure:sentinel/watchlistItem:WatchlistItem":
@@ -284,5 +291,6 @@ pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorThreatInte
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorThreatIntelligenceTaxii", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/logAnalyticsWorkspaceOnboarding", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/metadata", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/threatIntelligenceIndicator", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/watchlist", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/watchlistItem", _module)

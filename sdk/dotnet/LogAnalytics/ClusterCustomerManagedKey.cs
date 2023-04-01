@@ -54,6 +54,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///                 {
     ///                     "Create",
     ///                     "Get",
+    ///                     "GetRotationPolicy",
     ///                 },
     ///                 SecretPermissions = new[]
     ///                 {

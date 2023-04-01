@@ -102,7 +102,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
      * 
      */
-    @Export(name="autoPauseDelayInMinutes", type=Integer.class, parameters={})
+    @Export(name="autoPauseDelayInMinutes", refs={Integer.class}, tree="[0]")
     private Output<Integer> autoPauseDelayInMinutes;
 
     /**
@@ -116,7 +116,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the collation of the database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="collation", type=String.class, parameters={})
+    @Export(name="collation", refs={String.class}, tree="[0]")
     private Output<String> collation;
 
     /**
@@ -130,7 +130,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="createMode", type=String.class, parameters={})
+    @Export(name="createMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> createMode;
 
     /**
@@ -144,7 +144,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="creationSourceDatabaseId", type=String.class, parameters={})
+    @Export(name="creationSourceDatabaseId", refs={String.class}, tree="[0]")
     private Output<String> creationSourceDatabaseId;
 
     /**
@@ -158,7 +158,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the elastic pool containing this database.
      * 
      */
-    @Export(name="elasticPoolId", type=String.class, parameters={})
+    @Export(name="elasticPoolId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> elasticPoolId;
 
     /**
@@ -172,7 +172,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      * 
      */
-    @Export(name="geoBackupEnabled", type=Boolean.class, parameters={})
+    @Export(name="geoBackupEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> geoBackupEnabled;
 
     /**
@@ -186,7 +186,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * A Database Import block as documented below. Mutually exclusive with `create_mode`.
      * 
      */
-    @Export(name="import", type=DatabaseImport.class, parameters={})
+    @Export(name="import", refs={DatabaseImport.class}, tree="[0]")
     private Output</* @Nullable */ DatabaseImport> import_;
 
     /**
@@ -200,7 +200,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="ledgerEnabled", type=Boolean.class, parameters={})
+    @Export(name="ledgerEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> ledgerEnabled;
 
     /**
@@ -214,7 +214,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      * 
      */
-    @Export(name="licenseType", type=String.class, parameters={})
+    @Export(name="licenseType", refs={String.class}, tree="[0]")
     private Output<String> licenseType;
 
     /**
@@ -228,7 +228,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * A `long_term_retention_policy` block as defined below.
      * 
      */
-    @Export(name="longTermRetentionPolicy", type=DatabaseLongTermRetentionPolicy.class, parameters={})
+    @Export(name="longTermRetentionPolicy", refs={DatabaseLongTermRetentionPolicy.class}, tree="[0]")
     private Output<DatabaseLongTermRetentionPolicy> longTermRetentionPolicy;
 
     /**
@@ -242,7 +242,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
      * 
      */
-    @Export(name="maintenanceConfigurationName", type=String.class, parameters={})
+    @Export(name="maintenanceConfigurationName", refs={String.class}, tree="[0]")
     private Output<String> maintenanceConfigurationName;
 
     /**
@@ -256,7 +256,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The max size of the database in gigabytes.
      * 
      */
-    @Export(name="maxSizeGb", type=Integer.class, parameters={})
+    @Export(name="maxSizeGb", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxSizeGb;
 
     /**
@@ -270,7 +270,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
      * 
      */
-    @Export(name="minCapacity", type=Double.class, parameters={})
+    @Export(name="minCapacity", refs={Double.class}, tree="[0]")
     private Output<Double> minCapacity;
 
     /**
@@ -284,7 +284,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The name of the MS SQL Database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -298,7 +298,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
      * 
      */
-    @Export(name="readReplicaCount", type=Integer.class, parameters={})
+    @Export(name="readReplicaCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> readReplicaCount;
 
     /**
@@ -312,7 +312,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
      * 
      */
-    @Export(name="readScale", type=Boolean.class, parameters={})
+    @Export(name="readScale", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> readScale;
 
     /**
@@ -326,7 +326,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
      * 
      */
-    @Export(name="recoverDatabaseId", type=String.class, parameters={})
+    @Export(name="recoverDatabaseId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> recoverDatabaseId;
 
     /**
@@ -340,7 +340,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
      * 
      */
-    @Export(name="restoreDroppedDatabaseId", type=String.class, parameters={})
+    @Export(name="restoreDroppedDatabaseId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restoreDroppedDatabaseId;
 
     /**
@@ -354,7 +354,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
      * 
      */
-    @Export(name="restorePointInTime", type=String.class, parameters={})
+    @Export(name="restorePointInTime", refs={String.class}, tree="[0]")
     private Output<String> restorePointInTime;
 
     /**
@@ -368,7 +368,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
      * 
      */
-    @Export(name="sampleName", type=String.class, parameters={})
+    @Export(name="sampleName", refs={String.class}, tree="[0]")
     private Output<String> sampleName;
 
     /**
@@ -382,7 +382,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverId", type=String.class, parameters={})
+    @Export(name="serverId", refs={String.class}, tree="[0]")
     private Output<String> serverId;
 
     /**
@@ -396,7 +396,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * A `short_term_retention_policy` block as defined below.
      * 
      */
-    @Export(name="shortTermRetentionPolicy", type=DatabaseShortTermRetentionPolicy.class, parameters={})
+    @Export(name="shortTermRetentionPolicy", refs={DatabaseShortTermRetentionPolicy.class}, tree="[0]")
     private Output<DatabaseShortTermRetentionPolicy> shortTermRetentionPolicy;
 
     /**
@@ -410,7 +410,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -424,7 +424,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
      * 
      */
-    @Export(name="storageAccountType", type=String.class, parameters={})
+    @Export(name="storageAccountType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountType;
 
     /**
@@ -438,7 +438,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -452,7 +452,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
      * 
      */
-    @Export(name="threatDetectionPolicy", type=DatabaseThreatDetectionPolicy.class, parameters={})
+    @Export(name="threatDetectionPolicy", refs={DatabaseThreatDetectionPolicy.class}, tree="[0]")
     private Output<DatabaseThreatDetectionPolicy> threatDetectionPolicy;
 
     /**
@@ -466,7 +466,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
      * 
      */
-    @Export(name="transparentDataEncryptionEnabled", type=Boolean.class, parameters={})
+    @Export(name="transparentDataEncryptionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> transparentDataEncryptionEnabled;
 
     /**
@@ -480,7 +480,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
      * 
      */
-    @Export(name="zoneRedundant", type=Boolean.class, parameters={})
+    @Export(name="zoneRedundant", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> zoneRedundant;
 
     /**

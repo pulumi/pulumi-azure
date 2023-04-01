@@ -84,6 +84,9 @@ export class PortalDashboard extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PortalDashboardArgs | undefined;
+            if ((!args || args.dashboardProperties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dashboardProperties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -131,7 +134,7 @@ export interface PortalDashboardArgs {
     /**
      * JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
      */
-    dashboardProperties?: pulumi.Input<string>;
+    dashboardProperties: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

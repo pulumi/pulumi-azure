@@ -310,13 +310,473 @@ func (o GroupPolicyAssignmentNonComplianceMessageArrayOutput) Index(i pulumi.Int
 	}).(GroupPolicyAssignmentNonComplianceMessageOutput)
 }
 
+type GroupPolicyAssignmentOverride struct {
+	// One or more `overrideSelector` as defined below.
+	Selectors []GroupPolicyAssignmentOverrideSelector `pulumi:"selectors"`
+	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+	Value string `pulumi:"value"`
+}
+
+// GroupPolicyAssignmentOverrideInput is an input type that accepts GroupPolicyAssignmentOverrideArgs and GroupPolicyAssignmentOverrideOutput values.
+// You can construct a concrete instance of `GroupPolicyAssignmentOverrideInput` via:
+//
+//	GroupPolicyAssignmentOverrideArgs{...}
+type GroupPolicyAssignmentOverrideInput interface {
+	pulumi.Input
+
+	ToGroupPolicyAssignmentOverrideOutput() GroupPolicyAssignmentOverrideOutput
+	ToGroupPolicyAssignmentOverrideOutputWithContext(context.Context) GroupPolicyAssignmentOverrideOutput
+}
+
+type GroupPolicyAssignmentOverrideArgs struct {
+	// One or more `overrideSelector` as defined below.
+	Selectors GroupPolicyAssignmentOverrideSelectorArrayInput `pulumi:"selectors"`
+	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GroupPolicyAssignmentOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicyAssignmentOverride)(nil)).Elem()
+}
+
+func (i GroupPolicyAssignmentOverrideArgs) ToGroupPolicyAssignmentOverrideOutput() GroupPolicyAssignmentOverrideOutput {
+	return i.ToGroupPolicyAssignmentOverrideOutputWithContext(context.Background())
+}
+
+func (i GroupPolicyAssignmentOverrideArgs) ToGroupPolicyAssignmentOverrideOutputWithContext(ctx context.Context) GroupPolicyAssignmentOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentOverrideOutput)
+}
+
+// GroupPolicyAssignmentOverrideArrayInput is an input type that accepts GroupPolicyAssignmentOverrideArray and GroupPolicyAssignmentOverrideArrayOutput values.
+// You can construct a concrete instance of `GroupPolicyAssignmentOverrideArrayInput` via:
+//
+//	GroupPolicyAssignmentOverrideArray{ GroupPolicyAssignmentOverrideArgs{...} }
+type GroupPolicyAssignmentOverrideArrayInput interface {
+	pulumi.Input
+
+	ToGroupPolicyAssignmentOverrideArrayOutput() GroupPolicyAssignmentOverrideArrayOutput
+	ToGroupPolicyAssignmentOverrideArrayOutputWithContext(context.Context) GroupPolicyAssignmentOverrideArrayOutput
+}
+
+type GroupPolicyAssignmentOverrideArray []GroupPolicyAssignmentOverrideInput
+
+func (GroupPolicyAssignmentOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicyAssignmentOverride)(nil)).Elem()
+}
+
+func (i GroupPolicyAssignmentOverrideArray) ToGroupPolicyAssignmentOverrideArrayOutput() GroupPolicyAssignmentOverrideArrayOutput {
+	return i.ToGroupPolicyAssignmentOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i GroupPolicyAssignmentOverrideArray) ToGroupPolicyAssignmentOverrideArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentOverrideArrayOutput)
+}
+
+type GroupPolicyAssignmentOverrideOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicyAssignmentOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicyAssignmentOverride)(nil)).Elem()
+}
+
+func (o GroupPolicyAssignmentOverrideOutput) ToGroupPolicyAssignmentOverrideOutput() GroupPolicyAssignmentOverrideOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentOverrideOutput) ToGroupPolicyAssignmentOverrideOutputWithContext(ctx context.Context) GroupPolicyAssignmentOverrideOutput {
+	return o
+}
+
+// One or more `overrideSelector` as defined below.
+func (o GroupPolicyAssignmentOverrideOutput) Selectors() GroupPolicyAssignmentOverrideSelectorArrayOutput {
+	return o.ApplyT(func(v GroupPolicyAssignmentOverride) []GroupPolicyAssignmentOverrideSelector { return v.Selectors }).(GroupPolicyAssignmentOverrideSelectorArrayOutput)
+}
+
+// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+func (o GroupPolicyAssignmentOverrideOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupPolicyAssignmentOverride) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GroupPolicyAssignmentOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicyAssignmentOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicyAssignmentOverride)(nil)).Elem()
+}
+
+func (o GroupPolicyAssignmentOverrideArrayOutput) ToGroupPolicyAssignmentOverrideArrayOutput() GroupPolicyAssignmentOverrideArrayOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentOverrideArrayOutput) ToGroupPolicyAssignmentOverrideArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentOverrideArrayOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentOverrideArrayOutput) Index(i pulumi.IntInput) GroupPolicyAssignmentOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupPolicyAssignmentOverride {
+		return vs[0].([]GroupPolicyAssignmentOverride)[vs[1].(int)]
+	}).(GroupPolicyAssignmentOverrideOutput)
+}
+
+type GroupPolicyAssignmentOverrideSelector struct {
+	// Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+	Ins []string `pulumi:"ins"`
+	// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+	Kind *string `pulumi:"kind"`
+	// Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+	NotIns []string `pulumi:"notIns"`
+}
+
+// GroupPolicyAssignmentOverrideSelectorInput is an input type that accepts GroupPolicyAssignmentOverrideSelectorArgs and GroupPolicyAssignmentOverrideSelectorOutput values.
+// You can construct a concrete instance of `GroupPolicyAssignmentOverrideSelectorInput` via:
+//
+//	GroupPolicyAssignmentOverrideSelectorArgs{...}
+type GroupPolicyAssignmentOverrideSelectorInput interface {
+	pulumi.Input
+
+	ToGroupPolicyAssignmentOverrideSelectorOutput() GroupPolicyAssignmentOverrideSelectorOutput
+	ToGroupPolicyAssignmentOverrideSelectorOutputWithContext(context.Context) GroupPolicyAssignmentOverrideSelectorOutput
+}
+
+type GroupPolicyAssignmentOverrideSelectorArgs struct {
+	// Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+	Ins pulumi.StringArrayInput `pulumi:"ins"`
+	// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+	NotIns pulumi.StringArrayInput `pulumi:"notIns"`
+}
+
+func (GroupPolicyAssignmentOverrideSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicyAssignmentOverrideSelector)(nil)).Elem()
+}
+
+func (i GroupPolicyAssignmentOverrideSelectorArgs) ToGroupPolicyAssignmentOverrideSelectorOutput() GroupPolicyAssignmentOverrideSelectorOutput {
+	return i.ToGroupPolicyAssignmentOverrideSelectorOutputWithContext(context.Background())
+}
+
+func (i GroupPolicyAssignmentOverrideSelectorArgs) ToGroupPolicyAssignmentOverrideSelectorOutputWithContext(ctx context.Context) GroupPolicyAssignmentOverrideSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentOverrideSelectorOutput)
+}
+
+// GroupPolicyAssignmentOverrideSelectorArrayInput is an input type that accepts GroupPolicyAssignmentOverrideSelectorArray and GroupPolicyAssignmentOverrideSelectorArrayOutput values.
+// You can construct a concrete instance of `GroupPolicyAssignmentOverrideSelectorArrayInput` via:
+//
+//	GroupPolicyAssignmentOverrideSelectorArray{ GroupPolicyAssignmentOverrideSelectorArgs{...} }
+type GroupPolicyAssignmentOverrideSelectorArrayInput interface {
+	pulumi.Input
+
+	ToGroupPolicyAssignmentOverrideSelectorArrayOutput() GroupPolicyAssignmentOverrideSelectorArrayOutput
+	ToGroupPolicyAssignmentOverrideSelectorArrayOutputWithContext(context.Context) GroupPolicyAssignmentOverrideSelectorArrayOutput
+}
+
+type GroupPolicyAssignmentOverrideSelectorArray []GroupPolicyAssignmentOverrideSelectorInput
+
+func (GroupPolicyAssignmentOverrideSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicyAssignmentOverrideSelector)(nil)).Elem()
+}
+
+func (i GroupPolicyAssignmentOverrideSelectorArray) ToGroupPolicyAssignmentOverrideSelectorArrayOutput() GroupPolicyAssignmentOverrideSelectorArrayOutput {
+	return i.ToGroupPolicyAssignmentOverrideSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i GroupPolicyAssignmentOverrideSelectorArray) ToGroupPolicyAssignmentOverrideSelectorArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentOverrideSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentOverrideSelectorArrayOutput)
+}
+
+type GroupPolicyAssignmentOverrideSelectorOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicyAssignmentOverrideSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicyAssignmentOverrideSelector)(nil)).Elem()
+}
+
+func (o GroupPolicyAssignmentOverrideSelectorOutput) ToGroupPolicyAssignmentOverrideSelectorOutput() GroupPolicyAssignmentOverrideSelectorOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentOverrideSelectorOutput) ToGroupPolicyAssignmentOverrideSelectorOutputWithContext(ctx context.Context) GroupPolicyAssignmentOverrideSelectorOutput {
+	return o
+}
+
+// Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+func (o GroupPolicyAssignmentOverrideSelectorOutput) Ins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupPolicyAssignmentOverrideSelector) []string { return v.Ins }).(pulumi.StringArrayOutput)
+}
+
+// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+func (o GroupPolicyAssignmentOverrideSelectorOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupPolicyAssignmentOverrideSelector) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+func (o GroupPolicyAssignmentOverrideSelectorOutput) NotIns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupPolicyAssignmentOverrideSelector) []string { return v.NotIns }).(pulumi.StringArrayOutput)
+}
+
+type GroupPolicyAssignmentOverrideSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicyAssignmentOverrideSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicyAssignmentOverrideSelector)(nil)).Elem()
+}
+
+func (o GroupPolicyAssignmentOverrideSelectorArrayOutput) ToGroupPolicyAssignmentOverrideSelectorArrayOutput() GroupPolicyAssignmentOverrideSelectorArrayOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentOverrideSelectorArrayOutput) ToGroupPolicyAssignmentOverrideSelectorArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentOverrideSelectorArrayOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentOverrideSelectorArrayOutput) Index(i pulumi.IntInput) GroupPolicyAssignmentOverrideSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupPolicyAssignmentOverrideSelector {
+		return vs[0].([]GroupPolicyAssignmentOverrideSelector)[vs[1].(int)]
+	}).(GroupPolicyAssignmentOverrideSelectorOutput)
+}
+
+type GroupPolicyAssignmentResourceSelector struct {
+	// Specifies a name for the resource selector.
+	Name *string `pulumi:"name"`
+	// One or more `resourceSelector` block as defined below.
+	Selectors []GroupPolicyAssignmentResourceSelectorSelector `pulumi:"selectors"`
+}
+
+// GroupPolicyAssignmentResourceSelectorInput is an input type that accepts GroupPolicyAssignmentResourceSelectorArgs and GroupPolicyAssignmentResourceSelectorOutput values.
+// You can construct a concrete instance of `GroupPolicyAssignmentResourceSelectorInput` via:
+//
+//	GroupPolicyAssignmentResourceSelectorArgs{...}
+type GroupPolicyAssignmentResourceSelectorInput interface {
+	pulumi.Input
+
+	ToGroupPolicyAssignmentResourceSelectorOutput() GroupPolicyAssignmentResourceSelectorOutput
+	ToGroupPolicyAssignmentResourceSelectorOutputWithContext(context.Context) GroupPolicyAssignmentResourceSelectorOutput
+}
+
+type GroupPolicyAssignmentResourceSelectorArgs struct {
+	// Specifies a name for the resource selector.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// One or more `resourceSelector` block as defined below.
+	Selectors GroupPolicyAssignmentResourceSelectorSelectorArrayInput `pulumi:"selectors"`
+}
+
+func (GroupPolicyAssignmentResourceSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicyAssignmentResourceSelector)(nil)).Elem()
+}
+
+func (i GroupPolicyAssignmentResourceSelectorArgs) ToGroupPolicyAssignmentResourceSelectorOutput() GroupPolicyAssignmentResourceSelectorOutput {
+	return i.ToGroupPolicyAssignmentResourceSelectorOutputWithContext(context.Background())
+}
+
+func (i GroupPolicyAssignmentResourceSelectorArgs) ToGroupPolicyAssignmentResourceSelectorOutputWithContext(ctx context.Context) GroupPolicyAssignmentResourceSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentResourceSelectorOutput)
+}
+
+// GroupPolicyAssignmentResourceSelectorArrayInput is an input type that accepts GroupPolicyAssignmentResourceSelectorArray and GroupPolicyAssignmentResourceSelectorArrayOutput values.
+// You can construct a concrete instance of `GroupPolicyAssignmentResourceSelectorArrayInput` via:
+//
+//	GroupPolicyAssignmentResourceSelectorArray{ GroupPolicyAssignmentResourceSelectorArgs{...} }
+type GroupPolicyAssignmentResourceSelectorArrayInput interface {
+	pulumi.Input
+
+	ToGroupPolicyAssignmentResourceSelectorArrayOutput() GroupPolicyAssignmentResourceSelectorArrayOutput
+	ToGroupPolicyAssignmentResourceSelectorArrayOutputWithContext(context.Context) GroupPolicyAssignmentResourceSelectorArrayOutput
+}
+
+type GroupPolicyAssignmentResourceSelectorArray []GroupPolicyAssignmentResourceSelectorInput
+
+func (GroupPolicyAssignmentResourceSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicyAssignmentResourceSelector)(nil)).Elem()
+}
+
+func (i GroupPolicyAssignmentResourceSelectorArray) ToGroupPolicyAssignmentResourceSelectorArrayOutput() GroupPolicyAssignmentResourceSelectorArrayOutput {
+	return i.ToGroupPolicyAssignmentResourceSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i GroupPolicyAssignmentResourceSelectorArray) ToGroupPolicyAssignmentResourceSelectorArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentResourceSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentResourceSelectorArrayOutput)
+}
+
+type GroupPolicyAssignmentResourceSelectorOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicyAssignmentResourceSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicyAssignmentResourceSelector)(nil)).Elem()
+}
+
+func (o GroupPolicyAssignmentResourceSelectorOutput) ToGroupPolicyAssignmentResourceSelectorOutput() GroupPolicyAssignmentResourceSelectorOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentResourceSelectorOutput) ToGroupPolicyAssignmentResourceSelectorOutputWithContext(ctx context.Context) GroupPolicyAssignmentResourceSelectorOutput {
+	return o
+}
+
+// Specifies a name for the resource selector.
+func (o GroupPolicyAssignmentResourceSelectorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupPolicyAssignmentResourceSelector) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// One or more `resourceSelector` block as defined below.
+func (o GroupPolicyAssignmentResourceSelectorOutput) Selectors() GroupPolicyAssignmentResourceSelectorSelectorArrayOutput {
+	return o.ApplyT(func(v GroupPolicyAssignmentResourceSelector) []GroupPolicyAssignmentResourceSelectorSelector {
+		return v.Selectors
+	}).(GroupPolicyAssignmentResourceSelectorSelectorArrayOutput)
+}
+
+type GroupPolicyAssignmentResourceSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicyAssignmentResourceSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicyAssignmentResourceSelector)(nil)).Elem()
+}
+
+func (o GroupPolicyAssignmentResourceSelectorArrayOutput) ToGroupPolicyAssignmentResourceSelectorArrayOutput() GroupPolicyAssignmentResourceSelectorArrayOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentResourceSelectorArrayOutput) ToGroupPolicyAssignmentResourceSelectorArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentResourceSelectorArrayOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentResourceSelectorArrayOutput) Index(i pulumi.IntInput) GroupPolicyAssignmentResourceSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupPolicyAssignmentResourceSelector {
+		return vs[0].([]GroupPolicyAssignmentResourceSelector)[vs[1].(int)]
+	}).(GroupPolicyAssignmentResourceSelectorOutput)
+}
+
+type GroupPolicyAssignmentResourceSelectorSelector struct {
+	// Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+	Ins []string `pulumi:"ins"`
+	// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+	Kind string `pulumi:"kind"`
+	// Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+	NotIns []string `pulumi:"notIns"`
+}
+
+// GroupPolicyAssignmentResourceSelectorSelectorInput is an input type that accepts GroupPolicyAssignmentResourceSelectorSelectorArgs and GroupPolicyAssignmentResourceSelectorSelectorOutput values.
+// You can construct a concrete instance of `GroupPolicyAssignmentResourceSelectorSelectorInput` via:
+//
+//	GroupPolicyAssignmentResourceSelectorSelectorArgs{...}
+type GroupPolicyAssignmentResourceSelectorSelectorInput interface {
+	pulumi.Input
+
+	ToGroupPolicyAssignmentResourceSelectorSelectorOutput() GroupPolicyAssignmentResourceSelectorSelectorOutput
+	ToGroupPolicyAssignmentResourceSelectorSelectorOutputWithContext(context.Context) GroupPolicyAssignmentResourceSelectorSelectorOutput
+}
+
+type GroupPolicyAssignmentResourceSelectorSelectorArgs struct {
+	// Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+	Ins pulumi.StringArrayInput `pulumi:"ins"`
+	// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+	NotIns pulumi.StringArrayInput `pulumi:"notIns"`
+}
+
+func (GroupPolicyAssignmentResourceSelectorSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicyAssignmentResourceSelectorSelector)(nil)).Elem()
+}
+
+func (i GroupPolicyAssignmentResourceSelectorSelectorArgs) ToGroupPolicyAssignmentResourceSelectorSelectorOutput() GroupPolicyAssignmentResourceSelectorSelectorOutput {
+	return i.ToGroupPolicyAssignmentResourceSelectorSelectorOutputWithContext(context.Background())
+}
+
+func (i GroupPolicyAssignmentResourceSelectorSelectorArgs) ToGroupPolicyAssignmentResourceSelectorSelectorOutputWithContext(ctx context.Context) GroupPolicyAssignmentResourceSelectorSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentResourceSelectorSelectorOutput)
+}
+
+// GroupPolicyAssignmentResourceSelectorSelectorArrayInput is an input type that accepts GroupPolicyAssignmentResourceSelectorSelectorArray and GroupPolicyAssignmentResourceSelectorSelectorArrayOutput values.
+// You can construct a concrete instance of `GroupPolicyAssignmentResourceSelectorSelectorArrayInput` via:
+//
+//	GroupPolicyAssignmentResourceSelectorSelectorArray{ GroupPolicyAssignmentResourceSelectorSelectorArgs{...} }
+type GroupPolicyAssignmentResourceSelectorSelectorArrayInput interface {
+	pulumi.Input
+
+	ToGroupPolicyAssignmentResourceSelectorSelectorArrayOutput() GroupPolicyAssignmentResourceSelectorSelectorArrayOutput
+	ToGroupPolicyAssignmentResourceSelectorSelectorArrayOutputWithContext(context.Context) GroupPolicyAssignmentResourceSelectorSelectorArrayOutput
+}
+
+type GroupPolicyAssignmentResourceSelectorSelectorArray []GroupPolicyAssignmentResourceSelectorSelectorInput
+
+func (GroupPolicyAssignmentResourceSelectorSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicyAssignmentResourceSelectorSelector)(nil)).Elem()
+}
+
+func (i GroupPolicyAssignmentResourceSelectorSelectorArray) ToGroupPolicyAssignmentResourceSelectorSelectorArrayOutput() GroupPolicyAssignmentResourceSelectorSelectorArrayOutput {
+	return i.ToGroupPolicyAssignmentResourceSelectorSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i GroupPolicyAssignmentResourceSelectorSelectorArray) ToGroupPolicyAssignmentResourceSelectorSelectorArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentResourceSelectorSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentResourceSelectorSelectorArrayOutput)
+}
+
+type GroupPolicyAssignmentResourceSelectorSelectorOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicyAssignmentResourceSelectorSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicyAssignmentResourceSelectorSelector)(nil)).Elem()
+}
+
+func (o GroupPolicyAssignmentResourceSelectorSelectorOutput) ToGroupPolicyAssignmentResourceSelectorSelectorOutput() GroupPolicyAssignmentResourceSelectorSelectorOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentResourceSelectorSelectorOutput) ToGroupPolicyAssignmentResourceSelectorSelectorOutputWithContext(ctx context.Context) GroupPolicyAssignmentResourceSelectorSelectorOutput {
+	return o
+}
+
+// Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+func (o GroupPolicyAssignmentResourceSelectorSelectorOutput) Ins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupPolicyAssignmentResourceSelectorSelector) []string { return v.Ins }).(pulumi.StringArrayOutput)
+}
+
+// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+func (o GroupPolicyAssignmentResourceSelectorSelectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupPolicyAssignmentResourceSelectorSelector) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+func (o GroupPolicyAssignmentResourceSelectorSelectorOutput) NotIns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupPolicyAssignmentResourceSelectorSelector) []string { return v.NotIns }).(pulumi.StringArrayOutput)
+}
+
+type GroupPolicyAssignmentResourceSelectorSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicyAssignmentResourceSelectorSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicyAssignmentResourceSelectorSelector)(nil)).Elem()
+}
+
+func (o GroupPolicyAssignmentResourceSelectorSelectorArrayOutput) ToGroupPolicyAssignmentResourceSelectorSelectorArrayOutput() GroupPolicyAssignmentResourceSelectorSelectorArrayOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentResourceSelectorSelectorArrayOutput) ToGroupPolicyAssignmentResourceSelectorSelectorArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentResourceSelectorSelectorArrayOutput {
+	return o
+}
+
+func (o GroupPolicyAssignmentResourceSelectorSelectorArrayOutput) Index(i pulumi.IntInput) GroupPolicyAssignmentResourceSelectorSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupPolicyAssignmentResourceSelectorSelector {
+		return vs[0].([]GroupPolicyAssignmentResourceSelectorSelector)[vs[1].(int)]
+	}).(GroupPolicyAssignmentResourceSelectorSelectorOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentIdentityInput)(nil)).Elem(), GroupPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentIdentityPtrInput)(nil)).Elem(), GroupPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentNonComplianceMessageInput)(nil)).Elem(), GroupPolicyAssignmentNonComplianceMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentNonComplianceMessageArrayInput)(nil)).Elem(), GroupPolicyAssignmentNonComplianceMessageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentOverrideInput)(nil)).Elem(), GroupPolicyAssignmentOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentOverrideArrayInput)(nil)).Elem(), GroupPolicyAssignmentOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentOverrideSelectorInput)(nil)).Elem(), GroupPolicyAssignmentOverrideSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentOverrideSelectorArrayInput)(nil)).Elem(), GroupPolicyAssignmentOverrideSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentResourceSelectorInput)(nil)).Elem(), GroupPolicyAssignmentResourceSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentResourceSelectorArrayInput)(nil)).Elem(), GroupPolicyAssignmentResourceSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentResourceSelectorSelectorInput)(nil)).Elem(), GroupPolicyAssignmentResourceSelectorSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentResourceSelectorSelectorArrayInput)(nil)).Elem(), GroupPolicyAssignmentResourceSelectorSelectorArray{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentNonComplianceMessageOutput{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentNonComplianceMessageArrayOutput{})
+	pulumi.RegisterOutputType(GroupPolicyAssignmentOverrideOutput{})
+	pulumi.RegisterOutputType(GroupPolicyAssignmentOverrideArrayOutput{})
+	pulumi.RegisterOutputType(GroupPolicyAssignmentOverrideSelectorOutput{})
+	pulumi.RegisterOutputType(GroupPolicyAssignmentOverrideSelectorArrayOutput{})
+	pulumi.RegisterOutputType(GroupPolicyAssignmentResourceSelectorOutput{})
+	pulumi.RegisterOutputType(GroupPolicyAssignmentResourceSelectorArrayOutput{})
+	pulumi.RegisterOutputType(GroupPolicyAssignmentResourceSelectorSelectorOutput{})
+	pulumi.RegisterOutputType(GroupPolicyAssignmentResourceSelectorSelectorArrayOutput{})
 }

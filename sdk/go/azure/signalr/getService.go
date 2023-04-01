@@ -57,12 +57,16 @@ type LookupServiceArgs struct {
 
 // A collection of values returned by getService.
 type LookupServiceResult struct {
+	// Is aad auth enabled for this SignalR service?
+	AadAuthEnabled bool `pulumi:"aadAuthEnabled"`
 	// The FQDN of the SignalR service.
 	Hostname string `pulumi:"hostname"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The publicly accessible IP of the SignalR service.
 	IpAddress string `pulumi:"ipAddress"`
+	// Is local auth enable for this SignalR serviced?
+	LocalAuthEnabled bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the SignalR service exists.
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
@@ -70,6 +74,8 @@ type LookupServiceResult struct {
 	PrimaryAccessKey string `pulumi:"primaryAccessKey"`
 	// The primary connection string of the SignalR service.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
+	// Is public network access enabled for this SignalR service?
+	PublicNetworkAccessEnabled bool `pulumi:"publicNetworkAccessEnabled"`
 	// The publicly accessible port of the SignalR service which is designed for browser/client use.
 	PublicPort        int    `pulumi:"publicPort"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -78,8 +84,12 @@ type LookupServiceResult struct {
 	// The secondary connection string of the SignalR service.
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
 	// The publicly accessible port of the SignalR service which is designed for customer server side use.
-	ServerPort int               `pulumi:"serverPort"`
-	Tags       map[string]string `pulumi:"tags"`
+	ServerPort int `pulumi:"serverPort"`
+	// The serverless connection timeout of this SignalR service.
+	ServerlessConnectionTimeoutInSeconds int               `pulumi:"serverlessConnectionTimeoutInSeconds"`
+	Tags                                 map[string]string `pulumi:"tags"`
+	// Is tls client cert enabled for this SignalR service?
+	TlsClientCertEnabled bool `pulumi:"tlsClientCertEnabled"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -122,6 +132,11 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 	return o
 }
 
+// Is aad auth enabled for this SignalR service?
+func (o LookupServiceResultOutput) AadAuthEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServiceResult) bool { return v.AadAuthEnabled }).(pulumi.BoolOutput)
+}
+
 // The FQDN of the SignalR service.
 func (o LookupServiceResultOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Hostname }).(pulumi.StringOutput)
@@ -135,6 +150,11 @@ func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
 // The publicly accessible IP of the SignalR service.
 func (o LookupServiceResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// Is local auth enable for this SignalR serviced?
+func (o LookupServiceResultOutput) LocalAuthEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServiceResult) bool { return v.LocalAuthEnabled }).(pulumi.BoolOutput)
 }
 
 // Specifies the supported Azure location where the SignalR service exists.
@@ -154,6 +174,11 @@ func (o LookupServiceResultOutput) PrimaryAccessKey() pulumi.StringOutput {
 // The primary connection string of the SignalR service.
 func (o LookupServiceResultOutput) PrimaryConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.PrimaryConnectionString }).(pulumi.StringOutput)
+}
+
+// Is public network access enabled for this SignalR service?
+func (o LookupServiceResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServiceResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
 
 // The publicly accessible port of the SignalR service which is designed for browser/client use.
@@ -180,8 +205,18 @@ func (o LookupServiceResultOutput) ServerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupServiceResult) int { return v.ServerPort }).(pulumi.IntOutput)
 }
 
+// The serverless connection timeout of this SignalR service.
+func (o LookupServiceResultOutput) ServerlessConnectionTimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupServiceResult) int { return v.ServerlessConnectionTimeoutInSeconds }).(pulumi.IntOutput)
+}
+
 func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Is tls client cert enabled for this SignalR service?
+func (o LookupServiceResultOutput) TlsClientCertEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServiceResult) bool { return v.TlsClientCertEnabled }).(pulumi.BoolOutput)
 }
 
 func init() {

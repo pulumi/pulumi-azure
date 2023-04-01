@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .skuName(&#34;E0&#34;)
  *             .customSubdomainName(&#34;example-account&#34;)
  *             .identity(AccountIdentityArgs.builder()
- *                 .type(&#34;SystemAssigned, UserAssigned&#34;)
+ *                 .type(&#34;UserAssigned&#34;)
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .build());
@@ -118,7 +118,8 @@ import javax.annotation.Nullable;
  *                         &#34;Encrypt&#34;,
  *                         &#34;Decrypt&#34;,
  *                         &#34;Sign&#34;,
- *                         &#34;Verify&#34;)
+ *                         &#34;Verify&#34;,
+ *                         &#34;GetRotationPolicy&#34;)
  *                     .secretPermissions(&#34;Get&#34;)
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
@@ -180,7 +181,7 @@ public class AccountCustomerManagedKey extends com.pulumi.resources.CustomResour
      * The ID of the Cognitive Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="cognitiveAccountId", type=String.class, parameters={})
+    @Export(name="cognitiveAccountId", refs={String.class}, tree="[0]")
     private Output<String> cognitiveAccountId;
 
     /**
@@ -194,7 +195,7 @@ public class AccountCustomerManagedKey extends com.pulumi.resources.CustomResour
      * The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there&#39;re multiple identities attached to the Cognitive Account.
      * 
      */
-    @Export(name="identityClientId", type=String.class, parameters={})
+    @Export(name="identityClientId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> identityClientId;
 
     /**
@@ -208,7 +209,7 @@ public class AccountCustomerManagedKey extends com.pulumi.resources.CustomResour
      * The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
      * 
      */
-    @Export(name="keyVaultKeyId", type=String.class, parameters={})
+    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultKeyId;
 
     /**

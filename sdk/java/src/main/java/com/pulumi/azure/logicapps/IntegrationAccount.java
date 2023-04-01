@@ -72,7 +72,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
      * 
      */
-    @Export(name="integrationServiceEnvironmentId", type=String.class, parameters={})
+    @Export(name="integrationServiceEnvironmentId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integrationServiceEnvironmentId;
 
     /**
@@ -86,7 +86,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -100,7 +100,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -114,7 +114,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -128,7 +128,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -142,7 +142,7 @@ public class IntegrationAccount extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Logic App Integration Account.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

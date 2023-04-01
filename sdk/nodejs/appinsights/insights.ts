@@ -150,7 +150,7 @@ export class Insights extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
+     * Specifies the id of a log analytics workspace resource.
      */
     public readonly workspaceId!: pulumi.Output<string | undefined>;
 
@@ -292,7 +292,7 @@ export interface InsightsState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
+     * Specifies the id of a log analytics workspace resource.
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -358,7 +358,7 @@ export interface InsightsArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies the id of a log analytics workspace resource. Changing this forces a new resource to be created.
+     * Specifies the id of a log analytics workspace resource.
      */
     workspaceId?: pulumi.Input<string>;
 }

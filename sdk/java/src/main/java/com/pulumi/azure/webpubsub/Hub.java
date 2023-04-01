@@ -110,7 +110,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * Possible values are `true`, `false`.
      * 
      */
-    @Export(name="anonymousConnectionsEnabled", type=Boolean.class, parameters={})
+    @Export(name="anonymousConnectionsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> anonymousConnectionsEnabled;
 
     /**
@@ -125,7 +125,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * An `event_handler` block as defined below.
      * 
      */
-    @Export(name="eventHandlers", type=List.class, parameters={HubEventHandler.class})
+    @Export(name="eventHandlers", refs={List.class,HubEventHandler.class}, tree="[0,1]")
     private Output</* @Nullable */ List<HubEventHandler>> eventHandlers;
 
     /**
@@ -139,7 +139,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -153,7 +153,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="webPubsubId", type=String.class, parameters={})
+    @Export(name="webPubsubId", refs={String.class}, tree="[0]")
     private Output<String> webPubsubId;
 
     /**

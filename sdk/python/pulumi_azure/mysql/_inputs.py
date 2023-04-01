@@ -22,16 +22,48 @@ __all__ = [
 @pulumi.input_type
 class FlexibleServerCustomerManagedKeyArgs:
     def __init__(__self__, *,
+                 geo_backup_key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 geo_backup_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] geo_backup_key_vault_key_id: The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+        :param pulumi.Input[str] geo_backup_user_assigned_identity_id: The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key.
         :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
         """
+        if geo_backup_key_vault_key_id is not None:
+            pulumi.set(__self__, "geo_backup_key_vault_key_id", geo_backup_key_vault_key_id)
+        if geo_backup_user_assigned_identity_id is not None:
+            pulumi.set(__self__, "geo_backup_user_assigned_identity_id", geo_backup_user_assigned_identity_id)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if primary_user_assigned_identity_id is not None:
             pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="geoBackupKeyVaultKeyId")
+    def geo_backup_key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+        """
+        return pulumi.get(self, "geo_backup_key_vault_key_id")
+
+    @geo_backup_key_vault_key_id.setter
+    def geo_backup_key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "geo_backup_key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="geoBackupUserAssignedIdentityId")
+    def geo_backup_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
+        """
+        return pulumi.get(self, "geo_backup_user_assigned_identity_id")
+
+    @geo_backup_user_assigned_identity_id.setter
+    def geo_backup_user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "geo_backup_user_assigned_identity_id", value)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")

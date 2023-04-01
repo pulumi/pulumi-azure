@@ -88,7 +88,7 @@ public class SharedPrivateLinkService extends com.pulumi.resources.CustomResourc
      * Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -102,7 +102,7 @@ public class SharedPrivateLinkService extends com.pulumi.resources.CustomResourc
      * Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
      * 
      */
-    @Export(name="requestMessage", type=String.class, parameters={})
+    @Export(name="requestMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestMessage;
 
     /**
@@ -116,7 +116,7 @@ public class SharedPrivateLinkService extends com.pulumi.resources.CustomResourc
      * Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="searchServiceId", type=String.class, parameters={})
+    @Export(name="searchServiceId", refs={String.class}, tree="[0]")
     private Output<String> searchServiceId;
 
     /**
@@ -130,7 +130,7 @@ public class SharedPrivateLinkService extends com.pulumi.resources.CustomResourc
      * The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -144,7 +144,7 @@ public class SharedPrivateLinkService extends com.pulumi.resources.CustomResourc
      * Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subresourceName", type=String.class, parameters={})
+    @Export(name="subresourceName", refs={String.class}, tree="[0]")
     private Output<String> subresourceName;
 
     /**
@@ -158,7 +158,7 @@ public class SharedPrivateLinkService extends com.pulumi.resources.CustomResourc
      * Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetResourceId", type=String.class, parameters={})
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**

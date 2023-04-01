@@ -104,7 +104,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="containers", type=List.class, parameters={GroupContainer.class})
+    @Export(name="containers", refs={List.class,GroupContainer.class}, tree="[0,1]")
     private Output<List<GroupContainer>> containers;
 
     /**
@@ -118,7 +118,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A `diagnostics` block as documented below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="diagnostics", type=GroupDiagnostics.class, parameters={})
+    @Export(name="diagnostics", refs={GroupDiagnostics.class}, tree="[0]")
     private Output</* @Nullable */ GroupDiagnostics> diagnostics;
 
     /**
@@ -132,7 +132,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A `dns_config` block as documented below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="dnsConfig", type=GroupDnsConfig.class, parameters={})
+    @Export(name="dnsConfig", refs={GroupDnsConfig.class}, tree="[0]")
     private Output</* @Nullable */ GroupDnsConfig> dnsConfig;
 
     /**
@@ -146,7 +146,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The DNS label/name for the container group&#39;s IP. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="dnsNameLabel", type=String.class, parameters={})
+    @Export(name="dnsNameLabel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dnsNameLabel;
 
     /**
@@ -160,7 +160,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
      * 
      */
-    @Export(name="dnsNameLabelReusePolicy", type=String.class, parameters={})
+    @Export(name="dnsNameLabelReusePolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dnsNameLabelReusePolicy;
 
     /**
@@ -174,7 +174,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="exposedPorts", type=List.class, parameters={GroupExposedPort.class})
+    @Export(name="exposedPorts", refs={List.class,GroupExposedPort.class}, tree="[0,1]")
     private Output<List<GroupExposedPort>> exposedPorts;
 
     /**
@@ -188,7 +188,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The FQDN of the container group derived from `dns_name_label`.
      * 
      */
-    @Export(name="fqdn", type=String.class, parameters={})
+    @Export(name="fqdn", refs={String.class}, tree="[0]")
     private Output<String> fqdn;
 
     /**
@@ -202,7 +202,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=GroupIdentity.class, parameters={})
+    @Export(name="identity", refs={GroupIdentity.class}, tree="[0]")
     private Output</* @Nullable */ GroupIdentity> identity;
 
     /**
@@ -216,7 +216,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="imageRegistryCredentials", type=List.class, parameters={GroupImageRegistryCredential.class})
+    @Export(name="imageRegistryCredentials", refs={List.class,GroupImageRegistryCredential.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GroupImageRegistryCredential>> imageRegistryCredentials;
 
     /**
@@ -230,7 +230,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="initContainers", type=List.class, parameters={GroupInitContainer.class})
+    @Export(name="initContainers", refs={List.class,GroupInitContainer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GroupInitContainer>> initContainers;
 
     /**
@@ -244,7 +244,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The IP address allocated to the container group.
      * 
      */
-    @Export(name="ipAddress", type=String.class, parameters={})
+    @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
@@ -258,7 +258,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
      * 
      */
-    @Export(name="ipAddressType", type=String.class, parameters={})
+    @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddressType;
 
     /**
@@ -272,7 +272,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keyVaultKeyId", type=String.class, parameters={})
+    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyVaultKeyId;
 
     /**
@@ -286,7 +286,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -300,7 +300,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Container Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -316,7 +316,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead */
-    @Export(name="networkProfileId", type=String.class, parameters={})
+    @Export(name="networkProfileId", refs={String.class}, tree="[0]")
     private Output<String> networkProfileId;
 
     public Output<String> networkProfileId() {
@@ -326,7 +326,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="osType", type=String.class, parameters={})
+    @Export(name="osType", refs={String.class}, tree="[0]")
     private Output<String> osType;
 
     /**
@@ -340,7 +340,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -354,7 +354,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="restartPolicy", type=String.class, parameters={})
+    @Export(name="restartPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> restartPolicy;
 
     /**
@@ -368,7 +368,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The subnet resource IDs for a container group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetIds", type=String.class, parameters={})
+    @Export(name="subnetIds", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetIds;
 
     /**
@@ -382,7 +382,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -396,7 +396,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zones", type=List.class, parameters={String.class})
+    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**

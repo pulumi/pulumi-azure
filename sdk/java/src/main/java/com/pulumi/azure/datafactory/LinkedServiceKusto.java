@@ -117,7 +117,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -131,7 +131,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Data Factory Linked Service.
      * 
      */
-    @Export(name="annotations", type=List.class, parameters={String.class})
+    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -145,7 +145,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", type=String.class, parameters={})
+    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
@@ -159,7 +159,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * The description for the Data Factory Linked Service.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -173,7 +173,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * The integration runtime reference to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="integrationRuntimeName", type=String.class, parameters={})
+    @Export(name="integrationRuntimeName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integrationRuntimeName;
 
     /**
@@ -187,7 +187,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * The Kusto Database Name.
      * 
      */
-    @Export(name="kustoDatabaseName", type=String.class, parameters={})
+    @Export(name="kustoDatabaseName", refs={String.class}, tree="[0]")
     private Output<String> kustoDatabaseName;
 
     /**
@@ -201,7 +201,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * The URI of the Kusto Cluster endpoint.
      * 
      */
-    @Export(name="kustoEndpoint", type=String.class, parameters={})
+    @Export(name="kustoEndpoint", refs={String.class}, tree="[0]")
     private Output<String> kustoEndpoint;
 
     /**
@@ -215,7 +215,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -229,7 +229,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * A map of parameters to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -243,7 +243,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * The service principal id in which to authenticate against the Kusto Database.
      * 
      */
-    @Export(name="servicePrincipalId", type=String.class, parameters={})
+    @Export(name="servicePrincipalId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> servicePrincipalId;
 
     /**
@@ -257,7 +257,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * The service principal key in which to authenticate against the Kusto Database.
      * 
      */
-    @Export(name="servicePrincipalKey", type=String.class, parameters={})
+    @Export(name="servicePrincipalKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> servicePrincipalKey;
 
     /**
@@ -271,7 +271,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * The service principal tenant id or name in which to authenticate against the Kusto Database.
      * 
      */
-    @Export(name="tenant", type=String.class, parameters={})
+    @Export(name="tenant", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tenant;
 
     /**
@@ -285,7 +285,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * Whether to use the Data Factory&#39;s managed identity to authenticate against the Kusto Database.
      * 
      */
-    @Export(name="useManagedIdentity", type=Boolean.class, parameters={})
+    @Export(name="useManagedIdentity", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useManagedIdentity;
 
     /**

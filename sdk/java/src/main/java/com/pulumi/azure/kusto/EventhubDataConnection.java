@@ -124,7 +124,7 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterName", type=String.class, parameters={})
+    @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
@@ -138,7 +138,7 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
      * Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="compression", type=String.class, parameters={})
+    @Export(name="compression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> compression;
 
     /**
@@ -152,7 +152,7 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
      * Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="consumerGroup", type=String.class, parameters={})
+    @Export(name="consumerGroup", refs={String.class}, tree="[0]")
     private Output<String> consumerGroup;
 
     /**
@@ -166,7 +166,7 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
      * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, and `W3CLOGFILE`.
      * 
      */
-    @Export(name="dataFormat", type=String.class, parameters={})
+    @Export(name="dataFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dataFormat;
 
     /**
@@ -180,7 +180,7 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
@@ -194,7 +194,7 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
      * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="databaseRoutingType", type=String.class, parameters={})
+    @Export(name="databaseRoutingType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> databaseRoutingType;
 
     /**
@@ -208,7 +208,7 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
      * Specifies a list of system properties for the Event Hub.
      * 
      */
-    @Export(name="eventSystemProperties", type=List.class, parameters={String.class})
+    @Export(name="eventSystemProperties", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> eventSystemProperties;
 
     /**
@@ -222,7 +222,7 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
      * Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventhubId", type=String.class, parameters={})
+    @Export(name="eventhubId", refs={String.class}, tree="[0]")
     private Output<String> eventhubId;
 
     /**
@@ -236,7 +236,7 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
      * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
      * 
      */
-    @Export(name="identityId", type=String.class, parameters={})
+    @Export(name="identityId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> identityId;
 
     /**
@@ -250,7 +250,7 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -264,7 +264,7 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      * 
      */
-    @Export(name="mappingRuleName", type=String.class, parameters={})
+    @Export(name="mappingRuleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mappingRuleName;
 
     /**
@@ -278,7 +278,7 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
      * The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -292,7 +292,7 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -306,7 +306,7 @@ public class EventhubDataConnection extends com.pulumi.resources.CustomResource 
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
      * 
      */
-    @Export(name="tableName", type=String.class, parameters={})
+    @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tableName;
 
     /**

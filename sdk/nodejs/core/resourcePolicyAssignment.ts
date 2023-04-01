@@ -116,6 +116,10 @@ export class ResourcePolicyAssignment extends pulumi.CustomResource {
      */
     public readonly notScopes!: pulumi.Output<string[] | undefined>;
     /**
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     */
+    public readonly overrides!: pulumi.Output<outputs.core.ResourcePolicyAssignmentOverride[] | undefined>;
+    /**
      * A JSON mapping of any Parameters for this Policy.
      */
     public readonly parameters!: pulumi.Output<string | undefined>;
@@ -127,6 +131,10 @@ export class ResourcePolicyAssignment extends pulumi.CustomResource {
      * The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
      */
     public readonly resourceId!: pulumi.Output<string>;
+    /**
+     * One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
+     */
+    public readonly resourceSelectors!: pulumi.Output<outputs.core.ResourcePolicyAssignmentResourceSelector[] | undefined>;
 
     /**
      * Create a ResourcePolicyAssignment resource with the given unique name, arguments, and options.
@@ -150,9 +158,11 @@ export class ResourcePolicyAssignment extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nonComplianceMessages"] = state ? state.nonComplianceMessages : undefined;
             resourceInputs["notScopes"] = state ? state.notScopes : undefined;
+            resourceInputs["overrides"] = state ? state.overrides : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["policyDefinitionId"] = state ? state.policyDefinitionId : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["resourceSelectors"] = state ? state.resourceSelectors : undefined;
         } else {
             const args = argsOrState as ResourcePolicyAssignmentArgs | undefined;
             if ((!args || args.policyDefinitionId === undefined) && !opts.urn) {
@@ -170,9 +180,11 @@ export class ResourcePolicyAssignment extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nonComplianceMessages"] = args ? args.nonComplianceMessages : undefined;
             resourceInputs["notScopes"] = args ? args.notScopes : undefined;
+            resourceInputs["overrides"] = args ? args.overrides : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["resourceSelectors"] = args ? args.resourceSelectors : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourcePolicyAssignment.__pulumiType, name, resourceInputs, opts);
@@ -220,6 +232,10 @@ export interface ResourcePolicyAssignmentState {
      */
     notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     */
+    overrides?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentOverride>[]>;
+    /**
      * A JSON mapping of any Parameters for this Policy.
      */
     parameters?: pulumi.Input<string>;
@@ -231,6 +247,10 @@ export interface ResourcePolicyAssignmentState {
      * The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
      */
     resourceId?: pulumi.Input<string>;
+    /**
+     * One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
+     */
+    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentResourceSelector>[]>;
 }
 
 /**
@@ -274,6 +294,10 @@ export interface ResourcePolicyAssignmentArgs {
      */
     notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     */
+    overrides?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentOverride>[]>;
+    /**
      * A JSON mapping of any Parameters for this Policy.
      */
     parameters?: pulumi.Input<string>;
@@ -285,4 +309,8 @@ export interface ResourcePolicyAssignmentArgs {
      * The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
      */
     resourceId: pulumi.Input<string>;
+    /**
+     * One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
+     */
+    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentResourceSelector>[]>;
 }

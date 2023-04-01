@@ -1493,7 +1493,7 @@ class FrontdoorRoutingRuleForwardingConfiguration(dict):
                  forwarding_protocol: Optional[str] = None):
         """
         :param str backend_pool_name: Specifies the name of the Backend Pool to forward the incoming traffic to.
-        :param str cache_duration: Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+        :param str cache_duration: Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
         :param bool cache_enabled: Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
         :param str cache_query_parameter_strip_directive: Defines cache behaviour in relation to query string parameters. Valid options are `StripAll`, `StripAllExcept`, `StripOnly` or `StripNone`. Defaults to `StripAll`.
         :param Sequence[str] cache_query_parameters: Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
@@ -1529,7 +1529,7 @@ class FrontdoorRoutingRuleForwardingConfiguration(dict):
     @pulumi.getter(name="cacheDuration")
     def cache_duration(self) -> Optional[str]:
         """
-        Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+        Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
         """
         return pulumi.get(self, "cache_duration")
 

@@ -112,7 +112,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="appServicePlanId", type=String.class, parameters={})
+    @Export(name="appServicePlanId", refs={String.class}, tree="[0]")
     private Output<String> appServicePlanId;
 
     /**
@@ -126,7 +126,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * A key-value pair of App Settings.
      * 
      */
-    @Export(name="appSettings", type=Map.class, parameters={String.class, String.class})
+    @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> appSettings;
 
     /**
@@ -140,7 +140,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * An `auth_settings` block as defined below.
      * 
      */
-    @Export(name="authSettings", type=FunctionAppSlotAuthSettings.class, parameters={})
+    @Export(name="authSettings", refs={FunctionAppSlotAuthSettings.class}, tree="[0]")
     private Output<FunctionAppSlotAuthSettings> authSettings;
 
     /**
@@ -154,7 +154,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * A `connection_string` block as defined below.
      * 
      */
-    @Export(name="connectionStrings", type=List.class, parameters={FunctionAppSlotConnectionString.class})
+    @Export(name="connectionStrings", refs={List.class,FunctionAppSlotConnectionString.class}, tree="[0,1]")
     private Output<List<FunctionAppSlotConnectionString>> connectionStrings;
 
     /**
@@ -168,7 +168,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      * 
      */
-    @Export(name="dailyMemoryTimeQuota", type=Integer.class, parameters={})
+    @Export(name="dailyMemoryTimeQuota", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dailyMemoryTimeQuota;
 
     /**
@@ -182,7 +182,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
      * 
      */
-    @Export(name="defaultHostname", type=String.class, parameters={})
+    @Export(name="defaultHostname", refs={String.class}, tree="[0]")
     private Output<String> defaultHostname;
 
     /**
@@ -196,7 +196,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * Should the built-in logging of the Function App be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enableBuiltinLogging", type=Boolean.class, parameters={})
+    @Export(name="enableBuiltinLogging", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableBuiltinLogging;
 
     /**
@@ -210,7 +210,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * Is the Function App enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -224,7 +224,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="functionAppName", type=String.class, parameters={})
+    @Export(name="functionAppName", refs={String.class}, tree="[0]")
     private Output<String> functionAppName;
 
     /**
@@ -238,7 +238,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      * 
      */
-    @Export(name="httpsOnly", type=Boolean.class, parameters={})
+    @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
@@ -252,7 +252,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=FunctionAppSlotIdentity.class, parameters={})
+    @Export(name="identity", refs={FunctionAppSlotIdentity.class}, tree="[0]")
     private Output</* @Nullable */ FunctionAppSlotIdentity> identity;
 
     /**
@@ -266,7 +266,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * The Function App kind - such as `functionapp,linux,container`
      * 
      */
-    @Export(name="kind", type=String.class, parameters={})
+    @Export(name="kind", refs={String.class}, tree="[0]")
     private Output<String> kind;
 
     /**
@@ -280,7 +280,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -294,7 +294,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Function App. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -308,7 +308,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="osType", type=String.class, parameters={})
+    @Export(name="osType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> osType;
 
     /**
@@ -322,7 +322,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      * 
      */
-    @Export(name="outboundIpAddresses", type=String.class, parameters={})
+    @Export(name="outboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> outboundIpAddresses;
 
     /**
@@ -336,7 +336,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
-    @Export(name="possibleOutboundIpAddresses", type=String.class, parameters={})
+    @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> possibleOutboundIpAddresses;
 
     /**
@@ -350,7 +350,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -364,7 +364,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * A `site_config` object as defined below.
      * 
      */
-    @Export(name="siteConfig", type=FunctionAppSlotSiteConfig.class, parameters={})
+    @Export(name="siteConfig", refs={FunctionAppSlotSiteConfig.class}, tree="[0]")
     private Output<FunctionAppSlotSiteConfig> siteConfig;
 
     /**
@@ -378,7 +378,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
      * 
      */
-    @Export(name="siteCredentials", type=List.class, parameters={FunctionAppSlotSiteCredential.class})
+    @Export(name="siteCredentials", refs={List.class,FunctionAppSlotSiteCredential.class}, tree="[0,1]")
     private Output<List<FunctionAppSlotSiteCredential>> siteCredentials;
 
     /**
@@ -392,7 +392,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * The access key which will be used to access the backend storage account for the Function App.
      * 
      */
-    @Export(name="storageAccountAccessKey", type=String.class, parameters={})
+    @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
     private Output<String> storageAccountAccessKey;
 
     /**
@@ -406,7 +406,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountName", type=String.class, parameters={})
+    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output<String> storageAccountName;
 
     /**
@@ -420,7 +420,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -434,7 +434,7 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
      * The runtime version associated with the Function App. Defaults to `~1`.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> version;
 
     /**

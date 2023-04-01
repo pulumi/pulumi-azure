@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:databricks/accessConnector:AccessConnector":
 		r = &AccessConnector{}
+	case "azure:databricks/virtualNetworkPeering:VirtualNetworkPeering":
+		r = &VirtualNetworkPeering{}
 	case "azure:databricks/workspace:Workspace":
 		r = &Workspace{}
 	case "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"databricks/accessConnector",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"databricks/virtualNetworkPeering",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

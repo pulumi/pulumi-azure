@@ -44,6 +44,9 @@ func NewPortalDashboard(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DashboardProperties == nil {
+		return nil, errors.New("invalid value for required argument 'DashboardProperties'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -100,7 +103,7 @@ func (PortalDashboardState) ElementType() reflect.Type {
 
 type portalDashboardArgs struct {
 	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
-	DashboardProperties *string `pulumi:"dashboardProperties"`
+	DashboardProperties string `pulumi:"dashboardProperties"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
@@ -114,7 +117,7 @@ type portalDashboardArgs struct {
 // The set of arguments for constructing a PortalDashboard resource.
 type PortalDashboardArgs struct {
 	// JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
-	DashboardProperties pulumi.StringPtrInput
+	DashboardProperties pulumi.StringInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.

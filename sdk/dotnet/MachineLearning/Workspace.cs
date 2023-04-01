@@ -109,6 +109,7 @@ namespace Pulumi.Azure.MachineLearning
     ///             "Get",
     ///             "Delete",
     ///             "Purge",
+    ///             "GetRotationPolicy",
     ///         },
     ///     });
     /// 
@@ -248,6 +249,7 @@ namespace Pulumi.Azure.MachineLearning
     ///             "Recover",
     ///             "Delete",
     ///             "Purge",
+    ///             "GetRotationPolicy",
     ///         },
     ///     });
     /// 

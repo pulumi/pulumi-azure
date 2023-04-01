@@ -104,7 +104,7 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
      * The MS SQL database name where the reference data exists.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -118,7 +118,7 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
      * The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
      * 
      */
-    @Export(name="deltaSnapshotQuery", type=String.class, parameters={})
+    @Export(name="deltaSnapshotQuery", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deltaSnapshotQuery;
 
     /**
@@ -132,7 +132,7 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
      * The query used to retrieve the reference data from the MS SQL database.
      * 
      */
-    @Export(name="fullSnapshotQuery", type=String.class, parameters={})
+    @Export(name="fullSnapshotQuery", refs={String.class}, tree="[0]")
     private Output<String> fullSnapshotQuery;
 
     /**
@@ -146,7 +146,7 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
      * The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -160,7 +160,7 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
      * The password to connect to the MS SQL database.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
@@ -174,7 +174,7 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
      * The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
      * 
      */
-    @Export(name="refreshIntervalDuration", type=String.class, parameters={})
+    @Export(name="refreshIntervalDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> refreshIntervalDuration;
 
     /**
@@ -188,7 +188,7 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
      * Defines whether and how the reference data should be refreshed. Accepted values are `Static`, `RefreshPeriodicallyWithFull` and `RefreshPeriodicallyWithDelta`.
      * 
      */
-    @Export(name="refreshType", type=String.class, parameters={})
+    @Export(name="refreshType", refs={String.class}, tree="[0]")
     private Output<String> refreshType;
 
     /**
@@ -202,7 +202,7 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -216,7 +216,7 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
      * The fully qualified domain name of the MS SQL server.
      * 
      */
-    @Export(name="server", type=String.class, parameters={})
+    @Export(name="server", refs={String.class}, tree="[0]")
     private Output<String> server;
 
     /**
@@ -230,7 +230,7 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobName", type=String.class, parameters={})
+    @Export(name="streamAnalyticsJobName", refs={String.class}, tree="[0]")
     private Output<String> streamAnalyticsJobName;
 
     /**
@@ -244,7 +244,7 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
      * The name of the table in the Azure SQL database.
      * 
      */
-    @Export(name="table", type=String.class, parameters={})
+    @Export(name="table", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> table;
 
     /**
@@ -258,7 +258,7 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
      * The username to connect to the MS SQL database.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

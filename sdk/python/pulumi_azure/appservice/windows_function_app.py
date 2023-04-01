@@ -44,7 +44,8 @@ class WindowsFunctionAppArgs:
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WindowsFunctionApp resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
@@ -76,6 +77,7 @@ class WindowsFunctionAppArgs:
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
         :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Function App.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_plan_id", service_plan_id)
@@ -132,6 +134,8 @@ class WindowsFunctionAppArgs:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if zip_deploy_file is not None:
+            pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -481,6 +485,18 @@ class WindowsFunctionAppArgs:
     def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
+
+    @zip_deploy_file.setter
+    def zip_deploy_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zip_deploy_file", value)
+
 
 @pulumi.input_type
 class _WindowsFunctionAppState:
@@ -521,7 +537,8 @@ class _WindowsFunctionAppState:
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WindowsFunctionApp resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
@@ -561,6 +578,7 @@ class _WindowsFunctionAppState:
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
         :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Function App.
         """
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
@@ -636,6 +654,8 @@ class _WindowsFunctionAppState:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if zip_deploy_file is not None:
+            pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
     @property
     @pulumi.getter(name="appSettings")
@@ -1081,6 +1101,18 @@ class _WindowsFunctionAppState:
     def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
+
+    @zip_deploy_file.setter
+    def zip_deploy_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zip_deploy_file", value)
+
 
 class WindowsFunctionApp(pulumi.CustomResource):
     @overload
@@ -1116,6 +1148,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Windows Function App.
@@ -1185,6 +1218,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
         :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Function App.
         """
         ...
     @overload
@@ -1273,6 +1307,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1317,6 +1352,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
             __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+            __props__.__dict__["zip_deploy_file"] = zip_deploy_file
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
             __props__.__dict__["kind"] = None
@@ -1373,7 +1409,8 @@ class WindowsFunctionApp(pulumi.CustomResource):
             storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
             storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            virtual_network_subnet_id: Optional[pulumi.Input[str]] = None) -> 'WindowsFunctionApp':
+            virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+            zip_deploy_file: Optional[pulumi.Input[str]] = None) -> 'WindowsFunctionApp':
         """
         Get an existing WindowsFunctionApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1418,6 +1455,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
         :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Function App.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1460,6 +1498,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+        __props__.__dict__["zip_deploy_file"] = zip_deploy_file
         return WindowsFunctionApp(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1757,4 +1796,12 @@ class WindowsFunctionApp(pulumi.CustomResource):
         The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         return pulumi.get(self, "virtual_network_subnet_id")
+
+    @property
+    @pulumi.getter(name="zipDeployFile")
+    def zip_deploy_file(self) -> pulumi.Output[str]:
+        """
+        The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+        """
+        return pulumi.get(self, "zip_deploy_file")
 

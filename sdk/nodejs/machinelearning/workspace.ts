@@ -74,6 +74,7 @@ import * as utilities from "../utilities";
  *         "Get",
  *         "Delete",
  *         "Purge",
+ *         "GetRotationPolicy",
  *     ],
  * });
  * const exampleAccount = new azure.storage.Account("exampleAccount", {
@@ -178,6 +179,7 @@ import * as utilities from "../utilities";
  *         "Recover",
  *         "Delete",
  *         "Purge",
+ *         "GetRotationPolicy",
  *     ],
  * });
  * const test = azuread.getServicePrincipal({

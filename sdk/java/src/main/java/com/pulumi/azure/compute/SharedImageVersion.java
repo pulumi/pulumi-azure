@@ -90,7 +90,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="blobUri", type=String.class, parameters={})
+    @Export(name="blobUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> blobUri;
 
     /**
@@ -104,7 +104,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The end of life date in RFC3339 format of the Image Version.
      * 
      */
-    @Export(name="endOfLifeDate", type=String.class, parameters={})
+    @Export(name="endOfLifeDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endOfLifeDate;
 
     /**
@@ -118,7 +118,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won&#39;t be returned for the `latest` version. Defaults to `false`.
      * 
      */
-    @Export(name="excludeFromLatest", type=Boolean.class, parameters={})
+    @Export(name="excludeFromLatest", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> excludeFromLatest;
 
     /**
@@ -132,7 +132,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="galleryName", type=String.class, parameters={})
+    @Export(name="galleryName", refs={String.class}, tree="[0]")
     private Output<String> galleryName;
 
     /**
@@ -146,7 +146,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="imageName", type=String.class, parameters={})
+    @Export(name="imageName", refs={String.class}, tree="[0]")
     private Output<String> imageName;
 
     /**
@@ -160,7 +160,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -174,7 +174,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managedImageId", type=String.class, parameters={})
+    @Export(name="managedImageId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managedImageId;
 
     /**
@@ -188,7 +188,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -202,7 +202,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="osDiskSnapshotId", type=String.class, parameters={})
+    @Export(name="osDiskSnapshotId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> osDiskSnapshotId;
 
     /**
@@ -216,7 +216,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="replicationMode", type=String.class, parameters={})
+    @Export(name="replicationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> replicationMode;
 
     /**
@@ -230,7 +230,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -244,7 +244,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountId", type=String.class, parameters={})
+    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountId;
 
     /**
@@ -258,7 +258,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * A collection of tags which should be applied to this resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -272,7 +272,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * One or more `target_region` blocks as documented below.
      * 
      */
-    @Export(name="targetRegions", type=List.class, parameters={SharedImageVersionTargetRegion.class})
+    @Export(name="targetRegions", refs={List.class,SharedImageVersionTargetRegion.class}, tree="[0,1]")
     private Output<List<SharedImageVersionTargetRegion>> targetRegions;
 
     /**

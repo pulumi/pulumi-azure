@@ -117,6 +117,10 @@ export class GroupPolicyAssignment extends pulumi.CustomResource {
      */
     public readonly notScopes!: pulumi.Output<string[] | undefined>;
     /**
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     */
+    public readonly overrides!: pulumi.Output<outputs.management.GroupPolicyAssignmentOverride[] | undefined>;
+    /**
      * A JSON mapping of any Parameters for this Policy.
      */
     public readonly parameters!: pulumi.Output<string | undefined>;
@@ -124,6 +128,10 @@ export class GroupPolicyAssignment extends pulumi.CustomResource {
      * The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
      */
     public readonly policyDefinitionId!: pulumi.Output<string>;
+    /**
+     * One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
+     */
+    public readonly resourceSelectors!: pulumi.Output<outputs.management.GroupPolicyAssignmentResourceSelector[] | undefined>;
 
     /**
      * Create a GroupPolicyAssignment resource with the given unique name, arguments, and options.
@@ -148,8 +156,10 @@ export class GroupPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nonComplianceMessages"] = state ? state.nonComplianceMessages : undefined;
             resourceInputs["notScopes"] = state ? state.notScopes : undefined;
+            resourceInputs["overrides"] = state ? state.overrides : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["policyDefinitionId"] = state ? state.policyDefinitionId : undefined;
+            resourceInputs["resourceSelectors"] = state ? state.resourceSelectors : undefined;
         } else {
             const args = argsOrState as GroupPolicyAssignmentArgs | undefined;
             if ((!args || args.managementGroupId === undefined) && !opts.urn) {
@@ -168,8 +178,10 @@ export class GroupPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nonComplianceMessages"] = args ? args.nonComplianceMessages : undefined;
             resourceInputs["notScopes"] = args ? args.notScopes : undefined;
+            resourceInputs["overrides"] = args ? args.overrides : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
+            resourceInputs["resourceSelectors"] = args ? args.resourceSelectors : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GroupPolicyAssignment.__pulumiType, name, resourceInputs, opts);
@@ -221,6 +233,10 @@ export interface GroupPolicyAssignmentState {
      */
     notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     */
+    overrides?: pulumi.Input<pulumi.Input<inputs.management.GroupPolicyAssignmentOverride>[]>;
+    /**
      * A JSON mapping of any Parameters for this Policy.
      */
     parameters?: pulumi.Input<string>;
@@ -228,6 +244,10 @@ export interface GroupPolicyAssignmentState {
      * The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
      */
     policyDefinitionId?: pulumi.Input<string>;
+    /**
+     * One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
+     */
+    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.management.GroupPolicyAssignmentResourceSelector>[]>;
 }
 
 /**
@@ -275,6 +295,10 @@ export interface GroupPolicyAssignmentArgs {
      */
     notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     */
+    overrides?: pulumi.Input<pulumi.Input<inputs.management.GroupPolicyAssignmentOverride>[]>;
+    /**
      * A JSON mapping of any Parameters for this Policy.
      */
     parameters?: pulumi.Input<string>;
@@ -282,4 +306,8 @@ export interface GroupPolicyAssignmentArgs {
      * The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
      */
     policyDefinitionId: pulumi.Input<string>;
+    /**
+     * One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
+     */
+    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.management.GroupPolicyAssignmentResourceSelector>[]>;
 }

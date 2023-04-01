@@ -79,11 +79,11 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
      * Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
      */
-    public readonly allowForwardedTraffic!: pulumi.Output<boolean>;
+    public readonly allowForwardedTraffic!: pulumi.Output<boolean | undefined>;
     /**
-     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
      */
-    public readonly allowGatewayTransit!: pulumi.Output<boolean>;
+    public readonly allowGatewayTransit!: pulumi.Output<boolean | undefined>;
     /**
      * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
      */
@@ -104,7 +104,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      */
-    public readonly useRemoteGateways!: pulumi.Output<boolean>;
+    public readonly useRemoteGateways!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the virtual network. Changing this forces a new resource to be created.
      */
@@ -167,7 +167,7 @@ export interface VirtualNetworkPeeringState {
      */
     allowForwardedTraffic?: pulumi.Input<boolean>;
     /**
-     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
      */
     allowGatewayTransit?: pulumi.Input<boolean>;
     /**
@@ -206,7 +206,7 @@ export interface VirtualNetworkPeeringArgs {
      */
     allowForwardedTraffic?: pulumi.Input<boolean>;
     /**
-     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network.
+     * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
      */
     allowGatewayTransit?: pulumi.Input<boolean>;
     /**

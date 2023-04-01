@@ -78,7 +78,7 @@ public class OutboundFirewallRule extends com.pulumi.resources.CustomResource {
      * The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -92,7 +92,7 @@ public class OutboundFirewallRule extends com.pulumi.resources.CustomResource {
      * The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverId", type=String.class, parameters={})
+    @Export(name="serverId", refs={String.class}, tree="[0]")
     private Output<String> serverId;
 
     /**

@@ -29,9 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
- * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
  * import com.pulumi.azure.sentinel.AlertRuleMachineLearningBehaviorAnalytics;
  * import com.pulumi.azure.sentinel.AlertRuleMachineLearningBehaviorAnalyticsArgs;
  * import java.util.List;
@@ -57,20 +56,12 @@ import javax.annotation.Nullable;
  *             .sku(&#34;PerGB2018&#34;)
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution(&#34;exampleAnalyticsSolution&#34;, AnalyticsSolutionArgs.builder()        
- *             .solutionName(&#34;SecurityInsights&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
- *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/SecurityInsights&#34;)
- *                 .build())
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
  *         var exampleAlertRuleMachineLearningBehaviorAnalytics = new AlertRuleMachineLearningBehaviorAnalytics(&#34;exampleAlertRuleMachineLearningBehaviorAnalytics&#34;, AlertRuleMachineLearningBehaviorAnalyticsArgs.builder()        
- *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
+ *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
  *             .alertRuleTemplateGuid(&#34;737a2ce1-70a3-4968-9e90-3e6aca836abf&#34;)
  *             .build());
  * 
@@ -93,7 +84,7 @@ public class AlertRuleMachineLearningBehaviorAnalytics extends com.pulumi.resour
      * The GUID of the alert rule template which is used for this Sentinel Machine Learning Behavior Analytics Alert Rule. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
      * 
      */
-    @Export(name="alertRuleTemplateGuid", type=String.class, parameters={})
+    @Export(name="alertRuleTemplateGuid", refs={String.class}, tree="[0]")
     private Output<String> alertRuleTemplateGuid;
 
     /**
@@ -107,7 +98,7 @@ public class AlertRuleMachineLearningBehaviorAnalytics extends com.pulumi.resour
      * Should this Sentinel Machine Learning Behavior Analytics Alert Rule be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -121,7 +112,7 @@ public class AlertRuleMachineLearningBehaviorAnalytics extends com.pulumi.resour
      * The ID of the Log Analytics Workspace this SentinelMachine Learning Behavior Analytics Alert Rule belongs to. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -135,7 +126,7 @@ public class AlertRuleMachineLearningBehaviorAnalytics extends com.pulumi.resour
      * The name which should be used for this SentinelMachine Learning Behavior Analytics Alert Rule. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

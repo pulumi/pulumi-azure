@@ -195,7 +195,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String vnetSubnetId;
     /**
-     * @return Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+     * @return Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
      * 
      */
     private @Nullable String workloadRuntime;
@@ -452,7 +452,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.vnetSubnetId);
     }
     /**
-     * @return Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+     * @return Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
      * 
      */
     public Optional<String> workloadRuntime() {

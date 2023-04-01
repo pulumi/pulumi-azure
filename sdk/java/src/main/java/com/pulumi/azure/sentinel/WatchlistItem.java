@@ -28,9 +28,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
- * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
  * import com.pulumi.azure.sentinel.Watchlist;
  * import com.pulumi.azure.sentinel.WatchlistArgs;
  * import com.pulumi.azure.sentinel.WatchlistItem;
@@ -58,20 +57,12 @@ import javax.annotation.Nullable;
  *             .sku(&#34;PerGB2018&#34;)
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution(&#34;exampleAnalyticsSolution&#34;, AnalyticsSolutionArgs.builder()        
- *             .solutionName(&#34;SecurityInsights&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
- *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/SecurityInsights&#34;)
- *                 .build())
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
  *         var exampleWatchlist = new Watchlist(&#34;exampleWatchlist&#34;, WatchlistArgs.builder()        
- *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
+ *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
  *             .displayName(&#34;example-wl&#34;)
  *             .itemSearchKey(&#34;Key&#34;)
  *             .build());
@@ -103,7 +94,7 @@ public class WatchlistItem extends com.pulumi.resources.CustomResource {
      * The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -117,7 +108,7 @@ public class WatchlistItem extends com.pulumi.resources.CustomResource {
      * The key value pairs of the Sentinel Watchlist Item.
      * 
      */
-    @Export(name="properties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="properties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> properties;
 
     /**
@@ -131,7 +122,7 @@ public class WatchlistItem extends com.pulumi.resources.CustomResource {
      * The ID of the Sentinel Watchlist that this Item resides in. Changing this forces a new Sentinel Watchlist Item to be created.
      * 
      */
-    @Export(name="watchlistId", type=String.class, parameters={})
+    @Export(name="watchlistId", refs={String.class}, tree="[0]")
     private Output<String> watchlistId;
 
     /**

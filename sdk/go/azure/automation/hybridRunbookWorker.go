@@ -69,7 +69,7 @@ type HybridRunbookWorker struct {
 	VmResourceId pulumi.StringOutput `pulumi:"vmResourceId"`
 	// The name of the HybridWorker Group. Changing this forces a new Automation to be created.
 	WorkerGroupName pulumi.StringOutput `pulumi:"workerGroupName"`
-	// The ID of the HybridWorker. Changing this forces a new Automation to be created.
+	// Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
 	WorkerId pulumi.StringOutput `pulumi:"workerId"`
 	// The name of HybridWorker.
 	WorkerName pulumi.StringOutput `pulumi:"workerName"`
@@ -135,7 +135,7 @@ type hybridRunbookWorkerState struct {
 	VmResourceId *string `pulumi:"vmResourceId"`
 	// The name of the HybridWorker Group. Changing this forces a new Automation to be created.
 	WorkerGroupName *string `pulumi:"workerGroupName"`
-	// The ID of the HybridWorker. Changing this forces a new Automation to be created.
+	// Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
 	WorkerId *string `pulumi:"workerId"`
 	// The name of HybridWorker.
 	WorkerName *string `pulumi:"workerName"`
@@ -158,7 +158,7 @@ type HybridRunbookWorkerState struct {
 	VmResourceId pulumi.StringPtrInput
 	// The name of the HybridWorker Group. Changing this forces a new Automation to be created.
 	WorkerGroupName pulumi.StringPtrInput
-	// The ID of the HybridWorker. Changing this forces a new Automation to be created.
+	// Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
 	WorkerId pulumi.StringPtrInput
 	// The name of HybridWorker.
 	WorkerName pulumi.StringPtrInput
@@ -179,7 +179,7 @@ type hybridRunbookWorkerArgs struct {
 	VmResourceId string `pulumi:"vmResourceId"`
 	// The name of the HybridWorker Group. Changing this forces a new Automation to be created.
 	WorkerGroupName string `pulumi:"workerGroupName"`
-	// The ID of the HybridWorker. Changing this forces a new Automation to be created.
+	// Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
 	WorkerId string `pulumi:"workerId"`
 }
 
@@ -193,7 +193,7 @@ type HybridRunbookWorkerArgs struct {
 	VmResourceId pulumi.StringInput
 	// The name of the HybridWorker Group. Changing this forces a new Automation to be created.
 	WorkerGroupName pulumi.StringInput
-	// The ID of the HybridWorker. Changing this forces a new Automation to be created.
+	// Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
 	WorkerId pulumi.StringInput
 }
 
@@ -319,7 +319,7 @@ func (o HybridRunbookWorkerOutput) WorkerGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *HybridRunbookWorker) pulumi.StringOutput { return v.WorkerGroupName }).(pulumi.StringOutput)
 }
 
-// The ID of the HybridWorker. Changing this forces a new Automation to be created.
+// Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
 func (o HybridRunbookWorkerOutput) WorkerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HybridRunbookWorker) pulumi.StringOutput { return v.WorkerId }).(pulumi.StringOutput)
 }

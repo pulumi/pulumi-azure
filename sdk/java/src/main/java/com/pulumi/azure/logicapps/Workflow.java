@@ -74,7 +74,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * A `access_control` block as defined below.
      * 
      */
-    @Export(name="accessControl", type=WorkflowAccessControl.class, parameters={})
+    @Export(name="accessControl", refs={WorkflowAccessControl.class}, tree="[0]")
     private Output</* @Nullable */ WorkflowAccessControl> accessControl;
 
     /**
@@ -88,7 +88,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * The Access Endpoint for the Logic App Workflow.
      * 
      */
-    @Export(name="accessEndpoint", type=String.class, parameters={})
+    @Export(name="accessEndpoint", refs={String.class}, tree="[0]")
     private Output<String> accessEndpoint;
 
     /**
@@ -102,7 +102,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * The list of access endpoint IP addresses of connector.
      * 
      */
-    @Export(name="connectorEndpointIpAddresses", type=List.class, parameters={String.class})
+    @Export(name="connectorEndpointIpAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> connectorEndpointIpAddresses;
 
     /**
@@ -116,7 +116,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * The list of outgoing IP addresses of connector.
      * 
      */
-    @Export(name="connectorOutboundIpAddresses", type=List.class, parameters={String.class})
+    @Export(name="connectorOutboundIpAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> connectorOutboundIpAddresses;
 
     /**
@@ -130,7 +130,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Is the Logic App Workflow enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -144,7 +144,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=WorkflowIdentity.class, parameters={})
+    @Export(name="identity", refs={WorkflowIdentity.class}, tree="[0]")
     private Output</* @Nullable */ WorkflowIdentity> identity;
 
     /**
@@ -158,7 +158,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
      * 
      */
-    @Export(name="integrationServiceEnvironmentId", type=String.class, parameters={})
+    @Export(name="integrationServiceEnvironmentId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integrationServiceEnvironmentId;
 
     /**
@@ -172,7 +172,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -186,7 +186,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * The ID of the integration account linked by this Logic App Workflow.
      * 
      */
-    @Export(name="logicAppIntegrationAccountId", type=String.class, parameters={})
+    @Export(name="logicAppIntegrationAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logicAppIntegrationAccountId;
 
     /**
@@ -200,7 +200,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -214,7 +214,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * A map of Key-Value pairs.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -228,7 +228,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -242,7 +242,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -256,7 +256,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * The list of access endpoint IP addresses of workflow.
      * 
      */
-    @Export(name="workflowEndpointIpAddresses", type=List.class, parameters={String.class})
+    @Export(name="workflowEndpointIpAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> workflowEndpointIpAddresses;
 
     /**
@@ -270,7 +270,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * The list of outgoing IP addresses of workflow.
      * 
      */
-    @Export(name="workflowOutboundIpAddresses", type=List.class, parameters={String.class})
+    @Export(name="workflowOutboundIpAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> workflowOutboundIpAddresses;
 
     /**
@@ -284,7 +284,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: &lt;https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters&gt;).
      * 
      */
-    @Export(name="workflowParameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="workflowParameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> workflowParameters;
 
     /**
@@ -298,7 +298,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="workflowSchema", type=String.class, parameters={})
+    @Export(name="workflowSchema", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workflowSchema;
 
     /**
@@ -312,7 +312,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="workflowVersion", type=String.class, parameters={})
+    @Export(name="workflowVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workflowVersion;
 
     /**

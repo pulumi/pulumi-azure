@@ -213,17 +213,8 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="PerGB2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
-            solution_name="SecurityInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/SecurityInsights",
-            ))
-        example_data_connector_microsoft_cloud_app_security = azure.sentinel.DataConnectorMicrosoftCloudAppSecurity("exampleDataConnectorMicrosoftCloudAppSecurity", log_analytics_workspace_id=example_analytics_solution.workspace_resource_id)
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
+        example_data_connector_microsoft_cloud_app_security = azure.sentinel.DataConnectorMicrosoftCloudAppSecurity("exampleDataConnectorMicrosoftCloudAppSecurity", log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
         ```
 
         ## Import
@@ -264,17 +255,8 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="PerGB2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
-            solution_name="SecurityInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/SecurityInsights",
-            ))
-        example_data_connector_microsoft_cloud_app_security = azure.sentinel.DataConnectorMicrosoftCloudAppSecurity("exampleDataConnectorMicrosoftCloudAppSecurity", log_analytics_workspace_id=example_analytics_solution.workspace_resource_id)
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
+        example_data_connector_microsoft_cloud_app_security = azure.sentinel.DataConnectorMicrosoftCloudAppSecurity("exampleDataConnectorMicrosoftCloudAppSecurity", log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
         ```
 
         ## Import

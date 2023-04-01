@@ -222,6 +222,10 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
      * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      */
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+     */
+    public readonly zipDeployFile!: pulumi.Output<string>;
 
     /**
      * Create a LinuxFunctionApp resource with the given unique name, arguments, and options.
@@ -273,6 +277,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
             resourceInputs["storageUsesManagedIdentity"] = state ? state.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
+            resourceInputs["zipDeployFile"] = state ? state.zipDeployFile : undefined;
         } else {
             const args = argsOrState as LinuxFunctionAppArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -313,6 +318,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
             resourceInputs["storageUsesManagedIdentity"] = args ? args.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
+            resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -481,6 +487,10 @@ export interface LinuxFunctionAppState {
      * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      */
     virtualNetworkSubnetId?: pulumi.Input<string>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+     */
+    zipDeployFile?: pulumi.Input<string>;
 }
 
 /**
@@ -603,4 +613,8 @@ export interface LinuxFunctionAppArgs {
      * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      */
     virtualNetworkSubnetId?: pulumi.Input<string>;
+    /**
+     * The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+     */
+    zipDeployFile?: pulumi.Input<string>;
 }

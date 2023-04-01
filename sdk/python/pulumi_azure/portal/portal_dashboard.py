@@ -14,28 +14,39 @@ __all__ = ['PortalDashboardArgs', 'PortalDashboard']
 @pulumi.input_type
 class PortalDashboardArgs:
     def __init__(__self__, *,
+                 dashboard_properties: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 dashboard_properties: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PortalDashboard resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dashboard_properties: JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        pulumi.set(__self__, "dashboard_properties", dashboard_properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if dashboard_properties is not None:
-            pulumi.set(__self__, "dashboard_properties", dashboard_properties)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="dashboardProperties")
+    def dashboard_properties(self) -> pulumi.Input[str]:
+        """
+        JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
+        """
+        return pulumi.get(self, "dashboard_properties")
+
+    @dashboard_properties.setter
+    def dashboard_properties(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dashboard_properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -48,18 +59,6 @@ class PortalDashboardArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="dashboardProperties")
-    def dashboard_properties(self) -> Optional[pulumi.Input[str]]:
-        """
-        JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
-        """
-        return pulumi.get(self, "dashboard_properties")
-
-    @dashboard_properties.setter
-    def dashboard_properties(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "dashboard_properties", value)
 
     @property
     @pulumi.getter
@@ -262,6 +261,8 @@ class PortalDashboard(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PortalDashboardArgs.__new__(PortalDashboardArgs)
 
+            if dashboard_properties is None and not opts.urn:
+                raise TypeError("Missing required property 'dashboard_properties'")
             __props__.__dict__["dashboard_properties"] = dashboard_properties
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

@@ -94,7 +94,7 @@ public class VpnServerConfigurationPolicyGroup extends com.pulumi.resources.Cust
      * Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="isDefault", type=Boolean.class, parameters={})
+    @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isDefault;
 
     /**
@@ -108,7 +108,7 @@ public class VpnServerConfigurationPolicyGroup extends com.pulumi.resources.Cust
      * The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -122,7 +122,7 @@ public class VpnServerConfigurationPolicyGroup extends com.pulumi.resources.Cust
      * One or more `policy` blocks as documented below.
      * 
      */
-    @Export(name="policies", type=List.class, parameters={VpnServerConfigurationPolicyGroupPolicy.class})
+    @Export(name="policies", refs={List.class,VpnServerConfigurationPolicyGroupPolicy.class}, tree="[0,1]")
     private Output<List<VpnServerConfigurationPolicyGroupPolicy>> policies;
 
     /**
@@ -136,7 +136,7 @@ public class VpnServerConfigurationPolicyGroup extends com.pulumi.resources.Cust
      * The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
      * 
      */
-    @Export(name="priority", type=Integer.class, parameters={})
+    @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> priority;
 
     /**
@@ -150,7 +150,7 @@ public class VpnServerConfigurationPolicyGroup extends com.pulumi.resources.Cust
      * The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="vpnServerConfigurationId", type=String.class, parameters={})
+    @Export(name="vpnServerConfigurationId", refs={String.class}, tree="[0]")
     private Output<String> vpnServerConfigurationId;
 
     /**

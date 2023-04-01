@@ -65,7 +65,7 @@ public class HybridRunbookWorker extends com.pulumi.resources.CustomResource {
      * The name of the automation account in which the Hybrid Worker is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", type=String.class, parameters={})
+    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
     private Output<String> automationAccountName;
 
     /**
@@ -79,7 +79,7 @@ public class HybridRunbookWorker extends com.pulumi.resources.CustomResource {
      * The IP address of assigned machine.
      * 
      */
-    @Export(name="ip", type=String.class, parameters={})
+    @Export(name="ip", refs={String.class}, tree="[0]")
     private Output<String> ip;
 
     /**
@@ -93,7 +93,7 @@ public class HybridRunbookWorker extends com.pulumi.resources.CustomResource {
      * Last Heartbeat from the Worker.
      * 
      */
-    @Export(name="lastSeenDateTime", type=String.class, parameters={})
+    @Export(name="lastSeenDateTime", refs={String.class}, tree="[0]")
     private Output<String> lastSeenDateTime;
 
     /**
@@ -107,7 +107,7 @@ public class HybridRunbookWorker extends com.pulumi.resources.CustomResource {
      * The registration time of the worker machine.
      * 
      */
-    @Export(name="registrationDateTime", type=String.class, parameters={})
+    @Export(name="registrationDateTime", refs={String.class}, tree="[0]")
     private Output<String> registrationDateTime;
 
     /**
@@ -121,7 +121,7 @@ public class HybridRunbookWorker extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -135,7 +135,7 @@ public class HybridRunbookWorker extends com.pulumi.resources.CustomResource {
      * The ID of the virtual machine used for this HybridWorker. Changing this forces a new Automation to be created.
      * 
      */
-    @Export(name="vmResourceId", type=String.class, parameters={})
+    @Export(name="vmResourceId", refs={String.class}, tree="[0]")
     private Output<String> vmResourceId;
 
     /**
@@ -149,7 +149,7 @@ public class HybridRunbookWorker extends com.pulumi.resources.CustomResource {
      * The name of the HybridWorker Group. Changing this forces a new Automation to be created.
      * 
      */
-    @Export(name="workerGroupName", type=String.class, parameters={})
+    @Export(name="workerGroupName", refs={String.class}, tree="[0]")
     private Output<String> workerGroupName;
 
     /**
@@ -160,14 +160,14 @@ public class HybridRunbookWorker extends com.pulumi.resources.CustomResource {
         return this.workerGroupName;
     }
     /**
-     * The ID of the HybridWorker. Changing this forces a new Automation to be created.
+     * Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
      * 
      */
-    @Export(name="workerId", type=String.class, parameters={})
+    @Export(name="workerId", refs={String.class}, tree="[0]")
     private Output<String> workerId;
 
     /**
-     * @return The ID of the HybridWorker. Changing this forces a new Automation to be created.
+     * @return Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
      * 
      */
     public Output<String> workerId() {
@@ -177,7 +177,7 @@ public class HybridRunbookWorker extends com.pulumi.resources.CustomResource {
      * The name of HybridWorker.
      * 
      */
-    @Export(name="workerName", type=String.class, parameters={})
+    @Export(name="workerName", refs={String.class}, tree="[0]")
     private Output<String> workerName;
 
     /**
@@ -191,7 +191,7 @@ public class HybridRunbookWorker extends com.pulumi.resources.CustomResource {
      * The type of the HybridWorker, the possible values are `HybridV1` and `HybridV2`.
      * 
      */
-    @Export(name="workerType", type=String.class, parameters={})
+    @Export(name="workerType", refs={String.class}, tree="[0]")
     private Output<String> workerType;
 
     /**

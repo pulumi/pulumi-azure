@@ -30,6 +30,11 @@ export type EnvironmentStorage = import("./environmentStorage").EnvironmentStora
 export const EnvironmentStorage: typeof import("./environmentStorage").EnvironmentStorage = null as any;
 utilities.lazyLoad(exports, ["EnvironmentStorage"], () => require("./environmentStorage"));
 
+export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
+export const getApp: typeof import("./getApp").getApp = null as any;
+export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
+utilities.lazyLoad(exports, ["getApp","getAppOutput"], () => require("./getApp"));
+
 export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
 export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
 export const getEnvironmentOutput: typeof import("./getEnvironment").getEnvironmentOutput = null as any;

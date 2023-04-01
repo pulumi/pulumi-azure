@@ -5534,9 +5534,13 @@ export namespace appservice {
          */
         loginParameters: {[key: string]: string};
         /**
-         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Linux Function App.
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
          */
-        tenantId: string;
+        tenantAuthEndpoint: string;
+        /**
+         * Is the www-authenticate provider omitted from the request?
+         */
+        wwwAuthenticationDisabled: boolean;
     }
 
     export interface GetLinuxFunctionAppAuthSettingsV2AppleV2 {
@@ -6458,9 +6462,13 @@ export namespace appservice {
          */
         loginParameters: {[key: string]: string};
         /**
-         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Linux Web App.
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
          */
-        tenantId: string;
+        tenantAuthEndpoint: string;
+        /**
+         * Is the www-authenticate provider omitted from the request?
+         */
+        wwwAuthenticationDisabled: boolean;
     }
 
     export interface GetLinuxWebAppAuthSettingsV2AppleV2 {
@@ -7507,9 +7515,13 @@ export namespace appservice {
          */
         loginParameters: {[key: string]: string};
         /**
-         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
          */
-        tenantId: string;
+        tenantAuthEndpoint: string;
+        /**
+         * Is the www-authenticate provider omitted from the request?
+         */
+        wwwAuthenticationDisabled: boolean;
     }
 
     export interface GetWindowsFunctionAppAuthSettingsV2AppleV2 {
@@ -8347,9 +8359,13 @@ export namespace appservice {
          */
         loginParameters: {[key: string]: string};
         /**
-         * The Tenant ID of the Managed Service Identity.
+         * The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
          */
-        tenantId: string;
+        tenantAuthEndpoint: string;
+        /**
+         * Is the www-authenticate provider omitted from the request?
+         */
+        wwwAuthenticationDisabled: boolean;
     }
 
     export interface GetWindowsWebAppAuthSettingsV2AppleV2 {
@@ -9815,7 +9831,7 @@ export namespace appservice {
         /**
          * One or more `ipRestriction` blocks as defined above.
          */
-        ipRestrictions: outputs.appservice.LinuxFunctionAppSiteConfigIpRestriction[];
+        ipRestrictions?: outputs.appservice.LinuxFunctionAppSiteConfigIpRestriction[];
         linuxFxVersion: string;
         /**
          * The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
@@ -9848,7 +9864,7 @@ export namespace appservice {
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
-        scmIpRestrictions: outputs.appservice.LinuxFunctionAppSiteConfigScmIpRestriction[];
+        scmIpRestrictions?: outputs.appservice.LinuxFunctionAppSiteConfigScmIpRestriction[];
         /**
          * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
@@ -9949,7 +9965,7 @@ export namespace appservice {
         /**
          * Specifies a list of origins that should be allowed to make cross-origin calls.
          */
-        allowedOrigins: string[];
+        allowedOrigins?: string[];
         /**
          * Are credentials allowed in CORS requests? Defaults to `false`.
          */
@@ -10745,7 +10761,7 @@ export namespace appservice {
         /**
          * an `ipRestriction` block as detailed below.
          */
-        ipRestrictions: outputs.appservice.LinuxFunctionAppSlotSiteConfigIpRestriction[];
+        ipRestrictions?: outputs.appservice.LinuxFunctionAppSlotSiteConfigIpRestriction[];
         /**
          * The Linux FX Version
          */
@@ -10781,7 +10797,7 @@ export namespace appservice {
         /**
          * a `scmIpRestriction` block as detailed below.
          */
-        scmIpRestrictions: outputs.appservice.LinuxFunctionAppSlotSiteConfigScmIpRestriction[];
+        scmIpRestrictions?: outputs.appservice.LinuxFunctionAppSlotSiteConfigScmIpRestriction[];
         /**
          * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
@@ -10885,7 +10901,7 @@ export namespace appservice {
         /**
          * an `allowedOrigins` block as detailed below.
          */
-        allowedOrigins: string[];
+        allowedOrigins?: string[];
         /**
          * Are credentials allowed in CORS requests? Defaults to `false`.
          */
@@ -11802,7 +11818,7 @@ export namespace appservice {
         /**
          * One or more `ipRestriction` blocks as defined above.
          */
-        ipRestrictions: outputs.appservice.LinuxWebAppSiteConfigIpRestriction[];
+        ipRestrictions?: outputs.appservice.LinuxWebAppSiteConfigIpRestriction[];
         linuxFxVersion: string;
         /**
          * The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
@@ -11831,7 +11847,7 @@ export namespace appservice {
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
-        scmIpRestrictions: outputs.appservice.LinuxWebAppSiteConfigScmIpRestriction[];
+        scmIpRestrictions?: outputs.appservice.LinuxWebAppSiteConfigScmIpRestriction[];
         /**
          * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
@@ -12004,7 +12020,7 @@ export namespace appservice {
         /**
          * Specifies a list of origins that should be allowed to make cross-origin calls.
          */
-        allowedOrigins: string[];
+        allowedOrigins?: string[];
         /**
          * Whether CORS requests with credentials are allowed. Defaults to `false`
          */
@@ -12860,7 +12876,7 @@ export namespace appservice {
         /**
          * One or more `ipRestriction` blocks as defined above.
          */
-        ipRestrictions: outputs.appservice.LinuxWebAppSlotSiteConfigIpRestriction[];
+        ipRestrictions?: outputs.appservice.LinuxWebAppSlotSiteConfigIpRestriction[];
         linuxFxVersion: string;
         /**
          * The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
@@ -12889,7 +12905,7 @@ export namespace appservice {
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
-        scmIpRestrictions: outputs.appservice.LinuxWebAppSlotSiteConfigScmIpRestriction[];
+        scmIpRestrictions?: outputs.appservice.LinuxWebAppSlotSiteConfigScmIpRestriction[];
         /**
          * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
@@ -13062,7 +13078,7 @@ export namespace appservice {
         /**
          * Specifies a list of origins that should be allowed to make cross-origin calls.
          */
-        allowedOrigins: string[];
+        allowedOrigins?: string[];
         /**
          * Whether CORS requests with credentials are allowed. Defaults to `false`
          */
@@ -14549,7 +14565,7 @@ export namespace appservice {
         /**
          * One or more `ipRestriction` blocks as defined above.
          */
-        ipRestrictions: outputs.appservice.WindowsFunctionAppSiteConfigIpRestriction[];
+        ipRestrictions?: outputs.appservice.WindowsFunctionAppSiteConfigIpRestriction[];
         /**
          * The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
          */
@@ -14581,7 +14597,7 @@ export namespace appservice {
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
-        scmIpRestrictions: outputs.appservice.WindowsFunctionAppSiteConfigScmIpRestriction[];
+        scmIpRestrictions?: outputs.appservice.WindowsFunctionAppSiteConfigScmIpRestriction[];
         /**
          * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
@@ -14652,7 +14668,7 @@ export namespace appservice {
         /**
          * Specifies a list of origins that should be allowed to make cross-origin calls.
          */
-        allowedOrigins: string[];
+        allowedOrigins?: string[];
         /**
          * Are credentials allowed in CORS requests? Defaults to `false`.
          */
@@ -15440,7 +15456,7 @@ export namespace appservice {
         /**
          * an `ipRestriction` block as detailed below.
          */
-        ipRestrictions: outputs.appservice.WindowsFunctionAppSlotSiteConfigIpRestriction[];
+        ipRestrictions?: outputs.appservice.WindowsFunctionAppSlotSiteConfigIpRestriction[];
         /**
          * The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
          */
@@ -15472,7 +15488,7 @@ export namespace appservice {
         /**
          * a `scmIpRestriction` block as detailed below.
          */
-        scmIpRestrictions: outputs.appservice.WindowsFunctionAppSlotSiteConfigScmIpRestriction[];
+        scmIpRestrictions?: outputs.appservice.WindowsFunctionAppSlotSiteConfigScmIpRestriction[];
         /**
          * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
@@ -15549,7 +15565,7 @@ export namespace appservice {
         /**
          * an `allowedOrigins` block as detailed below.
          */
-        allowedOrigins: string[];
+        allowedOrigins?: string[];
         /**
          * Are credentials allowed in CORS requests? Defaults to `false`.
          */
@@ -16466,7 +16482,7 @@ export namespace appservice {
         /**
          * One or more `ipRestriction` blocks as defined above.
          */
-        ipRestrictions: outputs.appservice.WindowsWebAppSiteConfigIpRestriction[];
+        ipRestrictions?: outputs.appservice.WindowsWebAppSiteConfigIpRestriction[];
         linuxFxVersion: string;
         /**
          * The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
@@ -16495,7 +16511,7 @@ export namespace appservice {
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
-        scmIpRestrictions: outputs.appservice.WindowsWebAppSiteConfigScmIpRestriction[];
+        scmIpRestrictions?: outputs.appservice.WindowsWebAppSiteConfigScmIpRestriction[];
         /**
          * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
@@ -16708,7 +16724,7 @@ export namespace appservice {
         /**
          * Specifies a list of origins that should be allowed to make cross-origin calls.
          */
-        allowedOrigins: string[];
+        allowedOrigins?: string[];
         /**
          * Whether CORS requests with credentials are allowed. Defaults to `false`
          */
@@ -17594,7 +17610,7 @@ export namespace appservice {
         /**
          * One or more `ipRestriction` blocks as defined above.
          */
-        ipRestrictions: outputs.appservice.WindowsWebAppSlotSiteConfigIpRestriction[];
+        ipRestrictions?: outputs.appservice.WindowsWebAppSlotSiteConfigIpRestriction[];
         /**
          * The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
          */
@@ -17622,7 +17638,7 @@ export namespace appservice {
         /**
          * One or more `scmIpRestriction` blocks as defined above.
          */
-        scmIpRestrictions: outputs.appservice.WindowsWebAppSlotSiteConfigScmIpRestriction[];
+        scmIpRestrictions?: outputs.appservice.WindowsWebAppSlotSiteConfigScmIpRestriction[];
         /**
          * The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
@@ -17835,7 +17851,7 @@ export namespace appservice {
         /**
          * Specifies a list of origins that should be allowed to make cross-origin calls.
          */
-        allowedOrigins: string[];
+        allowedOrigins?: string[];
         /**
          * Whether CORS requests with credentials are allowed. Defaults to `false`
          */
@@ -18088,9 +18104,9 @@ export namespace authorization {
 export namespace automation {
     export interface AccountEncryption {
         /**
-         * The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
+         * @deprecated This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
          */
-        keySource: string;
+        keySource?: string;
         /**
          * The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
          */
@@ -22032,6 +22048,125 @@ export namespace compute {
          * The ID of the source Key Vault.
          */
         sourceVaultId: string;
+    }
+
+    export interface GetOrchestratedVirtualMachineScaleSetIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this Orchestrated Virtual Machine Scale Set.
+         */
+        identityIds: string[];
+        /**
+         * The Type of IP Tag.
+         */
+        type: string;
+    }
+
+    export interface GetOrchestratedVirtualMachineScaleSetNetworkInterface {
+        /**
+         * Is accelerated networking enabled?
+         */
+        acceleratedNetworkingEnabled: boolean;
+        /**
+         * An array of the DNS servers in use.
+         */
+        dnsServers: string[];
+        /**
+         * An `ipConfiguration` block as documented below.
+         */
+        ipConfigurations: outputs.compute.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
+        /**
+         * Is IP forwarding enabled?
+         */
+        ipForwardingEnabled: boolean;
+        /**
+         * The name of this Orchestrated Virtual Machine Scale Set.
+         */
+        name: string;
+        /**
+         * The identifier for the network security group.
+         */
+        networkSecurityGroupId: string;
+        /**
+         * If this ipConfiguration is the primary one.
+         */
+        primary: boolean;
+    }
+
+    export interface GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+        /**
+         * An array of references to backend address pools of application gateways.
+         */
+        applicationGatewayBackendAddressPoolIds: string[];
+        /**
+         * The application security group IDs to use.
+         */
+        applicationSecurityGroupIds: string[];
+        /**
+         * An array of references to backend address pools of load balancers.
+         */
+        loadBalancerBackendAddressPoolIds: string[];
+        /**
+         * An array of references to inbound NAT pools for load balancers.
+         */
+        loadBalancerInboundNatRulesIds: string[];
+        /**
+         * The name of this Orchestrated Virtual Machine Scale Set.
+         */
+        name: string;
+        /**
+         * If this ipConfiguration is the primary one.
+         */
+        primary: boolean;
+        /**
+         * The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
+         */
+        publicIpAddresses: outputs.compute.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
+        /**
+         * The the identifier of the subnet.
+         */
+        subnetId: string;
+        /**
+         * The Internet Protocol Version of the public IP address.
+         */
+        version: string;
+    }
+
+    export interface GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+        /**
+         * The domain name label for the DNS settings.
+         */
+        domainNameLabel: string;
+        /**
+         * The idle timeout in minutes.
+         */
+        idleTimeoutInMinutes: number;
+        /**
+         * A list of `ipTag` blocks as defined below.
+         */
+        ipTags: outputs.compute.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag[];
+        /**
+         * The name of this Orchestrated Virtual Machine Scale Set.
+         */
+        name: string;
+        /**
+         * The ID of the public IP prefix.
+         */
+        publicIpPrefixId: string;
+        /**
+         * The Internet Protocol Version of the public IP address.
+         */
+        version: string;
+    }
+
+    export interface GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+        /**
+         * The IP Tag associated with the Public IP.
+         */
+        tag: string;
+        /**
+         * The Type of IP Tag.
+         */
+        type: string;
     }
 
     export interface GetSharedImageIdentifier {
@@ -26217,6 +26352,398 @@ export namespace containerapp {
         value: string;
     }
 
+    export interface GetAppDapr {
+        /**
+         * The Dapr Application Identifier.
+         */
+        appId: string;
+        /**
+         * The port which the application is listening on. This is the same as the `ingress` port.
+         */
+        appPort: number;
+        /**
+         * The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
+         */
+        appProtocol: string;
+    }
+
+    export interface GetAppIdentity {
+        /**
+         * A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+         */
+        identityIds: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+         */
+        type: string;
+    }
+
+    export interface GetAppIngress {
+        /**
+         * Should this ingress allow insecure connections?
+         */
+        allowInsecureConnections: boolean;
+        /**
+         * One or more `customDomain` block as detailed below.
+         */
+        customDomains: outputs.containerapp.GetAppIngressCustomDomain[];
+        /**
+         * Is this an external Ingress.
+         */
+        externalEnabled: boolean;
+        /**
+         * The FQDN of the ingress.
+         */
+        fqdn: string;
+        /**
+         * The target port on the container for the Ingress traffic.
+         */
+        targetPort: number;
+        /**
+         * A `trafficWeight` block as detailed below.
+         */
+        trafficWeights: outputs.containerapp.GetAppIngressTrafficWeight[];
+        /**
+         * The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+         */
+        transport: string;
+    }
+
+    export interface GetAppIngressCustomDomain {
+        /**
+         * The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
+         */
+        certificateBindingType: string;
+        /**
+         * The ID of the Container App Environment Certificate.
+         */
+        certificateId: string;
+        /**
+         * The name of the Container App.
+         */
+        name: string;
+    }
+
+    export interface GetAppIngressTrafficWeight {
+        /**
+         * The label to apply to the revision as a name prefix for routing traffic.
+         */
+        label: string;
+        /**
+         * This traffic Weight relates to the latest stable Container Revision.
+         */
+        latestRevision: boolean;
+        /**
+         * The percentage of traffic which should be sent this revision.
+         */
+        percentage: number;
+        /**
+         * The suffix string to which this `trafficWeight` applies.
+         */
+        revisionSuffix: string;
+    }
+
+    export interface GetAppRegistry {
+        /**
+         * Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+         */
+        identity: string;
+        /**
+         * The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
+         */
+        passwordSecretName: string;
+        /**
+         * The hostname for the Container Registry.
+         */
+        server: string;
+        /**
+         * The username to use for this Container Registry, `passwordSecretName` must also be supplied..
+         */
+        username: string;
+    }
+
+    export interface GetAppSecret {
+        /**
+         * The name of the Container App.
+         */
+        name: string;
+        /**
+         * The HTTP Header value.
+         */
+        value: string;
+    }
+
+    export interface GetAppTemplate {
+        /**
+         * One or more `container` blocks as detailed below.
+         */
+        containers: outputs.containerapp.GetAppTemplateContainer[];
+        /**
+         * The maximum number of replicas for this container.
+         */
+        maxReplicas: number;
+        /**
+         * The minimum number of replicas for this container.
+         */
+        minReplicas: number;
+        /**
+         * The suffix string to which this `trafficWeight` applies.
+         */
+        revisionSuffix: string;
+        /**
+         * A `volume` block as detailed below.
+         */
+        volumes?: outputs.containerapp.GetAppTemplateVolume[];
+    }
+
+    export interface GetAppTemplateContainer {
+        /**
+         * A list of extra arguments to pass to the container.
+         */
+        args: string[];
+        /**
+         * A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+         */
+        commands: string[];
+        /**
+         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         */
+        cpu: number;
+        /**
+         * One or more `env` blocks as detailed below.
+         */
+        envs: outputs.containerapp.GetAppTemplateContainerEnv[];
+        /**
+         * The amount of ephemeral storage available to the Container App.
+         */
+        ephemeralStorage: string;
+        /**
+         * The image to use to create the container.
+         */
+        image: string;
+        /**
+         * A `livenessProbe` block as detailed below.
+         */
+        livenessProbes: outputs.containerapp.GetAppTemplateContainerLivenessProbe[];
+        /**
+         * The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+         */
+        memory: string;
+        /**
+         * The name of the Container App.
+         */
+        name: string;
+        /**
+         * A `readinessProbe` block as detailed below.
+         */
+        readinessProbes: outputs.containerapp.GetAppTemplateContainerReadinessProbe[];
+        /**
+         * A `startupProbe` block as detailed below.
+         */
+        startupProbes: outputs.containerapp.GetAppTemplateContainerStartupProbe[];
+        /**
+         * A `volumeMounts` block as detailed below.
+         */
+        volumeMounts: outputs.containerapp.GetAppTemplateContainerVolumeMount[];
+    }
+
+    export interface GetAppTemplateContainerEnv {
+        /**
+         * The name of the Container App.
+         */
+        name: string;
+        /**
+         * The name of the secret that contains the value for this environment variable.
+         */
+        secretName: string;
+        /**
+         * The HTTP Header value.
+         */
+        value: string;
+    }
+
+    export interface GetAppTemplateContainerLivenessProbe {
+        /**
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        failureCountThreshold: number;
+        /**
+         * A `header` block as detailed below.
+         */
+        headers: outputs.containerapp.GetAppTemplateContainerLivenessProbeHeader[];
+        /**
+         * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         */
+        host: string;
+        /**
+         * The time in seconds to wait after the container has started before the probe is started.
+         */
+        initialDelay: number;
+        /**
+         * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+         */
+        intervalSeconds: number;
+        /**
+         * The path in the container at which to mount this volume.
+         */
+        path: string;
+        /**
+         * The port number on which to connect. Possible values are between `1` and `65535`.
+         */
+        port: number;
+        /**
+         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+         */
+        terminationGracePeriodSeconds: number;
+        /**
+         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         */
+        timeout: number;
+        /**
+         * The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+         */
+        transport: string;
+    }
+
+    export interface GetAppTemplateContainerLivenessProbeHeader {
+        /**
+         * The name of the Container App.
+         */
+        name: string;
+        /**
+         * The HTTP Header value.
+         */
+        value: string;
+    }
+
+    export interface GetAppTemplateContainerReadinessProbe {
+        /**
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        failureCountThreshold: number;
+        /**
+         * A `header` block as detailed below.
+         */
+        headers: outputs.containerapp.GetAppTemplateContainerReadinessProbeHeader[];
+        /**
+         * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         */
+        host: string;
+        /**
+         * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+         */
+        intervalSeconds: number;
+        /**
+         * The path in the container at which to mount this volume.
+         */
+        path: string;
+        /**
+         * The port number on which to connect. Possible values are between `1` and `65535`.
+         */
+        port: number;
+        /**
+         * The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        successCountThreshold: number;
+        /**
+         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         */
+        timeout: number;
+        /**
+         * The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+         */
+        transport: string;
+    }
+
+    export interface GetAppTemplateContainerReadinessProbeHeader {
+        /**
+         * The name of the Container App.
+         */
+        name: string;
+        /**
+         * The HTTP Header value.
+         */
+        value: string;
+    }
+
+    export interface GetAppTemplateContainerStartupProbe {
+        /**
+         * The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
+         */
+        failureCountThreshold: number;
+        /**
+         * A `header` block as detailed below.
+         */
+        headers: outputs.containerapp.GetAppTemplateContainerStartupProbeHeader[];
+        /**
+         * The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for `Host` in `headers` can be used to override this for `HTTP` and `HTTPS` type probes.
+         */
+        host: string;
+        /**
+         * How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
+         */
+        intervalSeconds: number;
+        /**
+         * The path in the container at which to mount this volume.
+         */
+        path: string;
+        /**
+         * The port number on which to connect. Possible values are between `1` and `65535`.
+         */
+        port: number;
+        /**
+         * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+         */
+        terminationGracePeriodSeconds: number;
+        /**
+         * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
+         */
+        timeout: number;
+        /**
+         * The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+         */
+        transport: string;
+    }
+
+    export interface GetAppTemplateContainerStartupProbeHeader {
+        /**
+         * The name of the Container App.
+         */
+        name: string;
+        /**
+         * The HTTP Header value.
+         */
+        value: string;
+    }
+
+    export interface GetAppTemplateContainerVolumeMount {
+        /**
+         * The name of the Container App.
+         */
+        name: string;
+        /**
+         * The path in the container at which to mount this volume.
+         */
+        path: string;
+    }
+
+    export interface GetAppTemplateVolume {
+        /**
+         * The name of the Container App.
+         */
+        name: string;
+        /**
+         * The name of the `AzureFile` storage.
+         */
+        storageName?: string;
+        /**
+         * The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+         */
+        storageType?: string;
+    }
+
 }
 
 export namespace containerservice {
@@ -26605,6 +27132,10 @@ export namespace containerservice {
          * The ID of the Log Analytics Workspace to which the OMS Agent should send data.
          */
         logAnalyticsWorkspaceId: string;
+        /**
+         * Is managed identity authentication for monitoring enabled?
+         */
+        msiAuthForMonitoringEnabled: boolean;
         /**
          * An `omsAgentIdentity` block as defined below.
          */
@@ -27376,7 +27907,7 @@ export namespace containerservice {
          */
         vnetSubnetId?: string;
         /**
-         * Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+         * Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
          */
         workloadRuntime: string;
         /**
@@ -27846,6 +28377,8 @@ export namespace containerservice {
         dnsServiceIp: string;
         /**
          * IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
+         *
+         * @deprecated `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
          */
         dockerBridgeCidr: string;
         /**
@@ -28911,6 +29444,58 @@ export namespace core {
         policyDefinitionReferenceId?: string;
     }
 
+    export interface ResourceGroupPolicyAssignmentOverride {
+        /**
+         * One or more `overrideSelector` as defined below.
+         */
+        selectors?: outputs.core.ResourceGroupPolicyAssignmentOverrideSelector[];
+        /**
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         */
+        value: string;
+    }
+
+    export interface ResourceGroupPolicyAssignmentOverrideSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind: string;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: string[];
+    }
+
+    export interface ResourceGroupPolicyAssignmentResourceSelector {
+        /**
+         * Specifies a name for the resource selector.
+         */
+        name?: string;
+        /**
+         * One or more `resourceSelector` block as defined below.
+         */
+        selectors: outputs.core.ResourceGroupPolicyAssignmentResourceSelectorSelector[];
+    }
+
+    export interface ResourceGroupPolicyAssignmentResourceSelectorSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind: string;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: string[];
+    }
+
     export interface ResourcePolicyAssignmentIdentity {
         /**
          * A list of User Managed Identity IDs which should be assigned to the Policy Definition.
@@ -28939,6 +29524,58 @@ export namespace core {
          * When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
          */
         policyDefinitionReferenceId?: string;
+    }
+
+    export interface ResourcePolicyAssignmentOverride {
+        /**
+         * One or more `overrideSelector` as defined below.
+         */
+        selectors?: outputs.core.ResourcePolicyAssignmentOverrideSelector[];
+        /**
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         */
+        value: string;
+    }
+
+    export interface ResourcePolicyAssignmentOverrideSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind: string;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: string[];
+    }
+
+    export interface ResourcePolicyAssignmentResourceSelector {
+        /**
+         * Specifies a name for the resource selector.
+         */
+        name?: string;
+        /**
+         * One or more `resourceSelector` block as defined below.
+         */
+        selectors: outputs.core.ResourcePolicyAssignmentResourceSelectorSelector[];
+    }
+
+    export interface ResourcePolicyAssignmentResourceSelectorSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind: string;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: string[];
     }
 
     export interface ResourceProviderRegistrationFeature {
@@ -29002,6 +29639,58 @@ export namespace core {
          * When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
          */
         policyDefinitionReferenceId?: string;
+    }
+
+    export interface SubscriptionPolicyAssignmentOverride {
+        /**
+         * One or more `overrideSelector` as defined below.
+         */
+        selectors?: outputs.core.SubscriptionPolicyAssignmentOverrideSelector[];
+        /**
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         */
+        value: string;
+    }
+
+    export interface SubscriptionPolicyAssignmentOverrideSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind: string;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: string[];
+    }
+
+    export interface SubscriptionPolicyAssignmentResourceSelector {
+        /**
+         * Specifies a name for the resource selector.
+         */
+        name?: string;
+        /**
+         * One or more `resourceSelector` block as defined below.
+         */
+        selectors: outputs.core.SubscriptionPolicyAssignmentResourceSelectorSelector[];
+    }
+
+    export interface SubscriptionPolicyAssignmentResourceSelectorSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind: string;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: string[];
     }
 
 }
@@ -29806,15 +30495,19 @@ export namespace databoxedge {
 export namespace databricks {
     export interface AccessConnectorIdentity {
         /**
-         * The Principal ID associated with this system-assigned managed identity.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
          */
         principalId: string;
         /**
-         * The Tenant ID associated with this system-assigned managed identity.
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
          */
         tenantId: string;
         /**
-         * The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+         * Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
          */
         type: string;
     }
@@ -34865,7 +35558,7 @@ export namespace frontdoor {
          */
         backendPoolName: string;
         /**
-         * Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
+         * Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
          */
         cacheDuration?: string;
         /**
@@ -40886,6 +41579,58 @@ export namespace management {
         policyDefinitionReferenceId?: string;
     }
 
+    export interface GroupPolicyAssignmentOverride {
+        /**
+         * One or more `overrideSelector` as defined below.
+         */
+        selectors?: outputs.management.GroupPolicyAssignmentOverrideSelector[];
+        /**
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         */
+        value: string;
+    }
+
+    export interface GroupPolicyAssignmentOverrideSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind: string;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: string[];
+    }
+
+    export interface GroupPolicyAssignmentResourceSelector {
+        /**
+         * Specifies a name for the resource selector.
+         */
+        name?: string;
+        /**
+         * One or more `resourceSelector` block as defined below.
+         */
+        selectors: outputs.management.GroupPolicyAssignmentResourceSelectorSelector[];
+    }
+
+    export interface GroupPolicyAssignmentResourceSelectorSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind: string;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: string[];
+    }
+
 }
 
 export namespace mariadb {
@@ -44710,7 +45455,7 @@ export namespace monitoring {
         /**
          * Evaluation of metric on a particular column.
          */
-        metricColumn: string;
+        metricColumn?: string;
         /**
          * Metric Trigger Type - 'Consecutive' or 'Total'.
          */
@@ -45418,6 +46163,14 @@ export namespace mssql {
 
 export namespace mysql {
     export interface FlexibleServerCustomerManagedKey {
+        /**
+         * The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+         */
+        geoBackupKeyVaultKeyId?: string;
+        /**
+         * The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
+         */
+        geoBackupUserAssignedIdentityId?: string;
         /**
          * The ID of the Key Vault Key.
          */
@@ -46488,7 +47241,7 @@ export namespace network {
 
     export interface ApplicationGatewaySslCertificate {
         /**
-         * PFX certificate. Required if `keyVaultSecretId` is not set.
+         * The base64-encoded PFX certificate data. Required if `keyVaultSecretId` is not set.
          */
         data?: string;
         /**
@@ -50599,7 +51352,7 @@ export namespace privatelink {
          */
         requestMessage?: string;
         /**
-         * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
+         * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
          */
         subresourceNames?: string[];
     }
@@ -51873,6 +52626,73 @@ export namespace sentinel {
         tier: string;
     }
 
+    export interface ThreatIntelligenceIndicatorExternalReference {
+        /**
+         * The description of the external reference of the Threat Intelligence Indicator.
+         */
+        description?: string;
+        /**
+         * The list of hashes of the external reference of the Threat Intelligence Indicator.
+         */
+        hashes?: {[key: string]: string};
+        /**
+         * The ID of the Sentinel Threat Intelligence Indicator.
+         */
+        id: string;
+        /**
+         * The source name of the external reference of the Threat Intelligence Indicator.
+         */
+        sourceName?: string;
+        /**
+         * The url of the external reference of the Threat Intelligence Indicator.
+         */
+        url?: string;
+    }
+
+    export interface ThreatIntelligenceIndicatorGranularMarking {
+        /**
+         * The language of granular marking of the Threat Intelligence Indicator.
+         */
+        language?: string;
+        /**
+         * The reference of the granular marking of the Threat Intelligence Indicator.
+         */
+        markingRef?: string;
+        /**
+         * A list of selectors of the granular marking of the Threat Intelligence Indicator.
+         */
+        selectors?: string[];
+    }
+
+    export interface ThreatIntelligenceIndicatorKillChainPhase {
+        /**
+         * The name which should be used for the Lockheed Martin cyber kill chain phase.
+         */
+        name?: string;
+    }
+
+    export interface ThreatIntelligenceIndicatorParsedPattern {
+        /**
+         * The type key of parsed pattern.
+         */
+        patternTypeKey: string;
+        /**
+         * A `patternTypeValues` block as defined below.
+         */
+        patternTypeValues: outputs.sentinel.ThreatIntelligenceIndicatorParsedPatternPatternTypeValue[];
+    }
+
+    export interface ThreatIntelligenceIndicatorParsedPatternPatternTypeValue {
+        /**
+         * The value of the parsed pattern type.
+         */
+        value: string;
+        /**
+         * The type of the value of the parsed pattern type value.
+         */
+        valueType: string;
+    }
+
 }
 
 export namespace servicebus {
@@ -52453,6 +53273,19 @@ export namespace signalr {
          * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
          */
         allowedOrigins: string[];
+    }
+
+    export interface ServiceIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
+         */
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this signalR. Possible values are `SystemAssigned`, `UserAssigned`.
+         */
+        type: string;
     }
 
     export interface ServiceLiveTrace {
@@ -53780,6 +54613,14 @@ export namespace storage {
 
     export interface GetPolicyRuleActionBaseBlob {
         /**
+         * Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
+         */
+        autoTierToHotFromCoolEnabled: boolean;
+        /**
+         * The age in days after creation to delete the blob snapshot.
+         */
+        deleteAfterDaysSinceCreationGreaterThan: number;
+        /**
          * The age in days after last access time to delete the blob.
          */
         deleteAfterDaysSinceLastAccessTimeGreaterThan: number;
@@ -53788,7 +54629,11 @@ export namespace storage {
          */
         deleteAfterDaysSinceModificationGreaterThan: number;
         /**
-         * The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+         * The age in days after creation to archive storage.
+         */
+        tierToArchiveAfterDaysSinceCreationGreaterThan: number;
+        /**
+         * The age in days after last access time to tier blobs to archive storage.
          */
         tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan: number;
         /**
@@ -53796,9 +54641,13 @@ export namespace storage {
          */
         tierToArchiveAfterDaysSinceLastTierChangeGreaterThan: number;
         /**
-         * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+         * The age in days after last modification to tier blobs to archive storage.
          */
         tierToArchiveAfterDaysSinceModificationGreaterThan: number;
+        /**
+         * Optional The age in days after creation to cool storage. Supports blob currently at Hot tier.
+         */
+        tierToCoolAfterDaysSinceCreationGreaterThan: number;
         /**
          * The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier.
          */
@@ -54731,6 +55580,32 @@ export namespace videoanalyzer {
 
 }
 
+export namespace voice {
+    export interface ServicesCommunicationsGatewayServiceLocation {
+        /**
+         * Specifies the allowed source IP address or CIDR ranges for media.
+         */
+        allowedMediaSourceAddressPrefixes?: string[];
+        /**
+         * Specifies the allowed source IP address or CIDR ranges for signaling.
+         */
+        allowedSignalingSourceAddressPrefixes?: string[];
+        /**
+         * IP address to use to contact the ESRP from this region.
+         */
+        esrpAddresses?: string[];
+        /**
+         * Specifies the region in which the resources needed for Teams Calling will be deployed.
+         */
+        location: string;
+        /**
+         * IP address to use to contact the operator network from this region.
+         */
+        operatorAddresses: string[];
+    }
+
+}
+
 export namespace waf {
     export interface PolicyCustomRule {
         /**
@@ -54757,9 +55632,9 @@ export namespace waf {
 
     export interface PolicyCustomRuleMatchCondition {
         /**
-         * A list of match values.
+         * A list of match values. This is **Required** when the `operator` is not `Any`.
          */
-        matchValues: string[];
+        matchValues?: string[];
         /**
          * One or more `matchVariables` blocks as defined below.
          */
@@ -54769,7 +55644,7 @@ export namespace waf {
          */
         negationCondition?: boolean;
         /**
-         * Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+         * Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
          */
         operator: string;
         /**

@@ -21,7 +21,10 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, hostname=None, id=None, ip_address=None, location=None, name=None, primary_access_key=None, primary_connection_string=None, public_port=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, server_port=None, tags=None):
+    def __init__(__self__, aad_auth_enabled=None, hostname=None, id=None, ip_address=None, local_auth_enabled=None, location=None, name=None, primary_access_key=None, primary_connection_string=None, public_network_access_enabled=None, public_port=None, resource_group_name=None, secondary_access_key=None, secondary_connection_string=None, server_port=None, serverless_connection_timeout_in_seconds=None, tags=None, tls_client_cert_enabled=None):
+        if aad_auth_enabled and not isinstance(aad_auth_enabled, bool):
+            raise TypeError("Expected argument 'aad_auth_enabled' to be a bool")
+        pulumi.set(__self__, "aad_auth_enabled", aad_auth_enabled)
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
         pulumi.set(__self__, "hostname", hostname)
@@ -31,6 +34,9 @@ class GetServiceResult:
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
         pulumi.set(__self__, "ip_address", ip_address)
+        if local_auth_enabled and not isinstance(local_auth_enabled, bool):
+            raise TypeError("Expected argument 'local_auth_enabled' to be a bool")
+        pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -43,6 +49,9 @@ class GetServiceResult:
         if primary_connection_string and not isinstance(primary_connection_string, str):
             raise TypeError("Expected argument 'primary_connection_string' to be a str")
         pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+        if public_network_access_enabled and not isinstance(public_network_access_enabled, bool):
+            raise TypeError("Expected argument 'public_network_access_enabled' to be a bool")
+        pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if public_port and not isinstance(public_port, int):
             raise TypeError("Expected argument 'public_port' to be a int")
         pulumi.set(__self__, "public_port", public_port)
@@ -58,9 +67,23 @@ class GetServiceResult:
         if server_port and not isinstance(server_port, int):
             raise TypeError("Expected argument 'server_port' to be a int")
         pulumi.set(__self__, "server_port", server_port)
+        if serverless_connection_timeout_in_seconds and not isinstance(serverless_connection_timeout_in_seconds, int):
+            raise TypeError("Expected argument 'serverless_connection_timeout_in_seconds' to be a int")
+        pulumi.set(__self__, "serverless_connection_timeout_in_seconds", serverless_connection_timeout_in_seconds)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tls_client_cert_enabled and not isinstance(tls_client_cert_enabled, bool):
+            raise TypeError("Expected argument 'tls_client_cert_enabled' to be a bool")
+        pulumi.set(__self__, "tls_client_cert_enabled", tls_client_cert_enabled)
+
+    @property
+    @pulumi.getter(name="aadAuthEnabled")
+    def aad_auth_enabled(self) -> bool:
+        """
+        Is aad auth enabled for this SignalR service?
+        """
+        return pulumi.get(self, "aad_auth_enabled")
 
     @property
     @pulumi.getter
@@ -85,6 +108,14 @@ class GetServiceResult:
         The publicly accessible IP of the SignalR service.
         """
         return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="localAuthEnabled")
+    def local_auth_enabled(self) -> bool:
+        """
+        Is local auth enable for this SignalR serviced?
+        """
+        return pulumi.get(self, "local_auth_enabled")
 
     @property
     @pulumi.getter
@@ -114,6 +145,14 @@ class GetServiceResult:
         The primary connection string of the SignalR service.
         """
         return pulumi.get(self, "primary_connection_string")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> bool:
+        """
+        Is public network access enabled for this SignalR service?
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="publicPort")
@@ -153,9 +192,25 @@ class GetServiceResult:
         return pulumi.get(self, "server_port")
 
     @property
+    @pulumi.getter(name="serverlessConnectionTimeoutInSeconds")
+    def serverless_connection_timeout_in_seconds(self) -> int:
+        """
+        The serverless connection timeout of this SignalR service.
+        """
+        return pulumi.get(self, "serverless_connection_timeout_in_seconds")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tlsClientCertEnabled")
+    def tls_client_cert_enabled(self) -> bool:
+        """
+        Is tls client cert enabled for this SignalR service?
+        """
+        return pulumi.get(self, "tls_client_cert_enabled")
 
 
 class AwaitableGetServiceResult(GetServiceResult):
@@ -164,19 +219,24 @@ class AwaitableGetServiceResult(GetServiceResult):
         if False:
             yield self
         return GetServiceResult(
+            aad_auth_enabled=self.aad_auth_enabled,
             hostname=self.hostname,
             id=self.id,
             ip_address=self.ip_address,
+            local_auth_enabled=self.local_auth_enabled,
             location=self.location,
             name=self.name,
             primary_access_key=self.primary_access_key,
             primary_connection_string=self.primary_connection_string,
+            public_network_access_enabled=self.public_network_access_enabled,
             public_port=self.public_port,
             resource_group_name=self.resource_group_name,
             secondary_access_key=self.secondary_access_key,
             secondary_connection_string=self.secondary_connection_string,
             server_port=self.server_port,
-            tags=self.tags)
+            serverless_connection_timeout_in_seconds=self.serverless_connection_timeout_in_seconds,
+            tags=self.tags,
+            tls_client_cert_enabled=self.tls_client_cert_enabled)
 
 
 def get_service(name: Optional[str] = None,
@@ -206,19 +266,24 @@ def get_service(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:signalr/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
+        aad_auth_enabled=__ret__.aad_auth_enabled,
         hostname=__ret__.hostname,
         id=__ret__.id,
         ip_address=__ret__.ip_address,
+        local_auth_enabled=__ret__.local_auth_enabled,
         location=__ret__.location,
         name=__ret__.name,
         primary_access_key=__ret__.primary_access_key,
         primary_connection_string=__ret__.primary_connection_string,
+        public_network_access_enabled=__ret__.public_network_access_enabled,
         public_port=__ret__.public_port,
         resource_group_name=__ret__.resource_group_name,
         secondary_access_key=__ret__.secondary_access_key,
         secondary_connection_string=__ret__.secondary_connection_string,
         server_port=__ret__.server_port,
-        tags=__ret__.tags)
+        serverless_connection_timeout_in_seconds=__ret__.serverless_connection_timeout_in_seconds,
+        tags=__ret__.tags,
+        tls_client_cert_enabled=__ret__.tls_client_cert_enabled)
 
 
 @_utilities.lift_output_func(get_service)

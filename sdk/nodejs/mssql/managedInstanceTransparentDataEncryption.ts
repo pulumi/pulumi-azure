@@ -120,6 +120,7 @@ import * as utilities from "../utilities";
  *                 "Update",
  *                 "Recover",
  *                 "Purge",
+ *                 "GetRotationPolicy",
  *             ],
  *         },
  *         {

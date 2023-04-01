@@ -6532,32 +6532,21 @@ class ScheduledQueryRulesAlertTriggerArgs:
 @pulumi.input_type
 class ScheduledQueryRulesAlertTriggerMetricTriggerArgs:
     def __init__(__self__, *,
-                 metric_column: pulumi.Input[str],
                  metric_trigger_type: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 threshold: pulumi.Input[float]):
+                 threshold: pulumi.Input[float],
+                 metric_column: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] metric_column: Evaluation of metric on a particular column.
         :param pulumi.Input[str] metric_trigger_type: Metric Trigger Type - 'Consecutive' or 'Total'.
         :param pulumi.Input[str] operator: Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
         :param pulumi.Input[float] threshold: The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
+        :param pulumi.Input[str] metric_column: Evaluation of metric on a particular column.
         """
-        pulumi.set(__self__, "metric_column", metric_column)
         pulumi.set(__self__, "metric_trigger_type", metric_trigger_type)
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "threshold", threshold)
-
-    @property
-    @pulumi.getter(name="metricColumn")
-    def metric_column(self) -> pulumi.Input[str]:
-        """
-        Evaluation of metric on a particular column.
-        """
-        return pulumi.get(self, "metric_column")
-
-    @metric_column.setter
-    def metric_column(self, value: pulumi.Input[str]):
-        pulumi.set(self, "metric_column", value)
+        if metric_column is not None:
+            pulumi.set(__self__, "metric_column", metric_column)
 
     @property
     @pulumi.getter(name="metricTriggerType")
@@ -6594,6 +6583,18 @@ class ScheduledQueryRulesAlertTriggerMetricTriggerArgs:
     @threshold.setter
     def threshold(self, value: pulumi.Input[float]):
         pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="metricColumn")
+    def metric_column(self) -> Optional[pulumi.Input[str]]:
+        """
+        Evaluation of metric on a particular column.
+        """
+        return pulumi.get(self, "metric_column")
+
+    @metric_column.setter
+    def metric_column(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_column", value)
 
 
 @pulumi.input_type

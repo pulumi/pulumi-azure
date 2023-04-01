@@ -69,7 +69,6 @@ class AccountEncryption(dict):
                  user_assigned_identity_id: Optional[str] = None):
         """
         :param str key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
-        :param str key_source: The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
         :param str user_assigned_identity_id: The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
@@ -89,9 +88,6 @@ class AccountEncryption(dict):
     @property
     @pulumi.getter(name="keySource")
     def key_source(self) -> Optional[str]:
-        """
-        The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
-        """
         return pulumi.get(self, "key_source")
 
     @property

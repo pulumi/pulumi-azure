@@ -8141,16 +8141,24 @@ func (o GetPolicyRuleActionArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleAc
 }
 
 type GetPolicyRuleActionBaseBlob struct {
+	// Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
+	AutoTierToHotFromCoolEnabled bool `pulumi:"autoTierToHotFromCoolEnabled"`
+	// The age in days after creation to delete the blob snapshot.
+	DeleteAfterDaysSinceCreationGreaterThan int `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 	// The age in days after last access time to delete the blob.
 	DeleteAfterDaysSinceLastAccessTimeGreaterThan int `pulumi:"deleteAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to delete the blob.
 	DeleteAfterDaysSinceModificationGreaterThan int `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
-	// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+	// The age in days after creation to archive storage.
+	TierToArchiveAfterDaysSinceCreationGreaterThan int `pulumi:"tierToArchiveAfterDaysSinceCreationGreaterThan"`
+	// The age in days after last access time to tier blobs to archive storage.
 	TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan int `pulumi:"tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last tier change to the blobs to skip to be archived.
 	TierToArchiveAfterDaysSinceLastTierChangeGreaterThan int `pulumi:"tierToArchiveAfterDaysSinceLastTierChangeGreaterThan"`
-	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+	// The age in days after last modification to tier blobs to archive storage.
 	TierToArchiveAfterDaysSinceModificationGreaterThan int `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
+	// Optional The age in days after creation to cool storage. Supports blob currently at Hot tier.
+	TierToCoolAfterDaysSinceCreationGreaterThan int `pulumi:"tierToCoolAfterDaysSinceCreationGreaterThan"`
 	// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier.
 	TierToCoolAfterDaysSinceLastAccessTimeGreaterThan int `pulumi:"tierToCoolAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier.
@@ -8169,16 +8177,24 @@ type GetPolicyRuleActionBaseBlobInput interface {
 }
 
 type GetPolicyRuleActionBaseBlobArgs struct {
+	// Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
+	AutoTierToHotFromCoolEnabled pulumi.BoolInput `pulumi:"autoTierToHotFromCoolEnabled"`
+	// The age in days after creation to delete the blob snapshot.
+	DeleteAfterDaysSinceCreationGreaterThan pulumi.IntInput `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 	// The age in days after last access time to delete the blob.
 	DeleteAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntInput `pulumi:"deleteAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to delete the blob.
 	DeleteAfterDaysSinceModificationGreaterThan pulumi.IntInput `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
-	// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+	// The age in days after creation to archive storage.
+	TierToArchiveAfterDaysSinceCreationGreaterThan pulumi.IntInput `pulumi:"tierToArchiveAfterDaysSinceCreationGreaterThan"`
+	// The age in days after last access time to tier blobs to archive storage.
 	TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntInput `pulumi:"tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last tier change to the blobs to skip to be archived.
 	TierToArchiveAfterDaysSinceLastTierChangeGreaterThan pulumi.IntInput `pulumi:"tierToArchiveAfterDaysSinceLastTierChangeGreaterThan"`
-	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+	// The age in days after last modification to tier blobs to archive storage.
 	TierToArchiveAfterDaysSinceModificationGreaterThan pulumi.IntInput `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
+	// Optional The age in days after creation to cool storage. Supports blob currently at Hot tier.
+	TierToCoolAfterDaysSinceCreationGreaterThan pulumi.IntInput `pulumi:"tierToCoolAfterDaysSinceCreationGreaterThan"`
 	// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier.
 	TierToCoolAfterDaysSinceLastAccessTimeGreaterThan pulumi.IntInput `pulumi:"tierToCoolAfterDaysSinceLastAccessTimeGreaterThan"`
 	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier.
@@ -8236,6 +8252,16 @@ func (o GetPolicyRuleActionBaseBlobOutput) ToGetPolicyRuleActionBaseBlobOutputWi
 	return o
 }
 
+// Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
+func (o GetPolicyRuleActionBaseBlobOutput) AutoTierToHotFromCoolEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) bool { return v.AutoTierToHotFromCoolEnabled }).(pulumi.BoolOutput)
+}
+
+// The age in days after creation to delete the blob snapshot.
+func (o GetPolicyRuleActionBaseBlobOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntOutput)
+}
+
 // The age in days after last access time to delete the blob.
 func (o GetPolicyRuleActionBaseBlobOutput) DeleteAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.DeleteAfterDaysSinceLastAccessTimeGreaterThan }).(pulumi.IntOutput)
@@ -8246,7 +8272,12 @@ func (o GetPolicyRuleActionBaseBlobOutput) DeleteAfterDaysSinceModificationGreat
 	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.DeleteAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
 }
 
-// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+// The age in days after creation to archive storage.
+func (o GetPolicyRuleActionBaseBlobOutput) TierToArchiveAfterDaysSinceCreationGreaterThan() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.TierToArchiveAfterDaysSinceCreationGreaterThan }).(pulumi.IntOutput)
+}
+
+// The age in days after last access time to tier blobs to archive storage.
 func (o GetPolicyRuleActionBaseBlobOutput) TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan }).(pulumi.IntOutput)
 }
@@ -8256,9 +8287,14 @@ func (o GetPolicyRuleActionBaseBlobOutput) TierToArchiveAfterDaysSinceLastTierCh
 	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.TierToArchiveAfterDaysSinceLastTierChangeGreaterThan }).(pulumi.IntOutput)
 }
 
-// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+// The age in days after last modification to tier blobs to archive storage.
 func (o GetPolicyRuleActionBaseBlobOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.TierToArchiveAfterDaysSinceModificationGreaterThan }).(pulumi.IntOutput)
+}
+
+// Optional The age in days after creation to cool storage. Supports blob currently at Hot tier.
+func (o GetPolicyRuleActionBaseBlobOutput) TierToCoolAfterDaysSinceCreationGreaterThan() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionBaseBlob) int { return v.TierToCoolAfterDaysSinceCreationGreaterThan }).(pulumi.IntOutput)
 }
 
 // The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier.

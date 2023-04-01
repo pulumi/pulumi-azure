@@ -93,7 +93,7 @@ public class HyperVReplicationPolicyAssociation extends com.pulumi.resources.Cus
      * The ID of the HyperV site to which the policy should be associated. Changing this forces a new association to be created.
      * 
      */
-    @Export(name="hypervSiteId", type=String.class, parameters={})
+    @Export(name="hypervSiteId", refs={String.class}, tree="[0]")
     private Output<String> hypervSiteId;
 
     /**
@@ -107,7 +107,7 @@ public class HyperVReplicationPolicyAssociation extends com.pulumi.resources.Cus
      * The name of the replication policy association. Changing this forces a new association to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -121,7 +121,7 @@ public class HyperVReplicationPolicyAssociation extends com.pulumi.resources.Cus
      * The ID of the HyperV replication policy which to be associated. Changing this forces a new association to be created.
      * 
      */
-    @Export(name="policyId", type=String.class, parameters={})
+    @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**

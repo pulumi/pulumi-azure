@@ -76,7 +76,7 @@ public class HyperVSite extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Recovery Service. Changing this forces a new Site to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -90,7 +90,7 @@ public class HyperVSite extends com.pulumi.resources.CustomResource {
      * The ID of the Recovery Services Vault where the Site created. Changing this forces a new Site to be created.
      * 
      */
-    @Export(name="recoveryVaultId", type=String.class, parameters={})
+    @Export(name="recoveryVaultId", refs={String.class}, tree="[0]")
     private Output<String> recoveryVaultId;
 
     /**

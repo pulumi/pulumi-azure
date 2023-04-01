@@ -83,7 +83,7 @@ public class FlexibleServerConfiguration extends com.pulumi.resources.CustomReso
      * Specifies the name of the MySQL Flexible Server Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -97,7 +97,7 @@ public class FlexibleServerConfiguration extends com.pulumi.resources.CustomReso
      * The name of the resource group in which the MySQL Flexible Server exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -111,7 +111,7 @@ public class FlexibleServerConfiguration extends com.pulumi.resources.CustomReso
      * Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", type=String.class, parameters={})
+    @Export(name="serverName", refs={String.class}, tree="[0]")
     private Output<String> serverName;
 
     /**
@@ -125,7 +125,7 @@ public class FlexibleServerConfiguration extends com.pulumi.resources.CustomReso
      * Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="value", type=String.class, parameters={})
+    @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**

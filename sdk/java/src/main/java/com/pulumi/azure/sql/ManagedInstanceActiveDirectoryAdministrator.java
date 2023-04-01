@@ -93,7 +93,7 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`). Defaults to `false`.
      * 
      */
-    @Export(name="azureadAuthenticationOnly", type=Boolean.class, parameters={})
+    @Export(name="azureadAuthenticationOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> azureadAuthenticationOnly;
 
     /**
@@ -107,7 +107,7 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * The login name of the principal to set as the Managed Instance administrator
      * 
      */
-    @Export(name="login", type=String.class, parameters={})
+    @Export(name="login", refs={String.class}, tree="[0]")
     private Output<String> login;
 
     /**
@@ -121,7 +121,7 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * The name of the SQL Managed Instance on which to set the administrator. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managedInstanceName", type=String.class, parameters={})
+    @Export(name="managedInstanceName", refs={String.class}, tree="[0]")
     private Output<String> managedInstanceName;
 
     /**
@@ -135,7 +135,7 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * The ID of the principal to set as the Managed Instance administrator
      * 
      */
-    @Export(name="objectId", type=String.class, parameters={})
+    @Export(name="objectId", refs={String.class}, tree="[0]")
     private Output<String> objectId;
 
     /**
@@ -149,7 +149,7 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * The name of the resource group for the SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -163,7 +163,7 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * The Azure Tenant ID
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

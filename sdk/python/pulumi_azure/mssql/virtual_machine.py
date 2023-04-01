@@ -16,7 +16,6 @@ __all__ = ['VirtualMachineArgs', 'VirtualMachine']
 @pulumi.input_type
 class VirtualMachineArgs:
     def __init__(__self__, *,
-                 sql_license_type: pulumi.Input[str],
                  virtual_machine_id: pulumi.Input[str],
                  assessment: Optional[pulumi.Input['VirtualMachineAssessmentArgs']] = None,
                  auto_backup: Optional[pulumi.Input['VirtualMachineAutoBackupArgs']] = None,
@@ -28,11 +27,11 @@ class VirtualMachineArgs:
                  sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
                  sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
                  sql_instance: Optional[pulumi.Input['VirtualMachineSqlInstanceArgs']] = None,
+                 sql_license_type: Optional[pulumi.Input[str]] = None,
                  storage_configuration: Optional[pulumi.Input['VirtualMachineStorageConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
-        :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineAssessmentArgs'] assessment: An `assessment` block as defined below.
         :param pulumi.Input['VirtualMachineAutoBackupArgs'] auto_backup: An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
@@ -44,10 +43,10 @@ class VirtualMachineArgs:
         :param pulumi.Input[str] sql_connectivity_update_password: The SQL Server sysadmin login password.
         :param pulumi.Input[str] sql_connectivity_update_username: The SQL Server sysadmin login to create.
         :param pulumi.Input['VirtualMachineSqlInstanceArgs'] sql_instance: A `sql_instance` block as defined below.
+        :param pulumi.Input[str] sql_license_type: The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineStorageConfigurationArgs'] storage_configuration: An `storage_configuration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "sql_license_type", sql_license_type)
         pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         if assessment is not None:
             pulumi.set(__self__, "assessment", assessment)
@@ -69,22 +68,12 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "sql_connectivity_update_username", sql_connectivity_update_username)
         if sql_instance is not None:
             pulumi.set(__self__, "sql_instance", sql_instance)
+        if sql_license_type is not None:
+            pulumi.set(__self__, "sql_license_type", sql_license_type)
         if storage_configuration is not None:
             pulumi.set(__self__, "storage_configuration", storage_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="sqlLicenseType")
-    def sql_license_type(self) -> pulumi.Input[str]:
-        """
-        The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "sql_license_type")
-
-    @sql_license_type.setter
-    def sql_license_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sql_license_type", value)
 
     @property
     @pulumi.getter(name="virtualMachineId")
@@ -217,6 +206,18 @@ class VirtualMachineArgs:
     @sql_instance.setter
     def sql_instance(self, value: Optional[pulumi.Input['VirtualMachineSqlInstanceArgs']]):
         pulumi.set(self, "sql_instance", value)
+
+    @property
+    @pulumi.getter(name="sqlLicenseType")
+    def sql_license_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sql_license_type")
+
+    @sql_license_type.setter
+    def sql_license_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sql_license_type", value)
 
     @property
     @pulumi.getter(name="storageConfiguration")
@@ -638,8 +639,6 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["sql_connectivity_update_password"] = None if sql_connectivity_update_password is None else pulumi.Output.secret(sql_connectivity_update_password)
             __props__.__dict__["sql_connectivity_update_username"] = None if sql_connectivity_update_username is None else pulumi.Output.secret(sql_connectivity_update_username)
             __props__.__dict__["sql_instance"] = sql_instance
-            if sql_license_type is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_license_type'")
             __props__.__dict__["sql_license_type"] = sql_license_type
             __props__.__dict__["storage_configuration"] = storage_configuration
             __props__.__dict__["tags"] = tags
@@ -796,7 +795,7 @@ class VirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sqlLicenseType")
-    def sql_license_type(self) -> pulumi.Output[str]:
+    def sql_license_type(self) -> pulumi.Output[Optional[str]]:
         """
         The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         """

@@ -97,7 +97,7 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
      * The description of the policy set definition.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -111,7 +111,7 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
      * The display name of the policy set definition.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -125,7 +125,7 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
      * The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managementGroupId", type=String.class, parameters={})
+    @Export(name="managementGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managementGroupId;
 
     /**
@@ -139,7 +139,7 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
      * The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
      * 
      */
-    @Export(name="metadata", type=String.class, parameters={})
+    @Export(name="metadata", refs={String.class}, tree="[0]")
     private Output<String> metadata;
 
     /**
@@ -153,7 +153,7 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
      * The name of the policy set definition. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -167,7 +167,7 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
      * Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
      * 
      */
-    @Export(name="parameters", type=String.class, parameters={})
+    @Export(name="parameters", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parameters;
 
     /**
@@ -181,7 +181,7 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
      * One or more `policy_definition_group` blocks as defined below.
      * 
      */
-    @Export(name="policyDefinitionGroups", type=List.class, parameters={PolicySetDefinitionPolicyDefinitionGroup.class})
+    @Export(name="policyDefinitionGroups", refs={List.class,PolicySetDefinitionPolicyDefinitionGroup.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PolicySetDefinitionPolicyDefinitionGroup>> policyDefinitionGroups;
 
     /**
@@ -195,7 +195,7 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
      * One or more `policy_definition_reference` blocks as defined below.
      * 
      */
-    @Export(name="policyDefinitionReferences", type=List.class, parameters={PolicySetDefinitionPolicyDefinitionReference.class})
+    @Export(name="policyDefinitionReferences", refs={List.class,PolicySetDefinitionPolicyDefinitionReference.class}, tree="[0,1]")
     private Output<List<PolicySetDefinitionPolicyDefinitionReference>> policyDefinitionReferences;
 
     /**
@@ -209,7 +209,7 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
      * The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="policyType", type=String.class, parameters={})
+    @Export(name="policyType", refs={String.class}, tree="[0]")
     private Output<String> policyType;
 
     /**

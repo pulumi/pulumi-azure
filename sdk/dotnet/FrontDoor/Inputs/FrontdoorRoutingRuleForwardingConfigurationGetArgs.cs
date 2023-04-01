@@ -19,7 +19,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string> BackendPoolName { get; set; } = null!;
 
         /// <summary>
-        /// Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
+        /// Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
         /// </summary>
         [Input("cacheDuration")]
         public Input<string>? CacheDuration { get; set; }

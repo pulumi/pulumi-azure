@@ -6262,10 +6262,10 @@ class ScheduledQueryRulesAlertTriggerMetricTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "metricColumn":
-            suggest = "metric_column"
-        elif key == "metricTriggerType":
+        if key == "metricTriggerType":
             suggest = "metric_trigger_type"
+        elif key == "metricColumn":
+            suggest = "metric_column"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ScheduledQueryRulesAlertTriggerMetricTrigger. Access the value via the '{suggest}' property getter instead.")
@@ -6279,28 +6279,21 @@ class ScheduledQueryRulesAlertTriggerMetricTrigger(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 metric_column: str,
                  metric_trigger_type: str,
                  operator: str,
-                 threshold: float):
+                 threshold: float,
+                 metric_column: Optional[str] = None):
         """
-        :param str metric_column: Evaluation of metric on a particular column.
         :param str metric_trigger_type: Metric Trigger Type - 'Consecutive' or 'Total'.
         :param str operator: Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
         :param float threshold: The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
+        :param str metric_column: Evaluation of metric on a particular column.
         """
-        pulumi.set(__self__, "metric_column", metric_column)
         pulumi.set(__self__, "metric_trigger_type", metric_trigger_type)
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "threshold", threshold)
-
-    @property
-    @pulumi.getter(name="metricColumn")
-    def metric_column(self) -> str:
-        """
-        Evaluation of metric on a particular column.
-        """
-        return pulumi.get(self, "metric_column")
+        if metric_column is not None:
+            pulumi.set(__self__, "metric_column", metric_column)
 
     @property
     @pulumi.getter(name="metricTriggerType")
@@ -6325,6 +6318,14 @@ class ScheduledQueryRulesAlertTriggerMetricTrigger(dict):
         The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
         """
         return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="metricColumn")
+    def metric_column(self) -> Optional[str]:
+        """
+        Evaluation of metric on a particular column.
+        """
+        return pulumi.get(self, "metric_column")
 
 
 @pulumi.output_type

@@ -115,7 +115,8 @@ import javax.annotation.Nullable;
  *                 &#34;Encrypt&#34;,
  *                 &#34;Decrypt&#34;,
  *                 &#34;Sign&#34;,
- *                 &#34;Verify&#34;)
+ *                 &#34;Verify&#34;,
+ *                 &#34;GetRotationPolicy&#34;)
  *             .secretPermissions(&#34;Get&#34;)
  *             .build());
  * 
@@ -161,7 +162,7 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
      * The name of Key Vault Key.
      * 
      */
-    @Export(name="keyName", type=String.class, parameters={})
+    @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output<String> keyName;
 
     /**
@@ -175,7 +176,7 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
      * The ID of the Key Vault.
      * 
      */
-    @Export(name="keyVaultId", type=String.class, parameters={})
+    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultId;
 
     /**
@@ -189,7 +190,7 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
      * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      * 
      */
-    @Export(name="keyVersion", type=String.class, parameters={})
+    @Export(name="keyVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyVersion;
 
     /**
@@ -203,7 +204,7 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountId", type=String.class, parameters={})
+    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output<String> storageAccountId;
 
     /**
@@ -217,7 +218,7 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
      * The ID of a user assigned identity.
      * 
      */
-    @Export(name="userAssignedIdentityId", type=String.class, parameters={})
+    @Export(name="userAssignedIdentityId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userAssignedIdentityId;
 
     /**

@@ -44,7 +44,7 @@ public final class EndpointPrivateServiceConnection {
      */
     private @Nullable String requestMessage;
     /**
-     * @return A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
+     * @return A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<String> subresourceNames;
@@ -93,7 +93,7 @@ public final class EndpointPrivateServiceConnection {
         return Optional.ofNullable(this.requestMessage);
     }
     /**
-     * @return A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
+     * @return A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
      * 
      */
     public List<String> subresourceNames() {

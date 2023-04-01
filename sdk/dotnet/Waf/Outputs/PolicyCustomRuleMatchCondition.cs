@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyCustomRuleMatchCondition
     {
         /// <summary>
-        /// A list of match values.
+        /// A list of match values. This is **Required** when the `operator` is not `Any`.
         /// </summary>
         public readonly ImmutableArray<string> MatchValues;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly bool? NegationCondition;
         /// <summary>
-        /// Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+        /// Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
         /// </summary>
         public readonly string Operator;
         /// <summary>

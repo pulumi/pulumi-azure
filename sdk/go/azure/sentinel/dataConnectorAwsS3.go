@@ -43,30 +43,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
-//				SolutionName:        pulumi.String("SecurityInsights"),
-//				Location:            exampleResourceGroup.Location,
-//				ResourceGroupName:   exampleResourceGroup.Name,
-//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
-//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
-//					Publisher: pulumi.String("Microsoft"),
-//					Product:   pulumi.String("OMSGallery/SecurityInsights"),
-//				},
+//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "exampleLogAnalyticsWorkspaceOnboarding", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
+//				WorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = sentinel.NewDataConnectorAwsS3(ctx, "exampleDataConnectorAwsS3", &sentinel.DataConnectorAwsS3Args{
-//				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
+//				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
 //				AwsRoleArn:              pulumi.String("arn:aws:iam::000000000000:role/role1"),
 //				DestinationTable:        pulumi.String("AWSGuardDuty"),
 //				SqsUrls: pulumi.StringArray{
 //					pulumi.String("https://sqs.us-east-1.amazonaws.com/000000000000/example"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAnalyticsSolution,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

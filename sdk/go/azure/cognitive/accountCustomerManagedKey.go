@@ -56,7 +56,7 @@ import (
 //				SkuName:             pulumi.String("E0"),
 //				CustomSubdomainName: pulumi.String("example-account"),
 //				Identity: &cognitive.AccountIdentityArgs{
-//					Type: pulumi.String("SystemAssigned, UserAssigned"),
+//					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
 //						exampleUserAssignedIdentity.ID(),
 //					},
@@ -114,6 +114,7 @@ import (
 //							pulumi.String("Decrypt"),
 //							pulumi.String("Sign"),
 //							pulumi.String("Verify"),
+//							pulumi.String("GetRotationPolicy"),
 //						},
 //						SecretPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),

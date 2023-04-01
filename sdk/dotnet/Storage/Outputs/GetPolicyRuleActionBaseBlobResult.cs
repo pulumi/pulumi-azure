@@ -14,6 +14,14 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class GetPolicyRuleActionBaseBlobResult
     {
         /// <summary>
+        /// Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
+        /// </summary>
+        public readonly bool AutoTierToHotFromCoolEnabled;
+        /// <summary>
+        /// The age in days after creation to delete the blob snapshot.
+        /// </summary>
+        public readonly int DeleteAfterDaysSinceCreationGreaterThan;
+        /// <summary>
         /// The age in days after last access time to delete the blob.
         /// </summary>
         public readonly int DeleteAfterDaysSinceLastAccessTimeGreaterThan;
@@ -22,7 +30,11 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly int DeleteAfterDaysSinceModificationGreaterThan;
         /// <summary>
-        /// The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+        /// The age in days after creation to archive storage.
+        /// </summary>
+        public readonly int TierToArchiveAfterDaysSinceCreationGreaterThan;
+        /// <summary>
+        /// The age in days after last access time to tier blobs to archive storage.
         /// </summary>
         public readonly int TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
         /// <summary>
@@ -30,9 +42,13 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly int TierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
         /// <summary>
-        /// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier.
+        /// The age in days after last modification to tier blobs to archive storage.
         /// </summary>
         public readonly int TierToArchiveAfterDaysSinceModificationGreaterThan;
+        /// <summary>
+        /// Optional The age in days after creation to cool storage. Supports blob currently at Hot tier.
+        /// </summary>
+        public readonly int TierToCoolAfterDaysSinceCreationGreaterThan;
         /// <summary>
         /// The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier.
         /// </summary>
@@ -44,9 +60,15 @@ namespace Pulumi.Azure.Storage.Outputs
 
         [OutputConstructor]
         private GetPolicyRuleActionBaseBlobResult(
+            bool autoTierToHotFromCoolEnabled,
+
+            int deleteAfterDaysSinceCreationGreaterThan,
+
             int deleteAfterDaysSinceLastAccessTimeGreaterThan,
 
             int deleteAfterDaysSinceModificationGreaterThan,
+
+            int tierToArchiveAfterDaysSinceCreationGreaterThan,
 
             int tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan,
 
@@ -54,15 +76,21 @@ namespace Pulumi.Azure.Storage.Outputs
 
             int tierToArchiveAfterDaysSinceModificationGreaterThan,
 
+            int tierToCoolAfterDaysSinceCreationGreaterThan,
+
             int tierToCoolAfterDaysSinceLastAccessTimeGreaterThan,
 
             int tierToCoolAfterDaysSinceModificationGreaterThan)
         {
+            AutoTierToHotFromCoolEnabled = autoTierToHotFromCoolEnabled;
+            DeleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
             DeleteAfterDaysSinceLastAccessTimeGreaterThan = deleteAfterDaysSinceLastAccessTimeGreaterThan;
             DeleteAfterDaysSinceModificationGreaterThan = deleteAfterDaysSinceModificationGreaterThan;
+            TierToArchiveAfterDaysSinceCreationGreaterThan = tierToArchiveAfterDaysSinceCreationGreaterThan;
             TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
             TierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
             TierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
+            TierToCoolAfterDaysSinceCreationGreaterThan = tierToCoolAfterDaysSinceCreationGreaterThan;
             TierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
             TierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;
         }

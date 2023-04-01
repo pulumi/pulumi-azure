@@ -16,14 +16,14 @@ public final class ApplicationGatewaySslCertificateArgs extends com.pulumi.resou
     public static final ApplicationGatewaySslCertificateArgs Empty = new ApplicationGatewaySslCertificateArgs();
 
     /**
-     * PFX certificate. Required if `key_vault_secret_id` is not set.
+     * The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
      * 
      */
     @Import(name="data")
     private @Nullable Output<String> data;
 
     /**
-     * @return PFX certificate. Required if `key_vault_secret_id` is not set.
+     * @return The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
      * 
      */
     public Optional<Output<String>> data() {
@@ -135,7 +135,7 @@ public final class ApplicationGatewaySslCertificateArgs extends com.pulumi.resou
         }
 
         /**
-         * @param data PFX certificate. Required if `key_vault_secret_id` is not set.
+         * @param data The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ApplicationGatewaySslCertificateArgs extends com.pulumi.resou
         }
 
         /**
-         * @param data PFX certificate. Required if `key_vault_secret_id` is not set.
+         * @param data The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
          * 
          * @return builder
          * 

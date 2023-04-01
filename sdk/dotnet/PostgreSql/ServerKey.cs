@@ -90,6 +90,7 @@ namespace Pulumi.Azure.PostgreSql
     ///             "Decrypt",
     ///             "Sign",
     ///             "Verify",
+    ///             "GetRotationPolicy",
     ///         },
     ///         SecretPermissions = new[]
     ///         {

@@ -122,7 +122,7 @@ public class ResolverForwardingRule extends com.pulumi.resources.CustomResource 
      * Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      * 
      */
-    @Export(name="dnsForwardingRulesetId", type=String.class, parameters={})
+    @Export(name="dnsForwardingRulesetId", refs={String.class}, tree="[0]")
     private Output<String> dnsForwardingRulesetId;
 
     /**
@@ -136,7 +136,7 @@ public class ResolverForwardingRule extends com.pulumi.resources.CustomResource 
      * Specifies the domain name for the Private DNS Resolver Forwarding Rule.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -150,7 +150,7 @@ public class ResolverForwardingRule extends com.pulumi.resources.CustomResource 
      * Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -164,7 +164,7 @@ public class ResolverForwardingRule extends com.pulumi.resources.CustomResource 
      * Metadata attached to the Private DNS Resolver Forwarding Rule.
      * 
      */
-    @Export(name="metadata", type=Map.class, parameters={String.class, String.class})
+    @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> metadata;
 
     /**
@@ -178,7 +178,7 @@ public class ResolverForwardingRule extends com.pulumi.resources.CustomResource 
      * Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -192,7 +192,7 @@ public class ResolverForwardingRule extends com.pulumi.resources.CustomResource 
      * Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
      * 
      */
-    @Export(name="targetDnsServers", type=List.class, parameters={ResolverForwardingRuleTargetDnsServer.class})
+    @Export(name="targetDnsServers", refs={List.class,ResolverForwardingRuleTargetDnsServer.class}, tree="[0,1]")
     private Output<List<ResolverForwardingRuleTargetDnsServer>> targetDnsServers;
 
     /**

@@ -77,7 +77,7 @@ public class IotHubDeviceUpdateAccount extends com.pulumi.resources.CustomResour
      * The API host name of the IoT Hub Device Update Account.
      * 
      */
-    @Export(name="hostName", type=String.class, parameters={})
+    @Export(name="hostName", refs={String.class}, tree="[0]")
     private Output<String> hostName;
 
     /**
@@ -91,7 +91,7 @@ public class IotHubDeviceUpdateAccount extends com.pulumi.resources.CustomResour
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=IotHubDeviceUpdateAccountIdentity.class, parameters={})
+    @Export(name="identity", refs={IotHubDeviceUpdateAccountIdentity.class}, tree="[0]")
     private Output</* @Nullable */ IotHubDeviceUpdateAccountIdentity> identity;
 
     /**
@@ -105,7 +105,7 @@ public class IotHubDeviceUpdateAccount extends com.pulumi.resources.CustomResour
      * Specifies the Azure Region where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -119,7 +119,7 @@ public class IotHubDeviceUpdateAccount extends com.pulumi.resources.CustomResour
      * Specifies the name which should be used for this IoT Hub Device Update Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -133,7 +133,7 @@ public class IotHubDeviceUpdateAccount extends com.pulumi.resources.CustomResour
      * Specifies whether the public network access is enabled for the IoT Hub Device Update Account. Possible values are `true` and `false`. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -147,7 +147,7 @@ public class IotHubDeviceUpdateAccount extends com.pulumi.resources.CustomResour
      * Specifies the name of the Resource Group where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -161,7 +161,7 @@ public class IotHubDeviceUpdateAccount extends com.pulumi.resources.CustomResour
      * Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
      * 
      */
-    @Export(name="sku", type=String.class, parameters={})
+    @Export(name="sku", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sku;
 
     /**
@@ -175,7 +175,7 @@ public class IotHubDeviceUpdateAccount extends com.pulumi.resources.CustomResour
      * A mapping of tags which should be assigned to the IoT Hub Device Update Account.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

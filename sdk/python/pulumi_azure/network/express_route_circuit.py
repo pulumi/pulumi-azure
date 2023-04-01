@@ -19,6 +19,7 @@ class ExpressRouteCircuitArgs:
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['ExpressRouteCircuitSkuArgs'],
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+                 authorization_key: Optional[pulumi.Input[str]] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
                  express_route_port_id: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class ExpressRouteCircuitArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input['ExpressRouteCircuitSkuArgs'] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
+        :param pulumi.Input[str] authorization_key: The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
         :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
         :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
@@ -45,6 +47,8 @@ class ExpressRouteCircuitArgs:
         pulumi.set(__self__, "sku", sku)
         if allow_classic_operations is not None:
             pulumi.set(__self__, "allow_classic_operations", allow_classic_operations)
+        if authorization_key is not None:
+            pulumi.set(__self__, "authorization_key", authorization_key)
         if bandwidth_in_gbps is not None:
             pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
         if bandwidth_in_mbps is not None:
@@ -97,6 +101,18 @@ class ExpressRouteCircuitArgs:
     @allow_classic_operations.setter
     def allow_classic_operations(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_classic_operations", value)
+
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+        """
+        return pulumi.get(self, "authorization_key")
+
+    @authorization_key.setter
+    def authorization_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_key", value)
 
     @property
     @pulumi.getter(name="bandwidthInGbps")
@@ -199,6 +215,7 @@ class ExpressRouteCircuitArgs:
 class _ExpressRouteCircuitState:
     def __init__(__self__, *,
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+                 authorization_key: Optional[pulumi.Input[str]] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
                  express_route_port_id: Optional[pulumi.Input[str]] = None,
@@ -214,6 +231,7 @@ class _ExpressRouteCircuitState:
         """
         Input properties used for looking up and filtering ExpressRouteCircuit resources.
         :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
+        :param pulumi.Input[str] authorization_key: The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
         :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
         :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
@@ -229,6 +247,8 @@ class _ExpressRouteCircuitState:
         """
         if allow_classic_operations is not None:
             pulumi.set(__self__, "allow_classic_operations", allow_classic_operations)
+        if authorization_key is not None:
+            pulumi.set(__self__, "authorization_key", authorization_key)
         if bandwidth_in_gbps is not None:
             pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
         if bandwidth_in_mbps is not None:
@@ -265,6 +285,18 @@ class _ExpressRouteCircuitState:
     @allow_classic_operations.setter
     def allow_classic_operations(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_classic_operations", value)
+
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+        """
+        return pulumi.get(self, "authorization_key")
+
+    @authorization_key.setter
+    def authorization_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_key", value)
 
     @property
     @pulumi.getter(name="bandwidthInGbps")
@@ -417,6 +449,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+                 authorization_key: Optional[pulumi.Input[str]] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
                  express_route_port_id: Optional[pulumi.Input[str]] = None,
@@ -464,6 +497,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
+        :param pulumi.Input[str] authorization_key: The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
         :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
         :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
@@ -530,6 +564,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+                 authorization_key: Optional[pulumi.Input[str]] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
                  bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
                  express_route_port_id: Optional[pulumi.Input[str]] = None,
@@ -550,6 +585,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__ = ExpressRouteCircuitArgs.__new__(ExpressRouteCircuitArgs)
 
             __props__.__dict__["allow_classic_operations"] = allow_classic_operations
+            __props__.__dict__["authorization_key"] = None if authorization_key is None else pulumi.Output.secret(authorization_key)
             __props__.__dict__["bandwidth_in_gbps"] = bandwidth_in_gbps
             __props__.__dict__["bandwidth_in_mbps"] = bandwidth_in_mbps
             __props__.__dict__["express_route_port_id"] = express_route_port_id
@@ -566,7 +602,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["service_key"] = None
             __props__.__dict__["service_provider_provisioning_state"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["serviceKey"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["authorizationKey", "serviceKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ExpressRouteCircuit, __self__).__init__(
             'azure:network/expressRouteCircuit:ExpressRouteCircuit',
@@ -579,6 +615,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allow_classic_operations: Optional[pulumi.Input[bool]] = None,
+            authorization_key: Optional[pulumi.Input[str]] = None,
             bandwidth_in_gbps: Optional[pulumi.Input[float]] = None,
             bandwidth_in_mbps: Optional[pulumi.Input[int]] = None,
             express_route_port_id: Optional[pulumi.Input[str]] = None,
@@ -599,6 +636,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
+        :param pulumi.Input[str] authorization_key: The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
         :param pulumi.Input[int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
         :param pulumi.Input[str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
@@ -617,6 +655,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         __props__ = _ExpressRouteCircuitState.__new__(_ExpressRouteCircuitState)
 
         __props__.__dict__["allow_classic_operations"] = allow_classic_operations
+        __props__.__dict__["authorization_key"] = authorization_key
         __props__.__dict__["bandwidth_in_gbps"] = bandwidth_in_gbps
         __props__.__dict__["bandwidth_in_mbps"] = bandwidth_in_mbps
         __props__.__dict__["express_route_port_id"] = express_route_port_id
@@ -638,6 +677,14 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
         """
         return pulumi.get(self, "allow_classic_operations")
+
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
+        """
+        return pulumi.get(self, "authorization_key")
 
     @property
     @pulumi.getter(name="bandwidthInGbps")

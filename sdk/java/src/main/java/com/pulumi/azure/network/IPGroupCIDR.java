@@ -80,7 +80,7 @@ public class IPGroupCIDR extends com.pulumi.resources.CustomResource {
      * Changing this forces a new IP Group CIDR to be created.
      * 
      */
-    @Export(name="cidr", type=String.class, parameters={})
+    @Export(name="cidr", refs={String.class}, tree="[0]")
     private Output<String> cidr;
 
     /**
@@ -96,7 +96,7 @@ public class IPGroupCIDR extends com.pulumi.resources.CustomResource {
      * Changing this forces a new IP Group CIDR to be created.
      * 
      */
-    @Export(name="ipGroupId", type=String.class, parameters={})
+    @Export(name="ipGroupId", refs={String.class}, tree="[0]")
     private Output<String> ipGroupId;
 
     /**

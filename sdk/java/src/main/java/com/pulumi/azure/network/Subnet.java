@@ -96,7 +96,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * The address prefixes to use for the subnet.
      * 
      */
-    @Export(name="addressPrefixes", type=List.class, parameters={String.class})
+    @Export(name="addressPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> addressPrefixes;
 
     /**
@@ -110,7 +110,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * One or more `delegation` blocks as defined below.
      * 
      */
-    @Export(name="delegations", type=List.class, parameters={SubnetDelegation.class})
+    @Export(name="delegations", refs={List.class,SubnetDelegation.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SubnetDelegation>> delegations;
 
     /**
@@ -126,7 +126,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `enforce_private_link_endpoint_network_policies` will be removed in favour of the property `private_endpoint_network_policies_enabled` in version 4.0 of the AzureRM Provider */
-    @Export(name="enforcePrivateLinkEndpointNetworkPolicies", type=Boolean.class, parameters={})
+    @Export(name="enforcePrivateLinkEndpointNetworkPolicies", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enforcePrivateLinkEndpointNetworkPolicies;
 
     public Output<Boolean> enforcePrivateLinkEndpointNetworkPolicies() {
@@ -138,7 +138,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `enforce_private_link_service_network_policies` will be removed in favour of the property `private_link_service_network_policies_enabled` in version 4.0 of the AzureRM Provider */
-    @Export(name="enforcePrivateLinkServiceNetworkPolicies", type=Boolean.class, parameters={})
+    @Export(name="enforcePrivateLinkServiceNetworkPolicies", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enforcePrivateLinkServiceNetworkPolicies;
 
     public Output<Boolean> enforcePrivateLinkServiceNetworkPolicies() {
@@ -148,7 +148,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * The name of the subnet. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -162,7 +162,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
      * 
      */
-    @Export(name="privateEndpointNetworkPoliciesEnabled", type=Boolean.class, parameters={})
+    @Export(name="privateEndpointNetworkPoliciesEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> privateEndpointNetworkPoliciesEnabled;
 
     /**
@@ -176,7 +176,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
      * 
      */
-    @Export(name="privateLinkServiceNetworkPoliciesEnabled", type=Boolean.class, parameters={})
+    @Export(name="privateLinkServiceNetworkPoliciesEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> privateLinkServiceNetworkPoliciesEnabled;
 
     /**
@@ -190,7 +190,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -204,7 +204,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * The list of IDs of Service Endpoint Policies to associate with the subnet.
      * 
      */
-    @Export(name="serviceEndpointPolicyIds", type=List.class, parameters={String.class})
+    @Export(name="serviceEndpointPolicyIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> serviceEndpointPolicyIds;
 
     /**
@@ -218,7 +218,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, and `Microsoft.Web`.
      * 
      */
-    @Export(name="serviceEndpoints", type=List.class, parameters={String.class})
+    @Export(name="serviceEndpoints", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> serviceEndpoints;
 
     /**
@@ -232,7 +232,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualNetworkName", type=String.class, parameters={})
+    @Export(name="virtualNetworkName", refs={String.class}, tree="[0]")
     private Output<String> virtualNetworkName;
 
     /**

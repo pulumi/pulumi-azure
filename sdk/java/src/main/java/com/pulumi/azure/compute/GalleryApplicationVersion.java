@@ -129,7 +129,7 @@ public class GalleryApplicationVersion extends com.pulumi.resources.CustomResour
      * Should the Gallery Application reports health. Defaults to `false`.
      * 
      */
-    @Export(name="enableHealthCheck", type=Boolean.class, parameters={})
+    @Export(name="enableHealthCheck", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableHealthCheck;
 
     /**
@@ -143,7 +143,7 @@ public class GalleryApplicationVersion extends com.pulumi.resources.CustomResour
      * The end of life date in RFC3339 format of the Gallery Application Version.
      * 
      */
-    @Export(name="endOfLifeDate", type=String.class, parameters={})
+    @Export(name="endOfLifeDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endOfLifeDate;
 
     /**
@@ -157,7 +157,7 @@ public class GalleryApplicationVersion extends com.pulumi.resources.CustomResour
      * Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won&#39;t be returned for the `latest` version. Defaults to `false`.
      * 
      */
-    @Export(name="excludeFromLatest", type=Boolean.class, parameters={})
+    @Export(name="excludeFromLatest", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> excludeFromLatest;
 
     /**
@@ -171,7 +171,7 @@ public class GalleryApplicationVersion extends com.pulumi.resources.CustomResour
      * The ID of the Gallery Application. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="galleryApplicationId", type=String.class, parameters={})
+    @Export(name="galleryApplicationId", refs={String.class}, tree="[0]")
     private Output<String> galleryApplicationId;
 
     /**
@@ -185,7 +185,7 @@ public class GalleryApplicationVersion extends com.pulumi.resources.CustomResour
      * The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -199,7 +199,7 @@ public class GalleryApplicationVersion extends com.pulumi.resources.CustomResour
      * A `manage_action` block as defined below.
      * 
      */
-    @Export(name="manageAction", type=GalleryApplicationVersionManageAction.class, parameters={})
+    @Export(name="manageAction", refs={GalleryApplicationVersionManageAction.class}, tree="[0]")
     private Output<GalleryApplicationVersionManageAction> manageAction;
 
     /**
@@ -213,7 +213,7 @@ public class GalleryApplicationVersion extends com.pulumi.resources.CustomResour
      * The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -227,7 +227,7 @@ public class GalleryApplicationVersion extends com.pulumi.resources.CustomResour
      * A `source` block as defined below.
      * 
      */
-    @Export(name="source", type=GalleryApplicationVersionSource.class, parameters={})
+    @Export(name="source", refs={GalleryApplicationVersionSource.class}, tree="[0]")
     private Output<GalleryApplicationVersionSource> source;
 
     /**
@@ -241,7 +241,7 @@ public class GalleryApplicationVersion extends com.pulumi.resources.CustomResour
      * A mapping of tags to assign to the Gallery Application Version.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -255,7 +255,7 @@ public class GalleryApplicationVersion extends com.pulumi.resources.CustomResour
      * One or more `target_region` blocks as defined below.
      * 
      */
-    @Export(name="targetRegions", type=List.class, parameters={GalleryApplicationVersionTargetRegion.class})
+    @Export(name="targetRegions", refs={List.class,GalleryApplicationVersionTargetRegion.class}, tree="[0,1]")
     private Output<List<GalleryApplicationVersionTargetRegion>> targetRegions;
 
     /**

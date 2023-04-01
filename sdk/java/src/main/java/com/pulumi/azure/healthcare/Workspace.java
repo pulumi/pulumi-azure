@@ -66,7 +66,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Healthcare Workspace should be created. Changing this forces a new Healthcare Workspace to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -80,7 +80,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -90,7 +90,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="privateEndpointConnections", type=List.class, parameters={WorkspacePrivateEndpointConnection.class})
+    @Export(name="privateEndpointConnections", refs={List.class,WorkspacePrivateEndpointConnection.class}, tree="[0,1]")
     private Output<List<WorkspacePrivateEndpointConnection>> privateEndpointConnections;
 
     public Output<List<WorkspacePrivateEndpointConnection>> privateEndpointConnections() {
@@ -100,7 +100,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group where the Healthcare Workspace should exist. Changing this forces a new Healthcare Workspace to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -114,7 +114,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Healthcare Workspace.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

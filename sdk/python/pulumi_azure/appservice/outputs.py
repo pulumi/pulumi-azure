@@ -9096,19 +9096,20 @@ class LinuxFunctionAppSiteConfigCors(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_origins: Sequence[str],
+                 allowed_origins: Optional[Sequence[str]] = None,
                  support_credentials: Optional[bool] = None):
         """
         :param Sequence[str] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
         :param bool support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Sequence[str]:
+    def allowed_origins(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of origins that should be allowed to make cross-origin calls.
         """
@@ -12613,19 +12614,20 @@ class LinuxFunctionAppSlotSiteConfigCors(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_origins: Sequence[str],
+                 allowed_origins: Optional[Sequence[str]] = None,
                  support_credentials: Optional[bool] = None):
         """
         :param Sequence[str] allowed_origins: an `allowed_origins` block as detailed below.
         :param bool support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Sequence[str]:
+    def allowed_origins(self) -> Optional[Sequence[str]]:
         """
         an `allowed_origins` block as detailed below.
         """
@@ -16863,19 +16865,20 @@ class LinuxWebAppSiteConfigCors(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_origins: Sequence[str],
+                 allowed_origins: Optional[Sequence[str]] = None,
                  support_credentials: Optional[bool] = None):
         """
         :param Sequence[str] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
         :param bool support_credentials: Whether CORS requests with credentials are allowed. Defaults to `false`
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Sequence[str]:
+    def allowed_origins(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of origins that should be allowed to make cross-origin calls.
         """
@@ -20883,19 +20886,20 @@ class LinuxWebAppSlotSiteConfigCors(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_origins: Sequence[str],
+                 allowed_origins: Optional[Sequence[str]] = None,
                  support_credentials: Optional[bool] = None):
         """
         :param Sequence[str] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
         :param bool support_credentials: Whether CORS requests with credentials are allowed. Defaults to `false`
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Sequence[str]:
+    def allowed_origins(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of origins that should be allowed to make cross-origin calls.
         """
@@ -26944,19 +26948,20 @@ class WindowsFunctionAppSiteConfigCors(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_origins: Sequence[str],
+                 allowed_origins: Optional[Sequence[str]] = None,
                  support_credentials: Optional[bool] = None):
         """
         :param Sequence[str] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
         :param bool support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Sequence[str]:
+    def allowed_origins(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of origins that should be allowed to make cross-origin calls.
         """
@@ -30318,19 +30323,20 @@ class WindowsFunctionAppSlotSiteConfigCors(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_origins: Sequence[str],
+                 allowed_origins: Optional[Sequence[str]] = None,
                  support_credentials: Optional[bool] = None):
         """
         :param Sequence[str] allowed_origins: an `allowed_origins` block as detailed below.
         :param bool support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Sequence[str]:
+    def allowed_origins(self) -> Optional[Sequence[str]]:
         """
         an `allowed_origins` block as detailed below.
         """
@@ -34690,19 +34696,20 @@ class WindowsWebAppSiteConfigCors(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_origins: Sequence[str],
+                 allowed_origins: Optional[Sequence[str]] = None,
                  support_credentials: Optional[bool] = None):
         """
         :param Sequence[str] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
         :param bool support_credentials: Whether CORS requests with credentials are allowed. Defaults to `false`
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Sequence[str]:
+    def allowed_origins(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of origins that should be allowed to make cross-origin calls.
         """
@@ -38945,19 +38952,20 @@ class WindowsWebAppSlotSiteConfigCors(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_origins: Sequence[str],
+                 allowed_origins: Optional[Sequence[str]] = None,
                  support_credentials: Optional[bool] = None):
         """
         :param Sequence[str] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
         :param bool support_credentials: Whether CORS requests with credentials are allowed. Defaults to `false`
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Sequence[str]:
+    def allowed_origins(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of origins that should be allowed to make cross-origin calls.
         """
@@ -42039,7 +42047,8 @@ class GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
                  jwt_allowed_client_applications: Sequence[str],
                  jwt_allowed_groups: Sequence[str],
                  login_parameters: Mapping[str, str],
-                 tenant_id: str):
+                 tenant_auth_endpoint: str,
+                 www_authentication_disabled: bool):
         """
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
@@ -42051,7 +42060,8 @@ class GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         :param Sequence[str] jwt_allowed_client_applications: The list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: The list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
-        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Linux Function App.
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param bool www_authentication_disabled: Is the www-authenticate provider omitted from the request?
         """
         pulumi.set(__self__, "allowed_applications", allowed_applications)
         pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -42063,7 +42073,8 @@ class GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         pulumi.set(__self__, "jwt_allowed_client_applications", jwt_allowed_client_applications)
         pulumi.set(__self__, "jwt_allowed_groups", jwt_allowed_groups)
         pulumi.set(__self__, "login_parameters", login_parameters)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
+        pulumi.set(__self__, "www_authentication_disabled", www_authentication_disabled)
 
     @property
     @pulumi.getter(name="allowedApplications")
@@ -42146,12 +42157,20 @@ class GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         return pulumi.get(self, "login_parameters")
 
     @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    @pulumi.getter(name="tenantAuthEndpoint")
+    def tenant_auth_endpoint(self) -> str:
         """
-        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Linux Function App.
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
         """
-        return pulumi.get(self, "tenant_id")
+        return pulumi.get(self, "tenant_auth_endpoint")
+
+    @property
+    @pulumi.getter(name="wwwAuthenticationDisabled")
+    def www_authentication_disabled(self) -> bool:
+        """
+        Is the www-authenticate provider omitted from the request?
+        """
+        return pulumi.get(self, "www_authentication_disabled")
 
 
 @pulumi.output_type
@@ -44560,7 +44579,8 @@ class GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
                  jwt_allowed_client_applications: Sequence[str],
                  jwt_allowed_groups: Sequence[str],
                  login_parameters: Mapping[str, str],
-                 tenant_id: str):
+                 tenant_auth_endpoint: str,
+                 www_authentication_disabled: bool):
         """
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
@@ -44572,7 +44592,8 @@ class GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         :param Sequence[str] jwt_allowed_client_applications: The list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: The list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
-        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Linux Web App.
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param bool www_authentication_disabled: Is the www-authenticate provider omitted from the request?
         """
         pulumi.set(__self__, "allowed_applications", allowed_applications)
         pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -44584,7 +44605,8 @@ class GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         pulumi.set(__self__, "jwt_allowed_client_applications", jwt_allowed_client_applications)
         pulumi.set(__self__, "jwt_allowed_groups", jwt_allowed_groups)
         pulumi.set(__self__, "login_parameters", login_parameters)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
+        pulumi.set(__self__, "www_authentication_disabled", www_authentication_disabled)
 
     @property
     @pulumi.getter(name="allowedApplications")
@@ -44667,12 +44689,20 @@ class GetLinuxWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         return pulumi.get(self, "login_parameters")
 
     @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    @pulumi.getter(name="tenantAuthEndpoint")
+    def tenant_auth_endpoint(self) -> str:
         """
-        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Linux Web App.
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
         """
-        return pulumi.get(self, "tenant_id")
+        return pulumi.get(self, "tenant_auth_endpoint")
+
+    @property
+    @pulumi.getter(name="wwwAuthenticationDisabled")
+    def www_authentication_disabled(self) -> bool:
+        """
+        Is the www-authenticate provider omitted from the request?
+        """
+        return pulumi.get(self, "www_authentication_disabled")
 
 
 @pulumi.output_type
@@ -47459,7 +47489,8 @@ class GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
                  jwt_allowed_client_applications: Sequence[str],
                  jwt_allowed_groups: Sequence[str],
                  login_parameters: Mapping[str, str],
-                 tenant_id: str):
+                 tenant_auth_endpoint: str,
+                 www_authentication_disabled: bool):
         """
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
@@ -47471,7 +47502,8 @@ class GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         :param Sequence[str] jwt_allowed_client_applications: The list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: The list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
-        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param bool www_authentication_disabled: Is the www-authenticate provider omitted from the request?
         """
         pulumi.set(__self__, "allowed_applications", allowed_applications)
         pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -47483,7 +47515,8 @@ class GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         pulumi.set(__self__, "jwt_allowed_client_applications", jwt_allowed_client_applications)
         pulumi.set(__self__, "jwt_allowed_groups", jwt_allowed_groups)
         pulumi.set(__self__, "login_parameters", login_parameters)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
+        pulumi.set(__self__, "www_authentication_disabled", www_authentication_disabled)
 
     @property
     @pulumi.getter(name="allowedApplications")
@@ -47566,12 +47599,20 @@ class GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         return pulumi.get(self, "login_parameters")
 
     @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    @pulumi.getter(name="tenantAuthEndpoint")
+    def tenant_auth_endpoint(self) -> str:
         """
-        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
         """
-        return pulumi.get(self, "tenant_id")
+        return pulumi.get(self, "tenant_auth_endpoint")
+
+    @property
+    @pulumi.getter(name="wwwAuthenticationDisabled")
+    def www_authentication_disabled(self) -> bool:
+        """
+        Is the www-authenticate provider omitted from the request?
+        """
+        return pulumi.get(self, "www_authentication_disabled")
 
 
 @pulumi.output_type
@@ -49810,7 +49851,8 @@ class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
                  jwt_allowed_client_applications: Sequence[str],
                  jwt_allowed_groups: Sequence[str],
                  login_parameters: Mapping[str, str],
-                 tenant_id: str):
+                 tenant_auth_endpoint: str,
+                 www_authentication_disabled: bool):
         """
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
         :param Sequence[str] allowed_audiences: The list of Allowed Audiences that are be requested as part of Microsoft Sign-In authentication.
@@ -49822,7 +49864,8 @@ class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         :param Sequence[str] jwt_allowed_client_applications: The list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: The list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
-        :param str tenant_id: The Tenant ID of the Managed Service Identity.
+        :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+        :param bool www_authentication_disabled: Is the www-authenticate provider omitted from the request?
         """
         pulumi.set(__self__, "allowed_applications", allowed_applications)
         pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -49834,7 +49877,8 @@ class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         pulumi.set(__self__, "jwt_allowed_client_applications", jwt_allowed_client_applications)
         pulumi.set(__self__, "jwt_allowed_groups", jwt_allowed_groups)
         pulumi.set(__self__, "login_parameters", login_parameters)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
+        pulumi.set(__self__, "www_authentication_disabled", www_authentication_disabled)
 
     @property
     @pulumi.getter(name="allowedApplications")
@@ -49917,12 +49961,20 @@ class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Result(dict):
         return pulumi.get(self, "login_parameters")
 
     @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
+    @pulumi.getter(name="tenantAuthEndpoint")
+    def tenant_auth_endpoint(self) -> str:
         """
-        The Tenant ID of the Managed Service Identity.
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
         """
-        return pulumi.get(self, "tenant_id")
+        return pulumi.get(self, "tenant_auth_endpoint")
+
+    @property
+    @pulumi.getter(name="wwwAuthenticationDisabled")
+    def www_authentication_disabled(self) -> bool:
+        """
+        Is the www-authenticate provider omitted from the request?
+        """
+        return pulumi.get(self, "www_authentication_disabled")
 
 
 @pulumi.output_type

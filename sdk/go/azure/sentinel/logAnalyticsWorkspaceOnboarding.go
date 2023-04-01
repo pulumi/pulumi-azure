@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -72,8 +71,13 @@ type LogAnalyticsWorkspaceOnboarding struct {
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	CustomerManagedKeyEnabled pulumi.BoolPtrOutput `pulumi:"customerManagedKeyEnabled"`
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
+	//
+	// Deprecated: this property has been deprecated in favour of `workspace_id`
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	WorkspaceId       pulumi.StringOutput `pulumi:"workspaceId"`
 	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider
 	WorkspaceName pulumi.StringOutput `pulumi:"workspaceName"`
 }
 
@@ -81,15 +85,9 @@ type LogAnalyticsWorkspaceOnboarding struct {
 func NewLogAnalyticsWorkspaceOnboarding(ctx *pulumi.Context,
 	name string, args *LogAnalyticsWorkspaceOnboardingArgs, opts ...pulumi.ResourceOption) (*LogAnalyticsWorkspaceOnboarding, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &LogAnalyticsWorkspaceOnboardingArgs{}
 	}
 
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.WorkspaceName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
-	}
 	var resource LogAnalyticsWorkspaceOnboarding
 	err := ctx.RegisterResource("azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding", name, args, &resource, opts...)
 	if err != nil {
@@ -115,8 +113,13 @@ type logAnalyticsWorkspaceOnboardingState struct {
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
+	//
+	// Deprecated: this property has been deprecated in favour of `workspace_id`
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	WorkspaceId       *string `pulumi:"workspaceId"`
 	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider
 	WorkspaceName *string `pulumi:"workspaceName"`
 }
 
@@ -124,8 +127,13 @@ type LogAnalyticsWorkspaceOnboardingState struct {
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
+	//
+	// Deprecated: this property has been deprecated in favour of `workspace_id`
 	ResourceGroupName pulumi.StringPtrInput
+	WorkspaceId       pulumi.StringPtrInput
 	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+	//
+	// Deprecated: this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider
 	WorkspaceName pulumi.StringPtrInput
 }
 
@@ -137,9 +145,14 @@ type logAnalyticsWorkspaceOnboardingArgs struct {
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	//
+	// Deprecated: this property has been deprecated in favour of `workspace_id`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	WorkspaceId       *string `pulumi:"workspaceId"`
 	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-	WorkspaceName string `pulumi:"workspaceName"`
+	//
+	// Deprecated: this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider
+	WorkspaceName *string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a LogAnalyticsWorkspaceOnboarding resource.
@@ -147,9 +160,14 @@ type LogAnalyticsWorkspaceOnboardingArgs struct {
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-	ResourceGroupName pulumi.StringInput
+	//
+	// Deprecated: this property has been deprecated in favour of `workspace_id`
+	ResourceGroupName pulumi.StringPtrInput
+	WorkspaceId       pulumi.StringPtrInput
 	// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-	WorkspaceName pulumi.StringInput
+	//
+	// Deprecated: this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider
+	WorkspaceName pulumi.StringPtrInput
 }
 
 func (LogAnalyticsWorkspaceOnboardingArgs) ElementType() reflect.Type {
@@ -245,11 +263,19 @@ func (o LogAnalyticsWorkspaceOnboardingOutput) CustomerManagedKeyEnabled() pulum
 }
 
 // Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
+//
+// Deprecated: this property has been deprecated in favour of `workspace_id`
 func (o LogAnalyticsWorkspaceOnboardingOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogAnalyticsWorkspaceOnboarding) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+func (o LogAnalyticsWorkspaceOnboardingOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogAnalyticsWorkspaceOnboarding) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
 // Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+//
+// Deprecated: this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider
 func (o LogAnalyticsWorkspaceOnboardingOutput) WorkspaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogAnalyticsWorkspaceOnboarding) pulumi.StringOutput { return v.WorkspaceName }).(pulumi.StringOutput)
 }

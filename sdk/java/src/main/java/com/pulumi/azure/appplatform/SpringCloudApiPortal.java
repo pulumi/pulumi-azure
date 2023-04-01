@@ -99,7 +99,7 @@ public class SpringCloudApiPortal extends com.pulumi.resources.CustomResource {
      * Specifies a list of Spring Cloud Gateway.
      * 
      */
-    @Export(name="gatewayIds", type=List.class, parameters={String.class})
+    @Export(name="gatewayIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> gatewayIds;
 
     /**
@@ -113,7 +113,7 @@ public class SpringCloudApiPortal extends com.pulumi.resources.CustomResource {
      * is only https is allowed?
      * 
      */
-    @Export(name="httpsOnlyEnabled", type=Boolean.class, parameters={})
+    @Export(name="httpsOnlyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> httpsOnlyEnabled;
 
     /**
@@ -127,7 +127,7 @@ public class SpringCloudApiPortal extends com.pulumi.resources.CustomResource {
      * Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      * 
      */
-    @Export(name="instanceCount", type=Integer.class, parameters={})
+    @Export(name="instanceCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> instanceCount;
 
     /**
@@ -141,7 +141,7 @@ public class SpringCloudApiPortal extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -155,7 +155,7 @@ public class SpringCloudApiPortal extends com.pulumi.resources.CustomResource {
      * Is the public network access enabled?
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -169,7 +169,7 @@ public class SpringCloudApiPortal extends com.pulumi.resources.CustomResource {
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
      * 
      */
-    @Export(name="springCloudServiceId", type=String.class, parameters={})
+    @Export(name="springCloudServiceId", refs={String.class}, tree="[0]")
     private Output<String> springCloudServiceId;
 
     /**
@@ -183,7 +183,7 @@ public class SpringCloudApiPortal extends com.pulumi.resources.CustomResource {
      * A `sso` block as defined below.
      * 
      */
-    @Export(name="sso", type=SpringCloudApiPortalSso.class, parameters={})
+    @Export(name="sso", refs={SpringCloudApiPortalSso.class}, tree="[0]")
     private Output</* @Nullable */ SpringCloudApiPortalSso> sso;
 
     /**
@@ -197,7 +197,7 @@ public class SpringCloudApiPortal extends com.pulumi.resources.CustomResource {
      * TODO.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

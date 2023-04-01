@@ -48,6 +48,11 @@ __all__ = [
     'MetadataCategoryArgs',
     'MetadataSourceArgs',
     'MetadataSupportArgs',
+    'ThreatIntelligenceIndicatorExternalReferenceArgs',
+    'ThreatIntelligenceIndicatorGranularMarkingArgs',
+    'ThreatIntelligenceIndicatorKillChainPhaseArgs',
+    'ThreatIntelligenceIndicatorParsedPatternArgs',
+    'ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs',
 ]
 
 @pulumi.input_type
@@ -2286,5 +2291,248 @@ class MetadataSupportArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ThreatIntelligenceIndicatorExternalReferenceArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 hashes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 source_name: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] description: The description of the external reference of the Threat Intelligence Indicator.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] hashes: The list of hashes of the external reference of the Threat Intelligence Indicator.
+        :param pulumi.Input[str] id: The ID of the Sentinel Threat Intelligence Indicator.
+        :param pulumi.Input[str] source_name: The source name of the external reference of the Threat Intelligence Indicator.
+        :param pulumi.Input[str] url: The url of the external reference of the Threat Intelligence Indicator.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if hashes is not None:
+            pulumi.set(__self__, "hashes", hashes)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if source_name is not None:
+            pulumi.set(__self__, "source_name", source_name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the external reference of the Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def hashes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The list of hashes of the external reference of the Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "hashes")
+
+    @hashes.setter
+    def hashes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "hashes", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Sentinel Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source name of the external reference of the Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "source_name")
+
+    @source_name.setter
+    def source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_name", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The url of the external reference of the Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class ThreatIntelligenceIndicatorGranularMarkingArgs:
+    def __init__(__self__, *,
+                 language: Optional[pulumi.Input[str]] = None,
+                 marking_ref: Optional[pulumi.Input[str]] = None,
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] language: The language of granular marking of the Threat Intelligence Indicator.
+        :param pulumi.Input[str] marking_ref: The reference of the granular marking of the Threat Intelligence Indicator.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] selectors: A list of selectors of the granular marking of the Threat Intelligence Indicator.
+        """
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+        if marking_ref is not None:
+            pulumi.set(__self__, "marking_ref", marking_ref)
+        if selectors is not None:
+            pulumi.set(__self__, "selectors", selectors)
+
+    @property
+    @pulumi.getter
+    def language(self) -> Optional[pulumi.Input[str]]:
+        """
+        The language of granular marking of the Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "language")
+
+    @language.setter
+    def language(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "language", value)
+
+    @property
+    @pulumi.getter(name="markingRef")
+    def marking_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reference of the granular marking of the Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "marking_ref")
+
+    @marking_ref.setter
+    def marking_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "marking_ref", value)
+
+    @property
+    @pulumi.getter
+    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of selectors of the granular marking of the Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "selectors")
+
+    @selectors.setter
+    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "selectors", value)
+
+
+@pulumi.input_type
+class ThreatIntelligenceIndicatorKillChainPhaseArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name which should be used for the Lockheed Martin cyber kill chain phase.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for the Lockheed Martin cyber kill chain phase.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ThreatIntelligenceIndicatorParsedPatternArgs:
+    def __init__(__self__, *,
+                 pattern_type_key: Optional[pulumi.Input[str]] = None,
+                 pattern_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]] = None):
+        """
+        :param pulumi.Input[str] pattern_type_key: The type key of parsed pattern.
+        :param pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]] pattern_type_values: A `pattern_type_values` block as defined below.
+        """
+        if pattern_type_key is not None:
+            pulumi.set(__self__, "pattern_type_key", pattern_type_key)
+        if pattern_type_values is not None:
+            pulumi.set(__self__, "pattern_type_values", pattern_type_values)
+
+    @property
+    @pulumi.getter(name="patternTypeKey")
+    def pattern_type_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type key of parsed pattern.
+        """
+        return pulumi.get(self, "pattern_type_key")
+
+    @pattern_type_key.setter
+    def pattern_type_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pattern_type_key", value)
+
+    @property
+    @pulumi.getter(name="patternTypeValues")
+    def pattern_type_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]]:
+        """
+        A `pattern_type_values` block as defined below.
+        """
+        return pulumi.get(self, "pattern_type_values")
+
+    @pattern_type_values.setter
+    def pattern_type_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]]):
+        pulumi.set(self, "pattern_type_values", value)
+
+
+@pulumi.input_type
+class ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[str]] = None,
+                 value_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] value: The value of the parsed pattern type.
+        :param pulumi.Input[str] value_type: The type of the value of the parsed pattern type value.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_type is not None:
+            pulumi.set(__self__, "value_type", value_type)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the parsed pattern type.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the value of the parsed pattern type value.
+        """
+        return pulumi.get(self, "value_type")
+
+    @value_type.setter
+    def value_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value_type", value)
 
 

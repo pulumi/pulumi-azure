@@ -47,6 +47,10 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     /**
+     * Is aad auth enabled for this SignalR service?
+     */
+    readonly aadAuthEnabled: boolean;
+    /**
      * The FQDN of the SignalR service.
      */
     readonly hostname: string;
@@ -58,6 +62,10 @@ export interface GetServiceResult {
      * The publicly accessible IP of the SignalR service.
      */
     readonly ipAddress: string;
+    /**
+     * Is local auth enable for this SignalR serviced?
+     */
+    readonly localAuthEnabled: boolean;
     /**
      * Specifies the supported Azure location where the SignalR service exists.
      */
@@ -71,6 +79,10 @@ export interface GetServiceResult {
      * The primary connection string of the SignalR service.
      */
     readonly primaryConnectionString: string;
+    /**
+     * Is public network access enabled for this SignalR service?
+     */
+    readonly publicNetworkAccessEnabled: boolean;
     /**
      * The publicly accessible port of the SignalR service which is designed for browser/client use.
      */
@@ -88,7 +100,15 @@ export interface GetServiceResult {
      * The publicly accessible port of the SignalR service which is designed for customer server side use.
      */
     readonly serverPort: number;
+    /**
+     * The serverless connection timeout of this SignalR service.
+     */
+    readonly serverlessConnectionTimeoutInSeconds: number;
     readonly tags: {[key: string]: string};
+    /**
+     * Is tls client cert enabled for this SignalR service?
+     */
+    readonly tlsClientCertEnabled: boolean;
 }
 /**
  * Use this data source to access information about an existing Azure SignalR service.

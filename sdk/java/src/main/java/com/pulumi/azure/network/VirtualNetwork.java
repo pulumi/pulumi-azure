@@ -104,7 +104,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * The address space that is used the virtual network. You can supply more than one address space.
      * 
      */
-    @Export(name="addressSpaces", type=List.class, parameters={String.class})
+    @Export(name="addressSpaces", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> addressSpaces;
 
     /**
@@ -118,7 +118,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
      * 
      */
-    @Export(name="bgpCommunity", type=String.class, parameters={})
+    @Export(name="bgpCommunity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bgpCommunity;
 
     /**
@@ -132,7 +132,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * A `ddos_protection_plan` block as documented below.
      * 
      */
-    @Export(name="ddosProtectionPlan", type=VirtualNetworkDdosProtectionPlan.class, parameters={})
+    @Export(name="ddosProtectionPlan", refs={VirtualNetworkDdosProtectionPlan.class}, tree="[0]")
     private Output</* @Nullable */ VirtualNetworkDdosProtectionPlan> ddosProtectionPlan;
 
     /**
@@ -146,7 +146,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * List of IP addresses of DNS servers
      * 
      */
-    @Export(name="dnsServers", type=List.class, parameters={String.class})
+    @Export(name="dnsServers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> dnsServers;
 
     /**
@@ -160,7 +160,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
      * 
      */
-    @Export(name="edgeZone", type=String.class, parameters={})
+    @Export(name="edgeZone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> edgeZone;
 
     /**
@@ -174,7 +174,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
      * 
      */
-    @Export(name="flowTimeoutInMinutes", type=Integer.class, parameters={})
+    @Export(name="flowTimeoutInMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> flowTimeoutInMinutes;
 
     /**
@@ -188,7 +188,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * The GUID of the virtual network.
      * 
      */
-    @Export(name="guid", type=String.class, parameters={})
+    @Export(name="guid", refs={String.class}, tree="[0]")
     private Output<String> guid;
 
     /**
@@ -202,7 +202,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * The location/region where the virtual network is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -216,7 +216,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * The name of the virtual network. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -230,7 +230,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -244,7 +244,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
      * 
      */
-    @Export(name="subnets", type=List.class, parameters={VirtualNetworkSubnet.class})
+    @Export(name="subnets", refs={List.class,VirtualNetworkSubnet.class}, tree="[0,1]")
     private Output<List<VirtualNetworkSubnet>> subnets;
 
     /**
@@ -258,7 +258,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

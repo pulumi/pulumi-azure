@@ -92,7 +92,7 @@ public class ChannelFacebook extends com.pulumi.resources.CustomResource {
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="botName", type=String.class, parameters={})
+    @Export(name="botName", refs={String.class}, tree="[0]")
     private Output<String> botName;
 
     /**
@@ -106,7 +106,7 @@ public class ChannelFacebook extends com.pulumi.resources.CustomResource {
      * The Facebook Application ID for the Facebook Channel.
      * 
      */
-    @Export(name="facebookApplicationId", type=String.class, parameters={})
+    @Export(name="facebookApplicationId", refs={String.class}, tree="[0]")
     private Output<String> facebookApplicationId;
 
     /**
@@ -120,7 +120,7 @@ public class ChannelFacebook extends com.pulumi.resources.CustomResource {
      * The Facebook Application Secret for the Facebook Channel.
      * 
      */
-    @Export(name="facebookApplicationSecret", type=String.class, parameters={})
+    @Export(name="facebookApplicationSecret", refs={String.class}, tree="[0]")
     private Output<String> facebookApplicationSecret;
 
     /**
@@ -134,7 +134,7 @@ public class ChannelFacebook extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -148,7 +148,7 @@ public class ChannelFacebook extends com.pulumi.resources.CustomResource {
      * One or more `page` blocks as defined below.
      * 
      */
-    @Export(name="pages", type=List.class, parameters={ChannelFacebookPage.class})
+    @Export(name="pages", refs={List.class,ChannelFacebookPage.class}, tree="[0,1]")
     private Output<List<ChannelFacebookPage>> pages;
 
     /**
@@ -162,7 +162,7 @@ public class ChannelFacebook extends com.pulumi.resources.CustomResource {
      * The name of the resource group where the Facebook Channel should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**

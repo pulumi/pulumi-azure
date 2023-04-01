@@ -82,7 +82,7 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
      * 
      */
-    @Export(name="addressPrefix", type=String.class, parameters={})
+    @Export(name="addressPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> addressPrefix;
 
     /**
@@ -96,7 +96,7 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      * The ID of the default Route Table in the Virtual Hub.
      * 
      */
-    @Export(name="defaultRouteTableId", type=String.class, parameters={})
+    @Export(name="defaultRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> defaultRouteTableId;
 
     /**
@@ -107,10 +107,24 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
         return this.defaultRouteTableId;
     }
     /**
+     * The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+     * 
+     */
+    @Export(name="hubRoutingPreference", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> hubRoutingPreference;
+
+    /**
+     * @return The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
+     * 
+     */
+    public Output<Optional<String>> hubRoutingPreference() {
+        return Codegen.optional(this.hubRoutingPreference);
+    }
+    /**
      * Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -124,7 +138,7 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      * The name of the Virtual Hub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -138,7 +152,7 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -152,7 +166,7 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      * One or more `route` blocks as defined below.
      * 
      */
-    @Export(name="routes", type=List.class, parameters={VirtualHubRoute.class})
+    @Export(name="routes", refs={List.class,VirtualHubRoute.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VirtualHubRoute>> routes;
 
     /**
@@ -166,7 +180,7 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      * The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sku", type=String.class, parameters={})
+    @Export(name="sku", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sku;
 
     /**
@@ -180,7 +194,7 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Virtual Hub.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -194,7 +208,7 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      * The Autonomous System Number of the Virtual Hub BGP router.
      * 
      */
-    @Export(name="virtualRouterAsn", type=Integer.class, parameters={})
+    @Export(name="virtualRouterAsn", refs={Integer.class}, tree="[0]")
     private Output<Integer> virtualRouterAsn;
 
     /**
@@ -208,7 +222,7 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      * The IP addresses of the Virtual Hub BGP router.
      * 
      */
-    @Export(name="virtualRouterIps", type=List.class, parameters={String.class})
+    @Export(name="virtualRouterIps", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> virtualRouterIps;
 
     /**
@@ -222,7 +236,7 @@ public class VirtualHub extends com.pulumi.resources.CustomResource {
      * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualWanId", type=String.class, parameters={})
+    @Export(name="virtualWanId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualWanId;
 
     /**

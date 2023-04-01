@@ -80,7 +80,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * An authorization block as defined below.
      * 
      */
-    @Export(name="authorizations", type=List.class, parameters={DefinitionAuthorization.class})
+    @Export(name="authorizations", refs={List.class,DefinitionAuthorization.class}, tree="[0,1]")
     private Output<List<DefinitionAuthorization>> authorizations;
 
     /**
@@ -94,7 +94,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * A description of the Lighthouse Definition.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -108,7 +108,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * An `eligible_authorization` block as defined below.
      * 
      */
-    @Export(name="eligibleAuthorizations", type=List.class, parameters={DefinitionEligibleAuthorization.class})
+    @Export(name="eligibleAuthorizations", refs={List.class,DefinitionEligibleAuthorization.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DefinitionEligibleAuthorization>> eligibleAuthorizations;
 
     /**
@@ -122,7 +122,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="lighthouseDefinitionId", type=String.class, parameters={})
+    @Export(name="lighthouseDefinitionId", refs={String.class}, tree="[0]")
     private Output<String> lighthouseDefinitionId;
 
     /**
@@ -136,7 +136,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * The ID of the managing tenant. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managingTenantId", type=String.class, parameters={})
+    @Export(name="managingTenantId", refs={String.class}, tree="[0]")
     private Output<String> managingTenantId;
 
     /**
@@ -150,7 +150,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * The name of the Lighthouse Definition. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -164,7 +164,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * A `plan` block as defined below.
      * 
      */
-    @Export(name="plan", type=DefinitionPlan.class, parameters={})
+    @Export(name="plan", refs={DefinitionPlan.class}, tree="[0]")
     private Output</* @Nullable */ DefinitionPlan> plan;
 
     /**
@@ -178,7 +178,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * The ID of the managed subscription. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="scope", type=String.class, parameters={})
+    @Export(name="scope", refs={String.class}, tree="[0]")
     private Output<String> scope;
 
     /**

@@ -28,12 +28,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
- * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
- * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
  * import com.pulumi.azure.sentinel.DataConnectorAwsS3;
  * import com.pulumi.azure.sentinel.DataConnectorAwsS3Args;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,26 +55,16 @@ import javax.annotation.Nullable;
  *             .sku(&#34;PerGB2018&#34;)
  *             .build());
  * 
- *         var exampleAnalyticsSolution = new AnalyticsSolution(&#34;exampleAnalyticsSolution&#34;, AnalyticsSolutionArgs.builder()        
- *             .solutionName(&#34;SecurityInsights&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
- *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher(&#34;Microsoft&#34;)
- *                 .product(&#34;OMSGallery/SecurityInsights&#34;)
- *                 .build())
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
  *         var exampleDataConnectorAwsS3 = new DataConnectorAwsS3(&#34;exampleDataConnectorAwsS3&#34;, DataConnectorAwsS3Args.builder()        
- *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
+ *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
  *             .awsRoleArn(&#34;arn:aws:iam::000000000000:role/role1&#34;)
  *             .destinationTable(&#34;AWSGuardDuty&#34;)
  *             .sqsUrls(&#34;https://sqs.us-east-1.amazonaws.com/000000000000/example&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAnalyticsSolution)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -97,7 +85,7 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
      * The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
      * 
      */
-    @Export(name="awsRoleArn", type=String.class, parameters={})
+    @Export(name="awsRoleArn", refs={String.class}, tree="[0]")
     private Output<String> awsRoleArn;
 
     /**
@@ -111,7 +99,7 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
      * The name of the Log Analytics table that will store the ingested data.
      * 
      */
-    @Export(name="destinationTable", type=String.class, parameters={})
+    @Export(name="destinationTable", refs={String.class}, tree="[0]")
     private Output<String> destinationTable;
 
     /**
@@ -125,7 +113,7 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
      * The ID of the Log Analytics Workspace that this AWS S3 Data Connector resides in. Changing this forces a new AWS S3 Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -139,7 +127,7 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
      * The name which should be used for this AWS S3 Data Connector. Changing this forces a new AWS S3 Data Connector to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -153,7 +141,7 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
      * Specifies a list of AWS SQS urls for the AWS S3 Data Connector.
      * 
      */
-    @Export(name="sqsUrls", type=List.class, parameters={String.class})
+    @Export(name="sqsUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> sqsUrls;
 
     /**

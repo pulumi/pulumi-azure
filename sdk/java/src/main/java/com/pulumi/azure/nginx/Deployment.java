@@ -124,7 +124,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Should the diagnosis support be enabled?
      * 
      */
-    @Export(name="diagnoseSupportEnabled", type=Boolean.class, parameters={})
+    @Export(name="diagnoseSupportEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> diagnoseSupportEnabled;
 
     /**
@@ -138,7 +138,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
      * 
      */
-    @Export(name="frontendPrivates", type=List.class, parameters={DeploymentFrontendPrivate.class})
+    @Export(name="frontendPrivates", refs={List.class,DeploymentFrontendPrivate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentFrontendPrivate>> frontendPrivates;
 
     /**
@@ -152,7 +152,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
      * 
      */
-    @Export(name="frontendPublic", type=DeploymentFrontendPublic.class, parameters={})
+    @Export(name="frontendPublic", refs={DeploymentFrontendPublic.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentFrontendPublic> frontendPublic;
 
     /**
@@ -166,7 +166,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=DeploymentIdentity.class, parameters={})
+    @Export(name="identity", refs={DeploymentIdentity.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentIdentity> identity;
 
     /**
@@ -180,7 +180,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Specify the IP Address of this private IP.
      * 
      */
-    @Export(name="ipAddress", type=String.class, parameters={})
+    @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
     /**
@@ -194,7 +194,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -208,7 +208,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * One or more `logging_storage_account` blocks as defined below.
      * 
      */
-    @Export(name="loggingStorageAccounts", type=List.class, parameters={DeploymentLoggingStorageAccount.class})
+    @Export(name="loggingStorageAccounts", refs={List.class,DeploymentLoggingStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentLoggingStorageAccount>> loggingStorageAccounts;
 
     /**
@@ -222,7 +222,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created.
      * 
      */
-    @Export(name="managedResourceGroup", type=String.class, parameters={})
+    @Export(name="managedResourceGroup", refs={String.class}, tree="[0]")
     private Output<String> managedResourceGroup;
 
     /**
@@ -236,7 +236,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Nginx Deployment. Changing this forces a new Nginx Deployment to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -250,7 +250,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * One or more `network_interface` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
      * 
      */
-    @Export(name="networkInterfaces", type=List.class, parameters={DeploymentNetworkInterface.class})
+    @Export(name="networkInterfaces", refs={List.class,DeploymentNetworkInterface.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DeploymentNetworkInterface>> networkInterfaces;
 
     /**
@@ -264,7 +264,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * The version of deployed nginx.
      * 
      */
-    @Export(name="nginxVersion", type=String.class, parameters={})
+    @Export(name="nginxVersion", refs={String.class}, tree="[0]")
     private Output<String> nginxVersion;
 
     /**
@@ -278,7 +278,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -292,7 +292,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
      * 
      */
-    @Export(name="sku", type=String.class, parameters={})
+    @Export(name="sku", refs={String.class}, tree="[0]")
     private Output<String> sku;
 
     /**
@@ -306,7 +306,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Nginx Deployment.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -139,7 +139,7 @@ public class ExpressRouteCircuitConnection extends com.pulumi.resources.CustomRe
      * The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
      * 
      */
-    @Export(name="addressPrefixIpv4", type=String.class, parameters={})
+    @Export(name="addressPrefixIpv4", refs={String.class}, tree="[0]")
     private Output<String> addressPrefixIpv4;
 
     /**
@@ -153,7 +153,7 @@ public class ExpressRouteCircuitConnection extends com.pulumi.resources.CustomRe
      * The IPv6 address space from which to allocate customer addresses for global reach.
      * 
      */
-    @Export(name="addressPrefixIpv6", type=String.class, parameters={})
+    @Export(name="addressPrefixIpv6", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> addressPrefixIpv6;
 
     /**
@@ -167,7 +167,7 @@ public class ExpressRouteCircuitConnection extends com.pulumi.resources.CustomRe
      * The authorization key which is associated with the Express Route Circuit Connection.
      * 
      */
-    @Export(name="authorizationKey", type=String.class, parameters={})
+    @Export(name="authorizationKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authorizationKey;
 
     /**
@@ -181,7 +181,7 @@ public class ExpressRouteCircuitConnection extends com.pulumi.resources.CustomRe
      * The name which should be used for this Express Route Circuit Connection. Changing this forces a new Express Route Circuit Connection to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -195,7 +195,7 @@ public class ExpressRouteCircuitConnection extends com.pulumi.resources.CustomRe
      * The ID of the peered Express Route Circuit Private Peering. Changing this forces a new Express Route Circuit Connection to be created.
      * 
      */
-    @Export(name="peerPeeringId", type=String.class, parameters={})
+    @Export(name="peerPeeringId", refs={String.class}, tree="[0]")
     private Output<String> peerPeeringId;
 
     /**
@@ -209,7 +209,7 @@ public class ExpressRouteCircuitConnection extends com.pulumi.resources.CustomRe
      * The ID of the Express Route Circuit Private Peering that this Express Route Circuit Connection connects with. Changing this forces a new Express Route Circuit Connection to be created.
      * 
      */
-    @Export(name="peeringId", type=String.class, parameters={})
+    @Export(name="peeringId", refs={String.class}, tree="[0]")
     private Output<String> peeringId;
 
     /**

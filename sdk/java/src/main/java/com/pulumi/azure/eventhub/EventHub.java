@@ -84,7 +84,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
      * A `capture_description` block as defined below.
      * 
      */
-    @Export(name="captureDescription", type=EventHubCaptureDescription.class, parameters={})
+    @Export(name="captureDescription", refs={EventHubCaptureDescription.class}, tree="[0]")
     private Output</* @Nullable */ EventHubCaptureDescription> captureDescription;
 
     /**
@@ -98,7 +98,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
      * Specifies the number of days to retain the events for this Event Hub.
      * 
      */
-    @Export(name="messageRetention", type=Integer.class, parameters={})
+    @Export(name="messageRetention", refs={Integer.class}, tree="[0]")
     private Output<Integer> messageRetention;
 
     /**
@@ -112,7 +112,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
      * Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
      * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="namespaceName", type=String.class, parameters={})
+    @Export(name="namespaceName", refs={String.class}, tree="[0]")
     private Output<String> namespaceName;
 
     /**
@@ -140,7 +140,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
      * Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
      * 
      */
-    @Export(name="partitionCount", type=Integer.class, parameters={})
+    @Export(name="partitionCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> partitionCount;
 
     /**
@@ -154,7 +154,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
      * The identifiers for partitions created for Event Hubs.
      * 
      */
-    @Export(name="partitionIds", type=List.class, parameters={String.class})
+    @Export(name="partitionIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> partitionIds;
 
     /**
@@ -168,7 +168,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the EventHub&#39;s parent Namespace exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -182,7 +182,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
      * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**

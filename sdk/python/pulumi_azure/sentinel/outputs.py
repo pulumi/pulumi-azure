@@ -49,6 +49,11 @@ __all__ = [
     'MetadataCategory',
     'MetadataSource',
     'MetadataSupport',
+    'ThreatIntelligenceIndicatorExternalReference',
+    'ThreatIntelligenceIndicatorGranularMarking',
+    'ThreatIntelligenceIndicatorKillChainPhase',
+    'ThreatIntelligenceIndicatorParsedPattern',
+    'ThreatIntelligenceIndicatorParsedPatternPatternTypeValue',
     'GetAlertRuleAnomalyMultiSelectObservationResult',
     'GetAlertRuleAnomalyPrioritizedExcludeObservationResult',
     'GetAlertRuleAnomalyRequiredDataConnectorResult',
@@ -2285,6 +2290,267 @@ class MetadataSupport(dict):
         The name of the support contact.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ThreatIntelligenceIndicatorExternalReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceName":
+            suggest = "source_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThreatIntelligenceIndicatorExternalReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThreatIntelligenceIndicatorExternalReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThreatIntelligenceIndicatorExternalReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 hashes: Optional[Mapping[str, str]] = None,
+                 id: Optional[str] = None,
+                 source_name: Optional[str] = None,
+                 url: Optional[str] = None):
+        """
+        :param str description: The description of the external reference of the Threat Intelligence Indicator.
+        :param Mapping[str, str] hashes: The list of hashes of the external reference of the Threat Intelligence Indicator.
+        :param str id: The ID of the Sentinel Threat Intelligence Indicator.
+        :param str source_name: The source name of the external reference of the Threat Intelligence Indicator.
+        :param str url: The url of the external reference of the Threat Intelligence Indicator.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if hashes is not None:
+            pulumi.set(__self__, "hashes", hashes)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if source_name is not None:
+            pulumi.set(__self__, "source_name", source_name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the external reference of the Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def hashes(self) -> Optional[Mapping[str, str]]:
+        """
+        The list of hashes of the external reference of the Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "hashes")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the Sentinel Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> Optional[str]:
+        """
+        The source name of the external reference of the Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "source_name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        The url of the external reference of the Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class ThreatIntelligenceIndicatorGranularMarking(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "markingRef":
+            suggest = "marking_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThreatIntelligenceIndicatorGranularMarking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThreatIntelligenceIndicatorGranularMarking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThreatIntelligenceIndicatorGranularMarking.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 language: Optional[str] = None,
+                 marking_ref: Optional[str] = None,
+                 selectors: Optional[Sequence[str]] = None):
+        """
+        :param str language: The language of granular marking of the Threat Intelligence Indicator.
+        :param str marking_ref: The reference of the granular marking of the Threat Intelligence Indicator.
+        :param Sequence[str] selectors: A list of selectors of the granular marking of the Threat Intelligence Indicator.
+        """
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+        if marking_ref is not None:
+            pulumi.set(__self__, "marking_ref", marking_ref)
+        if selectors is not None:
+            pulumi.set(__self__, "selectors", selectors)
+
+    @property
+    @pulumi.getter
+    def language(self) -> Optional[str]:
+        """
+        The language of granular marking of the Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "language")
+
+    @property
+    @pulumi.getter(name="markingRef")
+    def marking_ref(self) -> Optional[str]:
+        """
+        The reference of the granular marking of the Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "marking_ref")
+
+    @property
+    @pulumi.getter
+    def selectors(self) -> Optional[Sequence[str]]:
+        """
+        A list of selectors of the granular marking of the Threat Intelligence Indicator.
+        """
+        return pulumi.get(self, "selectors")
+
+
+@pulumi.output_type
+class ThreatIntelligenceIndicatorKillChainPhase(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        :param str name: The name which should be used for the Lockheed Martin cyber kill chain phase.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name which should be used for the Lockheed Martin cyber kill chain phase.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ThreatIntelligenceIndicatorParsedPattern(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "patternTypeKey":
+            suggest = "pattern_type_key"
+        elif key == "patternTypeValues":
+            suggest = "pattern_type_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThreatIntelligenceIndicatorParsedPattern. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThreatIntelligenceIndicatorParsedPattern.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThreatIntelligenceIndicatorParsedPattern.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pattern_type_key: Optional[str] = None,
+                 pattern_type_values: Optional[Sequence['outputs.ThreatIntelligenceIndicatorParsedPatternPatternTypeValue']] = None):
+        """
+        :param str pattern_type_key: The type key of parsed pattern.
+        :param Sequence['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs'] pattern_type_values: A `pattern_type_values` block as defined below.
+        """
+        if pattern_type_key is not None:
+            pulumi.set(__self__, "pattern_type_key", pattern_type_key)
+        if pattern_type_values is not None:
+            pulumi.set(__self__, "pattern_type_values", pattern_type_values)
+
+    @property
+    @pulumi.getter(name="patternTypeKey")
+    def pattern_type_key(self) -> Optional[str]:
+        """
+        The type key of parsed pattern.
+        """
+        return pulumi.get(self, "pattern_type_key")
+
+    @property
+    @pulumi.getter(name="patternTypeValues")
+    def pattern_type_values(self) -> Optional[Sequence['outputs.ThreatIntelligenceIndicatorParsedPatternPatternTypeValue']]:
+        """
+        A `pattern_type_values` block as defined below.
+        """
+        return pulumi.get(self, "pattern_type_values")
+
+
+@pulumi.output_type
+class ThreatIntelligenceIndicatorParsedPatternPatternTypeValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueType":
+            suggest = "value_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThreatIntelligenceIndicatorParsedPatternPatternTypeValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThreatIntelligenceIndicatorParsedPatternPatternTypeValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThreatIntelligenceIndicatorParsedPatternPatternTypeValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 value: Optional[str] = None,
+                 value_type: Optional[str] = None):
+        """
+        :param str value: The value of the parsed pattern type.
+        :param str value_type: The type of the value of the parsed pattern type value.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_type is not None:
+            pulumi.set(__self__, "value_type", value_type)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the parsed pattern type.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> Optional[str]:
+        """
+        The type of the value of the parsed pattern type value.
+        """
+        return pulumi.get(self, "value_type")
 
 
 @pulumi.output_type

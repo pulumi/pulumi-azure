@@ -5044,7 +5044,7 @@ export namespace appservice {
         /**
          * Specifies a list of origins that should be allowed to make cross-origin calls.
          */
-        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Are credentials allowed in CORS requests? Defaults to `false`.
          */
@@ -5980,7 +5980,7 @@ export namespace appservice {
         /**
          * an `allowedOrigins` block as detailed below.
          */
-        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Are credentials allowed in CORS requests? Defaults to `false`.
          */
@@ -7099,7 +7099,7 @@ export namespace appservice {
         /**
          * Specifies a list of origins that should be allowed to make cross-origin calls.
          */
-        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Whether CORS requests with credentials are allowed. Defaults to `false`
          */
@@ -8157,7 +8157,7 @@ export namespace appservice {
         /**
          * Specifies a list of origins that should be allowed to make cross-origin calls.
          */
-        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Whether CORS requests with credentials are allowed. Defaults to `false`
          */
@@ -9747,7 +9747,7 @@ export namespace appservice {
         /**
          * Specifies a list of origins that should be allowed to make cross-origin calls.
          */
-        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Are credentials allowed in CORS requests? Defaults to `false`.
          */
@@ -10644,7 +10644,7 @@ export namespace appservice {
         /**
          * an `allowedOrigins` block as detailed below.
          */
-        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Are credentials allowed in CORS requests? Defaults to `false`.
          */
@@ -11803,7 +11803,7 @@ export namespace appservice {
         /**
          * Specifies a list of origins that should be allowed to make cross-origin calls.
          */
-        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Whether CORS requests with credentials are allowed. Defaults to `false`
          */
@@ -12930,7 +12930,7 @@ export namespace appservice {
         /**
          * Specifies a list of origins that should be allowed to make cross-origin calls.
          */
-        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Whether CORS requests with credentials are allowed. Defaults to `false`
          */
@@ -13168,7 +13168,7 @@ export namespace authorization {
 export namespace automation {
     export interface AccountEncryption {
         /**
-         * The source of the encryption key. Possible values are `Microsoft.Automation` and `Microsoft.Keyvault`.
+         * @deprecated This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
          */
         keySource?: pulumi.Input<string>;
         /**
@@ -19809,6 +19809,7 @@ export namespace containerapp {
          */
         value: pulumi.Input<string>;
     }
+
 }
 
 export namespace containerservice {
@@ -20544,7 +20545,7 @@ export namespace containerservice {
          */
         vnetSubnetId?: pulumi.Input<string>;
         /**
-         * Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+         * Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
          */
         workloadRuntime?: pulumi.Input<string>;
         /**
@@ -21014,6 +21015,8 @@ export namespace containerservice {
         dnsServiceIp?: pulumi.Input<string>;
         /**
          * IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
+         *
+         * @deprecated `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
          */
         dockerBridgeCidr?: pulumi.Input<string>;
         /**
@@ -22016,6 +22019,58 @@ export namespace core {
         policyDefinitionReferenceId?: pulumi.Input<string>;
     }
 
+    export interface ResourceGroupPolicyAssignmentOverride {
+        /**
+         * One or more `overrideSelector` as defined below.
+         */
+        selectors?: pulumi.Input<pulumi.Input<inputs.core.ResourceGroupPolicyAssignmentOverrideSelector>[]>;
+        /**
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ResourceGroupPolicyAssignmentOverrideSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind?: pulumi.Input<string>;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ResourceGroupPolicyAssignmentResourceSelector {
+        /**
+         * Specifies a name for the resource selector.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * One or more `resourceSelector` block as defined below.
+         */
+        selectors: pulumi.Input<pulumi.Input<inputs.core.ResourceGroupPolicyAssignmentResourceSelectorSelector>[]>;
+    }
+
+    export interface ResourceGroupPolicyAssignmentResourceSelectorSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind: pulumi.Input<string>;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface ResourcePolicyAssignmentIdentity {
         /**
          * A list of User Managed Identity IDs which should be assigned to the Policy Definition.
@@ -22044,6 +22099,58 @@ export namespace core {
          * When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
          */
         policyDefinitionReferenceId?: pulumi.Input<string>;
+    }
+
+    export interface ResourcePolicyAssignmentOverride {
+        /**
+         * One or more `overrideSelector` as defined below.
+         */
+        selectors?: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentOverrideSelector>[]>;
+        /**
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ResourcePolicyAssignmentOverrideSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind?: pulumi.Input<string>;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ResourcePolicyAssignmentResourceSelector {
+        /**
+         * Specifies a name for the resource selector.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * One or more `resourceSelector` block as defined below.
+         */
+        selectors: pulumi.Input<pulumi.Input<inputs.core.ResourcePolicyAssignmentResourceSelectorSelector>[]>;
+    }
+
+    export interface ResourcePolicyAssignmentResourceSelectorSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind: pulumi.Input<string>;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ResourceProviderRegistrationFeature {
@@ -22107,6 +22214,58 @@ export namespace core {
          * When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
          */
         policyDefinitionReferenceId?: pulumi.Input<string>;
+    }
+
+    export interface SubscriptionPolicyAssignmentOverride {
+        /**
+         * One or more `overrideSelector` as defined below.
+         */
+        selectors?: pulumi.Input<pulumi.Input<inputs.core.SubscriptionPolicyAssignmentOverrideSelector>[]>;
+        /**
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface SubscriptionPolicyAssignmentOverrideSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind?: pulumi.Input<string>;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SubscriptionPolicyAssignmentResourceSelector {
+        /**
+         * Specifies a name for the resource selector.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * One or more `resourceSelector` block as defined below.
+         */
+        selectors: pulumi.Input<pulumi.Input<inputs.core.SubscriptionPolicyAssignmentResourceSelectorSelector>[]>;
+    }
+
+    export interface SubscriptionPolicyAssignmentResourceSelectorSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind: pulumi.Input<string>;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -22763,15 +22922,19 @@ export namespace databoxedge {
 export namespace databricks {
     export interface AccessConnectorIdentity {
         /**
-         * The Principal ID associated with this system-assigned managed identity.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The Tenant ID associated with this system-assigned managed identity.
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+         * Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -27407,7 +27570,7 @@ export namespace frontdoor {
          */
         backendPoolName: pulumi.Input<string>;
         /**
-         * Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
+         * Specify the minimum caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cacheDuration` works only in combination with `cacheEnabled` set to `true`.
          */
         cacheDuration?: pulumi.Input<string>;
         /**
@@ -32642,6 +32805,58 @@ export namespace management {
          */
         policyDefinitionReferenceId?: pulumi.Input<string>;
     }
+
+    export interface GroupPolicyAssignmentOverride {
+        /**
+         * One or more `overrideSelector` as defined below.
+         */
+        selectors?: pulumi.Input<pulumi.Input<inputs.management.GroupPolicyAssignmentOverrideSelector>[]>;
+        /**
+         * Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface GroupPolicyAssignmentOverrideSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind?: pulumi.Input<string>;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GroupPolicyAssignmentResourceSelector {
+        /**
+         * Specifies a name for the resource selector.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * One or more `resourceSelector` block as defined below.
+         */
+        selectors: pulumi.Input<pulumi.Input<inputs.management.GroupPolicyAssignmentResourceSelectorSelector>[]>;
+    }
+
+    export interface GroupPolicyAssignmentResourceSelectorSelector {
+        /**
+         * Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
+         */
+        ins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         */
+        kind: pulumi.Input<string>;
+        /**
+         * Specify the list of policy reference id values to filter out. Cannot be used with `in`.
+         */
+        notIns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
 }
 
 export namespace mariadb {
@@ -35774,7 +35989,7 @@ export namespace monitoring {
         /**
          * Evaluation of metric on a particular column.
          */
-        metricColumn: pulumi.Input<string>;
+        metricColumn?: pulumi.Input<string>;
         /**
          * Metric Trigger Type - 'Consecutive' or 'Total'.
          */
@@ -36423,6 +36638,14 @@ export namespace mssql {
 
 export namespace mysql {
     export interface FlexibleServerCustomerManagedKey {
+        /**
+         * The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+         */
+        geoBackupKeyVaultKeyId?: pulumi.Input<string>;
+        /**
+         * The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
+         */
+        geoBackupUserAssignedIdentityId?: pulumi.Input<string>;
         /**
          * The ID of the Key Vault Key.
          */
@@ -37324,7 +37547,7 @@ export namespace network {
 
     export interface ApplicationGatewaySslCertificate {
         /**
-         * PFX certificate. Required if `keyVaultSecretId` is not set.
+         * The base64-encoded PFX certificate data. Required if `keyVaultSecretId` is not set.
          */
         data?: pulumi.Input<string>;
         /**
@@ -40568,7 +40791,7 @@ export namespace privatelink {
          */
         requestMessage?: pulumi.Input<string>;
         /**
-         * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Changing this forces a new resource to be created.
+         * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
          */
         subresourceNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -41494,6 +41717,73 @@ export namespace sentinel {
          */
         tier: pulumi.Input<string>;
     }
+
+    export interface ThreatIntelligenceIndicatorExternalReference {
+        /**
+         * The description of the external reference of the Threat Intelligence Indicator.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The list of hashes of the external reference of the Threat Intelligence Indicator.
+         */
+        hashes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The ID of the Sentinel Threat Intelligence Indicator.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The source name of the external reference of the Threat Intelligence Indicator.
+         */
+        sourceName?: pulumi.Input<string>;
+        /**
+         * The url of the external reference of the Threat Intelligence Indicator.
+         */
+        url?: pulumi.Input<string>;
+    }
+
+    export interface ThreatIntelligenceIndicatorGranularMarking {
+        /**
+         * The language of granular marking of the Threat Intelligence Indicator.
+         */
+        language?: pulumi.Input<string>;
+        /**
+         * The reference of the granular marking of the Threat Intelligence Indicator.
+         */
+        markingRef?: pulumi.Input<string>;
+        /**
+         * A list of selectors of the granular marking of the Threat Intelligence Indicator.
+         */
+        selectors?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ThreatIntelligenceIndicatorKillChainPhase {
+        /**
+         * The name which should be used for the Lockheed Martin cyber kill chain phase.
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface ThreatIntelligenceIndicatorParsedPattern {
+        /**
+         * The type key of parsed pattern.
+         */
+        patternTypeKey?: pulumi.Input<string>;
+        /**
+         * A `patternTypeValues` block as defined below.
+         */
+        patternTypeValues?: pulumi.Input<pulumi.Input<inputs.sentinel.ThreatIntelligenceIndicatorParsedPatternPatternTypeValue>[]>;
+    }
+
+    export interface ThreatIntelligenceIndicatorParsedPatternPatternTypeValue {
+        /**
+         * The value of the parsed pattern type.
+         */
+        value?: pulumi.Input<string>;
+        /**
+         * The type of the value of the parsed pattern type value.
+         */
+        valueType?: pulumi.Input<string>;
+    }
 }
 
 export namespace servicebus {
@@ -42072,6 +42362,19 @@ export namespace signalr {
          * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
          */
         allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ServiceIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this signalR. Possible values are `SystemAssigned`, `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface ServiceLiveTrace {
@@ -44128,6 +44431,31 @@ export namespace videoanalyzer {
     }
 }
 
+export namespace voice {
+    export interface ServicesCommunicationsGatewayServiceLocation {
+        /**
+         * Specifies the allowed source IP address or CIDR ranges for media.
+         */
+        allowedMediaSourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the allowed source IP address or CIDR ranges for signaling.
+         */
+        allowedSignalingSourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * IP address to use to contact the ESRP from this region.
+         */
+        esrpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the region in which the resources needed for Teams Calling will be deployed.
+         */
+        location: pulumi.Input<string>;
+        /**
+         * IP address to use to contact the operator network from this region.
+         */
+        operatorAddresses: pulumi.Input<pulumi.Input<string>[]>;
+    }
+}
+
 export namespace waf {
     export interface PolicyCustomRule {
         /**
@@ -44154,9 +44482,9 @@ export namespace waf {
 
     export interface PolicyCustomRuleMatchCondition {
         /**
-         * A list of match values.
+         * A list of match values. This is **Required** when the `operator` is not `Any`.
          */
-        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        matchValues?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * One or more `matchVariables` blocks as defined below.
          */
@@ -44166,7 +44494,7 @@ export namespace waf {
          */
         negationCondition?: pulumi.Input<boolean>;
         /**
-         * Describes operator to be matched. Possible values are `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+         * Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
          */
         operator: pulumi.Input<string>;
         /**

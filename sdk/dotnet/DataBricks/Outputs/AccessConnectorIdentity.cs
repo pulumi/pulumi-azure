@@ -14,26 +14,33 @@ namespace Pulumi.Azure.DataBricks.Outputs
     public sealed class AccessConnectorIdentity
     {
         /// <summary>
-        /// The Principal ID associated with this system-assigned managed identity.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
+        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>
-        /// The Tenant ID associated with this system-assigned managed identity.
+        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// The type of identity to use for this Access Connector. `SystemAssigned` is the only possible value.
+        /// Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private AccessConnectorIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

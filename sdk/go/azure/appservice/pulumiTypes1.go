@@ -2020,8 +2020,10 @@ type GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2 struct {
 	JwtAllowedGroups []string `pulumi:"jwtAllowedGroups"`
 	// A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
 	LoginParameters map[string]string `pulumi:"loginParameters"`
-	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
-	TenantId string `pulumi:"tenantId"`
+	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+	TenantAuthEndpoint string `pulumi:"tenantAuthEndpoint"`
+	// Is the www-authenticate provider omitted from the request?
+	WwwAuthenticationDisabled bool `pulumi:"wwwAuthenticationDisabled"`
 }
 
 // GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Input is an input type that accepts GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args and GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output values.
@@ -2056,8 +2058,10 @@ type GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args struct {
 	JwtAllowedGroups pulumi.StringArrayInput `pulumi:"jwtAllowedGroups"`
 	// A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
 	LoginParameters pulumi.StringMapInput `pulumi:"loginParameters"`
-	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+	TenantAuthEndpoint pulumi.StringInput `pulumi:"tenantAuthEndpoint"`
+	// Is the www-authenticate provider omitted from the request?
+	WwwAuthenticationDisabled pulumi.BoolInput `pulumi:"wwwAuthenticationDisabled"`
 }
 
 func (GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args) ElementType() reflect.Type {
@@ -2167,9 +2171,14 @@ func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) LoginParamet
 	}).(pulumi.StringMapOutput)
 }
 
-// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Windows Function App.
-func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) string { return v.TenantId }).(pulumi.StringOutput)
+// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) TenantAuthEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) string { return v.TenantAuthEndpoint }).(pulumi.StringOutput)
+}
+
+// Is the www-authenticate provider omitted from the request?
+func (o GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Output) WwwAuthenticationDisabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2) bool { return v.WwwAuthenticationDisabled }).(pulumi.BoolOutput)
 }
 
 type GetWindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArrayOutput struct{ *pulumi.OutputState }
@@ -6615,8 +6624,10 @@ type GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 struct {
 	JwtAllowedGroups []string `pulumi:"jwtAllowedGroups"`
 	// A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
 	LoginParameters map[string]string `pulumi:"loginParameters"`
-	// The Tenant ID of the Managed Service Identity.
-	TenantId string `pulumi:"tenantId"`
+	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+	TenantAuthEndpoint string `pulumi:"tenantAuthEndpoint"`
+	// Is the www-authenticate provider omitted from the request?
+	WwwAuthenticationDisabled bool `pulumi:"wwwAuthenticationDisabled"`
 }
 
 // GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Input is an input type that accepts GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Args and GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output values.
@@ -6651,8 +6662,10 @@ type GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Args struct {
 	JwtAllowedGroups pulumi.StringArrayInput `pulumi:"jwtAllowedGroups"`
 	// A map of key-value pairs sent to the Authorisation Endpoint when a user logs in.
 	LoginParameters pulumi.StringMapInput `pulumi:"loginParameters"`
-	// The Tenant ID of the Managed Service Identity.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+	TenantAuthEndpoint pulumi.StringInput `pulumi:"tenantAuthEndpoint"`
+	// Is the www-authenticate provider omitted from the request?
+	WwwAuthenticationDisabled pulumi.BoolInput `pulumi:"wwwAuthenticationDisabled"`
 }
 
 func (GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Args) ElementType() reflect.Type {
@@ -6760,9 +6773,14 @@ func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) LoginParameters()
 	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) map[string]string { return v.LoginParameters }).(pulumi.StringMapOutput)
 }
 
-// The Tenant ID of the Managed Service Identity.
-func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) string { return v.TenantId }).(pulumi.StringOutput)
+// The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) TenantAuthEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) string { return v.TenantAuthEndpoint }).(pulumi.StringOutput)
+}
+
+// Is the www-authenticate provider omitted from the request?
+func (o GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2Output) WwwAuthenticationDisabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2) bool { return v.WwwAuthenticationDisabled }).(pulumi.BoolOutput)
 }
 
 type GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2ArrayOutput struct{ *pulumi.OutputState }

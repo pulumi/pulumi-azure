@@ -146,7 +146,7 @@ public class LinkedServiceSnowflake extends com.pulumi.resources.CustomResource 
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -160,7 +160,7 @@ public class LinkedServiceSnowflake extends com.pulumi.resources.CustomResource 
      * List of tags that can be used for describing the Data Factory Linked Service.
      * 
      */
-    @Export(name="annotations", type=List.class, parameters={String.class})
+    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -174,7 +174,7 @@ public class LinkedServiceSnowflake extends com.pulumi.resources.CustomResource 
      * The connection string in which to authenticate with Snowflake.
      * 
      */
-    @Export(name="connectionString", type=String.class, parameters={})
+    @Export(name="connectionString", refs={String.class}, tree="[0]")
     private Output<String> connectionString;
 
     /**
@@ -188,7 +188,7 @@ public class LinkedServiceSnowflake extends com.pulumi.resources.CustomResource 
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", type=String.class, parameters={})
+    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
@@ -202,7 +202,7 @@ public class LinkedServiceSnowflake extends com.pulumi.resources.CustomResource 
      * The description for the Data Factory Linked Service.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -216,7 +216,7 @@ public class LinkedServiceSnowflake extends com.pulumi.resources.CustomResource 
      * The integration runtime reference to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="integrationRuntimeName", type=String.class, parameters={})
+    @Export(name="integrationRuntimeName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integrationRuntimeName;
 
     /**
@@ -230,7 +230,7 @@ public class LinkedServiceSnowflake extends com.pulumi.resources.CustomResource 
      * A `key_vault_password` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
-    @Export(name="keyVaultPassword", type=LinkedServiceSnowflakeKeyVaultPassword.class, parameters={})
+    @Export(name="keyVaultPassword", refs={LinkedServiceSnowflakeKeyVaultPassword.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceSnowflakeKeyVaultPassword> keyVaultPassword;
 
     /**
@@ -244,7 +244,7 @@ public class LinkedServiceSnowflake extends com.pulumi.resources.CustomResource 
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -258,7 +258,7 @@ public class LinkedServiceSnowflake extends com.pulumi.resources.CustomResource 
      * A map of parameters to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**

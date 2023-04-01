@@ -91,7 +91,7 @@ public class ExpressRouteGateway extends com.pulumi.resources.CustomResource {
      * Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
      * 
      */
-    @Export(name="allowNonVirtualWanTraffic", type=Boolean.class, parameters={})
+    @Export(name="allowNonVirtualWanTraffic", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowNonVirtualWanTraffic;
 
     /**
@@ -105,7 +105,7 @@ public class ExpressRouteGateway extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -119,7 +119,7 @@ public class ExpressRouteGateway extends com.pulumi.resources.CustomResource {
      * The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -133,7 +133,7 @@ public class ExpressRouteGateway extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -147,7 +147,7 @@ public class ExpressRouteGateway extends com.pulumi.resources.CustomResource {
      * The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
      * 
      */
-    @Export(name="scaleUnits", type=Integer.class, parameters={})
+    @Export(name="scaleUnits", refs={Integer.class}, tree="[0]")
     private Output<Integer> scaleUnits;
 
     /**
@@ -161,7 +161,7 @@ public class ExpressRouteGateway extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -175,7 +175,7 @@ public class ExpressRouteGateway extends com.pulumi.resources.CustomResource {
      * The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualHubId", type=String.class, parameters={})
+    @Export(name="virtualHubId", refs={String.class}, tree="[0]")
     private Output<String> virtualHubId;
 
     /**

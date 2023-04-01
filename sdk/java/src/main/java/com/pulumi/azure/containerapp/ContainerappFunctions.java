@@ -4,10 +4,13 @@
 package com.pulumi.azure.containerapp;
 
 import com.pulumi.azure.Utilities;
+import com.pulumi.azure.containerapp.inputs.GetAppArgs;
+import com.pulumi.azure.containerapp.inputs.GetAppPlainArgs;
 import com.pulumi.azure.containerapp.inputs.GetEnvironmentArgs;
 import com.pulumi.azure.containerapp.inputs.GetEnvironmentCertificateArgs;
 import com.pulumi.azure.containerapp.inputs.GetEnvironmentCertificatePlainArgs;
 import com.pulumi.azure.containerapp.inputs.GetEnvironmentPlainArgs;
+import com.pulumi.azure.containerapp.outputs.GetAppResult;
 import com.pulumi.azure.containerapp.outputs.GetEnvironmentCertificateResult;
 import com.pulumi.azure.containerapp.outputs.GetEnvironmentResult;
 import com.pulumi.core.Output;
@@ -17,6 +20,158 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ContainerappFunctions {
+    /**
+     * Use this data source to access information about an existing Container App.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerapp.ContainerappFunctions;
+     * import com.pulumi.azure.containerapp.inputs.GetAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerappFunctions.getApp(GetAppArgs.builder()
+     *             .name(&#34;example-app&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAppResult> getApp(GetAppArgs args) {
+        return getApp(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Container App.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerapp.ContainerappFunctions;
+     * import com.pulumi.azure.containerapp.inputs.GetAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerappFunctions.getApp(GetAppArgs.builder()
+     *             .name(&#34;example-app&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAppResult> getAppPlain(GetAppPlainArgs args) {
+        return getAppPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Container App.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerapp.ContainerappFunctions;
+     * import com.pulumi.azure.containerapp.inputs.GetAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerappFunctions.getApp(GetAppArgs.builder()
+     *             .name(&#34;example-app&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAppResult> getApp(GetAppArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:containerapp/getApp:getApp", TypeShape.of(GetAppResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Container App.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerapp.ContainerappFunctions;
+     * import com.pulumi.azure.containerapp.inputs.GetAppArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerappFunctions.getApp(GetAppArgs.builder()
+     *             .name(&#34;example-app&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAppResult> getAppPlain(GetAppPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:containerapp/getApp:getApp", TypeShape.of(GetAppResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to access information about an existing Container App Environment.
      * 
