@@ -6,6 +6,7 @@ package examples
 
 import (
 	"encoding/json"
+	"os"
 	"path/filepath"
 	"testing"
 
@@ -173,6 +174,27 @@ func TestAccNetwork(t *testing.T) {
 			Dir:                  filepath.Join(getCwd(t), "network"),
 			RunUpdateTest:        true,
 			ExpectRefreshChanges: true,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccNetwork_OIDC(t *testing.T) {
+	oidcClientId := os.Getenv("OIDC_ARM_CLIENT_ID")
+	if oidcClientId == "" {
+		t.Skip("Skipping OIDC test without OIDC_ARM_CLIENT_ID")
+	}
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:                  filepath.Join(getCwd(t), "network"),
+			RunUpdateTest:        true,
+			ExpectRefreshChanges: true,
+			Env: []string{
+				"ARM_USE_OIDC=true",
+				"ARM_CLIENT_ID=" + oidcClientId,
+				// not strictly necessary but making sure we test the OIDC path
+				"ARM_CLIENT_SECRET=",
+			},
 		})
 
 	integration.ProgramTest(t, &test)

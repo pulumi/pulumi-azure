@@ -319,7 +319,9 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 	auxTenants := arrayValue(vars, "auxiliaryTenantIDs", []string{"ARM_AUXILIARY_TENANT_IDS"})
 
 	// validate the azure config
+	useOIDC := boolValue(vars, "useOidc", []string{"ARM_USE_OIDC"})
 	authConfig := auth.Credentials{
+		// SubscriptionID:                stringValue(vars, "subscriptionId", []string{"ARM_SUBSCRIPTION_ID"}),
 		ClientID:                      stringValue(vars, "clientId", []string{"ARM_CLIENT_ID"}),
 		ClientSecret:                  stringValue(vars, "clientSecret", []string{"ARM_CLIENT_SECRET"}),
 		TenantID:                      stringValue(vars, "tenantId", []string{"ARM_TENANT_ID"}),
@@ -329,11 +331,18 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 		CustomManagedIdentityEndpoint: stringValue(vars, "msiEndpoint", []string{"ARM_MSI_ENDPOINT"}),
 		AuxiliaryTenantIDs:            auxTenants,
 
+		// OIDC section. The ACTIONS_ variables are set by GitHub.
+		GitHubOIDCTokenRequestToken: stringValue(vars, "oidcRequestToken", []string{"ARM_OIDC_REQUEST_TOKEN", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"}),
+		GitHubOIDCTokenRequestURL:   stringValue(vars, "oidcRequestUrl", []string{"ARM_OIDC_REQUEST_URL", "ACTIONS_ID_TOKEN_REQUEST_URL"}),
+		OIDCAssertionToken:          stringValue(vars, "oidcToken", []string{"ARM_OIDC_TOKEN"}),
+
 		// Feature Toggles
 		EnableAuthenticatingUsingClientCertificate: true,
 		EnableAuthenticatingUsingClientSecret:      true,
 		EnableAuthenticatingUsingManagedIdentity:   boolValue(vars, "useMsi", []string{"ARM_USE_MSI"}),
 		EnableAuthenticatingUsingAzureCLI:          true,
+		EnableAuthenticationUsingOIDC:              useOIDC,
+		EnableAuthenticationUsingGitHubOIDC:        useOIDC,
 	}
 
 	_, err = auth.NewAuthorizerFromCredentials(context.Background(), authConfig, env.MicrosoftGraph)
