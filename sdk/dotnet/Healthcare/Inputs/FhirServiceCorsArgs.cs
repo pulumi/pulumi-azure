@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Healthcare.Inputs
         private InputList<string>? _allowedMethods;
 
         /// <summary>
-        /// The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+        /// The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
         /// </summary>
         public InputList<string> AllowedMethods
         {

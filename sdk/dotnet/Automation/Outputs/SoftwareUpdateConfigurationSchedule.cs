@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Automation.Outputs
         public readonly string? StartTime;
         public readonly double? StartTimeOffsetMinutes;
         /// <summary>
-        /// The timezone of the start time. Defaults to `UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
+        /// The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
         /// </summary>
         public readonly string? TimeZone;
 

@@ -124,6 +124,20 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.encryptionSettings);
     }
     /**
+     * Specifies if the Snapshot is incremental.
+     * 
+     */
+    @Export(name="incrementalEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> incrementalEnabled;
+
+    /**
+     * @return Specifies if the Snapshot is incremental.
+     * 
+     */
+    public Output<Optional<Boolean>> incrementalEnabled() {
+        return Codegen.optional(this.incrementalEnabled);
+    }
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */

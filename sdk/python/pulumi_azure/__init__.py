@@ -26,6 +26,8 @@ if typing.TYPE_CHECKING:
     appplatform = __appplatform
     import pulumi_azure.appservice as __appservice
     appservice = __appservice
+    import pulumi_azure.arckubernetes as __arckubernetes
+    arckubernetes = __arckubernetes
     import pulumi_azure.armmsi as __armmsi
     armmsi = __armmsi
     import pulumi_azure.attestation as __attestation
@@ -251,6 +253,7 @@ else:
     appinsights = _utilities.lazy_import('pulumi_azure.appinsights')
     appplatform = _utilities.lazy_import('pulumi_azure.appplatform')
     appservice = _utilities.lazy_import('pulumi_azure.appservice')
+    arckubernetes = _utilities.lazy_import('pulumi_azure.arckubernetes')
     armmsi = _utilities.lazy_import('pulumi_azure.armmsi')
     attestation = _utilities.lazy_import('pulumi_azure.attestation')
     authorization = _utilities.lazy_import('pulumi_azure.authorization')
@@ -1345,6 +1348,14 @@ _utilities.register(
   "fqn": "pulumi_azure.appservice",
   "classes": {
    "azure:appservice/windowsWebAppSlot:WindowsWebAppSlot": "WindowsWebAppSlot"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "arckubernetes/cluster",
+  "fqn": "pulumi_azure.arckubernetes",
+  "classes": {
+   "azure:arckubernetes/cluster:Cluster": "Cluster"
   }
  },
  {
@@ -2509,6 +2520,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "core/resourceGroupCostManagementView",
+  "fqn": "pulumi_azure.core",
+  "classes": {
+   "azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView": "ResourceGroupCostManagementView"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "core/resourceGroupPolicyAssignment",
   "fqn": "pulumi_azure.core",
   "classes": {
@@ -2585,6 +2604,14 @@ _utilities.register(
   "fqn": "pulumi_azure.core",
   "classes": {
    "azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport": "SubscriptionCostManagementExport"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "core/subscriptionCostManagementView",
+  "fqn": "pulumi_azure.core",
+  "classes": {
+   "azure:core/subscriptionCostManagementView:SubscriptionCostManagementView": "SubscriptionCostManagementView"
   }
  },
  {
@@ -7357,6 +7384,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "signalr/serviceCustomCertificate",
+  "fqn": "pulumi_azure.signalr",
+  "classes": {
+   "azure:signalr/serviceCustomCertificate:ServiceCustomCertificate": "ServiceCustomCertificate"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "signalr/serviceNetworkAcl",
   "fqn": "pulumi_azure.signalr",
   "classes": {
@@ -7641,6 +7676,14 @@ _utilities.register(
   "fqn": "pulumi_azure.storage",
   "classes": {
    "azure:storage/managementPolicy:ManagementPolicy": "ManagementPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/mover",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/mover:Mover": "Mover"
   }
  },
  {
@@ -8113,6 +8156,14 @@ _utilities.register(
   "fqn": "pulumi_azure.voice",
   "classes": {
    "azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway": "ServicesCommunicationsGateway"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "voice/servicesCommunicationsGatewayTestLine",
+  "fqn": "pulumi_azure.voice",
+  "classes": {
+   "azure:voice/servicesCommunicationsGatewayTestLine:ServicesCommunicationsGatewayTestLine": "ServicesCommunicationsGatewayTestLine"
   }
  },
  {

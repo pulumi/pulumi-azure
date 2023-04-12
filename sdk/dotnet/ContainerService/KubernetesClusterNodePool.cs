@@ -308,7 +308,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterNodePoolWindowsProfile?> WindowsProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        /// Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
         /// </summary>
         [Output("workloadRuntime")]
         public Output<string?> WorkloadRuntime { get; private set; } = null!;
@@ -618,7 +618,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNodePoolWindowsProfileArgs>? WindowsProfile { get; set; }
 
         /// <summary>
-        /// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        /// Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
         /// </summary>
         [Input("workloadRuntime")]
         public Input<string>? WorkloadRuntime { get; set; }
@@ -896,7 +896,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNodePoolWindowsProfileGetArgs>? WindowsProfile { get; set; }
 
         /// <summary>
-        /// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        /// Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
         /// </summary>
         [Input("workloadRuntime")]
         public Input<string>? WorkloadRuntime { get; set; }

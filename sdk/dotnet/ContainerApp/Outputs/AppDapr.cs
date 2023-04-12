@@ -20,7 +20,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// <summary>
         /// The port which the application is listening on. This is the same as the `ingress` port.
         /// </summary>
-        public readonly int AppPort;
+        public readonly int? AppPort;
         /// <summary>
         /// The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         private AppDapr(
             string appId,
 
-            int appPort,
+            int? appPort,
 
             string? appProtocol)
         {

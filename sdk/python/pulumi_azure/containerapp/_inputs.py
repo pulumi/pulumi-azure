@@ -36,7 +36,7 @@ __all__ = [
 class AppDaprArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
-                 app_port: pulumi.Input[int],
+                 app_port: Optional[pulumi.Input[int]] = None,
                  app_protocol: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] app_id: The Dapr Application Identifier.
@@ -44,7 +44,8 @@ class AppDaprArgs:
         :param pulumi.Input[str] app_protocol: The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
         """
         pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "app_port", app_port)
+        if app_port is not None:
+            pulumi.set(__self__, "app_port", app_port)
         if app_protocol is not None:
             pulumi.set(__self__, "app_protocol", app_protocol)
 
@@ -62,14 +63,14 @@ class AppDaprArgs:
 
     @property
     @pulumi.getter(name="appPort")
-    def app_port(self) -> pulumi.Input[int]:
+    def app_port(self) -> Optional[pulumi.Input[int]]:
         """
         The port which the application is listening on. This is the same as the `ingress` port.
         """
         return pulumi.get(self, "app_port")
 
     @app_port.setter
-    def app_port(self, value: pulumi.Input[int]):
+    def app_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "app_port", value)
 
     @property

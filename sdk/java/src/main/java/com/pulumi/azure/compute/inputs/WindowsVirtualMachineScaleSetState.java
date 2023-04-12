@@ -326,14 +326,14 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     }
 
     /**
-     * A `gallery_application` block as defined below.
+     * One or more `gallery_application` blocks as defined below.
      * 
      */
     @Import(name="galleryApplication")
     private @Nullable Output<List<WindowsVirtualMachineScaleSetGalleryApplicationArgs>> galleryApplication;
 
     /**
-     * @return A `gallery_application` block as defined below.
+     * @return One or more `gallery_application` blocks as defined below.
      * 
      */
     public Optional<Output<List<WindowsVirtualMachineScaleSetGalleryApplicationArgs>>> galleryApplication() {
@@ -1453,7 +1453,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         }
 
         /**
-         * @param galleryApplication A `gallery_application` block as defined below.
+         * @param galleryApplication One or more `gallery_application` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1464,7 +1464,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         }
 
         /**
-         * @param galleryApplication A `gallery_application` block as defined below.
+         * @param galleryApplication One or more `gallery_application` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1474,7 +1474,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         }
 
         /**
-         * @param galleryApplication A `gallery_application` block as defined below.
+         * @param galleryApplication One or more `gallery_application` blocks as defined below.
          * 
          * @return builder
          * 

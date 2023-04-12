@@ -18066,6 +18066,24 @@ export namespace appservice {
 
 }
 
+export namespace arckubernetes {
+    export interface ClusterIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity assigned to this Arc Kubernetes Cluster. At this time the only possible value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
+}
+
 export namespace authorization {
     export interface GetRoleDefinitionPermission {
         /**
@@ -18420,7 +18438,7 @@ export namespace automation {
         startTime?: string;
         startTimeOffsetMinutes: number;
         /**
-         * The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+         * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
          */
         timeZone?: string;
     }
@@ -25942,7 +25960,7 @@ export namespace containerapp {
         /**
          * The port which the application is listening on. This is the same as the `ingress` port.
          */
-        appPort: number;
+        appPort?: number;
         /**
          * The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
          */
@@ -27907,7 +27925,7 @@ export namespace containerservice {
          */
         vnetSubnetId?: string;
         /**
-         * Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
+         * Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
          */
         workloadRuntime: string;
         /**
@@ -29414,6 +29432,76 @@ export namespace core {
         rootFolderPath: string;
     }
 
+    export interface ResourceGroupCostManagementViewDataset {
+        /**
+         * One or more `aggregation` blocks as defined above.
+         */
+        aggregations: outputs.core.ResourceGroupCostManagementViewDatasetAggregation[];
+        /**
+         * The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+         */
+        granularity: string;
+        /**
+         * One or more `grouping` blocks as defined below.
+         */
+        groupings?: outputs.core.ResourceGroupCostManagementViewDatasetGrouping[];
+        /**
+         * One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+         */
+        sortings?: outputs.core.ResourceGroupCostManagementViewDatasetSorting[];
+    }
+
+    export interface ResourceGroupCostManagementViewDatasetAggregation {
+        /**
+         * The name of the column to aggregate. Changing this forces a new Cost Management View for a Resource Group to be created.
+         */
+        columnName: string;
+        /**
+         * The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Resource Group to be created.
+         */
+        name: string;
+    }
+
+    export interface ResourceGroupCostManagementViewDatasetGrouping {
+        /**
+         * The name of the column to group.
+         */
+        name: string;
+        /**
+         * The type of the column. Possible values are `Dimension` and `TagKey`.
+         */
+        type: string;
+    }
+
+    export interface ResourceGroupCostManagementViewDatasetSorting {
+        /**
+         * Direction of sort. Possible values are `Ascending` and `Descending`.
+         */
+        direction: string;
+        /**
+         * The name of the column to sort.
+         */
+        name: string;
+    }
+
+    export interface ResourceGroupCostManagementViewKpi {
+        /**
+         * KPI type. Possible values are `Budget` and `Forecast`.
+         */
+        type: string;
+    }
+
+    export interface ResourceGroupCostManagementViewPivot {
+        /**
+         * The name of the column which should be used for this sub-view in the Cost Analysis UI.
+         */
+        name: string;
+        /**
+         * The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
+         */
+        type: string;
+    }
+
     export interface ResourceGroupPolicyAssignmentIdentity {
         /**
          * A list of User Managed Identity IDs which should be assigned to the Policy Definition.
@@ -29609,6 +29697,76 @@ export namespace core {
          * The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
          */
         rootFolderPath: string;
+    }
+
+    export interface SubscriptionCostManagementViewDataset {
+        /**
+         * One or more `aggregation` blocks as defined above.
+         */
+        aggregations: outputs.core.SubscriptionCostManagementViewDatasetAggregation[];
+        /**
+         * The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+         */
+        granularity: string;
+        /**
+         * One or more `grouping` blocks as defined below.
+         */
+        groupings?: outputs.core.SubscriptionCostManagementViewDatasetGrouping[];
+        /**
+         * One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+         */
+        sortings?: outputs.core.SubscriptionCostManagementViewDatasetSorting[];
+    }
+
+    export interface SubscriptionCostManagementViewDatasetAggregation {
+        /**
+         * The name of the column to aggregate. Changing this forces a new Cost Management View for a Subscription to be created.
+         */
+        columnName: string;
+        /**
+         * The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Subscription to be created.
+         */
+        name: string;
+    }
+
+    export interface SubscriptionCostManagementViewDatasetGrouping {
+        /**
+         * The name of the column to group.
+         */
+        name: string;
+        /**
+         * The type of the column. Possible values are `Dimension` and `TagKey`.
+         */
+        type: string;
+    }
+
+    export interface SubscriptionCostManagementViewDatasetSorting {
+        /**
+         * Direction of sort. Possible values are `Ascending` and `Descending`.
+         */
+        direction: string;
+        /**
+         * The name of the column to sort.
+         */
+        name: string;
+    }
+
+    export interface SubscriptionCostManagementViewKpi {
+        /**
+         * KPI type. Possible values are `Budget` and `Forecast`.
+         */
+        type: string;
+    }
+
+    export interface SubscriptionCostManagementViewPivot {
+        /**
+         * The name of the column which should be used for this sub-view in the Cost Analysis UI.
+         */
+        name: string;
+        /**
+         * The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
+         */
+        type: string;
     }
 
     export interface SubscriptionPolicyAssignmentIdentity {
@@ -38005,7 +38163,7 @@ export namespace healthcare {
          */
         allowedHeaders: string[];
         /**
-         * The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+         * The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
          */
         allowedMethods: string[];
         /**
@@ -38213,7 +38371,7 @@ export namespace healthcare {
          */
         allowedHeaders?: string[];
         /**
-         * The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+         * The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
          */
         allowedMethods?: string[];
         /**
@@ -44541,24 +44699,56 @@ export namespace monitoring {
 
     export interface DataCollectionRuleDataFlow {
         /**
+         * The built-in transform to transform stream data.
+         */
+        builtInTransform?: string;
+        /**
          * Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
          */
         destinations: string[];
         /**
+         * The output stream of the transform. Only required if the data flow changes data to a different stream.
+         */
+        outputStream?: string;
+        /**
          * Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
          */
         streams: string[];
+        /**
+         * The KQL query to transform stream data.
+         */
+        transformKql?: string;
     }
 
     export interface DataCollectionRuleDataSources {
+        /**
+         * A `dataImport` block as defined above.
+         */
+        dataImport?: outputs.monitoring.DataCollectionRuleDataSourcesDataImport;
         /**
          * One or more `extension` blocks as defined below.
          */
         extensions?: outputs.monitoring.DataCollectionRuleDataSourcesExtension[];
         /**
+         * One or more `iisLog` blocks as defined below.
+         */
+        iisLogs?: outputs.monitoring.DataCollectionRuleDataSourcesIisLog[];
+        /**
+         * One or more `logFile` blocks as defined below.
+         */
+        logFiles?: outputs.monitoring.DataCollectionRuleDataSourcesLogFile[];
+        /**
          * One or more `performanceCounter` blocks as defined below.
          */
         performanceCounters?: outputs.monitoring.DataCollectionRuleDataSourcesPerformanceCounter[];
+        /**
+         * One or more `platformTelemetry` blocks as defined below.
+         */
+        platformTelemetries?: outputs.monitoring.DataCollectionRuleDataSourcesPlatformTelemetry[];
+        /**
+         * One or more `prometheusForwarder` blocks as defined below.
+         */
+        prometheusForwarders?: outputs.monitoring.DataCollectionRuleDataSourcesPrometheusForwarder[];
         /**
          * One or more `syslog` blocks as defined below.
          */
@@ -44567,6 +44757,32 @@ export namespace monitoring {
          * One or more `windowsEventLog` blocks as defined below.
          */
         windowsEventLogs?: outputs.monitoring.DataCollectionRuleDataSourcesWindowsEventLog[];
+        /**
+         * One or more `windowsFirewallLog` blocks as defined below.
+         */
+        windowsFirewallLogs?: outputs.monitoring.DataCollectionRuleDataSourcesWindowsFirewallLog[];
+    }
+
+    export interface DataCollectionRuleDataSourcesDataImport {
+        /**
+         * An `eventHubDataSource` block as defined below.
+         */
+        eventHubDataSources: outputs.monitoring.DataCollectionRuleDataSourcesDataImportEventHubDataSource[];
+    }
+
+    export interface DataCollectionRuleDataSourcesDataImportEventHubDataSource {
+        /**
+         * The Event Hub consumer group name.
+         */
+        consumerGroup?: string;
+        /**
+         * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * The stream to collect from Event Hub. Possible value should be a custom stream name.
+         */
+        stream: string;
     }
 
     export interface DataCollectionRuleDataSourcesExtension {
@@ -44592,6 +44808,58 @@ export namespace monitoring {
         streams: string[];
     }
 
+    export interface DataCollectionRuleDataSourcesIisLog {
+        /**
+         * Specifies a list of absolute paths where the log files are located.
+         */
+        logDirectories?: string[];
+        /**
+         * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is `Microsoft-W3CIISLog`.
+         */
+        streams: string[];
+    }
+
+    export interface DataCollectionRuleDataSourcesLogFile {
+        /**
+         * Specifies a list of file patterns where the log files are located. For example, `C:\\JavaLogs\\*.log`.
+         */
+        filePatterns: string[];
+        /**
+         * The data format of the log files. possible value is `text`.
+         */
+        format: string;
+        /**
+         * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * A `settings` block as defined below.
+         */
+        settings?: outputs.monitoring.DataCollectionRuleDataSourcesLogFileSettings;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value should be custom stream names.
+         */
+        streams: string[];
+    }
+
+    export interface DataCollectionRuleDataSourcesLogFileSettings {
+        /**
+         * A `text` block as defined below.
+         */
+        text: outputs.monitoring.DataCollectionRuleDataSourcesLogFileSettingsText;
+    }
+
+    export interface DataCollectionRuleDataSourcesLogFileSettingsText {
+        /**
+         * The timestamp format of the text log files. Possible values are `ISO 8601`, `YYYY-MM-DD HH:MM:SS`, `M/D/YYYY HH:MM:SS AM/PM`, `Mon DD, YYYY HH:MM:SS`, `yyMMdd HH:mm:ss`, `ddMMyy HH:mm:ss`, `MMM d hh:mm:ss`, `dd/MMM/yyyy:HH:mm:ss zzz`,and `yyyy-MM-ddTHH:mm:ssK`.
+         */
+        recordStartTimestampFormat: string;
+    }
+
     export interface DataCollectionRuleDataSourcesPerformanceCounter {
         /**
          * Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
@@ -44609,6 +44877,43 @@ export namespace monitoring {
          * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
          */
         streams: string[];
+    }
+
+    export interface DataCollectionRuleDataSourcesPlatformTelemetry {
+        /**
+         * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft.Cache/redis:Metrics-Group-All`.
+         */
+        streams: string[];
+    }
+
+    export interface DataCollectionRuleDataSourcesPrometheusForwarder {
+        /**
+         * One or more `labelIncludeFilter` blocks as defined above.
+         */
+        labelIncludeFilters?: outputs.monitoring.DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter[];
+        /**
+         * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is `Microsoft-PrometheusMetrics`.
+         */
+        streams: string[];
+    }
+
+    export interface DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter {
+        /**
+         * The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+         */
+        label: string;
+        /**
+         * The value of the filter.
+         */
+        value: string;
     }
 
     export interface DataCollectionRuleDataSourcesSyslog {
@@ -44645,18 +44950,75 @@ export namespace monitoring {
         xPathQueries: string[];
     }
 
+    export interface DataCollectionRuleDataSourcesWindowsFirewallLog {
+        /**
+         * The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+         */
+        streams: string[];
+    }
+
     export interface DataCollectionRuleDestinations {
         /**
          * A `azureMonitorMetrics` block as defined above.
          */
         azureMonitorMetrics?: outputs.monitoring.DataCollectionRuleDestinationsAzureMonitorMetrics;
         /**
+         * One or more `eventHub` blocks as defined below.
+         */
+        eventHub?: outputs.monitoring.DataCollectionRuleDestinationsEventHub;
+        /**
+         * One or more `eventHub` blocks as defined below.
+         */
+        eventHubDirect?: outputs.monitoring.DataCollectionRuleDestinationsEventHubDirect;
+        /**
          * One or more `logAnalytics` blocks as defined below.
          */
         logAnalytics?: outputs.monitoring.DataCollectionRuleDestinationsLogAnalytic[];
+        /**
+         * One or more `monitorAccount` blocks as defined below.
+         */
+        monitorAccounts?: outputs.monitoring.DataCollectionRuleDestinationsMonitorAccount[];
+        /**
+         * One or more `storageBlobDirect` blocks as defined below.
+         */
+        storageBlobDirects?: outputs.monitoring.DataCollectionRuleDestinationsStorageBlobDirect[];
+        /**
+         * One or more `storageBlob` blocks as defined below.
+         */
+        storageBlobs?: outputs.monitoring.DataCollectionRuleDestinationsStorageBlob[];
+        /**
+         * One or more `storageTableDirect` blocks as defined below.
+         */
+        storageTableDirects?: outputs.monitoring.DataCollectionRuleDestinationsStorageTableDirect[];
     }
 
     export interface DataCollectionRuleDestinationsAzureMonitorMetrics {
+        /**
+         * The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+         */
+        name: string;
+    }
+
+    export interface DataCollectionRuleDestinationsEventHub {
+        /**
+         * The resource ID of the Event Hub.
+         */
+        eventHubId: string;
+        /**
+         * The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+         */
+        name: string;
+    }
+
+    export interface DataCollectionRuleDestinationsEventHubDirect {
+        /**
+         * The resource ID of the Event Hub.
+         */
+        eventHubId: string;
         /**
          * The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
          */
@@ -44672,6 +45034,103 @@ export namespace monitoring {
          * The ID of a Log Analytic Workspace resource.
          */
         workspaceResourceId: string;
+    }
+
+    export interface DataCollectionRuleDestinationsMonitorAccount {
+        /**
+         * The resource ID of the Monitor Account.
+         */
+        monitorAccountId: string;
+        /**
+         * The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+         */
+        name: string;
+    }
+
+    export interface DataCollectionRuleDestinationsStorageBlob {
+        /**
+         * The Storage Container name.
+         */
+        containerName: string;
+        /**
+         * The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * The resource ID of the Storage Account.
+         */
+        storageAccountId: string;
+    }
+
+    export interface DataCollectionRuleDestinationsStorageBlobDirect {
+        /**
+         * The Storage Container name.
+         */
+        containerName: string;
+        /**
+         * The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * The resource ID of the Storage Account.
+         */
+        storageAccountId: string;
+    }
+
+    export interface DataCollectionRuleDestinationsStorageTableDirect {
+        /**
+         * The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * The resource ID of the Storage Account.
+         */
+        storageAccountId: string;
+        /**
+         * The Storage Table name.
+         */
+        tableName: string;
+    }
+
+    export interface DataCollectionRuleIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are `SystemAssigned` and `UserAssigned`.
+         */
+        type: string;
+    }
+
+    export interface DataCollectionRuleStreamDeclaration {
+        /**
+         * One or more `column` blocks as defined above.
+         */
+        columns: outputs.monitoring.DataCollectionRuleStreamDeclarationColumn[];
+        /**
+         * The name of the custom stream. This name should be unique across all `streamDeclaration` blocks.
+         */
+        streamName: string;
+    }
+
+    export interface DataCollectionRuleStreamDeclarationColumn {
+        /**
+         * The name of the column.
+         */
+        name: string;
+        /**
+         * The type of the column data. Possible values are `string`, `int`, `long`, `real`, `boolean`, `datetime`,and `dynamic`.
+         */
+        type: string;
     }
 
     export interface DiagnosticSettingEnabledLog {
@@ -44983,24 +45442,56 @@ export namespace monitoring {
 
     export interface GetDataCollectionRuleDataFlow {
         /**
+         * The built-in transform to transform stream data.
+         */
+        builtInTransform: string;
+        /**
          * Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
          */
         destinations: string[];
         /**
-         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+         * The output stream of the transform. Only required if the data flow changes data to a different stream.
+         */
+        outputStream: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
          */
         streams: string[];
+        /**
+         * The KQL query to transform stream data.
+         */
+        transformKql: string;
     }
 
     export interface GetDataCollectionRuleDataSource {
+        /**
+         * A `dataImport` block as defined above.
+         */
+        dataImports: outputs.monitoring.GetDataCollectionRuleDataSourceDataImport[];
         /**
          * One or more `extension` blocks as defined below.
          */
         extensions: outputs.monitoring.GetDataCollectionRuleDataSourceExtension[];
         /**
+         * One or more `iisLog` blocks as defined below.
+         */
+        iisLogs: outputs.monitoring.GetDataCollectionRuleDataSourceIisLog[];
+        /**
+         * One or more `logFile` blocks as defined below.
+         */
+        logFiles?: outputs.monitoring.GetDataCollectionRuleDataSourceLogFile[];
+        /**
          * One or more `performanceCounter` blocks as defined below.
          */
         performanceCounters: outputs.monitoring.GetDataCollectionRuleDataSourcePerformanceCounter[];
+        /**
+         * One or more `platformTelemetry` blocks as defined below.
+         */
+        platformTelemetries?: outputs.monitoring.GetDataCollectionRuleDataSourcePlatformTelemetry[];
+        /**
+         * One or more `prometheusForwarder` blocks as defined below.
+         */
+        prometheusForwarders: outputs.monitoring.GetDataCollectionRuleDataSourcePrometheusForwarder[];
         /**
          * One or more `syslog` blocks as defined below.
          */
@@ -45009,6 +45500,32 @@ export namespace monitoring {
          * One or more `windowsEventLog` blocks as defined below.
          */
         windowsEventLogs: outputs.monitoring.GetDataCollectionRuleDataSourceWindowsEventLog[];
+        /**
+         * One or more `windowsFirewallLog` blocks as defined below.
+         */
+        windowsFirewallLogs: outputs.monitoring.GetDataCollectionRuleDataSourceWindowsFirewallLog[];
+    }
+
+    export interface GetDataCollectionRuleDataSourceDataImport {
+        /**
+         * An `eventHubDataSource` block as defined below.
+         */
+        eventHubDataSources: outputs.monitoring.GetDataCollectionRuleDataSourceDataImportEventHubDataSource[];
+    }
+
+    export interface GetDataCollectionRuleDataSourceDataImportEventHubDataSource {
+        /**
+         * The Event Hub consumer group name.
+         */
+        consumerGroup: string;
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * The stream to collect from Event Hub. Possible value should be a custom stream name.
+         */
+        stream: string;
     }
 
     export interface GetDataCollectionRuleDataSourceExtension {
@@ -45029,9 +45546,61 @@ export namespace monitoring {
          */
         name: string;
         /**
-         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
          */
         streams: string[];
+    }
+
+    export interface GetDataCollectionRuleDataSourceIisLog {
+        /**
+         * Specifies a list of absolute paths where the log files are located.
+         */
+        logDirectories: string[];
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+         */
+        streams: string[];
+    }
+
+    export interface GetDataCollectionRuleDataSourceLogFile {
+        /**
+         * Specifies a list of file patterns where the log files are located. For example, `C:\\JavaLogs\\*.log`.
+         */
+        filePatterns: string[];
+        /**
+         * The data format of the log files. possible value is `text`.
+         */
+        format: string;
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * A `settings` block as defined below.
+         */
+        settings: outputs.monitoring.GetDataCollectionRuleDataSourceLogFileSetting[];
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+         */
+        streams: string[];
+    }
+
+    export interface GetDataCollectionRuleDataSourceLogFileSetting {
+        /**
+         * A `text` block as defined below.
+         */
+        texts: outputs.monitoring.GetDataCollectionRuleDataSourceLogFileSettingText[];
+    }
+
+    export interface GetDataCollectionRuleDataSourceLogFileSettingText {
+        /**
+         * The timestamp format of the text log files. Possible values are `ISO 8601`, `YYYY-MM-DD HH:MM:SS`, `M/D/YYYY HH:MM:SS AM/PM`, `Mon DD, YYYY HH:MM:SS`, `yyMMdd HH:mm:ss`, `ddMMyy HH:mm:ss`, `MMM d hh:mm:ss`, `dd/MMM/yyyy:HH:mm:ss zzz`,and `yyyy-MM-ddTHH:mm:ssK`.
+         */
+        recordStartTimestampFormat: string;
     }
 
     export interface GetDataCollectionRuleDataSourcePerformanceCounter {
@@ -45048,9 +45617,46 @@ export namespace monitoring {
          */
         samplingFrequencyInSeconds: number;
         /**
-         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
          */
         streams: string[];
+    }
+
+    export interface GetDataCollectionRuleDataSourcePlatformTelemetry {
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+         */
+        streams: string[];
+    }
+
+    export interface GetDataCollectionRuleDataSourcePrometheusForwarder {
+        /**
+         * One or more `labelIncludeFilter` blocks as defined above.
+         */
+        labelIncludeFilters: outputs.monitoring.GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter[];
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+         */
+        streams: string[];
+    }
+
+    export interface GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter {
+        /**
+         * The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
+         */
+        label: string;
+        /**
+         * The value of the filter.
+         */
+        value: string;
     }
 
     export interface GetDataCollectionRuleDataSourceSyslog {
@@ -45067,7 +45673,7 @@ export namespace monitoring {
          */
         name: string;
         /**
-         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
          */
         streams: string[];
     }
@@ -45078,7 +45684,7 @@ export namespace monitoring {
          */
         name: string;
         /**
-         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
          */
         streams: string[];
         /**
@@ -45087,18 +45693,75 @@ export namespace monitoring {
         xPathQueries: string[];
     }
 
+    export interface GetDataCollectionRuleDataSourceWindowsFirewallLog {
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+         */
+        streams: string[];
+    }
+
     export interface GetDataCollectionRuleDestination {
         /**
          * A `azureMonitorMetrics` block as defined above.
          */
         azureMonitorMetrics: outputs.monitoring.GetDataCollectionRuleDestinationAzureMonitorMetric[];
         /**
+         * One or more `eventHub` blocks as defined below.
+         */
+        eventHub?: outputs.monitoring.GetDataCollectionRuleDestinationEventHub;
+        /**
+         * One or more `eventHubDirect` blocks as defined below.
+         */
+        eventHubDirect?: outputs.monitoring.GetDataCollectionRuleDestinationEventHubDirect;
+        /**
          * One or more `logAnalytics` blocks as defined below.
          */
         logAnalytics: outputs.monitoring.GetDataCollectionRuleDestinationLogAnalytic[];
+        /**
+         * One or more `monitorAccount` blocks as defined below.
+         */
+        monitorAccounts: outputs.monitoring.GetDataCollectionRuleDestinationMonitorAccount[];
+        /**
+         * One or more `storageBlobDirect` blocks as defined below.
+         */
+        storageBlobDirects: outputs.monitoring.GetDataCollectionRuleDestinationStorageBlobDirect[];
+        /**
+         * One or more `storageBlob` blocks as defined below.
+         */
+        storageBlobs: outputs.monitoring.GetDataCollectionRuleDestinationStorageBlob[];
+        /**
+         * One or more `storageTableDirect` blocks as defined below.
+         */
+        storageTableDirects: outputs.monitoring.GetDataCollectionRuleDestinationStorageTableDirect[];
     }
 
     export interface GetDataCollectionRuleDestinationAzureMonitorMetric {
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+    }
+
+    export interface GetDataCollectionRuleDestinationEventHub {
+        /**
+         * The resource ID of the Event Hub.
+         */
+        eventHubId: string;
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+    }
+
+    export interface GetDataCollectionRuleDestinationEventHubDirect {
+        /**
+         * The resource ID of the Event Hub.
+         */
+        eventHubId: string;
         /**
          * Specifies the name of the Data Collection Rule.
          */
@@ -45114,6 +45777,103 @@ export namespace monitoring {
          * The ID of a Log Analytic Workspace resource.
          */
         workspaceResourceId: string;
+    }
+
+    export interface GetDataCollectionRuleDestinationMonitorAccount {
+        /**
+         * The resource ID of the Monitor Account.
+         */
+        monitorAccountId: string;
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+    }
+
+    export interface GetDataCollectionRuleDestinationStorageBlob {
+        /**
+         * The Storage Container name.
+         */
+        containerName: string;
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * The resource ID of the Storage Account.
+         */
+        storageAccountId: string;
+    }
+
+    export interface GetDataCollectionRuleDestinationStorageBlobDirect {
+        /**
+         * The Storage Container name.
+         */
+        containerName: string;
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * The resource ID of the Storage Account.
+         */
+        storageAccountId: string;
+    }
+
+    export interface GetDataCollectionRuleDestinationStorageTableDirect {
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * The resource ID of the Storage Account.
+         */
+        storageAccountId: string;
+        /**
+         * The Storage Table name.
+         */
+        tableName: string;
+    }
+
+    export interface GetDataCollectionRuleIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * cSpecifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are `SystemAssigned` and `UserAssigned`.
+         */
+        type: string;
+    }
+
+    export interface GetDataCollectionRuleStreamDeclaration {
+        /**
+         * One or more `column` blocks as defined above.
+         */
+        columns: outputs.monitoring.GetDataCollectionRuleStreamDeclarationColumn[];
+        /**
+         * The name of the custom stream. This name should be unique across all `streamDeclaration` blocks.
+         */
+        streamName: string;
+    }
+
+    export interface GetDataCollectionRuleStreamDeclarationColumn {
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * cSpecifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are `SystemAssigned` and `UserAssigned`.
+         */
+        type: string;
     }
 
     export interface GetLogProfileRetentionPolicy {
@@ -55808,7 +56568,7 @@ export namespace webpubsub {
          */
         auth?: outputs.webpubsub.HubEventHandlerAuth;
         /**
-         * Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+         * Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
          */
         systemEvents?: string[];
         /**
@@ -55816,7 +56576,7 @@ export namespace webpubsub {
          */
         urlTemplate: string;
         /**
-         * Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
+         * Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
          */
         userEventPattern?: string;
     }
@@ -55826,6 +56586,25 @@ export namespace webpubsub {
          * Specify the identity ID of the target resource.
          */
         managedIdentityId: string;
+    }
+
+    export interface HubEventListener {
+        /**
+         * Specifies the event hub name to receive the events.
+         */
+        eventhubName: string;
+        /**
+         * Specifies the event hub namespace name to receive the events.
+         */
+        eventhubNamespaceName: string;
+        /**
+         * Specifies the list of system events. Supported values are `connected` and `disconnected`.
+         */
+        systemEventNameFilters?: string[];
+        /**
+         * Specifies the list of matching user event names. `["*"]` can be used to match all events.
+         */
+        userEventNameFilters?: string[];
     }
 
     export interface NetworkAclPrivateEndpoint {

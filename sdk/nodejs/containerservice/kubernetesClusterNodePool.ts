@@ -237,7 +237,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly windowsProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolWindowsProfile | undefined>;
     /**
-     * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+     * Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
      */
     public readonly workloadRuntime!: pulumi.Output<string | undefined>;
     /**
@@ -515,7 +515,7 @@ export interface KubernetesClusterNodePoolState {
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolWindowsProfile>;
     /**
-     * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+     * Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
      */
     workloadRuntime?: pulumi.Input<string>;
     /**
@@ -685,7 +685,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     windowsProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolWindowsProfile>;
     /**
-     * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+     * Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
      */
     workloadRuntime?: pulumi.Input<string>;
     /**

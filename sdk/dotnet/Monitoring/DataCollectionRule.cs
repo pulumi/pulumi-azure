@@ -27,6 +27,12 @@ namespace Pulumi.Azure.Monitoring
     ///         Location = "West Europe",
     ///     });
     /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
     ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -47,10 +53,39 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         NamespaceName = azurerm_eventhub_namespace.Example.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PartitionCount = 2,
+    ///         MessageRetention = 1,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleDataCollectionEndpoint = new Azure.Monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
     ///     var exampleDataCollectionRule = new Azure.Monitoring.DataCollectionRule("exampleDataCollectionRule", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
+    ///         DataCollectionEndpointId = exampleDataCollectionEndpoint.Id,
     ///         Destinations = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsArgs
     ///         {
     ///             LogAnalytics = new[]
@@ -59,6 +94,20 @@ namespace Pulumi.Azure.Monitoring
     ///                 {
     ///                     WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
     ///                     Name = "test-destination-log",
+    ///                 },
+    ///             },
+    ///             EventHub = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsEventHubArgs
+    ///             {
+    ///                 EventHubId = exampleEventHub.Id,
+    ///                 Name = "test-destination-eventhub",
+    ///             },
+    ///             StorageBlobs = new[]
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsStorageBlobArgs
+    ///                 {
+    ///                     StorageAccountId = exampleAccount.Id,
+    ///                     ContainerName = exampleContainer.Name,
+    ///                     Name = "test-destination-storage",
     ///                 },
     ///             },
     ///             AzureMonitorMetrics = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsAzureMonitorMetricsArgs
@@ -92,6 +141,19 @@ namespace Pulumi.Azure.Monitoring
     ///                     "test-destination-log",
     ///                 },
     ///             },
+    ///             new Azure.Monitoring.Inputs.DataCollectionRuleDataFlowArgs
+    ///             {
+    ///                 Streams = new[]
+    ///                 {
+    ///                     "Custom-MyTableRawData",
+    ///                 },
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     "example-destination-log",
+    ///                 },
+    ///                 OutputStream = "Microsoft-Syslog",
+    ///                 TransformKql = "source | project TimeGenerated = Time, Computer, Message = AdditionalContext",
+    ///             },
     ///         },
     ///         DataSources = new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesArgs
     ///         {
@@ -108,6 +170,44 @@ namespace Pulumi.Azure.Monitoring
     ///                         "*",
     ///                     },
     ///                     Name = "test-datasource-syslog",
+    ///                 },
+    ///             },
+    ///             IisLogs = new[]
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesIisLogArgs
+    ///                 {
+    ///                     Streams = new[]
+    ///                     {
+    ///                         "Microsoft-W3CIISLog",
+    ///                     },
+    ///                     Name = "test-datasource-iis",
+    ///                     LogDirectories = new[]
+    ///                     {
+    ///                         "C:\\\\Logs\\\\W3SVC1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             LogFiles = new[]
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesLogFileArgs
+    ///                 {
+    ///                     Name = "test-datasource-logfile",
+    ///                     Format = "text",
+    ///                     Streams = new[]
+    ///                     {
+    ///                         "Custom-MyTableRawData",
+    ///                     },
+    ///                     FilePatterns = new[]
+    ///                     {
+    ///                         "C:\\\\JavaLogs\\\\*.log",
+    ///                     },
+    ///                     Settings = new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesLogFileSettingsArgs
+    ///                     {
+    ///                         Text = new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesLogFileSettingsTextArgs
+    ///                         {
+    ///                             RecordStartTimestampFormat = "ISO 8601",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///             PerformanceCounters = new[]
@@ -164,6 +264,39 @@ namespace Pulumi.Azure.Monitoring
     ///                 },
     ///             },
     ///         },
+    ///         StreamDeclarations = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.DataCollectionRuleStreamDeclarationArgs
+    ///             {
+    ///                 StreamName = "Custom-MyTableRawData",
+    ///                 Columns = new[]
+    ///                 {
+    ///                     new Azure.Monitoring.Inputs.DataCollectionRuleStreamDeclarationColumnArgs
+    ///                     {
+    ///                         Name = "Time",
+    ///                         Type = "datetime",
+    ///                     },
+    ///                     new Azure.Monitoring.Inputs.DataCollectionRuleStreamDeclarationColumnArgs
+    ///                     {
+    ///                         Name = "Computer",
+    ///                         Type = "string",
+    ///                     },
+    ///                     new Azure.Monitoring.Inputs.DataCollectionRuleStreamDeclarationColumnArgs
+    ///                     {
+    ///                         Name = "AdditionalContext",
+    ///                         Type = "string",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Identity = new Azure.Monitoring.Inputs.DataCollectionRuleIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
     ///         Description = "data collection rule example",
     ///         Tags = 
     ///         {
@@ -192,6 +325,12 @@ namespace Pulumi.Azure.Monitoring
     public partial class DataCollectionRule : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The resource ID of the Data Collection Endpoint that this rule can be used with.
+        /// </summary>
+        [Output("dataCollectionEndpointId")]
+        public Output<string?> DataCollectionEndpointId { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `data_flow` blocks as defined below.
         /// </summary>
         [Output("dataFlows")]
@@ -216,7 +355,19 @@ namespace Pulumi.Azure.Monitoring
         public Output<Outputs.DataCollectionRuleDestinations> Destinations { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.DataCollectionRuleIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The immutable ID of the Data Collection Rule.
+        /// </summary>
+        [Output("immutableId")]
+        public Output<string> ImmutableId { get; private set; } = null!;
+
+        /// <summary>
+        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -238,6 +389,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// A `stream_declaration` block as defined below.
+        /// </summary>
+        [Output("streamDeclarations")]
+        public Output<ImmutableArray<Outputs.DataCollectionRuleStreamDeclaration>> StreamDeclarations { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Data Collection Rule.
@@ -291,6 +448,12 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class DataCollectionRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The resource ID of the Data Collection Endpoint that this rule can be used with.
+        /// </summary>
+        [Input("dataCollectionEndpointId")]
+        public Input<string>? DataCollectionEndpointId { get; set; }
+
         [Input("dataFlows", required: true)]
         private InputList<Inputs.DataCollectionRuleDataFlowArgs>? _dataFlows;
 
@@ -322,7 +485,13 @@ namespace Pulumi.Azure.Monitoring
         public Input<Inputs.DataCollectionRuleDestinationsArgs> Destinations { get; set; } = null!;
 
         /// <summary>
-        /// The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.DataCollectionRuleIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
@@ -345,6 +514,18 @@ namespace Pulumi.Azure.Monitoring
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("streamDeclarations")]
+        private InputList<Inputs.DataCollectionRuleStreamDeclarationArgs>? _streamDeclarations;
+
+        /// <summary>
+        /// A `stream_declaration` block as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleStreamDeclarationArgs> StreamDeclarations
+        {
+            get => _streamDeclarations ?? (_streamDeclarations = new InputList<Inputs.DataCollectionRuleStreamDeclarationArgs>());
+            set => _streamDeclarations = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -365,6 +546,12 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class DataCollectionRuleState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The resource ID of the Data Collection Endpoint that this rule can be used with.
+        /// </summary>
+        [Input("dataCollectionEndpointId")]
+        public Input<string>? DataCollectionEndpointId { get; set; }
+
         [Input("dataFlows")]
         private InputList<Inputs.DataCollectionRuleDataFlowGetArgs>? _dataFlows;
 
@@ -396,7 +583,19 @@ namespace Pulumi.Azure.Monitoring
         public Input<Inputs.DataCollectionRuleDestinationsGetArgs>? Destinations { get; set; }
 
         /// <summary>
-        /// The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.DataCollectionRuleIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The immutable ID of the Data Collection Rule.
+        /// </summary>
+        [Input("immutableId")]
+        public Input<string>? ImmutableId { get; set; }
+
+        /// <summary>
+        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
@@ -418,6 +617,18 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        [Input("streamDeclarations")]
+        private InputList<Inputs.DataCollectionRuleStreamDeclarationGetArgs>? _streamDeclarations;
+
+        /// <summary>
+        /// A `stream_declaration` block as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleStreamDeclarationGetArgs> StreamDeclarations
+        {
+            get => _streamDeclarations ?? (_streamDeclarations = new InputList<Inputs.DataCollectionRuleStreamDeclarationGetArgs>());
+            set => _streamDeclarations = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

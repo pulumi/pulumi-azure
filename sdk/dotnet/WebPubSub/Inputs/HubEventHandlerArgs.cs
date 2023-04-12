@@ -22,7 +22,7 @@ namespace Pulumi.Azure.WebPubSub.Inputs
         private InputList<string>? _systemEvents;
 
         /// <summary>
-        /// Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+        /// Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
         /// </summary>
         public InputList<string> SystemEvents
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.WebPubSub.Inputs
         public Input<string> UrlTemplate { get; set; } = null!;
 
         /// <summary>
-        /// Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
+        /// Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
         /// </summary>
         [Input("userEventPattern")]
         public Input<string>? UserEventPattern { get; set; }

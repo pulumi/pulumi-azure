@@ -291,7 +291,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly servicePrincipal!: pulumi.Output<outputs.containerservice.KubernetesClusterServicePrincipal | undefined>;
     /**
-     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
      */
     public readonly skuTier!: pulumi.Output<string | undefined>;
     /**
@@ -691,7 +691,7 @@ export interface KubernetesClusterState {
      */
     servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal>;
     /**
-     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
      */
     skuTier?: pulumi.Input<string>;
     /**
@@ -901,7 +901,7 @@ export interface KubernetesClusterArgs {
      */
     servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal>;
     /**
-     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
      */
     skuTier?: pulumi.Input<string>;
     /**

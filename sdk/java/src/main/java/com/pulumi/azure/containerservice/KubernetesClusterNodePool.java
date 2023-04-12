@@ -647,14 +647,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.windowsProfile);
     }
     /**
-     * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+     * Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
      * 
      */
     @Export(name="workloadRuntime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workloadRuntime;
 
     /**
-     * @return Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+     * @return Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
      * 
      */
     public Output<Optional<String>> workloadRuntime() {

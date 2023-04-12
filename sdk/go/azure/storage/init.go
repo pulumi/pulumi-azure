@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalUser{}
 	case "azure:storage/managementPolicy:ManagementPolicy":
 		r = &ManagementPolicy{}
+	case "azure:storage/mover:Mover":
+		r = &Mover{}
 	case "azure:storage/objectReplication:ObjectReplication":
 		r = &ObjectReplication{}
 	case "azure:storage/queue:Queue":
@@ -131,6 +133,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"storage/managementPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"storage/mover",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -241,7 +241,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? VnetSubnetId { get; set; }
 
         /// <summary>
-        /// Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
+        /// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
         /// </summary>
         [Input("workloadRuntime")]
         public Input<string>? WorkloadRuntime { get; set; }

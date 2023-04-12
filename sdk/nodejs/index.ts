@@ -22,6 +22,7 @@ import * as appconfiguration from "./appconfiguration";
 import * as appinsights from "./appinsights";
 import * as appplatform from "./appplatform";
 import * as appservice from "./appservice";
+import * as arckubernetes from "./arckubernetes";
 import * as armmsi from "./armmsi";
 import * as attestation from "./attestation";
 import * as authorization from "./authorization";
@@ -141,6 +142,7 @@ export {
     appinsights,
     appplatform,
     appservice,
+    arckubernetes,
     armmsi,
     attestation,
     authorization,

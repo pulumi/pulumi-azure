@@ -122,6 +122,10 @@ namespace Pulumi.Azure.Monitoring
     public sealed class GetDataCollectionRuleResult
     {
         /// <summary>
+        /// The resource ID of the Data Collection Endpoint that this rule can be used with.
+        /// </summary>
+        public readonly string DataCollectionEndpointId;
+        /// <summary>
         /// One or more `data_flow` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataCollectionRuleDataFlowResult> DataFlows;
@@ -142,7 +146,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        /// An `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDataCollectionRuleIdentityResult> Identities;
+        public readonly string ImmutableId;
+        /// <summary>
+        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         /// </summary>
         public readonly string Kind;
         /// <summary>
@@ -155,12 +164,18 @@ namespace Pulumi.Azure.Monitoring
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
+        /// A `stream_declaration` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDataCollectionRuleStreamDeclarationResult> StreamDeclarations;
+        /// <summary>
         /// A mapping of tags which should be assigned to the Data Collection Rule.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetDataCollectionRuleResult(
+            string dataCollectionEndpointId,
+
             ImmutableArray<Outputs.GetDataCollectionRuleDataFlowResult> dataFlows,
 
             ImmutableArray<Outputs.GetDataCollectionRuleDataSourceResult> dataSources,
@@ -171,6 +186,10 @@ namespace Pulumi.Azure.Monitoring
 
             string id,
 
+            ImmutableArray<Outputs.GetDataCollectionRuleIdentityResult> identities,
+
+            string immutableId,
+
             string kind,
 
             string location,
@@ -179,17 +198,23 @@ namespace Pulumi.Azure.Monitoring
 
             string resourceGroupName,
 
+            ImmutableArray<Outputs.GetDataCollectionRuleStreamDeclarationResult> streamDeclarations,
+
             ImmutableDictionary<string, string> tags)
         {
+            DataCollectionEndpointId = dataCollectionEndpointId;
             DataFlows = dataFlows;
             DataSources = dataSources;
             Description = description;
             Destinations = destinations;
             Id = id;
+            Identities = identities;
+            ImmutableId = immutableId;
             Kind = kind;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
+            StreamDeclarations = streamDeclarations;
             Tags = tags;
         }
     }

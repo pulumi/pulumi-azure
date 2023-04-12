@@ -110,6 +110,12 @@ namespace Pulumi.Azure.SignalR
         public Output<string> Hostname { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+        /// </summary>
+        [Output("httpRequestLogsEnabled")]
+        public Output<bool?> HttpRequestLogsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
@@ -319,6 +325,12 @@ namespace Pulumi.Azure.SignalR
         }
 
         /// <summary>
+        /// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+        /// </summary>
+        [Input("httpRequestLogsEnabled")]
+        public Input<bool>? HttpRequestLogsEnabled { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
@@ -457,6 +469,12 @@ namespace Pulumi.Azure.SignalR
         /// </summary>
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }
+
+        /// <summary>
+        /// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+        /// </summary>
+        [Input("httpRequestLogsEnabled")]
+        public Input<bool>? HttpRequestLogsEnabled { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.

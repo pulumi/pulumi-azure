@@ -7,21 +7,45 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DataCollectionRuleDataFlow {
+    /**
+     * @return The built-in transform to transform stream data.
+     * 
+     */
+    private @Nullable String builtInTransform;
     /**
      * @return Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
      * 
      */
     private List<String> destinations;
     /**
+     * @return The output stream of the transform. Only required if the data flow changes data to a different stream.
+     * 
+     */
+    private @Nullable String outputStream;
+    /**
      * @return Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
      * 
      */
     private List<String> streams;
+    /**
+     * @return The KQL query to transform stream data.
+     * 
+     */
+    private @Nullable String transformKql;
 
     private DataCollectionRuleDataFlow() {}
+    /**
+     * @return The built-in transform to transform stream data.
+     * 
+     */
+    public Optional<String> builtInTransform() {
+        return Optional.ofNullable(this.builtInTransform);
+    }
     /**
      * @return Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
      * 
@@ -30,11 +54,25 @@ public final class DataCollectionRuleDataFlow {
         return this.destinations;
     }
     /**
+     * @return The output stream of the transform. Only required if the data flow changes data to a different stream.
+     * 
+     */
+    public Optional<String> outputStream() {
+        return Optional.ofNullable(this.outputStream);
+    }
+    /**
      * @return Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
      * 
      */
     public List<String> streams() {
         return this.streams;
+    }
+    /**
+     * @return The KQL query to transform stream data.
+     * 
+     */
+    public Optional<String> transformKql() {
+        return Optional.ofNullable(this.transformKql);
     }
 
     public static Builder builder() {
@@ -46,15 +84,26 @@ public final class DataCollectionRuleDataFlow {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String builtInTransform;
         private List<String> destinations;
+        private @Nullable String outputStream;
         private List<String> streams;
+        private @Nullable String transformKql;
         public Builder() {}
         public Builder(DataCollectionRuleDataFlow defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.builtInTransform = defaults.builtInTransform;
     	      this.destinations = defaults.destinations;
+    	      this.outputStream = defaults.outputStream;
     	      this.streams = defaults.streams;
+    	      this.transformKql = defaults.transformKql;
         }
 
+        @CustomType.Setter
+        public Builder builtInTransform(@Nullable String builtInTransform) {
+            this.builtInTransform = builtInTransform;
+            return this;
+        }
         @CustomType.Setter
         public Builder destinations(List<String> destinations) {
             this.destinations = Objects.requireNonNull(destinations);
@@ -64,6 +113,11 @@ public final class DataCollectionRuleDataFlow {
             return destinations(List.of(destinations));
         }
         @CustomType.Setter
+        public Builder outputStream(@Nullable String outputStream) {
+            this.outputStream = outputStream;
+            return this;
+        }
+        @CustomType.Setter
         public Builder streams(List<String> streams) {
             this.streams = Objects.requireNonNull(streams);
             return this;
@@ -71,10 +125,18 @@ public final class DataCollectionRuleDataFlow {
         public Builder streams(String... streams) {
             return streams(List.of(streams));
         }
+        @CustomType.Setter
+        public Builder transformKql(@Nullable String transformKql) {
+            this.transformKql = transformKql;
+            return this;
+        }
         public DataCollectionRuleDataFlow build() {
             final var o = new DataCollectionRuleDataFlow();
+            o.builtInTransform = builtInTransform;
             o.destinations = destinations;
+            o.outputStream = outputStream;
             o.streams = streams;
+            o.transformKql = transformKql;
             return o;
         }
     }

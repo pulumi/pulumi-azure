@@ -223,14 +223,14 @@ public class Schedule extends com.pulumi.resources.CustomResource {
         return this.startTime;
     }
     /**
-     * The timezone of the start time. Defaults to `UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
+     * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
      * 
      */
     @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezone;
 
     /**
-     * @return The timezone of the start time. Defaults to `UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
+     * @return The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
      * 
      */
     public Output<Optional<String>> timezone() {

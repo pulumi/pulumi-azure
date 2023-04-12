@@ -174,7 +174,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
-     * A `galleryApplication` block as defined below.
+     * One or more `galleryApplication` blocks as defined below.
      */
     public readonly galleryApplications!: pulumi.Output<outputs.compute.WindowsVirtualMachineGalleryApplication[] | undefined>;
     /**
@@ -532,7 +532,7 @@ export interface WindowsVirtualMachineState {
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
-     * A `galleryApplication` block as defined below.
+     * One or more `galleryApplication` blocks as defined below.
      */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineGalleryApplication>[]>;
     /**
@@ -746,7 +746,7 @@ export interface WindowsVirtualMachineArgs {
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
-     * A `galleryApplication` block as defined below.
+     * One or more `galleryApplication` blocks as defined below.
      */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineGalleryApplication>[]>;
     /**

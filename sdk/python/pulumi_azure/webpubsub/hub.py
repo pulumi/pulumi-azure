@@ -19,13 +19,15 @@ class HubArgs:
                  web_pubsub_id: pulumi.Input[str],
                  anonymous_connections_enabled: Optional[pulumi.Input[bool]] = None,
                  event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]] = None,
+                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Hub resource.
-        :param pulumi.Input[str] web_pubsub_id: Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] web_pubsub_id: Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] anonymous_connections_enabled: Is anonymous connections are allowed for this hub? Defaults to `false`.
                Possible values are `true`, `false`.
         :param pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]] event_handlers: An `event_handler` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]] event_listeners: An `event_listener` block as defined below.
         :param pulumi.Input[str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "web_pubsub_id", web_pubsub_id)
@@ -33,6 +35,8 @@ class HubArgs:
             pulumi.set(__self__, "anonymous_connections_enabled", anonymous_connections_enabled)
         if event_handlers is not None:
             pulumi.set(__self__, "event_handlers", event_handlers)
+        if event_listeners is not None:
+            pulumi.set(__self__, "event_listeners", event_listeners)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -40,7 +44,7 @@ class HubArgs:
     @pulumi.getter(name="webPubsubId")
     def web_pubsub_id(self) -> pulumi.Input[str]:
         """
-        Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+        Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "web_pubsub_id")
 
@@ -74,6 +78,18 @@ class HubArgs:
         pulumi.set(self, "event_handlers", value)
 
     @property
+    @pulumi.getter(name="eventListeners")
+    def event_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]]:
+        """
+        An `event_listener` block as defined below.
+        """
+        return pulumi.get(self, "event_listeners")
+
+    @event_listeners.setter
+    def event_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]]):
+        pulumi.set(self, "event_listeners", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -91,6 +107,7 @@ class _HubState:
     def __init__(__self__, *,
                  anonymous_connections_enabled: Optional[pulumi.Input[bool]] = None,
                  event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]] = None,
+                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  web_pubsub_id: Optional[pulumi.Input[str]] = None):
         """
@@ -98,13 +115,16 @@ class _HubState:
         :param pulumi.Input[bool] anonymous_connections_enabled: Is anonymous connections are allowed for this hub? Defaults to `false`.
                Possible values are `true`, `false`.
         :param pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]] event_handlers: An `event_handler` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]] event_listeners: An `event_listener` block as defined below.
         :param pulumi.Input[str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] web_pubsub_id: Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] web_pubsub_id: Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
         if anonymous_connections_enabled is not None:
             pulumi.set(__self__, "anonymous_connections_enabled", anonymous_connections_enabled)
         if event_handlers is not None:
             pulumi.set(__self__, "event_handlers", event_handlers)
+        if event_listeners is not None:
+            pulumi.set(__self__, "event_listeners", event_listeners)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if web_pubsub_id is not None:
@@ -136,6 +156,18 @@ class _HubState:
         pulumi.set(self, "event_handlers", value)
 
     @property
+    @pulumi.getter(name="eventListeners")
+    def event_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]]:
+        """
+        An `event_listener` block as defined below.
+        """
+        return pulumi.get(self, "event_listeners")
+
+    @event_listeners.setter
+    def event_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]]):
+        pulumi.set(self, "event_listeners", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -151,7 +183,7 @@ class _HubState:
     @pulumi.getter(name="webPubsubId")
     def web_pubsub_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+        Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "web_pubsub_id")
 
@@ -167,6 +199,7 @@ class Hub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  anonymous_connections_enabled: Optional[pulumi.Input[bool]] = None,
                  event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArgs']]]]] = None,
+                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  web_pubsub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -208,6 +241,29 @@ class Hub(pulumi.CustomResource):
                     ),
                 ),
             ],
+            event_listeners=[
+                azure.webpubsub.HubEventListenerArgs(
+                    system_event_name_filters=["connected"],
+                    user_event_name_filters=[
+                        "event1",
+                        "event2",
+                    ],
+                    eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
+                    eventhub_name=azurerm_eventhub["test1"]["name"],
+                ),
+                azure.webpubsub.HubEventListenerArgs(
+                    system_event_name_filters=["connected"],
+                    user_event_name_filters=["*"],
+                    eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
+                    eventhub_name=azurerm_eventhub["test1"]["name"],
+                ),
+                azure.webpubsub.HubEventListenerArgs(
+                    system_event_name_filters=["connected"],
+                    user_event_name_filters=["event1"],
+                    eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
+                    eventhub_name=azurerm_eventhub["test1"]["name"],
+                ),
+            ],
             anonymous_connections_enabled=True,
             opts=pulumi.ResourceOptions(depends_on=[example_service]))
         ```
@@ -225,8 +281,9 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[bool] anonymous_connections_enabled: Is anonymous connections are allowed for this hub? Defaults to `false`.
                Possible values are `true`, `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArgs']]]] event_handlers: An `event_handler` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArgs']]]] event_listeners: An `event_listener` block as defined below.
         :param pulumi.Input[str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] web_pubsub_id: Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] web_pubsub_id: Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -272,6 +329,29 @@ class Hub(pulumi.CustomResource):
                     ),
                 ),
             ],
+            event_listeners=[
+                azure.webpubsub.HubEventListenerArgs(
+                    system_event_name_filters=["connected"],
+                    user_event_name_filters=[
+                        "event1",
+                        "event2",
+                    ],
+                    eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
+                    eventhub_name=azurerm_eventhub["test1"]["name"],
+                ),
+                azure.webpubsub.HubEventListenerArgs(
+                    system_event_name_filters=["connected"],
+                    user_event_name_filters=["*"],
+                    eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
+                    eventhub_name=azurerm_eventhub["test1"]["name"],
+                ),
+                azure.webpubsub.HubEventListenerArgs(
+                    system_event_name_filters=["connected"],
+                    user_event_name_filters=["event1"],
+                    eventhub_namespace_name=azurerm_eventhub_namespace["test"]["name"],
+                    eventhub_name=azurerm_eventhub["test1"]["name"],
+                ),
+            ],
             anonymous_connections_enabled=True,
             opts=pulumi.ResourceOptions(depends_on=[example_service]))
         ```
@@ -301,6 +381,7 @@ class Hub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  anonymous_connections_enabled: Optional[pulumi.Input[bool]] = None,
                  event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArgs']]]]] = None,
+                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  web_pubsub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -314,6 +395,7 @@ class Hub(pulumi.CustomResource):
 
             __props__.__dict__["anonymous_connections_enabled"] = anonymous_connections_enabled
             __props__.__dict__["event_handlers"] = event_handlers
+            __props__.__dict__["event_listeners"] = event_listeners
             __props__.__dict__["name"] = name
             if web_pubsub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'web_pubsub_id'")
@@ -330,6 +412,7 @@ class Hub(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             anonymous_connections_enabled: Optional[pulumi.Input[bool]] = None,
             event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArgs']]]]] = None,
+            event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             web_pubsub_id: Optional[pulumi.Input[str]] = None) -> 'Hub':
         """
@@ -342,8 +425,9 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[bool] anonymous_connections_enabled: Is anonymous connections are allowed for this hub? Defaults to `false`.
                Possible values are `true`, `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventHandlerArgs']]]] event_handlers: An `event_handler` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubEventListenerArgs']]]] event_listeners: An `event_listener` block as defined below.
         :param pulumi.Input[str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] web_pubsub_id: Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] web_pubsub_id: Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -351,6 +435,7 @@ class Hub(pulumi.CustomResource):
 
         __props__.__dict__["anonymous_connections_enabled"] = anonymous_connections_enabled
         __props__.__dict__["event_handlers"] = event_handlers
+        __props__.__dict__["event_listeners"] = event_listeners
         __props__.__dict__["name"] = name
         __props__.__dict__["web_pubsub_id"] = web_pubsub_id
         return Hub(resource_name, opts=opts, __props__=__props__)
@@ -373,6 +458,14 @@ class Hub(pulumi.CustomResource):
         return pulumi.get(self, "event_handlers")
 
     @property
+    @pulumi.getter(name="eventListeners")
+    def event_listeners(self) -> pulumi.Output[Optional[Sequence['outputs.HubEventListener']]]:
+        """
+        An `event_listener` block as defined below.
+        """
+        return pulumi.get(self, "event_listeners")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -384,7 +477,7 @@ class Hub(pulumi.CustomResource):
     @pulumi.getter(name="webPubsubId")
     def web_pubsub_id(self) -> pulumi.Output[str]:
         """
-        Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+        Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "web_pubsub_id")
 

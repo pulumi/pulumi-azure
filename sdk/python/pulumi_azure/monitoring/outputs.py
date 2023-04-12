@@ -96,13 +96,32 @@ __all__ = [
     'AutoscaleSettingProfileRuleScaleAction',
     'DataCollectionRuleDataFlow',
     'DataCollectionRuleDataSources',
+    'DataCollectionRuleDataSourcesDataImport',
+    'DataCollectionRuleDataSourcesDataImportEventHubDataSource',
     'DataCollectionRuleDataSourcesExtension',
+    'DataCollectionRuleDataSourcesIisLog',
+    'DataCollectionRuleDataSourcesLogFile',
+    'DataCollectionRuleDataSourcesLogFileSettings',
+    'DataCollectionRuleDataSourcesLogFileSettingsText',
     'DataCollectionRuleDataSourcesPerformanceCounter',
+    'DataCollectionRuleDataSourcesPlatformTelemetry',
+    'DataCollectionRuleDataSourcesPrometheusForwarder',
+    'DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter',
     'DataCollectionRuleDataSourcesSyslog',
     'DataCollectionRuleDataSourcesWindowsEventLog',
+    'DataCollectionRuleDataSourcesWindowsFirewallLog',
     'DataCollectionRuleDestinations',
     'DataCollectionRuleDestinationsAzureMonitorMetrics',
+    'DataCollectionRuleDestinationsEventHub',
+    'DataCollectionRuleDestinationsEventHubDirect',
     'DataCollectionRuleDestinationsLogAnalytic',
+    'DataCollectionRuleDestinationsMonitorAccount',
+    'DataCollectionRuleDestinationsStorageBlob',
+    'DataCollectionRuleDestinationsStorageBlobDirect',
+    'DataCollectionRuleDestinationsStorageTableDirect',
+    'DataCollectionRuleIdentity',
+    'DataCollectionRuleStreamDeclaration',
+    'DataCollectionRuleStreamDeclarationColumn',
     'DiagnosticSettingEnabledLog',
     'DiagnosticSettingEnabledLogRetentionPolicy',
     'DiagnosticSettingLog',
@@ -145,13 +164,32 @@ __all__ = [
     'GetActionGroupWebhookReceiverAadAuthResult',
     'GetDataCollectionRuleDataFlowResult',
     'GetDataCollectionRuleDataSourceResult',
+    'GetDataCollectionRuleDataSourceDataImportResult',
+    'GetDataCollectionRuleDataSourceDataImportEventHubDataSourceResult',
     'GetDataCollectionRuleDataSourceExtensionResult',
+    'GetDataCollectionRuleDataSourceIisLogResult',
+    'GetDataCollectionRuleDataSourceLogFileResult',
+    'GetDataCollectionRuleDataSourceLogFileSettingResult',
+    'GetDataCollectionRuleDataSourceLogFileSettingTextResult',
     'GetDataCollectionRuleDataSourcePerformanceCounterResult',
+    'GetDataCollectionRuleDataSourcePlatformTelemetryResult',
+    'GetDataCollectionRuleDataSourcePrometheusForwarderResult',
+    'GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult',
     'GetDataCollectionRuleDataSourceSyslogResult',
     'GetDataCollectionRuleDataSourceWindowsEventLogResult',
+    'GetDataCollectionRuleDataSourceWindowsFirewallLogResult',
     'GetDataCollectionRuleDestinationResult',
     'GetDataCollectionRuleDestinationAzureMonitorMetricResult',
+    'GetDataCollectionRuleDestinationEventHubResult',
+    'GetDataCollectionRuleDestinationEventHubDirectResult',
     'GetDataCollectionRuleDestinationLogAnalyticResult',
+    'GetDataCollectionRuleDestinationMonitorAccountResult',
+    'GetDataCollectionRuleDestinationStorageBlobResult',
+    'GetDataCollectionRuleDestinationStorageBlobDirectResult',
+    'GetDataCollectionRuleDestinationStorageTableDirectResult',
+    'GetDataCollectionRuleIdentityResult',
+    'GetDataCollectionRuleStreamDeclarationResult',
+    'GetDataCollectionRuleStreamDeclarationColumnResult',
     'GetLogProfileRetentionPolicyResult',
     'GetScheduledQueryRulesAlertActionResult',
     'GetScheduledQueryRulesAlertTriggerResult',
@@ -4574,15 +4612,48 @@ class AutoscaleSettingProfileRuleScaleAction(dict):
 
 @pulumi.output_type
 class DataCollectionRuleDataFlow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "builtInTransform":
+            suggest = "built_in_transform"
+        elif key == "outputStream":
+            suggest = "output_stream"
+        elif key == "transformKql":
+            suggest = "transform_kql"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDataFlow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDataFlow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDataFlow.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destinations: Sequence[str],
-                 streams: Sequence[str]):
+                 streams: Sequence[str],
+                 built_in_transform: Optional[str] = None,
+                 output_stream: Optional[str] = None,
+                 transform_kql: Optional[str] = None):
         """
         :param Sequence[str] destinations: Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
         :param Sequence[str] streams: Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        :param str built_in_transform: The built-in transform to transform stream data.
+        :param str output_stream: The output stream of the transform. Only required if the data flow changes data to a different stream.
+        :param str transform_kql: The KQL query to transform stream data.
         """
         pulumi.set(__self__, "destinations", destinations)
         pulumi.set(__self__, "streams", streams)
+        if built_in_transform is not None:
+            pulumi.set(__self__, "built_in_transform", built_in_transform)
+        if output_stream is not None:
+            pulumi.set(__self__, "output_stream", output_stream)
+        if transform_kql is not None:
+            pulumi.set(__self__, "transform_kql", transform_kql)
 
     @property
     @pulumi.getter
@@ -4600,16 +4671,52 @@ class DataCollectionRuleDataFlow(dict):
         """
         return pulumi.get(self, "streams")
 
+    @property
+    @pulumi.getter(name="builtInTransform")
+    def built_in_transform(self) -> Optional[str]:
+        """
+        The built-in transform to transform stream data.
+        """
+        return pulumi.get(self, "built_in_transform")
+
+    @property
+    @pulumi.getter(name="outputStream")
+    def output_stream(self) -> Optional[str]:
+        """
+        The output stream of the transform. Only required if the data flow changes data to a different stream.
+        """
+        return pulumi.get(self, "output_stream")
+
+    @property
+    @pulumi.getter(name="transformKql")
+    def transform_kql(self) -> Optional[str]:
+        """
+        The KQL query to transform stream data.
+        """
+        return pulumi.get(self, "transform_kql")
+
 
 @pulumi.output_type
 class DataCollectionRuleDataSources(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "performanceCounters":
+        if key == "dataImport":
+            suggest = "data_import"
+        elif key == "iisLogs":
+            suggest = "iis_logs"
+        elif key == "logFiles":
+            suggest = "log_files"
+        elif key == "performanceCounters":
             suggest = "performance_counters"
+        elif key == "platformTelemetries":
+            suggest = "platform_telemetries"
+        elif key == "prometheusForwarders":
+            suggest = "prometheus_forwarders"
         elif key == "windowsEventLogs":
             suggest = "windows_event_logs"
+        elif key == "windowsFirewallLogs":
+            suggest = "windows_firewall_logs"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDataSources. Access the value via the '{suggest}' property getter instead.")
@@ -4623,24 +4730,56 @@ class DataCollectionRuleDataSources(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 data_import: Optional['outputs.DataCollectionRuleDataSourcesDataImport'] = None,
                  extensions: Optional[Sequence['outputs.DataCollectionRuleDataSourcesExtension']] = None,
+                 iis_logs: Optional[Sequence['outputs.DataCollectionRuleDataSourcesIisLog']] = None,
+                 log_files: Optional[Sequence['outputs.DataCollectionRuleDataSourcesLogFile']] = None,
                  performance_counters: Optional[Sequence['outputs.DataCollectionRuleDataSourcesPerformanceCounter']] = None,
+                 platform_telemetries: Optional[Sequence['outputs.DataCollectionRuleDataSourcesPlatformTelemetry']] = None,
+                 prometheus_forwarders: Optional[Sequence['outputs.DataCollectionRuleDataSourcesPrometheusForwarder']] = None,
                  syslogs: Optional[Sequence['outputs.DataCollectionRuleDataSourcesSyslog']] = None,
-                 windows_event_logs: Optional[Sequence['outputs.DataCollectionRuleDataSourcesWindowsEventLog']] = None):
+                 windows_event_logs: Optional[Sequence['outputs.DataCollectionRuleDataSourcesWindowsEventLog']] = None,
+                 windows_firewall_logs: Optional[Sequence['outputs.DataCollectionRuleDataSourcesWindowsFirewallLog']] = None):
         """
+        :param 'DataCollectionRuleDataSourcesDataImportArgs' data_import: A `data_import` block as defined above.
         :param Sequence['DataCollectionRuleDataSourcesExtensionArgs'] extensions: One or more `extension` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesIisLogArgs'] iis_logs: One or more `iis_log` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesLogFileArgs'] log_files: One or more `log_file` blocks as defined below.
         :param Sequence['DataCollectionRuleDataSourcesPerformanceCounterArgs'] performance_counters: One or more `performance_counter` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesPlatformTelemetryArgs'] platform_telemetries: One or more `platform_telemetry` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesPrometheusForwarderArgs'] prometheus_forwarders: One or more `prometheus_forwarder` blocks as defined below.
         :param Sequence['DataCollectionRuleDataSourcesSyslogArgs'] syslogs: One or more `syslog` blocks as defined below.
         :param Sequence['DataCollectionRuleDataSourcesWindowsEventLogArgs'] windows_event_logs: One or more `windows_event_log` blocks as defined below.
+        :param Sequence['DataCollectionRuleDataSourcesWindowsFirewallLogArgs'] windows_firewall_logs: One or more `windows_firewall_log` blocks as defined below.
         """
+        if data_import is not None:
+            pulumi.set(__self__, "data_import", data_import)
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
+        if iis_logs is not None:
+            pulumi.set(__self__, "iis_logs", iis_logs)
+        if log_files is not None:
+            pulumi.set(__self__, "log_files", log_files)
         if performance_counters is not None:
             pulumi.set(__self__, "performance_counters", performance_counters)
+        if platform_telemetries is not None:
+            pulumi.set(__self__, "platform_telemetries", platform_telemetries)
+        if prometheus_forwarders is not None:
+            pulumi.set(__self__, "prometheus_forwarders", prometheus_forwarders)
         if syslogs is not None:
             pulumi.set(__self__, "syslogs", syslogs)
         if windows_event_logs is not None:
             pulumi.set(__self__, "windows_event_logs", windows_event_logs)
+        if windows_firewall_logs is not None:
+            pulumi.set(__self__, "windows_firewall_logs", windows_firewall_logs)
+
+    @property
+    @pulumi.getter(name="dataImport")
+    def data_import(self) -> Optional['outputs.DataCollectionRuleDataSourcesDataImport']:
+        """
+        A `data_import` block as defined above.
+        """
+        return pulumi.get(self, "data_import")
 
     @property
     @pulumi.getter
@@ -4651,12 +4790,44 @@ class DataCollectionRuleDataSources(dict):
         return pulumi.get(self, "extensions")
 
     @property
+    @pulumi.getter(name="iisLogs")
+    def iis_logs(self) -> Optional[Sequence['outputs.DataCollectionRuleDataSourcesIisLog']]:
+        """
+        One or more `iis_log` blocks as defined below.
+        """
+        return pulumi.get(self, "iis_logs")
+
+    @property
+    @pulumi.getter(name="logFiles")
+    def log_files(self) -> Optional[Sequence['outputs.DataCollectionRuleDataSourcesLogFile']]:
+        """
+        One or more `log_file` blocks as defined below.
+        """
+        return pulumi.get(self, "log_files")
+
+    @property
     @pulumi.getter(name="performanceCounters")
     def performance_counters(self) -> Optional[Sequence['outputs.DataCollectionRuleDataSourcesPerformanceCounter']]:
         """
         One or more `performance_counter` blocks as defined below.
         """
         return pulumi.get(self, "performance_counters")
+
+    @property
+    @pulumi.getter(name="platformTelemetries")
+    def platform_telemetries(self) -> Optional[Sequence['outputs.DataCollectionRuleDataSourcesPlatformTelemetry']]:
+        """
+        One or more `platform_telemetry` blocks as defined below.
+        """
+        return pulumi.get(self, "platform_telemetries")
+
+    @property
+    @pulumi.getter(name="prometheusForwarders")
+    def prometheus_forwarders(self) -> Optional[Sequence['outputs.DataCollectionRuleDataSourcesPrometheusForwarder']]:
+        """
+        One or more `prometheus_forwarder` blocks as defined below.
+        """
+        return pulumi.get(self, "prometheus_forwarders")
 
     @property
     @pulumi.getter
@@ -4673,6 +4844,107 @@ class DataCollectionRuleDataSources(dict):
         One or more `windows_event_log` blocks as defined below.
         """
         return pulumi.get(self, "windows_event_logs")
+
+    @property
+    @pulumi.getter(name="windowsFirewallLogs")
+    def windows_firewall_logs(self) -> Optional[Sequence['outputs.DataCollectionRuleDataSourcesWindowsFirewallLog']]:
+        """
+        One or more `windows_firewall_log` blocks as defined below.
+        """
+        return pulumi.get(self, "windows_firewall_logs")
+
+
+@pulumi.output_type
+class DataCollectionRuleDataSourcesDataImport(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventHubDataSources":
+            suggest = "event_hub_data_sources"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDataSourcesDataImport. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDataSourcesDataImport.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDataSourcesDataImport.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_hub_data_sources: Sequence['outputs.DataCollectionRuleDataSourcesDataImportEventHubDataSource']):
+        """
+        :param Sequence['DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs'] event_hub_data_sources: An `event_hub_data_source` block as defined below.
+        """
+        pulumi.set(__self__, "event_hub_data_sources", event_hub_data_sources)
+
+    @property
+    @pulumi.getter(name="eventHubDataSources")
+    def event_hub_data_sources(self) -> Sequence['outputs.DataCollectionRuleDataSourcesDataImportEventHubDataSource']:
+        """
+        An `event_hub_data_source` block as defined below.
+        """
+        return pulumi.get(self, "event_hub_data_sources")
+
+
+@pulumi.output_type
+class DataCollectionRuleDataSourcesDataImportEventHubDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerGroup":
+            suggest = "consumer_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDataSourcesDataImportEventHubDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDataSourcesDataImportEventHubDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDataSourcesDataImportEventHubDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 stream: str,
+                 consumer_group: Optional[str] = None):
+        """
+        :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        :param str stream: The stream to collect from Event Hub. Possible value should be a custom stream name.
+        :param str consumer_group: The Event Hub consumer group name.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "stream", stream)
+        if consumer_group is not None:
+            pulumi.set(__self__, "consumer_group", consumer_group)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def stream(self) -> str:
+        """
+        The stream to collect from Event Hub. Possible value should be a custom stream name.
+        """
+        return pulumi.get(self, "stream")
+
+    @property
+    @pulumi.getter(name="consumerGroup")
+    def consumer_group(self) -> Optional[str]:
+        """
+        The Event Hub consumer group name.
+        """
+        return pulumi.get(self, "consumer_group")
 
 
 @pulumi.output_type
@@ -4761,6 +5033,197 @@ class DataCollectionRuleDataSourcesExtension(dict):
 
 
 @pulumi.output_type
+class DataCollectionRuleDataSourcesIisLog(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDirectories":
+            suggest = "log_directories"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDataSourcesIisLog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDataSourcesIisLog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDataSourcesIisLog.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 streams: Sequence[str],
+                 log_directories: Optional[Sequence[str]] = None):
+        """
+        :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is `Microsoft-W3CIISLog`.
+        :param Sequence[str] log_directories: Specifies a list of absolute paths where the log files are located.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+        if log_directories is not None:
+            pulumi.set(__self__, "log_directories", log_directories)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Sequence[str]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is `Microsoft-W3CIISLog`.
+        """
+        return pulumi.get(self, "streams")
+
+    @property
+    @pulumi.getter(name="logDirectories")
+    def log_directories(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of absolute paths where the log files are located.
+        """
+        return pulumi.get(self, "log_directories")
+
+
+@pulumi.output_type
+class DataCollectionRuleDataSourcesLogFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filePatterns":
+            suggest = "file_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDataSourcesLogFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDataSourcesLogFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDataSourcesLogFile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_patterns: Sequence[str],
+                 format: str,
+                 name: str,
+                 streams: Sequence[str],
+                 settings: Optional['outputs.DataCollectionRuleDataSourcesLogFileSettings'] = None):
+        """
+        :param Sequence[str] file_patterns: Specifies a list of file patterns where the log files are located. For example, `C:\\\\JavaLogs\\\\*.log`.
+        :param str format: The data format of the log files. possible value is `text`.
+        :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value should be custom stream names.
+        :param 'DataCollectionRuleDataSourcesLogFileSettingsArgs' settings: A `settings` block as defined below.
+        """
+        pulumi.set(__self__, "file_patterns", file_patterns)
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter(name="filePatterns")
+    def file_patterns(self) -> Sequence[str]:
+        """
+        Specifies a list of file patterns where the log files are located. For example, `C:\\\\JavaLogs\\\\*.log`.
+        """
+        return pulumi.get(self, "file_patterns")
+
+    @property
+    @pulumi.getter
+    def format(self) -> str:
+        """
+        The data format of the log files. possible value is `text`.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Sequence[str]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value should be custom stream names.
+        """
+        return pulumi.get(self, "streams")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional['outputs.DataCollectionRuleDataSourcesLogFileSettings']:
+        """
+        A `settings` block as defined below.
+        """
+        return pulumi.get(self, "settings")
+
+
+@pulumi.output_type
+class DataCollectionRuleDataSourcesLogFileSettings(dict):
+    def __init__(__self__, *,
+                 text: 'outputs.DataCollectionRuleDataSourcesLogFileSettingsText'):
+        """
+        :param 'DataCollectionRuleDataSourcesLogFileSettingsTextArgs' text: A `text` block as defined below.
+        """
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> 'outputs.DataCollectionRuleDataSourcesLogFileSettingsText':
+        """
+        A `text` block as defined below.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class DataCollectionRuleDataSourcesLogFileSettingsText(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordStartTimestampFormat":
+            suggest = "record_start_timestamp_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDataSourcesLogFileSettingsText. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDataSourcesLogFileSettingsText.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDataSourcesLogFileSettingsText.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 record_start_timestamp_format: str):
+        """
+        :param str record_start_timestamp_format: The timestamp format of the text log files. Possible values are `ISO 8601`, `YYYY-MM-DD HH:MM:SS`, `M/D/YYYY HH:MM:SS AM/PM`, `Mon DD, YYYY HH:MM:SS`, `yyMMdd HH:mm:ss`, `ddMMyy HH:mm:ss`, `MMM d hh:mm:ss`, `dd/MMM/yyyy:HH:mm:ss zzz`,and `yyyy-MM-ddTHH:mm:ssK`.
+        """
+        pulumi.set(__self__, "record_start_timestamp_format", record_start_timestamp_format)
+
+    @property
+    @pulumi.getter(name="recordStartTimestampFormat")
+    def record_start_timestamp_format(self) -> str:
+        """
+        The timestamp format of the text log files. Possible values are `ISO 8601`, `YYYY-MM-DD HH:MM:SS`, `M/D/YYYY HH:MM:SS AM/PM`, `Mon DD, YYYY HH:MM:SS`, `yyMMdd HH:mm:ss`, `ddMMyy HH:mm:ss`, `MMM d hh:mm:ss`, `dd/MMM/yyyy:HH:mm:ss zzz`,and `yyyy-MM-ddTHH:mm:ssK`.
+        """
+        return pulumi.get(self, "record_start_timestamp_format")
+
+
+@pulumi.output_type
 class DataCollectionRuleDataSourcesPerformanceCounter(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4828,6 +5291,122 @@ class DataCollectionRuleDataSourcesPerformanceCounter(dict):
         Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
         """
         return pulumi.get(self, "streams")
+
+
+@pulumi.output_type
+class DataCollectionRuleDataSourcesPlatformTelemetry(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 streams: Sequence[str]):
+        """
+        :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft.Cache/redis:Metrics-Group-All`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Sequence[str]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft.Cache/redis:Metrics-Group-All`.
+        """
+        return pulumi.get(self, "streams")
+
+
+@pulumi.output_type
+class DataCollectionRuleDataSourcesPrometheusForwarder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labelIncludeFilters":
+            suggest = "label_include_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDataSourcesPrometheusForwarder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDataSourcesPrometheusForwarder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDataSourcesPrometheusForwarder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 streams: Sequence[str],
+                 label_include_filters: Optional[Sequence['outputs.DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter']] = None):
+        """
+        :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is `Microsoft-PrometheusMetrics`.
+        :param Sequence['DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs'] label_include_filters: One or more `label_include_filter` blocks as defined above.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+        if label_include_filters is not None:
+            pulumi.set(__self__, "label_include_filters", label_include_filters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Sequence[str]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is `Microsoft-PrometheusMetrics`.
+        """
+        return pulumi.get(self, "streams")
+
+    @property
+    @pulumi.getter(name="labelIncludeFilters")
+    def label_include_filters(self) -> Optional[Sequence['outputs.DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter']]:
+        """
+        One or more `label_include_filter` blocks as defined above.
+        """
+        return pulumi.get(self, "label_include_filters")
+
+
+@pulumi.output_type
+class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 value: str):
+        """
+        :param str label: The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+        :param str value: The value of the filter.
+        """
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the filter.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -4959,14 +5538,55 @@ class DataCollectionRuleDataSourcesWindowsEventLog(dict):
 
 
 @pulumi.output_type
+class DataCollectionRuleDataSourcesWindowsFirewallLog(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 streams: Sequence[str]):
+        """
+        :param str name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Sequence[str]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
+
+
+@pulumi.output_type
 class DataCollectionRuleDestinations(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "azureMonitorMetrics":
             suggest = "azure_monitor_metrics"
+        elif key == "eventHub":
+            suggest = "event_hub"
+        elif key == "eventHubDirect":
+            suggest = "event_hub_direct"
         elif key == "logAnalytics":
             suggest = "log_analytics"
+        elif key == "monitorAccounts":
+            suggest = "monitor_accounts"
+        elif key == "storageBlobDirects":
+            suggest = "storage_blob_directs"
+        elif key == "storageBlobs":
+            suggest = "storage_blobs"
+        elif key == "storageTableDirects":
+            suggest = "storage_table_directs"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDestinations. Access the value via the '{suggest}' property getter instead.")
@@ -4981,15 +5601,39 @@ class DataCollectionRuleDestinations(dict):
 
     def __init__(__self__, *,
                  azure_monitor_metrics: Optional['outputs.DataCollectionRuleDestinationsAzureMonitorMetrics'] = None,
-                 log_analytics: Optional[Sequence['outputs.DataCollectionRuleDestinationsLogAnalytic']] = None):
+                 event_hub: Optional['outputs.DataCollectionRuleDestinationsEventHub'] = None,
+                 event_hub_direct: Optional['outputs.DataCollectionRuleDestinationsEventHubDirect'] = None,
+                 log_analytics: Optional[Sequence['outputs.DataCollectionRuleDestinationsLogAnalytic']] = None,
+                 monitor_accounts: Optional[Sequence['outputs.DataCollectionRuleDestinationsMonitorAccount']] = None,
+                 storage_blob_directs: Optional[Sequence['outputs.DataCollectionRuleDestinationsStorageBlobDirect']] = None,
+                 storage_blobs: Optional[Sequence['outputs.DataCollectionRuleDestinationsStorageBlob']] = None,
+                 storage_table_directs: Optional[Sequence['outputs.DataCollectionRuleDestinationsStorageTableDirect']] = None):
         """
         :param 'DataCollectionRuleDestinationsAzureMonitorMetricsArgs' azure_monitor_metrics: A `azure_monitor_metrics` block as defined above.
+        :param 'DataCollectionRuleDestinationsEventHubArgs' event_hub: One or more `event_hub` blocks as defined below.
+        :param 'DataCollectionRuleDestinationsEventHubDirectArgs' event_hub_direct: One or more `event_hub` blocks as defined below.
         :param Sequence['DataCollectionRuleDestinationsLogAnalyticArgs'] log_analytics: One or more `log_analytics` blocks as defined below.
+        :param Sequence['DataCollectionRuleDestinationsMonitorAccountArgs'] monitor_accounts: One or more `monitor_account` blocks as defined below.
+        :param Sequence['DataCollectionRuleDestinationsStorageBlobDirectArgs'] storage_blob_directs: One or more `storage_blob_direct` blocks as defined below.
+        :param Sequence['DataCollectionRuleDestinationsStorageBlobArgs'] storage_blobs: One or more `storage_blob` blocks as defined below.
+        :param Sequence['DataCollectionRuleDestinationsStorageTableDirectArgs'] storage_table_directs: One or more `storage_table_direct` blocks as defined below.
         """
         if azure_monitor_metrics is not None:
             pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)
+        if event_hub is not None:
+            pulumi.set(__self__, "event_hub", event_hub)
+        if event_hub_direct is not None:
+            pulumi.set(__self__, "event_hub_direct", event_hub_direct)
         if log_analytics is not None:
             pulumi.set(__self__, "log_analytics", log_analytics)
+        if monitor_accounts is not None:
+            pulumi.set(__self__, "monitor_accounts", monitor_accounts)
+        if storage_blob_directs is not None:
+            pulumi.set(__self__, "storage_blob_directs", storage_blob_directs)
+        if storage_blobs is not None:
+            pulumi.set(__self__, "storage_blobs", storage_blobs)
+        if storage_table_directs is not None:
+            pulumi.set(__self__, "storage_table_directs", storage_table_directs)
 
     @property
     @pulumi.getter(name="azureMonitorMetrics")
@@ -5000,12 +5644,60 @@ class DataCollectionRuleDestinations(dict):
         return pulumi.get(self, "azure_monitor_metrics")
 
     @property
+    @pulumi.getter(name="eventHub")
+    def event_hub(self) -> Optional['outputs.DataCollectionRuleDestinationsEventHub']:
+        """
+        One or more `event_hub` blocks as defined below.
+        """
+        return pulumi.get(self, "event_hub")
+
+    @property
+    @pulumi.getter(name="eventHubDirect")
+    def event_hub_direct(self) -> Optional['outputs.DataCollectionRuleDestinationsEventHubDirect']:
+        """
+        One or more `event_hub` blocks as defined below.
+        """
+        return pulumi.get(self, "event_hub_direct")
+
+    @property
     @pulumi.getter(name="logAnalytics")
     def log_analytics(self) -> Optional[Sequence['outputs.DataCollectionRuleDestinationsLogAnalytic']]:
         """
         One or more `log_analytics` blocks as defined below.
         """
         return pulumi.get(self, "log_analytics")
+
+    @property
+    @pulumi.getter(name="monitorAccounts")
+    def monitor_accounts(self) -> Optional[Sequence['outputs.DataCollectionRuleDestinationsMonitorAccount']]:
+        """
+        One or more `monitor_account` blocks as defined below.
+        """
+        return pulumi.get(self, "monitor_accounts")
+
+    @property
+    @pulumi.getter(name="storageBlobDirects")
+    def storage_blob_directs(self) -> Optional[Sequence['outputs.DataCollectionRuleDestinationsStorageBlobDirect']]:
+        """
+        One or more `storage_blob_direct` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_blob_directs")
+
+    @property
+    @pulumi.getter(name="storageBlobs")
+    def storage_blobs(self) -> Optional[Sequence['outputs.DataCollectionRuleDestinationsStorageBlob']]:
+        """
+        One or more `storage_blob` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_blobs")
+
+    @property
+    @pulumi.getter(name="storageTableDirects")
+    def storage_table_directs(self) -> Optional[Sequence['outputs.DataCollectionRuleDestinationsStorageTableDirect']]:
+        """
+        One or more `storage_table_direct` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_table_directs")
 
 
 @pulumi.output_type
@@ -5016,6 +5708,98 @@ class DataCollectionRuleDestinationsAzureMonitorMetrics(dict):
         :param str name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
         """
         pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DataCollectionRuleDestinationsEventHub(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventHubId":
+            suggest = "event_hub_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDestinationsEventHub. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDestinationsEventHub.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDestinationsEventHub.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_hub_id: str,
+                 name: str):
+        """
+        :param str event_hub_id: The resource ID of the Event Hub.
+        :param str name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        pulumi.set(__self__, "event_hub_id", event_hub_id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="eventHubId")
+    def event_hub_id(self) -> str:
+        """
+        The resource ID of the Event Hub.
+        """
+        return pulumi.get(self, "event_hub_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DataCollectionRuleDestinationsEventHubDirect(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventHubId":
+            suggest = "event_hub_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDestinationsEventHubDirect. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDestinationsEventHubDirect.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDestinationsEventHubDirect.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_hub_id: str,
+                 name: str):
+        """
+        :param str event_hub_id: The resource ID of the Event Hub.
+        :param str name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        pulumi.set(__self__, "event_hub_id", event_hub_id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="eventHubId")
+    def event_hub_id(self) -> str:
+        """
+        The resource ID of the Event Hub.
+        """
+        return pulumi.get(self, "event_hub_id")
 
     @property
     @pulumi.getter
@@ -5070,6 +5854,379 @@ class DataCollectionRuleDestinationsLogAnalytic(dict):
         The ID of a Log Analytic Workspace resource.
         """
         return pulumi.get(self, "workspace_resource_id")
+
+
+@pulumi.output_type
+class DataCollectionRuleDestinationsMonitorAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitorAccountId":
+            suggest = "monitor_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDestinationsMonitorAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDestinationsMonitorAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDestinationsMonitorAccount.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 monitor_account_id: str,
+                 name: str):
+        """
+        :param str monitor_account_id: The resource ID of the Monitor Account.
+        :param str name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        pulumi.set(__self__, "monitor_account_id", monitor_account_id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="monitorAccountId")
+    def monitor_account_id(self) -> str:
+        """
+        The resource ID of the Monitor Account.
+        """
+        return pulumi.get(self, "monitor_account_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DataCollectionRuleDestinationsStorageBlob(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDestinationsStorageBlob. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDestinationsStorageBlob.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDestinationsStorageBlob.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_name: str,
+                 name: str,
+                 storage_account_id: str):
+        """
+        :param str container_name: The Storage Container name.
+        :param str name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        :param str storage_account_id: The resource ID of the Storage Account.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        The Storage Container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        The resource ID of the Storage Account.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+
+@pulumi.output_type
+class DataCollectionRuleDestinationsStorageBlobDirect(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDestinationsStorageBlobDirect. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDestinationsStorageBlobDirect.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDestinationsStorageBlobDirect.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_name: str,
+                 name: str,
+                 storage_account_id: str):
+        """
+        :param str container_name: The Storage Container name.
+        :param str name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        :param str storage_account_id: The resource ID of the Storage Account.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        The Storage Container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        The resource ID of the Storage Account.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+
+@pulumi.output_type
+class DataCollectionRuleDestinationsStorageTableDirect(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountId":
+            suggest = "storage_account_id"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleDestinationsStorageTableDirect. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleDestinationsStorageTableDirect.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleDestinationsStorageTableDirect.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 storage_account_id: str,
+                 table_name: str):
+        """
+        :param str name: The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        :param str storage_account_id: The resource ID of the Storage Account.
+        :param str table_name: The Storage Table name.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        The resource ID of the Storage Account.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The Storage Table name.
+        """
+        return pulumi.get(self, "table_name")
+
+
+@pulumi.output_type
+class DataCollectionRuleIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are `SystemAssigned` and `UserAssigned`.
+        :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are `SystemAssigned` and `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class DataCollectionRuleStreamDeclaration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streamName":
+            suggest = "stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleStreamDeclaration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleStreamDeclaration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleStreamDeclaration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 columns: Sequence['outputs.DataCollectionRuleStreamDeclarationColumn'],
+                 stream_name: str):
+        """
+        :param Sequence['DataCollectionRuleStreamDeclarationColumnArgs'] columns: One or more `column` blocks as defined above.
+        :param str stream_name: The name of the custom stream. This name should be unique across all `stream_declaration` blocks.
+        """
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "stream_name", stream_name)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence['outputs.DataCollectionRuleStreamDeclarationColumn']:
+        """
+        One or more `column` blocks as defined above.
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> str:
+        """
+        The name of the custom stream. This name should be unique across all `stream_declaration` blocks.
+        """
+        return pulumi.get(self, "stream_name")
+
+
+@pulumi.output_type
+class DataCollectionRuleStreamDeclarationColumn(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        :param str name: The name of the column.
+        :param str type: The type of the column data. Possible values are `string`, `int`, `long`, `real`, `boolean`, `datetime`,and `dynamic`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the column data. Possible values are `string`, `int`, `long`, `real`, `boolean`, `datetime`,and `dynamic`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -7351,14 +8508,31 @@ class GetActionGroupWebhookReceiverAadAuthResult(dict):
 @pulumi.output_type
 class GetDataCollectionRuleDataFlowResult(dict):
     def __init__(__self__, *,
+                 built_in_transform: str,
                  destinations: Sequence[str],
-                 streams: Sequence[str]):
+                 output_stream: str,
+                 streams: Sequence[str],
+                 transform_kql: str):
         """
+        :param str built_in_transform: The built-in transform to transform stream data.
         :param Sequence[str] destinations: Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
-        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        :param str output_stream: The output stream of the transform. Only required if the data flow changes data to a different stream.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        :param str transform_kql: The KQL query to transform stream data.
         """
+        pulumi.set(__self__, "built_in_transform", built_in_transform)
         pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "output_stream", output_stream)
         pulumi.set(__self__, "streams", streams)
+        pulumi.set(__self__, "transform_kql", transform_kql)
+
+    @property
+    @pulumi.getter(name="builtInTransform")
+    def built_in_transform(self) -> str:
+        """
+        The built-in transform to transform stream data.
+        """
+        return pulumi.get(self, "built_in_transform")
 
     @property
     @pulumi.getter
@@ -7369,31 +8543,75 @@ class GetDataCollectionRuleDataFlowResult(dict):
         return pulumi.get(self, "destinations")
 
     @property
+    @pulumi.getter(name="outputStream")
+    def output_stream(self) -> str:
+        """
+        The output stream of the transform. Only required if the data flow changes data to a different stream.
+        """
+        return pulumi.get(self, "output_stream")
+
+    @property
     @pulumi.getter
     def streams(self) -> Sequence[str]:
         """
-        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         return pulumi.get(self, "streams")
+
+    @property
+    @pulumi.getter(name="transformKql")
+    def transform_kql(self) -> str:
+        """
+        The KQL query to transform stream data.
+        """
+        return pulumi.get(self, "transform_kql")
 
 
 @pulumi.output_type
 class GetDataCollectionRuleDataSourceResult(dict):
     def __init__(__self__, *,
+                 data_imports: Sequence['outputs.GetDataCollectionRuleDataSourceDataImportResult'],
                  extensions: Sequence['outputs.GetDataCollectionRuleDataSourceExtensionResult'],
+                 iis_logs: Sequence['outputs.GetDataCollectionRuleDataSourceIisLogResult'],
                  performance_counters: Sequence['outputs.GetDataCollectionRuleDataSourcePerformanceCounterResult'],
+                 prometheus_forwarders: Sequence['outputs.GetDataCollectionRuleDataSourcePrometheusForwarderResult'],
                  syslogs: Sequence['outputs.GetDataCollectionRuleDataSourceSyslogResult'],
-                 windows_event_logs: Sequence['outputs.GetDataCollectionRuleDataSourceWindowsEventLogResult']):
+                 windows_event_logs: Sequence['outputs.GetDataCollectionRuleDataSourceWindowsEventLogResult'],
+                 windows_firewall_logs: Sequence['outputs.GetDataCollectionRuleDataSourceWindowsFirewallLogResult'],
+                 log_files: Optional[Sequence['outputs.GetDataCollectionRuleDataSourceLogFileResult']] = None,
+                 platform_telemetries: Optional[Sequence['outputs.GetDataCollectionRuleDataSourcePlatformTelemetryResult']] = None):
         """
+        :param Sequence['GetDataCollectionRuleDataSourceDataImportArgs'] data_imports: A `data_import` block as defined above.
         :param Sequence['GetDataCollectionRuleDataSourceExtensionArgs'] extensions: One or more `extension` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourceIisLogArgs'] iis_logs: One or more `iis_log` blocks as defined below.
         :param Sequence['GetDataCollectionRuleDataSourcePerformanceCounterArgs'] performance_counters: One or more `performance_counter` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourcePrometheusForwarderArgs'] prometheus_forwarders: One or more `prometheus_forwarder` blocks as defined below.
         :param Sequence['GetDataCollectionRuleDataSourceSyslogArgs'] syslogs: One or more `syslog` blocks as defined below.
         :param Sequence['GetDataCollectionRuleDataSourceWindowsEventLogArgs'] windows_event_logs: One or more `windows_event_log` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourceWindowsFirewallLogArgs'] windows_firewall_logs: One or more `windows_firewall_log` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourceLogFileArgs'] log_files: One or more `log_file` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDataSourcePlatformTelemetryArgs'] platform_telemetries: One or more `platform_telemetry` blocks as defined below.
         """
+        pulumi.set(__self__, "data_imports", data_imports)
         pulumi.set(__self__, "extensions", extensions)
+        pulumi.set(__self__, "iis_logs", iis_logs)
         pulumi.set(__self__, "performance_counters", performance_counters)
+        pulumi.set(__self__, "prometheus_forwarders", prometheus_forwarders)
         pulumi.set(__self__, "syslogs", syslogs)
         pulumi.set(__self__, "windows_event_logs", windows_event_logs)
+        pulumi.set(__self__, "windows_firewall_logs", windows_firewall_logs)
+        if log_files is not None:
+            pulumi.set(__self__, "log_files", log_files)
+        if platform_telemetries is not None:
+            pulumi.set(__self__, "platform_telemetries", platform_telemetries)
+
+    @property
+    @pulumi.getter(name="dataImports")
+    def data_imports(self) -> Sequence['outputs.GetDataCollectionRuleDataSourceDataImportResult']:
+        """
+        A `data_import` block as defined above.
+        """
+        return pulumi.get(self, "data_imports")
 
     @property
     @pulumi.getter
@@ -7404,12 +8622,28 @@ class GetDataCollectionRuleDataSourceResult(dict):
         return pulumi.get(self, "extensions")
 
     @property
+    @pulumi.getter(name="iisLogs")
+    def iis_logs(self) -> Sequence['outputs.GetDataCollectionRuleDataSourceIisLogResult']:
+        """
+        One or more `iis_log` blocks as defined below.
+        """
+        return pulumi.get(self, "iis_logs")
+
+    @property
     @pulumi.getter(name="performanceCounters")
     def performance_counters(self) -> Sequence['outputs.GetDataCollectionRuleDataSourcePerformanceCounterResult']:
         """
         One or more `performance_counter` blocks as defined below.
         """
         return pulumi.get(self, "performance_counters")
+
+    @property
+    @pulumi.getter(name="prometheusForwarders")
+    def prometheus_forwarders(self) -> Sequence['outputs.GetDataCollectionRuleDataSourcePrometheusForwarderResult']:
+        """
+        One or more `prometheus_forwarder` blocks as defined below.
+        """
+        return pulumi.get(self, "prometheus_forwarders")
 
     @property
     @pulumi.getter
@@ -7427,6 +8661,88 @@ class GetDataCollectionRuleDataSourceResult(dict):
         """
         return pulumi.get(self, "windows_event_logs")
 
+    @property
+    @pulumi.getter(name="windowsFirewallLogs")
+    def windows_firewall_logs(self) -> Sequence['outputs.GetDataCollectionRuleDataSourceWindowsFirewallLogResult']:
+        """
+        One or more `windows_firewall_log` blocks as defined below.
+        """
+        return pulumi.get(self, "windows_firewall_logs")
+
+    @property
+    @pulumi.getter(name="logFiles")
+    def log_files(self) -> Optional[Sequence['outputs.GetDataCollectionRuleDataSourceLogFileResult']]:
+        """
+        One or more `log_file` blocks as defined below.
+        """
+        return pulumi.get(self, "log_files")
+
+    @property
+    @pulumi.getter(name="platformTelemetries")
+    def platform_telemetries(self) -> Optional[Sequence['outputs.GetDataCollectionRuleDataSourcePlatformTelemetryResult']]:
+        """
+        One or more `platform_telemetry` blocks as defined below.
+        """
+        return pulumi.get(self, "platform_telemetries")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDataSourceDataImportResult(dict):
+    def __init__(__self__, *,
+                 event_hub_data_sources: Sequence['outputs.GetDataCollectionRuleDataSourceDataImportEventHubDataSourceResult']):
+        """
+        :param Sequence['GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArgs'] event_hub_data_sources: An `event_hub_data_source` block as defined below.
+        """
+        pulumi.set(__self__, "event_hub_data_sources", event_hub_data_sources)
+
+    @property
+    @pulumi.getter(name="eventHubDataSources")
+    def event_hub_data_sources(self) -> Sequence['outputs.GetDataCollectionRuleDataSourceDataImportEventHubDataSourceResult']:
+        """
+        An `event_hub_data_source` block as defined below.
+        """
+        return pulumi.get(self, "event_hub_data_sources")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDataSourceDataImportEventHubDataSourceResult(dict):
+    def __init__(__self__, *,
+                 consumer_group: str,
+                 name: str,
+                 stream: str):
+        """
+        :param str consumer_group: The Event Hub consumer group name.
+        :param str name: Specifies the name of the Data Collection Rule.
+        :param str stream: The stream to collect from Event Hub. Possible value should be a custom stream name.
+        """
+        pulumi.set(__self__, "consumer_group", consumer_group)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "stream", stream)
+
+    @property
+    @pulumi.getter(name="consumerGroup")
+    def consumer_group(self) -> str:
+        """
+        The Event Hub consumer group name.
+        """
+        return pulumi.get(self, "consumer_group")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def stream(self) -> str:
+        """
+        The stream to collect from Event Hub. Possible value should be a custom stream name.
+        """
+        return pulumi.get(self, "stream")
+
 
 @pulumi.output_type
 class GetDataCollectionRuleDataSourceExtensionResult(dict):
@@ -7441,7 +8757,7 @@ class GetDataCollectionRuleDataSourceExtensionResult(dict):
         :param str extension_name: The name of the VM extension.
         :param Sequence[str] input_data_sources: Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performance_counter`, `windows_event_log`,and `syslog`.
         :param str name: Specifies the name of the Data Collection Rule.
-        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         pulumi.set(__self__, "extension_json", extension_json)
         pulumi.set(__self__, "extension_name", extension_name)
@@ -7485,9 +8801,147 @@ class GetDataCollectionRuleDataSourceExtensionResult(dict):
     @pulumi.getter
     def streams(self) -> Sequence[str]:
         """
-        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         return pulumi.get(self, "streams")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDataSourceIisLogResult(dict):
+    def __init__(__self__, *,
+                 log_directories: Sequence[str],
+                 name: str,
+                 streams: Sequence[str]):
+        """
+        :param Sequence[str] log_directories: Specifies a list of absolute paths where the log files are located.
+        :param str name: Specifies the name of the Data Collection Rule.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        pulumi.set(__self__, "log_directories", log_directories)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter(name="logDirectories")
+    def log_directories(self) -> Sequence[str]:
+        """
+        Specifies a list of absolute paths where the log files are located.
+        """
+        return pulumi.get(self, "log_directories")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Sequence[str]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDataSourceLogFileResult(dict):
+    def __init__(__self__, *,
+                 file_patterns: Sequence[str],
+                 format: str,
+                 name: str,
+                 settings: Sequence['outputs.GetDataCollectionRuleDataSourceLogFileSettingResult'],
+                 streams: Sequence[str]):
+        """
+        :param Sequence[str] file_patterns: Specifies a list of file patterns where the log files are located. For example, `C:\\\\JavaLogs\\\\*.log`.
+        :param str format: The data format of the log files. possible value is `text`.
+        :param str name: Specifies the name of the Data Collection Rule.
+        :param Sequence['GetDataCollectionRuleDataSourceLogFileSettingArgs'] settings: A `settings` block as defined below.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        pulumi.set(__self__, "file_patterns", file_patterns)
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "settings", settings)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter(name="filePatterns")
+    def file_patterns(self) -> Sequence[str]:
+        """
+        Specifies a list of file patterns where the log files are located. For example, `C:\\\\JavaLogs\\\\*.log`.
+        """
+        return pulumi.get(self, "file_patterns")
+
+    @property
+    @pulumi.getter
+    def format(self) -> str:
+        """
+        The data format of the log files. possible value is `text`.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Sequence['outputs.GetDataCollectionRuleDataSourceLogFileSettingResult']:
+        """
+        A `settings` block as defined below.
+        """
+        return pulumi.get(self, "settings")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Sequence[str]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDataSourceLogFileSettingResult(dict):
+    def __init__(__self__, *,
+                 texts: Sequence['outputs.GetDataCollectionRuleDataSourceLogFileSettingTextResult']):
+        """
+        :param Sequence['GetDataCollectionRuleDataSourceLogFileSettingTextArgs'] texts: A `text` block as defined below.
+        """
+        pulumi.set(__self__, "texts", texts)
+
+    @property
+    @pulumi.getter
+    def texts(self) -> Sequence['outputs.GetDataCollectionRuleDataSourceLogFileSettingTextResult']:
+        """
+        A `text` block as defined below.
+        """
+        return pulumi.get(self, "texts")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDataSourceLogFileSettingTextResult(dict):
+    def __init__(__self__, *,
+                 record_start_timestamp_format: str):
+        """
+        :param str record_start_timestamp_format: The timestamp format of the text log files. Possible values are `ISO 8601`, `YYYY-MM-DD HH:MM:SS`, `M/D/YYYY HH:MM:SS AM/PM`, `Mon DD, YYYY HH:MM:SS`, `yyMMdd HH:mm:ss`, `ddMMyy HH:mm:ss`, `MMM d hh:mm:ss`, `dd/MMM/yyyy:HH:mm:ss zzz`,and `yyyy-MM-ddTHH:mm:ssK`.
+        """
+        pulumi.set(__self__, "record_start_timestamp_format", record_start_timestamp_format)
+
+    @property
+    @pulumi.getter(name="recordStartTimestampFormat")
+    def record_start_timestamp_format(self) -> str:
+        """
+        The timestamp format of the text log files. Possible values are `ISO 8601`, `YYYY-MM-DD HH:MM:SS`, `M/D/YYYY HH:MM:SS AM/PM`, `Mon DD, YYYY HH:MM:SS`, `yyMMdd HH:mm:ss`, `ddMMyy HH:mm:ss`, `MMM d hh:mm:ss`, `dd/MMM/yyyy:HH:mm:ss zzz`,and `yyyy-MM-ddTHH:mm:ssK`.
+        """
+        return pulumi.get(self, "record_start_timestamp_format")
 
 
 @pulumi.output_type
@@ -7501,7 +8955,7 @@ class GetDataCollectionRuleDataSourcePerformanceCounterResult(dict):
         :param Sequence[str] counter_specifiers: Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
         :param str name: Specifies the name of the Data Collection Rule.
         :param int sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
-        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         pulumi.set(__self__, "counter_specifiers", counter_specifiers)
         pulumi.set(__self__, "name", name)
@@ -7536,9 +8990,107 @@ class GetDataCollectionRuleDataSourcePerformanceCounterResult(dict):
     @pulumi.getter
     def streams(self) -> Sequence[str]:
         """
-        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         return pulumi.get(self, "streams")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDataSourcePlatformTelemetryResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 streams: Sequence[str]):
+        """
+        :param str name: Specifies the name of the Data Collection Rule.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Sequence[str]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDataSourcePrometheusForwarderResult(dict):
+    def __init__(__self__, *,
+                 label_include_filters: Sequence['outputs.GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult'],
+                 name: str,
+                 streams: Sequence[str]):
+        """
+        :param Sequence['GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArgs'] label_include_filters: One or more `label_include_filter` blocks as defined above.
+        :param str name: Specifies the name of the Data Collection Rule.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        pulumi.set(__self__, "label_include_filters", label_include_filters)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter(name="labelIncludeFilters")
+    def label_include_filters(self) -> Sequence['outputs.GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult']:
+        """
+        One or more `label_include_filter` blocks as defined above.
+        """
+        return pulumi.get(self, "label_include_filters")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Sequence[str]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult(dict):
+    def __init__(__self__, *,
+                 label: str,
+                 value: str):
+        """
+        :param str label: The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+        :param str value: The value of the filter.
+        """
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> str:
+        """
+        The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the filter.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -7552,7 +9104,7 @@ class GetDataCollectionRuleDataSourceSyslogResult(dict):
         :param Sequence[str] facility_names: Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
         :param Sequence[str] log_levels: Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
         :param str name: Specifies the name of the Data Collection Rule.
-        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         pulumi.set(__self__, "facility_names", facility_names)
         pulumi.set(__self__, "log_levels", log_levels)
@@ -7587,7 +9139,7 @@ class GetDataCollectionRuleDataSourceSyslogResult(dict):
     @pulumi.getter
     def streams(self) -> Sequence[str]:
         """
-        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         return pulumi.get(self, "streams")
 
@@ -7600,7 +9152,7 @@ class GetDataCollectionRuleDataSourceWindowsEventLogResult(dict):
                  x_path_queries: Sequence[str]):
         """
         :param str name: Specifies the name of the Data Collection Rule.
-        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         :param Sequence[str] x_path_queries: Specifies a list of Windows Event Log queries in XPath expression.
         """
         pulumi.set(__self__, "name", name)
@@ -7619,7 +9171,7 @@ class GetDataCollectionRuleDataSourceWindowsEventLogResult(dict):
     @pulumi.getter
     def streams(self) -> Sequence[str]:
         """
-        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         return pulumi.get(self, "streams")
 
@@ -7633,16 +9185,65 @@ class GetDataCollectionRuleDataSourceWindowsEventLogResult(dict):
 
 
 @pulumi.output_type
+class GetDataCollectionRuleDataSourceWindowsFirewallLogResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 streams: Sequence[str]):
+        """
+        :param str name: Specifies the name of the Data Collection Rule.
+        :param Sequence[str] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "streams", streams)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def streams(self) -> Sequence[str]:
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+        return pulumi.get(self, "streams")
+
+
+@pulumi.output_type
 class GetDataCollectionRuleDestinationResult(dict):
     def __init__(__self__, *,
                  azure_monitor_metrics: Sequence['outputs.GetDataCollectionRuleDestinationAzureMonitorMetricResult'],
-                 log_analytics: Sequence['outputs.GetDataCollectionRuleDestinationLogAnalyticResult']):
+                 log_analytics: Sequence['outputs.GetDataCollectionRuleDestinationLogAnalyticResult'],
+                 monitor_accounts: Sequence['outputs.GetDataCollectionRuleDestinationMonitorAccountResult'],
+                 storage_blob_directs: Sequence['outputs.GetDataCollectionRuleDestinationStorageBlobDirectResult'],
+                 storage_blobs: Sequence['outputs.GetDataCollectionRuleDestinationStorageBlobResult'],
+                 storage_table_directs: Sequence['outputs.GetDataCollectionRuleDestinationStorageTableDirectResult'],
+                 event_hub: Optional['outputs.GetDataCollectionRuleDestinationEventHubResult'] = None,
+                 event_hub_direct: Optional['outputs.GetDataCollectionRuleDestinationEventHubDirectResult'] = None):
         """
         :param Sequence['GetDataCollectionRuleDestinationAzureMonitorMetricArgs'] azure_monitor_metrics: A `azure_monitor_metrics` block as defined above.
         :param Sequence['GetDataCollectionRuleDestinationLogAnalyticArgs'] log_analytics: One or more `log_analytics` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDestinationMonitorAccountArgs'] monitor_accounts: One or more `monitor_account` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDestinationStorageBlobDirectArgs'] storage_blob_directs: One or more `storage_blob_direct` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDestinationStorageBlobArgs'] storage_blobs: One or more `storage_blob` blocks as defined below.
+        :param Sequence['GetDataCollectionRuleDestinationStorageTableDirectArgs'] storage_table_directs: One or more `storage_table_direct` blocks as defined below.
+        :param 'GetDataCollectionRuleDestinationEventHubArgs' event_hub: One or more `event_hub` blocks as defined below.
+        :param 'GetDataCollectionRuleDestinationEventHubDirectArgs' event_hub_direct: One or more `event_hub_direct` blocks as defined below.
         """
         pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)
         pulumi.set(__self__, "log_analytics", log_analytics)
+        pulumi.set(__self__, "monitor_accounts", monitor_accounts)
+        pulumi.set(__self__, "storage_blob_directs", storage_blob_directs)
+        pulumi.set(__self__, "storage_blobs", storage_blobs)
+        pulumi.set(__self__, "storage_table_directs", storage_table_directs)
+        if event_hub is not None:
+            pulumi.set(__self__, "event_hub", event_hub)
+        if event_hub_direct is not None:
+            pulumi.set(__self__, "event_hub_direct", event_hub_direct)
 
     @property
     @pulumi.getter(name="azureMonitorMetrics")
@@ -7660,6 +9261,54 @@ class GetDataCollectionRuleDestinationResult(dict):
         """
         return pulumi.get(self, "log_analytics")
 
+    @property
+    @pulumi.getter(name="monitorAccounts")
+    def monitor_accounts(self) -> Sequence['outputs.GetDataCollectionRuleDestinationMonitorAccountResult']:
+        """
+        One or more `monitor_account` blocks as defined below.
+        """
+        return pulumi.get(self, "monitor_accounts")
+
+    @property
+    @pulumi.getter(name="storageBlobDirects")
+    def storage_blob_directs(self) -> Sequence['outputs.GetDataCollectionRuleDestinationStorageBlobDirectResult']:
+        """
+        One or more `storage_blob_direct` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_blob_directs")
+
+    @property
+    @pulumi.getter(name="storageBlobs")
+    def storage_blobs(self) -> Sequence['outputs.GetDataCollectionRuleDestinationStorageBlobResult']:
+        """
+        One or more `storage_blob` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_blobs")
+
+    @property
+    @pulumi.getter(name="storageTableDirects")
+    def storage_table_directs(self) -> Sequence['outputs.GetDataCollectionRuleDestinationStorageTableDirectResult']:
+        """
+        One or more `storage_table_direct` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_table_directs")
+
+    @property
+    @pulumi.getter(name="eventHub")
+    def event_hub(self) -> Optional['outputs.GetDataCollectionRuleDestinationEventHubResult']:
+        """
+        One or more `event_hub` blocks as defined below.
+        """
+        return pulumi.get(self, "event_hub")
+
+    @property
+    @pulumi.getter(name="eventHubDirect")
+    def event_hub_direct(self) -> Optional['outputs.GetDataCollectionRuleDestinationEventHubDirectResult']:
+        """
+        One or more `event_hub_direct` blocks as defined below.
+        """
+        return pulumi.get(self, "event_hub_direct")
+
 
 @pulumi.output_type
 class GetDataCollectionRuleDestinationAzureMonitorMetricResult(dict):
@@ -7669,6 +9318,64 @@ class GetDataCollectionRuleDestinationAzureMonitorMetricResult(dict):
         :param str name: Specifies the name of the Data Collection Rule.
         """
         pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDestinationEventHubResult(dict):
+    def __init__(__self__, *,
+                 event_hub_id: str,
+                 name: str):
+        """
+        :param str event_hub_id: The resource ID of the Event Hub.
+        :param str name: Specifies the name of the Data Collection Rule.
+        """
+        pulumi.set(__self__, "event_hub_id", event_hub_id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="eventHubId")
+    def event_hub_id(self) -> str:
+        """
+        The resource ID of the Event Hub.
+        """
+        return pulumi.get(self, "event_hub_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDestinationEventHubDirectResult(dict):
+    def __init__(__self__, *,
+                 event_hub_id: str,
+                 name: str):
+        """
+        :param str event_hub_id: The resource ID of the Event Hub.
+        :param str name: Specifies the name of the Data Collection Rule.
+        """
+        pulumi.set(__self__, "event_hub_id", event_hub_id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="eventHubId")
+    def event_hub_id(self) -> str:
+        """
+        The resource ID of the Event Hub.
+        """
+        return pulumi.get(self, "event_hub_id")
 
     @property
     @pulumi.getter
@@ -7706,6 +9413,264 @@ class GetDataCollectionRuleDestinationLogAnalyticResult(dict):
         The ID of a Log Analytic Workspace resource.
         """
         return pulumi.get(self, "workspace_resource_id")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDestinationMonitorAccountResult(dict):
+    def __init__(__self__, *,
+                 monitor_account_id: str,
+                 name: str):
+        """
+        :param str monitor_account_id: The resource ID of the Monitor Account.
+        :param str name: Specifies the name of the Data Collection Rule.
+        """
+        pulumi.set(__self__, "monitor_account_id", monitor_account_id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="monitorAccountId")
+    def monitor_account_id(self) -> str:
+        """
+        The resource ID of the Monitor Account.
+        """
+        return pulumi.get(self, "monitor_account_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDestinationStorageBlobResult(dict):
+    def __init__(__self__, *,
+                 container_name: str,
+                 name: str,
+                 storage_account_id: str):
+        """
+        :param str container_name: The Storage Container name.
+        :param str name: Specifies the name of the Data Collection Rule.
+        :param str storage_account_id: The resource ID of the Storage Account.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        The Storage Container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        The resource ID of the Storage Account.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDestinationStorageBlobDirectResult(dict):
+    def __init__(__self__, *,
+                 container_name: str,
+                 name: str,
+                 storage_account_id: str):
+        """
+        :param str container_name: The Storage Container name.
+        :param str name: Specifies the name of the Data Collection Rule.
+        :param str storage_account_id: The resource ID of the Storage Account.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        The Storage Container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        The resource ID of the Storage Account.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleDestinationStorageTableDirectResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 storage_account_id: str,
+                 table_name: str):
+        """
+        :param str name: Specifies the name of the Data Collection Rule.
+        :param str storage_account_id: The resource ID of the Storage Account.
+        :param str table_name: The Storage Table name.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        The resource ID of the Storage Account.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The Storage Table name.
+        """
+        return pulumi.get(self, "table_name")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
+        :param str type: cSpecifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are `SystemAssigned` and `UserAssigned`.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        cSpecifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are `SystemAssigned` and `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleStreamDeclarationResult(dict):
+    def __init__(__self__, *,
+                 columns: Sequence['outputs.GetDataCollectionRuleStreamDeclarationColumnResult'],
+                 stream_name: str):
+        """
+        :param Sequence['GetDataCollectionRuleStreamDeclarationColumnArgs'] columns: One or more `column` blocks as defined above.
+        :param str stream_name: The name of the custom stream. This name should be unique across all `stream_declaration` blocks.
+        """
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "stream_name", stream_name)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Sequence['outputs.GetDataCollectionRuleStreamDeclarationColumnResult']:
+        """
+        One or more `column` blocks as defined above.
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> str:
+        """
+        The name of the custom stream. This name should be unique across all `stream_declaration` blocks.
+        """
+        return pulumi.get(self, "stream_name")
+
+
+@pulumi.output_type
+class GetDataCollectionRuleStreamDeclarationColumnResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        :param str name: Specifies the name of the Data Collection Rule.
+        :param str type: cSpecifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are `SystemAssigned` and `UserAssigned`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Collection Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        cSpecifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are `SystemAssigned` and `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

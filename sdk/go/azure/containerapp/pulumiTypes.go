@@ -14,7 +14,7 @@ type AppDapr struct {
 	// The Dapr Application Identifier.
 	AppId string `pulumi:"appId"`
 	// The port which the application is listening on. This is the same as the `ingress` port.
-	AppPort int `pulumi:"appPort"`
+	AppPort *int `pulumi:"appPort"`
 	// The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
 	AppProtocol *string `pulumi:"appProtocol"`
 }
@@ -34,7 +34,7 @@ type AppDaprArgs struct {
 	// The Dapr Application Identifier.
 	AppId pulumi.StringInput `pulumi:"appId"`
 	// The port which the application is listening on. This is the same as the `ingress` port.
-	AppPort pulumi.IntInput `pulumi:"appPort"`
+	AppPort pulumi.IntPtrInput `pulumi:"appPort"`
 	// The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
 	AppProtocol pulumi.StringPtrInput `pulumi:"appProtocol"`
 }
@@ -122,8 +122,8 @@ func (o AppDaprOutput) AppId() pulumi.StringOutput {
 }
 
 // The port which the application is listening on. This is the same as the `ingress` port.
-func (o AppDaprOutput) AppPort() pulumi.IntOutput {
-	return o.ApplyT(func(v AppDapr) int { return v.AppPort }).(pulumi.IntOutput)
+func (o AppDaprOutput) AppPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppDapr) *int { return v.AppPort }).(pulumi.IntPtrOutput)
 }
 
 // The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
@@ -171,7 +171,7 @@ func (o AppDaprPtrOutput) AppPort() pulumi.IntPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.AppPort
+		return v.AppPort
 	}).(pulumi.IntPtrOutput)
 }
 

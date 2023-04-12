@@ -68,7 +68,7 @@ public final class SoftwareUpdateConfigurationSchedule {
     private @Nullable String startTime;
     private @Nullable Double startTimeOffsetMinutes;
     /**
-     * @return The timezone of the start time. Defaults to `UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
+     * @return The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
      * 
      */
     private @Nullable String timeZone;
@@ -156,7 +156,7 @@ public final class SoftwareUpdateConfigurationSchedule {
         return Optional.ofNullable(this.startTimeOffsetMinutes);
     }
     /**
-     * @return The timezone of the start time. Defaults to `UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
+     * @return The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
      * 
      */
     public Optional<String> timeZone() {

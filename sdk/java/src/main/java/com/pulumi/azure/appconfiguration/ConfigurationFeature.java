@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *         var test = new ConfigurationFeature(&#34;test&#34;, ConfigurationFeatureArgs.builder()        
  *             .configurationStoreId(appconf.id())
  *             .description(&#34;test description&#34;)
- *             .label(&#34;acctest-ackeylabel-%d&#34;)
+ *             .label(&#34;test-ackeylabel&#34;)
  *             .enabled(true)
  *             .build());
  * 
@@ -133,6 +133,20 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
 
     public Output<String> etag() {
         return this.etag;
+    }
+    /**
+     * The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="key", refs={String.class}, tree="[0]")
+    private Output<String> key;
+
+    /**
+     * @return The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> key() {
+        return this.key;
     }
     /**
      * The label of the App Configuration Feature. Changing this forces a new resource to be created.

@@ -325,14 +325,14 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
     }
 
     /**
-     * A `gallery_application` block as defined below.
+     * One or more `gallery_application` blocks as defined below.
      * 
      */
     @Import(name="galleryApplication")
     private @Nullable Output<List<LinuxVirtualMachineScaleSetGalleryApplicationArgs>> galleryApplication;
 
     /**
-     * @return A `gallery_application` block as defined below.
+     * @return One or more `gallery_application` blocks as defined below.
      * 
      */
     public Optional<Output<List<LinuxVirtualMachineScaleSetGalleryApplicationArgs>>> galleryApplication() {
@@ -1404,7 +1404,7 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
         }
 
         /**
-         * @param galleryApplication A `gallery_application` block as defined below.
+         * @param galleryApplication One or more `gallery_application` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1415,7 +1415,7 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
         }
 
         /**
-         * @param galleryApplication A `gallery_application` block as defined below.
+         * @param galleryApplication One or more `gallery_application` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1425,7 +1425,7 @@ public final class LinuxVirtualMachineScaleSetState extends com.pulumi.resources
         }
 
         /**
-         * @param galleryApplication A `gallery_application` block as defined below.
+         * @param galleryApplication One or more `gallery_application` blocks as defined below.
          * 
          * @return builder
          * 

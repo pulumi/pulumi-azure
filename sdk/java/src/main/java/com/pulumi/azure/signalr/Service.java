@@ -153,6 +153,20 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.hostname;
     }
     /**
+     * Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+     * 
+     */
+    @Export(name="httpRequestLogsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> httpRequestLogsEnabled;
+
+    /**
+     * @return Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> httpRequestLogsEnabled() {
+        return Codegen.optional(this.httpRequestLogsEnabled);
+    }
+    /**
      * An `identity` block as defined below.
      * 
      */

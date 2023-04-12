@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * const test = new azure.appconfiguration.ConfigurationFeature("test", {
  *     configurationStoreId: appconf.id,
  *     description: "test description",
- *     label: "acctest-ackeylabel-%d",
+ *     label: "test-ackeylabel",
  *     enabled: true,
  * });
  * ```
@@ -84,6 +84,10 @@ export class ConfigurationFeature extends pulumi.CustomResource {
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly etag!: pulumi.Output<string>;
     /**
+     * The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+     */
+    public readonly key!: pulumi.Output<string>;
+    /**
      * The label of the App Configuration Feature. Changing this forces a new resource to be created.
      */
     public readonly label!: pulumi.Output<string | undefined>;
@@ -129,6 +133,7 @@ export class ConfigurationFeature extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["label"] = state ? state.label : undefined;
             resourceInputs["locked"] = state ? state.locked : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -145,6 +150,7 @@ export class ConfigurationFeature extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["label"] = args ? args.label : undefined;
             resourceInputs["locked"] = args ? args.locked : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -175,6 +181,10 @@ export interface ConfigurationFeatureState {
      */
     enabled?: pulumi.Input<boolean>;
     etag?: pulumi.Input<string>;
+    /**
+     * The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+     */
+    key?: pulumi.Input<string>;
     /**
      * The label of the App Configuration Feature. Changing this forces a new resource to be created.
      */
@@ -222,6 +232,10 @@ export interface ConfigurationFeatureArgs {
      */
     enabled?: pulumi.Input<boolean>;
     etag?: pulumi.Input<string>;
+    /**
+     * The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+     */
+    key?: pulumi.Input<string>;
     /**
      * The label of the App Configuration Feature. Changing this forces a new resource to be created.
      */

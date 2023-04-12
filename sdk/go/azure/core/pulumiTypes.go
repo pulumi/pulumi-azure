@@ -1768,6 +1768,727 @@ func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) Roo
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResourceGroupCostManagementViewDataset struct {
+	// One or more `aggregation` blocks as defined above.
+	Aggregations []ResourceGroupCostManagementViewDatasetAggregation `pulumi:"aggregations"`
+	// The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+	Granularity string `pulumi:"granularity"`
+	// One or more `grouping` blocks as defined below.
+	Groupings []ResourceGroupCostManagementViewDatasetGrouping `pulumi:"groupings"`
+	// One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+	Sortings []ResourceGroupCostManagementViewDatasetSorting `pulumi:"sortings"`
+}
+
+// ResourceGroupCostManagementViewDatasetInput is an input type that accepts ResourceGroupCostManagementViewDatasetArgs and ResourceGroupCostManagementViewDatasetOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementViewDatasetInput` via:
+//
+//	ResourceGroupCostManagementViewDatasetArgs{...}
+type ResourceGroupCostManagementViewDatasetInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementViewDatasetOutput() ResourceGroupCostManagementViewDatasetOutput
+	ToResourceGroupCostManagementViewDatasetOutputWithContext(context.Context) ResourceGroupCostManagementViewDatasetOutput
+}
+
+type ResourceGroupCostManagementViewDatasetArgs struct {
+	// One or more `aggregation` blocks as defined above.
+	Aggregations ResourceGroupCostManagementViewDatasetAggregationArrayInput `pulumi:"aggregations"`
+	// The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+	Granularity pulumi.StringInput `pulumi:"granularity"`
+	// One or more `grouping` blocks as defined below.
+	Groupings ResourceGroupCostManagementViewDatasetGroupingArrayInput `pulumi:"groupings"`
+	// One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+	Sortings ResourceGroupCostManagementViewDatasetSortingArrayInput `pulumi:"sortings"`
+}
+
+func (ResourceGroupCostManagementViewDatasetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementViewDataset)(nil)).Elem()
+}
+
+func (i ResourceGroupCostManagementViewDatasetArgs) ToResourceGroupCostManagementViewDatasetOutput() ResourceGroupCostManagementViewDatasetOutput {
+	return i.ToResourceGroupCostManagementViewDatasetOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementViewDatasetArgs) ToResourceGroupCostManagementViewDatasetOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetOutput)
+}
+
+func (i ResourceGroupCostManagementViewDatasetArgs) ToResourceGroupCostManagementViewDatasetPtrOutput() ResourceGroupCostManagementViewDatasetPtrOutput {
+	return i.ToResourceGroupCostManagementViewDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementViewDatasetArgs) ToResourceGroupCostManagementViewDatasetPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetOutput).ToResourceGroupCostManagementViewDatasetPtrOutputWithContext(ctx)
+}
+
+// ResourceGroupCostManagementViewDatasetPtrInput is an input type that accepts ResourceGroupCostManagementViewDatasetArgs, ResourceGroupCostManagementViewDatasetPtr and ResourceGroupCostManagementViewDatasetPtrOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementViewDatasetPtrInput` via:
+//
+//	        ResourceGroupCostManagementViewDatasetArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceGroupCostManagementViewDatasetPtrInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementViewDatasetPtrOutput() ResourceGroupCostManagementViewDatasetPtrOutput
+	ToResourceGroupCostManagementViewDatasetPtrOutputWithContext(context.Context) ResourceGroupCostManagementViewDatasetPtrOutput
+}
+
+type resourceGroupCostManagementViewDatasetPtrType ResourceGroupCostManagementViewDatasetArgs
+
+func ResourceGroupCostManagementViewDatasetPtr(v *ResourceGroupCostManagementViewDatasetArgs) ResourceGroupCostManagementViewDatasetPtrInput {
+	return (*resourceGroupCostManagementViewDatasetPtrType)(v)
+}
+
+func (*resourceGroupCostManagementViewDatasetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGroupCostManagementViewDataset)(nil)).Elem()
+}
+
+func (i *resourceGroupCostManagementViewDatasetPtrType) ToResourceGroupCostManagementViewDatasetPtrOutput() ResourceGroupCostManagementViewDatasetPtrOutput {
+	return i.ToResourceGroupCostManagementViewDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceGroupCostManagementViewDatasetPtrType) ToResourceGroupCostManagementViewDatasetPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetPtrOutput)
+}
+
+type ResourceGroupCostManagementViewDatasetOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementViewDatasetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementViewDataset)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementViewDatasetOutput) ToResourceGroupCostManagementViewDatasetOutput() ResourceGroupCostManagementViewDatasetOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetOutput) ToResourceGroupCostManagementViewDatasetOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetOutput) ToResourceGroupCostManagementViewDatasetPtrOutput() ResourceGroupCostManagementViewDatasetPtrOutput {
+	return o.ToResourceGroupCostManagementViewDatasetPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGroupCostManagementViewDatasetOutput) ToResourceGroupCostManagementViewDatasetPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupCostManagementViewDataset) *ResourceGroupCostManagementViewDataset {
+		return &v
+	}).(ResourceGroupCostManagementViewDatasetPtrOutput)
+}
+
+// One or more `aggregation` blocks as defined above.
+func (o ResourceGroupCostManagementViewDatasetOutput) Aggregations() ResourceGroupCostManagementViewDatasetAggregationArrayOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementViewDataset) []ResourceGroupCostManagementViewDatasetAggregation {
+		return v.Aggregations
+	}).(ResourceGroupCostManagementViewDatasetAggregationArrayOutput)
+}
+
+// The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+func (o ResourceGroupCostManagementViewDatasetOutput) Granularity() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementViewDataset) string { return v.Granularity }).(pulumi.StringOutput)
+}
+
+// One or more `grouping` blocks as defined below.
+func (o ResourceGroupCostManagementViewDatasetOutput) Groupings() ResourceGroupCostManagementViewDatasetGroupingArrayOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementViewDataset) []ResourceGroupCostManagementViewDatasetGrouping {
+		return v.Groupings
+	}).(ResourceGroupCostManagementViewDatasetGroupingArrayOutput)
+}
+
+// One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+func (o ResourceGroupCostManagementViewDatasetOutput) Sortings() ResourceGroupCostManagementViewDatasetSortingArrayOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementViewDataset) []ResourceGroupCostManagementViewDatasetSorting {
+		return v.Sortings
+	}).(ResourceGroupCostManagementViewDatasetSortingArrayOutput)
+}
+
+type ResourceGroupCostManagementViewDatasetPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementViewDatasetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGroupCostManagementViewDataset)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementViewDatasetPtrOutput) ToResourceGroupCostManagementViewDatasetPtrOutput() ResourceGroupCostManagementViewDatasetPtrOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetPtrOutput) ToResourceGroupCostManagementViewDatasetPtrOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetPtrOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetPtrOutput) Elem() ResourceGroupCostManagementViewDatasetOutput {
+	return o.ApplyT(func(v *ResourceGroupCostManagementViewDataset) ResourceGroupCostManagementViewDataset {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGroupCostManagementViewDataset
+		return ret
+	}).(ResourceGroupCostManagementViewDatasetOutput)
+}
+
+// One or more `aggregation` blocks as defined above.
+func (o ResourceGroupCostManagementViewDatasetPtrOutput) Aggregations() ResourceGroupCostManagementViewDatasetAggregationArrayOutput {
+	return o.ApplyT(func(v *ResourceGroupCostManagementViewDataset) []ResourceGroupCostManagementViewDatasetAggregation {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregations
+	}).(ResourceGroupCostManagementViewDatasetAggregationArrayOutput)
+}
+
+// The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+func (o ResourceGroupCostManagementViewDatasetPtrOutput) Granularity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroupCostManagementViewDataset) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Granularity
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `grouping` blocks as defined below.
+func (o ResourceGroupCostManagementViewDatasetPtrOutput) Groupings() ResourceGroupCostManagementViewDatasetGroupingArrayOutput {
+	return o.ApplyT(func(v *ResourceGroupCostManagementViewDataset) []ResourceGroupCostManagementViewDatasetGrouping {
+		if v == nil {
+			return nil
+		}
+		return v.Groupings
+	}).(ResourceGroupCostManagementViewDatasetGroupingArrayOutput)
+}
+
+// One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+func (o ResourceGroupCostManagementViewDatasetPtrOutput) Sortings() ResourceGroupCostManagementViewDatasetSortingArrayOutput {
+	return o.ApplyT(func(v *ResourceGroupCostManagementViewDataset) []ResourceGroupCostManagementViewDatasetSorting {
+		if v == nil {
+			return nil
+		}
+		return v.Sortings
+	}).(ResourceGroupCostManagementViewDatasetSortingArrayOutput)
+}
+
+type ResourceGroupCostManagementViewDatasetAggregation struct {
+	// The name of the column to aggregate. Changing this forces a new Cost Management View for a Resource Group to be created.
+	ColumnName string `pulumi:"columnName"`
+	// The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Resource Group to be created.
+	Name string `pulumi:"name"`
+}
+
+// ResourceGroupCostManagementViewDatasetAggregationInput is an input type that accepts ResourceGroupCostManagementViewDatasetAggregationArgs and ResourceGroupCostManagementViewDatasetAggregationOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementViewDatasetAggregationInput` via:
+//
+//	ResourceGroupCostManagementViewDatasetAggregationArgs{...}
+type ResourceGroupCostManagementViewDatasetAggregationInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementViewDatasetAggregationOutput() ResourceGroupCostManagementViewDatasetAggregationOutput
+	ToResourceGroupCostManagementViewDatasetAggregationOutputWithContext(context.Context) ResourceGroupCostManagementViewDatasetAggregationOutput
+}
+
+type ResourceGroupCostManagementViewDatasetAggregationArgs struct {
+	// The name of the column to aggregate. Changing this forces a new Cost Management View for a Resource Group to be created.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Resource Group to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ResourceGroupCostManagementViewDatasetAggregationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementViewDatasetAggregation)(nil)).Elem()
+}
+
+func (i ResourceGroupCostManagementViewDatasetAggregationArgs) ToResourceGroupCostManagementViewDatasetAggregationOutput() ResourceGroupCostManagementViewDatasetAggregationOutput {
+	return i.ToResourceGroupCostManagementViewDatasetAggregationOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementViewDatasetAggregationArgs) ToResourceGroupCostManagementViewDatasetAggregationOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetAggregationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetAggregationOutput)
+}
+
+// ResourceGroupCostManagementViewDatasetAggregationArrayInput is an input type that accepts ResourceGroupCostManagementViewDatasetAggregationArray and ResourceGroupCostManagementViewDatasetAggregationArrayOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementViewDatasetAggregationArrayInput` via:
+//
+//	ResourceGroupCostManagementViewDatasetAggregationArray{ ResourceGroupCostManagementViewDatasetAggregationArgs{...} }
+type ResourceGroupCostManagementViewDatasetAggregationArrayInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementViewDatasetAggregationArrayOutput() ResourceGroupCostManagementViewDatasetAggregationArrayOutput
+	ToResourceGroupCostManagementViewDatasetAggregationArrayOutputWithContext(context.Context) ResourceGroupCostManagementViewDatasetAggregationArrayOutput
+}
+
+type ResourceGroupCostManagementViewDatasetAggregationArray []ResourceGroupCostManagementViewDatasetAggregationInput
+
+func (ResourceGroupCostManagementViewDatasetAggregationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGroupCostManagementViewDatasetAggregation)(nil)).Elem()
+}
+
+func (i ResourceGroupCostManagementViewDatasetAggregationArray) ToResourceGroupCostManagementViewDatasetAggregationArrayOutput() ResourceGroupCostManagementViewDatasetAggregationArrayOutput {
+	return i.ToResourceGroupCostManagementViewDatasetAggregationArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementViewDatasetAggregationArray) ToResourceGroupCostManagementViewDatasetAggregationArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetAggregationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetAggregationArrayOutput)
+}
+
+type ResourceGroupCostManagementViewDatasetAggregationOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementViewDatasetAggregationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementViewDatasetAggregation)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementViewDatasetAggregationOutput) ToResourceGroupCostManagementViewDatasetAggregationOutput() ResourceGroupCostManagementViewDatasetAggregationOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetAggregationOutput) ToResourceGroupCostManagementViewDatasetAggregationOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetAggregationOutput {
+	return o
+}
+
+// The name of the column to aggregate. Changing this forces a new Cost Management View for a Resource Group to be created.
+func (o ResourceGroupCostManagementViewDatasetAggregationOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementViewDatasetAggregation) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Resource Group to be created.
+func (o ResourceGroupCostManagementViewDatasetAggregationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementViewDatasetAggregation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ResourceGroupCostManagementViewDatasetAggregationArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementViewDatasetAggregationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGroupCostManagementViewDatasetAggregation)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementViewDatasetAggregationArrayOutput) ToResourceGroupCostManagementViewDatasetAggregationArrayOutput() ResourceGroupCostManagementViewDatasetAggregationArrayOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetAggregationArrayOutput) ToResourceGroupCostManagementViewDatasetAggregationArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetAggregationArrayOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetAggregationArrayOutput) Index(i pulumi.IntInput) ResourceGroupCostManagementViewDatasetAggregationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceGroupCostManagementViewDatasetAggregation {
+		return vs[0].([]ResourceGroupCostManagementViewDatasetAggregation)[vs[1].(int)]
+	}).(ResourceGroupCostManagementViewDatasetAggregationOutput)
+}
+
+type ResourceGroupCostManagementViewDatasetGrouping struct {
+	// The name of the column to group.
+	Name string `pulumi:"name"`
+	// The type of the column. Possible values are `Dimension` and `TagKey`.
+	Type string `pulumi:"type"`
+}
+
+// ResourceGroupCostManagementViewDatasetGroupingInput is an input type that accepts ResourceGroupCostManagementViewDatasetGroupingArgs and ResourceGroupCostManagementViewDatasetGroupingOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementViewDatasetGroupingInput` via:
+//
+//	ResourceGroupCostManagementViewDatasetGroupingArgs{...}
+type ResourceGroupCostManagementViewDatasetGroupingInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementViewDatasetGroupingOutput() ResourceGroupCostManagementViewDatasetGroupingOutput
+	ToResourceGroupCostManagementViewDatasetGroupingOutputWithContext(context.Context) ResourceGroupCostManagementViewDatasetGroupingOutput
+}
+
+type ResourceGroupCostManagementViewDatasetGroupingArgs struct {
+	// The name of the column to group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the column. Possible values are `Dimension` and `TagKey`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ResourceGroupCostManagementViewDatasetGroupingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementViewDatasetGrouping)(nil)).Elem()
+}
+
+func (i ResourceGroupCostManagementViewDatasetGroupingArgs) ToResourceGroupCostManagementViewDatasetGroupingOutput() ResourceGroupCostManagementViewDatasetGroupingOutput {
+	return i.ToResourceGroupCostManagementViewDatasetGroupingOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementViewDatasetGroupingArgs) ToResourceGroupCostManagementViewDatasetGroupingOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetGroupingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetGroupingOutput)
+}
+
+// ResourceGroupCostManagementViewDatasetGroupingArrayInput is an input type that accepts ResourceGroupCostManagementViewDatasetGroupingArray and ResourceGroupCostManagementViewDatasetGroupingArrayOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementViewDatasetGroupingArrayInput` via:
+//
+//	ResourceGroupCostManagementViewDatasetGroupingArray{ ResourceGroupCostManagementViewDatasetGroupingArgs{...} }
+type ResourceGroupCostManagementViewDatasetGroupingArrayInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementViewDatasetGroupingArrayOutput() ResourceGroupCostManagementViewDatasetGroupingArrayOutput
+	ToResourceGroupCostManagementViewDatasetGroupingArrayOutputWithContext(context.Context) ResourceGroupCostManagementViewDatasetGroupingArrayOutput
+}
+
+type ResourceGroupCostManagementViewDatasetGroupingArray []ResourceGroupCostManagementViewDatasetGroupingInput
+
+func (ResourceGroupCostManagementViewDatasetGroupingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGroupCostManagementViewDatasetGrouping)(nil)).Elem()
+}
+
+func (i ResourceGroupCostManagementViewDatasetGroupingArray) ToResourceGroupCostManagementViewDatasetGroupingArrayOutput() ResourceGroupCostManagementViewDatasetGroupingArrayOutput {
+	return i.ToResourceGroupCostManagementViewDatasetGroupingArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementViewDatasetGroupingArray) ToResourceGroupCostManagementViewDatasetGroupingArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetGroupingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetGroupingArrayOutput)
+}
+
+type ResourceGroupCostManagementViewDatasetGroupingOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementViewDatasetGroupingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementViewDatasetGrouping)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementViewDatasetGroupingOutput) ToResourceGroupCostManagementViewDatasetGroupingOutput() ResourceGroupCostManagementViewDatasetGroupingOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetGroupingOutput) ToResourceGroupCostManagementViewDatasetGroupingOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetGroupingOutput {
+	return o
+}
+
+// The name of the column to group.
+func (o ResourceGroupCostManagementViewDatasetGroupingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementViewDatasetGrouping) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the column. Possible values are `Dimension` and `TagKey`.
+func (o ResourceGroupCostManagementViewDatasetGroupingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementViewDatasetGrouping) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ResourceGroupCostManagementViewDatasetGroupingArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementViewDatasetGroupingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGroupCostManagementViewDatasetGrouping)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementViewDatasetGroupingArrayOutput) ToResourceGroupCostManagementViewDatasetGroupingArrayOutput() ResourceGroupCostManagementViewDatasetGroupingArrayOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetGroupingArrayOutput) ToResourceGroupCostManagementViewDatasetGroupingArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetGroupingArrayOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetGroupingArrayOutput) Index(i pulumi.IntInput) ResourceGroupCostManagementViewDatasetGroupingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceGroupCostManagementViewDatasetGrouping {
+		return vs[0].([]ResourceGroupCostManagementViewDatasetGrouping)[vs[1].(int)]
+	}).(ResourceGroupCostManagementViewDatasetGroupingOutput)
+}
+
+type ResourceGroupCostManagementViewDatasetSorting struct {
+	// Direction of sort. Possible values are `Ascending` and `Descending`.
+	Direction string `pulumi:"direction"`
+	// The name of the column to sort.
+	Name string `pulumi:"name"`
+}
+
+// ResourceGroupCostManagementViewDatasetSortingInput is an input type that accepts ResourceGroupCostManagementViewDatasetSortingArgs and ResourceGroupCostManagementViewDatasetSortingOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementViewDatasetSortingInput` via:
+//
+//	ResourceGroupCostManagementViewDatasetSortingArgs{...}
+type ResourceGroupCostManagementViewDatasetSortingInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementViewDatasetSortingOutput() ResourceGroupCostManagementViewDatasetSortingOutput
+	ToResourceGroupCostManagementViewDatasetSortingOutputWithContext(context.Context) ResourceGroupCostManagementViewDatasetSortingOutput
+}
+
+type ResourceGroupCostManagementViewDatasetSortingArgs struct {
+	// Direction of sort. Possible values are `Ascending` and `Descending`.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The name of the column to sort.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ResourceGroupCostManagementViewDatasetSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementViewDatasetSorting)(nil)).Elem()
+}
+
+func (i ResourceGroupCostManagementViewDatasetSortingArgs) ToResourceGroupCostManagementViewDatasetSortingOutput() ResourceGroupCostManagementViewDatasetSortingOutput {
+	return i.ToResourceGroupCostManagementViewDatasetSortingOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementViewDatasetSortingArgs) ToResourceGroupCostManagementViewDatasetSortingOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetSortingOutput)
+}
+
+// ResourceGroupCostManagementViewDatasetSortingArrayInput is an input type that accepts ResourceGroupCostManagementViewDatasetSortingArray and ResourceGroupCostManagementViewDatasetSortingArrayOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementViewDatasetSortingArrayInput` via:
+//
+//	ResourceGroupCostManagementViewDatasetSortingArray{ ResourceGroupCostManagementViewDatasetSortingArgs{...} }
+type ResourceGroupCostManagementViewDatasetSortingArrayInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementViewDatasetSortingArrayOutput() ResourceGroupCostManagementViewDatasetSortingArrayOutput
+	ToResourceGroupCostManagementViewDatasetSortingArrayOutputWithContext(context.Context) ResourceGroupCostManagementViewDatasetSortingArrayOutput
+}
+
+type ResourceGroupCostManagementViewDatasetSortingArray []ResourceGroupCostManagementViewDatasetSortingInput
+
+func (ResourceGroupCostManagementViewDatasetSortingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGroupCostManagementViewDatasetSorting)(nil)).Elem()
+}
+
+func (i ResourceGroupCostManagementViewDatasetSortingArray) ToResourceGroupCostManagementViewDatasetSortingArrayOutput() ResourceGroupCostManagementViewDatasetSortingArrayOutput {
+	return i.ToResourceGroupCostManagementViewDatasetSortingArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementViewDatasetSortingArray) ToResourceGroupCostManagementViewDatasetSortingArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetSortingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewDatasetSortingArrayOutput)
+}
+
+type ResourceGroupCostManagementViewDatasetSortingOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementViewDatasetSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementViewDatasetSorting)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementViewDatasetSortingOutput) ToResourceGroupCostManagementViewDatasetSortingOutput() ResourceGroupCostManagementViewDatasetSortingOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetSortingOutput) ToResourceGroupCostManagementViewDatasetSortingOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetSortingOutput {
+	return o
+}
+
+// Direction of sort. Possible values are `Ascending` and `Descending`.
+func (o ResourceGroupCostManagementViewDatasetSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementViewDatasetSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The name of the column to sort.
+func (o ResourceGroupCostManagementViewDatasetSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementViewDatasetSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ResourceGroupCostManagementViewDatasetSortingArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementViewDatasetSortingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGroupCostManagementViewDatasetSorting)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementViewDatasetSortingArrayOutput) ToResourceGroupCostManagementViewDatasetSortingArrayOutput() ResourceGroupCostManagementViewDatasetSortingArrayOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetSortingArrayOutput) ToResourceGroupCostManagementViewDatasetSortingArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewDatasetSortingArrayOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewDatasetSortingArrayOutput) Index(i pulumi.IntInput) ResourceGroupCostManagementViewDatasetSortingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceGroupCostManagementViewDatasetSorting {
+		return vs[0].([]ResourceGroupCostManagementViewDatasetSorting)[vs[1].(int)]
+	}).(ResourceGroupCostManagementViewDatasetSortingOutput)
+}
+
+type ResourceGroupCostManagementViewKpi struct {
+	// KPI type. Possible values are `Budget` and `Forecast`.
+	Type string `pulumi:"type"`
+}
+
+// ResourceGroupCostManagementViewKpiInput is an input type that accepts ResourceGroupCostManagementViewKpiArgs and ResourceGroupCostManagementViewKpiOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementViewKpiInput` via:
+//
+//	ResourceGroupCostManagementViewKpiArgs{...}
+type ResourceGroupCostManagementViewKpiInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementViewKpiOutput() ResourceGroupCostManagementViewKpiOutput
+	ToResourceGroupCostManagementViewKpiOutputWithContext(context.Context) ResourceGroupCostManagementViewKpiOutput
+}
+
+type ResourceGroupCostManagementViewKpiArgs struct {
+	// KPI type. Possible values are `Budget` and `Forecast`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ResourceGroupCostManagementViewKpiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementViewKpi)(nil)).Elem()
+}
+
+func (i ResourceGroupCostManagementViewKpiArgs) ToResourceGroupCostManagementViewKpiOutput() ResourceGroupCostManagementViewKpiOutput {
+	return i.ToResourceGroupCostManagementViewKpiOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementViewKpiArgs) ToResourceGroupCostManagementViewKpiOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewKpiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewKpiOutput)
+}
+
+// ResourceGroupCostManagementViewKpiArrayInput is an input type that accepts ResourceGroupCostManagementViewKpiArray and ResourceGroupCostManagementViewKpiArrayOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementViewKpiArrayInput` via:
+//
+//	ResourceGroupCostManagementViewKpiArray{ ResourceGroupCostManagementViewKpiArgs{...} }
+type ResourceGroupCostManagementViewKpiArrayInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementViewKpiArrayOutput() ResourceGroupCostManagementViewKpiArrayOutput
+	ToResourceGroupCostManagementViewKpiArrayOutputWithContext(context.Context) ResourceGroupCostManagementViewKpiArrayOutput
+}
+
+type ResourceGroupCostManagementViewKpiArray []ResourceGroupCostManagementViewKpiInput
+
+func (ResourceGroupCostManagementViewKpiArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGroupCostManagementViewKpi)(nil)).Elem()
+}
+
+func (i ResourceGroupCostManagementViewKpiArray) ToResourceGroupCostManagementViewKpiArrayOutput() ResourceGroupCostManagementViewKpiArrayOutput {
+	return i.ToResourceGroupCostManagementViewKpiArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementViewKpiArray) ToResourceGroupCostManagementViewKpiArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewKpiArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewKpiArrayOutput)
+}
+
+type ResourceGroupCostManagementViewKpiOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementViewKpiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementViewKpi)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementViewKpiOutput) ToResourceGroupCostManagementViewKpiOutput() ResourceGroupCostManagementViewKpiOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewKpiOutput) ToResourceGroupCostManagementViewKpiOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewKpiOutput {
+	return o
+}
+
+// KPI type. Possible values are `Budget` and `Forecast`.
+func (o ResourceGroupCostManagementViewKpiOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementViewKpi) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ResourceGroupCostManagementViewKpiArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementViewKpiArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGroupCostManagementViewKpi)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementViewKpiArrayOutput) ToResourceGroupCostManagementViewKpiArrayOutput() ResourceGroupCostManagementViewKpiArrayOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewKpiArrayOutput) ToResourceGroupCostManagementViewKpiArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewKpiArrayOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewKpiArrayOutput) Index(i pulumi.IntInput) ResourceGroupCostManagementViewKpiOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceGroupCostManagementViewKpi {
+		return vs[0].([]ResourceGroupCostManagementViewKpi)[vs[1].(int)]
+	}).(ResourceGroupCostManagementViewKpiOutput)
+}
+
+type ResourceGroupCostManagementViewPivot struct {
+	// The name of the column which should be used for this sub-view in the Cost Analysis UI.
+	Name string `pulumi:"name"`
+	// The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
+	Type string `pulumi:"type"`
+}
+
+// ResourceGroupCostManagementViewPivotInput is an input type that accepts ResourceGroupCostManagementViewPivotArgs and ResourceGroupCostManagementViewPivotOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementViewPivotInput` via:
+//
+//	ResourceGroupCostManagementViewPivotArgs{...}
+type ResourceGroupCostManagementViewPivotInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementViewPivotOutput() ResourceGroupCostManagementViewPivotOutput
+	ToResourceGroupCostManagementViewPivotOutputWithContext(context.Context) ResourceGroupCostManagementViewPivotOutput
+}
+
+type ResourceGroupCostManagementViewPivotArgs struct {
+	// The name of the column which should be used for this sub-view in the Cost Analysis UI.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ResourceGroupCostManagementViewPivotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementViewPivot)(nil)).Elem()
+}
+
+func (i ResourceGroupCostManagementViewPivotArgs) ToResourceGroupCostManagementViewPivotOutput() ResourceGroupCostManagementViewPivotOutput {
+	return i.ToResourceGroupCostManagementViewPivotOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementViewPivotArgs) ToResourceGroupCostManagementViewPivotOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewPivotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewPivotOutput)
+}
+
+// ResourceGroupCostManagementViewPivotArrayInput is an input type that accepts ResourceGroupCostManagementViewPivotArray and ResourceGroupCostManagementViewPivotArrayOutput values.
+// You can construct a concrete instance of `ResourceGroupCostManagementViewPivotArrayInput` via:
+//
+//	ResourceGroupCostManagementViewPivotArray{ ResourceGroupCostManagementViewPivotArgs{...} }
+type ResourceGroupCostManagementViewPivotArrayInput interface {
+	pulumi.Input
+
+	ToResourceGroupCostManagementViewPivotArrayOutput() ResourceGroupCostManagementViewPivotArrayOutput
+	ToResourceGroupCostManagementViewPivotArrayOutputWithContext(context.Context) ResourceGroupCostManagementViewPivotArrayOutput
+}
+
+type ResourceGroupCostManagementViewPivotArray []ResourceGroupCostManagementViewPivotInput
+
+func (ResourceGroupCostManagementViewPivotArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGroupCostManagementViewPivot)(nil)).Elem()
+}
+
+func (i ResourceGroupCostManagementViewPivotArray) ToResourceGroupCostManagementViewPivotArrayOutput() ResourceGroupCostManagementViewPivotArrayOutput {
+	return i.ToResourceGroupCostManagementViewPivotArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupCostManagementViewPivotArray) ToResourceGroupCostManagementViewPivotArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewPivotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewPivotArrayOutput)
+}
+
+type ResourceGroupCostManagementViewPivotOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementViewPivotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupCostManagementViewPivot)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementViewPivotOutput) ToResourceGroupCostManagementViewPivotOutput() ResourceGroupCostManagementViewPivotOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewPivotOutput) ToResourceGroupCostManagementViewPivotOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewPivotOutput {
+	return o
+}
+
+// The name of the column which should be used for this sub-view in the Cost Analysis UI.
+func (o ResourceGroupCostManagementViewPivotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementViewPivot) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
+func (o ResourceGroupCostManagementViewPivotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupCostManagementViewPivot) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ResourceGroupCostManagementViewPivotArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupCostManagementViewPivotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceGroupCostManagementViewPivot)(nil)).Elem()
+}
+
+func (o ResourceGroupCostManagementViewPivotArrayOutput) ToResourceGroupCostManagementViewPivotArrayOutput() ResourceGroupCostManagementViewPivotArrayOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewPivotArrayOutput) ToResourceGroupCostManagementViewPivotArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewPivotArrayOutput {
+	return o
+}
+
+func (o ResourceGroupCostManagementViewPivotArrayOutput) Index(i pulumi.IntInput) ResourceGroupCostManagementViewPivotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceGroupCostManagementViewPivot {
+		return vs[0].([]ResourceGroupCostManagementViewPivot)[vs[1].(int)]
+	}).(ResourceGroupCostManagementViewPivotOutput)
+}
+
 type ResourceGroupPolicyAssignmentIdentity struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -3680,6 +4401,727 @@ func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) Root
 	}).(pulumi.StringPtrOutput)
 }
 
+type SubscriptionCostManagementViewDataset struct {
+	// One or more `aggregation` blocks as defined above.
+	Aggregations []SubscriptionCostManagementViewDatasetAggregation `pulumi:"aggregations"`
+	// The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+	Granularity string `pulumi:"granularity"`
+	// One or more `grouping` blocks as defined below.
+	Groupings []SubscriptionCostManagementViewDatasetGrouping `pulumi:"groupings"`
+	// One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+	Sortings []SubscriptionCostManagementViewDatasetSorting `pulumi:"sortings"`
+}
+
+// SubscriptionCostManagementViewDatasetInput is an input type that accepts SubscriptionCostManagementViewDatasetArgs and SubscriptionCostManagementViewDatasetOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementViewDatasetInput` via:
+//
+//	SubscriptionCostManagementViewDatasetArgs{...}
+type SubscriptionCostManagementViewDatasetInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementViewDatasetOutput() SubscriptionCostManagementViewDatasetOutput
+	ToSubscriptionCostManagementViewDatasetOutputWithContext(context.Context) SubscriptionCostManagementViewDatasetOutput
+}
+
+type SubscriptionCostManagementViewDatasetArgs struct {
+	// One or more `aggregation` blocks as defined above.
+	Aggregations SubscriptionCostManagementViewDatasetAggregationArrayInput `pulumi:"aggregations"`
+	// The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+	Granularity pulumi.StringInput `pulumi:"granularity"`
+	// One or more `grouping` blocks as defined below.
+	Groupings SubscriptionCostManagementViewDatasetGroupingArrayInput `pulumi:"groupings"`
+	// One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+	Sortings SubscriptionCostManagementViewDatasetSortingArrayInput `pulumi:"sortings"`
+}
+
+func (SubscriptionCostManagementViewDatasetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementViewDataset)(nil)).Elem()
+}
+
+func (i SubscriptionCostManagementViewDatasetArgs) ToSubscriptionCostManagementViewDatasetOutput() SubscriptionCostManagementViewDatasetOutput {
+	return i.ToSubscriptionCostManagementViewDatasetOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementViewDatasetArgs) ToSubscriptionCostManagementViewDatasetOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetOutput)
+}
+
+func (i SubscriptionCostManagementViewDatasetArgs) ToSubscriptionCostManagementViewDatasetPtrOutput() SubscriptionCostManagementViewDatasetPtrOutput {
+	return i.ToSubscriptionCostManagementViewDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementViewDatasetArgs) ToSubscriptionCostManagementViewDatasetPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetOutput).ToSubscriptionCostManagementViewDatasetPtrOutputWithContext(ctx)
+}
+
+// SubscriptionCostManagementViewDatasetPtrInput is an input type that accepts SubscriptionCostManagementViewDatasetArgs, SubscriptionCostManagementViewDatasetPtr and SubscriptionCostManagementViewDatasetPtrOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementViewDatasetPtrInput` via:
+//
+//	        SubscriptionCostManagementViewDatasetArgs{...}
+//
+//	or:
+//
+//	        nil
+type SubscriptionCostManagementViewDatasetPtrInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementViewDatasetPtrOutput() SubscriptionCostManagementViewDatasetPtrOutput
+	ToSubscriptionCostManagementViewDatasetPtrOutputWithContext(context.Context) SubscriptionCostManagementViewDatasetPtrOutput
+}
+
+type subscriptionCostManagementViewDatasetPtrType SubscriptionCostManagementViewDatasetArgs
+
+func SubscriptionCostManagementViewDatasetPtr(v *SubscriptionCostManagementViewDatasetArgs) SubscriptionCostManagementViewDatasetPtrInput {
+	return (*subscriptionCostManagementViewDatasetPtrType)(v)
+}
+
+func (*subscriptionCostManagementViewDatasetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionCostManagementViewDataset)(nil)).Elem()
+}
+
+func (i *subscriptionCostManagementViewDatasetPtrType) ToSubscriptionCostManagementViewDatasetPtrOutput() SubscriptionCostManagementViewDatasetPtrOutput {
+	return i.ToSubscriptionCostManagementViewDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i *subscriptionCostManagementViewDatasetPtrType) ToSubscriptionCostManagementViewDatasetPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetPtrOutput)
+}
+
+type SubscriptionCostManagementViewDatasetOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementViewDatasetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementViewDataset)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementViewDatasetOutput) ToSubscriptionCostManagementViewDatasetOutput() SubscriptionCostManagementViewDatasetOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetOutput) ToSubscriptionCostManagementViewDatasetOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetOutput) ToSubscriptionCostManagementViewDatasetPtrOutput() SubscriptionCostManagementViewDatasetPtrOutput {
+	return o.ToSubscriptionCostManagementViewDatasetPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriptionCostManagementViewDatasetOutput) ToSubscriptionCostManagementViewDatasetPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionCostManagementViewDataset) *SubscriptionCostManagementViewDataset {
+		return &v
+	}).(SubscriptionCostManagementViewDatasetPtrOutput)
+}
+
+// One or more `aggregation` blocks as defined above.
+func (o SubscriptionCostManagementViewDatasetOutput) Aggregations() SubscriptionCostManagementViewDatasetAggregationArrayOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementViewDataset) []SubscriptionCostManagementViewDatasetAggregation {
+		return v.Aggregations
+	}).(SubscriptionCostManagementViewDatasetAggregationArrayOutput)
+}
+
+// The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+func (o SubscriptionCostManagementViewDatasetOutput) Granularity() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementViewDataset) string { return v.Granularity }).(pulumi.StringOutput)
+}
+
+// One or more `grouping` blocks as defined below.
+func (o SubscriptionCostManagementViewDatasetOutput) Groupings() SubscriptionCostManagementViewDatasetGroupingArrayOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementViewDataset) []SubscriptionCostManagementViewDatasetGrouping {
+		return v.Groupings
+	}).(SubscriptionCostManagementViewDatasetGroupingArrayOutput)
+}
+
+// One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+func (o SubscriptionCostManagementViewDatasetOutput) Sortings() SubscriptionCostManagementViewDatasetSortingArrayOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementViewDataset) []SubscriptionCostManagementViewDatasetSorting {
+		return v.Sortings
+	}).(SubscriptionCostManagementViewDatasetSortingArrayOutput)
+}
+
+type SubscriptionCostManagementViewDatasetPtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementViewDatasetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionCostManagementViewDataset)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementViewDatasetPtrOutput) ToSubscriptionCostManagementViewDatasetPtrOutput() SubscriptionCostManagementViewDatasetPtrOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetPtrOutput) ToSubscriptionCostManagementViewDatasetPtrOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetPtrOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetPtrOutput) Elem() SubscriptionCostManagementViewDatasetOutput {
+	return o.ApplyT(func(v *SubscriptionCostManagementViewDataset) SubscriptionCostManagementViewDataset {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionCostManagementViewDataset
+		return ret
+	}).(SubscriptionCostManagementViewDatasetOutput)
+}
+
+// One or more `aggregation` blocks as defined above.
+func (o SubscriptionCostManagementViewDatasetPtrOutput) Aggregations() SubscriptionCostManagementViewDatasetAggregationArrayOutput {
+	return o.ApplyT(func(v *SubscriptionCostManagementViewDataset) []SubscriptionCostManagementViewDatasetAggregation {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregations
+	}).(SubscriptionCostManagementViewDatasetAggregationArrayOutput)
+}
+
+// The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+func (o SubscriptionCostManagementViewDatasetPtrOutput) Granularity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionCostManagementViewDataset) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Granularity
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `grouping` blocks as defined below.
+func (o SubscriptionCostManagementViewDatasetPtrOutput) Groupings() SubscriptionCostManagementViewDatasetGroupingArrayOutput {
+	return o.ApplyT(func(v *SubscriptionCostManagementViewDataset) []SubscriptionCostManagementViewDatasetGrouping {
+		if v == nil {
+			return nil
+		}
+		return v.Groupings
+	}).(SubscriptionCostManagementViewDatasetGroupingArrayOutput)
+}
+
+// One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+func (o SubscriptionCostManagementViewDatasetPtrOutput) Sortings() SubscriptionCostManagementViewDatasetSortingArrayOutput {
+	return o.ApplyT(func(v *SubscriptionCostManagementViewDataset) []SubscriptionCostManagementViewDatasetSorting {
+		if v == nil {
+			return nil
+		}
+		return v.Sortings
+	}).(SubscriptionCostManagementViewDatasetSortingArrayOutput)
+}
+
+type SubscriptionCostManagementViewDatasetAggregation struct {
+	// The name of the column to aggregate. Changing this forces a new Cost Management View for a Subscription to be created.
+	ColumnName string `pulumi:"columnName"`
+	// The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Subscription to be created.
+	Name string `pulumi:"name"`
+}
+
+// SubscriptionCostManagementViewDatasetAggregationInput is an input type that accepts SubscriptionCostManagementViewDatasetAggregationArgs and SubscriptionCostManagementViewDatasetAggregationOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementViewDatasetAggregationInput` via:
+//
+//	SubscriptionCostManagementViewDatasetAggregationArgs{...}
+type SubscriptionCostManagementViewDatasetAggregationInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementViewDatasetAggregationOutput() SubscriptionCostManagementViewDatasetAggregationOutput
+	ToSubscriptionCostManagementViewDatasetAggregationOutputWithContext(context.Context) SubscriptionCostManagementViewDatasetAggregationOutput
+}
+
+type SubscriptionCostManagementViewDatasetAggregationArgs struct {
+	// The name of the column to aggregate. Changing this forces a new Cost Management View for a Subscription to be created.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Subscription to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SubscriptionCostManagementViewDatasetAggregationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementViewDatasetAggregation)(nil)).Elem()
+}
+
+func (i SubscriptionCostManagementViewDatasetAggregationArgs) ToSubscriptionCostManagementViewDatasetAggregationOutput() SubscriptionCostManagementViewDatasetAggregationOutput {
+	return i.ToSubscriptionCostManagementViewDatasetAggregationOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementViewDatasetAggregationArgs) ToSubscriptionCostManagementViewDatasetAggregationOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetAggregationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetAggregationOutput)
+}
+
+// SubscriptionCostManagementViewDatasetAggregationArrayInput is an input type that accepts SubscriptionCostManagementViewDatasetAggregationArray and SubscriptionCostManagementViewDatasetAggregationArrayOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementViewDatasetAggregationArrayInput` via:
+//
+//	SubscriptionCostManagementViewDatasetAggregationArray{ SubscriptionCostManagementViewDatasetAggregationArgs{...} }
+type SubscriptionCostManagementViewDatasetAggregationArrayInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementViewDatasetAggregationArrayOutput() SubscriptionCostManagementViewDatasetAggregationArrayOutput
+	ToSubscriptionCostManagementViewDatasetAggregationArrayOutputWithContext(context.Context) SubscriptionCostManagementViewDatasetAggregationArrayOutput
+}
+
+type SubscriptionCostManagementViewDatasetAggregationArray []SubscriptionCostManagementViewDatasetAggregationInput
+
+func (SubscriptionCostManagementViewDatasetAggregationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionCostManagementViewDatasetAggregation)(nil)).Elem()
+}
+
+func (i SubscriptionCostManagementViewDatasetAggregationArray) ToSubscriptionCostManagementViewDatasetAggregationArrayOutput() SubscriptionCostManagementViewDatasetAggregationArrayOutput {
+	return i.ToSubscriptionCostManagementViewDatasetAggregationArrayOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementViewDatasetAggregationArray) ToSubscriptionCostManagementViewDatasetAggregationArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetAggregationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetAggregationArrayOutput)
+}
+
+type SubscriptionCostManagementViewDatasetAggregationOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementViewDatasetAggregationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementViewDatasetAggregation)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementViewDatasetAggregationOutput) ToSubscriptionCostManagementViewDatasetAggregationOutput() SubscriptionCostManagementViewDatasetAggregationOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetAggregationOutput) ToSubscriptionCostManagementViewDatasetAggregationOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetAggregationOutput {
+	return o
+}
+
+// The name of the column to aggregate. Changing this forces a new Cost Management View for a Subscription to be created.
+func (o SubscriptionCostManagementViewDatasetAggregationOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementViewDatasetAggregation) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Subscription to be created.
+func (o SubscriptionCostManagementViewDatasetAggregationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementViewDatasetAggregation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type SubscriptionCostManagementViewDatasetAggregationArrayOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementViewDatasetAggregationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionCostManagementViewDatasetAggregation)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementViewDatasetAggregationArrayOutput) ToSubscriptionCostManagementViewDatasetAggregationArrayOutput() SubscriptionCostManagementViewDatasetAggregationArrayOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetAggregationArrayOutput) ToSubscriptionCostManagementViewDatasetAggregationArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetAggregationArrayOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetAggregationArrayOutput) Index(i pulumi.IntInput) SubscriptionCostManagementViewDatasetAggregationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriptionCostManagementViewDatasetAggregation {
+		return vs[0].([]SubscriptionCostManagementViewDatasetAggregation)[vs[1].(int)]
+	}).(SubscriptionCostManagementViewDatasetAggregationOutput)
+}
+
+type SubscriptionCostManagementViewDatasetGrouping struct {
+	// The name of the column to group.
+	Name string `pulumi:"name"`
+	// The type of the column. Possible values are `Dimension` and `TagKey`.
+	Type string `pulumi:"type"`
+}
+
+// SubscriptionCostManagementViewDatasetGroupingInput is an input type that accepts SubscriptionCostManagementViewDatasetGroupingArgs and SubscriptionCostManagementViewDatasetGroupingOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementViewDatasetGroupingInput` via:
+//
+//	SubscriptionCostManagementViewDatasetGroupingArgs{...}
+type SubscriptionCostManagementViewDatasetGroupingInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementViewDatasetGroupingOutput() SubscriptionCostManagementViewDatasetGroupingOutput
+	ToSubscriptionCostManagementViewDatasetGroupingOutputWithContext(context.Context) SubscriptionCostManagementViewDatasetGroupingOutput
+}
+
+type SubscriptionCostManagementViewDatasetGroupingArgs struct {
+	// The name of the column to group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the column. Possible values are `Dimension` and `TagKey`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SubscriptionCostManagementViewDatasetGroupingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementViewDatasetGrouping)(nil)).Elem()
+}
+
+func (i SubscriptionCostManagementViewDatasetGroupingArgs) ToSubscriptionCostManagementViewDatasetGroupingOutput() SubscriptionCostManagementViewDatasetGroupingOutput {
+	return i.ToSubscriptionCostManagementViewDatasetGroupingOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementViewDatasetGroupingArgs) ToSubscriptionCostManagementViewDatasetGroupingOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetGroupingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetGroupingOutput)
+}
+
+// SubscriptionCostManagementViewDatasetGroupingArrayInput is an input type that accepts SubscriptionCostManagementViewDatasetGroupingArray and SubscriptionCostManagementViewDatasetGroupingArrayOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementViewDatasetGroupingArrayInput` via:
+//
+//	SubscriptionCostManagementViewDatasetGroupingArray{ SubscriptionCostManagementViewDatasetGroupingArgs{...} }
+type SubscriptionCostManagementViewDatasetGroupingArrayInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementViewDatasetGroupingArrayOutput() SubscriptionCostManagementViewDatasetGroupingArrayOutput
+	ToSubscriptionCostManagementViewDatasetGroupingArrayOutputWithContext(context.Context) SubscriptionCostManagementViewDatasetGroupingArrayOutput
+}
+
+type SubscriptionCostManagementViewDatasetGroupingArray []SubscriptionCostManagementViewDatasetGroupingInput
+
+func (SubscriptionCostManagementViewDatasetGroupingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionCostManagementViewDatasetGrouping)(nil)).Elem()
+}
+
+func (i SubscriptionCostManagementViewDatasetGroupingArray) ToSubscriptionCostManagementViewDatasetGroupingArrayOutput() SubscriptionCostManagementViewDatasetGroupingArrayOutput {
+	return i.ToSubscriptionCostManagementViewDatasetGroupingArrayOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementViewDatasetGroupingArray) ToSubscriptionCostManagementViewDatasetGroupingArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetGroupingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetGroupingArrayOutput)
+}
+
+type SubscriptionCostManagementViewDatasetGroupingOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementViewDatasetGroupingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementViewDatasetGrouping)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementViewDatasetGroupingOutput) ToSubscriptionCostManagementViewDatasetGroupingOutput() SubscriptionCostManagementViewDatasetGroupingOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetGroupingOutput) ToSubscriptionCostManagementViewDatasetGroupingOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetGroupingOutput {
+	return o
+}
+
+// The name of the column to group.
+func (o SubscriptionCostManagementViewDatasetGroupingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementViewDatasetGrouping) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the column. Possible values are `Dimension` and `TagKey`.
+func (o SubscriptionCostManagementViewDatasetGroupingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementViewDatasetGrouping) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SubscriptionCostManagementViewDatasetGroupingArrayOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementViewDatasetGroupingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionCostManagementViewDatasetGrouping)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementViewDatasetGroupingArrayOutput) ToSubscriptionCostManagementViewDatasetGroupingArrayOutput() SubscriptionCostManagementViewDatasetGroupingArrayOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetGroupingArrayOutput) ToSubscriptionCostManagementViewDatasetGroupingArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetGroupingArrayOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetGroupingArrayOutput) Index(i pulumi.IntInput) SubscriptionCostManagementViewDatasetGroupingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriptionCostManagementViewDatasetGrouping {
+		return vs[0].([]SubscriptionCostManagementViewDatasetGrouping)[vs[1].(int)]
+	}).(SubscriptionCostManagementViewDatasetGroupingOutput)
+}
+
+type SubscriptionCostManagementViewDatasetSorting struct {
+	// Direction of sort. Possible values are `Ascending` and `Descending`.
+	Direction string `pulumi:"direction"`
+	// The name of the column to sort.
+	Name string `pulumi:"name"`
+}
+
+// SubscriptionCostManagementViewDatasetSortingInput is an input type that accepts SubscriptionCostManagementViewDatasetSortingArgs and SubscriptionCostManagementViewDatasetSortingOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementViewDatasetSortingInput` via:
+//
+//	SubscriptionCostManagementViewDatasetSortingArgs{...}
+type SubscriptionCostManagementViewDatasetSortingInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementViewDatasetSortingOutput() SubscriptionCostManagementViewDatasetSortingOutput
+	ToSubscriptionCostManagementViewDatasetSortingOutputWithContext(context.Context) SubscriptionCostManagementViewDatasetSortingOutput
+}
+
+type SubscriptionCostManagementViewDatasetSortingArgs struct {
+	// Direction of sort. Possible values are `Ascending` and `Descending`.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The name of the column to sort.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SubscriptionCostManagementViewDatasetSortingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementViewDatasetSorting)(nil)).Elem()
+}
+
+func (i SubscriptionCostManagementViewDatasetSortingArgs) ToSubscriptionCostManagementViewDatasetSortingOutput() SubscriptionCostManagementViewDatasetSortingOutput {
+	return i.ToSubscriptionCostManagementViewDatasetSortingOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementViewDatasetSortingArgs) ToSubscriptionCostManagementViewDatasetSortingOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetSortingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetSortingOutput)
+}
+
+// SubscriptionCostManagementViewDatasetSortingArrayInput is an input type that accepts SubscriptionCostManagementViewDatasetSortingArray and SubscriptionCostManagementViewDatasetSortingArrayOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementViewDatasetSortingArrayInput` via:
+//
+//	SubscriptionCostManagementViewDatasetSortingArray{ SubscriptionCostManagementViewDatasetSortingArgs{...} }
+type SubscriptionCostManagementViewDatasetSortingArrayInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementViewDatasetSortingArrayOutput() SubscriptionCostManagementViewDatasetSortingArrayOutput
+	ToSubscriptionCostManagementViewDatasetSortingArrayOutputWithContext(context.Context) SubscriptionCostManagementViewDatasetSortingArrayOutput
+}
+
+type SubscriptionCostManagementViewDatasetSortingArray []SubscriptionCostManagementViewDatasetSortingInput
+
+func (SubscriptionCostManagementViewDatasetSortingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionCostManagementViewDatasetSorting)(nil)).Elem()
+}
+
+func (i SubscriptionCostManagementViewDatasetSortingArray) ToSubscriptionCostManagementViewDatasetSortingArrayOutput() SubscriptionCostManagementViewDatasetSortingArrayOutput {
+	return i.ToSubscriptionCostManagementViewDatasetSortingArrayOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementViewDatasetSortingArray) ToSubscriptionCostManagementViewDatasetSortingArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetSortingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewDatasetSortingArrayOutput)
+}
+
+type SubscriptionCostManagementViewDatasetSortingOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementViewDatasetSortingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementViewDatasetSorting)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementViewDatasetSortingOutput) ToSubscriptionCostManagementViewDatasetSortingOutput() SubscriptionCostManagementViewDatasetSortingOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetSortingOutput) ToSubscriptionCostManagementViewDatasetSortingOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetSortingOutput {
+	return o
+}
+
+// Direction of sort. Possible values are `Ascending` and `Descending`.
+func (o SubscriptionCostManagementViewDatasetSortingOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementViewDatasetSorting) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The name of the column to sort.
+func (o SubscriptionCostManagementViewDatasetSortingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementViewDatasetSorting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type SubscriptionCostManagementViewDatasetSortingArrayOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementViewDatasetSortingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionCostManagementViewDatasetSorting)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementViewDatasetSortingArrayOutput) ToSubscriptionCostManagementViewDatasetSortingArrayOutput() SubscriptionCostManagementViewDatasetSortingArrayOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetSortingArrayOutput) ToSubscriptionCostManagementViewDatasetSortingArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewDatasetSortingArrayOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewDatasetSortingArrayOutput) Index(i pulumi.IntInput) SubscriptionCostManagementViewDatasetSortingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriptionCostManagementViewDatasetSorting {
+		return vs[0].([]SubscriptionCostManagementViewDatasetSorting)[vs[1].(int)]
+	}).(SubscriptionCostManagementViewDatasetSortingOutput)
+}
+
+type SubscriptionCostManagementViewKpi struct {
+	// KPI type. Possible values are `Budget` and `Forecast`.
+	Type string `pulumi:"type"`
+}
+
+// SubscriptionCostManagementViewKpiInput is an input type that accepts SubscriptionCostManagementViewKpiArgs and SubscriptionCostManagementViewKpiOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementViewKpiInput` via:
+//
+//	SubscriptionCostManagementViewKpiArgs{...}
+type SubscriptionCostManagementViewKpiInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementViewKpiOutput() SubscriptionCostManagementViewKpiOutput
+	ToSubscriptionCostManagementViewKpiOutputWithContext(context.Context) SubscriptionCostManagementViewKpiOutput
+}
+
+type SubscriptionCostManagementViewKpiArgs struct {
+	// KPI type. Possible values are `Budget` and `Forecast`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SubscriptionCostManagementViewKpiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementViewKpi)(nil)).Elem()
+}
+
+func (i SubscriptionCostManagementViewKpiArgs) ToSubscriptionCostManagementViewKpiOutput() SubscriptionCostManagementViewKpiOutput {
+	return i.ToSubscriptionCostManagementViewKpiOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementViewKpiArgs) ToSubscriptionCostManagementViewKpiOutputWithContext(ctx context.Context) SubscriptionCostManagementViewKpiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewKpiOutput)
+}
+
+// SubscriptionCostManagementViewKpiArrayInput is an input type that accepts SubscriptionCostManagementViewKpiArray and SubscriptionCostManagementViewKpiArrayOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementViewKpiArrayInput` via:
+//
+//	SubscriptionCostManagementViewKpiArray{ SubscriptionCostManagementViewKpiArgs{...} }
+type SubscriptionCostManagementViewKpiArrayInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementViewKpiArrayOutput() SubscriptionCostManagementViewKpiArrayOutput
+	ToSubscriptionCostManagementViewKpiArrayOutputWithContext(context.Context) SubscriptionCostManagementViewKpiArrayOutput
+}
+
+type SubscriptionCostManagementViewKpiArray []SubscriptionCostManagementViewKpiInput
+
+func (SubscriptionCostManagementViewKpiArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionCostManagementViewKpi)(nil)).Elem()
+}
+
+func (i SubscriptionCostManagementViewKpiArray) ToSubscriptionCostManagementViewKpiArrayOutput() SubscriptionCostManagementViewKpiArrayOutput {
+	return i.ToSubscriptionCostManagementViewKpiArrayOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementViewKpiArray) ToSubscriptionCostManagementViewKpiArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewKpiArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewKpiArrayOutput)
+}
+
+type SubscriptionCostManagementViewKpiOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementViewKpiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementViewKpi)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementViewKpiOutput) ToSubscriptionCostManagementViewKpiOutput() SubscriptionCostManagementViewKpiOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewKpiOutput) ToSubscriptionCostManagementViewKpiOutputWithContext(ctx context.Context) SubscriptionCostManagementViewKpiOutput {
+	return o
+}
+
+// KPI type. Possible values are `Budget` and `Forecast`.
+func (o SubscriptionCostManagementViewKpiOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementViewKpi) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SubscriptionCostManagementViewKpiArrayOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementViewKpiArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionCostManagementViewKpi)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementViewKpiArrayOutput) ToSubscriptionCostManagementViewKpiArrayOutput() SubscriptionCostManagementViewKpiArrayOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewKpiArrayOutput) ToSubscriptionCostManagementViewKpiArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewKpiArrayOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewKpiArrayOutput) Index(i pulumi.IntInput) SubscriptionCostManagementViewKpiOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriptionCostManagementViewKpi {
+		return vs[0].([]SubscriptionCostManagementViewKpi)[vs[1].(int)]
+	}).(SubscriptionCostManagementViewKpiOutput)
+}
+
+type SubscriptionCostManagementViewPivot struct {
+	// The name of the column which should be used for this sub-view in the Cost Analysis UI.
+	Name string `pulumi:"name"`
+	// The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
+	Type string `pulumi:"type"`
+}
+
+// SubscriptionCostManagementViewPivotInput is an input type that accepts SubscriptionCostManagementViewPivotArgs and SubscriptionCostManagementViewPivotOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementViewPivotInput` via:
+//
+//	SubscriptionCostManagementViewPivotArgs{...}
+type SubscriptionCostManagementViewPivotInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementViewPivotOutput() SubscriptionCostManagementViewPivotOutput
+	ToSubscriptionCostManagementViewPivotOutputWithContext(context.Context) SubscriptionCostManagementViewPivotOutput
+}
+
+type SubscriptionCostManagementViewPivotArgs struct {
+	// The name of the column which should be used for this sub-view in the Cost Analysis UI.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SubscriptionCostManagementViewPivotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementViewPivot)(nil)).Elem()
+}
+
+func (i SubscriptionCostManagementViewPivotArgs) ToSubscriptionCostManagementViewPivotOutput() SubscriptionCostManagementViewPivotOutput {
+	return i.ToSubscriptionCostManagementViewPivotOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementViewPivotArgs) ToSubscriptionCostManagementViewPivotOutputWithContext(ctx context.Context) SubscriptionCostManagementViewPivotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewPivotOutput)
+}
+
+// SubscriptionCostManagementViewPivotArrayInput is an input type that accepts SubscriptionCostManagementViewPivotArray and SubscriptionCostManagementViewPivotArrayOutput values.
+// You can construct a concrete instance of `SubscriptionCostManagementViewPivotArrayInput` via:
+//
+//	SubscriptionCostManagementViewPivotArray{ SubscriptionCostManagementViewPivotArgs{...} }
+type SubscriptionCostManagementViewPivotArrayInput interface {
+	pulumi.Input
+
+	ToSubscriptionCostManagementViewPivotArrayOutput() SubscriptionCostManagementViewPivotArrayOutput
+	ToSubscriptionCostManagementViewPivotArrayOutputWithContext(context.Context) SubscriptionCostManagementViewPivotArrayOutput
+}
+
+type SubscriptionCostManagementViewPivotArray []SubscriptionCostManagementViewPivotInput
+
+func (SubscriptionCostManagementViewPivotArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionCostManagementViewPivot)(nil)).Elem()
+}
+
+func (i SubscriptionCostManagementViewPivotArray) ToSubscriptionCostManagementViewPivotArrayOutput() SubscriptionCostManagementViewPivotArrayOutput {
+	return i.ToSubscriptionCostManagementViewPivotArrayOutputWithContext(context.Background())
+}
+
+func (i SubscriptionCostManagementViewPivotArray) ToSubscriptionCostManagementViewPivotArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewPivotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementViewPivotArrayOutput)
+}
+
+type SubscriptionCostManagementViewPivotOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementViewPivotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionCostManagementViewPivot)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementViewPivotOutput) ToSubscriptionCostManagementViewPivotOutput() SubscriptionCostManagementViewPivotOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewPivotOutput) ToSubscriptionCostManagementViewPivotOutputWithContext(ctx context.Context) SubscriptionCostManagementViewPivotOutput {
+	return o
+}
+
+// The name of the column which should be used for this sub-view in the Cost Analysis UI.
+func (o SubscriptionCostManagementViewPivotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementViewPivot) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
+func (o SubscriptionCostManagementViewPivotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SubscriptionCostManagementViewPivot) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SubscriptionCostManagementViewPivotArrayOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionCostManagementViewPivotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionCostManagementViewPivot)(nil)).Elem()
+}
+
+func (o SubscriptionCostManagementViewPivotArrayOutput) ToSubscriptionCostManagementViewPivotArrayOutput() SubscriptionCostManagementViewPivotArrayOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewPivotArrayOutput) ToSubscriptionCostManagementViewPivotArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementViewPivotArrayOutput {
+	return o
+}
+
+func (o SubscriptionCostManagementViewPivotArrayOutput) Index(i pulumi.IntInput) SubscriptionCostManagementViewPivotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriptionCostManagementViewPivot {
+		return vs[0].([]SubscriptionCostManagementViewPivot)[vs[1].(int)]
+	}).(SubscriptionCostManagementViewPivotOutput)
+}
+
 type SubscriptionPolicyAssignmentIdentity struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -4755,6 +6197,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportExportDataOptionsPtrInput)(nil)).Elem(), ResourceGroupCostManagementExportExportDataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportExportDataStorageLocationInput)(nil)).Elem(), ResourceGroupCostManagementExportExportDataStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementExportExportDataStorageLocationPtrInput)(nil)).Elem(), ResourceGroupCostManagementExportExportDataStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementViewDatasetInput)(nil)).Elem(), ResourceGroupCostManagementViewDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementViewDatasetPtrInput)(nil)).Elem(), ResourceGroupCostManagementViewDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementViewDatasetAggregationInput)(nil)).Elem(), ResourceGroupCostManagementViewDatasetAggregationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementViewDatasetAggregationArrayInput)(nil)).Elem(), ResourceGroupCostManagementViewDatasetAggregationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementViewDatasetGroupingInput)(nil)).Elem(), ResourceGroupCostManagementViewDatasetGroupingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementViewDatasetGroupingArrayInput)(nil)).Elem(), ResourceGroupCostManagementViewDatasetGroupingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementViewDatasetSortingInput)(nil)).Elem(), ResourceGroupCostManagementViewDatasetSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementViewDatasetSortingArrayInput)(nil)).Elem(), ResourceGroupCostManagementViewDatasetSortingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementViewKpiInput)(nil)).Elem(), ResourceGroupCostManagementViewKpiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementViewKpiArrayInput)(nil)).Elem(), ResourceGroupCostManagementViewKpiArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementViewPivotInput)(nil)).Elem(), ResourceGroupCostManagementViewPivotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupCostManagementViewPivotArrayInput)(nil)).Elem(), ResourceGroupCostManagementViewPivotArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupPolicyAssignmentIdentityInput)(nil)).Elem(), ResourceGroupPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupPolicyAssignmentIdentityPtrInput)(nil)).Elem(), ResourceGroupPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupPolicyAssignmentNonComplianceMessageInput)(nil)).Elem(), ResourceGroupPolicyAssignmentNonComplianceMessageArgs{})
@@ -4785,6 +6239,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportExportDataOptionsPtrInput)(nil)).Elem(), SubscriptionCostManagementExportExportDataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportExportDataStorageLocationInput)(nil)).Elem(), SubscriptionCostManagementExportExportDataStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementExportExportDataStorageLocationPtrInput)(nil)).Elem(), SubscriptionCostManagementExportExportDataStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementViewDatasetInput)(nil)).Elem(), SubscriptionCostManagementViewDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementViewDatasetPtrInput)(nil)).Elem(), SubscriptionCostManagementViewDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementViewDatasetAggregationInput)(nil)).Elem(), SubscriptionCostManagementViewDatasetAggregationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementViewDatasetAggregationArrayInput)(nil)).Elem(), SubscriptionCostManagementViewDatasetAggregationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementViewDatasetGroupingInput)(nil)).Elem(), SubscriptionCostManagementViewDatasetGroupingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementViewDatasetGroupingArrayInput)(nil)).Elem(), SubscriptionCostManagementViewDatasetGroupingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementViewDatasetSortingInput)(nil)).Elem(), SubscriptionCostManagementViewDatasetSortingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementViewDatasetSortingArrayInput)(nil)).Elem(), SubscriptionCostManagementViewDatasetSortingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementViewKpiInput)(nil)).Elem(), SubscriptionCostManagementViewKpiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementViewKpiArrayInput)(nil)).Elem(), SubscriptionCostManagementViewKpiArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementViewPivotInput)(nil)).Elem(), SubscriptionCostManagementViewPivotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionCostManagementViewPivotArrayInput)(nil)).Elem(), SubscriptionCostManagementViewPivotArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentIdentityInput)(nil)).Elem(), SubscriptionPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentIdentityPtrInput)(nil)).Elem(), SubscriptionPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentNonComplianceMessageInput)(nil)).Elem(), SubscriptionPolicyAssignmentNonComplianceMessageArgs{})
@@ -4827,6 +6293,18 @@ func init() {
 	pulumi.RegisterOutputType(ResourceGroupCostManagementExportExportDataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupCostManagementExportExportDataStorageLocationOutput{})
 	pulumi.RegisterOutputType(ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementViewDatasetOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementViewDatasetPtrOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementViewDatasetAggregationOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementViewDatasetAggregationArrayOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementViewDatasetGroupingOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementViewDatasetGroupingArrayOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementViewDatasetSortingOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementViewDatasetSortingArrayOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementViewKpiOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementViewKpiArrayOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementViewPivotOutput{})
+	pulumi.RegisterOutputType(ResourceGroupCostManagementViewPivotArrayOutput{})
 	pulumi.RegisterOutputType(ResourceGroupPolicyAssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(ResourceGroupPolicyAssignmentIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupPolicyAssignmentNonComplianceMessageOutput{})
@@ -4857,6 +6335,18 @@ func init() {
 	pulumi.RegisterOutputType(SubscriptionCostManagementExportExportDataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionCostManagementExportExportDataStorageLocationOutput{})
 	pulumi.RegisterOutputType(SubscriptionCostManagementExportExportDataStorageLocationPtrOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementViewDatasetOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementViewDatasetPtrOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementViewDatasetAggregationOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementViewDatasetAggregationArrayOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementViewDatasetGroupingOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementViewDatasetGroupingArrayOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementViewDatasetSortingOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementViewDatasetSortingArrayOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementViewKpiOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementViewKpiArrayOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementViewPivotOutput{})
+	pulumi.RegisterOutputType(SubscriptionCostManagementViewPivotArrayOutput{})
 	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentNonComplianceMessageOutput{})

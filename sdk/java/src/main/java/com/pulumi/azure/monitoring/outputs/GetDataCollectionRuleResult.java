@@ -6,6 +6,8 @@ package com.pulumi.azure.monitoring.outputs;
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDataFlow;
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDataSource;
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDestination;
+import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleIdentity;
+import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleStreamDeclaration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -14,6 +16,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDataCollectionRuleResult {
+    /**
+     * @return The resource ID of the Data Collection Endpoint that this rule can be used with.
+     * 
+     */
+    private String dataCollectionEndpointId;
     /**
      * @return One or more `data_flow` blocks as defined below.
      * 
@@ -40,7 +47,13 @@ public final class GetDataCollectionRuleResult {
      */
     private String id;
     /**
-     * @return The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * @return An `identity` block as defined below.
+     * 
+     */
+    private List<GetDataCollectionRuleIdentity> identities;
+    private String immutableId;
+    /**
+     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
      */
     private String kind;
@@ -56,12 +69,24 @@ public final class GetDataCollectionRuleResult {
     private String name;
     private String resourceGroupName;
     /**
+     * @return A `stream_declaration` block as defined below.
+     * 
+     */
+    private List<GetDataCollectionRuleStreamDeclaration> streamDeclarations;
+    /**
      * @return A mapping of tags which should be assigned to the Data Collection Rule.
      * 
      */
     private Map<String,String> tags;
 
     private GetDataCollectionRuleResult() {}
+    /**
+     * @return The resource ID of the Data Collection Endpoint that this rule can be used with.
+     * 
+     */
+    public String dataCollectionEndpointId() {
+        return this.dataCollectionEndpointId;
+    }
     /**
      * @return One or more `data_flow` blocks as defined below.
      * 
@@ -98,7 +123,17 @@ public final class GetDataCollectionRuleResult {
         return this.id;
     }
     /**
-     * @return The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public List<GetDataCollectionRuleIdentity> identities() {
+        return this.identities;
+    }
+    public String immutableId() {
+        return this.immutableId;
+    }
+    /**
+     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
      */
     public String kind() {
@@ -122,6 +157,13 @@ public final class GetDataCollectionRuleResult {
         return this.resourceGroupName;
     }
     /**
+     * @return A `stream_declaration` block as defined below.
+     * 
+     */
+    public List<GetDataCollectionRuleStreamDeclaration> streamDeclarations() {
+        return this.streamDeclarations;
+    }
+    /**
      * @return A mapping of tags which should be assigned to the Data Collection Rule.
      * 
      */
@@ -138,31 +180,44 @@ public final class GetDataCollectionRuleResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String dataCollectionEndpointId;
         private List<GetDataCollectionRuleDataFlow> dataFlows;
         private List<GetDataCollectionRuleDataSource> dataSources;
         private String description;
         private List<GetDataCollectionRuleDestination> destinations;
         private String id;
+        private List<GetDataCollectionRuleIdentity> identities;
+        private String immutableId;
         private String kind;
         private String location;
         private String name;
         private String resourceGroupName;
+        private List<GetDataCollectionRuleStreamDeclaration> streamDeclarations;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetDataCollectionRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dataCollectionEndpointId = defaults.dataCollectionEndpointId;
     	      this.dataFlows = defaults.dataFlows;
     	      this.dataSources = defaults.dataSources;
     	      this.description = defaults.description;
     	      this.destinations = defaults.destinations;
     	      this.id = defaults.id;
+    	      this.identities = defaults.identities;
+    	      this.immutableId = defaults.immutableId;
     	      this.kind = defaults.kind;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
+    	      this.streamDeclarations = defaults.streamDeclarations;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder dataCollectionEndpointId(String dataCollectionEndpointId) {
+            this.dataCollectionEndpointId = Objects.requireNonNull(dataCollectionEndpointId);
+            return this;
+        }
         @CustomType.Setter
         public Builder dataFlows(List<GetDataCollectionRuleDataFlow> dataFlows) {
             this.dataFlows = Objects.requireNonNull(dataFlows);
@@ -198,6 +253,19 @@ public final class GetDataCollectionRuleResult {
             return this;
         }
         @CustomType.Setter
+        public Builder identities(List<GetDataCollectionRuleIdentity> identities) {
+            this.identities = Objects.requireNonNull(identities);
+            return this;
+        }
+        public Builder identities(GetDataCollectionRuleIdentity... identities) {
+            return identities(List.of(identities));
+        }
+        @CustomType.Setter
+        public Builder immutableId(String immutableId) {
+            this.immutableId = Objects.requireNonNull(immutableId);
+            return this;
+        }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
@@ -218,21 +286,33 @@ public final class GetDataCollectionRuleResult {
             return this;
         }
         @CustomType.Setter
+        public Builder streamDeclarations(List<GetDataCollectionRuleStreamDeclaration> streamDeclarations) {
+            this.streamDeclarations = Objects.requireNonNull(streamDeclarations);
+            return this;
+        }
+        public Builder streamDeclarations(GetDataCollectionRuleStreamDeclaration... streamDeclarations) {
+            return streamDeclarations(List.of(streamDeclarations));
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
         public GetDataCollectionRuleResult build() {
             final var o = new GetDataCollectionRuleResult();
+            o.dataCollectionEndpointId = dataCollectionEndpointId;
             o.dataFlows = dataFlows;
             o.dataSources = dataSources;
             o.description = description;
             o.destinations = destinations;
             o.id = id;
+            o.identities = identities;
+            o.immutableId = immutableId;
             o.kind = kind;
             o.location = location;
             o.name = name;
             o.resourceGroupName = resourceGroupName;
+            o.streamDeclarations = streamDeclarations;
             o.tags = tags;
             return o;
         }

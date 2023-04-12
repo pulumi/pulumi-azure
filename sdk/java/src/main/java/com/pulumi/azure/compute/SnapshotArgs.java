@@ -6,6 +6,7 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.compute.inputs.SnapshotEncryptionSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -61,6 +62,21 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<SnapshotEncryptionSettingsArgs>> encryptionSettings() {
         return Optional.ofNullable(this.encryptionSettings);
+    }
+
+    /**
+     * Specifies if the Snapshot is incremental.
+     * 
+     */
+    @Import(name="incrementalEnabled")
+    private @Nullable Output<Boolean> incrementalEnabled;
+
+    /**
+     * @return Specifies if the Snapshot is incremental.
+     * 
+     */
+    public Optional<Output<Boolean>> incrementalEnabled() {
+        return Optional.ofNullable(this.incrementalEnabled);
     }
 
     /**
@@ -174,6 +190,7 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         this.createOption = $.createOption;
         this.diskSizeGb = $.diskSizeGb;
         this.encryptionSettings = $.encryptionSettings;
+        this.incrementalEnabled = $.incrementalEnabled;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -262,6 +279,27 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder encryptionSettings(SnapshotEncryptionSettingsArgs encryptionSettings) {
             return encryptionSettings(Output.of(encryptionSettings));
+        }
+
+        /**
+         * @param incrementalEnabled Specifies if the Snapshot is incremental.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder incrementalEnabled(@Nullable Output<Boolean> incrementalEnabled) {
+            $.incrementalEnabled = incrementalEnabled;
+            return this;
+        }
+
+        /**
+         * @param incrementalEnabled Specifies if the Snapshot is incremental.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder incrementalEnabled(Boolean incrementalEnabled) {
+            return incrementalEnabled(Output.of(incrementalEnabled));
         }
 
         /**

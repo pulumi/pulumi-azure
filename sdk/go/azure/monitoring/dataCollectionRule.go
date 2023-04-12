@@ -22,9 +22,12 @@ import (
 //
 //	"encoding/json"
 //
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -33,6 +36,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 //				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
 //			})
 //			if err != nil {
 //				return err
@@ -58,6 +68,38 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+//				NamespaceName:     pulumi.Any(azurerm_eventhub_namespace.Example.Name),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PartitionCount:    pulumi.Int(2),
+//				MessageRetention:  pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDataCollectionEndpoint, err := monitoring.NewDataCollectionEndpoint(ctx, "exampleDataCollectionEndpoint", &monitoring.DataCollectionEndpointArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"a": 1,
 //				"b": "hello",
@@ -67,13 +109,25 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = monitoring.NewDataCollectionRule(ctx, "exampleDataCollectionRule", &monitoring.DataCollectionRuleArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				Location:                 exampleResourceGroup.Location,
+//				DataCollectionEndpointId: exampleDataCollectionEndpoint.ID(),
 //				Destinations: &monitoring.DataCollectionRuleDestinationsArgs{
 //					LogAnalytics: monitoring.DataCollectionRuleDestinationsLogAnalyticArray{
 //						&monitoring.DataCollectionRuleDestinationsLogAnalyticArgs{
 //							WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
 //							Name:                pulumi.String("test-destination-log"),
+//						},
+//					},
+//					EventHub: &monitoring.DataCollectionRuleDestinationsEventHubArgs{
+//						EventHubId: exampleEventHub.ID(),
+//						Name:       pulumi.String("test-destination-eventhub"),
+//					},
+//					StorageBlobs: monitoring.DataCollectionRuleDestinationsStorageBlobArray{
+//						&monitoring.DataCollectionRuleDestinationsStorageBlobArgs{
+//							StorageAccountId: exampleAccount.ID(),
+//							ContainerName:    exampleContainer.Name,
+//							Name:             pulumi.String("test-destination-storage"),
 //						},
 //					},
 //					AzureMonitorMetrics: &monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs{
@@ -99,6 +153,16 @@ import (
 //							pulumi.String("test-destination-log"),
 //						},
 //					},
+//					&monitoring.DataCollectionRuleDataFlowArgs{
+//						Streams: pulumi.StringArray{
+//							pulumi.String("Custom-MyTableRawData"),
+//						},
+//						Destinations: pulumi.StringArray{
+//							pulumi.String("example-destination-log"),
+//						},
+//						OutputStream: pulumi.String("Microsoft-Syslog"),
+//						TransformKql: pulumi.String("source | project TimeGenerated = Time, Computer, Message = AdditionalContext"),
+//					},
 //				},
 //				DataSources: &monitoring.DataCollectionRuleDataSourcesArgs{
 //					Syslogs: monitoring.DataCollectionRuleDataSourcesSyslogArray{
@@ -110,6 +174,34 @@ import (
 //								pulumi.String("*"),
 //							},
 //							Name: pulumi.String("test-datasource-syslog"),
+//						},
+//					},
+//					IisLogs: monitoring.DataCollectionRuleDataSourcesIisLogArray{
+//						&monitoring.DataCollectionRuleDataSourcesIisLogArgs{
+//							Streams: pulumi.StringArray{
+//								pulumi.String("Microsoft-W3CIISLog"),
+//							},
+//							Name: pulumi.String("test-datasource-iis"),
+//							LogDirectories: pulumi.StringArray{
+//								pulumi.String("C:\\\\Logs\\\\W3SVC1"),
+//							},
+//						},
+//					},
+//					LogFiles: monitoring.DataCollectionRuleDataSourcesLogFileArray{
+//						&monitoring.DataCollectionRuleDataSourcesLogFileArgs{
+//							Name:   pulumi.String("test-datasource-logfile"),
+//							Format: pulumi.String("text"),
+//							Streams: pulumi.StringArray{
+//								pulumi.String("Custom-MyTableRawData"),
+//							},
+//							FilePatterns: pulumi.StringArray{
+//								pulumi.String("C:\\\\JavaLogs\\\\*.log"),
+//							},
+//							Settings: &monitoring.DataCollectionRuleDataSourcesLogFileSettingsArgs{
+//								Text: &monitoring.DataCollectionRuleDataSourcesLogFileSettingsTextArgs{
+//									RecordStartTimestampFormat: pulumi.String("ISO 8601"),
+//								},
+//							},
 //						},
 //					},
 //					PerformanceCounters: monitoring.DataCollectionRuleDataSourcesPerformanceCounterArray{
@@ -150,6 +242,31 @@ import (
 //						},
 //					},
 //				},
+//				StreamDeclarations: monitoring.DataCollectionRuleStreamDeclarationArray{
+//					&monitoring.DataCollectionRuleStreamDeclarationArgs{
+//						StreamName: pulumi.String("Custom-MyTableRawData"),
+//						Columns: monitoring.DataCollectionRuleStreamDeclarationColumnArray{
+//							&monitoring.DataCollectionRuleStreamDeclarationColumnArgs{
+//								Name: pulumi.String("Time"),
+//								Type: pulumi.String("datetime"),
+//							},
+//							&monitoring.DataCollectionRuleStreamDeclarationColumnArgs{
+//								Name: pulumi.String("Computer"),
+//								Type: pulumi.String("string"),
+//							},
+//							&monitoring.DataCollectionRuleStreamDeclarationColumnArgs{
+//								Name: pulumi.String("AdditionalContext"),
+//								Type: pulumi.String("string"),
+//							},
+//						},
+//					},
+//				},
+//				Identity: &monitoring.DataCollectionRuleIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
+//				},
 //				Description: pulumi.String("data collection rule example"),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
@@ -178,6 +295,8 @@ import (
 type DataCollectionRule struct {
 	pulumi.CustomResourceState
 
+	// The resource ID of the Data Collection Endpoint that this rule can be used with.
+	DataCollectionEndpointId pulumi.StringPtrOutput `pulumi:"dataCollectionEndpointId"`
 	// One or more `dataFlow` blocks as defined below.
 	DataFlows DataCollectionRuleDataFlowArrayOutput `pulumi:"dataFlows"`
 	// A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
@@ -186,7 +305,11 @@ type DataCollectionRule struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A `destinations` block as defined below.
 	Destinations DataCollectionRuleDestinationsOutput `pulumi:"destinations"`
-	// The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+	// An `identity` block as defined below.
+	Identity DataCollectionRuleIdentityPtrOutput `pulumi:"identity"`
+	// The immutable ID of the Data Collection Rule.
+	ImmutableId pulumi.StringOutput `pulumi:"immutableId"`
+	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -194,6 +317,8 @@ type DataCollectionRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `streamDeclaration` block as defined below.
+	StreamDeclarations DataCollectionRuleStreamDeclarationArrayOutput `pulumi:"streamDeclarations"`
 	// A mapping of tags which should be assigned to the Data Collection Rule.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -236,6 +361,8 @@ func GetDataCollectionRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataCollectionRule resources.
 type dataCollectionRuleState struct {
+	// The resource ID of the Data Collection Endpoint that this rule can be used with.
+	DataCollectionEndpointId *string `pulumi:"dataCollectionEndpointId"`
 	// One or more `dataFlow` blocks as defined below.
 	DataFlows []DataCollectionRuleDataFlow `pulumi:"dataFlows"`
 	// A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
@@ -244,7 +371,11 @@ type dataCollectionRuleState struct {
 	Description *string `pulumi:"description"`
 	// A `destinations` block as defined below.
 	Destinations *DataCollectionRuleDestinations `pulumi:"destinations"`
-	// The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+	// An `identity` block as defined below.
+	Identity *DataCollectionRuleIdentity `pulumi:"identity"`
+	// The immutable ID of the Data Collection Rule.
+	ImmutableId *string `pulumi:"immutableId"`
+	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	Kind *string `pulumi:"kind"`
 	// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	Location *string `pulumi:"location"`
@@ -252,11 +383,15 @@ type dataCollectionRuleState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `streamDeclaration` block as defined below.
+	StreamDeclarations []DataCollectionRuleStreamDeclaration `pulumi:"streamDeclarations"`
 	// A mapping of tags which should be assigned to the Data Collection Rule.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type DataCollectionRuleState struct {
+	// The resource ID of the Data Collection Endpoint that this rule can be used with.
+	DataCollectionEndpointId pulumi.StringPtrInput
 	// One or more `dataFlow` blocks as defined below.
 	DataFlows DataCollectionRuleDataFlowArrayInput
 	// A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
@@ -265,7 +400,11 @@ type DataCollectionRuleState struct {
 	Description pulumi.StringPtrInput
 	// A `destinations` block as defined below.
 	Destinations DataCollectionRuleDestinationsPtrInput
-	// The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+	// An `identity` block as defined below.
+	Identity DataCollectionRuleIdentityPtrInput
+	// The immutable ID of the Data Collection Rule.
+	ImmutableId pulumi.StringPtrInput
+	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	Kind pulumi.StringPtrInput
 	// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	Location pulumi.StringPtrInput
@@ -273,6 +412,8 @@ type DataCollectionRuleState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A `streamDeclaration` block as defined below.
+	StreamDeclarations DataCollectionRuleStreamDeclarationArrayInput
 	// A mapping of tags which should be assigned to the Data Collection Rule.
 	Tags pulumi.StringMapInput
 }
@@ -282,6 +423,8 @@ func (DataCollectionRuleState) ElementType() reflect.Type {
 }
 
 type dataCollectionRuleArgs struct {
+	// The resource ID of the Data Collection Endpoint that this rule can be used with.
+	DataCollectionEndpointId *string `pulumi:"dataCollectionEndpointId"`
 	// One or more `dataFlow` blocks as defined below.
 	DataFlows []DataCollectionRuleDataFlow `pulumi:"dataFlows"`
 	// A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
@@ -290,7 +433,9 @@ type dataCollectionRuleArgs struct {
 	Description *string `pulumi:"description"`
 	// A `destinations` block as defined below.
 	Destinations DataCollectionRuleDestinations `pulumi:"destinations"`
-	// The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+	// An `identity` block as defined below.
+	Identity *DataCollectionRuleIdentity `pulumi:"identity"`
+	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	Kind *string `pulumi:"kind"`
 	// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	Location *string `pulumi:"location"`
@@ -298,12 +443,16 @@ type dataCollectionRuleArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `streamDeclaration` block as defined below.
+	StreamDeclarations []DataCollectionRuleStreamDeclaration `pulumi:"streamDeclarations"`
 	// A mapping of tags which should be assigned to the Data Collection Rule.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataCollectionRule resource.
 type DataCollectionRuleArgs struct {
+	// The resource ID of the Data Collection Endpoint that this rule can be used with.
+	DataCollectionEndpointId pulumi.StringPtrInput
 	// One or more `dataFlow` blocks as defined below.
 	DataFlows DataCollectionRuleDataFlowArrayInput
 	// A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
@@ -312,7 +461,9 @@ type DataCollectionRuleArgs struct {
 	Description pulumi.StringPtrInput
 	// A `destinations` block as defined below.
 	Destinations DataCollectionRuleDestinationsInput
-	// The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+	// An `identity` block as defined below.
+	Identity DataCollectionRuleIdentityPtrInput
+	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	Kind pulumi.StringPtrInput
 	// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	Location pulumi.StringPtrInput
@@ -320,6 +471,8 @@ type DataCollectionRuleArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	ResourceGroupName pulumi.StringInput
+	// A `streamDeclaration` block as defined below.
+	StreamDeclarations DataCollectionRuleStreamDeclarationArrayInput
 	// A mapping of tags which should be assigned to the Data Collection Rule.
 	Tags pulumi.StringMapInput
 }
@@ -411,6 +564,11 @@ func (o DataCollectionRuleOutput) ToDataCollectionRuleOutputWithContext(ctx cont
 	return o
 }
 
+// The resource ID of the Data Collection Endpoint that this rule can be used with.
+func (o DataCollectionRuleOutput) DataCollectionEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringPtrOutput { return v.DataCollectionEndpointId }).(pulumi.StringPtrOutput)
+}
+
 // One or more `dataFlow` blocks as defined below.
 func (o DataCollectionRuleOutput) DataFlows() DataCollectionRuleDataFlowArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRule) DataCollectionRuleDataFlowArrayOutput { return v.DataFlows }).(DataCollectionRuleDataFlowArrayOutput)
@@ -431,7 +589,17 @@ func (o DataCollectionRuleOutput) Destinations() DataCollectionRuleDestinationsO
 	return o.ApplyT(func(v *DataCollectionRule) DataCollectionRuleDestinationsOutput { return v.Destinations }).(DataCollectionRuleDestinationsOutput)
 }
 
-// The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+// An `identity` block as defined below.
+func (o DataCollectionRuleOutput) Identity() DataCollectionRuleIdentityPtrOutput {
+	return o.ApplyT(func(v *DataCollectionRule) DataCollectionRuleIdentityPtrOutput { return v.Identity }).(DataCollectionRuleIdentityPtrOutput)
+}
+
+// The immutable ID of the Data Collection Rule.
+func (o DataCollectionRuleOutput) ImmutableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringOutput { return v.ImmutableId }).(pulumi.StringOutput)
+}
+
+// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 func (o DataCollectionRuleOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
 }
@@ -449,6 +617,13 @@ func (o DataCollectionRuleOutput) Name() pulumi.StringOutput {
 // The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 func (o DataCollectionRuleOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A `streamDeclaration` block as defined below.
+func (o DataCollectionRuleOutput) StreamDeclarations() DataCollectionRuleStreamDeclarationArrayOutput {
+	return o.ApplyT(func(v *DataCollectionRule) DataCollectionRuleStreamDeclarationArrayOutput {
+		return v.StreamDeclarations
+	}).(DataCollectionRuleStreamDeclarationArrayOutput)
 }
 
 // A mapping of tags which should be assigned to the Data Collection Rule.

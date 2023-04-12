@@ -16,6 +16,10 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
  * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
@@ -31,13 +35,43 @@ import * as utilities from "../utilities";
  *         product: "OMSGallery/WindowsEventForwarding",
  *     },
  * });
+ * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ *     namespaceName: azurerm_eventhub_namespace.example.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     partitionCount: 2,
+ *     messageRetention: 1,
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ *     storageAccountName: exampleAccount.name,
+ *     containerAccessType: "private",
+ * });
+ * const exampleDataCollectionEndpoint = new azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
  * const exampleDataCollectionRule = new azure.monitoring.DataCollectionRule("exampleDataCollectionRule", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
+ *     dataCollectionEndpointId: exampleDataCollectionEndpoint.id,
  *     destinations: {
  *         logAnalytics: [{
  *             workspaceResourceId: exampleAnalyticsWorkspace.id,
  *             name: "test-destination-log",
+ *         }],
+ *         eventHub: {
+ *             eventHubId: exampleEventHub.id,
+ *             name: "test-destination-eventhub",
+ *         },
+ *         storageBlobs: [{
+ *             storageAccountId: exampleAccount.id,
+ *             containerName: exampleContainer.name,
+ *             name: "test-destination-storage",
  *         }],
  *         azureMonitorMetrics: {
  *             name: "test-destination-metrics",
@@ -56,12 +90,34 @@ import * as utilities from "../utilities";
  *             ],
  *             destinations: ["test-destination-log"],
  *         },
+ *         {
+ *             streams: ["Custom-MyTableRawData"],
+ *             destinations: ["example-destination-log"],
+ *             outputStream: "Microsoft-Syslog",
+ *             transformKql: "source | project TimeGenerated = Time, Computer, Message = AdditionalContext",
+ *         },
  *     ],
  *     dataSources: {
  *         syslogs: [{
  *             facilityNames: ["*"],
  *             logLevels: ["*"],
  *             name: "test-datasource-syslog",
+ *         }],
+ *         iisLogs: [{
+ *             streams: ["Microsoft-W3CIISLog"],
+ *             name: "test-datasource-iis",
+ *             logDirectories: ["C:\\\\Logs\\\\W3SVC1"],
+ *         }],
+ *         logFiles: [{
+ *             name: "test-datasource-logfile",
+ *             format: "text",
+ *             streams: ["Custom-MyTableRawData"],
+ *             filePatterns: ["C:\\\\JavaLogs\\\\*.log"],
+ *             settings: {
+ *                 text: {
+ *                     recordStartTimestampFormat: "ISO 8601",
+ *                 },
+ *             },
  *         }],
  *         performanceCounters: [{
  *             streams: [
@@ -87,6 +143,27 @@ import * as utilities from "../utilities";
  *             }),
  *             name: "test-datasource-extension",
  *         }],
+ *     },
+ *     streamDeclarations: [{
+ *         streamName: "Custom-MyTableRawData",
+ *         columns: [
+ *             {
+ *                 name: "Time",
+ *                 type: "datetime",
+ *             },
+ *             {
+ *                 name: "Computer",
+ *                 type: "string",
+ *             },
+ *             {
+ *                 name: "AdditionalContext",
+ *                 type: "string",
+ *             },
+ *         ],
+ *     }],
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
  *     description: "data collection rule example",
  *     tags: {
@@ -134,6 +211,10 @@ export class DataCollectionRule extends pulumi.CustomResource {
     }
 
     /**
+     * The resource ID of the Data Collection Endpoint that this rule can be used with.
+     */
+    public readonly dataCollectionEndpointId!: pulumi.Output<string | undefined>;
+    /**
      * One or more `dataFlow` blocks as defined below.
      */
     public readonly dataFlows!: pulumi.Output<outputs.monitoring.DataCollectionRuleDataFlow[]>;
@@ -150,7 +231,15 @@ export class DataCollectionRule extends pulumi.CustomResource {
      */
     public readonly destinations!: pulumi.Output<outputs.monitoring.DataCollectionRuleDestinations>;
     /**
-     * The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.monitoring.DataCollectionRuleIdentity | undefined>;
+    /**
+     * The immutable ID of the Data Collection Rule.
+     */
+    public /*out*/ readonly immutableId!: pulumi.Output<string>;
+    /**
+     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
@@ -165,6 +254,10 @@ export class DataCollectionRule extends pulumi.CustomResource {
      * The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * A `streamDeclaration` block as defined below.
+     */
+    public readonly streamDeclarations!: pulumi.Output<outputs.monitoring.DataCollectionRuleStreamDeclaration[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Data Collection Rule.
      */
@@ -183,14 +276,18 @@ export class DataCollectionRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataCollectionRuleState | undefined;
+            resourceInputs["dataCollectionEndpointId"] = state ? state.dataCollectionEndpointId : undefined;
             resourceInputs["dataFlows"] = state ? state.dataFlows : undefined;
             resourceInputs["dataSources"] = state ? state.dataSources : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["destinations"] = state ? state.destinations : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["immutableId"] = state ? state.immutableId : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["streamDeclarations"] = state ? state.streamDeclarations : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as DataCollectionRuleArgs | undefined;
@@ -203,15 +300,19 @@ export class DataCollectionRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["dataCollectionEndpointId"] = args ? args.dataCollectionEndpointId : undefined;
             resourceInputs["dataFlows"] = args ? args.dataFlows : undefined;
             resourceInputs["dataSources"] = args ? args.dataSources : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["destinations"] = args ? args.destinations : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["streamDeclarations"] = args ? args.streamDeclarations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["immutableId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataCollectionRule.__pulumiType, name, resourceInputs, opts);
@@ -222,6 +323,10 @@ export class DataCollectionRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DataCollectionRule resources.
  */
 export interface DataCollectionRuleState {
+    /**
+     * The resource ID of the Data Collection Endpoint that this rule can be used with.
+     */
+    dataCollectionEndpointId?: pulumi.Input<string>;
     /**
      * One or more `dataFlow` blocks as defined below.
      */
@@ -239,7 +344,15 @@ export interface DataCollectionRuleState {
      */
     destinations?: pulumi.Input<inputs.monitoring.DataCollectionRuleDestinations>;
     /**
-     * The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.monitoring.DataCollectionRuleIdentity>;
+    /**
+     * The immutable ID of the Data Collection Rule.
+     */
+    immutableId?: pulumi.Input<string>;
+    /**
+     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      */
     kind?: pulumi.Input<string>;
     /**
@@ -255,6 +368,10 @@ export interface DataCollectionRuleState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * A `streamDeclaration` block as defined below.
+     */
+    streamDeclarations?: pulumi.Input<pulumi.Input<inputs.monitoring.DataCollectionRuleStreamDeclaration>[]>;
+    /**
      * A mapping of tags which should be assigned to the Data Collection Rule.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -264,6 +381,10 @@ export interface DataCollectionRuleState {
  * The set of arguments for constructing a DataCollectionRule resource.
  */
 export interface DataCollectionRuleArgs {
+    /**
+     * The resource ID of the Data Collection Endpoint that this rule can be used with.
+     */
+    dataCollectionEndpointId?: pulumi.Input<string>;
     /**
      * One or more `dataFlow` blocks as defined below.
      */
@@ -281,7 +402,11 @@ export interface DataCollectionRuleArgs {
      */
     destinations: pulumi.Input<inputs.monitoring.DataCollectionRuleDestinations>;
     /**
-     * The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.monitoring.DataCollectionRuleIdentity>;
+    /**
+     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      */
     kind?: pulumi.Input<string>;
     /**
@@ -296,6 +421,10 @@ export interface DataCollectionRuleArgs {
      * The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A `streamDeclaration` block as defined below.
+     */
+    streamDeclarations?: pulumi.Input<pulumi.Input<inputs.monitoring.DataCollectionRuleStreamDeclaration>[]>;
     /**
      * A mapping of tags which should be assigned to the Data Collection Rule.
      */

@@ -69,6 +69,49 @@ namespace Pulumi.Azure.WebPubSub
     ///                 },
     ///             },
     ///         },
+    ///         EventListeners = new[]
+    ///         {
+    ///             new Azure.WebPubSub.Inputs.HubEventListenerArgs
+    ///             {
+    ///                 SystemEventNameFilters = new[]
+    ///                 {
+    ///                     "connected",
+    ///                 },
+    ///                 UserEventNameFilters = new[]
+    ///                 {
+    ///                     "event1",
+    ///                     "event2",
+    ///                 },
+    ///                 EventhubNamespaceName = azurerm_eventhub_namespace.Test.Name,
+    ///                 EventhubName = azurerm_eventhub.Test1.Name,
+    ///             },
+    ///             new Azure.WebPubSub.Inputs.HubEventListenerArgs
+    ///             {
+    ///                 SystemEventNameFilters = new[]
+    ///                 {
+    ///                     "connected",
+    ///                 },
+    ///                 UserEventNameFilters = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///                 EventhubNamespaceName = azurerm_eventhub_namespace.Test.Name,
+    ///                 EventhubName = azurerm_eventhub.Test1.Name,
+    ///             },
+    ///             new Azure.WebPubSub.Inputs.HubEventListenerArgs
+    ///             {
+    ///                 SystemEventNameFilters = new[]
+    ///                 {
+    ///                     "connected",
+    ///                 },
+    ///                 UserEventNameFilters = new[]
+    ///                 {
+    ///                     "event1",
+    ///                 },
+    ///                 EventhubNamespaceName = azurerm_eventhub_namespace.Test.Name,
+    ///                 EventhubName = azurerm_eventhub.Test1.Name,
+    ///             },
+    ///         },
     ///         AnonymousConnectionsEnabled = true,
     ///     }, new CustomResourceOptions
     ///     {
@@ -106,13 +149,19 @@ namespace Pulumi.Azure.WebPubSub
         public Output<ImmutableArray<Outputs.HubEventHandler>> EventHandlers { get; private set; } = null!;
 
         /// <summary>
+        /// An `event_listener` block as defined below.
+        /// </summary>
+        [Output("eventListeners")]
+        public Output<ImmutableArray<Outputs.HubEventListener>> EventListeners { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+        /// Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         /// </summary>
         [Output("webPubsubId")]
         public Output<string> WebPubsubId { get; private set; } = null!;
@@ -182,6 +231,18 @@ namespace Pulumi.Azure.WebPubSub
             set => _eventHandlers = value;
         }
 
+        [Input("eventListeners")]
+        private InputList<Inputs.HubEventListenerArgs>? _eventListeners;
+
+        /// <summary>
+        /// An `event_listener` block as defined below.
+        /// </summary>
+        public InputList<Inputs.HubEventListenerArgs> EventListeners
+        {
+            get => _eventListeners ?? (_eventListeners = new InputList<Inputs.HubEventListenerArgs>());
+            set => _eventListeners = value;
+        }
+
         /// <summary>
         /// The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
         /// </summary>
@@ -189,7 +250,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+        /// Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         /// </summary>
         [Input("webPubsubId", required: true)]
         public Input<string> WebPubsubId { get; set; } = null!;
@@ -221,6 +282,18 @@ namespace Pulumi.Azure.WebPubSub
             set => _eventHandlers = value;
         }
 
+        [Input("eventListeners")]
+        private InputList<Inputs.HubEventListenerGetArgs>? _eventListeners;
+
+        /// <summary>
+        /// An `event_listener` block as defined below.
+        /// </summary>
+        public InputList<Inputs.HubEventListenerGetArgs> EventListeners
+        {
+            get => _eventListeners ?? (_eventListeners = new InputList<Inputs.HubEventListenerGetArgs>());
+            set => _eventListeners = value;
+        }
+
         /// <summary>
         /// The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
         /// </summary>
@@ -228,7 +301,7 @@ namespace Pulumi.Azure.WebPubSub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+        /// Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         /// </summary>
         [Input("webPubsubId")]
         public Input<string>? WebPubsubId { get; set; }

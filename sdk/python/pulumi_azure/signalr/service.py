@@ -21,6 +21,7 @@ class ServiceArgs:
                  aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]]] = None,
+                 http_request_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
                  live_trace: Optional[pulumi.Input['ServiceLiveTraceArgs']] = None,
                  live_trace_enabled: Optional[pulumi.Input[bool]] = None,
@@ -41,6 +42,7 @@ class ServiceArgs:
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]] cors: A `cors` block as documented below.
+        :param pulumi.Input[bool] http_request_logs_enabled: Specifies if Http Request Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ServiceLiveTraceArgs'] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not. Defaults to `false`.
@@ -63,6 +65,8 @@ class ServiceArgs:
             pulumi.set(__self__, "connectivity_logs_enabled", connectivity_logs_enabled)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
+        if http_request_logs_enabled is not None:
+            pulumi.set(__self__, "http_request_logs_enabled", http_request_logs_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if live_trace is not None:
@@ -152,6 +156,18 @@ class ServiceArgs:
     @cors.setter
     def cors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]]]):
         pulumi.set(self, "cors", value)
+
+    @property
+    @pulumi.getter(name="httpRequestLogsEnabled")
+    def http_request_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+        """
+        return pulumi.get(self, "http_request_logs_enabled")
+
+    @http_request_logs_enabled.setter
+    def http_request_logs_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http_request_logs_enabled", value)
 
     @property
     @pulumi.getter
@@ -317,6 +333,7 @@ class _ServiceState:
                  connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
+                 http_request_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  live_trace: Optional[pulumi.Input['ServiceLiveTraceArgs']] = None,
@@ -345,6 +362,7 @@ class _ServiceState:
         :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]] cors: A `cors` block as documented below.
         :param pulumi.Input[str] hostname: The FQDN of the SignalR service.
+        :param pulumi.Input[bool] http_request_logs_enabled: Specifies if Http Request Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_address: The publicly accessible IP of the SignalR service.
         :param pulumi.Input['ServiceLiveTraceArgs'] live_trace: A `live_trace` block as defined below.
@@ -376,6 +394,8 @@ class _ServiceState:
             pulumi.set(__self__, "cors", cors)
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
+        if http_request_logs_enabled is not None:
+            pulumi.set(__self__, "http_request_logs_enabled", http_request_logs_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if ip_address is not None:
@@ -471,6 +491,18 @@ class _ServiceState:
     @hostname.setter
     def hostname(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter(name="httpRequestLogsEnabled")
+    def http_request_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+        """
+        return pulumi.get(self, "http_request_logs_enabled")
+
+    @http_request_logs_enabled.setter
+    def http_request_logs_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "http_request_logs_enabled", value)
 
     @property
     @pulumi.getter
@@ -745,6 +777,7 @@ class Service(pulumi.CustomResource):
                  aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]]] = None,
+                 http_request_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
                  live_trace: Optional[pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']]] = None,
                  live_trace_enabled: Optional[pulumi.Input[bool]] = None,
@@ -809,6 +842,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]] cors: A `cors` block as documented below.
+        :param pulumi.Input[bool] http_request_logs_enabled: Specifies if Http Request Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[bool] live_trace_enabled: Specifies if Live Trace is enabled or not. Defaults to `false`.
@@ -892,6 +926,7 @@ class Service(pulumi.CustomResource):
                  aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]]] = None,
+                 http_request_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
                  live_trace: Optional[pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']]] = None,
                  live_trace_enabled: Optional[pulumi.Input[bool]] = None,
@@ -919,6 +954,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["aad_auth_enabled"] = aad_auth_enabled
             __props__.__dict__["connectivity_logs_enabled"] = connectivity_logs_enabled
             __props__.__dict__["cors"] = cors
+            __props__.__dict__["http_request_logs_enabled"] = http_request_logs_enabled
             __props__.__dict__["identity"] = identity
             __props__.__dict__["live_trace"] = live_trace
             if live_trace_enabled is not None and not opts.urn:
@@ -965,6 +1001,7 @@ class Service(pulumi.CustomResource):
             connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
             cors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
+            http_request_logs_enabled: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
             live_trace: Optional[pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']]] = None,
@@ -998,6 +1035,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCorArgs']]]] cors: A `cors` block as documented below.
         :param pulumi.Input[str] hostname: The FQDN of the SignalR service.
+        :param pulumi.Input[bool] http_request_logs_enabled: Specifies if Http Request Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_address: The publicly accessible IP of the SignalR service.
         :param pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']] live_trace: A `live_trace` block as defined below.
@@ -1029,6 +1067,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["connectivity_logs_enabled"] = connectivity_logs_enabled
         __props__.__dict__["cors"] = cors
         __props__.__dict__["hostname"] = hostname
+        __props__.__dict__["http_request_logs_enabled"] = http_request_logs_enabled
         __props__.__dict__["identity"] = identity
         __props__.__dict__["ip_address"] = ip_address
         __props__.__dict__["live_trace"] = live_trace
@@ -1084,6 +1123,14 @@ class Service(pulumi.CustomResource):
         The FQDN of the SignalR service.
         """
         return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter(name="httpRequestLogsEnabled")
+    def http_request_logs_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+        """
+        return pulumi.get(self, "http_request_logs_enabled")
 
     @property
     @pulumi.getter

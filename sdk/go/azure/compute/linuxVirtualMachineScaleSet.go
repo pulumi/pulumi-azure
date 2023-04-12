@@ -157,7 +157,7 @@ type LinuxVirtualMachineScaleSet struct {
 	Extensions LinuxVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
-	// A `galleryApplication` block as defined below.
+	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput `pulumi:"galleryApplication"`
 	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput `pulumi:"galleryApplications"`
@@ -328,7 +328,7 @@ type linuxVirtualMachineScaleSetState struct {
 	Extensions []LinuxVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
-	// A `galleryApplication` block as defined below.
+	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication []LinuxVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplication"`
 	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications []LinuxVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplications"`
@@ -445,7 +445,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	Extensions LinuxVirtualMachineScaleSetExtensionArrayInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
-	// A `galleryApplication` block as defined below.
+	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication LinuxVirtualMachineScaleSetGalleryApplicationArrayInput
 	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications LinuxVirtualMachineScaleSetGalleryApplicationArrayInput
@@ -566,7 +566,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	Extensions []LinuxVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
-	// A `galleryApplication` block as defined below.
+	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication []LinuxVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplication"`
 	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications []LinuxVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplications"`
@@ -682,7 +682,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	Extensions LinuxVirtualMachineScaleSetExtensionArrayInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
-	// A `galleryApplication` block as defined below.
+	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplication LinuxVirtualMachineScaleSetGalleryApplicationArrayInput
 	// Deprecated: `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0
 	GalleryApplications LinuxVirtualMachineScaleSetGalleryApplicationArrayInput
@@ -956,7 +956,7 @@ func (o LinuxVirtualMachineScaleSetOutput) ExtensionsTimeBudget() pulumi.StringP
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.ExtensionsTimeBudget }).(pulumi.StringPtrOutput)
 }
 
-// A `galleryApplication` block as defined below.
+// One or more `galleryApplication` blocks as defined below.
 func (o LinuxVirtualMachineScaleSetOutput) GalleryApplication() LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput {
 		return v.GalleryApplication

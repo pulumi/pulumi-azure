@@ -8,11 +8,28 @@ import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DataCollectionRuleDataFlowArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DataCollectionRuleDataFlowArgs Empty = new DataCollectionRuleDataFlowArgs();
+
+    /**
+     * The built-in transform to transform stream data.
+     * 
+     */
+    @Import(name="builtInTransform")
+    private @Nullable Output<String> builtInTransform;
+
+    /**
+     * @return The built-in transform to transform stream data.
+     * 
+     */
+    public Optional<Output<String>> builtInTransform() {
+        return Optional.ofNullable(this.builtInTransform);
+    }
 
     /**
      * Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
@@ -30,6 +47,21 @@ public final class DataCollectionRuleDataFlowArgs extends com.pulumi.resources.R
     }
 
     /**
+     * The output stream of the transform. Only required if the data flow changes data to a different stream.
+     * 
+     */
+    @Import(name="outputStream")
+    private @Nullable Output<String> outputStream;
+
+    /**
+     * @return The output stream of the transform. Only required if the data flow changes data to a different stream.
+     * 
+     */
+    public Optional<Output<String>> outputStream() {
+        return Optional.ofNullable(this.outputStream);
+    }
+
+    /**
      * Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
      * 
      */
@@ -44,11 +76,29 @@ public final class DataCollectionRuleDataFlowArgs extends com.pulumi.resources.R
         return this.streams;
     }
 
+    /**
+     * The KQL query to transform stream data.
+     * 
+     */
+    @Import(name="transformKql")
+    private @Nullable Output<String> transformKql;
+
+    /**
+     * @return The KQL query to transform stream data.
+     * 
+     */
+    public Optional<Output<String>> transformKql() {
+        return Optional.ofNullable(this.transformKql);
+    }
+
     private DataCollectionRuleDataFlowArgs() {}
 
     private DataCollectionRuleDataFlowArgs(DataCollectionRuleDataFlowArgs $) {
+        this.builtInTransform = $.builtInTransform;
         this.destinations = $.destinations;
+        this.outputStream = $.outputStream;
         this.streams = $.streams;
+        this.transformKql = $.transformKql;
     }
 
     public static Builder builder() {
@@ -67,6 +117,27 @@ public final class DataCollectionRuleDataFlowArgs extends com.pulumi.resources.R
 
         public Builder(DataCollectionRuleDataFlowArgs defaults) {
             $ = new DataCollectionRuleDataFlowArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param builtInTransform The built-in transform to transform stream data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder builtInTransform(@Nullable Output<String> builtInTransform) {
+            $.builtInTransform = builtInTransform;
+            return this;
+        }
+
+        /**
+         * @param builtInTransform The built-in transform to transform stream data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder builtInTransform(String builtInTransform) {
+            return builtInTransform(Output.of(builtInTransform));
         }
 
         /**
@@ -101,6 +172,27 @@ public final class DataCollectionRuleDataFlowArgs extends com.pulumi.resources.R
         }
 
         /**
+         * @param outputStream The output stream of the transform. Only required if the data flow changes data to a different stream.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputStream(@Nullable Output<String> outputStream) {
+            $.outputStream = outputStream;
+            return this;
+        }
+
+        /**
+         * @param outputStream The output stream of the transform. Only required if the data flow changes data to a different stream.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputStream(String outputStream) {
+            return outputStream(Output.of(outputStream));
+        }
+
+        /**
          * @param streams Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
          * 
          * @return builder
@@ -129,6 +221,27 @@ public final class DataCollectionRuleDataFlowArgs extends com.pulumi.resources.R
          */
         public Builder streams(String... streams) {
             return streams(List.of(streams));
+        }
+
+        /**
+         * @param transformKql The KQL query to transform stream data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transformKql(@Nullable Output<String> transformKql) {
+            $.transformKql = transformKql;
+            return this;
+        }
+
+        /**
+         * @param transformKql The KQL query to transform stream data.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transformKql(String transformKql) {
+            return transformKql(Output.of(transformKql));
         }
 
         public DataCollectionRuleDataFlowArgs build() {

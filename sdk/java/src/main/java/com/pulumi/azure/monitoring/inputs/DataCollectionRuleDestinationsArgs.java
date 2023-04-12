@@ -4,7 +4,13 @@
 package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsAzureMonitorMetricsArgs;
+import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsEventHubArgs;
+import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsEventHubDirectArgs;
 import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsLogAnalyticArgs;
+import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsMonitorAccountArgs;
+import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsStorageBlobArgs;
+import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsStorageBlobDirectArgs;
+import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsStorageTableDirectArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
@@ -33,6 +39,36 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
     }
 
     /**
+     * One or more `event_hub` blocks as defined below.
+     * 
+     */
+    @Import(name="eventHub")
+    private @Nullable Output<DataCollectionRuleDestinationsEventHubArgs> eventHub;
+
+    /**
+     * @return One or more `event_hub` blocks as defined below.
+     * 
+     */
+    public Optional<Output<DataCollectionRuleDestinationsEventHubArgs>> eventHub() {
+        return Optional.ofNullable(this.eventHub);
+    }
+
+    /**
+     * One or more `event_hub` blocks as defined below.
+     * 
+     */
+    @Import(name="eventHubDirect")
+    private @Nullable Output<DataCollectionRuleDestinationsEventHubDirectArgs> eventHubDirect;
+
+    /**
+     * @return One or more `event_hub` blocks as defined below.
+     * 
+     */
+    public Optional<Output<DataCollectionRuleDestinationsEventHubDirectArgs>> eventHubDirect() {
+        return Optional.ofNullable(this.eventHubDirect);
+    }
+
+    /**
      * One or more `log_analytics` blocks as defined below.
      * 
      */
@@ -47,11 +83,77 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.logAnalytics);
     }
 
+    /**
+     * One or more `monitor_account` blocks as defined below.
+     * 
+     */
+    @Import(name="monitorAccounts")
+    private @Nullable Output<List<DataCollectionRuleDestinationsMonitorAccountArgs>> monitorAccounts;
+
+    /**
+     * @return One or more `monitor_account` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<DataCollectionRuleDestinationsMonitorAccountArgs>>> monitorAccounts() {
+        return Optional.ofNullable(this.monitorAccounts);
+    }
+
+    /**
+     * One or more `storage_blob_direct` blocks as defined below.
+     * 
+     */
+    @Import(name="storageBlobDirects")
+    private @Nullable Output<List<DataCollectionRuleDestinationsStorageBlobDirectArgs>> storageBlobDirects;
+
+    /**
+     * @return One or more `storage_blob_direct` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<DataCollectionRuleDestinationsStorageBlobDirectArgs>>> storageBlobDirects() {
+        return Optional.ofNullable(this.storageBlobDirects);
+    }
+
+    /**
+     * One or more `storage_blob` blocks as defined below.
+     * 
+     */
+    @Import(name="storageBlobs")
+    private @Nullable Output<List<DataCollectionRuleDestinationsStorageBlobArgs>> storageBlobs;
+
+    /**
+     * @return One or more `storage_blob` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<DataCollectionRuleDestinationsStorageBlobArgs>>> storageBlobs() {
+        return Optional.ofNullable(this.storageBlobs);
+    }
+
+    /**
+     * One or more `storage_table_direct` blocks as defined below.
+     * 
+     */
+    @Import(name="storageTableDirects")
+    private @Nullable Output<List<DataCollectionRuleDestinationsStorageTableDirectArgs>> storageTableDirects;
+
+    /**
+     * @return One or more `storage_table_direct` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<DataCollectionRuleDestinationsStorageTableDirectArgs>>> storageTableDirects() {
+        return Optional.ofNullable(this.storageTableDirects);
+    }
+
     private DataCollectionRuleDestinationsArgs() {}
 
     private DataCollectionRuleDestinationsArgs(DataCollectionRuleDestinationsArgs $) {
         this.azureMonitorMetrics = $.azureMonitorMetrics;
+        this.eventHub = $.eventHub;
+        this.eventHubDirect = $.eventHubDirect;
         this.logAnalytics = $.logAnalytics;
+        this.monitorAccounts = $.monitorAccounts;
+        this.storageBlobDirects = $.storageBlobDirects;
+        this.storageBlobs = $.storageBlobs;
+        this.storageTableDirects = $.storageTableDirects;
     }
 
     public static Builder builder() {
@@ -94,6 +196,48 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
         }
 
         /**
+         * @param eventHub One or more `event_hub` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventHub(@Nullable Output<DataCollectionRuleDestinationsEventHubArgs> eventHub) {
+            $.eventHub = eventHub;
+            return this;
+        }
+
+        /**
+         * @param eventHub One or more `event_hub` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventHub(DataCollectionRuleDestinationsEventHubArgs eventHub) {
+            return eventHub(Output.of(eventHub));
+        }
+
+        /**
+         * @param eventHubDirect One or more `event_hub` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventHubDirect(@Nullable Output<DataCollectionRuleDestinationsEventHubDirectArgs> eventHubDirect) {
+            $.eventHubDirect = eventHubDirect;
+            return this;
+        }
+
+        /**
+         * @param eventHubDirect One or more `event_hub` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventHubDirect(DataCollectionRuleDestinationsEventHubDirectArgs eventHubDirect) {
+            return eventHubDirect(Output.of(eventHubDirect));
+        }
+
+        /**
          * @param logAnalytics One or more `log_analytics` blocks as defined below.
          * 
          * @return builder
@@ -122,6 +266,130 @@ public final class DataCollectionRuleDestinationsArgs extends com.pulumi.resourc
          */
         public Builder logAnalytics(DataCollectionRuleDestinationsLogAnalyticArgs... logAnalytics) {
             return logAnalytics(List.of(logAnalytics));
+        }
+
+        /**
+         * @param monitorAccounts One or more `monitor_account` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitorAccounts(@Nullable Output<List<DataCollectionRuleDestinationsMonitorAccountArgs>> monitorAccounts) {
+            $.monitorAccounts = monitorAccounts;
+            return this;
+        }
+
+        /**
+         * @param monitorAccounts One or more `monitor_account` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitorAccounts(List<DataCollectionRuleDestinationsMonitorAccountArgs> monitorAccounts) {
+            return monitorAccounts(Output.of(monitorAccounts));
+        }
+
+        /**
+         * @param monitorAccounts One or more `monitor_account` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitorAccounts(DataCollectionRuleDestinationsMonitorAccountArgs... monitorAccounts) {
+            return monitorAccounts(List.of(monitorAccounts));
+        }
+
+        /**
+         * @param storageBlobDirects One or more `storage_blob_direct` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageBlobDirects(@Nullable Output<List<DataCollectionRuleDestinationsStorageBlobDirectArgs>> storageBlobDirects) {
+            $.storageBlobDirects = storageBlobDirects;
+            return this;
+        }
+
+        /**
+         * @param storageBlobDirects One or more `storage_blob_direct` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageBlobDirects(List<DataCollectionRuleDestinationsStorageBlobDirectArgs> storageBlobDirects) {
+            return storageBlobDirects(Output.of(storageBlobDirects));
+        }
+
+        /**
+         * @param storageBlobDirects One or more `storage_blob_direct` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageBlobDirects(DataCollectionRuleDestinationsStorageBlobDirectArgs... storageBlobDirects) {
+            return storageBlobDirects(List.of(storageBlobDirects));
+        }
+
+        /**
+         * @param storageBlobs One or more `storage_blob` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageBlobs(@Nullable Output<List<DataCollectionRuleDestinationsStorageBlobArgs>> storageBlobs) {
+            $.storageBlobs = storageBlobs;
+            return this;
+        }
+
+        /**
+         * @param storageBlobs One or more `storage_blob` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageBlobs(List<DataCollectionRuleDestinationsStorageBlobArgs> storageBlobs) {
+            return storageBlobs(Output.of(storageBlobs));
+        }
+
+        /**
+         * @param storageBlobs One or more `storage_blob` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageBlobs(DataCollectionRuleDestinationsStorageBlobArgs... storageBlobs) {
+            return storageBlobs(List.of(storageBlobs));
+        }
+
+        /**
+         * @param storageTableDirects One or more `storage_table_direct` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageTableDirects(@Nullable Output<List<DataCollectionRuleDestinationsStorageTableDirectArgs>> storageTableDirects) {
+            $.storageTableDirects = storageTableDirects;
+            return this;
+        }
+
+        /**
+         * @param storageTableDirects One or more `storage_table_direct` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageTableDirects(List<DataCollectionRuleDestinationsStorageTableDirectArgs> storageTableDirects) {
+            return storageTableDirects(Output.of(storageTableDirects));
+        }
+
+        /**
+         * @param storageTableDirects One or more `storage_table_direct` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageTableDirects(DataCollectionRuleDestinationsStorageTableDirectArgs... storageTableDirects) {
+            return storageTableDirects(List.of(storageTableDirects));
         }
 
         public DataCollectionRuleDestinationsArgs build() {

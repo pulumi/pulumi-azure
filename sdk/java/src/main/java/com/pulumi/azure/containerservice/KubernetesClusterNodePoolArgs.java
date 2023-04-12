@@ -611,14 +611,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+     * Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
      * 
      */
     @Import(name="workloadRuntime")
     private @Nullable Output<String> workloadRuntime;
 
     /**
-     * @return Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+     * @return Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
      * 
      */
     public Optional<Output<String>> workloadRuntime() {
@@ -1534,7 +1534,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param workloadRuntime Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+         * @param workloadRuntime Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
          * 
          * @return builder
          * 
@@ -1545,7 +1545,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param workloadRuntime Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+         * @param workloadRuntime Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
          * 
          * @return builder
          * 

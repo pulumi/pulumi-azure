@@ -549,14 +549,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
+     * Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
      * 
      */
     @Import(name="workloadRuntime")
     private @Nullable Output<String> workloadRuntime;
 
     /**
-     * @return Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
+     * @return Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
      * 
      */
     public Optional<Output<String>> workloadRuntime() {
@@ -1384,7 +1384,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param workloadRuntime Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
+         * @param workloadRuntime Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
          * 
          * @return builder
          * 
@@ -1395,7 +1395,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param workloadRuntime Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
+         * @param workloadRuntime Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
          * 
          * @return builder
          * 

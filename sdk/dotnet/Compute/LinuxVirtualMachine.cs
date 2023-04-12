@@ -225,7 +225,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
 
         /// <summary>
-        /// A `gallery_application` block as defined below.
+        /// One or more `gallery_application` blocks as defined below.
         /// </summary>
         [Output("galleryApplications")]
         public Output<ImmutableArray<Outputs.LinuxVirtualMachineGalleryApplication>> GalleryApplications { get; private set; } = null!;
@@ -599,7 +599,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.LinuxVirtualMachineGalleryApplicationArgs>? _galleryApplications;
 
         /// <summary>
-        /// A `gallery_application` block as defined below.
+        /// One or more `gallery_application` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LinuxVirtualMachineGalleryApplicationArgs> GalleryApplications
         {
@@ -921,7 +921,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.LinuxVirtualMachineGalleryApplicationGetArgs>? _galleryApplications;
 
         /// <summary>
-        /// A `gallery_application` block as defined below.
+        /// One or more `gallery_application` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LinuxVirtualMachineGalleryApplicationGetArgs> GalleryApplications
         {

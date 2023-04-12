@@ -978,7 +978,7 @@ class SoftwareUpdateConfigurationScheduleArgs:
         :param pulumi.Input[bool] is_enabled: Whether the schedule is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]] monthly_occurrences: List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-        :param pulumi.Input[str] time_zone: The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+        :param pulumi.Input[str] time_zone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
         if advanced_month_days is not None:
             pulumi.set(__self__, "advanced_month_days", advanced_month_days)
@@ -1179,7 +1179,7 @@ class SoftwareUpdateConfigurationScheduleArgs:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+        The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
         return pulumi.get(self, "time_zone")
 

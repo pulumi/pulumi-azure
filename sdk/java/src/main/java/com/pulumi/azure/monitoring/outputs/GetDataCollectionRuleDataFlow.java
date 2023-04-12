@@ -11,17 +11,39 @@ import java.util.Objects;
 @CustomType
 public final class GetDataCollectionRuleDataFlow {
     /**
+     * @return The built-in transform to transform stream data.
+     * 
+     */
+    private String builtInTransform;
+    /**
      * @return Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
      * 
      */
     private List<String> destinations;
     /**
-     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+     * @return The output stream of the transform. Only required if the data flow changes data to a different stream.
+     * 
+     */
+    private String outputStream;
+    /**
+     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
      * 
      */
     private List<String> streams;
+    /**
+     * @return The KQL query to transform stream data.
+     * 
+     */
+    private String transformKql;
 
     private GetDataCollectionRuleDataFlow() {}
+    /**
+     * @return The built-in transform to transform stream data.
+     * 
+     */
+    public String builtInTransform() {
+        return this.builtInTransform;
+    }
     /**
      * @return Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
      * 
@@ -30,11 +52,25 @@ public final class GetDataCollectionRuleDataFlow {
         return this.destinations;
     }
     /**
-     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+     * @return The output stream of the transform. Only required if the data flow changes data to a different stream.
+     * 
+     */
+    public String outputStream() {
+        return this.outputStream;
+    }
+    /**
+     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
      * 
      */
     public List<String> streams() {
         return this.streams;
+    }
+    /**
+     * @return The KQL query to transform stream data.
+     * 
+     */
+    public String transformKql() {
+        return this.transformKql;
     }
 
     public static Builder builder() {
@@ -46,15 +82,26 @@ public final class GetDataCollectionRuleDataFlow {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String builtInTransform;
         private List<String> destinations;
+        private String outputStream;
         private List<String> streams;
+        private String transformKql;
         public Builder() {}
         public Builder(GetDataCollectionRuleDataFlow defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.builtInTransform = defaults.builtInTransform;
     	      this.destinations = defaults.destinations;
+    	      this.outputStream = defaults.outputStream;
     	      this.streams = defaults.streams;
+    	      this.transformKql = defaults.transformKql;
         }
 
+        @CustomType.Setter
+        public Builder builtInTransform(String builtInTransform) {
+            this.builtInTransform = Objects.requireNonNull(builtInTransform);
+            return this;
+        }
         @CustomType.Setter
         public Builder destinations(List<String> destinations) {
             this.destinations = Objects.requireNonNull(destinations);
@@ -64,6 +111,11 @@ public final class GetDataCollectionRuleDataFlow {
             return destinations(List.of(destinations));
         }
         @CustomType.Setter
+        public Builder outputStream(String outputStream) {
+            this.outputStream = Objects.requireNonNull(outputStream);
+            return this;
+        }
+        @CustomType.Setter
         public Builder streams(List<String> streams) {
             this.streams = Objects.requireNonNull(streams);
             return this;
@@ -71,10 +123,18 @@ public final class GetDataCollectionRuleDataFlow {
         public Builder streams(String... streams) {
             return streams(List.of(streams));
         }
+        @CustomType.Setter
+        public Builder transformKql(String transformKql) {
+            this.transformKql = Objects.requireNonNull(transformKql);
+            return this;
+        }
         public GetDataCollectionRuleDataFlow build() {
             final var o = new GetDataCollectionRuleDataFlow();
+            o.builtInTransform = builtInTransform;
             o.destinations = destinations;
+            o.outputStream = outputStream;
             o.streams = streams;
+            o.transformKql = transformKql;
             return o;
         }
     }

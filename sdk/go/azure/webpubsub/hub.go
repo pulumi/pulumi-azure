@@ -73,6 +73,39 @@ import (
 //						},
 //					},
 //				},
+//				EventListeners: webpubsub.HubEventListenerArray{
+//					&webpubsub.HubEventListenerArgs{
+//						SystemEventNameFilters: pulumi.StringArray{
+//							pulumi.String("connected"),
+//						},
+//						UserEventNameFilters: pulumi.StringArray{
+//							pulumi.String("event1"),
+//							pulumi.String("event2"),
+//						},
+//						EventhubNamespaceName: pulumi.Any(azurerm_eventhub_namespace.Test.Name),
+//						EventhubName:          pulumi.Any(azurerm_eventhub.Test1.Name),
+//					},
+//					&webpubsub.HubEventListenerArgs{
+//						SystemEventNameFilters: pulumi.StringArray{
+//							pulumi.String("connected"),
+//						},
+//						UserEventNameFilters: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//						EventhubNamespaceName: pulumi.Any(azurerm_eventhub_namespace.Test.Name),
+//						EventhubName:          pulumi.Any(azurerm_eventhub.Test1.Name),
+//					},
+//					&webpubsub.HubEventListenerArgs{
+//						SystemEventNameFilters: pulumi.StringArray{
+//							pulumi.String("connected"),
+//						},
+//						UserEventNameFilters: pulumi.StringArray{
+//							pulumi.String("event1"),
+//						},
+//						EventhubNamespaceName: pulumi.Any(azurerm_eventhub_namespace.Test.Name),
+//						EventhubName:          pulumi.Any(azurerm_eventhub.Test1.Name),
+//					},
+//				},
 //				AnonymousConnectionsEnabled: pulumi.Bool(true),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleService,
@@ -103,9 +136,11 @@ type Hub struct {
 	AnonymousConnectionsEnabled pulumi.BoolPtrOutput `pulumi:"anonymousConnectionsEnabled"`
 	// An `eventHandler` block as defined below.
 	EventHandlers HubEventHandlerArrayOutput `pulumi:"eventHandlers"`
+	// An `eventListener` block as defined below.
+	EventListeners HubEventListenerArrayOutput `pulumi:"eventListeners"`
 	// The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+	// Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
 	WebPubsubId pulumi.StringOutput `pulumi:"webPubsubId"`
 }
 
@@ -146,9 +181,11 @@ type hubState struct {
 	AnonymousConnectionsEnabled *bool `pulumi:"anonymousConnectionsEnabled"`
 	// An `eventHandler` block as defined below.
 	EventHandlers []HubEventHandler `pulumi:"eventHandlers"`
+	// An `eventListener` block as defined below.
+	EventListeners []HubEventListener `pulumi:"eventListeners"`
 	// The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+	// Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
 	WebPubsubId *string `pulumi:"webPubsubId"`
 }
 
@@ -158,9 +195,11 @@ type HubState struct {
 	AnonymousConnectionsEnabled pulumi.BoolPtrInput
 	// An `eventHandler` block as defined below.
 	EventHandlers HubEventHandlerArrayInput
+	// An `eventListener` block as defined below.
+	EventListeners HubEventListenerArrayInput
 	// The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+	// Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
 	WebPubsubId pulumi.StringPtrInput
 }
 
@@ -174,9 +213,11 @@ type hubArgs struct {
 	AnonymousConnectionsEnabled *bool `pulumi:"anonymousConnectionsEnabled"`
 	// An `eventHandler` block as defined below.
 	EventHandlers []HubEventHandler `pulumi:"eventHandlers"`
+	// An `eventListener` block as defined below.
+	EventListeners []HubEventListener `pulumi:"eventListeners"`
 	// The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+	// Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
 	WebPubsubId string `pulumi:"webPubsubId"`
 }
 
@@ -187,9 +228,11 @@ type HubArgs struct {
 	AnonymousConnectionsEnabled pulumi.BoolPtrInput
 	// An `eventHandler` block as defined below.
 	EventHandlers HubEventHandlerArrayInput
+	// An `eventListener` block as defined below.
+	EventListeners HubEventListenerArrayInput
 	// The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+	// Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
 	WebPubsubId pulumi.StringInput
 }
 
@@ -291,12 +334,17 @@ func (o HubOutput) EventHandlers() HubEventHandlerArrayOutput {
 	return o.ApplyT(func(v *Hub) HubEventHandlerArrayOutput { return v.EventHandlers }).(HubEventHandlerArrayOutput)
 }
 
+// An `eventListener` block as defined below.
+func (o HubOutput) EventListeners() HubEventListenerArrayOutput {
+	return o.ApplyT(func(v *Hub) HubEventListenerArrayOutput { return v.EventListeners }).(HubEventListenerArrayOutput)
+}
+
 // The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
 func (o HubOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+// Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
 func (o HubOutput) WebPubsubId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.WebPubsubId }).(pulumi.StringOutput)
 }

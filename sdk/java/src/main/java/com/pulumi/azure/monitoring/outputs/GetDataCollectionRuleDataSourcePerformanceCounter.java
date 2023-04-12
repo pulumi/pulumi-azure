@@ -27,7 +27,7 @@ public final class GetDataCollectionRuleDataSourcePerformanceCounter {
      */
     private Integer samplingFrequencyInSeconds;
     /**
-     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
      * 
      */
     private List<String> streams;
@@ -55,7 +55,7 @@ public final class GetDataCollectionRuleDataSourcePerformanceCounter {
         return this.samplingFrequencyInSeconds;
     }
     /**
-     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+     * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
      * 
      */
     public List<String> streams() {

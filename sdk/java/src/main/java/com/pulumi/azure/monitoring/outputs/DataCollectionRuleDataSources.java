@@ -3,27 +3,59 @@
 
 package com.pulumi.azure.monitoring.outputs;
 
+import com.pulumi.azure.monitoring.outputs.DataCollectionRuleDataSourcesDataImport;
 import com.pulumi.azure.monitoring.outputs.DataCollectionRuleDataSourcesExtension;
+import com.pulumi.azure.monitoring.outputs.DataCollectionRuleDataSourcesIisLog;
+import com.pulumi.azure.monitoring.outputs.DataCollectionRuleDataSourcesLogFile;
 import com.pulumi.azure.monitoring.outputs.DataCollectionRuleDataSourcesPerformanceCounter;
+import com.pulumi.azure.monitoring.outputs.DataCollectionRuleDataSourcesPlatformTelemetry;
+import com.pulumi.azure.monitoring.outputs.DataCollectionRuleDataSourcesPrometheusForwarder;
 import com.pulumi.azure.monitoring.outputs.DataCollectionRuleDataSourcesSyslog;
 import com.pulumi.azure.monitoring.outputs.DataCollectionRuleDataSourcesWindowsEventLog;
+import com.pulumi.azure.monitoring.outputs.DataCollectionRuleDataSourcesWindowsFirewallLog;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class DataCollectionRuleDataSources {
+    /**
+     * @return A `data_import` block as defined above.
+     * 
+     */
+    private @Nullable DataCollectionRuleDataSourcesDataImport dataImport;
     /**
      * @return One or more `extension` blocks as defined below.
      * 
      */
     private @Nullable List<DataCollectionRuleDataSourcesExtension> extensions;
     /**
+     * @return One or more `iis_log` blocks as defined below.
+     * 
+     */
+    private @Nullable List<DataCollectionRuleDataSourcesIisLog> iisLogs;
+    /**
+     * @return One or more `log_file` blocks as defined below.
+     * 
+     */
+    private @Nullable List<DataCollectionRuleDataSourcesLogFile> logFiles;
+    /**
      * @return One or more `performance_counter` blocks as defined below.
      * 
      */
     private @Nullable List<DataCollectionRuleDataSourcesPerformanceCounter> performanceCounters;
+    /**
+     * @return One or more `platform_telemetry` blocks as defined below.
+     * 
+     */
+    private @Nullable List<DataCollectionRuleDataSourcesPlatformTelemetry> platformTelemetries;
+    /**
+     * @return One or more `prometheus_forwarder` blocks as defined below.
+     * 
+     */
+    private @Nullable List<DataCollectionRuleDataSourcesPrometheusForwarder> prometheusForwarders;
     /**
      * @return One or more `syslog` blocks as defined below.
      * 
@@ -34,8 +66,20 @@ public final class DataCollectionRuleDataSources {
      * 
      */
     private @Nullable List<DataCollectionRuleDataSourcesWindowsEventLog> windowsEventLogs;
+    /**
+     * @return One or more `windows_firewall_log` blocks as defined below.
+     * 
+     */
+    private @Nullable List<DataCollectionRuleDataSourcesWindowsFirewallLog> windowsFirewallLogs;
 
     private DataCollectionRuleDataSources() {}
+    /**
+     * @return A `data_import` block as defined above.
+     * 
+     */
+    public Optional<DataCollectionRuleDataSourcesDataImport> dataImport() {
+        return Optional.ofNullable(this.dataImport);
+    }
     /**
      * @return One or more `extension` blocks as defined below.
      * 
@@ -44,11 +88,39 @@ public final class DataCollectionRuleDataSources {
         return this.extensions == null ? List.of() : this.extensions;
     }
     /**
+     * @return One or more `iis_log` blocks as defined below.
+     * 
+     */
+    public List<DataCollectionRuleDataSourcesIisLog> iisLogs() {
+        return this.iisLogs == null ? List.of() : this.iisLogs;
+    }
+    /**
+     * @return One or more `log_file` blocks as defined below.
+     * 
+     */
+    public List<DataCollectionRuleDataSourcesLogFile> logFiles() {
+        return this.logFiles == null ? List.of() : this.logFiles;
+    }
+    /**
      * @return One or more `performance_counter` blocks as defined below.
      * 
      */
     public List<DataCollectionRuleDataSourcesPerformanceCounter> performanceCounters() {
         return this.performanceCounters == null ? List.of() : this.performanceCounters;
+    }
+    /**
+     * @return One or more `platform_telemetry` blocks as defined below.
+     * 
+     */
+    public List<DataCollectionRuleDataSourcesPlatformTelemetry> platformTelemetries() {
+        return this.platformTelemetries == null ? List.of() : this.platformTelemetries;
+    }
+    /**
+     * @return One or more `prometheus_forwarder` blocks as defined below.
+     * 
+     */
+    public List<DataCollectionRuleDataSourcesPrometheusForwarder> prometheusForwarders() {
+        return this.prometheusForwarders == null ? List.of() : this.prometheusForwarders;
     }
     /**
      * @return One or more `syslog` blocks as defined below.
@@ -64,6 +136,13 @@ public final class DataCollectionRuleDataSources {
     public List<DataCollectionRuleDataSourcesWindowsEventLog> windowsEventLogs() {
         return this.windowsEventLogs == null ? List.of() : this.windowsEventLogs;
     }
+    /**
+     * @return One or more `windows_firewall_log` blocks as defined below.
+     * 
+     */
+    public List<DataCollectionRuleDataSourcesWindowsFirewallLog> windowsFirewallLogs() {
+        return this.windowsFirewallLogs == null ? List.of() : this.windowsFirewallLogs;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -74,19 +153,36 @@ public final class DataCollectionRuleDataSources {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable DataCollectionRuleDataSourcesDataImport dataImport;
         private @Nullable List<DataCollectionRuleDataSourcesExtension> extensions;
+        private @Nullable List<DataCollectionRuleDataSourcesIisLog> iisLogs;
+        private @Nullable List<DataCollectionRuleDataSourcesLogFile> logFiles;
         private @Nullable List<DataCollectionRuleDataSourcesPerformanceCounter> performanceCounters;
+        private @Nullable List<DataCollectionRuleDataSourcesPlatformTelemetry> platformTelemetries;
+        private @Nullable List<DataCollectionRuleDataSourcesPrometheusForwarder> prometheusForwarders;
         private @Nullable List<DataCollectionRuleDataSourcesSyslog> syslogs;
         private @Nullable List<DataCollectionRuleDataSourcesWindowsEventLog> windowsEventLogs;
+        private @Nullable List<DataCollectionRuleDataSourcesWindowsFirewallLog> windowsFirewallLogs;
         public Builder() {}
         public Builder(DataCollectionRuleDataSources defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dataImport = defaults.dataImport;
     	      this.extensions = defaults.extensions;
+    	      this.iisLogs = defaults.iisLogs;
+    	      this.logFiles = defaults.logFiles;
     	      this.performanceCounters = defaults.performanceCounters;
+    	      this.platformTelemetries = defaults.platformTelemetries;
+    	      this.prometheusForwarders = defaults.prometheusForwarders;
     	      this.syslogs = defaults.syslogs;
     	      this.windowsEventLogs = defaults.windowsEventLogs;
+    	      this.windowsFirewallLogs = defaults.windowsFirewallLogs;
         }
 
+        @CustomType.Setter
+        public Builder dataImport(@Nullable DataCollectionRuleDataSourcesDataImport dataImport) {
+            this.dataImport = dataImport;
+            return this;
+        }
         @CustomType.Setter
         public Builder extensions(@Nullable List<DataCollectionRuleDataSourcesExtension> extensions) {
             this.extensions = extensions;
@@ -96,12 +192,44 @@ public final class DataCollectionRuleDataSources {
             return extensions(List.of(extensions));
         }
         @CustomType.Setter
+        public Builder iisLogs(@Nullable List<DataCollectionRuleDataSourcesIisLog> iisLogs) {
+            this.iisLogs = iisLogs;
+            return this;
+        }
+        public Builder iisLogs(DataCollectionRuleDataSourcesIisLog... iisLogs) {
+            return iisLogs(List.of(iisLogs));
+        }
+        @CustomType.Setter
+        public Builder logFiles(@Nullable List<DataCollectionRuleDataSourcesLogFile> logFiles) {
+            this.logFiles = logFiles;
+            return this;
+        }
+        public Builder logFiles(DataCollectionRuleDataSourcesLogFile... logFiles) {
+            return logFiles(List.of(logFiles));
+        }
+        @CustomType.Setter
         public Builder performanceCounters(@Nullable List<DataCollectionRuleDataSourcesPerformanceCounter> performanceCounters) {
             this.performanceCounters = performanceCounters;
             return this;
         }
         public Builder performanceCounters(DataCollectionRuleDataSourcesPerformanceCounter... performanceCounters) {
             return performanceCounters(List.of(performanceCounters));
+        }
+        @CustomType.Setter
+        public Builder platformTelemetries(@Nullable List<DataCollectionRuleDataSourcesPlatformTelemetry> platformTelemetries) {
+            this.platformTelemetries = platformTelemetries;
+            return this;
+        }
+        public Builder platformTelemetries(DataCollectionRuleDataSourcesPlatformTelemetry... platformTelemetries) {
+            return platformTelemetries(List.of(platformTelemetries));
+        }
+        @CustomType.Setter
+        public Builder prometheusForwarders(@Nullable List<DataCollectionRuleDataSourcesPrometheusForwarder> prometheusForwarders) {
+            this.prometheusForwarders = prometheusForwarders;
+            return this;
+        }
+        public Builder prometheusForwarders(DataCollectionRuleDataSourcesPrometheusForwarder... prometheusForwarders) {
+            return prometheusForwarders(List.of(prometheusForwarders));
         }
         @CustomType.Setter
         public Builder syslogs(@Nullable List<DataCollectionRuleDataSourcesSyslog> syslogs) {
@@ -119,12 +247,26 @@ public final class DataCollectionRuleDataSources {
         public Builder windowsEventLogs(DataCollectionRuleDataSourcesWindowsEventLog... windowsEventLogs) {
             return windowsEventLogs(List.of(windowsEventLogs));
         }
+        @CustomType.Setter
+        public Builder windowsFirewallLogs(@Nullable List<DataCollectionRuleDataSourcesWindowsFirewallLog> windowsFirewallLogs) {
+            this.windowsFirewallLogs = windowsFirewallLogs;
+            return this;
+        }
+        public Builder windowsFirewallLogs(DataCollectionRuleDataSourcesWindowsFirewallLog... windowsFirewallLogs) {
+            return windowsFirewallLogs(List.of(windowsFirewallLogs));
+        }
         public DataCollectionRuleDataSources build() {
             final var o = new DataCollectionRuleDataSources();
+            o.dataImport = dataImport;
             o.extensions = extensions;
+            o.iisLogs = iisLogs;
+            o.logFiles = logFiles;
             o.performanceCounters = performanceCounters;
+            o.platformTelemetries = platformTelemetries;
+            o.prometheusForwarders = prometheusForwarders;
             o.syslogs = syslogs;
             o.windowsEventLogs = windowsEventLogs;
+            o.windowsFirewallLogs = windowsFirewallLogs;
             return o;
         }
     }

@@ -77,6 +77,8 @@ type Snapshot struct {
 	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings SnapshotEncryptionSettingsPtrOutput `pulumi:"encryptionSettings"`
+	// Specifies if the Snapshot is incremental.
+	IncrementalEnabled pulumi.BoolPtrOutput `pulumi:"incrementalEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
@@ -136,6 +138,8 @@ type snapshotState struct {
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings *SnapshotEncryptionSettings `pulumi:"encryptionSettings"`
+	// Specifies if the Snapshot is incremental.
+	IncrementalEnabled *bool `pulumi:"incrementalEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
@@ -161,6 +165,8 @@ type SnapshotState struct {
 	DiskSizeGb pulumi.IntPtrInput
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings SnapshotEncryptionSettingsPtrInput
+	// Specifies if the Snapshot is incremental.
+	IncrementalEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
@@ -190,6 +196,8 @@ type snapshotArgs struct {
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings *SnapshotEncryptionSettings `pulumi:"encryptionSettings"`
+	// Specifies if the Snapshot is incremental.
+	IncrementalEnabled *bool `pulumi:"incrementalEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
@@ -214,6 +222,8 @@ type SnapshotArgs struct {
 	DiskSizeGb pulumi.IntPtrInput
 	// A `encryptionSettings` block as defined below.
 	EncryptionSettings SnapshotEncryptionSettingsPtrInput
+	// Specifies if the Snapshot is incremental.
+	IncrementalEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
@@ -330,6 +340,11 @@ func (o SnapshotOutput) DiskSizeGb() pulumi.IntOutput {
 // A `encryptionSettings` block as defined below.
 func (o SnapshotOutput) EncryptionSettings() SnapshotEncryptionSettingsPtrOutput {
 	return o.ApplyT(func(v *Snapshot) SnapshotEncryptionSettingsPtrOutput { return v.EncryptionSettings }).(SnapshotEncryptionSettingsPtrOutput)
+}
+
+// Specifies if the Snapshot is incremental.
+func (o SnapshotOutput) IncrementalEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.BoolPtrOutput { return v.IncrementalEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

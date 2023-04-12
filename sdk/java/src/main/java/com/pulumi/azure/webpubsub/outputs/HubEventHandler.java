@@ -19,7 +19,7 @@ public final class HubEventHandler {
      */
     private @Nullable HubEventHandlerAuth auth;
     /**
-     * @return Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+     * @return Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
      * 
      */
     private @Nullable List<String> systemEvents;
@@ -29,7 +29,7 @@ public final class HubEventHandler {
      */
     private String urlTemplate;
     /**
-     * @return Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
+     * @return Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
      * 
      */
     private @Nullable String userEventPattern;
@@ -43,7 +43,7 @@ public final class HubEventHandler {
         return Optional.ofNullable(this.auth);
     }
     /**
-     * @return Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+     * @return Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
      * 
      */
     public List<String> systemEvents() {
@@ -57,7 +57,7 @@ public final class HubEventHandler {
         return this.urlTemplate;
     }
     /**
-     * @return Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
+     * @return Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
      * 
      */
     public Optional<String> userEventPattern() {

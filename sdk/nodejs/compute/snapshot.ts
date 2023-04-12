@@ -80,6 +80,10 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly encryptionSettings!: pulumi.Output<outputs.compute.SnapshotEncryptionSettings | undefined>;
     /**
+     * Specifies if the Snapshot is incremental.
+     */
+    public readonly incrementalEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -128,6 +132,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["createOption"] = state ? state.createOption : undefined;
             resourceInputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
             resourceInputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;
+            resourceInputs["incrementalEnabled"] = state ? state.incrementalEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -147,6 +152,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["createOption"] = args ? args.createOption : undefined;
             resourceInputs["diskSizeGb"] = args ? args.diskSizeGb : undefined;
             resourceInputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
+            resourceInputs["incrementalEnabled"] = args ? args.incrementalEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -177,6 +183,10 @@ export interface SnapshotState {
      * A `encryptionSettings` block as defined below.
      */
     encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings>;
+    /**
+     * Specifies if the Snapshot is incremental.
+     */
+    incrementalEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -227,6 +237,10 @@ export interface SnapshotArgs {
      * A `encryptionSettings` block as defined below.
      */
     encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings>;
+    /**
+     * Specifies if the Snapshot is incremental.
+     */
+    incrementalEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

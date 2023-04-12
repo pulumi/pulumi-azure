@@ -2386,7 +2386,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] workload_runtime: Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
+        :param pulumi.Input[str] workload_runtime: Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
         """
         pulumi.set(__self__, "name", name)
@@ -2886,7 +2886,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="workloadRuntime")
     def workload_runtime(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the workload runtime used by the node pool. The only possible value is `OCIContainer`.
+        Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
         """
         return pulumi.get(self, "workload_runtime")
 

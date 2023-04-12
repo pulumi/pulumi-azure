@@ -35,15 +35,15 @@ public final class AppDaprArgs extends com.pulumi.resources.ResourceArgs {
      * The port which the application is listening on. This is the same as the `ingress` port.
      * 
      */
-    @Import(name="appPort", required=true)
-    private Output<Integer> appPort;
+    @Import(name="appPort")
+    private @Nullable Output<Integer> appPort;
 
     /**
      * @return The port which the application is listening on. This is the same as the `ingress` port.
      * 
      */
-    public Output<Integer> appPort() {
-        return this.appPort;
+    public Optional<Output<Integer>> appPort() {
+        return Optional.ofNullable(this.appPort);
     }
 
     /**
@@ -114,7 +114,7 @@ public final class AppDaprArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder appPort(Output<Integer> appPort) {
+        public Builder appPort(@Nullable Output<Integer> appPort) {
             $.appPort = appPort;
             return this;
         }
@@ -152,7 +152,6 @@ public final class AppDaprArgs extends com.pulumi.resources.ResourceArgs {
 
         public AppDaprArgs build() {
             $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
-            $.appPort = Objects.requireNonNull($.appPort, "expected parameter 'appPort' to be non-null");
             return $;
         }
     }
