@@ -24,6 +24,12 @@ __all__ = [
     'ResourceDeploymentScriptPowerShellStorageAccount',
     'ResourceGroupCostManagementExportExportDataOptions',
     'ResourceGroupCostManagementExportExportDataStorageLocation',
+    'ResourceGroupCostManagementViewDataset',
+    'ResourceGroupCostManagementViewDatasetAggregation',
+    'ResourceGroupCostManagementViewDatasetGrouping',
+    'ResourceGroupCostManagementViewDatasetSorting',
+    'ResourceGroupCostManagementViewKpi',
+    'ResourceGroupCostManagementViewPivot',
     'ResourceGroupPolicyAssignmentIdentity',
     'ResourceGroupPolicyAssignmentNonComplianceMessage',
     'ResourceGroupPolicyAssignmentOverride',
@@ -39,6 +45,12 @@ __all__ = [
     'ResourceProviderRegistrationFeature',
     'SubscriptionCostManagementExportExportDataOptions',
     'SubscriptionCostManagementExportExportDataStorageLocation',
+    'SubscriptionCostManagementViewDataset',
+    'SubscriptionCostManagementViewDatasetAggregation',
+    'SubscriptionCostManagementViewDatasetGrouping',
+    'SubscriptionCostManagementViewDatasetSorting',
+    'SubscriptionCostManagementViewKpi',
+    'SubscriptionCostManagementViewPivot',
     'SubscriptionPolicyAssignmentIdentity',
     'SubscriptionPolicyAssignmentNonComplianceMessage',
     'SubscriptionPolicyAssignmentOverride',
@@ -586,6 +598,210 @@ class ResourceGroupCostManagementExportExportDataStorageLocation(dict):
         The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "root_folder_path")
+
+
+@pulumi.output_type
+class ResourceGroupCostManagementViewDataset(dict):
+    def __init__(__self__, *,
+                 aggregations: Sequence['outputs.ResourceGroupCostManagementViewDatasetAggregation'],
+                 granularity: str,
+                 groupings: Optional[Sequence['outputs.ResourceGroupCostManagementViewDatasetGrouping']] = None,
+                 sortings: Optional[Sequence['outputs.ResourceGroupCostManagementViewDatasetSorting']] = None):
+        """
+        :param Sequence['ResourceGroupCostManagementViewDatasetAggregationArgs'] aggregations: One or more `aggregation` blocks as defined above.
+        :param str granularity: The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+        :param Sequence['ResourceGroupCostManagementViewDatasetGroupingArgs'] groupings: One or more `grouping` blocks as defined below.
+        :param Sequence['ResourceGroupCostManagementViewDatasetSortingArgs'] sortings: One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+        """
+        pulumi.set(__self__, "aggregations", aggregations)
+        pulumi.set(__self__, "granularity", granularity)
+        if groupings is not None:
+            pulumi.set(__self__, "groupings", groupings)
+        if sortings is not None:
+            pulumi.set(__self__, "sortings", sortings)
+
+    @property
+    @pulumi.getter
+    def aggregations(self) -> Sequence['outputs.ResourceGroupCostManagementViewDatasetAggregation']:
+        """
+        One or more `aggregation` blocks as defined above.
+        """
+        return pulumi.get(self, "aggregations")
+
+    @property
+    @pulumi.getter
+    def granularity(self) -> str:
+        """
+        The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+        """
+        return pulumi.get(self, "granularity")
+
+    @property
+    @pulumi.getter
+    def groupings(self) -> Optional[Sequence['outputs.ResourceGroupCostManagementViewDatasetGrouping']]:
+        """
+        One or more `grouping` blocks as defined below.
+        """
+        return pulumi.get(self, "groupings")
+
+    @property
+    @pulumi.getter
+    def sortings(self) -> Optional[Sequence['outputs.ResourceGroupCostManagementViewDatasetSorting']]:
+        """
+        One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+        """
+        return pulumi.get(self, "sortings")
+
+
+@pulumi.output_type
+class ResourceGroupCostManagementViewDatasetAggregation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceGroupCostManagementViewDatasetAggregation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceGroupCostManagementViewDatasetAggregation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceGroupCostManagementViewDatasetAggregation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 name: str):
+        """
+        :param str column_name: The name of the column to aggregate. Changing this forces a new Cost Management View for a Resource Group to be created.
+        :param str name: The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Resource Group to be created.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        The name of the column to aggregate. Changing this forces a new Cost Management View for a Resource Group to be created.
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Resource Group to be created.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ResourceGroupCostManagementViewDatasetGrouping(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        :param str name: The name of the column to group.
+        :param str type: The type of the column. Possible values are `Dimension` and `TagKey`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the column. Possible values are `Dimension` and `TagKey`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ResourceGroupCostManagementViewDatasetSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: Direction of sort. Possible values are `Ascending` and `Descending`.
+        :param str name: The name of the column to sort.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        Direction of sort. Possible values are `Ascending` and `Descending`.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to sort.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ResourceGroupCostManagementViewKpi(dict):
+    def __init__(__self__, *,
+                 type: str):
+        """
+        :param str type: KPI type. Possible values are `Budget` and `Forecast`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        KPI type. Possible values are `Budget` and `Forecast`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ResourceGroupCostManagementViewPivot(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        :param str name: The name of the column which should be used for this sub-view in the Cost Analysis UI.
+        :param str type: The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column which should be used for this sub-view in the Cost Analysis UI.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -1311,6 +1527,210 @@ class SubscriptionCostManagementExportExportDataStorageLocation(dict):
         The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "root_folder_path")
+
+
+@pulumi.output_type
+class SubscriptionCostManagementViewDataset(dict):
+    def __init__(__self__, *,
+                 aggregations: Sequence['outputs.SubscriptionCostManagementViewDatasetAggregation'],
+                 granularity: str,
+                 groupings: Optional[Sequence['outputs.SubscriptionCostManagementViewDatasetGrouping']] = None,
+                 sortings: Optional[Sequence['outputs.SubscriptionCostManagementViewDatasetSorting']] = None):
+        """
+        :param Sequence['SubscriptionCostManagementViewDatasetAggregationArgs'] aggregations: One or more `aggregation` blocks as defined above.
+        :param str granularity: The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+        :param Sequence['SubscriptionCostManagementViewDatasetGroupingArgs'] groupings: One or more `grouping` blocks as defined below.
+        :param Sequence['SubscriptionCostManagementViewDatasetSortingArgs'] sortings: One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+        """
+        pulumi.set(__self__, "aggregations", aggregations)
+        pulumi.set(__self__, "granularity", granularity)
+        if groupings is not None:
+            pulumi.set(__self__, "groupings", groupings)
+        if sortings is not None:
+            pulumi.set(__self__, "sortings", sortings)
+
+    @property
+    @pulumi.getter
+    def aggregations(self) -> Sequence['outputs.SubscriptionCostManagementViewDatasetAggregation']:
+        """
+        One or more `aggregation` blocks as defined above.
+        """
+        return pulumi.get(self, "aggregations")
+
+    @property
+    @pulumi.getter
+    def granularity(self) -> str:
+        """
+        The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
+        """
+        return pulumi.get(self, "granularity")
+
+    @property
+    @pulumi.getter
+    def groupings(self) -> Optional[Sequence['outputs.SubscriptionCostManagementViewDatasetGrouping']]:
+        """
+        One or more `grouping` blocks as defined below.
+        """
+        return pulumi.get(self, "groupings")
+
+    @property
+    @pulumi.getter
+    def sortings(self) -> Optional[Sequence['outputs.SubscriptionCostManagementViewDatasetSorting']]:
+        """
+        One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+        """
+        return pulumi.get(self, "sortings")
+
+
+@pulumi.output_type
+class SubscriptionCostManagementViewDatasetAggregation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubscriptionCostManagementViewDatasetAggregation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubscriptionCostManagementViewDatasetAggregation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubscriptionCostManagementViewDatasetAggregation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 name: str):
+        """
+        :param str column_name: The name of the column to aggregate. Changing this forces a new Cost Management View for a Subscription to be created.
+        :param str name: The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Subscription to be created.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        The name of the column to aggregate. Changing this forces a new Cost Management View for a Subscription to be created.
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this aggregation. Changing this forces a new Cost Management View for a Subscription to be created.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SubscriptionCostManagementViewDatasetGrouping(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        :param str name: The name of the column to group.
+        :param str type: The type of the column. Possible values are `Dimension` and `TagKey`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the column. Possible values are `Dimension` and `TagKey`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class SubscriptionCostManagementViewDatasetSorting(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 name: str):
+        """
+        :param str direction: Direction of sort. Possible values are `Ascending` and `Descending`.
+        :param str name: The name of the column to sort.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        Direction of sort. Possible values are `Ascending` and `Descending`.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column to sort.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SubscriptionCostManagementViewKpi(dict):
+    def __init__(__self__, *,
+                 type: str):
+        """
+        :param str type: KPI type. Possible values are `Budget` and `Forecast`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        KPI type. Possible values are `Budget` and `Forecast`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class SubscriptionCostManagementViewPivot(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        :param str name: The name of the column which should be used for this sub-view in the Cost Analysis UI.
+        :param str type: The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column which should be used for this sub-view in the Cost Analysis UI.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

@@ -83,7 +83,7 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]] gallery_applications: A `gallery_application` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input['LinuxVirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -447,7 +447,7 @@ class LinuxVirtualMachineArgs:
     @pulumi.getter(name="galleryApplications")
     def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]]]:
         """
-        A `gallery_application` block as defined below.
+        One or more `gallery_application` blocks as defined below.
         """
         return pulumi.get(self, "gallery_applications")
 
@@ -791,7 +791,7 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]] gallery_applications: A `gallery_application` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input['LinuxVirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -1131,7 +1131,7 @@ class _LinuxVirtualMachineState:
     @pulumi.getter(name="galleryApplications")
     def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]]]:
         """
-        A `gallery_application` block as defined below.
+        One or more `gallery_application` blocks as defined below.
         """
         return pulumi.get(self, "gallery_applications")
 
@@ -1651,7 +1651,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryApplicationArgs']]]] gallery_applications: A `gallery_application` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryApplicationArgs']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -1967,7 +1967,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryApplicationArgs']]]] gallery_applications: A `gallery_application` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryApplicationArgs']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
         :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -2195,7 +2195,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="galleryApplications")
     def gallery_applications(self) -> pulumi.Output[Optional[Sequence['outputs.LinuxVirtualMachineGalleryApplication']]]:
         """
-        A `gallery_application` block as defined below.
+        One or more `gallery_application` blocks as defined below.
         """
         return pulumi.get(self, "gallery_applications")
 

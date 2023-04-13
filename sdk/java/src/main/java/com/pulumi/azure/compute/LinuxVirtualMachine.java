@@ -382,14 +382,14 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.extensionsTimeBudget);
     }
     /**
-     * A `gallery_application` block as defined below.
+     * One or more `gallery_application` blocks as defined below.
      * 
      */
     @Export(name="galleryApplications", refs={List.class,LinuxVirtualMachineGalleryApplication.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LinuxVirtualMachineGalleryApplication>> galleryApplications;
 
     /**
-     * @return A `gallery_application` block as defined below.
+     * @return One or more `gallery_application` blocks as defined below.
      * 
      */
     public Output<Optional<List<LinuxVirtualMachineGalleryApplication>>> galleryApplications() {

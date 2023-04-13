@@ -185,7 +185,7 @@ type KubernetesCluster struct {
 	RunCommandEnabled pulumi.BoolPtrOutput `pulumi:"runCommandEnabled"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrOutput `pulumi:"servicePrincipal"`
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A `storageProfile` block as defined below.
 	StorageProfile KubernetesClusterStorageProfilePtrOutput `pulumi:"storageProfile"`
@@ -351,7 +351,7 @@ type kubernetesClusterState struct {
 	RunCommandEnabled *bool `pulumi:"runCommandEnabled"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A `storageProfile` block as defined below.
 	StorageProfile *KubernetesClusterStorageProfile `pulumi:"storageProfile"`
@@ -476,7 +476,7 @@ type KubernetesClusterState struct {
 	RunCommandEnabled pulumi.BoolPtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrInput
 	// A `storageProfile` block as defined below.
 	StorageProfile KubernetesClusterStorageProfilePtrInput
@@ -585,7 +585,7 @@ type kubernetesClusterArgs struct {
 	RunCommandEnabled *bool `pulumi:"runCommandEnabled"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A `storageProfile` block as defined below.
 	StorageProfile *KubernetesClusterStorageProfile `pulumi:"storageProfile"`
@@ -691,7 +691,7 @@ type KubernetesClusterArgs struct {
 	RunCommandEnabled pulumi.BoolPtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrInput
 	// A `storageProfile` block as defined below.
 	StorageProfile KubernetesClusterStorageProfilePtrInput
@@ -1076,7 +1076,7 @@ func (o KubernetesClusterOutput) ServicePrincipal() KubernetesClusterServicePrin
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterServicePrincipalPtrOutput { return v.ServicePrincipal }).(KubernetesClusterServicePrincipalPtrOutput)
 }
 
-// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Paid` and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
 func (o KubernetesClusterOutput) SkuTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.SkuTier }).(pulumi.StringPtrOutput)
 }

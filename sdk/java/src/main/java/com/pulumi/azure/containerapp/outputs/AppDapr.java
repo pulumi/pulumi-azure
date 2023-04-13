@@ -21,7 +21,7 @@ public final class AppDapr {
      * @return The port which the application is listening on. This is the same as the `ingress` port.
      * 
      */
-    private Integer appPort;
+    private @Nullable Integer appPort;
     /**
      * @return The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
      * 
@@ -40,8 +40,8 @@ public final class AppDapr {
      * @return The port which the application is listening on. This is the same as the `ingress` port.
      * 
      */
-    public Integer appPort() {
-        return this.appPort;
+    public Optional<Integer> appPort() {
+        return Optional.ofNullable(this.appPort);
     }
     /**
      * @return The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
@@ -61,7 +61,7 @@ public final class AppDapr {
     @CustomType.Builder
     public static final class Builder {
         private String appId;
-        private Integer appPort;
+        private @Nullable Integer appPort;
         private @Nullable String appProtocol;
         public Builder() {}
         public Builder(AppDapr defaults) {
@@ -77,8 +77,8 @@ public final class AppDapr {
             return this;
         }
         @CustomType.Setter
-        public Builder appPort(Integer appPort) {
-            this.appPort = Objects.requireNonNull(appPort);
+        public Builder appPort(@Nullable Integer appPort) {
+            this.appPort = appPort;
             return this;
         }
         @CustomType.Setter

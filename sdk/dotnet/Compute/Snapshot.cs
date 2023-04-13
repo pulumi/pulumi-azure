@@ -76,6 +76,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.SnapshotEncryptionSettings?> EncryptionSettings { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if the Snapshot is incremental.
+        /// </summary>
+        [Output("incrementalEnabled")]
+        public Output<bool?> IncrementalEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -188,6 +194,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.SnapshotEncryptionSettingsArgs>? EncryptionSettings { get; set; }
 
         /// <summary>
+        /// Specifies if the Snapshot is incremental.
+        /// </summary>
+        [Input("incrementalEnabled")]
+        public Input<bool>? IncrementalEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -260,6 +272,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.SnapshotEncryptionSettingsGetArgs>? EncryptionSettings { get; set; }
+
+        /// <summary>
+        /// Specifies if the Snapshot is incremental.
+        /// </summary>
+        [Input("incrementalEnabled")]
+        public Input<bool>? IncrementalEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

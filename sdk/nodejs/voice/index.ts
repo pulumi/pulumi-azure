@@ -10,6 +10,11 @@ export type ServicesCommunicationsGateway = import("./servicesCommunicationsGate
 export const ServicesCommunicationsGateway: typeof import("./servicesCommunicationsGateway").ServicesCommunicationsGateway = null as any;
 utilities.lazyLoad(exports, ["ServicesCommunicationsGateway"], () => require("./servicesCommunicationsGateway"));
 
+export { ServicesCommunicationsGatewayTestLineArgs, ServicesCommunicationsGatewayTestLineState } from "./servicesCommunicationsGatewayTestLine";
+export type ServicesCommunicationsGatewayTestLine = import("./servicesCommunicationsGatewayTestLine").ServicesCommunicationsGatewayTestLine;
+export const ServicesCommunicationsGatewayTestLine: typeof import("./servicesCommunicationsGatewayTestLine").ServicesCommunicationsGatewayTestLine = null as any;
+utilities.lazyLoad(exports, ["ServicesCommunicationsGatewayTestLine"], () => require("./servicesCommunicationsGatewayTestLine"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway":
                 return new ServicesCommunicationsGateway(name, <any>undefined, { urn })
+            case "azure:voice/servicesCommunicationsGatewayTestLine:ServicesCommunicationsGatewayTestLine":
+                return new ServicesCommunicationsGatewayTestLine(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "voice/servicesCommunicationsGateway", _module)
+pulumi.runtime.registerResourceModule("azure", "voice/servicesCommunicationsGatewayTestLine", _module)

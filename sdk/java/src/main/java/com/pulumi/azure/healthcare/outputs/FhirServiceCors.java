@@ -20,7 +20,7 @@ public final class FhirServiceCors {
      */
     private List<String> allowedHeaders;
     /**
-     * @return The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+     * @return The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
      * 
      */
     private List<String> allowedMethods;
@@ -49,7 +49,7 @@ public final class FhirServiceCors {
         return this.allowedHeaders;
     }
     /**
-     * @return The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+     * @return The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
      * 
      */
     public List<String> allowedMethods() {

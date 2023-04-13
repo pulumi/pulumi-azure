@@ -287,14 +287,14 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `gallery_application` block as defined below.
+     * One or more `gallery_application` blocks as defined below.
      * 
      */
     @Import(name="galleryApplications")
     private @Nullable Output<List<WindowsVirtualMachineGalleryApplicationArgs>> galleryApplications;
 
     /**
-     * @return A `gallery_application` block as defined below.
+     * @return One or more `gallery_application` blocks as defined below.
      * 
      */
     public Optional<Output<List<WindowsVirtualMachineGalleryApplicationArgs>>> galleryApplications() {
@@ -1174,7 +1174,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param galleryApplications A `gallery_application` block as defined below.
+         * @param galleryApplications One or more `gallery_application` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1185,7 +1185,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param galleryApplications A `gallery_application` block as defined below.
+         * @param galleryApplications One or more `gallery_application` blocks as defined below.
          * 
          * @return builder
          * 
@@ -1195,7 +1195,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param galleryApplications A `gallery_application` block as defined below.
+         * @param galleryApplications One or more `gallery_application` blocks as defined below.
          * 
          * @return builder
          * 

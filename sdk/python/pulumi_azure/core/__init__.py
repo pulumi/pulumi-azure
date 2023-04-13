@@ -22,6 +22,7 @@ from .resource_deployment_script_azure_cli import *
 from .resource_deployment_script_power_shell import *
 from .resource_group import *
 from .resource_group_cost_management_export import *
+from .resource_group_cost_management_view import *
 from .resource_group_policy_assignment import *
 from .resource_group_policy_exemption import *
 from .resource_group_policy_remediation import *
@@ -32,6 +33,7 @@ from .resource_policy_remediation import *
 from .resource_provider_registration import *
 from .subscription import *
 from .subscription_cost_management_export import *
+from .subscription_cost_management_view import *
 from .subscription_policy_assignment import *
 from .subscription_policy_exemption import *
 from .subscription_policy_remediation import *

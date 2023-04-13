@@ -70,6 +70,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+     * 
+     */
+    @Import(name="httpRequestLogsEnabled")
+    private @Nullable Output<Boolean> httpRequestLogsEnabled;
+
+    /**
+     * @return Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> httpRequestLogsEnabled() {
+        return Optional.ofNullable(this.httpRequestLogsEnabled);
+    }
+
+    /**
      * An `identity` block as defined below.
      * 
      */
@@ -308,6 +323,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         this.aadAuthEnabled = $.aadAuthEnabled;
         this.connectivityLogsEnabled = $.connectivityLogsEnabled;
         this.cors = $.cors;
+        this.httpRequestLogsEnabled = $.httpRequestLogsEnabled;
         this.identity = $.identity;
         this.liveTrace = $.liveTrace;
         this.liveTraceEnabled = $.liveTraceEnabled;
@@ -414,6 +430,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder cors(ServiceCorArgs... cors) {
             return cors(List.of(cors));
+        }
+
+        /**
+         * @param httpRequestLogsEnabled Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpRequestLogsEnabled(@Nullable Output<Boolean> httpRequestLogsEnabled) {
+            $.httpRequestLogsEnabled = httpRequestLogsEnabled;
+            return this;
+        }
+
+        /**
+         * @param httpRequestLogsEnabled Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpRequestLogsEnabled(Boolean httpRequestLogsEnabled) {
+            return httpRequestLogsEnabled(Output.of(httpRequestLogsEnabled));
         }
 
         /**

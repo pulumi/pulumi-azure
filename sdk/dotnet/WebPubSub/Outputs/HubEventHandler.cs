@@ -18,7 +18,7 @@ namespace Pulumi.Azure.WebPubSub.Outputs
         /// </summary>
         public readonly Outputs.HubEventHandlerAuth? Auth;
         /// <summary>
-        /// Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+        /// Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
         /// </summary>
         public readonly ImmutableArray<string> SystemEvents;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.WebPubSub.Outputs
         /// </summary>
         public readonly string UrlTemplate;
         /// <summary>
-        /// Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
+        /// Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
         /// </summary>
         public readonly string? UserEventPattern;
 

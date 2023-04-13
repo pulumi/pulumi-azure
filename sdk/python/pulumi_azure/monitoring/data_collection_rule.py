@@ -19,37 +19,49 @@ class DataCollectionRuleArgs:
                  data_flows: pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataFlowArgs']]],
                  destinations: pulumi.Input['DataCollectionRuleDestinationsArgs'],
                  resource_group_name: pulumi.Input[str],
+                 data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
                  data_sources: Optional[pulumi.Input['DataCollectionRuleDataSourcesArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['DataCollectionRuleIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DataCollectionRule resource.
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataFlowArgs']]] data_flows: One or more `data_flow` blocks as defined below.
         :param pulumi.Input['DataCollectionRuleDestinationsArgs'] destinations: A `destinations` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
+        :param pulumi.Input[str] data_collection_endpoint_id: The resource ID of the Data Collection Endpoint that this rule can be used with.
         :param pulumi.Input['DataCollectionRuleDataSourcesArgs'] data_sources: A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         :param pulumi.Input[str] description: The description of the Data Collection Rule.
-        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        :param pulumi.Input['DataCollectionRuleIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         :param pulumi.Input[str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]] stream_declarations: A `stream_declaration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Data Collection Rule.
         """
         pulumi.set(__self__, "data_flows", data_flows)
         pulumi.set(__self__, "destinations", destinations)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if data_collection_endpoint_id is not None:
+            pulumi.set(__self__, "data_collection_endpoint_id", data_collection_endpoint_id)
         if data_sources is not None:
             pulumi.set(__self__, "data_sources", data_sources)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if stream_declarations is not None:
+            pulumi.set(__self__, "stream_declarations", stream_declarations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -90,6 +102,18 @@ class DataCollectionRuleArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="dataCollectionEndpointId")
+    def data_collection_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Data Collection Endpoint that this rule can be used with.
+        """
+        return pulumi.get(self, "data_collection_endpoint_id")
+
+    @data_collection_endpoint_id.setter
+    def data_collection_endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_collection_endpoint_id", value)
+
+    @property
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> Optional[pulumi.Input['DataCollectionRuleDataSourcesArgs']]:
         """
@@ -115,9 +139,21 @@ class DataCollectionRuleArgs:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['DataCollectionRuleIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['DataCollectionRuleIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         """
         return pulumi.get(self, "kind")
 
@@ -150,6 +186,18 @@ class DataCollectionRuleArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="streamDeclarations")
+    def stream_declarations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]]]:
+        """
+        A `stream_declaration` block as defined below.
+        """
+        return pulumi.get(self, "stream_declarations")
+
+    @stream_declarations.setter
+    def stream_declarations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]]]):
+        pulumi.set(self, "stream_declarations", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -165,27 +213,37 @@ class DataCollectionRuleArgs:
 @pulumi.input_type
 class _DataCollectionRuleState:
     def __init__(__self__, *,
+                 data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
                  data_flows: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataFlowArgs']]]] = None,
                  data_sources: Optional[pulumi.Input['DataCollectionRuleDataSourcesArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input['DataCollectionRuleDestinationsArgs']] = None,
+                 identity: Optional[pulumi.Input['DataCollectionRuleIdentityArgs']] = None,
+                 immutable_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering DataCollectionRule resources.
+        :param pulumi.Input[str] data_collection_endpoint_id: The resource ID of the Data Collection Endpoint that this rule can be used with.
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataFlowArgs']]] data_flows: One or more `data_flow` blocks as defined below.
         :param pulumi.Input['DataCollectionRuleDataSourcesArgs'] data_sources: A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         :param pulumi.Input[str] description: The description of the Data Collection Rule.
         :param pulumi.Input['DataCollectionRuleDestinationsArgs'] destinations: A `destinations` block as defined below.
-        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        :param pulumi.Input['DataCollectionRuleIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] immutable_id: The immutable ID of the Data Collection Rule.
+        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         :param pulumi.Input[str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]] stream_declarations: A `stream_declaration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Data Collection Rule.
         """
+        if data_collection_endpoint_id is not None:
+            pulumi.set(__self__, "data_collection_endpoint_id", data_collection_endpoint_id)
         if data_flows is not None:
             pulumi.set(__self__, "data_flows", data_flows)
         if data_sources is not None:
@@ -194,6 +252,10 @@ class _DataCollectionRuleState:
             pulumi.set(__self__, "description", description)
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if immutable_id is not None:
+            pulumi.set(__self__, "immutable_id", immutable_id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -202,8 +264,22 @@ class _DataCollectionRuleState:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if stream_declarations is not None:
+            pulumi.set(__self__, "stream_declarations", stream_declarations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="dataCollectionEndpointId")
+    def data_collection_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Data Collection Endpoint that this rule can be used with.
+        """
+        return pulumi.get(self, "data_collection_endpoint_id")
+
+    @data_collection_endpoint_id.setter
+    def data_collection_endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_collection_endpoint_id", value)
 
     @property
     @pulumi.getter(name="dataFlows")
@@ -255,9 +331,33 @@ class _DataCollectionRuleState:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['DataCollectionRuleIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['DataCollectionRuleIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="immutableId")
+    def immutable_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The immutable ID of the Data Collection Rule.
+        """
+        return pulumi.get(self, "immutable_id")
+
+    @immutable_id.setter
+    def immutable_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "immutable_id", value)
+
+    @property
+    @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         """
         return pulumi.get(self, "kind")
 
@@ -302,6 +402,18 @@ class _DataCollectionRuleState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="streamDeclarations")
+    def stream_declarations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]]]:
+        """
+        A `stream_declaration` block as defined below.
+        """
+        return pulumi.get(self, "stream_declarations")
+
+    @stream_declarations.setter
+    def stream_declarations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]]]):
+        pulumi.set(self, "stream_declarations", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -319,14 +431,17 @@ class DataCollectionRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
                  data_flows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleDataFlowArgs']]]]] = None,
                  data_sources: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleDataSourcesArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleDestinationsArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleStreamDeclarationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -340,6 +455,9 @@ class DataCollectionRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
@@ -353,13 +471,39 @@ class DataCollectionRule(pulumi.CustomResource):
                 publisher="Microsoft",
                 product="OMSGallery/WindowsEventForwarding",
             ))
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=azurerm_eventhub_namespace["example"]["name"],
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=1)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer",
+            storage_account_name=example_account.name,
+            container_access_type="private")
+        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_data_collection_rule = azure.monitoring.DataCollectionRule("exampleDataCollectionRule",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
+            data_collection_endpoint_id=example_data_collection_endpoint.id,
             destinations=azure.monitoring.DataCollectionRuleDestinationsArgs(
                 log_analytics=[azure.monitoring.DataCollectionRuleDestinationsLogAnalyticArgs(
                     workspace_resource_id=example_analytics_workspace.id,
                     name="test-destination-log",
+                )],
+                event_hub=azure.monitoring.DataCollectionRuleDestinationsEventHubArgs(
+                    event_hub_id=example_event_hub.id,
+                    name="test-destination-eventhub",
+                ),
+                storage_blobs=[azure.monitoring.DataCollectionRuleDestinationsStorageBlobArgs(
+                    storage_account_id=example_account.id,
+                    container_name=example_container.name,
+                    name="test-destination-storage",
                 )],
                 azure_monitor_metrics=azure.monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs(
                     name="test-destination-metrics",
@@ -378,12 +522,34 @@ class DataCollectionRule(pulumi.CustomResource):
                     ],
                     destinations=["test-destination-log"],
                 ),
+                azure.monitoring.DataCollectionRuleDataFlowArgs(
+                    streams=["Custom-MyTableRawData"],
+                    destinations=["example-destination-log"],
+                    output_stream="Microsoft-Syslog",
+                    transform_kql="source | project TimeGenerated = Time, Computer, Message = AdditionalContext",
+                ),
             ],
             data_sources=azure.monitoring.DataCollectionRuleDataSourcesArgs(
                 syslogs=[azure.monitoring.DataCollectionRuleDataSourcesSyslogArgs(
                     facility_names=["*"],
                     log_levels=["*"],
                     name="test-datasource-syslog",
+                )],
+                iis_logs=[azure.monitoring.DataCollectionRuleDataSourcesIisLogArgs(
+                    streams=["Microsoft-W3CIISLog"],
+                    name="test-datasource-iis",
+                    log_directories=["C:\\\\\\\\Logs\\\\\\\\W3SVC1"],
+                )],
+                log_files=[azure.monitoring.DataCollectionRuleDataSourcesLogFileArgs(
+                    name="test-datasource-logfile",
+                    format="text",
+                    streams=["Custom-MyTableRawData"],
+                    file_patterns=["C:\\\\\\\\JavaLogs\\\\\\\\*.log"],
+                    settings=azure.monitoring.DataCollectionRuleDataSourcesLogFileSettingsArgs(
+                        text=azure.monitoring.DataCollectionRuleDataSourcesLogFileSettingsTextArgs(
+                            record_start_timestamp_format="ISO 8601",
+                        ),
+                    ),
                 )],
                 performance_counters=[azure.monitoring.DataCollectionRuleDataSourcesPerformanceCounterArgs(
                     streams=[
@@ -410,6 +576,27 @@ class DataCollectionRule(pulumi.CustomResource):
                     name="test-datasource-extension",
                 )],
             ),
+            stream_declarations=[azure.monitoring.DataCollectionRuleStreamDeclarationArgs(
+                stream_name="Custom-MyTableRawData",
+                columns=[
+                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
+                        name="Time",
+                        type="datetime",
+                    ),
+                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
+                        name="Computer",
+                        type="string",
+                    ),
+                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
+                        name="AdditionalContext",
+                        type="string",
+                    ),
+                ],
+            )],
+            identity=azure.monitoring.DataCollectionRuleIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
+            ),
             description="data collection rule example",
             tags={
                 "foo": "bar",
@@ -427,14 +614,17 @@ class DataCollectionRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_collection_endpoint_id: The resource ID of the Data Collection Endpoint that this rule can be used with.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleDataFlowArgs']]]] data_flows: One or more `data_flow` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['DataCollectionRuleDataSourcesArgs']] data_sources: A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         :param pulumi.Input[str] description: The description of the Data Collection Rule.
         :param pulumi.Input[pulumi.InputType['DataCollectionRuleDestinationsArgs']] destinations: A `destinations` block as defined below.
-        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        :param pulumi.Input[pulumi.InputType['DataCollectionRuleIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         :param pulumi.Input[str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleStreamDeclarationArgs']]]] stream_declarations: A `stream_declaration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Data Collection Rule.
         """
         ...
@@ -454,6 +644,9 @@ class DataCollectionRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
@@ -467,13 +660,39 @@ class DataCollectionRule(pulumi.CustomResource):
                 publisher="Microsoft",
                 product="OMSGallery/WindowsEventForwarding",
             ))
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=azurerm_eventhub_namespace["example"]["name"],
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=1)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer",
+            storage_account_name=example_account.name,
+            container_access_type="private")
+        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_data_collection_rule = azure.monitoring.DataCollectionRule("exampleDataCollectionRule",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
+            data_collection_endpoint_id=example_data_collection_endpoint.id,
             destinations=azure.monitoring.DataCollectionRuleDestinationsArgs(
                 log_analytics=[azure.monitoring.DataCollectionRuleDestinationsLogAnalyticArgs(
                     workspace_resource_id=example_analytics_workspace.id,
                     name="test-destination-log",
+                )],
+                event_hub=azure.monitoring.DataCollectionRuleDestinationsEventHubArgs(
+                    event_hub_id=example_event_hub.id,
+                    name="test-destination-eventhub",
+                ),
+                storage_blobs=[azure.monitoring.DataCollectionRuleDestinationsStorageBlobArgs(
+                    storage_account_id=example_account.id,
+                    container_name=example_container.name,
+                    name="test-destination-storage",
                 )],
                 azure_monitor_metrics=azure.monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs(
                     name="test-destination-metrics",
@@ -492,12 +711,34 @@ class DataCollectionRule(pulumi.CustomResource):
                     ],
                     destinations=["test-destination-log"],
                 ),
+                azure.monitoring.DataCollectionRuleDataFlowArgs(
+                    streams=["Custom-MyTableRawData"],
+                    destinations=["example-destination-log"],
+                    output_stream="Microsoft-Syslog",
+                    transform_kql="source | project TimeGenerated = Time, Computer, Message = AdditionalContext",
+                ),
             ],
             data_sources=azure.monitoring.DataCollectionRuleDataSourcesArgs(
                 syslogs=[azure.monitoring.DataCollectionRuleDataSourcesSyslogArgs(
                     facility_names=["*"],
                     log_levels=["*"],
                     name="test-datasource-syslog",
+                )],
+                iis_logs=[azure.monitoring.DataCollectionRuleDataSourcesIisLogArgs(
+                    streams=["Microsoft-W3CIISLog"],
+                    name="test-datasource-iis",
+                    log_directories=["C:\\\\\\\\Logs\\\\\\\\W3SVC1"],
+                )],
+                log_files=[azure.monitoring.DataCollectionRuleDataSourcesLogFileArgs(
+                    name="test-datasource-logfile",
+                    format="text",
+                    streams=["Custom-MyTableRawData"],
+                    file_patterns=["C:\\\\\\\\JavaLogs\\\\\\\\*.log"],
+                    settings=azure.monitoring.DataCollectionRuleDataSourcesLogFileSettingsArgs(
+                        text=azure.monitoring.DataCollectionRuleDataSourcesLogFileSettingsTextArgs(
+                            record_start_timestamp_format="ISO 8601",
+                        ),
+                    ),
                 )],
                 performance_counters=[azure.monitoring.DataCollectionRuleDataSourcesPerformanceCounterArgs(
                     streams=[
@@ -523,6 +764,27 @@ class DataCollectionRule(pulumi.CustomResource):
                     }),
                     name="test-datasource-extension",
                 )],
+            ),
+            stream_declarations=[azure.monitoring.DataCollectionRuleStreamDeclarationArgs(
+                stream_name="Custom-MyTableRawData",
+                columns=[
+                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
+                        name="Time",
+                        type="datetime",
+                    ),
+                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
+                        name="Computer",
+                        type="string",
+                    ),
+                    azure.monitoring.DataCollectionRuleStreamDeclarationColumnArgs(
+                        name="AdditionalContext",
+                        type="string",
+                    ),
+                ],
+            )],
+            identity=azure.monitoring.DataCollectionRuleIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
             ),
             description="data collection rule example",
             tags={
@@ -554,14 +816,17 @@ class DataCollectionRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
                  data_flows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleDataFlowArgs']]]]] = None,
                  data_sources: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleDataSourcesArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleDestinationsArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleStreamDeclarationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -572,6 +837,7 @@ class DataCollectionRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataCollectionRuleArgs.__new__(DataCollectionRuleArgs)
 
+            __props__.__dict__["data_collection_endpoint_id"] = data_collection_endpoint_id
             if data_flows is None and not opts.urn:
                 raise TypeError("Missing required property 'data_flows'")
             __props__.__dict__["data_flows"] = data_flows
@@ -580,13 +846,16 @@ class DataCollectionRule(pulumi.CustomResource):
             if destinations is None and not opts.urn:
                 raise TypeError("Missing required property 'destinations'")
             __props__.__dict__["destinations"] = destinations
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["stream_declarations"] = stream_declarations
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["immutable_id"] = None
         super(DataCollectionRule, __self__).__init__(
             'azure:monitoring/dataCollectionRule:DataCollectionRule',
             resource_name,
@@ -597,14 +866,18 @@ class DataCollectionRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
             data_flows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleDataFlowArgs']]]]] = None,
             data_sources: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleDataSourcesArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             destinations: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleDestinationsArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleIdentityArgs']]] = None,
+            immutable_id: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleStreamDeclarationArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'DataCollectionRule':
         """
         Get an existing DataCollectionRule resource's state with the given name, id, and optional extra
@@ -613,30 +886,46 @@ class DataCollectionRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_collection_endpoint_id: The resource ID of the Data Collection Endpoint that this rule can be used with.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleDataFlowArgs']]]] data_flows: One or more `data_flow` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['DataCollectionRuleDataSourcesArgs']] data_sources: A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         :param pulumi.Input[str] description: The description of the Data Collection Rule.
         :param pulumi.Input[pulumi.InputType['DataCollectionRuleDestinationsArgs']] destinations: A `destinations` block as defined below.
-        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        :param pulumi.Input[pulumi.InputType['DataCollectionRuleIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] immutable_id: The immutable ID of the Data Collection Rule.
+        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         :param pulumi.Input[str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleStreamDeclarationArgs']]]] stream_declarations: A `stream_declaration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Data Collection Rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _DataCollectionRuleState.__new__(_DataCollectionRuleState)
 
+        __props__.__dict__["data_collection_endpoint_id"] = data_collection_endpoint_id
         __props__.__dict__["data_flows"] = data_flows
         __props__.__dict__["data_sources"] = data_sources
         __props__.__dict__["description"] = description
         __props__.__dict__["destinations"] = destinations
+        __props__.__dict__["identity"] = identity
+        __props__.__dict__["immutable_id"] = immutable_id
         __props__.__dict__["kind"] = kind
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["stream_declarations"] = stream_declarations
         __props__.__dict__["tags"] = tags
         return DataCollectionRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="dataCollectionEndpointId")
+    def data_collection_endpoint_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource ID of the Data Collection Endpoint that this rule can be used with.
+        """
+        return pulumi.get(self, "data_collection_endpoint_id")
 
     @property
     @pulumi.getter(name="dataFlows")
@@ -672,9 +961,25 @@ class DataCollectionRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.DataCollectionRuleIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="immutableId")
+    def immutable_id(self) -> pulumi.Output[str]:
+        """
+        The immutable ID of the Data Collection Rule.
+        """
+        return pulumi.get(self, "immutable_id")
+
+    @property
+    @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         """
         return pulumi.get(self, "kind")
 
@@ -701,6 +1006,14 @@ class DataCollectionRule(pulumi.CustomResource):
         The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="streamDeclarations")
+    def stream_declarations(self) -> pulumi.Output[Optional[Sequence['outputs.DataCollectionRuleStreamDeclaration']]]:
+        """
+        A `stream_declaration` block as defined below.
+        """
+        return pulumi.get(self, "stream_declarations")
 
     @property
     @pulumi.getter

@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
  * Manages a Content Key Policy.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -106,7 +105,7 @@ import javax.annotation.Nullable;
  *                             .compressedDigitalAudioOpl(250)
  *                             .compressedDigitalVideoOpl(400)
  *                             .explicitAnalogTelevisionOutputRestriction(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs.builder()
- *                                 .bestEffort(true)
+ *                                 .bestEffortEnforced(true)
  *                                 .controlBits(3)
  *                                 .build())
  *                             .build())

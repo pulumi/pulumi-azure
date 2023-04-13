@@ -3,10 +3,16 @@
 
 package com.pulumi.azure.monitoring.inputs;
 
+import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesDataImportArgs;
 import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesExtensionArgs;
+import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesIisLogArgs;
+import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesLogFileArgs;
 import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesPerformanceCounterArgs;
+import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesPlatformTelemetryArgs;
+import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesPrometheusForwarderArgs;
 import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesSyslogArgs;
 import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesWindowsEventLogArgs;
+import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesWindowsFirewallLogArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
@@ -18,6 +24,21 @@ import javax.annotation.Nullable;
 public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DataCollectionRuleDataSourcesArgs Empty = new DataCollectionRuleDataSourcesArgs();
+
+    /**
+     * A `data_import` block as defined above.
+     * 
+     */
+    @Import(name="dataImport")
+    private @Nullable Output<DataCollectionRuleDataSourcesDataImportArgs> dataImport;
+
+    /**
+     * @return A `data_import` block as defined above.
+     * 
+     */
+    public Optional<Output<DataCollectionRuleDataSourcesDataImportArgs>> dataImport() {
+        return Optional.ofNullable(this.dataImport);
+    }
 
     /**
      * One or more `extension` blocks as defined below.
@@ -35,6 +56,36 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
     }
 
     /**
+     * One or more `iis_log` blocks as defined below.
+     * 
+     */
+    @Import(name="iisLogs")
+    private @Nullable Output<List<DataCollectionRuleDataSourcesIisLogArgs>> iisLogs;
+
+    /**
+     * @return One or more `iis_log` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<DataCollectionRuleDataSourcesIisLogArgs>>> iisLogs() {
+        return Optional.ofNullable(this.iisLogs);
+    }
+
+    /**
+     * One or more `log_file` blocks as defined below.
+     * 
+     */
+    @Import(name="logFiles")
+    private @Nullable Output<List<DataCollectionRuleDataSourcesLogFileArgs>> logFiles;
+
+    /**
+     * @return One or more `log_file` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<DataCollectionRuleDataSourcesLogFileArgs>>> logFiles() {
+        return Optional.ofNullable(this.logFiles);
+    }
+
+    /**
      * One or more `performance_counter` blocks as defined below.
      * 
      */
@@ -47,6 +98,36 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
      */
     public Optional<Output<List<DataCollectionRuleDataSourcesPerformanceCounterArgs>>> performanceCounters() {
         return Optional.ofNullable(this.performanceCounters);
+    }
+
+    /**
+     * One or more `platform_telemetry` blocks as defined below.
+     * 
+     */
+    @Import(name="platformTelemetries")
+    private @Nullable Output<List<DataCollectionRuleDataSourcesPlatformTelemetryArgs>> platformTelemetries;
+
+    /**
+     * @return One or more `platform_telemetry` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<DataCollectionRuleDataSourcesPlatformTelemetryArgs>>> platformTelemetries() {
+        return Optional.ofNullable(this.platformTelemetries);
+    }
+
+    /**
+     * One or more `prometheus_forwarder` blocks as defined below.
+     * 
+     */
+    @Import(name="prometheusForwarders")
+    private @Nullable Output<List<DataCollectionRuleDataSourcesPrometheusForwarderArgs>> prometheusForwarders;
+
+    /**
+     * @return One or more `prometheus_forwarder` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<DataCollectionRuleDataSourcesPrometheusForwarderArgs>>> prometheusForwarders() {
+        return Optional.ofNullable(this.prometheusForwarders);
     }
 
     /**
@@ -79,13 +160,34 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         return Optional.ofNullable(this.windowsEventLogs);
     }
 
+    /**
+     * One or more `windows_firewall_log` blocks as defined below.
+     * 
+     */
+    @Import(name="windowsFirewallLogs")
+    private @Nullable Output<List<DataCollectionRuleDataSourcesWindowsFirewallLogArgs>> windowsFirewallLogs;
+
+    /**
+     * @return One or more `windows_firewall_log` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<DataCollectionRuleDataSourcesWindowsFirewallLogArgs>>> windowsFirewallLogs() {
+        return Optional.ofNullable(this.windowsFirewallLogs);
+    }
+
     private DataCollectionRuleDataSourcesArgs() {}
 
     private DataCollectionRuleDataSourcesArgs(DataCollectionRuleDataSourcesArgs $) {
+        this.dataImport = $.dataImport;
         this.extensions = $.extensions;
+        this.iisLogs = $.iisLogs;
+        this.logFiles = $.logFiles;
         this.performanceCounters = $.performanceCounters;
+        this.platformTelemetries = $.platformTelemetries;
+        this.prometheusForwarders = $.prometheusForwarders;
         this.syslogs = $.syslogs;
         this.windowsEventLogs = $.windowsEventLogs;
+        this.windowsFirewallLogs = $.windowsFirewallLogs;
     }
 
     public static Builder builder() {
@@ -104,6 +206,27 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
 
         public Builder(DataCollectionRuleDataSourcesArgs defaults) {
             $ = new DataCollectionRuleDataSourcesArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dataImport A `data_import` block as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataImport(@Nullable Output<DataCollectionRuleDataSourcesDataImportArgs> dataImport) {
+            $.dataImport = dataImport;
+            return this;
+        }
+
+        /**
+         * @param dataImport A `data_import` block as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataImport(DataCollectionRuleDataSourcesDataImportArgs dataImport) {
+            return dataImport(Output.of(dataImport));
         }
 
         /**
@@ -138,6 +261,68 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
         }
 
         /**
+         * @param iisLogs One or more `iis_log` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iisLogs(@Nullable Output<List<DataCollectionRuleDataSourcesIisLogArgs>> iisLogs) {
+            $.iisLogs = iisLogs;
+            return this;
+        }
+
+        /**
+         * @param iisLogs One or more `iis_log` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iisLogs(List<DataCollectionRuleDataSourcesIisLogArgs> iisLogs) {
+            return iisLogs(Output.of(iisLogs));
+        }
+
+        /**
+         * @param iisLogs One or more `iis_log` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iisLogs(DataCollectionRuleDataSourcesIisLogArgs... iisLogs) {
+            return iisLogs(List.of(iisLogs));
+        }
+
+        /**
+         * @param logFiles One or more `log_file` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logFiles(@Nullable Output<List<DataCollectionRuleDataSourcesLogFileArgs>> logFiles) {
+            $.logFiles = logFiles;
+            return this;
+        }
+
+        /**
+         * @param logFiles One or more `log_file` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logFiles(List<DataCollectionRuleDataSourcesLogFileArgs> logFiles) {
+            return logFiles(Output.of(logFiles));
+        }
+
+        /**
+         * @param logFiles One or more `log_file` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logFiles(DataCollectionRuleDataSourcesLogFileArgs... logFiles) {
+            return logFiles(List.of(logFiles));
+        }
+
+        /**
          * @param performanceCounters One or more `performance_counter` blocks as defined below.
          * 
          * @return builder
@@ -166,6 +351,68 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
          */
         public Builder performanceCounters(DataCollectionRuleDataSourcesPerformanceCounterArgs... performanceCounters) {
             return performanceCounters(List.of(performanceCounters));
+        }
+
+        /**
+         * @param platformTelemetries One or more `platform_telemetry` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder platformTelemetries(@Nullable Output<List<DataCollectionRuleDataSourcesPlatformTelemetryArgs>> platformTelemetries) {
+            $.platformTelemetries = platformTelemetries;
+            return this;
+        }
+
+        /**
+         * @param platformTelemetries One or more `platform_telemetry` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder platformTelemetries(List<DataCollectionRuleDataSourcesPlatformTelemetryArgs> platformTelemetries) {
+            return platformTelemetries(Output.of(platformTelemetries));
+        }
+
+        /**
+         * @param platformTelemetries One or more `platform_telemetry` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder platformTelemetries(DataCollectionRuleDataSourcesPlatformTelemetryArgs... platformTelemetries) {
+            return platformTelemetries(List.of(platformTelemetries));
+        }
+
+        /**
+         * @param prometheusForwarders One or more `prometheus_forwarder` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prometheusForwarders(@Nullable Output<List<DataCollectionRuleDataSourcesPrometheusForwarderArgs>> prometheusForwarders) {
+            $.prometheusForwarders = prometheusForwarders;
+            return this;
+        }
+
+        /**
+         * @param prometheusForwarders One or more `prometheus_forwarder` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prometheusForwarders(List<DataCollectionRuleDataSourcesPrometheusForwarderArgs> prometheusForwarders) {
+            return prometheusForwarders(Output.of(prometheusForwarders));
+        }
+
+        /**
+         * @param prometheusForwarders One or more `prometheus_forwarder` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prometheusForwarders(DataCollectionRuleDataSourcesPrometheusForwarderArgs... prometheusForwarders) {
+            return prometheusForwarders(List.of(prometheusForwarders));
         }
 
         /**
@@ -228,6 +475,37 @@ public final class DataCollectionRuleDataSourcesArgs extends com.pulumi.resource
          */
         public Builder windowsEventLogs(DataCollectionRuleDataSourcesWindowsEventLogArgs... windowsEventLogs) {
             return windowsEventLogs(List.of(windowsEventLogs));
+        }
+
+        /**
+         * @param windowsFirewallLogs One or more `windows_firewall_log` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder windowsFirewallLogs(@Nullable Output<List<DataCollectionRuleDataSourcesWindowsFirewallLogArgs>> windowsFirewallLogs) {
+            $.windowsFirewallLogs = windowsFirewallLogs;
+            return this;
+        }
+
+        /**
+         * @param windowsFirewallLogs One or more `windows_firewall_log` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder windowsFirewallLogs(List<DataCollectionRuleDataSourcesWindowsFirewallLogArgs> windowsFirewallLogs) {
+            return windowsFirewallLogs(Output.of(windowsFirewallLogs));
+        }
+
+        /**
+         * @param windowsFirewallLogs One or more `windows_firewall_log` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder windowsFirewallLogs(DataCollectionRuleDataSourcesWindowsFirewallLogArgs... windowsFirewallLogs) {
+            return windowsFirewallLogs(List.of(windowsFirewallLogs));
         }
 
         public DataCollectionRuleDataSourcesArgs build() {

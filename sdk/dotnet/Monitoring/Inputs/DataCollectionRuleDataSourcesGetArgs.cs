@@ -12,6 +12,12 @@ namespace Pulumi.Azure.Monitoring.Inputs
 
     public sealed class DataCollectionRuleDataSourcesGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `data_import` block as defined above.
+        /// </summary>
+        [Input("dataImport")]
+        public Input<Inputs.DataCollectionRuleDataSourcesDataImportGetArgs>? DataImport { get; set; }
+
         [Input("extensions")]
         private InputList<Inputs.DataCollectionRuleDataSourcesExtensionGetArgs>? _extensions;
 
@@ -24,6 +30,30 @@ namespace Pulumi.Azure.Monitoring.Inputs
             set => _extensions = value;
         }
 
+        [Input("iisLogs")]
+        private InputList<Inputs.DataCollectionRuleDataSourcesIisLogGetArgs>? _iisLogs;
+
+        /// <summary>
+        /// One or more `iis_log` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleDataSourcesIisLogGetArgs> IisLogs
+        {
+            get => _iisLogs ?? (_iisLogs = new InputList<Inputs.DataCollectionRuleDataSourcesIisLogGetArgs>());
+            set => _iisLogs = value;
+        }
+
+        [Input("logFiles")]
+        private InputList<Inputs.DataCollectionRuleDataSourcesLogFileGetArgs>? _logFiles;
+
+        /// <summary>
+        /// One or more `log_file` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleDataSourcesLogFileGetArgs> LogFiles
+        {
+            get => _logFiles ?? (_logFiles = new InputList<Inputs.DataCollectionRuleDataSourcesLogFileGetArgs>());
+            set => _logFiles = value;
+        }
+
         [Input("performanceCounters")]
         private InputList<Inputs.DataCollectionRuleDataSourcesPerformanceCounterGetArgs>? _performanceCounters;
 
@@ -34,6 +64,30 @@ namespace Pulumi.Azure.Monitoring.Inputs
         {
             get => _performanceCounters ?? (_performanceCounters = new InputList<Inputs.DataCollectionRuleDataSourcesPerformanceCounterGetArgs>());
             set => _performanceCounters = value;
+        }
+
+        [Input("platformTelemetries")]
+        private InputList<Inputs.DataCollectionRuleDataSourcesPlatformTelemetryGetArgs>? _platformTelemetries;
+
+        /// <summary>
+        /// One or more `platform_telemetry` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleDataSourcesPlatformTelemetryGetArgs> PlatformTelemetries
+        {
+            get => _platformTelemetries ?? (_platformTelemetries = new InputList<Inputs.DataCollectionRuleDataSourcesPlatformTelemetryGetArgs>());
+            set => _platformTelemetries = value;
+        }
+
+        [Input("prometheusForwarders")]
+        private InputList<Inputs.DataCollectionRuleDataSourcesPrometheusForwarderGetArgs>? _prometheusForwarders;
+
+        /// <summary>
+        /// One or more `prometheus_forwarder` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleDataSourcesPrometheusForwarderGetArgs> PrometheusForwarders
+        {
+            get => _prometheusForwarders ?? (_prometheusForwarders = new InputList<Inputs.DataCollectionRuleDataSourcesPrometheusForwarderGetArgs>());
+            set => _prometheusForwarders = value;
         }
 
         [Input("syslogs")]
@@ -58,6 +112,18 @@ namespace Pulumi.Azure.Monitoring.Inputs
         {
             get => _windowsEventLogs ?? (_windowsEventLogs = new InputList<Inputs.DataCollectionRuleDataSourcesWindowsEventLogGetArgs>());
             set => _windowsEventLogs = value;
+        }
+
+        [Input("windowsFirewallLogs")]
+        private InputList<Inputs.DataCollectionRuleDataSourcesWindowsFirewallLogGetArgs>? _windowsFirewallLogs;
+
+        /// <summary>
+        /// One or more `windows_firewall_log` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleDataSourcesWindowsFirewallLogGetArgs> WindowsFirewallLogs
+        {
+            get => _windowsFirewallLogs ?? (_windowsFirewallLogs = new InputList<Inputs.DataCollectionRuleDataSourcesWindowsFirewallLogGetArgs>());
+            set => _windowsFirewallLogs = value;
         }
 
         public DataCollectionRuleDataSourcesGetArgs()

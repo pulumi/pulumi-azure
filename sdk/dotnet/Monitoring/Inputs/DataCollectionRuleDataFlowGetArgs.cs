@@ -12,6 +12,12 @@ namespace Pulumi.Azure.Monitoring.Inputs
 
     public sealed class DataCollectionRuleDataFlowGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The built-in transform to transform stream data.
+        /// </summary>
+        [Input("builtInTransform")]
+        public Input<string>? BuiltInTransform { get; set; }
+
         [Input("destinations", required: true)]
         private InputList<string>? _destinations;
 
@@ -24,6 +30,12 @@ namespace Pulumi.Azure.Monitoring.Inputs
             set => _destinations = value;
         }
 
+        /// <summary>
+        /// The output stream of the transform. Only required if the data flow changes data to a different stream.
+        /// </summary>
+        [Input("outputStream")]
+        public Input<string>? OutputStream { get; set; }
+
         [Input("streams", required: true)]
         private InputList<string>? _streams;
 
@@ -35,6 +47,12 @@ namespace Pulumi.Azure.Monitoring.Inputs
             get => _streams ?? (_streams = new InputList<string>());
             set => _streams = value;
         }
+
+        /// <summary>
+        /// The KQL query to transform stream data.
+        /// </summary>
+        [Input("transformKql")]
+        public Input<string>? TransformKql { get; set; }
 
         public DataCollectionRuleDataFlowGetArgs()
         {

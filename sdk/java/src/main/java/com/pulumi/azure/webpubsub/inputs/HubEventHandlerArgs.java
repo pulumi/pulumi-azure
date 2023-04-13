@@ -33,14 +33,14 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+     * Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
      * 
      */
     @Import(name="systemEvents")
     private @Nullable Output<List<String>> systemEvents;
 
     /**
-     * @return Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+     * @return Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
      * 
      */
     public Optional<Output<List<String>>> systemEvents() {
@@ -63,14 +63,14 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
+     * Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
      * 
      */
     @Import(name="userEventPattern")
     private @Nullable Output<String> userEventPattern;
 
     /**
-     * @return Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
+     * @return Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
      * 
      */
     public Optional<Output<String>> userEventPattern() {
@@ -126,7 +126,7 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param systemEvents Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+         * @param systemEvents Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param systemEvents Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+         * @param systemEvents Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param systemEvents Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+         * @param systemEvents Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param userEventPattern Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
+         * @param userEventPattern Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param userEventPattern Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
+         * @param userEventPattern Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
          * 
          * @return builder
          * 

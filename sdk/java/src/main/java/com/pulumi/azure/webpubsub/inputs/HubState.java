@@ -4,6 +4,7 @@
 package com.pulumi.azure.webpubsub.inputs;
 
 import com.pulumi.azure.webpubsub.inputs.HubEventHandlerArgs;
+import com.pulumi.azure.webpubsub.inputs.HubEventListenerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -51,6 +52,21 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * An `event_listener` block as defined below.
+     * 
+     */
+    @Import(name="eventListeners")
+    private @Nullable Output<List<HubEventListenerArgs>> eventListeners;
+
+    /**
+     * @return An `event_listener` block as defined below.
+     * 
+     */
+    public Optional<Output<List<HubEventListenerArgs>>> eventListeners() {
+        return Optional.ofNullable(this.eventListeners);
+    }
+
+    /**
      * The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
      * 
      */
@@ -66,14 +82,14 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+     * Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="webPubsubId")
     private @Nullable Output<String> webPubsubId;
 
     /**
-     * @return Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+     * @return Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> webPubsubId() {
@@ -85,6 +101,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
     private HubState(HubState $) {
         this.anonymousConnectionsEnabled = $.anonymousConnectionsEnabled;
         this.eventHandlers = $.eventHandlers;
+        this.eventListeners = $.eventListeners;
         this.name = $.name;
         this.webPubsubId = $.webPubsubId;
     }
@@ -162,6 +179,37 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param eventListeners An `event_listener` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventListeners(@Nullable Output<List<HubEventListenerArgs>> eventListeners) {
+            $.eventListeners = eventListeners;
+            return this;
+        }
+
+        /**
+         * @param eventListeners An `event_listener` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventListeners(List<HubEventListenerArgs> eventListeners) {
+            return eventListeners(Output.of(eventListeners));
+        }
+
+        /**
+         * @param eventListeners An `event_listener` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventListeners(HubEventListenerArgs... eventListeners) {
+            return eventListeners(List.of(eventListeners));
+        }
+
+        /**
          * @param name The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -183,7 +231,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webPubsubId Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+         * @param webPubsubId Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -194,7 +242,7 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webPubsubId Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+         * @param webPubsubId Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

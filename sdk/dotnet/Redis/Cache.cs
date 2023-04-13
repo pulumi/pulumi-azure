@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Redis
     /// <summary>
     /// Manages a Redis Cache.
     /// 
+    /// &gt; **Note:** Redis version 4 is being retired and no longer supports creating new instances. Version 4 will be removed in a future release. [Redis Version 4 Retirement](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-retired-features#important-upgrade-timelines)
+    /// 
     /// ## Example Usage
     /// 
     /// This example provisions a Standard Redis Cache.

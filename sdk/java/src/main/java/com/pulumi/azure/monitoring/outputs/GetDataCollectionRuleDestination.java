@@ -4,10 +4,18 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDestinationAzureMonitorMetric;
+import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDestinationEventHub;
+import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDestinationEventHubDirect;
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDestinationLogAnalytic;
+import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDestinationMonitorAccount;
+import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDestinationStorageBlob;
+import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDestinationStorageBlobDirect;
+import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDestinationStorageTableDirect;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataCollectionRuleDestination {
@@ -17,10 +25,40 @@ public final class GetDataCollectionRuleDestination {
      */
     private List<GetDataCollectionRuleDestinationAzureMonitorMetric> azureMonitorMetrics;
     /**
+     * @return One or more `event_hub` blocks as defined below.
+     * 
+     */
+    private @Nullable GetDataCollectionRuleDestinationEventHub eventHub;
+    /**
+     * @return One or more `event_hub_direct` blocks as defined below.
+     * 
+     */
+    private @Nullable GetDataCollectionRuleDestinationEventHubDirect eventHubDirect;
+    /**
      * @return One or more `log_analytics` blocks as defined below.
      * 
      */
     private List<GetDataCollectionRuleDestinationLogAnalytic> logAnalytics;
+    /**
+     * @return One or more `monitor_account` blocks as defined below.
+     * 
+     */
+    private List<GetDataCollectionRuleDestinationMonitorAccount> monitorAccounts;
+    /**
+     * @return One or more `storage_blob_direct` blocks as defined below.
+     * 
+     */
+    private List<GetDataCollectionRuleDestinationStorageBlobDirect> storageBlobDirects;
+    /**
+     * @return One or more `storage_blob` blocks as defined below.
+     * 
+     */
+    private List<GetDataCollectionRuleDestinationStorageBlob> storageBlobs;
+    /**
+     * @return One or more `storage_table_direct` blocks as defined below.
+     * 
+     */
+    private List<GetDataCollectionRuleDestinationStorageTableDirect> storageTableDirects;
 
     private GetDataCollectionRuleDestination() {}
     /**
@@ -31,11 +69,53 @@ public final class GetDataCollectionRuleDestination {
         return this.azureMonitorMetrics;
     }
     /**
+     * @return One or more `event_hub` blocks as defined below.
+     * 
+     */
+    public Optional<GetDataCollectionRuleDestinationEventHub> eventHub() {
+        return Optional.ofNullable(this.eventHub);
+    }
+    /**
+     * @return One or more `event_hub_direct` blocks as defined below.
+     * 
+     */
+    public Optional<GetDataCollectionRuleDestinationEventHubDirect> eventHubDirect() {
+        return Optional.ofNullable(this.eventHubDirect);
+    }
+    /**
      * @return One or more `log_analytics` blocks as defined below.
      * 
      */
     public List<GetDataCollectionRuleDestinationLogAnalytic> logAnalytics() {
         return this.logAnalytics;
+    }
+    /**
+     * @return One or more `monitor_account` blocks as defined below.
+     * 
+     */
+    public List<GetDataCollectionRuleDestinationMonitorAccount> monitorAccounts() {
+        return this.monitorAccounts;
+    }
+    /**
+     * @return One or more `storage_blob_direct` blocks as defined below.
+     * 
+     */
+    public List<GetDataCollectionRuleDestinationStorageBlobDirect> storageBlobDirects() {
+        return this.storageBlobDirects;
+    }
+    /**
+     * @return One or more `storage_blob` blocks as defined below.
+     * 
+     */
+    public List<GetDataCollectionRuleDestinationStorageBlob> storageBlobs() {
+        return this.storageBlobs;
+    }
+    /**
+     * @return One or more `storage_table_direct` blocks as defined below.
+     * 
+     */
+    public List<GetDataCollectionRuleDestinationStorageTableDirect> storageTableDirects() {
+        return this.storageTableDirects;
     }
 
     public static Builder builder() {
@@ -48,12 +128,24 @@ public final class GetDataCollectionRuleDestination {
     @CustomType.Builder
     public static final class Builder {
         private List<GetDataCollectionRuleDestinationAzureMonitorMetric> azureMonitorMetrics;
+        private @Nullable GetDataCollectionRuleDestinationEventHub eventHub;
+        private @Nullable GetDataCollectionRuleDestinationEventHubDirect eventHubDirect;
         private List<GetDataCollectionRuleDestinationLogAnalytic> logAnalytics;
+        private List<GetDataCollectionRuleDestinationMonitorAccount> monitorAccounts;
+        private List<GetDataCollectionRuleDestinationStorageBlobDirect> storageBlobDirects;
+        private List<GetDataCollectionRuleDestinationStorageBlob> storageBlobs;
+        private List<GetDataCollectionRuleDestinationStorageTableDirect> storageTableDirects;
         public Builder() {}
         public Builder(GetDataCollectionRuleDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureMonitorMetrics = defaults.azureMonitorMetrics;
+    	      this.eventHub = defaults.eventHub;
+    	      this.eventHubDirect = defaults.eventHubDirect;
     	      this.logAnalytics = defaults.logAnalytics;
+    	      this.monitorAccounts = defaults.monitorAccounts;
+    	      this.storageBlobDirects = defaults.storageBlobDirects;
+    	      this.storageBlobs = defaults.storageBlobs;
+    	      this.storageTableDirects = defaults.storageTableDirects;
         }
 
         @CustomType.Setter
@@ -65,6 +157,16 @@ public final class GetDataCollectionRuleDestination {
             return azureMonitorMetrics(List.of(azureMonitorMetrics));
         }
         @CustomType.Setter
+        public Builder eventHub(@Nullable GetDataCollectionRuleDestinationEventHub eventHub) {
+            this.eventHub = eventHub;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder eventHubDirect(@Nullable GetDataCollectionRuleDestinationEventHubDirect eventHubDirect) {
+            this.eventHubDirect = eventHubDirect;
+            return this;
+        }
+        @CustomType.Setter
         public Builder logAnalytics(List<GetDataCollectionRuleDestinationLogAnalytic> logAnalytics) {
             this.logAnalytics = Objects.requireNonNull(logAnalytics);
             return this;
@@ -72,10 +174,48 @@ public final class GetDataCollectionRuleDestination {
         public Builder logAnalytics(GetDataCollectionRuleDestinationLogAnalytic... logAnalytics) {
             return logAnalytics(List.of(logAnalytics));
         }
+        @CustomType.Setter
+        public Builder monitorAccounts(List<GetDataCollectionRuleDestinationMonitorAccount> monitorAccounts) {
+            this.monitorAccounts = Objects.requireNonNull(monitorAccounts);
+            return this;
+        }
+        public Builder monitorAccounts(GetDataCollectionRuleDestinationMonitorAccount... monitorAccounts) {
+            return monitorAccounts(List.of(monitorAccounts));
+        }
+        @CustomType.Setter
+        public Builder storageBlobDirects(List<GetDataCollectionRuleDestinationStorageBlobDirect> storageBlobDirects) {
+            this.storageBlobDirects = Objects.requireNonNull(storageBlobDirects);
+            return this;
+        }
+        public Builder storageBlobDirects(GetDataCollectionRuleDestinationStorageBlobDirect... storageBlobDirects) {
+            return storageBlobDirects(List.of(storageBlobDirects));
+        }
+        @CustomType.Setter
+        public Builder storageBlobs(List<GetDataCollectionRuleDestinationStorageBlob> storageBlobs) {
+            this.storageBlobs = Objects.requireNonNull(storageBlobs);
+            return this;
+        }
+        public Builder storageBlobs(GetDataCollectionRuleDestinationStorageBlob... storageBlobs) {
+            return storageBlobs(List.of(storageBlobs));
+        }
+        @CustomType.Setter
+        public Builder storageTableDirects(List<GetDataCollectionRuleDestinationStorageTableDirect> storageTableDirects) {
+            this.storageTableDirects = Objects.requireNonNull(storageTableDirects);
+            return this;
+        }
+        public Builder storageTableDirects(GetDataCollectionRuleDestinationStorageTableDirect... storageTableDirects) {
+            return storageTableDirects(List.of(storageTableDirects));
+        }
         public GetDataCollectionRuleDestination build() {
             final var o = new GetDataCollectionRuleDestination();
             o.azureMonitorMetrics = azureMonitorMetrics;
+            o.eventHub = eventHub;
+            o.eventHubDirect = eventHubDirect;
             o.logAnalytics = logAnalytics;
+            o.monitorAccounts = monitorAccounts;
+            o.storageBlobDirects = storageBlobDirects;
+            o.storageBlobs = storageBlobs;
+            o.storageTableDirects = storageTableDirects;
             return o;
         }
     }

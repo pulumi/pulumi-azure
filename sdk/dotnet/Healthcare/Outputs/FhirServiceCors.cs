@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Healthcare.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedHeaders;
         /// <summary>
-        /// The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+        /// The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
         /// </summary>
         public readonly ImmutableArray<string> AllowedMethods;
         /// <summary>

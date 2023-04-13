@@ -58,6 +58,8 @@ type LookupDataCollectionRuleArgs struct {
 
 // A collection of values returned by getDataCollectionRule.
 type LookupDataCollectionRuleResult struct {
+	// The resource ID of the Data Collection Endpoint that this rule can be used with.
+	DataCollectionEndpointId string `pulumi:"dataCollectionEndpointId"`
 	// One or more `dataFlow` blocks as defined below.
 	DataFlows []GetDataCollectionRuleDataFlow `pulumi:"dataFlows"`
 	// A `dataSources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
@@ -68,13 +70,18 @@ type LookupDataCollectionRuleResult struct {
 	Destinations []GetDataCollectionRuleDestination `pulumi:"destinations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+	// An `identity` block as defined below.
+	Identities  []GetDataCollectionRuleIdentity `pulumi:"identities"`
+	ImmutableId string                          `pulumi:"immutableId"`
+	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	Kind string `pulumi:"kind"`
 	// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
 	Location string `pulumi:"location"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `streamDeclaration` block as defined below.
+	StreamDeclarations []GetDataCollectionRuleStreamDeclaration `pulumi:"streamDeclarations"`
 	// A mapping of tags which should be assigned to the Data Collection Rule.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -119,6 +126,11 @@ func (o LookupDataCollectionRuleResultOutput) ToLookupDataCollectionRuleResultOu
 	return o
 }
 
+// The resource ID of the Data Collection Endpoint that this rule can be used with.
+func (o LookupDataCollectionRuleResultOutput) DataCollectionEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.DataCollectionEndpointId }).(pulumi.StringOutput)
+}
+
 // One or more `dataFlow` blocks as defined below.
 func (o LookupDataCollectionRuleResultOutput) DataFlows() GetDataCollectionRuleDataFlowArrayOutput {
 	return o.ApplyT(func(v LookupDataCollectionRuleResult) []GetDataCollectionRuleDataFlow { return v.DataFlows }).(GetDataCollectionRuleDataFlowArrayOutput)
@@ -144,7 +156,16 @@ func (o LookupDataCollectionRuleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+// An `identity` block as defined below.
+func (o LookupDataCollectionRuleResultOutput) Identities() GetDataCollectionRuleIdentityArrayOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) []GetDataCollectionRuleIdentity { return v.Identities }).(GetDataCollectionRuleIdentityArrayOutput)
+}
+
+func (o LookupDataCollectionRuleResultOutput) ImmutableId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.ImmutableId }).(pulumi.StringOutput)
+}
+
+// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 func (o LookupDataCollectionRuleResultOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -161,6 +182,13 @@ func (o LookupDataCollectionRuleResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupDataCollectionRuleResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataCollectionRuleResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A `streamDeclaration` block as defined below.
+func (o LookupDataCollectionRuleResultOutput) StreamDeclarations() GetDataCollectionRuleStreamDeclarationArrayOutput {
+	return o.ApplyT(func(v LookupDataCollectionRuleResult) []GetDataCollectionRuleStreamDeclaration {
+		return v.StreamDeclarations
+	}).(GetDataCollectionRuleStreamDeclarationArrayOutput)
 }
 
 // A mapping of tags which should be assigned to the Data Collection Rule.

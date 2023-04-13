@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.webpubsub.HubArgs;
 import com.pulumi.azure.webpubsub.inputs.HubState;
 import com.pulumi.azure.webpubsub.outputs.HubEventHandler;
+import com.pulumi.azure.webpubsub.outputs.HubEventListener;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -37,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.webpubsub.HubArgs;
  * import com.pulumi.azure.webpubsub.inputs.HubEventHandlerArgs;
  * import com.pulumi.azure.webpubsub.inputs.HubEventHandlerAuthArgs;
+ * import com.pulumi.azure.webpubsub.inputs.HubEventListenerArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -84,6 +86,27 @@ import javax.annotation.Nullable;
  *                     .auth(HubEventHandlerAuthArgs.builder()
  *                         .managedIdentityId(exampleUserAssignedIdentity.id())
  *                         .build())
+ *                     .build())
+ *             .eventListeners(            
+ *                 HubEventListenerArgs.builder()
+ *                     .systemEventNameFilters(&#34;connected&#34;)
+ *                     .userEventNameFilters(                    
+ *                         &#34;event1&#34;,
+ *                         &#34;event2&#34;)
+ *                     .eventhubNamespaceName(azurerm_eventhub_namespace.test().name())
+ *                     .eventhubName(azurerm_eventhub.test1().name())
+ *                     .build(),
+ *                 HubEventListenerArgs.builder()
+ *                     .systemEventNameFilters(&#34;connected&#34;)
+ *                     .userEventNameFilters(&#34;*&#34;)
+ *                     .eventhubNamespaceName(azurerm_eventhub_namespace.test().name())
+ *                     .eventhubName(azurerm_eventhub.test1().name())
+ *                     .build(),
+ *                 HubEventListenerArgs.builder()
+ *                     .systemEventNameFilters(&#34;connected&#34;)
+ *                     .userEventNameFilters(&#34;event1&#34;)
+ *                     .eventhubNamespaceName(azurerm_eventhub_namespace.test().name())
+ *                     .eventhubName(azurerm_eventhub.test1().name())
  *                     .build())
  *             .anonymousConnectionsEnabled(true)
  *             .build(), CustomResourceOptions.builder()
@@ -136,6 +159,20 @@ public class Hub extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eventHandlers);
     }
     /**
+     * An `event_listener` block as defined below.
+     * 
+     */
+    @Export(name="eventListeners", refs={List.class,HubEventListener.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<HubEventListener>> eventListeners;
+
+    /**
+     * @return An `event_listener` block as defined below.
+     * 
+     */
+    public Output<Optional<List<HubEventListener>>> eventListeners() {
+        return Codegen.optional(this.eventListeners);
+    }
+    /**
      * The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
      * 
      */
@@ -150,14 +187,14 @@ public class Hub extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+     * Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="webPubsubId", refs={String.class}, tree="[0]")
     private Output<String> webPubsubId;
 
     /**
-     * @return Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+     * @return Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> webPubsubId() {

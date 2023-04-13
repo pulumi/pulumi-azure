@@ -178,7 +178,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
-     * A `galleryApplication` block as defined below.
+     * One or more `galleryApplication` blocks as defined below.
      */
     public readonly galleryApplication!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetGalleryApplication[]>;
     /**
@@ -583,7 +583,7 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
-     * A `galleryApplication` block as defined below.
+     * One or more `galleryApplication` blocks as defined below.
      */
     galleryApplication?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetGalleryApplication>[]>;
     /**
@@ -827,7 +827,7 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
-     * A `galleryApplication` block as defined below.
+     * One or more `galleryApplication` blocks as defined below.
      */
     galleryApplication?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetGalleryApplication>[]>;
     /**

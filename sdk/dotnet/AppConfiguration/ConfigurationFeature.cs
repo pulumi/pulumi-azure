@@ -36,7 +36,7 @@ namespace Pulumi.Azure.AppConfiguration
     ///     {
     ///         ConfigurationStoreId = appconf.Id,
     ///         Description = "test description",
-    ///         Label = "acctest-ackeylabel-%d",
+    ///         Label = "test-ackeylabel",
     ///         Enabled = true,
     ///     });
     /// 
@@ -80,6 +80,12 @@ namespace Pulumi.Azure.AppConfiguration
 
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("key")]
+        public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
         /// The label of the App Configuration Feature. Changing this forces a new resource to be created.
@@ -191,6 +197,12 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? Etag { get; set; }
 
         /// <summary>
+        /// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("key")]
+        public Input<string>? Key { get; set; }
+
+        /// <summary>
         /// The label of the App Configuration Feature. Changing this forces a new resource to be created.
         /// </summary>
         [Input("label")]
@@ -278,6 +290,12 @@ namespace Pulumi.Azure.AppConfiguration
 
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("key")]
+        public Input<string>? Key { get; set; }
 
         /// <summary>
         /// The label of the App Configuration Feature. Changing this forces a new resource to be created.

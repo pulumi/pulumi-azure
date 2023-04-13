@@ -27,6 +27,7 @@ from .get_sync_group import *
 from .get_table_entity import *
 from .local_user import *
 from .management_policy import *
+from .mover import *
 from .object_replication import *
 from .queue import *
 from .share import *

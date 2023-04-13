@@ -178,7 +178,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
-     * A `galleryApplication` block as defined below.
+     * One or more `galleryApplication` blocks as defined below.
      */
     public readonly galleryApplication!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetGalleryApplication[]>;
     /**
@@ -559,7 +559,7 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
-     * A `galleryApplication` block as defined below.
+     * One or more `galleryApplication` blocks as defined below.
      */
     galleryApplication?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetGalleryApplication>[]>;
     /**
@@ -791,7 +791,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
-     * A `galleryApplication` block as defined below.
+     * One or more `galleryApplication` blocks as defined below.
      */
     galleryApplication?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetGalleryApplication>[]>;
     /**

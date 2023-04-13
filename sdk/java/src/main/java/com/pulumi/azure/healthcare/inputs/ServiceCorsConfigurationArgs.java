@@ -49,14 +49,14 @@ public final class ServiceCorsConfigurationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+     * The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
      * 
      */
     @Import(name="allowedMethods")
     private @Nullable Output<List<String>> allowedMethods;
 
     /**
-     * @return The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+     * @return The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
      * 
      */
     public Optional<Output<List<String>>> allowedMethods() {
@@ -174,7 +174,7 @@ public final class ServiceCorsConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param allowedMethods The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+         * @param allowedMethods The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class ServiceCorsConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param allowedMethods The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+         * @param allowedMethods The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ServiceCorsConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param allowedMethods The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+         * @param allowedMethods The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
          * 
          * @return builder
          * 

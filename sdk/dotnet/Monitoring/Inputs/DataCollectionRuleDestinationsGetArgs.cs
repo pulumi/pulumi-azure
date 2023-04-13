@@ -18,6 +18,18 @@ namespace Pulumi.Azure.Monitoring.Inputs
         [Input("azureMonitorMetrics")]
         public Input<Inputs.DataCollectionRuleDestinationsAzureMonitorMetricsGetArgs>? AzureMonitorMetrics { get; set; }
 
+        /// <summary>
+        /// One or more `event_hub` blocks as defined below.
+        /// </summary>
+        [Input("eventHub")]
+        public Input<Inputs.DataCollectionRuleDestinationsEventHubGetArgs>? EventHub { get; set; }
+
+        /// <summary>
+        /// One or more `event_hub` blocks as defined below.
+        /// </summary>
+        [Input("eventHubDirect")]
+        public Input<Inputs.DataCollectionRuleDestinationsEventHubDirectGetArgs>? EventHubDirect { get; set; }
+
         [Input("logAnalytics")]
         private InputList<Inputs.DataCollectionRuleDestinationsLogAnalyticGetArgs>? _logAnalytics;
 
@@ -28,6 +40,54 @@ namespace Pulumi.Azure.Monitoring.Inputs
         {
             get => _logAnalytics ?? (_logAnalytics = new InputList<Inputs.DataCollectionRuleDestinationsLogAnalyticGetArgs>());
             set => _logAnalytics = value;
+        }
+
+        [Input("monitorAccounts")]
+        private InputList<Inputs.DataCollectionRuleDestinationsMonitorAccountGetArgs>? _monitorAccounts;
+
+        /// <summary>
+        /// One or more `monitor_account` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleDestinationsMonitorAccountGetArgs> MonitorAccounts
+        {
+            get => _monitorAccounts ?? (_monitorAccounts = new InputList<Inputs.DataCollectionRuleDestinationsMonitorAccountGetArgs>());
+            set => _monitorAccounts = value;
+        }
+
+        [Input("storageBlobDirects")]
+        private InputList<Inputs.DataCollectionRuleDestinationsStorageBlobDirectGetArgs>? _storageBlobDirects;
+
+        /// <summary>
+        /// One or more `storage_blob_direct` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleDestinationsStorageBlobDirectGetArgs> StorageBlobDirects
+        {
+            get => _storageBlobDirects ?? (_storageBlobDirects = new InputList<Inputs.DataCollectionRuleDestinationsStorageBlobDirectGetArgs>());
+            set => _storageBlobDirects = value;
+        }
+
+        [Input("storageBlobs")]
+        private InputList<Inputs.DataCollectionRuleDestinationsStorageBlobGetArgs>? _storageBlobs;
+
+        /// <summary>
+        /// One or more `storage_blob` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleDestinationsStorageBlobGetArgs> StorageBlobs
+        {
+            get => _storageBlobs ?? (_storageBlobs = new InputList<Inputs.DataCollectionRuleDestinationsStorageBlobGetArgs>());
+            set => _storageBlobs = value;
+        }
+
+        [Input("storageTableDirects")]
+        private InputList<Inputs.DataCollectionRuleDestinationsStorageTableDirectGetArgs>? _storageTableDirects;
+
+        /// <summary>
+        /// One or more `storage_table_direct` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleDestinationsStorageTableDirectGetArgs> StorageTableDirects
+        {
+            get => _storageTableDirects ?? (_storageTableDirects = new InputList<Inputs.DataCollectionRuleDestinationsStorageTableDirectGetArgs>());
+            set => _storageTableDirects = value;
         }
 
         public DataCollectionRuleDestinationsGetArgs()

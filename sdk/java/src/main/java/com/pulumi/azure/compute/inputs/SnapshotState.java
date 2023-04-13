@@ -65,6 +65,21 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies if the Snapshot is incremental.
+     * 
+     */
+    @Import(name="incrementalEnabled")
+    private @Nullable Output<Boolean> incrementalEnabled;
+
+    /**
+     * @return Specifies if the Snapshot is incremental.
+     * 
+     */
+    public Optional<Output<Boolean>> incrementalEnabled() {
+        return Optional.ofNullable(this.incrementalEnabled);
+    }
+
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
@@ -190,6 +205,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         this.createOption = $.createOption;
         this.diskSizeGb = $.diskSizeGb;
         this.encryptionSettings = $.encryptionSettings;
+        this.incrementalEnabled = $.incrementalEnabled;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -279,6 +295,27 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder encryptionSettings(SnapshotEncryptionSettingsArgs encryptionSettings) {
             return encryptionSettings(Output.of(encryptionSettings));
+        }
+
+        /**
+         * @param incrementalEnabled Specifies if the Snapshot is incremental.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder incrementalEnabled(@Nullable Output<Boolean> incrementalEnabled) {
+            $.incrementalEnabled = incrementalEnabled;
+            return this;
+        }
+
+        /**
+         * @param incrementalEnabled Specifies if the Snapshot is incremental.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder incrementalEnabled(Boolean incrementalEnabled) {
+            return incrementalEnabled(Output.of(incrementalEnabled));
         }
 
         /**

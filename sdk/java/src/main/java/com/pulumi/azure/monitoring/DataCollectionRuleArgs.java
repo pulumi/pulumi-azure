@@ -6,6 +6,8 @@ package com.pulumi.azure.monitoring;
 import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataFlowArgs;
 import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesArgs;
 import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsArgs;
+import com.pulumi.azure.monitoring.inputs.DataCollectionRuleIdentityArgs;
+import com.pulumi.azure.monitoring.inputs.DataCollectionRuleStreamDeclarationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -19,6 +21,21 @@ import javax.annotation.Nullable;
 public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DataCollectionRuleArgs Empty = new DataCollectionRuleArgs();
+
+    /**
+     * The resource ID of the Data Collection Endpoint that this rule can be used with.
+     * 
+     */
+    @Import(name="dataCollectionEndpointId")
+    private @Nullable Output<String> dataCollectionEndpointId;
+
+    /**
+     * @return The resource ID of the Data Collection Endpoint that this rule can be used with.
+     * 
+     */
+    public Optional<Output<String>> dataCollectionEndpointId() {
+        return Optional.ofNullable(this.dataCollectionEndpointId);
+    }
 
     /**
      * One or more `data_flow` blocks as defined below.
@@ -81,14 +98,29 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<DataCollectionRuleIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<DataCollectionRuleIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
      */
     @Import(name="kind")
     private @Nullable Output<String> kind;
 
     /**
-     * @return The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
      */
     public Optional<Output<String>> kind() {
@@ -141,6 +173,21 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * A `stream_declaration` block as defined below.
+     * 
+     */
+    @Import(name="streamDeclarations")
+    private @Nullable Output<List<DataCollectionRuleStreamDeclarationArgs>> streamDeclarations;
+
+    /**
+     * @return A `stream_declaration` block as defined below.
+     * 
+     */
+    public Optional<Output<List<DataCollectionRuleStreamDeclarationArgs>>> streamDeclarations() {
+        return Optional.ofNullable(this.streamDeclarations);
+    }
+
+    /**
      * A mapping of tags which should be assigned to the Data Collection Rule.
      * 
      */
@@ -158,14 +205,17 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
     private DataCollectionRuleArgs() {}
 
     private DataCollectionRuleArgs(DataCollectionRuleArgs $) {
+        this.dataCollectionEndpointId = $.dataCollectionEndpointId;
         this.dataFlows = $.dataFlows;
         this.dataSources = $.dataSources;
         this.description = $.description;
         this.destinations = $.destinations;
+        this.identity = $.identity;
         this.kind = $.kind;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
+        this.streamDeclarations = $.streamDeclarations;
         this.tags = $.tags;
     }
 
@@ -185,6 +235,27 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
 
         public Builder(DataCollectionRuleArgs defaults) {
             $ = new DataCollectionRuleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dataCollectionEndpointId The resource ID of the Data Collection Endpoint that this rule can be used with.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataCollectionEndpointId(@Nullable Output<String> dataCollectionEndpointId) {
+            $.dataCollectionEndpointId = dataCollectionEndpointId;
+            return this;
+        }
+
+        /**
+         * @param dataCollectionEndpointId The resource ID of the Data Collection Endpoint that this rule can be used with.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataCollectionEndpointId(String dataCollectionEndpointId) {
+            return dataCollectionEndpointId(Output.of(dataCollectionEndpointId));
         }
 
         /**
@@ -282,7 +353,28 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param kind The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<DataCollectionRuleIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(DataCollectionRuleIdentityArgs identity) {
+            return identity(Output.of(identity));
+        }
+
+        /**
+         * @param kind The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
          * 
          * @return builder
          * 
@@ -293,7 +385,7 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param kind The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+         * @param kind The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
          * 
          * @return builder
          * 
@@ -363,6 +455,37 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param streamDeclarations A `stream_declaration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamDeclarations(@Nullable Output<List<DataCollectionRuleStreamDeclarationArgs>> streamDeclarations) {
+            $.streamDeclarations = streamDeclarations;
+            return this;
+        }
+
+        /**
+         * @param streamDeclarations A `stream_declaration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamDeclarations(List<DataCollectionRuleStreamDeclarationArgs> streamDeclarations) {
+            return streamDeclarations(Output.of(streamDeclarations));
+        }
+
+        /**
+         * @param streamDeclarations A `stream_declaration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamDeclarations(DataCollectionRuleStreamDeclarationArgs... streamDeclarations) {
+            return streamDeclarations(List.of(streamDeclarations));
         }
 
         /**

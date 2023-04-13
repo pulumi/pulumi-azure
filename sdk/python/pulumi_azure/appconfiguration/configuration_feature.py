@@ -20,6 +20,7 @@ class ConfigurationFeatureArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  locked: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class ConfigurationFeatureArgs:
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the App Configuration Feature.
         :param pulumi.Input[bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
+        :param pulumi.Input[str] key: The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] label: The label of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
@@ -47,6 +49,8 @@ class ConfigurationFeatureArgs:
             pulumi.set(__self__, "enabled", enabled)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
         if label is not None:
             pulumi.set(__self__, "label", label)
         if locked is not None:
@@ -106,6 +110,18 @@ class ConfigurationFeatureArgs:
     @etag.setter
     def etag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
 
     @property
     @pulumi.getter
@@ -199,6 +215,7 @@ class _ConfigurationFeatureState:
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  locked: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -211,6 +228,7 @@ class _ConfigurationFeatureState:
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the App Configuration Feature.
         :param pulumi.Input[bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
+        :param pulumi.Input[str] key: The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] label: The label of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
@@ -227,6 +245,8 @@ class _ConfigurationFeatureState:
             pulumi.set(__self__, "enabled", enabled)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
         if label is not None:
             pulumi.set(__self__, "label", label)
         if locked is not None:
@@ -286,6 +306,18 @@ class _ConfigurationFeatureState:
     @etag.setter
     def etag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
 
     @property
     @pulumi.getter
@@ -381,6 +413,7 @@ class ConfigurationFeature(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  locked: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -405,7 +438,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         test = azure.appconfiguration.ConfigurationFeature("test",
             configuration_store_id=appconf.id,
             description="test description",
-            label="acctest-ackeylabel-%d",
+            label="test-ackeylabel",
             enabled=True)
         ```
 
@@ -428,6 +461,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the App Configuration Feature.
         :param pulumi.Input[bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
+        :param pulumi.Input[str] key: The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] label: The label of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
@@ -458,7 +492,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         test = azure.appconfiguration.ConfigurationFeature("test",
             configuration_store_id=appconf.id,
             description="test description",
-            label="acctest-ackeylabel-%d",
+            label="test-ackeylabel",
             enabled=True)
         ```
 
@@ -495,6 +529,7 @@ class ConfigurationFeature(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  locked: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -517,6 +552,7 @@ class ConfigurationFeature(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["etag"] = etag
+            __props__.__dict__["key"] = key
             __props__.__dict__["label"] = label
             __props__.__dict__["locked"] = locked
             __props__.__dict__["name"] = name
@@ -538,6 +574,7 @@ class ConfigurationFeature(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             etag: Optional[pulumi.Input[str]] = None,
+            key: Optional[pulumi.Input[str]] = None,
             label: Optional[pulumi.Input[str]] = None,
             locked: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -555,6 +592,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[str] configuration_store_id: Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the App Configuration Feature.
         :param pulumi.Input[bool] enabled: The status of the App Configuration Feature. By default, this is set to false.
+        :param pulumi.Input[str] key: The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] label: The label of the App Configuration Feature. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] locked: Should this App Configuration Feature be Locked to prevent changes?
         :param pulumi.Input[str] name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
@@ -571,6 +609,7 @@ class ConfigurationFeature(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["etag"] = etag
+        __props__.__dict__["key"] = key
         __props__.__dict__["label"] = label
         __props__.__dict__["locked"] = locked
         __props__.__dict__["name"] = name
@@ -608,6 +647,14 @@ class ConfigurationFeature(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Output[str]:
+        """
+        The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key")
 
     @property
     @pulumi.getter

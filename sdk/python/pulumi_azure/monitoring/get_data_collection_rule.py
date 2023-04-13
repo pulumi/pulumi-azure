@@ -22,7 +22,10 @@ class GetDataCollectionRuleResult:
     """
     A collection of values returned by getDataCollectionRule.
     """
-    def __init__(__self__, data_flows=None, data_sources=None, description=None, destinations=None, id=None, kind=None, location=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, data_collection_endpoint_id=None, data_flows=None, data_sources=None, description=None, destinations=None, id=None, identities=None, immutable_id=None, kind=None, location=None, name=None, resource_group_name=None, stream_declarations=None, tags=None):
+        if data_collection_endpoint_id and not isinstance(data_collection_endpoint_id, str):
+            raise TypeError("Expected argument 'data_collection_endpoint_id' to be a str")
+        pulumi.set(__self__, "data_collection_endpoint_id", data_collection_endpoint_id)
         if data_flows and not isinstance(data_flows, list):
             raise TypeError("Expected argument 'data_flows' to be a list")
         pulumi.set(__self__, "data_flows", data_flows)
@@ -38,6 +41,12 @@ class GetDataCollectionRuleResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
+        if immutable_id and not isinstance(immutable_id, str):
+            raise TypeError("Expected argument 'immutable_id' to be a str")
+        pulumi.set(__self__, "immutable_id", immutable_id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -50,9 +59,20 @@ class GetDataCollectionRuleResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if stream_declarations and not isinstance(stream_declarations, list):
+            raise TypeError("Expected argument 'stream_declarations' to be a list")
+        pulumi.set(__self__, "stream_declarations", stream_declarations)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="dataCollectionEndpointId")
+    def data_collection_endpoint_id(self) -> str:
+        """
+        The resource ID of the Data Collection Endpoint that this rule can be used with.
+        """
+        return pulumi.get(self, "data_collection_endpoint_id")
 
     @property
     @pulumi.getter(name="dataFlows")
@@ -96,9 +116,22 @@ class GetDataCollectionRuleResult:
 
     @property
     @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetDataCollectionRuleIdentityResult']:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identities")
+
+    @property
+    @pulumi.getter(name="immutableId")
+    def immutable_id(self) -> str:
+        return pulumi.get(self, "immutable_id")
+
+    @property
+    @pulumi.getter
     def kind(self) -> str:
         """
-        The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         """
         return pulumi.get(self, "kind")
 
@@ -124,6 +157,14 @@ class GetDataCollectionRuleResult:
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="streamDeclarations")
+    def stream_declarations(self) -> Sequence['outputs.GetDataCollectionRuleStreamDeclarationResult']:
+        """
+        A `stream_declaration` block as defined below.
+        """
+        return pulumi.get(self, "stream_declarations")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -138,15 +179,19 @@ class AwaitableGetDataCollectionRuleResult(GetDataCollectionRuleResult):
         if False:
             yield self
         return GetDataCollectionRuleResult(
+            data_collection_endpoint_id=self.data_collection_endpoint_id,
             data_flows=self.data_flows,
             data_sources=self.data_sources,
             description=self.description,
             destinations=self.destinations,
             id=self.id,
+            identities=self.identities,
+            immutable_id=self.immutable_id,
             kind=self.kind,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
+            stream_declarations=self.stream_declarations,
             tags=self.tags)
 
 
@@ -178,15 +223,19 @@ def get_data_collection_rule(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getDataCollectionRule:getDataCollectionRule', __args__, opts=opts, typ=GetDataCollectionRuleResult).value
 
     return AwaitableGetDataCollectionRuleResult(
+        data_collection_endpoint_id=__ret__.data_collection_endpoint_id,
         data_flows=__ret__.data_flows,
         data_sources=__ret__.data_sources,
         description=__ret__.description,
         destinations=__ret__.destinations,
         id=__ret__.id,
+        identities=__ret__.identities,
+        immutable_id=__ret__.immutable_id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
         resource_group_name=__ret__.resource_group_name,
+        stream_declarations=__ret__.stream_declarations,
         tags=__ret__.tags)
 
 

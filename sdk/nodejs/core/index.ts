@@ -89,6 +89,11 @@ export type ResourceGroupCostManagementExport = import("./resourceGroupCostManag
 export const ResourceGroupCostManagementExport: typeof import("./resourceGroupCostManagementExport").ResourceGroupCostManagementExport = null as any;
 utilities.lazyLoad(exports, ["ResourceGroupCostManagementExport"], () => require("./resourceGroupCostManagementExport"));
 
+export { ResourceGroupCostManagementViewArgs, ResourceGroupCostManagementViewState } from "./resourceGroupCostManagementView";
+export type ResourceGroupCostManagementView = import("./resourceGroupCostManagementView").ResourceGroupCostManagementView;
+export const ResourceGroupCostManagementView: typeof import("./resourceGroupCostManagementView").ResourceGroupCostManagementView = null as any;
+utilities.lazyLoad(exports, ["ResourceGroupCostManagementView"], () => require("./resourceGroupCostManagementView"));
+
 export { ResourceGroupPolicyAssignmentArgs, ResourceGroupPolicyAssignmentState } from "./resourceGroupPolicyAssignment";
 export type ResourceGroupPolicyAssignment = import("./resourceGroupPolicyAssignment").ResourceGroupPolicyAssignment;
 export const ResourceGroupPolicyAssignment: typeof import("./resourceGroupPolicyAssignment").ResourceGroupPolicyAssignment = null as any;
@@ -139,6 +144,11 @@ export type SubscriptionCostManagementExport = import("./subscriptionCostManagem
 export const SubscriptionCostManagementExport: typeof import("./subscriptionCostManagementExport").SubscriptionCostManagementExport = null as any;
 utilities.lazyLoad(exports, ["SubscriptionCostManagementExport"], () => require("./subscriptionCostManagementExport"));
 
+export { SubscriptionCostManagementViewArgs, SubscriptionCostManagementViewState } from "./subscriptionCostManagementView";
+export type SubscriptionCostManagementView = import("./subscriptionCostManagementView").SubscriptionCostManagementView;
+export const SubscriptionCostManagementView: typeof import("./subscriptionCostManagementView").SubscriptionCostManagementView = null as any;
+utilities.lazyLoad(exports, ["SubscriptionCostManagementView"], () => require("./subscriptionCostManagementView"));
+
 export { SubscriptionPolicyAssignmentArgs, SubscriptionPolicyAssignmentState } from "./subscriptionPolicyAssignment";
 export type SubscriptionPolicyAssignment = import("./subscriptionPolicyAssignment").SubscriptionPolicyAssignment;
 export const SubscriptionPolicyAssignment: typeof import("./subscriptionPolicyAssignment").SubscriptionPolicyAssignment = null as any;
@@ -187,6 +197,8 @@ const _module = {
                 return new ResourceGroup(name, <any>undefined, { urn })
             case "azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport":
                 return new ResourceGroupCostManagementExport(name, <any>undefined, { urn })
+            case "azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView":
+                return new ResourceGroupCostManagementView(name, <any>undefined, { urn })
             case "azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment":
                 return new ResourceGroupPolicyAssignment(name, <any>undefined, { urn })
             case "azure:core/resourceGroupPolicyExemption:ResourceGroupPolicyExemption":
@@ -207,6 +219,8 @@ const _module = {
                 return new Subscription(name, <any>undefined, { urn })
             case "azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport":
                 return new SubscriptionCostManagementExport(name, <any>undefined, { urn })
+            case "azure:core/subscriptionCostManagementView:SubscriptionCostManagementView":
+                return new SubscriptionCostManagementView(name, <any>undefined, { urn })
             case "azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment":
                 return new SubscriptionPolicyAssignment(name, <any>undefined, { urn })
             case "azure:core/subscriptionPolicyExemption:SubscriptionPolicyExemption":
@@ -230,6 +244,7 @@ pulumi.runtime.registerResourceModule("azure", "core/resourceDeploymentScriptAzu
 pulumi.runtime.registerResourceModule("azure", "core/resourceDeploymentScriptPowerShell", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroupCostManagementExport", _module)
+pulumi.runtime.registerResourceModule("azure", "core/resourceGroupCostManagementView", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroupPolicyAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroupPolicyExemption", _module)
 pulumi.runtime.registerResourceModule("azure", "core/resourceGroupPolicyRemediation", _module)
@@ -240,6 +255,7 @@ pulumi.runtime.registerResourceModule("azure", "core/resourcePolicyRemediation",
 pulumi.runtime.registerResourceModule("azure", "core/resourceProviderRegistration", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscription", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionCostManagementExport", _module)
+pulumi.runtime.registerResourceModule("azure", "core/subscriptionCostManagementView", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionPolicyAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionPolicyExemption", _module)
 pulumi.runtime.registerResourceModule("azure", "core/subscriptionPolicyRemediation", _module)

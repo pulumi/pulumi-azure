@@ -50,6 +50,10 @@ export interface GetDataCollectionRuleArgs {
  */
 export interface GetDataCollectionRuleResult {
     /**
+     * The resource ID of the Data Collection Endpoint that this rule can be used with.
+     */
+    readonly dataCollectionEndpointId: string;
+    /**
      * One or more `dataFlow` blocks as defined below.
      */
     readonly dataFlows: outputs.monitoring.GetDataCollectionRuleDataFlow[];
@@ -70,7 +74,12 @@ export interface GetDataCollectionRuleResult {
      */
     readonly id: string;
     /**
-     * The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * An `identity` block as defined below.
+     */
+    readonly identities: outputs.monitoring.GetDataCollectionRuleIdentity[];
+    readonly immutableId: string;
+    /**
+     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      */
     readonly kind: string;
     /**
@@ -82,6 +91,10 @@ export interface GetDataCollectionRuleResult {
      */
     readonly name: string;
     readonly resourceGroupName: string;
+    /**
+     * A `streamDeclaration` block as defined below.
+     */
+    readonly streamDeclarations: outputs.monitoring.GetDataCollectionRuleStreamDeclaration[];
     /**
      * A mapping of tags which should be assigned to the Data Collection Rule.
      */

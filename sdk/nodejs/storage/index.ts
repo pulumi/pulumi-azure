@@ -115,6 +115,11 @@ export type ManagementPolicy = import("./managementPolicy").ManagementPolicy;
 export const ManagementPolicy: typeof import("./managementPolicy").ManagementPolicy = null as any;
 utilities.lazyLoad(exports, ["ManagementPolicy"], () => require("./managementPolicy"));
 
+export { MoverArgs, MoverState } from "./mover";
+export type Mover = import("./mover").Mover;
+export const Mover: typeof import("./mover").Mover = null as any;
+utilities.lazyLoad(exports, ["Mover"], () => require("./mover"));
+
 export { ObjectReplicationArgs, ObjectReplicationState } from "./objectReplication";
 export type ObjectReplication = import("./objectReplication").ObjectReplication;
 export const ObjectReplication: typeof import("./objectReplication").ObjectReplication = null as any;
@@ -198,6 +203,8 @@ const _module = {
                 return new LocalUser(name, <any>undefined, { urn })
             case "azure:storage/managementPolicy:ManagementPolicy":
                 return new ManagementPolicy(name, <any>undefined, { urn })
+            case "azure:storage/mover:Mover":
+                return new Mover(name, <any>undefined, { urn })
             case "azure:storage/objectReplication:ObjectReplication":
                 return new ObjectReplication(name, <any>undefined, { urn })
             case "azure:storage/queue:Queue":
@@ -236,6 +243,7 @@ pulumi.runtime.registerResourceModule("azure", "storage/dataLakeGen2Path", _modu
 pulumi.runtime.registerResourceModule("azure", "storage/encryptionScope", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/localUser", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/managementPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "storage/mover", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/objectReplication", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/queue", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/share", _module)

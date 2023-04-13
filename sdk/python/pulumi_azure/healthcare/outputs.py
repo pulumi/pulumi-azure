@@ -246,7 +246,7 @@ class FhirServiceCors(dict):
                  max_age_in_seconds: Optional[int] = None):
         """
         :param Sequence[str] allowed_headers: A set of headers to be allowed via CORS.
-        :param Sequence[str] allowed_methods: The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+        :param Sequence[str] allowed_methods: The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
         :param Sequence[str] allowed_origins: A set of origins to be allowed via CORS.
         :param bool credentials_allowed: If credentials are allowed via CORS.
         :param int max_age_in_seconds: The max age to be allowed via CORS.
@@ -271,7 +271,7 @@ class FhirServiceCors(dict):
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Sequence[str]:
         """
-        The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+        The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
         """
         return pulumi.get(self, "allowed_methods")
 
@@ -573,7 +573,7 @@ class ServiceCorsConfiguration(dict):
         """
         :param bool allow_credentials: (Boolean) If credentials are allowed via CORS.
         :param Sequence[str] allowed_headers: A set of headers to be allowed via CORS.
-        :param Sequence[str] allowed_methods: The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+        :param Sequence[str] allowed_methods: The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
         :param Sequence[str] allowed_origins: A set of origins to be allowed via CORS.
         :param int max_age_in_seconds: The max age to be allowed via CORS.
         """
@@ -608,7 +608,7 @@ class ServiceCorsConfiguration(dict):
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> Optional[Sequence[str]]:
         """
-        The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+        The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
         """
         return pulumi.get(self, "allowed_methods")
 

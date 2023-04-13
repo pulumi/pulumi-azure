@@ -74,6 +74,21 @@ public final class ConfigurationFeatureState extends com.pulumi.resources.Resour
     }
 
     /**
+     * The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="key")
+    private @Nullable Output<String> key;
+
+    /**
+     * @return The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> key() {
+        return Optional.ofNullable(this.key);
+    }
+
+    /**
      * The label of the App Configuration Feature. Changing this forces a new resource to be created.
      * 
      */
@@ -185,6 +200,7 @@ public final class ConfigurationFeatureState extends com.pulumi.resources.Resour
         this.description = $.description;
         this.enabled = $.enabled;
         this.etag = $.etag;
+        this.key = $.key;
         this.label = $.label;
         this.locked = $.locked;
         this.name = $.name;
@@ -282,6 +298,27 @@ public final class ConfigurationFeatureState extends com.pulumi.resources.Resour
 
         public Builder etag(String etag) {
             return etag(Output.of(etag));
+        }
+
+        /**
+         * @param key The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder key(@Nullable Output<String> key) {
+            $.key = key;
+            return this;
+        }
+
+        /**
+         * @param key The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder key(String key) {
+            return key(Output.of(key));
         }
 
         /**

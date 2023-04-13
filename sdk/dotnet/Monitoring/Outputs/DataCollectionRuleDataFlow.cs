@@ -14,22 +14,43 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class DataCollectionRuleDataFlow
     {
         /// <summary>
+        /// The built-in transform to transform stream data.
+        /// </summary>
+        public readonly string? BuiltInTransform;
+        /// <summary>
         /// Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
         /// </summary>
         public readonly ImmutableArray<string> Destinations;
         /// <summary>
+        /// The output stream of the transform. Only required if the data flow changes data to a different stream.
+        /// </summary>
+        public readonly string? OutputStream;
+        /// <summary>
         /// Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
         /// </summary>
         public readonly ImmutableArray<string> Streams;
+        /// <summary>
+        /// The KQL query to transform stream data.
+        /// </summary>
+        public readonly string? TransformKql;
 
         [OutputConstructor]
         private DataCollectionRuleDataFlow(
+            string? builtInTransform,
+
             ImmutableArray<string> destinations,
 
-            ImmutableArray<string> streams)
+            string? outputStream,
+
+            ImmutableArray<string> streams,
+
+            string? transformKql)
         {
+            BuiltInTransform = builtInTransform;
             Destinations = destinations;
+            OutputStream = outputStream;
             Streams = streams;
+            TransformKql = transformKql;
         }
     }
 }

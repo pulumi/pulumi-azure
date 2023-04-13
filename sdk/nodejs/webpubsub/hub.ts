@@ -46,6 +46,29 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     ],
+ *     eventListeners: [
+ *         {
+ *             systemEventNameFilters: ["connected"],
+ *             userEventNameFilters: [
+ *                 "event1",
+ *                 "event2",
+ *             ],
+ *             eventhubNamespaceName: azurerm_eventhub_namespace.test.name,
+ *             eventhubName: azurerm_eventhub.test1.name,
+ *         },
+ *         {
+ *             systemEventNameFilters: ["connected"],
+ *             userEventNameFilters: ["*"],
+ *             eventhubNamespaceName: azurerm_eventhub_namespace.test.name,
+ *             eventhubName: azurerm_eventhub.test1.name,
+ *         },
+ *         {
+ *             systemEventNameFilters: ["connected"],
+ *             userEventNameFilters: ["event1"],
+ *             eventhubNamespaceName: azurerm_eventhub_namespace.test.name,
+ *             eventhubName: azurerm_eventhub.test1.name,
+ *         },
+ *     ],
  *     anonymousConnectionsEnabled: true,
  * }, {
  *     dependsOn: [exampleService],
@@ -98,11 +121,15 @@ export class Hub extends pulumi.CustomResource {
      */
     public readonly eventHandlers!: pulumi.Output<outputs.webpubsub.HubEventHandler[] | undefined>;
     /**
+     * An `eventListener` block as defined below.
+     */
+    public readonly eventListeners!: pulumi.Output<outputs.webpubsub.HubEventListener[] | undefined>;
+    /**
      * The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+     * Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
      */
     public readonly webPubsubId!: pulumi.Output<string>;
 
@@ -121,6 +148,7 @@ export class Hub extends pulumi.CustomResource {
             const state = argsOrState as HubState | undefined;
             resourceInputs["anonymousConnectionsEnabled"] = state ? state.anonymousConnectionsEnabled : undefined;
             resourceInputs["eventHandlers"] = state ? state.eventHandlers : undefined;
+            resourceInputs["eventListeners"] = state ? state.eventListeners : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["webPubsubId"] = state ? state.webPubsubId : undefined;
         } else {
@@ -130,6 +158,7 @@ export class Hub extends pulumi.CustomResource {
             }
             resourceInputs["anonymousConnectionsEnabled"] = args ? args.anonymousConnectionsEnabled : undefined;
             resourceInputs["eventHandlers"] = args ? args.eventHandlers : undefined;
+            resourceInputs["eventListeners"] = args ? args.eventListeners : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["webPubsubId"] = args ? args.webPubsubId : undefined;
         }
@@ -152,11 +181,15 @@ export interface HubState {
      */
     eventHandlers?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventHandler>[]>;
     /**
+     * An `eventListener` block as defined below.
+     */
+    eventListeners?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventListener>[]>;
+    /**
      * The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+     * Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
      */
     webPubsubId?: pulumi.Input<string>;
 }
@@ -175,11 +208,15 @@ export interface HubArgs {
      */
     eventHandlers?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventHandler>[]>;
     /**
+     * An `eventListener` block as defined below.
+     */
+    eventListeners?: pulumi.Input<pulumi.Input<inputs.webpubsub.HubEventListener>[]>;
+    /**
      * The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
+     * Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
      */
     webPubsubId: pulumi.Input<string>;
 }

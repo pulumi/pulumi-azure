@@ -12,6 +12,12 @@ namespace Pulumi.Azure.Monitoring.Inputs
 
     public sealed class DataCollectionRuleDataSourcesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `data_import` block as defined above.
+        /// </summary>
+        [Input("dataImport")]
+        public Input<Inputs.DataCollectionRuleDataSourcesDataImportArgs>? DataImport { get; set; }
+
         [Input("extensions")]
         private InputList<Inputs.DataCollectionRuleDataSourcesExtensionArgs>? _extensions;
 
@@ -24,6 +30,30 @@ namespace Pulumi.Azure.Monitoring.Inputs
             set => _extensions = value;
         }
 
+        [Input("iisLogs")]
+        private InputList<Inputs.DataCollectionRuleDataSourcesIisLogArgs>? _iisLogs;
+
+        /// <summary>
+        /// One or more `iis_log` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleDataSourcesIisLogArgs> IisLogs
+        {
+            get => _iisLogs ?? (_iisLogs = new InputList<Inputs.DataCollectionRuleDataSourcesIisLogArgs>());
+            set => _iisLogs = value;
+        }
+
+        [Input("logFiles")]
+        private InputList<Inputs.DataCollectionRuleDataSourcesLogFileArgs>? _logFiles;
+
+        /// <summary>
+        /// One or more `log_file` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleDataSourcesLogFileArgs> LogFiles
+        {
+            get => _logFiles ?? (_logFiles = new InputList<Inputs.DataCollectionRuleDataSourcesLogFileArgs>());
+            set => _logFiles = value;
+        }
+
         [Input("performanceCounters")]
         private InputList<Inputs.DataCollectionRuleDataSourcesPerformanceCounterArgs>? _performanceCounters;
 
@@ -34,6 +64,30 @@ namespace Pulumi.Azure.Monitoring.Inputs
         {
             get => _performanceCounters ?? (_performanceCounters = new InputList<Inputs.DataCollectionRuleDataSourcesPerformanceCounterArgs>());
             set => _performanceCounters = value;
+        }
+
+        [Input("platformTelemetries")]
+        private InputList<Inputs.DataCollectionRuleDataSourcesPlatformTelemetryArgs>? _platformTelemetries;
+
+        /// <summary>
+        /// One or more `platform_telemetry` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleDataSourcesPlatformTelemetryArgs> PlatformTelemetries
+        {
+            get => _platformTelemetries ?? (_platformTelemetries = new InputList<Inputs.DataCollectionRuleDataSourcesPlatformTelemetryArgs>());
+            set => _platformTelemetries = value;
+        }
+
+        [Input("prometheusForwarders")]
+        private InputList<Inputs.DataCollectionRuleDataSourcesPrometheusForwarderArgs>? _prometheusForwarders;
+
+        /// <summary>
+        /// One or more `prometheus_forwarder` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleDataSourcesPrometheusForwarderArgs> PrometheusForwarders
+        {
+            get => _prometheusForwarders ?? (_prometheusForwarders = new InputList<Inputs.DataCollectionRuleDataSourcesPrometheusForwarderArgs>());
+            set => _prometheusForwarders = value;
         }
 
         [Input("syslogs")]
@@ -58,6 +112,18 @@ namespace Pulumi.Azure.Monitoring.Inputs
         {
             get => _windowsEventLogs ?? (_windowsEventLogs = new InputList<Inputs.DataCollectionRuleDataSourcesWindowsEventLogArgs>());
             set => _windowsEventLogs = value;
+        }
+
+        [Input("windowsFirewallLogs")]
+        private InputList<Inputs.DataCollectionRuleDataSourcesWindowsFirewallLogArgs>? _windowsFirewallLogs;
+
+        /// <summary>
+        /// One or more `windows_firewall_log` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.DataCollectionRuleDataSourcesWindowsFirewallLogArgs> WindowsFirewallLogs
+        {
+            get => _windowsFirewallLogs ?? (_windowsFirewallLogs = new InputList<Inputs.DataCollectionRuleDataSourcesWindowsFirewallLogArgs>());
+            set => _windowsFirewallLogs = value;
         }
 
         public DataCollectionRuleDataSourcesArgs()

@@ -158,7 +158,7 @@ type WindowsVirtualMachine struct {
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
-	// A `galleryApplication` block as defined below.
+	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications WindowsVirtualMachineGalleryApplicationArrayOutput `pulumi:"galleryApplications"`
 	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	HotpatchingEnabled pulumi.BoolPtrOutput `pulumi:"hotpatchingEnabled"`
@@ -322,7 +322,7 @@ type windowsVirtualMachineState struct {
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
-	// A `galleryApplication` block as defined below.
+	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications []WindowsVirtualMachineGalleryApplication `pulumi:"galleryApplications"`
 	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	HotpatchingEnabled *bool `pulumi:"hotpatchingEnabled"`
@@ -429,7 +429,7 @@ type WindowsVirtualMachineState struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
-	// A `galleryApplication` block as defined below.
+	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications WindowsVirtualMachineGalleryApplicationArrayInput
 	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	HotpatchingEnabled pulumi.BoolPtrInput
@@ -540,7 +540,7 @@ type windowsVirtualMachineArgs struct {
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
-	// A `galleryApplication` block as defined below.
+	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications []WindowsVirtualMachineGalleryApplication `pulumi:"galleryApplications"`
 	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	HotpatchingEnabled *bool `pulumi:"hotpatchingEnabled"`
@@ -638,7 +638,7 @@ type WindowsVirtualMachineArgs struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
-	// A `galleryApplication` block as defined below.
+	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications WindowsVirtualMachineGalleryApplicationArrayInput
 	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	HotpatchingEnabled pulumi.BoolPtrInput
@@ -876,7 +876,7 @@ func (o WindowsVirtualMachineOutput) ExtensionsTimeBudget() pulumi.StringPtrOutp
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringPtrOutput { return v.ExtensionsTimeBudget }).(pulumi.StringPtrOutput)
 }
 
-// A `galleryApplication` block as defined below.
+// One or more `galleryApplication` blocks as defined below.
 func (o WindowsVirtualMachineOutput) GalleryApplications() WindowsVirtualMachineGalleryApplicationArrayOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) WindowsVirtualMachineGalleryApplicationArrayOutput {
 		return v.GalleryApplications

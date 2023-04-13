@@ -15,6 +15,11 @@ export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;
 utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 
+export { ServiceCustomCertificateArgs, ServiceCustomCertificateState } from "./serviceCustomCertificate";
+export type ServiceCustomCertificate = import("./serviceCustomCertificate").ServiceCustomCertificate;
+export const ServiceCustomCertificate: typeof import("./serviceCustomCertificate").ServiceCustomCertificate = null as any;
+utilities.lazyLoad(exports, ["ServiceCustomCertificate"], () => require("./serviceCustomCertificate"));
+
 export { ServiceNetworkAclArgs, ServiceNetworkAclState } from "./serviceNetworkAcl";
 export type ServiceNetworkAcl = import("./serviceNetworkAcl").ServiceNetworkAcl;
 export const ServiceNetworkAcl: typeof import("./serviceNetworkAcl").ServiceNetworkAcl = null as any;
@@ -32,6 +37,8 @@ const _module = {
         switch (type) {
             case "azure:signalr/service:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "azure:signalr/serviceCustomCertificate:ServiceCustomCertificate":
+                return new ServiceCustomCertificate(name, <any>undefined, { urn })
             case "azure:signalr/serviceNetworkAcl:ServiceNetworkAcl":
                 return new ServiceNetworkAcl(name, <any>undefined, { urn })
             case "azure:signalr/sharedPrivateLinkResource:SharedPrivateLinkResource":
@@ -42,5 +49,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "signalr/service", _module)
+pulumi.runtime.registerResourceModule("azure", "signalr/serviceCustomCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "signalr/serviceNetworkAcl", _module)
 pulumi.runtime.registerResourceModule("azure", "signalr/sharedPrivateLinkResource", _module)

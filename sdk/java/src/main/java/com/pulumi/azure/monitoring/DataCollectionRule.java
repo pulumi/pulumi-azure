@@ -9,6 +9,8 @@ import com.pulumi.azure.monitoring.inputs.DataCollectionRuleState;
 import com.pulumi.azure.monitoring.outputs.DataCollectionRuleDataFlow;
 import com.pulumi.azure.monitoring.outputs.DataCollectionRuleDataSources;
 import com.pulumi.azure.monitoring.outputs.DataCollectionRuleDestinations;
+import com.pulumi.azure.monitoring.outputs.DataCollectionRuleIdentity;
+import com.pulumi.azure.monitoring.outputs.DataCollectionRuleStreamDeclaration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -31,17 +33,30 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.authorization.UserAssignedIdentity;
+ * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
  * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
  * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
  * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
  * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
+ * import com.pulumi.azure.eventhub.EventHub;
+ * import com.pulumi.azure.eventhub.EventHubArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.Container;
+ * import com.pulumi.azure.storage.ContainerArgs;
+ * import com.pulumi.azure.monitoring.DataCollectionEndpoint;
+ * import com.pulumi.azure.monitoring.DataCollectionEndpointArgs;
  * import com.pulumi.azure.monitoring.DataCollectionRule;
  * import com.pulumi.azure.monitoring.DataCollectionRuleArgs;
  * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsArgs;
+ * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsEventHubArgs;
  * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsAzureMonitorMetricsArgs;
  * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataFlowArgs;
  * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesArgs;
+ * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleStreamDeclarationArgs;
+ * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleIdentityArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
@@ -61,6 +76,11 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .build());
+ * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -78,13 +98,47 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
+ *             .namespaceName(azurerm_eventhub_namespace.example().name())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .partitionCount(2)
+ *             .messageRetention(1)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
+ *             .storageAccountName(exampleAccount.name())
+ *             .containerAccessType(&#34;private&#34;)
+ *             .build());
+ * 
+ *         var exampleDataCollectionEndpoint = new DataCollectionEndpoint(&#34;exampleDataCollectionEndpoint&#34;, DataCollectionEndpointArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .build());
+ * 
  *         var exampleDataCollectionRule = new DataCollectionRule(&#34;exampleDataCollectionRule&#34;, DataCollectionRuleArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
+ *             .dataCollectionEndpointId(exampleDataCollectionEndpoint.id())
  *             .destinations(DataCollectionRuleDestinationsArgs.builder()
  *                 .logAnalytics(DataCollectionRuleDestinationsLogAnalyticArgs.builder()
  *                     .workspaceResourceId(exampleAnalyticsWorkspace.id())
  *                     .name(&#34;test-destination-log&#34;)
+ *                     .build())
+ *                 .eventHub(DataCollectionRuleDestinationsEventHubArgs.builder()
+ *                     .eventHubId(exampleEventHub.id())
+ *                     .name(&#34;test-destination-eventhub&#34;)
+ *                     .build())
+ *                 .storageBlobs(DataCollectionRuleDestinationsStorageBlobArgs.builder()
+ *                     .storageAccountId(exampleAccount.id())
+ *                     .containerName(exampleContainer.name())
+ *                     .name(&#34;test-destination-storage&#34;)
  *                     .build())
  *                 .azureMonitorMetrics(DataCollectionRuleDestinationsAzureMonitorMetricsArgs.builder()
  *                     .name(&#34;test-destination-metrics&#34;)
@@ -101,12 +155,34 @@ import javax.annotation.Nullable;
  *                         &#34;Microsoft-Syslog&#34;,
  *                         &#34;Microsoft-Perf&#34;)
  *                     .destinations(&#34;test-destination-log&#34;)
+ *                     .build(),
+ *                 DataCollectionRuleDataFlowArgs.builder()
+ *                     .streams(&#34;Custom-MyTableRawData&#34;)
+ *                     .destinations(&#34;example-destination-log&#34;)
+ *                     .outputStream(&#34;Microsoft-Syslog&#34;)
+ *                     .transformKql(&#34;source | project TimeGenerated = Time, Computer, Message = AdditionalContext&#34;)
  *                     .build())
  *             .dataSources(DataCollectionRuleDataSourcesArgs.builder()
  *                 .syslogs(DataCollectionRuleDataSourcesSyslogArgs.builder()
  *                     .facilityNames(&#34;*&#34;)
  *                     .logLevels(&#34;*&#34;)
  *                     .name(&#34;test-datasource-syslog&#34;)
+ *                     .build())
+ *                 .iisLogs(DataCollectionRuleDataSourcesIisLogArgs.builder()
+ *                     .streams(&#34;Microsoft-W3CIISLog&#34;)
+ *                     .name(&#34;test-datasource-iis&#34;)
+ *                     .logDirectories(&#34;C:\\\\Logs\\\\W3SVC1&#34;)
+ *                     .build())
+ *                 .logFiles(DataCollectionRuleDataSourcesLogFileArgs.builder()
+ *                     .name(&#34;test-datasource-logfile&#34;)
+ *                     .format(&#34;text&#34;)
+ *                     .streams(&#34;Custom-MyTableRawData&#34;)
+ *                     .filePatterns(&#34;C:\\\\JavaLogs\\\\*.log&#34;)
+ *                     .settings(DataCollectionRuleDataSourcesLogFileSettingsArgs.builder()
+ *                         .text(DataCollectionRuleDataSourcesLogFileSettingsTextArgs.builder()
+ *                             .recordStartTimestampFormat(&#34;ISO 8601&#34;)
+ *                             .build())
+ *                         .build())
  *                     .build())
  *                 .performanceCounters(DataCollectionRuleDataSourcesPerformanceCounterArgs.builder()
  *                     .streams(                    
@@ -133,6 +209,26 @@ import javax.annotation.Nullable;
  *                     .name(&#34;test-datasource-extension&#34;)
  *                     .build())
  *                 .build())
+ *             .streamDeclarations(DataCollectionRuleStreamDeclarationArgs.builder()
+ *                 .streamName(&#34;Custom-MyTableRawData&#34;)
+ *                 .columns(                
+ *                     DataCollectionRuleStreamDeclarationColumnArgs.builder()
+ *                         .name(&#34;Time&#34;)
+ *                         .type(&#34;datetime&#34;)
+ *                         .build(),
+ *                     DataCollectionRuleStreamDeclarationColumnArgs.builder()
+ *                         .name(&#34;Computer&#34;)
+ *                         .type(&#34;string&#34;)
+ *                         .build(),
+ *                     DataCollectionRuleStreamDeclarationColumnArgs.builder()
+ *                         .name(&#34;AdditionalContext&#34;)
+ *                         .type(&#34;string&#34;)
+ *                         .build())
+ *                 .build())
+ *             .identity(DataCollectionRuleIdentityArgs.builder()
+ *                 .type(&#34;UserAssigned&#34;)
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
  *             .description(&#34;data collection rule example&#34;)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build(), CustomResourceOptions.builder()
@@ -154,6 +250,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:monitoring/dataCollectionRule:DataCollectionRule")
 public class DataCollectionRule extends com.pulumi.resources.CustomResource {
+    /**
+     * The resource ID of the Data Collection Endpoint that this rule can be used with.
+     * 
+     */
+    @Export(name="dataCollectionEndpointId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> dataCollectionEndpointId;
+
+    /**
+     * @return The resource ID of the Data Collection Endpoint that this rule can be used with.
+     * 
+     */
+    public Output<Optional<String>> dataCollectionEndpointId() {
+        return Codegen.optional(this.dataCollectionEndpointId);
+    }
     /**
      * One or more `data_flow` blocks as defined below.
      * 
@@ -211,14 +321,42 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
         return this.destinations;
     }
     /**
-     * The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", refs={DataCollectionRuleIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ DataCollectionRuleIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<DataCollectionRuleIdentity>> identity() {
+        return Codegen.optional(this.identity);
+    }
+    /**
+     * The immutable ID of the Data Collection Rule.
+     * 
+     */
+    @Export(name="immutableId", refs={String.class}, tree="[0]")
+    private Output<String> immutableId;
+
+    /**
+     * @return The immutable ID of the Data Collection Rule.
+     * 
+     */
+    public Output<String> immutableId() {
+        return this.immutableId;
+    }
+    /**
+     * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
      */
     @Export(name="kind", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kind;
 
     /**
-     * @return The kind of the Data Collection Rule. Possible values are `Linux` and `Windows`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+     * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
      */
     public Output<Optional<String>> kind() {
@@ -265,6 +403,20 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * A `stream_declaration` block as defined below.
+     * 
+     */
+    @Export(name="streamDeclarations", refs={List.class,DataCollectionRuleStreamDeclaration.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<DataCollectionRuleStreamDeclaration>> streamDeclarations;
+
+    /**
+     * @return A `stream_declaration` block as defined below.
+     * 
+     */
+    public Output<Optional<List<DataCollectionRuleStreamDeclaration>>> streamDeclarations() {
+        return Codegen.optional(this.streamDeclarations);
     }
     /**
      * A mapping of tags which should be assigned to the Data Collection Rule.

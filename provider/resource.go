@@ -58,6 +58,7 @@ const (
 	azureAppInsights           = "AppInsights"           // AppInsights
 	azureAppPlatform           = "AppPlatform"           // AppPlatform
 	azureAppService            = "AppService"            // App Service
+	azureArcKubernetes         = "ArcKubernetes"         // Arc Kubernetes
 	armMsi                     = "ArmMsi"                // ARM MSI (managed service identity)
 	azureAttestation           = "Attestation"           // Attestation
 	azureAutomation            = "Automation"            // Automation
@@ -926,7 +927,8 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "policy_resource_group_policy_exemption.html.markdown",
 				},
 			},
-			"azurerm_resource_policy_assignment": {Tok: azureResource(azureCore, "ResourcePolicyAssignment")},
+			"azurerm_resource_group_cost_management_view": {Tok: azureResource(azureCore, "ResourceGroupCostManagementView")},
+			"azurerm_resource_policy_assignment":          {Tok: azureResource(azureCore, "ResourcePolicyAssignment")},
 			"azurerm_resource_policy_exemption": {
 				Tok: azureResource(azureCore, "ResourcePolicyExemption"),
 				Docs: &tfbridge.DocInfo{
@@ -957,6 +959,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			"azurerm_resource_group_cost_management_export": {Tok: azureResource(azureCore, "ResourceGroupCostManagementExport")},
 			"azurerm_subscription_cost_management_export":   {Tok: azureResource(azureCore, "SubscriptionCostManagementExport")},
+			"azurerm_subscription_cost_management_view":     {Tok: azureResource(azureCore, "SubscriptionCostManagementView")},
 			"azurerm_resource_group_policy_remediation": {
 				Tok: azureResource(azureCore, "ResourceGroupPolicyRemediation"),
 				Docs: &tfbridge.DocInfo{
@@ -1999,6 +2002,7 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "signalr_shared_private_link.html.markdown",
 				},
 			},
+			"azurerm_signalr_service_custom_certificate": {Tok: azureResource(azureSignalr, "ServiceCustomCertificate")},
 
 			// Storage
 			"azurerm_storage_account": {
@@ -2113,6 +2117,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: azureResource(azureStorage, "ObjectReplication"),
 			},
 			"azurerm_storage_account_local_user": {Tok: azureResource(azureStorage, "LocalUser")},
+			"azurerm_storage_mover":              {Tok: azureResource(azureStorage, "Mover")},
 
 			//StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {
@@ -2259,6 +2264,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_voice_services_communications_gateway": {
 				Tok: azureResource(azureVoice, "ServicesCommunicationsGateway"),
 			},
+			"azurerm_voice_services_communications_gateway_test_line": {Tok: azureResource(azureVoice, "ServicesCommunicationsGatewayTestLine")},
 
 			// WAF
 			"azurerm_web_application_firewall_policy": {Tok: azureResource(azureWaf, "Policy")},
@@ -2332,6 +2338,9 @@ func Provider() tfbridge.ProviderInfo {
 			// IoT Central
 			"azurerm_iotcentral_application":                  {Tok: azureResource(azureIotCentral, "Application")},
 			"azurerm_iotcentral_application_network_rule_set": {Tok: azureResource(azureIotCentral, "ApplicationNetworkRuleSet")},
+
+			// Arc Kubernetes
+			"azurerm_arc_kubernetes_cluster": {Tok: azureResource(azureArcKubernetes, "Cluster")},
 
 			// HPC
 			"azurerm_hpc_cache":                 {Tok: azureResource(azureHpc, "Cache")},

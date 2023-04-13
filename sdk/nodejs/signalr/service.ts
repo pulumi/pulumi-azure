@@ -95,6 +95,10 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostname!: pulumi.Output<string>;
     /**
+     * Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+     */
+    public readonly httpRequestLogsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.signalr.ServiceIdentity | undefined>;
@@ -202,6 +206,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["connectivityLogsEnabled"] = state ? state.connectivityLogsEnabled : undefined;
             resourceInputs["cors"] = state ? state.cors : undefined;
             resourceInputs["hostname"] = state ? state.hostname : undefined;
+            resourceInputs["httpRequestLogsEnabled"] = state ? state.httpRequestLogsEnabled : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
             resourceInputs["liveTrace"] = state ? state.liveTrace : undefined;
@@ -235,6 +240,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["aadAuthEnabled"] = args ? args.aadAuthEnabled : undefined;
             resourceInputs["connectivityLogsEnabled"] = args ? args.connectivityLogsEnabled : undefined;
             resourceInputs["cors"] = args ? args.cors : undefined;
+            resourceInputs["httpRequestLogsEnabled"] = args ? args.httpRequestLogsEnabled : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["liveTrace"] = args ? args.liveTrace : undefined;
             resourceInputs["liveTraceEnabled"] = args ? args.liveTraceEnabled : undefined;
@@ -286,6 +292,10 @@ export interface ServiceState {
      * The FQDN of the SignalR service.
      */
     hostname?: pulumi.Input<string>;
+    /**
+     * Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+     */
+    httpRequestLogsEnabled?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
      */
@@ -394,6 +404,10 @@ export interface ServiceArgs {
      * A `cors` block as documented below.
      */
     cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
+    /**
+     * Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+     */
+    httpRequestLogsEnabled?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
      */

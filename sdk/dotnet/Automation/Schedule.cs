@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> StartTime { get; private set; } = null!;
 
         /// <summary>
-        /// The timezone of the start time. Defaults to `UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
+        /// The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
         /// </summary>
         [Output("timezone")]
         public Output<string?> Timezone { get; private set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? StartTime { get; set; }
 
         /// <summary>
-        /// The timezone of the start time. Defaults to `UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
+        /// The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? StartTime { get; set; }
 
         /// <summary>
-        /// The timezone of the start time. Defaults to `UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
+        /// The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }

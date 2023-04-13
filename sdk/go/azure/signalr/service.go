@@ -97,6 +97,8 @@ type Service struct {
 	Cors ServiceCorArrayOutput `pulumi:"cors"`
 	// The FQDN of the SignalR service.
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
+	// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+	HttpRequestLogsEnabled pulumi.BoolPtrOutput `pulumi:"httpRequestLogsEnabled"`
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrOutput `pulumi:"identity"`
 	// The publicly accessible IP of the SignalR service.
@@ -195,6 +197,8 @@ type serviceState struct {
 	Cors []ServiceCor `pulumi:"cors"`
 	// The FQDN of the SignalR service.
 	Hostname *string `pulumi:"hostname"`
+	// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+	HttpRequestLogsEnabled *bool `pulumi:"httpRequestLogsEnabled"`
 	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
 	// The publicly accessible IP of the SignalR service.
@@ -252,6 +256,8 @@ type ServiceState struct {
 	Cors ServiceCorArrayInput
 	// The FQDN of the SignalR service.
 	Hostname pulumi.StringPtrInput
+	// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+	HttpRequestLogsEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
 	// The publicly accessible IP of the SignalR service.
@@ -311,6 +317,8 @@ type serviceArgs struct {
 	ConnectivityLogsEnabled *bool `pulumi:"connectivityLogsEnabled"`
 	// A `cors` block as documented below.
 	Cors []ServiceCor `pulumi:"cors"`
+	// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+	HttpRequestLogsEnabled *bool `pulumi:"httpRequestLogsEnabled"`
 	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
 	// A `liveTrace` block as defined below.
@@ -353,6 +361,8 @@ type ServiceArgs struct {
 	ConnectivityLogsEnabled pulumi.BoolPtrInput
 	// A `cors` block as documented below.
 	Cors ServiceCorArrayInput
+	// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+	HttpRequestLogsEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
 	// A `liveTrace` block as defined below.
@@ -492,6 +502,11 @@ func (o ServiceOutput) Cors() ServiceCorArrayOutput {
 // The FQDN of the SignalR service.
 func (o ServiceOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Hostname }).(pulumi.StringOutput)
+}
+
+// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
+func (o ServiceOutput) HttpRequestLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.HttpRequestLogsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // An `identity` block as defined below.

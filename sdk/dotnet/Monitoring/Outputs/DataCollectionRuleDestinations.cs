@@ -18,18 +18,60 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly Outputs.DataCollectionRuleDestinationsAzureMonitorMetrics? AzureMonitorMetrics;
         /// <summary>
+        /// One or more `event_hub` blocks as defined below.
+        /// </summary>
+        public readonly Outputs.DataCollectionRuleDestinationsEventHub? EventHub;
+        /// <summary>
+        /// One or more `event_hub` blocks as defined below.
+        /// </summary>
+        public readonly Outputs.DataCollectionRuleDestinationsEventHubDirect? EventHubDirect;
+        /// <summary>
         /// One or more `log_analytics` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataCollectionRuleDestinationsLogAnalytic> LogAnalytics;
+        /// <summary>
+        /// One or more `monitor_account` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DataCollectionRuleDestinationsMonitorAccount> MonitorAccounts;
+        /// <summary>
+        /// One or more `storage_blob_direct` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DataCollectionRuleDestinationsStorageBlobDirect> StorageBlobDirects;
+        /// <summary>
+        /// One or more `storage_blob` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DataCollectionRuleDestinationsStorageBlob> StorageBlobs;
+        /// <summary>
+        /// One or more `storage_table_direct` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DataCollectionRuleDestinationsStorageTableDirect> StorageTableDirects;
 
         [OutputConstructor]
         private DataCollectionRuleDestinations(
             Outputs.DataCollectionRuleDestinationsAzureMonitorMetrics? azureMonitorMetrics,
 
-            ImmutableArray<Outputs.DataCollectionRuleDestinationsLogAnalytic> logAnalytics)
+            Outputs.DataCollectionRuleDestinationsEventHub? eventHub,
+
+            Outputs.DataCollectionRuleDestinationsEventHubDirect? eventHubDirect,
+
+            ImmutableArray<Outputs.DataCollectionRuleDestinationsLogAnalytic> logAnalytics,
+
+            ImmutableArray<Outputs.DataCollectionRuleDestinationsMonitorAccount> monitorAccounts,
+
+            ImmutableArray<Outputs.DataCollectionRuleDestinationsStorageBlobDirect> storageBlobDirects,
+
+            ImmutableArray<Outputs.DataCollectionRuleDestinationsStorageBlob> storageBlobs,
+
+            ImmutableArray<Outputs.DataCollectionRuleDestinationsStorageTableDirect> storageTableDirects)
         {
             AzureMonitorMetrics = azureMonitorMetrics;
+            EventHub = eventHub;
+            EventHubDirect = eventHubDirect;
             LogAnalytics = logAnalytics;
+            MonitorAccounts = monitorAccounts;
+            StorageBlobDirects = storageBlobDirects;
+            StorageBlobs = storageBlobs;
+            StorageTableDirects = storageTableDirects;
         }
     }
 }

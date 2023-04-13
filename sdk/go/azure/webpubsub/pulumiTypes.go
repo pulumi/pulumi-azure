@@ -13,11 +13,11 @@ import (
 type HubEventHandler struct {
 	// An `auth` block as defined below.
 	Auth *HubEventHandlerAuth `pulumi:"auth"`
-	// Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+	// Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
 	SystemEvents []string `pulumi:"systemEvents"`
 	// The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
 	UrlTemplate string `pulumi:"urlTemplate"`
-	// Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
+	// Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
 	UserEventPattern *string `pulumi:"userEventPattern"`
 }
 
@@ -35,11 +35,11 @@ type HubEventHandlerInput interface {
 type HubEventHandlerArgs struct {
 	// An `auth` block as defined below.
 	Auth HubEventHandlerAuthPtrInput `pulumi:"auth"`
-	// Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+	// Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
 	SystemEvents pulumi.StringArrayInput `pulumi:"systemEvents"`
 	// The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
 	UrlTemplate pulumi.StringInput `pulumi:"urlTemplate"`
-	// Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
+	// Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
 	UserEventPattern pulumi.StringPtrInput `pulumi:"userEventPattern"`
 }
 
@@ -99,7 +99,7 @@ func (o HubEventHandlerOutput) Auth() HubEventHandlerAuthPtrOutput {
 	return o.ApplyT(func(v HubEventHandler) *HubEventHandlerAuth { return v.Auth }).(HubEventHandlerAuthPtrOutput)
 }
 
-// Specify the list of system events. Supported values are `connect`, `connected` and `disconnected`.
+// Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
 func (o HubEventHandlerOutput) SystemEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HubEventHandler) []string { return v.SystemEvents }).(pulumi.StringArrayOutput)
 }
@@ -109,7 +109,7 @@ func (o HubEventHandlerOutput) UrlTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v HubEventHandler) string { return v.UrlTemplate }).(pulumi.StringOutput)
 }
 
-// Specify the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
+// Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
 func (o HubEventHandlerOutput) UserEventPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HubEventHandler) *string { return v.UserEventPattern }).(pulumi.StringPtrOutput)
 }
@@ -269,6 +269,130 @@ func (o HubEventHandlerAuthPtrOutput) ManagedIdentityId() pulumi.StringPtrOutput
 		}
 		return &v.ManagedIdentityId
 	}).(pulumi.StringPtrOutput)
+}
+
+type HubEventListener struct {
+	// Specifies the event hub name to receive the events.
+	EventhubName string `pulumi:"eventhubName"`
+	// Specifies the event hub namespace name to receive the events.
+	EventhubNamespaceName string `pulumi:"eventhubNamespaceName"`
+	// Specifies the list of system events. Supported values are `connected` and `disconnected`.
+	SystemEventNameFilters []string `pulumi:"systemEventNameFilters"`
+	// Specifies the list of matching user event names. `["*"]` can be used to match all events.
+	UserEventNameFilters []string `pulumi:"userEventNameFilters"`
+}
+
+// HubEventListenerInput is an input type that accepts HubEventListenerArgs and HubEventListenerOutput values.
+// You can construct a concrete instance of `HubEventListenerInput` via:
+//
+//	HubEventListenerArgs{...}
+type HubEventListenerInput interface {
+	pulumi.Input
+
+	ToHubEventListenerOutput() HubEventListenerOutput
+	ToHubEventListenerOutputWithContext(context.Context) HubEventListenerOutput
+}
+
+type HubEventListenerArgs struct {
+	// Specifies the event hub name to receive the events.
+	EventhubName pulumi.StringInput `pulumi:"eventhubName"`
+	// Specifies the event hub namespace name to receive the events.
+	EventhubNamespaceName pulumi.StringInput `pulumi:"eventhubNamespaceName"`
+	// Specifies the list of system events. Supported values are `connected` and `disconnected`.
+	SystemEventNameFilters pulumi.StringArrayInput `pulumi:"systemEventNameFilters"`
+	// Specifies the list of matching user event names. `["*"]` can be used to match all events.
+	UserEventNameFilters pulumi.StringArrayInput `pulumi:"userEventNameFilters"`
+}
+
+func (HubEventListenerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubEventListener)(nil)).Elem()
+}
+
+func (i HubEventListenerArgs) ToHubEventListenerOutput() HubEventListenerOutput {
+	return i.ToHubEventListenerOutputWithContext(context.Background())
+}
+
+func (i HubEventListenerArgs) ToHubEventListenerOutputWithContext(ctx context.Context) HubEventListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubEventListenerOutput)
+}
+
+// HubEventListenerArrayInput is an input type that accepts HubEventListenerArray and HubEventListenerArrayOutput values.
+// You can construct a concrete instance of `HubEventListenerArrayInput` via:
+//
+//	HubEventListenerArray{ HubEventListenerArgs{...} }
+type HubEventListenerArrayInput interface {
+	pulumi.Input
+
+	ToHubEventListenerArrayOutput() HubEventListenerArrayOutput
+	ToHubEventListenerArrayOutputWithContext(context.Context) HubEventListenerArrayOutput
+}
+
+type HubEventListenerArray []HubEventListenerInput
+
+func (HubEventListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HubEventListener)(nil)).Elem()
+}
+
+func (i HubEventListenerArray) ToHubEventListenerArrayOutput() HubEventListenerArrayOutput {
+	return i.ToHubEventListenerArrayOutputWithContext(context.Background())
+}
+
+func (i HubEventListenerArray) ToHubEventListenerArrayOutputWithContext(ctx context.Context) HubEventListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubEventListenerArrayOutput)
+}
+
+type HubEventListenerOutput struct{ *pulumi.OutputState }
+
+func (HubEventListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubEventListener)(nil)).Elem()
+}
+
+func (o HubEventListenerOutput) ToHubEventListenerOutput() HubEventListenerOutput {
+	return o
+}
+
+func (o HubEventListenerOutput) ToHubEventListenerOutputWithContext(ctx context.Context) HubEventListenerOutput {
+	return o
+}
+
+// Specifies the event hub name to receive the events.
+func (o HubEventListenerOutput) EventhubName() pulumi.StringOutput {
+	return o.ApplyT(func(v HubEventListener) string { return v.EventhubName }).(pulumi.StringOutput)
+}
+
+// Specifies the event hub namespace name to receive the events.
+func (o HubEventListenerOutput) EventhubNamespaceName() pulumi.StringOutput {
+	return o.ApplyT(func(v HubEventListener) string { return v.EventhubNamespaceName }).(pulumi.StringOutput)
+}
+
+// Specifies the list of system events. Supported values are `connected` and `disconnected`.
+func (o HubEventListenerOutput) SystemEventNameFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HubEventListener) []string { return v.SystemEventNameFilters }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the list of matching user event names. `["*"]` can be used to match all events.
+func (o HubEventListenerOutput) UserEventNameFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HubEventListener) []string { return v.UserEventNameFilters }).(pulumi.StringArrayOutput)
+}
+
+type HubEventListenerArrayOutput struct{ *pulumi.OutputState }
+
+func (HubEventListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HubEventListener)(nil)).Elem()
+}
+
+func (o HubEventListenerArrayOutput) ToHubEventListenerArrayOutput() HubEventListenerArrayOutput {
+	return o
+}
+
+func (o HubEventListenerArrayOutput) ToHubEventListenerArrayOutputWithContext(ctx context.Context) HubEventListenerArrayOutput {
+	return o
+}
+
+func (o HubEventListenerArrayOutput) Index(i pulumi.IntInput) HubEventListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HubEventListener {
+		return vs[0].([]HubEventListener)[vs[1].(int)]
+	}).(HubEventListenerOutput)
 }
 
 type NetworkAclPrivateEndpoint struct {
@@ -1041,6 +1165,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HubEventHandlerArrayInput)(nil)).Elem(), HubEventHandlerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HubEventHandlerAuthInput)(nil)).Elem(), HubEventHandlerAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HubEventHandlerAuthPtrInput)(nil)).Elem(), HubEventHandlerAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubEventListenerInput)(nil)).Elem(), HubEventListenerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubEventListenerArrayInput)(nil)).Elem(), HubEventListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclPrivateEndpointInput)(nil)).Elem(), NetworkAclPrivateEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclPrivateEndpointArrayInput)(nil)).Elem(), NetworkAclPrivateEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclPublicNetworkInput)(nil)).Elem(), NetworkAclPublicNetworkArgs{})
@@ -1055,6 +1181,8 @@ func init() {
 	pulumi.RegisterOutputType(HubEventHandlerArrayOutput{})
 	pulumi.RegisterOutputType(HubEventHandlerAuthOutput{})
 	pulumi.RegisterOutputType(HubEventHandlerAuthPtrOutput{})
+	pulumi.RegisterOutputType(HubEventListenerOutput{})
+	pulumi.RegisterOutputType(HubEventListenerArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAclPrivateEndpointOutput{})
 	pulumi.RegisterOutputType(NetworkAclPrivateEndpointArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAclPublicNetworkOutput{})

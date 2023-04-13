@@ -44,7 +44,7 @@ import (
 //			_, err = appconfiguration.NewConfigurationFeature(ctx, "test", &appconfiguration.ConfigurationFeatureArgs{
 //				ConfigurationStoreId: appconf.ID(),
 //				Description:          pulumi.String("test description"),
-//				Label:                pulumi.String("acctest-ackeylabel-%d"),
+//				Label:                pulumi.String("test-ackeylabel"),
 //				Enabled:              pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -83,6 +83,8 @@ type ConfigurationFeature struct {
 	// The status of the App Configuration Feature. By default, this is set to false.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	Etag    pulumi.StringOutput  `pulumi:"etag"`
+	// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+	Key pulumi.StringOutput `pulumi:"key"`
 	// The label of the App Configuration Feature. Changing this forces a new resource to be created.
 	Label pulumi.StringPtrOutput `pulumi:"label"`
 	// Should this App Configuration Feature be Locked to prevent changes?
@@ -138,6 +140,8 @@ type configurationFeatureState struct {
 	// The status of the App Configuration Feature. By default, this is set to false.
 	Enabled *bool   `pulumi:"enabled"`
 	Etag    *string `pulumi:"etag"`
+	// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+	Key *string `pulumi:"key"`
 	// The label of the App Configuration Feature. Changing this forces a new resource to be created.
 	Label *string `pulumi:"label"`
 	// Should this App Configuration Feature be Locked to prevent changes?
@@ -162,6 +166,8 @@ type ConfigurationFeatureState struct {
 	// The status of the App Configuration Feature. By default, this is set to false.
 	Enabled pulumi.BoolPtrInput
 	Etag    pulumi.StringPtrInput
+	// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+	Key pulumi.StringPtrInput
 	// The label of the App Configuration Feature. Changing this forces a new resource to be created.
 	Label pulumi.StringPtrInput
 	// Should this App Configuration Feature be Locked to prevent changes?
@@ -190,6 +196,8 @@ type configurationFeatureArgs struct {
 	// The status of the App Configuration Feature. By default, this is set to false.
 	Enabled *bool   `pulumi:"enabled"`
 	Etag    *string `pulumi:"etag"`
+	// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+	Key *string `pulumi:"key"`
 	// The label of the App Configuration Feature. Changing this forces a new resource to be created.
 	Label *string `pulumi:"label"`
 	// Should this App Configuration Feature be Locked to prevent changes?
@@ -215,6 +223,8 @@ type ConfigurationFeatureArgs struct {
 	// The status of the App Configuration Feature. By default, this is set to false.
 	Enabled pulumi.BoolPtrInput
 	Etag    pulumi.StringPtrInput
+	// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+	Key pulumi.StringPtrInput
 	// The label of the App Configuration Feature. Changing this forces a new resource to be created.
 	Label pulumi.StringPtrInput
 	// Should this App Configuration Feature be Locked to prevent changes?
@@ -335,6 +345,11 @@ func (o ConfigurationFeatureOutput) Enabled() pulumi.BoolPtrOutput {
 
 func (o ConfigurationFeatureOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationFeature) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
+func (o ConfigurationFeatureOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationFeature) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
 // The label of the App Configuration Feature. Changing this forces a new resource to be created.
