@@ -274,6 +274,7 @@ namespace Pulumi.Azure.AppService
                 AdditionalSecretOutputs =
                 {
                     "customDomainVerificationId",
+                    "siteCredentials",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -667,7 +668,11 @@ namespace Pulumi.Azure.AppService
         public InputList<Inputs.LinuxWebAppSlotSiteCredentialGetArgs> SiteCredentials
         {
             get => _siteCredentials ?? (_siteCredentials = new InputList<Inputs.LinuxWebAppSlotSiteCredentialGetArgs>());
-            set => _siteCredentials = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableArray.Create<Inputs.LinuxWebAppSlotSiteCredentialGetArgs>());
+                _siteCredentials = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         [Input("storageAccounts")]

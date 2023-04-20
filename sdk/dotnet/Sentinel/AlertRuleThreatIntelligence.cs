@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Sentinel
     /// 
     ///     var exampleAlertRuleTemplate = Azure.Sentinel.GetAlertRuleTemplate.Invoke(new()
     ///     {
-    ///         DisplayName = "(Preview) Microsoft Threat Intelligence Analytics",
+    ///         DisplayName = "(Preview) Microsoft Defender Threat Intelligence Analytics",
     ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
     ///     });
     /// 

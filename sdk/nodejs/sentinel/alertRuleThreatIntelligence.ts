@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleAlertRuleTemplate = azure.sentinel.getAlertRuleTemplateOutput({
- *     displayName: "(Preview) Microsoft Threat Intelligence Analytics",
+ *     displayName: "(Preview) Microsoft Defender Threat Intelligence Analytics",
  *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
  * });
  * const exampleAlertRuleThreatIntelligence = new azure.sentinel.AlertRuleThreatIntelligence("exampleAlertRuleThreatIntelligence", {

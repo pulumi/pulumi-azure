@@ -15,20 +15,41 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "East US"});
- * const testAccount = new azure.automation.Account("testAccount", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
+ * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "Basic",
  * });
- * const example = new azure.automation.SoftwareUpdateConfiguration("example", {
- *     automationAccountId: testAccount.id,
+ * const exampleRunBook = new azure.automation.RunBook("exampleRunBook", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automationAccountName: exampleAccount.name,
+ *     logVerbose: true,
+ *     logProgress: true,
+ *     description: "This is a example runbook for terraform acceptance example",
+ *     runbookType: "Python3",
+ *     content: `# Some example content
+ * # for Terraform acceptance example
+ * `,
+ *     tags: {
+ *         ENV: "runbook_test",
+ *     },
+ * });
+ * const exampleSoftwareUpdateConfiguration = new azure.automation.SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration", {
+ *     automationAccountId: exampleAccount.id,
  *     operatingSystem: "Linux",
  *     linuxes: [{
  *         classificationIncluded: "Security",
  *         excludedPackages: ["apt"],
  *         includedPackages: ["vim"],
  *         reboot: "IfRequired",
+ *     }],
+ *     preTasks: [{
+ *         source: exampleRunBook.name,
+ *         parameters: {
+ *             COMPUTER_NAME: "Foo",
+ *         },
  *     }],
  *     duration: "PT2H2M2S",
  * });

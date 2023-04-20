@@ -12,11 +12,21 @@ namespace Pulumi.Azure.AppService.Inputs
 
     public sealed class WindowsWebAppSiteCredentialGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("name")]
+        private Input<string>? _name;
+
         /// <summary>
         /// The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        public Input<string>? Name
+        {
+            get => _name;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _name = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("password")]
         private Input<string>? _password;

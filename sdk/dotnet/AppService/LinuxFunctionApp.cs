@@ -320,6 +320,7 @@ namespace Pulumi.Azure.AppService
                 AdditionalSecretOutputs =
                 {
                     "customDomainVerificationId",
+                    "siteCredentials",
                     "storageAccountAccessKey",
                 },
             };
@@ -778,7 +779,11 @@ namespace Pulumi.Azure.AppService
         public InputList<Inputs.LinuxFunctionAppSiteCredentialGetArgs> SiteCredentials
         {
             get => _siteCredentials ?? (_siteCredentials = new InputList<Inputs.LinuxFunctionAppSiteCredentialGetArgs>());
-            set => _siteCredentials = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableArray.Create<Inputs.LinuxFunctionAppSiteCredentialGetArgs>());
+                _siteCredentials = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>

@@ -18809,7 +18809,7 @@ type MetricAlertCriteria struct {
 	MetricName string `pulumi:"metricName"`
 	// One of the metric namespaces to be monitored.
 	MetricNamespace string `pulumi:"metricNamespace"`
-	// The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	// The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 	Operator string `pulumi:"operator"`
 	// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
 	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
@@ -18837,7 +18837,7 @@ type MetricAlertCriteriaArgs struct {
 	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// One of the metric namespaces to be monitored.
 	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
-	// The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+	// The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
 	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
@@ -18916,7 +18916,7 @@ func (o MetricAlertCriteriaOutput) MetricNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertCriteria) string { return v.MetricNamespace }).(pulumi.StringOutput)
 }
 
-// The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+// The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
 func (o MetricAlertCriteriaOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertCriteria) string { return v.Operator }).(pulumi.StringOutput)
 }

@@ -309,6 +309,18 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+        /// </summary>
+        [Output("resourceManagerId")]
+        public Output<string> ResourceManagerId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+        /// </summary>
+        [Output("resourceManagerVersionlessId")]
+        public Output<string> ResourceManagerVersionlessId { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the associated Key Vault Secret.
         /// </summary>
         [Output("secretId")]
@@ -485,6 +497,18 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+        /// </summary>
+        [Input("resourceManagerId")]
+        public Input<string>? ResourceManagerId { get; set; }
+
+        /// <summary>
+        /// The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+        /// </summary>
+        [Input("resourceManagerVersionlessId")]
+        public Input<string>? ResourceManagerVersionlessId { get; set; }
 
         /// <summary>
         /// The ID of the associated Key Vault Secret.

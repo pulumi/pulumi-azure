@@ -28,22 +28,38 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testAccount, err := automation.NewAccount(ctx, "testAccount", &automation.AccountArgs{
-//				Location:          testResourceGroup.Location,
-//				ResourceGroupName: testResourceGroup.Name,
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
 //				SkuName:           pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewSoftwareUpdateConfiguration(ctx, "example", &automation.SoftwareUpdateConfigurationArgs{
-//				AutomationAccountId: testAccount.ID(),
+//			exampleRunBook, err := automation.NewRunBook(ctx, "exampleRunBook", &automation.RunBookArgs{
+//				Location:              exampleResourceGroup.Location,
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				LogVerbose:            pulumi.Bool(true),
+//				LogProgress:           pulumi.Bool(true),
+//				Description:           pulumi.String("This is a example runbook for terraform acceptance example"),
+//				RunbookType:           pulumi.String("Python3"),
+//				Content:               pulumi.String("# Some example content\n# for Terraform acceptance example\n"),
+//				Tags: pulumi.StringMap{
+//					"ENV": pulumi.String("runbook_test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewSoftwareUpdateConfiguration(ctx, "exampleSoftwareUpdateConfiguration", &automation.SoftwareUpdateConfigurationArgs{
+//				AutomationAccountId: exampleAccount.ID(),
 //				OperatingSystem:     pulumi.String("Linux"),
 //				Linuxes: automation.SoftwareUpdateConfigurationLinuxArray{
 //					&automation.SoftwareUpdateConfigurationLinuxArgs{
@@ -55,6 +71,14 @@ import (
 //							pulumi.String("vim"),
 //						},
 //						Reboot: pulumi.String("IfRequired"),
+//					},
+//				},
+//				PreTasks: automation.SoftwareUpdateConfigurationPreTaskArray{
+//					&automation.SoftwareUpdateConfigurationPreTaskArgs{
+//						Source: exampleRunBook.Name,
+//						Parameters: pulumi.StringMap{
+//							"COMPUTER_NAME": pulumi.String("Foo"),
+//						},
 //					},
 //				},
 //				Duration: pulumi.String("PT2H2M2S"),

@@ -485,19 +485,39 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="East US")
-        test_account = azure.automation.Account("testAccount",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name,
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             sku_name="Basic")
-        example = azure.automation.SoftwareUpdateConfiguration("example",
-            automation_account_id=test_account.id,
+        example_run_book = azure.automation.RunBook("exampleRunBook",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            log_verbose=True,
+            log_progress=True,
+            description="This is a example runbook for terraform acceptance example",
+            runbook_type="Python3",
+            content=\"\"\"# Some example content
+        # for Terraform acceptance example
+        \"\"\",
+            tags={
+                "ENV": "runbook_test",
+            })
+        example_software_update_configuration = azure.automation.SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration",
+            automation_account_id=example_account.id,
             operating_system="Linux",
             linuxes=[azure.automation.SoftwareUpdateConfigurationLinuxArgs(
                 classification_included="Security",
                 excluded_packages=["apt"],
                 included_packages=["vim"],
                 reboot="IfRequired",
+            )],
+            pre_tasks=[azure.automation.SoftwareUpdateConfigurationPreTaskArgs(
+                source=example_run_book.name,
+                parameters={
+                    "COMPUTER_NAME": "Foo",
+                },
             )],
             duration="PT2H2M2S")
         ```
@@ -540,19 +560,39 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="East US")
-        test_account = azure.automation.Account("testAccount",
-            location=test_resource_group.location,
-            resource_group_name=test_resource_group.name,
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example_account = azure.automation.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             sku_name="Basic")
-        example = azure.automation.SoftwareUpdateConfiguration("example",
-            automation_account_id=test_account.id,
+        example_run_book = azure.automation.RunBook("exampleRunBook",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name,
+            log_verbose=True,
+            log_progress=True,
+            description="This is a example runbook for terraform acceptance example",
+            runbook_type="Python3",
+            content=\"\"\"# Some example content
+        # for Terraform acceptance example
+        \"\"\",
+            tags={
+                "ENV": "runbook_test",
+            })
+        example_software_update_configuration = azure.automation.SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration",
+            automation_account_id=example_account.id,
             operating_system="Linux",
             linuxes=[azure.automation.SoftwareUpdateConfigurationLinuxArgs(
                 classification_included="Security",
                 excluded_packages=["apt"],
                 included_packages=["vim"],
                 reboot="IfRequired",
+            )],
+            pre_tasks=[azure.automation.SoftwareUpdateConfigurationPreTaskArgs(
+                source=example_run_book.name,
+                parameters={
+                    "COMPUTER_NAME": "Foo",
+                },
             )],
             duration="PT2H2M2S")
         ```

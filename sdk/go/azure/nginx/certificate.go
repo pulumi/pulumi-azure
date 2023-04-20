@@ -31,7 +31,7 @@ import (
 //				NginxDeploymentId:      pulumi.Any(azurerm_nginx_deployment.Test.Id),
 //				KeyVirtualPath:         pulumi.String("/src/cert/soservermekey.key"),
 //				CertificateVirtualPath: pulumi.String("/src/cert/server.cert"),
-//				KeyVaultSecretId:       pulumi.Any(azurerm_key_vault_secret.Test.Id),
+//				KeyVaultSecretId:       pulumi.Any(azurerm_key_vault_certificate.Test.Secret_id),
 //			})
 //			if err != nil {
 //				return err

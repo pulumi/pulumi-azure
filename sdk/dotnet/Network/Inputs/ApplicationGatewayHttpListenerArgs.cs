@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// Should Server Name Indication be Required?
+        /// Should Server Name Indication be Required? Defaults to `false`.
         /// </summary>
         [Input("requireSni")]
         public Input<bool>? RequireSni { get; set; }

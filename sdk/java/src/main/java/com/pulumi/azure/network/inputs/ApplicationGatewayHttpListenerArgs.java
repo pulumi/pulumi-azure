@@ -184,14 +184,14 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
     }
 
     /**
-     * Should Server Name Indication be Required?
+     * Should Server Name Indication be Required? Defaults to `false`.
      * 
      */
     @Import(name="requireSni")
     private @Nullable Output<Boolean> requireSni;
 
     /**
-     * @return Should Server Name Indication be Required?
+     * @return Should Server Name Indication be Required? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> requireSni() {
@@ -549,7 +549,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param requireSni Should Server Name Indication be Required?
+         * @param requireSni Should Server Name Indication be Required? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -560,7 +560,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param requireSni Should Server Name Indication be Required?
+         * @param requireSni Should Server Name Indication be Required? Defaults to `false`.
          * 
          * @return builder
          * 

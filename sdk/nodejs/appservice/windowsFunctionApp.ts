@@ -329,7 +329,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["siteCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["customDomainVerificationId", "storageAccountAccessKey"] };
+        const secretOpts = { additionalSecretOutputs: ["customDomainVerificationId", "siteCredentials", "storageAccountAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(WindowsFunctionApp.__pulumiType, name, resourceInputs, opts);
     }

@@ -298,8 +298,6 @@ class ActionRuleSuppression(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages an Monitor Action Rule which type is suppression.
-
         ## Example Usage
 
         ```python
@@ -357,8 +355,6 @@ class ActionRuleSuppression(pulumi.CustomResource):
                  args: ActionRuleSuppressionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Monitor Action Rule which type is suppression.
-
         ## Example Usage
 
         ```python

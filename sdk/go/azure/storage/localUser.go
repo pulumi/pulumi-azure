@@ -108,7 +108,7 @@ type LocalUser struct {
 	PermissionScopes LocalUserPermissionScopeArrayOutput `pulumi:"permissionScopes"`
 	// The unique Security Identifier of this Storage Account Local User.
 	Sid pulumi.StringOutput `pulumi:"sid"`
-	// One or more `sshAuthorizedKey` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+	// One or more `sshAuthorizedKey` blocks as defined below.
 	SshAuthorizedKeys LocalUserSshAuthorizedKeyArrayOutput `pulumi:"sshAuthorizedKeys"`
 	// Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
 	SshKeyEnabled pulumi.BoolPtrOutput `pulumi:"sshKeyEnabled"`
@@ -165,7 +165,7 @@ type localUserState struct {
 	PermissionScopes []LocalUserPermissionScope `pulumi:"permissionScopes"`
 	// The unique Security Identifier of this Storage Account Local User.
 	Sid *string `pulumi:"sid"`
-	// One or more `sshAuthorizedKey` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+	// One or more `sshAuthorizedKey` blocks as defined below.
 	SshAuthorizedKeys []LocalUserSshAuthorizedKey `pulumi:"sshAuthorizedKeys"`
 	// Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
 	SshKeyEnabled *bool `pulumi:"sshKeyEnabled"`
@@ -186,7 +186,7 @@ type LocalUserState struct {
 	PermissionScopes LocalUserPermissionScopeArrayInput
 	// The unique Security Identifier of this Storage Account Local User.
 	Sid pulumi.StringPtrInput
-	// One or more `sshAuthorizedKey` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+	// One or more `sshAuthorizedKey` blocks as defined below.
 	SshAuthorizedKeys LocalUserSshAuthorizedKeyArrayInput
 	// Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
 	SshKeyEnabled pulumi.BoolPtrInput
@@ -207,7 +207,7 @@ type localUserArgs struct {
 	Name *string `pulumi:"name"`
 	// One or more `permissionScope` blocks as defined below.
 	PermissionScopes []LocalUserPermissionScope `pulumi:"permissionScopes"`
-	// One or more `sshAuthorizedKey` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+	// One or more `sshAuthorizedKey` blocks as defined below.
 	SshAuthorizedKeys []LocalUserSshAuthorizedKey `pulumi:"sshAuthorizedKeys"`
 	// Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
 	SshKeyEnabled *bool `pulumi:"sshKeyEnabled"`
@@ -225,7 +225,7 @@ type LocalUserArgs struct {
 	Name pulumi.StringPtrInput
 	// One or more `permissionScope` blocks as defined below.
 	PermissionScopes LocalUserPermissionScopeArrayInput
-	// One or more `sshAuthorizedKey` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+	// One or more `sshAuthorizedKey` blocks as defined below.
 	SshAuthorizedKeys LocalUserSshAuthorizedKeyArrayInput
 	// Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
 	SshKeyEnabled pulumi.BoolPtrInput
@@ -347,7 +347,7 @@ func (o LocalUserOutput) Sid() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalUser) pulumi.StringOutput { return v.Sid }).(pulumi.StringOutput)
 }
 
-// One or more `sshAuthorizedKey` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+// One or more `sshAuthorizedKey` blocks as defined below.
 func (o LocalUserOutput) SshAuthorizedKeys() LocalUserSshAuthorizedKeyArrayOutput {
 	return o.ApplyT(func(v *LocalUser) LocalUserSshAuthorizedKeyArrayOutput { return v.SshAuthorizedKeys }).(LocalUserSshAuthorizedKeyArrayOutput)
 }

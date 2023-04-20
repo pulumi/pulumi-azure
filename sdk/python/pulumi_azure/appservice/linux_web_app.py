@@ -1131,7 +1131,7 @@ class LinuxWebApp(pulumi.CustomResource):
             __props__.__dict__["possible_outbound_ip_address_lists"] = None
             __props__.__dict__["possible_outbound_ip_addresses"] = None
             __props__.__dict__["site_credentials"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customDomainVerificationId"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customDomainVerificationId", "siteCredentials"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LinuxWebApp, __self__).__init__(
             'azure:appservice/linuxWebApp:LinuxWebApp',

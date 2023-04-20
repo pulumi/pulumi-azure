@@ -1014,7 +1014,7 @@ class ApplicationGatewayHttpListenerArgs:
         :param pulumi.Input[str] host_name: The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_names: A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
-        :param pulumi.Input[bool] require_sni: Should Server Name Indication be Required?
+        :param pulumi.Input[bool] require_sni: Should Server Name Indication be Required? Defaults to `false`.
         :param pulumi.Input[str] ssl_certificate_id: The ID of the associated SSL Certificate.
         :param pulumi.Input[str] ssl_certificate_name: The name of the associated SSL Certificate which should be used for this HTTP Listener.
         :param pulumi.Input[str] ssl_profile_id: The ID of the associated SSL Profile.
@@ -1185,7 +1185,7 @@ class ApplicationGatewayHttpListenerArgs:
     @pulumi.getter(name="requireSni")
     def require_sni(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should Server Name Indication be Required?
+        Should Server Name Indication be Required? Defaults to `false`.
         """
         return pulumi.get(self, "require_sni")
 

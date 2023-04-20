@@ -65,14 +65,14 @@ public final class LocalUserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+     * One or more `ssh_authorized_key` blocks as defined below.
      * 
      */
     @Import(name="sshAuthorizedKeys")
     private @Nullable Output<List<LocalUserSshAuthorizedKeyArgs>> sshAuthorizedKeys;
 
     /**
-     * @return One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+     * @return One or more `ssh_authorized_key` blocks as defined below.
      * 
      */
     public Optional<Output<List<LocalUserSshAuthorizedKeyArgs>>> sshAuthorizedKeys() {
@@ -228,7 +228,7 @@ public final class LocalUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshAuthorizedKeys One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+         * @param sshAuthorizedKeys One or more `ssh_authorized_key` blocks as defined below.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class LocalUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshAuthorizedKeys One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+         * @param sshAuthorizedKeys One or more `ssh_authorized_key` blocks as defined below.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class LocalUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sshAuthorizedKeys One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+         * @param sshAuthorizedKeys One or more `ssh_authorized_key` blocks as defined below.
          * 
          * @return builder
          * 

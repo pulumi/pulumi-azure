@@ -54,16 +54,22 @@ type LookupSecretArgs struct {
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Secret.
 	Name string `pulumi:"name"`
+	// Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+	Version *string `pulumi:"version"`
 }
 
 // A collection of values returned by getSecret.
 type LookupSecretResult struct {
 	// The content type for the Key Vault Secret.
 	ContentType string `pulumi:"contentType"`
+	// The date and time at which the Key Vault Secret expires and is no longer valid.
+	ExpirationDate string `pulumi:"expirationDate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	KeyVaultId string `pulumi:"keyVaultId"`
 	Name       string `pulumi:"name"`
+	// The earliest date at which the Key Vault Secret can be used.
+	NotBeforeDate string `pulumi:"notBeforeDate"`
 	// The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
 	ResourceId string `pulumi:"resourceId"`
 	// The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
@@ -71,9 +77,8 @@ type LookupSecretResult struct {
 	// Any tags assigned to this resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The value of the Key Vault Secret.
-	Value string `pulumi:"value"`
-	// The current version of the Key Vault Secret.
-	Version string `pulumi:"version"`
+	Value   string  `pulumi:"value"`
+	Version *string `pulumi:"version"`
 	// The Versionless ID of the Key Vault Secret. This can be used to always get latest secret value, and enable fetching automatically rotating secrets.
 	VersionlessId string `pulumi:"versionlessId"`
 }
@@ -97,6 +102,8 @@ type LookupSecretOutputArgs struct {
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Secret.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (LookupSecretOutputArgs) ElementType() reflect.Type {
@@ -123,6 +130,11 @@ func (o LookupSecretResultOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
+// The date and time at which the Key Vault Secret expires and is no longer valid.
+func (o LookupSecretResultOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.ExpirationDate }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupSecretResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Id }).(pulumi.StringOutput)
@@ -134,6 +146,11 @@ func (o LookupSecretResultOutput) KeyVaultId() pulumi.StringOutput {
 
 func (o LookupSecretResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The earliest date at which the Key Vault Secret can be used.
+func (o LookupSecretResultOutput) NotBeforeDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.NotBeforeDate }).(pulumi.StringOutput)
 }
 
 // The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
@@ -156,9 +173,8 @@ func (o LookupSecretResultOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Value }).(pulumi.StringOutput)
 }
 
-// The current version of the Key Vault Secret.
-func (o LookupSecretResultOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretResult) string { return v.Version }).(pulumi.StringOutput)
+func (o LookupSecretResultOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 // The Versionless ID of the Key Vault Secret. This can be used to always get latest secret value, and enable fetching automatically rotating secrets.

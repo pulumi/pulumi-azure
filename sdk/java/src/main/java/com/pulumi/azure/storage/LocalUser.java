@@ -179,14 +179,14 @@ public class LocalUser extends com.pulumi.resources.CustomResource {
         return this.sid;
     }
     /**
-     * One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+     * One or more `ssh_authorized_key` blocks as defined below.
      * 
      */
     @Export(name="sshAuthorizedKeys", refs={List.class,LocalUserSshAuthorizedKey.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LocalUserSshAuthorizedKey>> sshAuthorizedKeys;
 
     /**
-     * @return One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+     * @return One or more `ssh_authorized_key` blocks as defined below.
      * 
      */
     public Output<Optional<List<LocalUserSshAuthorizedKey>>> sshAuthorizedKeys() {

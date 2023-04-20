@@ -40,14 +40,18 @@ class GrafanaAzureMonitorWorkspaceIntegrationArgs:
 class GrafanaIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -57,13 +61,25 @@ class GrafanaIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
+        Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
 
     @property
     @pulumi.getter(name="principalId")

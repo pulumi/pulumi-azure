@@ -285,7 +285,7 @@ export class LinuxWebApp extends pulumi.CustomResource {
             resourceInputs["siteCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["customDomainVerificationId"] };
+        const secretOpts = { additionalSecretOutputs: ["customDomainVerificationId", "siteCredentials"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinuxWebApp.__pulumiType, name, resourceInputs, opts);
     }

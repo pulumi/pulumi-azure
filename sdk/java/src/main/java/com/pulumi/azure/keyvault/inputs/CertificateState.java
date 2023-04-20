@@ -126,6 +126,36 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    @Import(name="resourceManagerId")
+    private @Nullable Output<String> resourceManagerId;
+
+    /**
+     * @return The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    public Optional<Output<String>> resourceManagerId() {
+        return Optional.ofNullable(this.resourceManagerId);
+    }
+
+    /**
+     * The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+     * 
+     */
+    @Import(name="resourceManagerVersionlessId")
+    private @Nullable Output<String> resourceManagerVersionlessId;
+
+    /**
+     * @return The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+     * 
+     */
+    public Optional<Output<String>> resourceManagerVersionlessId() {
+        return Optional.ofNullable(this.resourceManagerVersionlessId);
+    }
+
+    /**
      * The ID of the associated Key Vault Secret.
      * 
      */
@@ -225,6 +255,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         this.certificatePolicy = $.certificatePolicy;
         this.keyVaultId = $.keyVaultId;
         this.name = $.name;
+        this.resourceManagerId = $.resourceManagerId;
+        this.resourceManagerVersionlessId = $.resourceManagerVersionlessId;
         this.secretId = $.secretId;
         this.tags = $.tags;
         this.thumbprint = $.thumbprint;
@@ -406,6 +438,48 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param resourceManagerId The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceManagerId(@Nullable Output<String> resourceManagerId) {
+            $.resourceManagerId = resourceManagerId;
+            return this;
+        }
+
+        /**
+         * @param resourceManagerId The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceManagerId(String resourceManagerId) {
+            return resourceManagerId(Output.of(resourceManagerId));
+        }
+
+        /**
+         * @param resourceManagerVersionlessId The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceManagerVersionlessId(@Nullable Output<String> resourceManagerVersionlessId) {
+            $.resourceManagerVersionlessId = resourceManagerVersionlessId;
+            return this;
+        }
+
+        /**
+         * @param resourceManagerVersionlessId The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceManagerVersionlessId(String resourceManagerVersionlessId) {
+            return resourceManagerVersionlessId(Output.of(resourceManagerVersionlessId));
         }
 
         /**

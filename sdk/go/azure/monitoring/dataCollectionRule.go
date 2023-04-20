@@ -116,22 +116,22 @@ import (
 //					LogAnalytics: monitoring.DataCollectionRuleDestinationsLogAnalyticArray{
 //						&monitoring.DataCollectionRuleDestinationsLogAnalyticArgs{
 //							WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-//							Name:                pulumi.String("test-destination-log"),
+//							Name:                pulumi.String("example-destination-log"),
 //						},
 //					},
 //					EventHub: &monitoring.DataCollectionRuleDestinationsEventHubArgs{
 //						EventHubId: exampleEventHub.ID(),
-//						Name:       pulumi.String("test-destination-eventhub"),
+//						Name:       pulumi.String("example-destination-eventhub"),
 //					},
 //					StorageBlobs: monitoring.DataCollectionRuleDestinationsStorageBlobArray{
 //						&monitoring.DataCollectionRuleDestinationsStorageBlobArgs{
 //							StorageAccountId: exampleAccount.ID(),
 //							ContainerName:    exampleContainer.Name,
-//							Name:             pulumi.String("test-destination-storage"),
+//							Name:             pulumi.String("example-destination-storage"),
 //						},
 //					},
 //					AzureMonitorMetrics: &monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs{
-//						Name: pulumi.String("test-destination-metrics"),
+//						Name: pulumi.String("example-destination-metrics"),
 //					},
 //				},
 //				DataFlows: monitoring.DataCollectionRuleDataFlowArray{
@@ -140,7 +140,7 @@ import (
 //							pulumi.String("Microsoft-InsightsMetrics"),
 //						},
 //						Destinations: pulumi.StringArray{
-//							pulumi.String("test-destination-metrics"),
+//							pulumi.String("example-destination-metrics"),
 //						},
 //					},
 //					&monitoring.DataCollectionRuleDataFlowArgs{
@@ -150,7 +150,7 @@ import (
 //							pulumi.String("Microsoft-Perf"),
 //						},
 //						Destinations: pulumi.StringArray{
-//							pulumi.String("test-destination-log"),
+//							pulumi.String("example-destination-log"),
 //						},
 //					},
 //					&monitoring.DataCollectionRuleDataFlowArgs{
@@ -173,7 +173,7 @@ import (
 //							LogLevels: pulumi.StringArray{
 //								pulumi.String("*"),
 //							},
-//							Name: pulumi.String("test-datasource-syslog"),
+//							Name: pulumi.String("example-datasource-syslog"),
 //						},
 //					},
 //					IisLogs: monitoring.DataCollectionRuleDataSourcesIisLogArray{
@@ -181,21 +181,21 @@ import (
 //							Streams: pulumi.StringArray{
 //								pulumi.String("Microsoft-W3CIISLog"),
 //							},
-//							Name: pulumi.String("test-datasource-iis"),
+//							Name: pulumi.String("example-datasource-iis"),
 //							LogDirectories: pulumi.StringArray{
-//								pulumi.String("C:\\\\Logs\\\\W3SVC1"),
+//								pulumi.String("C:\\Logs\\W3SVC1"),
 //							},
 //						},
 //					},
 //					LogFiles: monitoring.DataCollectionRuleDataSourcesLogFileArray{
 //						&monitoring.DataCollectionRuleDataSourcesLogFileArgs{
-//							Name:   pulumi.String("test-datasource-logfile"),
+//							Name:   pulumi.String("example-datasource-logfile"),
 //							Format: pulumi.String("text"),
 //							Streams: pulumi.StringArray{
 //								pulumi.String("Custom-MyTableRawData"),
 //							},
 //							FilePatterns: pulumi.StringArray{
-//								pulumi.String("C:\\\\JavaLogs\\\\*.log"),
+//								pulumi.String("C:\\JavaLogs\\*.log"),
 //							},
 //							Settings: &monitoring.DataCollectionRuleDataSourcesLogFileSettingsArgs{
 //								Text: &monitoring.DataCollectionRuleDataSourcesLogFileSettingsTextArgs{
@@ -214,7 +214,7 @@ import (
 //							CounterSpecifiers: pulumi.StringArray{
 //								pulumi.String("Processor(*)\\% Processor Time"),
 //							},
-//							Name: pulumi.String("test-datasource-perfcounter"),
+//							Name: pulumi.String("example-datasource-perfcounter"),
 //						},
 //					},
 //					WindowsEventLogs: monitoring.DataCollectionRuleDataSourcesWindowsEventLogArray{
@@ -225,7 +225,7 @@ import (
 //							XPathQueries: pulumi.StringArray{
 //								pulumi.String("*![System/Level=1]"),
 //							},
-//							Name: pulumi.String("test-datasource-wineventlog"),
+//							Name: pulumi.String("example-datasource-wineventlog"),
 //						},
 //					},
 //					Extensions: monitoring.DataCollectionRuleDataSourcesExtensionArray{
@@ -234,11 +234,11 @@ import (
 //								pulumi.String("Microsoft-WindowsEvent"),
 //							},
 //							InputDataSources: pulumi.StringArray{
-//								pulumi.String("test-datasource-wineventlog"),
+//								pulumi.String("example-datasource-wineventlog"),
 //							},
-//							ExtensionName: pulumi.String("test-extension-name"),
+//							ExtensionName: pulumi.String("example-extension-name"),
 //							ExtensionJson: pulumi.String(json0),
-//							Name:          pulumi.String("test-datasource-extension"),
+//							Name:          pulumi.String("example-datasource-extension"),
 //						},
 //					},
 //				},

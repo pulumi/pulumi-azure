@@ -298,8 +298,6 @@ class ActionRuleActionGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages an Monitor Action Rule which type is action group.
-
         ## Example Usage
 
         ```python
@@ -348,8 +346,6 @@ class ActionRuleActionGroup(pulumi.CustomResource):
                  args: ActionRuleActionGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Monitor Action Rule which type is action group.
-
         ## Example Usage
 
         ```python

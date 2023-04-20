@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var exampleAlertRuleTemplate = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
- *             .displayName(&#34;(Preview) Microsoft Threat Intelligence Analytics&#34;)
+ *             .displayName(&#34;(Preview) Microsoft Defender Threat Intelligence Analytics&#34;)
  *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
  *             .build());
  * 

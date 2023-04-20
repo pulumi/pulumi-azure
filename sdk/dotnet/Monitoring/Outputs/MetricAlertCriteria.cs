@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string MetricNamespace;
         /// <summary>
-        /// The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        /// The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         /// </summary>
         public readonly string Operator;
         /// <summary>

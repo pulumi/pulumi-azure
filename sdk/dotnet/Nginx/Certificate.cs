@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Nginx
     ///         NginxDeploymentId = azurerm_nginx_deployment.Test.Id,
     ///         KeyVirtualPath = "/src/cert/soservermekey.key",
     ///         CertificateVirtualPath = "/src/cert/server.cert",
-    ///         KeyVaultSecretId = azurerm_key_vault_secret.Test.Id,
+    ///         KeyVaultSecretId = azurerm_key_vault_certificate.Test.Secret_id,
     ///     });
     /// 
     /// });

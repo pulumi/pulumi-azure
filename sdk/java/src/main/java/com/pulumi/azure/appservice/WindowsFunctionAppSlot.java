@@ -633,6 +633,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "customDomainVerificationId",
+                "siteCredentials",
                 "storageAccountAccessKey"
             ))
             .build();

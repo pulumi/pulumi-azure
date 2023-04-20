@@ -371,6 +371,34 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    @Export(name="resourceManagerId", refs={String.class}, tree="[0]")
+    private Output<String> resourceManagerId;
+
+    /**
+     * @return The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    public Output<String> resourceManagerId() {
+        return this.resourceManagerId;
+    }
+    /**
+     * The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+     * 
+     */
+    @Export(name="resourceManagerVersionlessId", refs={String.class}, tree="[0]")
+    private Output<String> resourceManagerVersionlessId;
+
+    /**
+     * @return The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+     * 
+     */
+    public Output<String> resourceManagerVersionlessId() {
+        return this.resourceManagerVersionlessId;
+    }
+    /**
      * The ID of the associated Key Vault Secret.
      * 
      */

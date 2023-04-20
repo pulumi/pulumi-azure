@@ -1578,7 +1578,7 @@ type ApplicationGatewayHttpListener struct {
 	Name string `pulumi:"name"`
 	// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
 	Protocol string `pulumi:"protocol"`
-	// Should Server Name Indication be Required?
+	// Should Server Name Indication be Required? Defaults to `false`.
 	RequireSni *bool `pulumi:"requireSni"`
 	// The ID of the associated SSL Certificate.
 	SslCertificateId *string `pulumi:"sslCertificateId"`
@@ -1624,7 +1624,7 @@ type ApplicationGatewayHttpListenerArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Should Server Name Indication be Required?
+	// Should Server Name Indication be Required? Defaults to `false`.
 	RequireSni pulumi.BoolPtrInput `pulumi:"requireSni"`
 	// The ID of the associated SSL Certificate.
 	SslCertificateId pulumi.StringPtrInput `pulumi:"sslCertificateId"`
@@ -1744,7 +1744,7 @@ func (o ApplicationGatewayHttpListenerOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Should Server Name Indication be Required?
+// Should Server Name Indication be Required? Defaults to `false`.
 func (o ApplicationGatewayHttpListenerOutput) RequireSni() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayHttpListener) *bool { return v.RequireSni }).(pulumi.BoolPtrOutput)
 }

@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> Sid { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+        /// One or more `ssh_authorized_key` blocks as defined below.
         /// </summary>
         [Output("sshAuthorizedKeys")]
         public Output<ImmutableArray<Outputs.LocalUserSshAuthorizedKey>> SshAuthorizedKeys { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.LocalUserSshAuthorizedKeyArgs>? _sshAuthorizedKeys;
 
         /// <summary>
-        /// One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+        /// One or more `ssh_authorized_key` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LocalUserSshAuthorizedKeyArgs> SshAuthorizedKeys
         {
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.LocalUserSshAuthorizedKeyGetArgs>? _sshAuthorizedKeys;
 
         /// <summary>
-        /// One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+        /// One or more `ssh_authorized_key` blocks as defined below.
         /// </summary>
         public InputList<Inputs.LocalUserSshAuthorizedKeyGetArgs> SshAuthorizedKeys
         {

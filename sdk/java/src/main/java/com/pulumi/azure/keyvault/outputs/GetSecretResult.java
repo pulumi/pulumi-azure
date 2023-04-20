@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecretResult {
@@ -16,12 +18,22 @@ public final class GetSecretResult {
      */
     private String contentType;
     /**
+     * @return The date and time at which the Key Vault Secret expires and is no longer valid.
+     * 
+     */
+    private String expirationDate;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     private String keyVaultId;
     private String name;
+    /**
+     * @return The earliest date at which the Key Vault Secret can be used.
+     * 
+     */
+    private String notBeforeDate;
     /**
      * @return The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won&#39;t auto-rotate values if used in other Azure Services.
      * 
@@ -42,11 +54,7 @@ public final class GetSecretResult {
      * 
      */
     private String value;
-    /**
-     * @return The current version of the Key Vault Secret.
-     * 
-     */
-    private String version;
+    private @Nullable String version;
     /**
      * @return The Versionless ID of the Key Vault Secret. This can be used to always get latest secret value, and enable fetching automatically rotating secrets.
      * 
@@ -62,6 +70,13 @@ public final class GetSecretResult {
         return this.contentType;
     }
     /**
+     * @return The date and time at which the Key Vault Secret expires and is no longer valid.
+     * 
+     */
+    public String expirationDate() {
+        return this.expirationDate;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -73,6 +88,13 @@ public final class GetSecretResult {
     }
     public String name() {
         return this.name;
+    }
+    /**
+     * @return The earliest date at which the Key Vault Secret can be used.
+     * 
+     */
+    public String notBeforeDate() {
+        return this.notBeforeDate;
     }
     /**
      * @return The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won&#39;t auto-rotate values if used in other Azure Services.
@@ -102,12 +124,8 @@ public final class GetSecretResult {
     public String value() {
         return this.value;
     }
-    /**
-     * @return The current version of the Key Vault Secret.
-     * 
-     */
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
     /**
      * @return The Versionless ID of the Key Vault Secret. This can be used to always get latest secret value, and enable fetching automatically rotating secrets.
@@ -127,22 +145,26 @@ public final class GetSecretResult {
     @CustomType.Builder
     public static final class Builder {
         private String contentType;
+        private String expirationDate;
         private String id;
         private String keyVaultId;
         private String name;
+        private String notBeforeDate;
         private String resourceId;
         private String resourceVersionlessId;
         private Map<String,String> tags;
         private String value;
-        private String version;
+        private @Nullable String version;
         private String versionlessId;
         public Builder() {}
         public Builder(GetSecretResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentType = defaults.contentType;
+    	      this.expirationDate = defaults.expirationDate;
     	      this.id = defaults.id;
     	      this.keyVaultId = defaults.keyVaultId;
     	      this.name = defaults.name;
+    	      this.notBeforeDate = defaults.notBeforeDate;
     	      this.resourceId = defaults.resourceId;
     	      this.resourceVersionlessId = defaults.resourceVersionlessId;
     	      this.tags = defaults.tags;
@@ -154,6 +176,11 @@ public final class GetSecretResult {
         @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder expirationDate(String expirationDate) {
+            this.expirationDate = Objects.requireNonNull(expirationDate);
             return this;
         }
         @CustomType.Setter
@@ -169,6 +196,11 @@ public final class GetSecretResult {
         @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder notBeforeDate(String notBeforeDate) {
+            this.notBeforeDate = Objects.requireNonNull(notBeforeDate);
             return this;
         }
         @CustomType.Setter
@@ -192,8 +224,8 @@ public final class GetSecretResult {
             return this;
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+        public Builder version(@Nullable String version) {
+            this.version = version;
             return this;
         }
         @CustomType.Setter
@@ -204,9 +236,11 @@ public final class GetSecretResult {
         public GetSecretResult build() {
             final var o = new GetSecretResult();
             o.contentType = contentType;
+            o.expirationDate = expirationDate;
             o.id = id;
             o.keyVaultId = keyVaultId;
             o.name = name;
+            o.notBeforeDate = notBeforeDate;
             o.resourceId = resourceId;
             o.resourceVersionlessId = resourceVersionlessId;
             o.tags = tags;

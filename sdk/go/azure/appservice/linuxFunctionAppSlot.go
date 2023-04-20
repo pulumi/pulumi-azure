@@ -179,6 +179,7 @@ func NewLinuxFunctionAppSlot(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"customDomainVerificationId",
+		"siteCredentials",
 		"storageAccountAccessKey",
 	})
 	opts = append(opts, secrets)

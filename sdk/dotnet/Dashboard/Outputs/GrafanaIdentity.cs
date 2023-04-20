@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Dashboard.Outputs
     public sealed class GrafanaIdentity
     {
         /// <summary>
+        /// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
         /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string? PrincipalId;
@@ -22,18 +26,21 @@ namespace Pulumi.Azure.Dashboard.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
+        /// Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GrafanaIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
