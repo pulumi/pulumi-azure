@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Monitor Action Rule which type is suppression.
- *
  * ## Example Usage
  *
  * ```typescript

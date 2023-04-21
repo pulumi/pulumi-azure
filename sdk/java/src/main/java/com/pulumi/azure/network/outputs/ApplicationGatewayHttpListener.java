@@ -70,7 +70,7 @@ public final class ApplicationGatewayHttpListener {
      */
     private String protocol;
     /**
-     * @return Should Server Name Indication be Required?
+     * @return Should Server Name Indication be Required? Defaults to `false`.
      * 
      */
     private @Nullable Boolean requireSni;
@@ -174,7 +174,7 @@ public final class ApplicationGatewayHttpListener {
         return this.protocol;
     }
     /**
-     * @return Should Server Name Indication be Required?
+     * @return Should Server Name Indication be Required? Defaults to `false`.
      * 
      */
     public Optional<Boolean> requireSni() {

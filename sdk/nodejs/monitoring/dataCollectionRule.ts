@@ -62,25 +62,25 @@ import * as utilities from "../utilities";
  *     destinations: {
  *         logAnalytics: [{
  *             workspaceResourceId: exampleAnalyticsWorkspace.id,
- *             name: "test-destination-log",
+ *             name: "example-destination-log",
  *         }],
  *         eventHub: {
  *             eventHubId: exampleEventHub.id,
- *             name: "test-destination-eventhub",
+ *             name: "example-destination-eventhub",
  *         },
  *         storageBlobs: [{
  *             storageAccountId: exampleAccount.id,
  *             containerName: exampleContainer.name,
- *             name: "test-destination-storage",
+ *             name: "example-destination-storage",
  *         }],
  *         azureMonitorMetrics: {
- *             name: "test-destination-metrics",
+ *             name: "example-destination-metrics",
  *         },
  *     },
  *     dataFlows: [
  *         {
  *             streams: ["Microsoft-InsightsMetrics"],
- *             destinations: ["test-destination-metrics"],
+ *             destinations: ["example-destination-metrics"],
  *         },
  *         {
  *             streams: [
@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  *                 "Microsoft-Syslog",
  *                 "Microsoft-Perf",
  *             ],
- *             destinations: ["test-destination-log"],
+ *             destinations: ["example-destination-log"],
  *         },
  *         {
  *             streams: ["Custom-MyTableRawData"],
@@ -101,18 +101,18 @@ import * as utilities from "../utilities";
  *         syslogs: [{
  *             facilityNames: ["*"],
  *             logLevels: ["*"],
- *             name: "test-datasource-syslog",
+ *             name: "example-datasource-syslog",
  *         }],
  *         iisLogs: [{
  *             streams: ["Microsoft-W3CIISLog"],
- *             name: "test-datasource-iis",
- *             logDirectories: ["C:\\\\Logs\\\\W3SVC1"],
+ *             name: "example-datasource-iis",
+ *             logDirectories: ["C:\\Logs\\W3SVC1"],
  *         }],
  *         logFiles: [{
- *             name: "test-datasource-logfile",
+ *             name: "example-datasource-logfile",
  *             format: "text",
  *             streams: ["Custom-MyTableRawData"],
- *             filePatterns: ["C:\\\\JavaLogs\\\\*.log"],
+ *             filePatterns: ["C:\\JavaLogs\\*.log"],
  *             settings: {
  *                 text: {
  *                     recordStartTimestampFormat: "ISO 8601",
@@ -126,22 +126,22 @@ import * as utilities from "../utilities";
  *             ],
  *             samplingFrequencyInSeconds: 60,
  *             counterSpecifiers: ["Processor(*)\\% Processor Time"],
- *             name: "test-datasource-perfcounter",
+ *             name: "example-datasource-perfcounter",
  *         }],
  *         windowsEventLogs: [{
  *             streams: ["Microsoft-WindowsEvent"],
  *             xPathQueries: ["*![System/Level=1]"],
- *             name: "test-datasource-wineventlog",
+ *             name: "example-datasource-wineventlog",
  *         }],
  *         extensions: [{
  *             streams: ["Microsoft-WindowsEvent"],
- *             inputDataSources: ["test-datasource-wineventlog"],
- *             extensionName: "test-extension-name",
+ *             inputDataSources: ["example-datasource-wineventlog"],
+ *             extensionName: "example-extension-name",
  *             extensionJson: JSON.stringify({
  *                 a: 1,
  *                 b: "hello",
  *             }),
- *             name: "test-datasource-extension",
+ *             name: "example-datasource-extension",
  *         }],
  *     },
  *     streamDeclarations: [{

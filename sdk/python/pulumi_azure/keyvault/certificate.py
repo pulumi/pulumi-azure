@@ -110,6 +110,8 @@ class _CertificateState:
                  certificate_policy: Optional[pulumi.Input['CertificateCertificatePolicyArgs']] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 resource_manager_id: Optional[pulumi.Input[str]] = None,
+                 resource_manager_versionless_id: Optional[pulumi.Input[str]] = None,
                  secret_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  thumbprint: Optional[pulumi.Input[str]] = None,
@@ -125,6 +127,8 @@ class _CertificateState:
         :param pulumi.Input['CertificateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_manager_id: The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+        :param pulumi.Input[str] resource_manager_versionless_id: The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
         :param pulumi.Input[str] secret_id: The ID of the associated Key Vault Secret.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] thumbprint: The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
@@ -146,6 +150,10 @@ class _CertificateState:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if resource_manager_id is not None:
+            pulumi.set(__self__, "resource_manager_id", resource_manager_id)
+        if resource_manager_versionless_id is not None:
+            pulumi.set(__self__, "resource_manager_versionless_id", resource_manager_versionless_id)
         if secret_id is not None:
             pulumi.set(__self__, "secret_id", secret_id)
         if tags is not None:
@@ -242,6 +250,30 @@ class _CertificateState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceManagerId")
+    def resource_manager_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+        """
+        return pulumi.get(self, "resource_manager_id")
+
+    @resource_manager_id.setter
+    def resource_manager_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_manager_id", value)
+
+    @property
+    @pulumi.getter(name="resourceManagerVersionlessId")
+    def resource_manager_versionless_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+        """
+        return pulumi.get(self, "resource_manager_versionless_id")
+
+    @resource_manager_versionless_id.setter
+    def resource_manager_versionless_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_manager_versionless_id", value)
 
     @property
     @pulumi.getter(name="secretId")
@@ -754,6 +786,8 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["certificate_attributes"] = None
             __props__.__dict__["certificate_data"] = None
             __props__.__dict__["certificate_data_base64"] = None
+            __props__.__dict__["resource_manager_id"] = None
+            __props__.__dict__["resource_manager_versionless_id"] = None
             __props__.__dict__["secret_id"] = None
             __props__.__dict__["thumbprint"] = None
             __props__.__dict__["version"] = None
@@ -778,6 +812,8 @@ class Certificate(pulumi.CustomResource):
             certificate_policy: Optional[pulumi.Input[pulumi.InputType['CertificateCertificatePolicyArgs']]] = None,
             key_vault_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            resource_manager_id: Optional[pulumi.Input[str]] = None,
+            resource_manager_versionless_id: Optional[pulumi.Input[str]] = None,
             secret_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             thumbprint: Optional[pulumi.Input[str]] = None,
@@ -798,6 +834,8 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CertificateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_manager_id: The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+        :param pulumi.Input[str] resource_manager_versionless_id: The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
         :param pulumi.Input[str] secret_id: The ID of the associated Key Vault Secret.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] thumbprint: The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
@@ -816,6 +854,8 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["certificate_policy"] = certificate_policy
         __props__.__dict__["key_vault_id"] = key_vault_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["resource_manager_id"] = resource_manager_id
+        __props__.__dict__["resource_manager_versionless_id"] = resource_manager_versionless_id
         __props__.__dict__["secret_id"] = secret_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["thumbprint"] = thumbprint
@@ -879,6 +919,22 @@ class Certificate(pulumi.CustomResource):
         Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceManagerId")
+    def resource_manager_id(self) -> pulumi.Output[str]:
+        """
+        The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+        """
+        return pulumi.get(self, "resource_manager_id")
+
+    @property
+    @pulumi.getter(name="resourceManagerVersionlessId")
+    def resource_manager_versionless_id(self) -> pulumi.Output[str]:
+        """
+        The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+        """
+        return pulumi.get(self, "resource_manager_versionless_id")
 
     @property
     @pulumi.getter(name="secretId")

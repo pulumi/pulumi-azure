@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Monitor Action Rule which type is action group.
-//
 // ## Example Usage
 //
 // ```go

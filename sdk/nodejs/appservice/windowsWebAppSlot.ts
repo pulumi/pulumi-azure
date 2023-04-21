@@ -274,7 +274,7 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
             resourceInputs["siteCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["customDomainVerificationId"] };
+        const secretOpts = { additionalSecretOutputs: ["customDomainVerificationId", "siteCredentials"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(WindowsWebAppSlot.__pulumiType, name, resourceInputs, opts);
     }

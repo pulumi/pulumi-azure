@@ -254,6 +254,14 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+     */
+    public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
+    /**
+     * The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+     */
+    public /*out*/ readonly resourceManagerVersionlessId!: pulumi.Output<string>;
+    /**
      * The ID of the associated Key Vault Secret.
      */
     public /*out*/ readonly secretId!: pulumi.Output<string>;
@@ -298,6 +306,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificatePolicy"] = state ? state.certificatePolicy : undefined;
             resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
+            resourceInputs["resourceManagerVersionlessId"] = state ? state.resourceManagerVersionlessId : undefined;
             resourceInputs["secretId"] = state ? state.secretId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
@@ -317,6 +327,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateAttributes"] = undefined /*out*/;
             resourceInputs["certificateData"] = undefined /*out*/;
             resourceInputs["certificateDataBase64"] = undefined /*out*/;
+            resourceInputs["resourceManagerId"] = undefined /*out*/;
+            resourceInputs["resourceManagerVersionlessId"] = undefined /*out*/;
             resourceInputs["secretId"] = undefined /*out*/;
             resourceInputs["thumbprint"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -362,6 +374,14 @@ export interface CertificateState {
      * Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+     */
+    resourceManagerId?: pulumi.Input<string>;
+    /**
+     * The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+     */
+    resourceManagerVersionlessId?: pulumi.Input<string>;
     /**
      * The ID of the associated Key Vault Secret.
      */

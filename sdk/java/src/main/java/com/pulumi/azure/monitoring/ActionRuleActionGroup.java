@@ -19,8 +19,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an Monitor Action Rule which type is action group.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

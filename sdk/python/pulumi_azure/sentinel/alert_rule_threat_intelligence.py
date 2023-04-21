@@ -187,7 +187,7 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
                 publisher="Microsoft",
                 product="OMSGallery/SecurityInsights",
             ))
-        example_alert_rule_template = azure.sentinel.get_alert_rule_template_output(display_name="(Preview) Microsoft Threat Intelligence Analytics",
+        example_alert_rule_template = azure.sentinel.get_alert_rule_template_output(display_name="(Preview) Microsoft Defender Threat Intelligence Analytics",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id)
         example_alert_rule_threat_intelligence = azure.sentinel.AlertRuleThreatIntelligence("exampleAlertRuleThreatIntelligence",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
@@ -239,7 +239,7 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
                 publisher="Microsoft",
                 product="OMSGallery/SecurityInsights",
             ))
-        example_alert_rule_template = azure.sentinel.get_alert_rule_template_output(display_name="(Preview) Microsoft Threat Intelligence Analytics",
+        example_alert_rule_template = azure.sentinel.get_alert_rule_template_output(display_name="(Preview) Microsoft Defender Threat Intelligence Analytics",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id)
         example_alert_rule_threat_intelligence = azure.sentinel.AlertRuleThreatIntelligence("exampleAlertRuleThreatIntelligence",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,

@@ -291,6 +291,10 @@ type Certificate struct {
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
+	// The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+	ResourceManagerVersionlessId pulumi.StringOutput `pulumi:"resourceManagerVersionlessId"`
 	// The ID of the associated Key Vault Secret.
 	SecretId pulumi.StringOutput `pulumi:"secretId"`
 	// A mapping of tags to assign to the resource.
@@ -357,6 +361,10 @@ type certificateState struct {
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+	ResourceManagerId *string `pulumi:"resourceManagerId"`
+	// The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+	ResourceManagerVersionlessId *string `pulumi:"resourceManagerVersionlessId"`
 	// The ID of the associated Key Vault Secret.
 	SecretId *string `pulumi:"secretId"`
 	// A mapping of tags to assign to the resource.
@@ -386,6 +394,10 @@ type CertificateState struct {
 	KeyVaultId pulumi.StringPtrInput
 	// Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+	ResourceManagerId pulumi.StringPtrInput
+	// The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+	ResourceManagerVersionlessId pulumi.StringPtrInput
 	// The ID of the associated Key Vault Secret.
 	SecretId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -551,6 +563,16 @@ func (o CertificateOutput) KeyVaultId() pulumi.StringOutput {
 // Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
 func (o CertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+func (o CertificateOutput) ResourceManagerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ResourceManagerId }).(pulumi.StringOutput)
+}
+
+// The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+func (o CertificateOutput) ResourceManagerVersionlessId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ResourceManagerVersionlessId }).(pulumi.StringOutput)
 }
 
 // The ID of the associated Key Vault Secret.

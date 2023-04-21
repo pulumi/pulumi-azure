@@ -154,6 +154,7 @@ func NewLinuxWebApp(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"customDomainVerificationId",
+		"siteCredentials",
 	})
 	opts = append(opts, secrets)
 	var resource LinuxWebApp

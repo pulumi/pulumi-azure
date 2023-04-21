@@ -26,6 +26,7 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
     return pulumi.runtime.invoke("azure:keyvault/getSecret:getSecret", {
         "keyVaultId": args.keyVaultId,
         "name": args.name,
+        "version": args.version,
     }, opts);
 }
 
@@ -41,6 +42,10 @@ export interface GetSecretArgs {
      * Specifies the name of the Key Vault Secret.
      */
     name: string;
+    /**
+     * Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+     */
+    version?: string;
 }
 
 /**
@@ -52,11 +57,19 @@ export interface GetSecretResult {
      */
     readonly contentType: string;
     /**
+     * The date and time at which the Key Vault Secret expires and is no longer valid.
+     */
+    readonly expirationDate: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly keyVaultId: string;
     readonly name: string;
+    /**
+     * The earliest date at which the Key Vault Secret can be used.
+     */
+    readonly notBeforeDate: string;
     /**
      * The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
      */
@@ -73,10 +86,7 @@ export interface GetSecretResult {
      * The value of the Key Vault Secret.
      */
     readonly value: string;
-    /**
-     * The current version of the Key Vault Secret.
-     */
-    readonly version: string;
+    readonly version?: string;
     /**
      * The Versionless ID of the Key Vault Secret. This can be used to always get latest secret value, and enable fetching automatically rotating secrets.
      */
@@ -114,4 +124,8 @@ export interface GetSecretOutputArgs {
      * Specifies the name of the Key Vault Secret.
      */
     name: pulumi.Input<string>;
+    /**
+     * Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+     */
+    version?: pulumi.Input<string>;
 }

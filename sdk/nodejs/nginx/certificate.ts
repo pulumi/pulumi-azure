@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     nginxDeploymentId: azurerm_nginx_deployment.test.id,
  *     keyVirtualPath: "/src/cert/soservermekey.key",
  *     certificateVirtualPath: "/src/cert/server.cert",
- *     keyVaultSecretId: azurerm_key_vault_secret.test.id,
+ *     keyVaultSecretId: azurerm_key_vault_certificate.test.secret_id,
  * });
  * ```
  *

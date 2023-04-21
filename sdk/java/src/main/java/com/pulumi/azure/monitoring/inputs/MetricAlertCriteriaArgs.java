@@ -80,14 +80,14 @@ public final class MetricAlertCriteriaArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+     * The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
      * 
      */
     @Import(name="operator", required=true)
     private Output<String> operator;
 
     /**
-     * @return The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+     * @return The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
      * 
      */
     public Output<String> operator() {
@@ -249,7 +249,7 @@ public final class MetricAlertCriteriaArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param operator The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         * @param operator The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class MetricAlertCriteriaArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param operator The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         * @param operator The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
          * 
          * @return builder
          * 

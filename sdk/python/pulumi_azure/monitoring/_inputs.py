@@ -7145,7 +7145,7 @@ class MetricAlertCriteriaArgs:
         :param pulumi.Input[str] aggregation: The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
         :param pulumi.Input[str] metric_name: One of the metric names to be monitored.
         :param pulumi.Input[str] metric_namespace: One of the metric namespaces to be monitored.
-        :param pulumi.Input[str] operator: The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        :param pulumi.Input[str] operator: The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         :param pulumi.Input[float] threshold: The criteria threshold value that activates the alert.
         :param pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below.
         :param pulumi.Input[bool] skip_metric_validation: Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
@@ -7200,7 +7200,7 @@ class MetricAlertCriteriaArgs:
     @pulumi.getter
     def operator(self) -> pulumi.Input[str]:
         """
-        The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         """
         return pulumi.get(self, "operator")
 

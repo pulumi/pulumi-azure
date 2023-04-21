@@ -91,6 +91,12 @@ namespace Pulumi.Azure.KeyVault
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+        /// </summary>
+        [Input("version")]
+        public string? Version { get; set; }
+
         public GetSecretArgs()
         {
         }
@@ -111,6 +117,12 @@ namespace Pulumi.Azure.KeyVault
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public GetSecretInvokeArgs()
         {
         }
@@ -126,11 +138,19 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public readonly string ContentType;
         /// <summary>
+        /// The date and time at which the Key Vault Secret expires and is no longer valid.
+        /// </summary>
+        public readonly string ExpirationDate;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string KeyVaultId;
         public readonly string Name;
+        /// <summary>
+        /// The earliest date at which the Key Vault Secret can be used.
+        /// </summary>
+        public readonly string NotBeforeDate;
         /// <summary>
         /// The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
         /// </summary>
@@ -147,10 +167,7 @@ namespace Pulumi.Azure.KeyVault
         /// The value of the Key Vault Secret.
         /// </summary>
         public readonly string Value;
-        /// <summary>
-        /// The current version of the Key Vault Secret.
-        /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
         /// <summary>
         /// The Versionless ID of the Key Vault Secret. This can be used to always get latest secret value, and enable fetching automatically rotating secrets.
         /// </summary>
@@ -160,11 +177,15 @@ namespace Pulumi.Azure.KeyVault
         private GetSecretResult(
             string contentType,
 
+            string expirationDate,
+
             string id,
 
             string keyVaultId,
 
             string name,
+
+            string notBeforeDate,
 
             string resourceId,
 
@@ -174,14 +195,16 @@ namespace Pulumi.Azure.KeyVault
 
             string value,
 
-            string version,
+            string? version,
 
             string versionlessId)
         {
             ContentType = contentType;
+            ExpirationDate = expirationDate;
             Id = id;
             KeyVaultId = keyVaultId;
             Name = name;
+            NotBeforeDate = notBeforeDate;
             ResourceId = resourceId;
             ResourceVersionlessId = resourceVersionlessId;
             Tags = tags;

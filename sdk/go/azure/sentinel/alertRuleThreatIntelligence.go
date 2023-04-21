@@ -58,7 +58,7 @@ import (
 //				return err
 //			}
 //			exampleAlertRuleTemplate := sentinel.GetAlertRuleTemplateOutput(ctx, sentinel.GetAlertRuleTemplateOutputArgs{
-//				DisplayName:             pulumi.String("(Preview) Microsoft Threat Intelligence Analytics"),
+//				DisplayName:             pulumi.String("(Preview) Microsoft Defender Threat Intelligence Analytics"),
 //				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
 //			}, nil)
 //			_, err = sentinel.NewAlertRuleThreatIntelligence(ctx, "exampleAlertRuleThreatIntelligence", &sentinel.AlertRuleThreatIntelligenceArgs{

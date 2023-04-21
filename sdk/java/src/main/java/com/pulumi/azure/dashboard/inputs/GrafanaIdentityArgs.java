@@ -6,6 +6,7 @@ package com.pulumi.azure.dashboard.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class GrafanaIdentityArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GrafanaIdentityArgs Empty = new GrafanaIdentityArgs();
+
+    /**
+     * Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+     * 
+     */
+    @Import(name="identityIds")
+    private @Nullable Output<List<String>> identityIds;
+
+    /**
+     * @return Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+     * 
+     */
+    public Optional<Output<List<String>>> identityIds() {
+        return Optional.ofNullable(this.identityIds);
+    }
 
     /**
      * The Principal ID associated with this Managed Service Identity.
@@ -46,14 +62,14 @@ public final class GrafanaIdentityArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
+     * Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
+     * @return Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> type() {
@@ -63,6 +79,7 @@ public final class GrafanaIdentityArgs extends com.pulumi.resources.ResourceArgs
     private GrafanaIdentityArgs() {}
 
     private GrafanaIdentityArgs(GrafanaIdentityArgs $) {
+        this.identityIds = $.identityIds;
         this.principalId = $.principalId;
         this.tenantId = $.tenantId;
         this.type = $.type;
@@ -84,6 +101,37 @@ public final class GrafanaIdentityArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(GrafanaIdentityArgs defaults) {
             $ = new GrafanaIdentityArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param identityIds Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(@Nullable Output<List<String>> identityIds) {
+            $.identityIds = identityIds;
+            return this;
+        }
+
+        /**
+         * @param identityIds Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(List<String> identityIds) {
+            return identityIds(Output.of(identityIds));
+        }
+
+        /**
+         * @param identityIds Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
         }
 
         /**
@@ -129,7 +177,7 @@ public final class GrafanaIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
+         * @param type Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -140,7 +188,7 @@ public final class GrafanaIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
+         * @param type Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
@@ -43,11 +45,27 @@ public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
         return this.name;
     }
 
+    /**
+     * Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+     * 
+     */
+    @Import(name="version")
+    private @Nullable Output<String> version;
+
+    /**
+     * @return Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+     * 
+     */
+    public Optional<Output<String>> version() {
+        return Optional.ofNullable(this.version);
+    }
+
     private GetSecretArgs() {}
 
     private GetSecretArgs(GetSecretArgs $) {
         this.keyVaultId = $.keyVaultId;
         this.name = $.name;
+        this.version = $.version;
     }
 
     public static Builder builder() {
@@ -108,6 +126,27 @@ public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param version Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(@Nullable Output<String> version) {
+            $.version = version;
+            return this;
+        }
+
+        /**
+         * @param version Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(String version) {
+            return version(Output.of(version));
         }
 
         public GetSecretArgs build() {

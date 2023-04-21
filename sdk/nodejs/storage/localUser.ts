@@ -108,7 +108,7 @@ export class LocalUser extends pulumi.CustomResource {
      */
     public /*out*/ readonly sid!: pulumi.Output<string>;
     /**
-     * One or more `sshAuthorizedKey` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+     * One or more `sshAuthorizedKey` blocks as defined below.
      */
     public readonly sshAuthorizedKeys!: pulumi.Output<outputs.storage.LocalUserSshAuthorizedKey[] | undefined>;
     /**
@@ -193,7 +193,7 @@ export interface LocalUserState {
      */
     sid?: pulumi.Input<string>;
     /**
-     * One or more `sshAuthorizedKey` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+     * One or more `sshAuthorizedKey` blocks as defined below.
      */
     sshAuthorizedKeys?: pulumi.Input<pulumi.Input<inputs.storage.LocalUserSshAuthorizedKey>[]>;
     /**
@@ -227,7 +227,7 @@ export interface LocalUserArgs {
      */
     permissionScopes?: pulumi.Input<pulumi.Input<inputs.storage.LocalUserPermissionScope>[]>;
     /**
-     * One or more `sshAuthorizedKey` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+     * One or more `sshAuthorizedKey` blocks as defined below.
      */
     sshAuthorizedKeys?: pulumi.Input<pulumi.Input<inputs.storage.LocalUserSshAuthorizedKey>[]>;
     /**

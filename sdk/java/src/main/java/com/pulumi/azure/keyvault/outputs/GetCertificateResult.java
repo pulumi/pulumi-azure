@@ -49,6 +49,16 @@ public final class GetCertificateResult {
      */
     private String notBefore;
     /**
+     * @return The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    private String resourceManagerId;
+    /**
+     * @return The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+     * 
+     */
+    private String resourceManagerVersionlessId;
+    /**
      * @return The ID of the associated Key Vault Secret.
      * 
      */
@@ -133,6 +143,20 @@ public final class GetCertificateResult {
         return this.notBefore;
     }
     /**
+     * @return The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won&#39;t auto-rotate values if used in other Azure Services.
+     * 
+     */
+    public String resourceManagerId() {
+        return this.resourceManagerId;
+    }
+    /**
+     * @return The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+     * 
+     */
+    public String resourceManagerVersionlessId() {
+        return this.resourceManagerVersionlessId;
+    }
+    /**
      * @return The ID of the associated Key Vault Secret.
      * 
      */
@@ -192,6 +216,8 @@ public final class GetCertificateResult {
         private String keyVaultId;
         private String name;
         private String notBefore;
+        private String resourceManagerId;
+        private String resourceManagerVersionlessId;
         private String secretId;
         private Map<String,String> tags;
         private String thumbprint;
@@ -209,6 +235,8 @@ public final class GetCertificateResult {
     	      this.keyVaultId = defaults.keyVaultId;
     	      this.name = defaults.name;
     	      this.notBefore = defaults.notBefore;
+    	      this.resourceManagerId = defaults.resourceManagerId;
+    	      this.resourceManagerVersionlessId = defaults.resourceManagerVersionlessId;
     	      this.secretId = defaults.secretId;
     	      this.tags = defaults.tags;
     	      this.thumbprint = defaults.thumbprint;
@@ -261,6 +289,16 @@ public final class GetCertificateResult {
             return this;
         }
         @CustomType.Setter
+        public Builder resourceManagerId(String resourceManagerId) {
+            this.resourceManagerId = Objects.requireNonNull(resourceManagerId);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder resourceManagerVersionlessId(String resourceManagerVersionlessId) {
+            this.resourceManagerVersionlessId = Objects.requireNonNull(resourceManagerVersionlessId);
+            return this;
+        }
+        @CustomType.Setter
         public Builder secretId(String secretId) {
             this.secretId = Objects.requireNonNull(secretId);
             return this;
@@ -300,6 +338,8 @@ public final class GetCertificateResult {
             o.keyVaultId = keyVaultId;
             o.name = name;
             o.notBefore = notBefore;
+            o.resourceManagerId = resourceManagerId;
+            o.resourceManagerVersionlessId = resourceManagerVersionlessId;
             o.secretId = secretId;
             o.tags = tags;
             o.thumbprint = thumbprint;

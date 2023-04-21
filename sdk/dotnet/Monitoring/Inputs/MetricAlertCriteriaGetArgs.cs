@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> MetricNamespace { get; set; } = null!;
 
         /// <summary>
-        /// The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        /// The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
         /// </summary>
         [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;

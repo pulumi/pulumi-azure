@@ -22899,6 +22899,10 @@ export namespace dashboard {
 
     export interface GrafanaIdentity {
         /**
+         * Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
@@ -22907,7 +22911,7 @@ export namespace dashboard {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
+         * Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
          */
         type: pulumi.Input<string>;
     }
@@ -36327,7 +36331,7 @@ export namespace monitoring {
          */
         metricNamespace: pulumi.Input<string>;
         /**
-         * The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+         * The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
          */
         operator: pulumi.Input<string>;
         /**
@@ -37629,7 +37633,7 @@ export namespace network {
          */
         protocol: pulumi.Input<string>;
         /**
-         * Should Server Name Indication be Required?
+         * Should Server Name Indication be Required? Defaults to `false`.
          */
         requireSni?: pulumi.Input<boolean>;
         /**

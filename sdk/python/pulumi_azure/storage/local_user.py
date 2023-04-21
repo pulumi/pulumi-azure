@@ -29,7 +29,7 @@ class LocalUserArgs:
         :param pulumi.Input[str] home_directory: The home directory of the Storage Account Local User.
         :param pulumi.Input[str] name: The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created.
         :param pulumi.Input[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]] permission_scopes: One or more `permission_scope` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]] ssh_authorized_keys: One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]] ssh_authorized_keys: One or more `ssh_authorized_key` blocks as defined below.
         :param pulumi.Input[bool] ssh_key_enabled: Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
         :param pulumi.Input[bool] ssh_password_enabled: Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
         """
@@ -99,7 +99,7 @@ class LocalUserArgs:
     @pulumi.getter(name="sshAuthorizedKeys")
     def ssh_authorized_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]]:
         """
-        One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+        One or more `ssh_authorized_key` blocks as defined below.
         """
         return pulumi.get(self, "ssh_authorized_keys")
 
@@ -151,7 +151,7 @@ class _LocalUserState:
         :param pulumi.Input[str] password: The value of the password, which is only available when `ssh_password_enabled` is set to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['LocalUserPermissionScopeArgs']]] permission_scopes: One or more `permission_scope` blocks as defined below.
         :param pulumi.Input[str] sid: The unique Security Identifier of this Storage Account Local User.
-        :param pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]] ssh_authorized_keys: One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]] ssh_authorized_keys: One or more `ssh_authorized_key` blocks as defined below.
         :param pulumi.Input[bool] ssh_key_enabled: Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
         :param pulumi.Input[bool] ssh_password_enabled: Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created.
@@ -239,7 +239,7 @@ class _LocalUserState:
     @pulumi.getter(name="sshAuthorizedKeys")
     def ssh_authorized_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]]:
         """
-        One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+        One or more `ssh_authorized_key` blocks as defined below.
         """
         return pulumi.get(self, "ssh_authorized_keys")
 
@@ -353,7 +353,7 @@ class LocalUser(pulumi.CustomResource):
         :param pulumi.Input[str] home_directory: The home directory of the Storage Account Local User.
         :param pulumi.Input[str] name: The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalUserPermissionScopeArgs']]]] permission_scopes: One or more `permission_scope` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalUserSshAuthorizedKeyArgs']]]] ssh_authorized_keys: One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalUserSshAuthorizedKeyArgs']]]] ssh_authorized_keys: One or more `ssh_authorized_key` blocks as defined below.
         :param pulumi.Input[bool] ssh_key_enabled: Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
         :param pulumi.Input[bool] ssh_password_enabled: Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created.
@@ -490,7 +490,7 @@ class LocalUser(pulumi.CustomResource):
         :param pulumi.Input[str] password: The value of the password, which is only available when `ssh_password_enabled` is set to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalUserPermissionScopeArgs']]]] permission_scopes: One or more `permission_scope` blocks as defined below.
         :param pulumi.Input[str] sid: The unique Security Identifier of this Storage Account Local User.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalUserSshAuthorizedKeyArgs']]]] ssh_authorized_keys: One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalUserSshAuthorizedKeyArgs']]]] ssh_authorized_keys: One or more `ssh_authorized_key` blocks as defined below.
         :param pulumi.Input[bool] ssh_key_enabled: Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
         :param pulumi.Input[bool] ssh_password_enabled: Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created.
@@ -554,7 +554,7 @@ class LocalUser(pulumi.CustomResource):
     @pulumi.getter(name="sshAuthorizedKeys")
     def ssh_authorized_keys(self) -> pulumi.Output[Optional[Sequence['outputs.LocalUserSshAuthorizedKey']]]:
         """
-        One or more `ssh_authorized_key` blocks as defined below. Changing this forces a new Storage Account Local User to be created.
+        One or more `ssh_authorized_key` blocks as defined below.
         """
         return pulumi.get(self, "ssh_authorized_keys")
 

@@ -175,6 +175,14 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         public readonly string NotBefore;
         /// <summary>
+        /// The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+        /// </summary>
+        public readonly string ResourceManagerId;
+        /// <summary>
+        /// The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+        /// </summary>
+        public readonly string ResourceManagerVersionlessId;
+        /// <summary>
         /// The ID of the associated Key Vault Secret.
         /// </summary>
         public readonly string SecretId;
@@ -217,6 +225,10 @@ namespace Pulumi.Azure.KeyVault
 
             string notBefore,
 
+            string resourceManagerId,
+
+            string resourceManagerVersionlessId,
+
             string secretId,
 
             ImmutableDictionary<string, string> tags,
@@ -237,6 +249,8 @@ namespace Pulumi.Azure.KeyVault
             KeyVaultId = keyVaultId;
             Name = name;
             NotBefore = notBefore;
+            ResourceManagerId = resourceManagerId;
+            ResourceManagerVersionlessId = resourceManagerVersionlessId;
             SecretId = secretId;
             Tags = tags;
             Thumbprint = thumbprint;

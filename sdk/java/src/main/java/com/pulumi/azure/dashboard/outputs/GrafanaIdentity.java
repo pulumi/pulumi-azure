@@ -5,12 +5,18 @@ package com.pulumi.azure.dashboard.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class GrafanaIdentity {
+    /**
+     * @return Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+     * 
+     */
+    private @Nullable List<String> identityIds;
     /**
      * @return The Principal ID associated with this Managed Service Identity.
      * 
@@ -22,12 +28,19 @@ public final class GrafanaIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
+     * @return Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     private String type;
 
     private GrafanaIdentity() {}
+    /**
+     * @return Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+     * 
+     */
+    public List<String> identityIds() {
+        return this.identityIds == null ? List.of() : this.identityIds;
+    }
     /**
      * @return The Principal ID associated with this Managed Service Identity.
      * 
@@ -43,7 +56,7 @@ public final class GrafanaIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
+     * @return Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
      * 
      */
     public String type() {
@@ -59,17 +72,27 @@ public final class GrafanaIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> identityIds;
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private String type;
         public Builder() {}
         public Builder(GrafanaIdentity defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identityIds = defaults.identityIds;
     	      this.principalId = defaults.principalId;
     	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder identityIds(@Nullable List<String> identityIds) {
+            this.identityIds = identityIds;
+            return this;
+        }
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
+        }
         @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
             this.principalId = principalId;
@@ -87,6 +110,7 @@ public final class GrafanaIdentity {
         }
         public GrafanaIdentity build() {
             final var o = new GrafanaIdentity();
+            o.identityIds = identityIds;
             o.principalId = principalId;
             o.tenantId = tenantId;
             o.type = type;

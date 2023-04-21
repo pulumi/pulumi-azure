@@ -82,6 +82,10 @@ type LookupCertificateResult struct {
 	Name string `pulumi:"name"`
 	// Not Before date of certificate in RFC3339 format.
 	NotBefore string `pulumi:"notBefore"`
+	// The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+	ResourceManagerId string `pulumi:"resourceManagerId"`
+	// The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+	ResourceManagerVersionlessId string `pulumi:"resourceManagerVersionlessId"`
 	// The ID of the associated Key Vault Secret.
 	SecretId string `pulumi:"secretId"`
 	// A mapping of tags to assign to the resource.
@@ -175,6 +179,16 @@ func (o LookupCertificateResultOutput) Name() pulumi.StringOutput {
 // Not Before date of certificate in RFC3339 format.
 func (o LookupCertificateResultOutput) NotBefore() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.NotBefore }).(pulumi.StringOutput)
+}
+
+// The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+func (o LookupCertificateResultOutput) ResourceManagerId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.ResourceManagerId }).(pulumi.StringOutput)
+}
+
+// The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+func (o LookupCertificateResultOutput) ResourceManagerVersionlessId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.ResourceManagerVersionlessId }).(pulumi.StringOutput)
 }
 
 // The ID of the associated Key Vault Secret.

@@ -42,7 +42,7 @@ import javax.annotation.Nullable;
  *             .nginxDeploymentId(azurerm_nginx_deployment.test().id())
  *             .keyVirtualPath(&#34;/src/cert/soservermekey.key&#34;)
  *             .certificateVirtualPath(&#34;/src/cert/server.cert&#34;)
- *             .keyVaultSecretId(azurerm_key_vault_secret.test().id())
+ *             .keyVaultSecretId(azurerm_key_vault_certificate.test().secret_id())
  *             .build());
  * 
  *     }

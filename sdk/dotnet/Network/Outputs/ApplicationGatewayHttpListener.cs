@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// Should Server Name Indication be Required?
+        /// Should Server Name Indication be Required? Defaults to `false`.
         /// </summary>
         public readonly bool? RequireSni;
         /// <summary>

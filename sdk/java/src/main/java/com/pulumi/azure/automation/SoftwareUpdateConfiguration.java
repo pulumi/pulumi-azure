@@ -35,9 +35,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.automation.Account;
  * import com.pulumi.azure.automation.AccountArgs;
+ * import com.pulumi.azure.automation.RunBook;
+ * import com.pulumi.azure.automation.RunBookArgs;
  * import com.pulumi.azure.automation.SoftwareUpdateConfiguration;
  * import com.pulumi.azure.automation.SoftwareUpdateConfigurationArgs;
  * import com.pulumi.azure.automation.inputs.SoftwareUpdateConfigurationLinuxArgs;
+ * import com.pulumi.azure.automation.inputs.SoftwareUpdateConfigurationPreTaskArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,24 +54,43 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
- *         var testAccount = new Account(&#34;testAccount&#34;, AccountArgs.builder()        
- *             .location(testResourceGroup.location())
- *             .resourceGroupName(testResourceGroup.name())
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .skuName(&#34;Basic&#34;)
  *             .build());
  * 
- *         var example = new SoftwareUpdateConfiguration(&#34;example&#34;, SoftwareUpdateConfigurationArgs.builder()        
- *             .automationAccountId(testAccount.id())
+ *         var exampleRunBook = new RunBook(&#34;exampleRunBook&#34;, RunBookArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .automationAccountName(exampleAccount.name())
+ *             .logVerbose(&#34;true&#34;)
+ *             .logProgress(&#34;true&#34;)
+ *             .description(&#34;This is a example runbook for terraform acceptance example&#34;)
+ *             .runbookType(&#34;Python3&#34;)
+ *             .content(&#34;&#34;&#34;
+ * # Some example content
+ * # for Terraform acceptance example
+ *             &#34;&#34;&#34;)
+ *             .tags(Map.of(&#34;ENV&#34;, &#34;runbook_test&#34;))
+ *             .build());
+ * 
+ *         var exampleSoftwareUpdateConfiguration = new SoftwareUpdateConfiguration(&#34;exampleSoftwareUpdateConfiguration&#34;, SoftwareUpdateConfigurationArgs.builder()        
+ *             .automationAccountId(exampleAccount.id())
  *             .operatingSystem(&#34;Linux&#34;)
  *             .linuxes(SoftwareUpdateConfigurationLinuxArgs.builder()
  *                 .classificationIncluded(&#34;Security&#34;)
  *                 .excludedPackages(&#34;apt&#34;)
  *                 .includedPackages(&#34;vim&#34;)
  *                 .reboot(&#34;IfRequired&#34;)
+ *                 .build())
+ *             .preTasks(SoftwareUpdateConfigurationPreTaskArgs.builder()
+ *                 .source(exampleRunBook.name())
+ *                 .parameters(Map.of(&#34;COMPUTER_NAME&#34;, &#34;Foo&#34;))
  *                 .build())
  *             .duration(&#34;PT2H2M2S&#34;)
  *             .build());

@@ -207,7 +207,7 @@ class Certificate(pulumi.CustomResource):
             nginx_deployment_id=azurerm_nginx_deployment["test"]["id"],
             key_virtual_path="/src/cert/soservermekey.key",
             certificate_virtual_path="/src/cert/server.cert",
-            key_vault_secret_id=azurerm_key_vault_secret["test"]["id"])
+            key_vault_secret_id=azurerm_key_vault_certificate["test"]["secret_id"])
         ```
 
         ## Import
@@ -245,7 +245,7 @@ class Certificate(pulumi.CustomResource):
             nginx_deployment_id=azurerm_nginx_deployment["test"]["id"],
             key_virtual_path="/src/cert/soservermekey.key",
             certificate_virtual_path="/src/cert/server.cert",
-            key_vault_secret_id=azurerm_key_vault_secret["test"]["id"])
+            key_vault_secret_id=azurerm_key_vault_certificate["test"]["secret_id"])
         ```
 
         ## Import

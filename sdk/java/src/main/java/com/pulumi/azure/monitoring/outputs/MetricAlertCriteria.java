@@ -36,7 +36,7 @@ public final class MetricAlertCriteria {
      */
     private String metricNamespace;
     /**
-     * @return The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+     * @return The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
      * 
      */
     private String operator;
@@ -81,7 +81,7 @@ public final class MetricAlertCriteria {
         return this.metricNamespace;
     }
     /**
-     * @return The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+     * @return The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
      * 
      */
     public String operator() {

@@ -108,11 +108,13 @@ func (o GrafanaAzureMonitorWorkspaceIntegrationArrayOutput) Index(i pulumi.IntIn
 }
 
 type GrafanaIdentity struct {
+	// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
+	// Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -128,11 +130,13 @@ type GrafanaIdentityInput interface {
 }
 
 type GrafanaIdentityArgs struct {
+	// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
+	// Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -213,6 +217,11 @@ func (o GrafanaIdentityOutput) ToGrafanaIdentityPtrOutputWithContext(ctx context
 	}).(GrafanaIdentityPtrOutput)
 }
 
+// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+func (o GrafanaIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GrafanaIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID associated with this Managed Service Identity.
 func (o GrafanaIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrafanaIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -223,7 +232,7 @@ func (o GrafanaIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrafanaIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
+// Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
 func (o GrafanaIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GrafanaIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -252,6 +261,16 @@ func (o GrafanaIdentityPtrOutput) Elem() GrafanaIdentityOutput {
 	}).(GrafanaIdentityOutput)
 }
 
+// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+func (o GrafanaIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GrafanaIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID associated with this Managed Service Identity.
 func (o GrafanaIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrafanaIdentity) *string {
@@ -272,7 +291,7 @@ func (o GrafanaIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`. Changing this forces a new resource to be created.
+// Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
 func (o GrafanaIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrafanaIdentity) *string {
 		if v == nil {

@@ -93,13 +93,13 @@ namespace Pulumi.Azure.Monitoring
     ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsLogAnalyticArgs
     ///                 {
     ///                     WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///                     Name = "test-destination-log",
+    ///                     Name = "example-destination-log",
     ///                 },
     ///             },
     ///             EventHub = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsEventHubArgs
     ///             {
     ///                 EventHubId = exampleEventHub.Id,
-    ///                 Name = "test-destination-eventhub",
+    ///                 Name = "example-destination-eventhub",
     ///             },
     ///             StorageBlobs = new[]
     ///             {
@@ -107,12 +107,12 @@ namespace Pulumi.Azure.Monitoring
     ///                 {
     ///                     StorageAccountId = exampleAccount.Id,
     ///                     ContainerName = exampleContainer.Name,
-    ///                     Name = "test-destination-storage",
+    ///                     Name = "example-destination-storage",
     ///                 },
     ///             },
     ///             AzureMonitorMetrics = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsAzureMonitorMetricsArgs
     ///             {
-    ///                 Name = "test-destination-metrics",
+    ///                 Name = "example-destination-metrics",
     ///             },
     ///         },
     ///         DataFlows = new[]
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.Monitoring
     ///                 },
     ///                 Destinations = new[]
     ///                 {
-    ///                     "test-destination-metrics",
+    ///                     "example-destination-metrics",
     ///                 },
     ///             },
     ///             new Azure.Monitoring.Inputs.DataCollectionRuleDataFlowArgs
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Monitoring
     ///                 },
     ///                 Destinations = new[]
     ///                 {
-    ///                     "test-destination-log",
+    ///                     "example-destination-log",
     ///                 },
     ///             },
     ///             new Azure.Monitoring.Inputs.DataCollectionRuleDataFlowArgs
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Monitoring
     ///                     {
     ///                         "*",
     ///                     },
-    ///                     Name = "test-datasource-syslog",
+    ///                     Name = "example-datasource-syslog",
     ///                 },
     ///             },
     ///             IisLogs = new[]
@@ -180,10 +180,10 @@ namespace Pulumi.Azure.Monitoring
     ///                     {
     ///                         "Microsoft-W3CIISLog",
     ///                     },
-    ///                     Name = "test-datasource-iis",
+    ///                     Name = "example-datasource-iis",
     ///                     LogDirectories = new[]
     ///                     {
-    ///                         "C:\\\\Logs\\\\W3SVC1",
+    ///                         "C:\\Logs\\W3SVC1",
     ///                     },
     ///                 },
     ///             },
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Monitoring
     ///             {
     ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesLogFileArgs
     ///                 {
-    ///                     Name = "test-datasource-logfile",
+    ///                     Name = "example-datasource-logfile",
     ///                     Format = "text",
     ///                     Streams = new[]
     ///                     {
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.Monitoring
     ///                     },
     ///                     FilePatterns = new[]
     ///                     {
-    ///                         "C:\\\\JavaLogs\\\\*.log",
+    ///                         "C:\\JavaLogs\\*.log",
     ///                     },
     ///                     Settings = new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesLogFileSettingsArgs
     ///                     {
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.Monitoring
     ///                     {
     ///                         "Processor(*)\\% Processor Time",
     ///                     },
-    ///                     Name = "test-datasource-perfcounter",
+    ///                     Name = "example-datasource-perfcounter",
     ///                 },
     ///             },
     ///             WindowsEventLogs = new[]
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.Monitoring
     ///                     {
     ///                         "*![System/Level=1]",
     ///                     },
-    ///                     Name = "test-datasource-wineventlog",
+    ///                     Name = "example-datasource-wineventlog",
     ///                 },
     ///             },
     ///             Extensions = new[]
@@ -252,15 +252,15 @@ namespace Pulumi.Azure.Monitoring
     ///                     },
     ///                     InputDataSources = new[]
     ///                     {
-    ///                         "test-datasource-wineventlog",
+    ///                         "example-datasource-wineventlog",
     ///                     },
-    ///                     ExtensionName = "test-extension-name",
+    ///                     ExtensionName = "example-extension-name",
     ///                     ExtensionJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         ["a"] = 1,
     ///                         ["b"] = "hello",
     ///                     }),
-    ///                     Name = "test-datasource-extension",
+    ///                     Name = "example-datasource-extension",
     ///                 },
     ///             },
     ///         },

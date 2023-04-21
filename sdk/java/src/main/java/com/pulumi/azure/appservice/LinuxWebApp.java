@@ -572,7 +572,8 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "customDomainVerificationId"
+                "customDomainVerificationId",
+                "siteCredentials"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

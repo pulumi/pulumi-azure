@@ -6,6 +6,8 @@ package com.pulumi.azure.keyvault.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -42,11 +44,27 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.name;
     }
 
+    /**
+     * Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+     * 
+     */
+    @Import(name="version")
+    private @Nullable String version;
+
+    /**
+     * @return Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+     * 
+     */
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
+    }
+
     private GetSecretPlainArgs() {}
 
     private GetSecretPlainArgs(GetSecretPlainArgs $) {
         this.keyVaultId = $.keyVaultId;
         this.name = $.name;
+        this.version = $.version;
     }
 
     public static Builder builder() {
@@ -86,6 +104,17 @@ public final class GetSecretPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param version Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(@Nullable String version) {
+            $.version = version;
             return this;
         }
 

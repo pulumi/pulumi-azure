@@ -22,7 +22,7 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, certificate_data=None, certificate_data_base64=None, certificate_policies=None, expires=None, id=None, key_vault_id=None, name=None, not_before=None, secret_id=None, tags=None, thumbprint=None, version=None, versionless_id=None, versionless_secret_id=None):
+    def __init__(__self__, certificate_data=None, certificate_data_base64=None, certificate_policies=None, expires=None, id=None, key_vault_id=None, name=None, not_before=None, resource_manager_id=None, resource_manager_versionless_id=None, secret_id=None, tags=None, thumbprint=None, version=None, versionless_id=None, versionless_secret_id=None):
         if certificate_data and not isinstance(certificate_data, str):
             raise TypeError("Expected argument 'certificate_data' to be a str")
         pulumi.set(__self__, "certificate_data", certificate_data)
@@ -47,6 +47,12 @@ class GetCertificateResult:
         if not_before and not isinstance(not_before, str):
             raise TypeError("Expected argument 'not_before' to be a str")
         pulumi.set(__self__, "not_before", not_before)
+        if resource_manager_id and not isinstance(resource_manager_id, str):
+            raise TypeError("Expected argument 'resource_manager_id' to be a str")
+        pulumi.set(__self__, "resource_manager_id", resource_manager_id)
+        if resource_manager_versionless_id and not isinstance(resource_manager_versionless_id, str):
+            raise TypeError("Expected argument 'resource_manager_versionless_id' to be a str")
+        pulumi.set(__self__, "resource_manager_versionless_id", resource_manager_versionless_id)
         if secret_id and not isinstance(secret_id, str):
             raise TypeError("Expected argument 'secret_id' to be a str")
         pulumi.set(__self__, "secret_id", secret_id)
@@ -128,6 +134,22 @@ class GetCertificateResult:
         return pulumi.get(self, "not_before")
 
     @property
+    @pulumi.getter(name="resourceManagerId")
+    def resource_manager_id(self) -> str:
+        """
+        The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
+        """
+        return pulumi.get(self, "resource_manager_id")
+
+    @property
+    @pulumi.getter(name="resourceManagerVersionlessId")
+    def resource_manager_versionless_id(self) -> str:
+        """
+        The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
+        """
+        return pulumi.get(self, "resource_manager_versionless_id")
+
+    @property
     @pulumi.getter(name="secretId")
     def secret_id(self) -> str:
         """
@@ -190,6 +212,8 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             key_vault_id=self.key_vault_id,
             name=self.name,
             not_before=self.not_before,
+            resource_manager_id=self.resource_manager_id,
+            resource_manager_versionless_id=self.resource_manager_versionless_id,
             secret_id=self.secret_id,
             tags=self.tags,
             thumbprint=self.thumbprint,
@@ -239,6 +263,8 @@ def get_certificate(key_vault_id: Optional[str] = None,
         key_vault_id=__ret__.key_vault_id,
         name=__ret__.name,
         not_before=__ret__.not_before,
+        resource_manager_id=__ret__.resource_manager_id,
+        resource_manager_versionless_id=__ret__.resource_manager_versionless_id,
         secret_id=__ret__.secret_id,
         tags=__ret__.tags,
         thumbprint=__ret__.thumbprint,

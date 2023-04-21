@@ -21,21 +21,39 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var testAccount = new Azure.Automation.Account("testAccount", new()
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
     ///     {
-    ///         Location = testResourceGroup.Location,
-    ///         ResourceGroupName = testResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var example = new Azure.Automation.SoftwareUpdateConfiguration("example", new()
+    ///     var exampleRunBook = new Azure.Automation.RunBook("exampleRunBook", new()
     ///     {
-    ///         AutomationAccountId = testAccount.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         LogVerbose = true,
+    ///         LogProgress = true,
+    ///         Description = "This is a example runbook for terraform acceptance example",
+    ///         RunbookType = "Python3",
+    ///         Content = @"# Some example content
+    /// # for Terraform acceptance example
+    /// ",
+    ///         Tags = 
+    ///         {
+    ///             { "ENV", "runbook_test" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSoftwareUpdateConfiguration = new Azure.Automation.SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration", new()
+    ///     {
+    ///         AutomationAccountId = exampleAccount.Id,
     ///         OperatingSystem = "Linux",
     ///         Linuxes = new[]
     ///         {
@@ -51,6 +69,17 @@ namespace Pulumi.Azure.Automation
     ///                     "vim",
     ///                 },
     ///                 Reboot = "IfRequired",
+    ///             },
+    ///         },
+    ///         PreTasks = new[]
+    ///         {
+    ///             new Azure.Automation.Inputs.SoftwareUpdateConfigurationPreTaskArgs
+    ///             {
+    ///                 Source = exampleRunBook.Name,
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "COMPUTER_NAME", "Foo" },
+    ///                 },
     ///             },
     ///         },
     ///         Duration = "PT2H2M2S",

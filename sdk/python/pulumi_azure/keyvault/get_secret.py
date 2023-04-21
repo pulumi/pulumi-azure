@@ -21,10 +21,13 @@ class GetSecretResult:
     """
     A collection of values returned by getSecret.
     """
-    def __init__(__self__, content_type=None, id=None, key_vault_id=None, name=None, resource_id=None, resource_versionless_id=None, tags=None, value=None, version=None, versionless_id=None):
+    def __init__(__self__, content_type=None, expiration_date=None, id=None, key_vault_id=None, name=None, not_before_date=None, resource_id=None, resource_versionless_id=None, tags=None, value=None, version=None, versionless_id=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
+        if expiration_date and not isinstance(expiration_date, str):
+            raise TypeError("Expected argument 'expiration_date' to be a str")
+        pulumi.set(__self__, "expiration_date", expiration_date)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -34,6 +37,9 @@ class GetSecretResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if not_before_date and not isinstance(not_before_date, str):
+            raise TypeError("Expected argument 'not_before_date' to be a str")
+        pulumi.set(__self__, "not_before_date", not_before_date)
         if resource_id and not isinstance(resource_id, str):
             raise TypeError("Expected argument 'resource_id' to be a str")
         pulumi.set(__self__, "resource_id", resource_id)
@@ -62,6 +68,14 @@ class GetSecretResult:
         return pulumi.get(self, "content_type")
 
     @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> str:
+        """
+        The date and time at which the Key Vault Secret expires and is no longer valid.
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -78,6 +92,14 @@ class GetSecretResult:
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="notBeforeDate")
+    def not_before_date(self) -> str:
+        """
+        The earliest date at which the Key Vault Secret can be used.
+        """
+        return pulumi.get(self, "not_before_date")
 
     @property
     @pulumi.getter(name="resourceId")
@@ -113,10 +135,7 @@ class GetSecretResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
-        """
-        The current version of the Key Vault Secret.
-        """
+    def version(self) -> Optional[str]:
         return pulumi.get(self, "version")
 
     @property
@@ -135,9 +154,11 @@ class AwaitableGetSecretResult(GetSecretResult):
             yield self
         return GetSecretResult(
             content_type=self.content_type,
+            expiration_date=self.expiration_date,
             id=self.id,
             key_vault_id=self.key_vault_id,
             name=self.name,
+            not_before_date=self.not_before_date,
             resource_id=self.resource_id,
             resource_versionless_id=self.resource_versionless_id,
             tags=self.tags,
@@ -148,6 +169,7 @@ class AwaitableGetSecretResult(GetSecretResult):
 
 def get_secret(key_vault_id: Optional[str] = None,
                name: Optional[str] = None,
+               version: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
     Use this data source to access information about an existing Key Vault Secret.
@@ -166,18 +188,22 @@ def get_secret(key_vault_id: Optional[str] = None,
 
     :param str key_vault_id: Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.
     :param str name: Specifies the name of the Key Vault Secret.
+    :param str version: Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
     """
     __args__ = dict()
     __args__['keyVaultId'] = key_vault_id
     __args__['name'] = name
+    __args__['version'] = version
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getSecret:getSecret', __args__, opts=opts, typ=GetSecretResult).value
 
     return AwaitableGetSecretResult(
         content_type=__ret__.content_type,
+        expiration_date=__ret__.expiration_date,
         id=__ret__.id,
         key_vault_id=__ret__.key_vault_id,
         name=__ret__.name,
+        not_before_date=__ret__.not_before_date,
         resource_id=__ret__.resource_id,
         resource_versionless_id=__ret__.resource_versionless_id,
         tags=__ret__.tags,
@@ -189,6 +215,7 @@ def get_secret(key_vault_id: Optional[str] = None,
 @_utilities.lift_output_func(get_secret)
 def get_secret_output(key_vault_id: Optional[pulumi.Input[str]] = None,
                       name: Optional[pulumi.Input[str]] = None,
+                      version: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
     """
     Use this data source to access information about an existing Key Vault Secret.
@@ -207,5 +234,6 @@ def get_secret_output(key_vault_id: Optional[pulumi.Input[str]] = None,
 
     :param str key_vault_id: Specifies the ID of the Key Vault instance to fetch secret names from, available on the `keyvault.KeyVault` Data Source / Resource.
     :param str name: Specifies the name of the Key Vault Secret.
+    :param str version: Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
     """
     ...
