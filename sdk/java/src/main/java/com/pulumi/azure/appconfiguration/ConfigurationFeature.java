@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
 /**
  * Manages an Azure App Configuration Feature.
  * 
+ * &gt; **Note:** App Configuration Features are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration). This is similar to providing App Configuration Keys.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -34,6 +36,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.appconfiguration.ConfigurationStore;
  * import com.pulumi.azure.appconfiguration.ConfigurationStoreArgs;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.appconfiguration.ConfigurationFeature;
  * import com.pulumi.azure.appconfiguration.ConfigurationFeatureArgs;
  * import java.util.List;
@@ -56,6 +61,14 @@ import javax.annotation.Nullable;
  *         var appconf = new ConfigurationStore(&#34;appconf&#34;, ConfigurationStoreArgs.builder()        
  *             .resourceGroupName(example.name())
  *             .location(example.location())
+ *             .build());
+ * 
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var appconfDataowner = new Assignment(&#34;appconfDataowner&#34;, AssignmentArgs.builder()        
+ *             .scope(appconf.id())
+ *             .roleDefinitionName(&#34;App Configuration Data Owner&#34;)
+ *             .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .build());
  * 
  *         var test = new ConfigurationFeature(&#34;test&#34;, ConfigurationFeatureArgs.builder()        

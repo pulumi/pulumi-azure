@@ -305,7 +305,9 @@ class FhirServiceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
@@ -323,12 +325,15 @@ class FhirServiceIdentity(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
         :param str type: The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -341,6 +346,11 @@ class FhirServiceIdentity(dict):
         The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")
@@ -419,7 +429,9 @@ class MedtechServiceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
@@ -437,6 +449,7 @@ class MedtechServiceIdentity(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
@@ -445,6 +458,8 @@ class MedtechServiceIdentity(dict):
         :param str tenant_id: The Tenant ID associated with this System Assigned Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -457,6 +472,11 @@ class MedtechServiceIdentity(dict):
         Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are `SystemAssigned`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")

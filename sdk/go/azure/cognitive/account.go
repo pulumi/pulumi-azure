@@ -132,7 +132,11 @@ func NewAccount(ctx *pulumi.Context,
 	if args.SkuName == nil {
 		return nil, errors.New("invalid value for required argument 'SkuName'")
 	}
+	if args.CustomQuestionAnsweringSearchServiceKey != nil {
+		args.CustomQuestionAnsweringSearchServiceKey = pulumi.ToSecret(args.CustomQuestionAnsweringSearchServiceKey).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"customQuestionAnsweringSearchServiceKey",
 		"primaryAccessKey",
 		"secondaryAccessKey",
 	})

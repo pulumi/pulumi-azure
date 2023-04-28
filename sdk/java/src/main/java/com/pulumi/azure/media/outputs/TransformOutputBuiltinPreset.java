@@ -3,21 +3,36 @@
 
 package com.pulumi.azure.media.outputs;
 
+import com.pulumi.azure.media.outputs.TransformOutputBuiltinPresetPresetConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class TransformOutputBuiltinPreset {
     /**
-     * @return The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+     * @return A `present_configuration` block as defined below.
+     * 
+     */
+    private @Nullable TransformOutputBuiltinPresetPresetConfiguration presetConfiguration;
+    /**
+     * @return The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
      * 
      */
     private String presetName;
 
     private TransformOutputBuiltinPreset() {}
     /**
-     * @return The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+     * @return A `present_configuration` block as defined below.
+     * 
+     */
+    public Optional<TransformOutputBuiltinPresetPresetConfiguration> presetConfiguration() {
+        return Optional.ofNullable(this.presetConfiguration);
+    }
+    /**
+     * @return The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
      * 
      */
     public String presetName() {
@@ -33,13 +48,20 @@ public final class TransformOutputBuiltinPreset {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable TransformOutputBuiltinPresetPresetConfiguration presetConfiguration;
         private String presetName;
         public Builder() {}
         public Builder(TransformOutputBuiltinPreset defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.presetConfiguration = defaults.presetConfiguration;
     	      this.presetName = defaults.presetName;
         }
 
+        @CustomType.Setter
+        public Builder presetConfiguration(@Nullable TransformOutputBuiltinPresetPresetConfiguration presetConfiguration) {
+            this.presetConfiguration = presetConfiguration;
+            return this;
+        }
         @CustomType.Setter
         public Builder presetName(String presetName) {
             this.presetName = Objects.requireNonNull(presetName);
@@ -47,6 +69,7 @@ public final class TransformOutputBuiltinPreset {
         }
         public TransformOutputBuiltinPreset build() {
             final var o = new TransformOutputBuiltinPreset();
+            o.presetConfiguration = presetConfiguration;
             o.presetName = presetName;
             return o;
         }

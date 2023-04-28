@@ -84,6 +84,8 @@ type LookupLinuxWebAppResult struct {
 	DefaultHostname string `pulumi:"defaultHostname"`
 	// Is the Backup enabled?
 	Enabled bool `pulumi:"enabled"`
+	// The ID of the App Service Environment used by App Service.
+	HostingEnvironmentId string `pulumi:"hostingEnvironmentId"`
 	// Should the Linux Web App require HTTPS connections.
 	HttpsOnly bool `pulumi:"httpsOnly"`
 	// The provider-assigned unique ID for this managed resource.
@@ -227,6 +229,11 @@ func (o LookupLinuxWebAppResultOutput) DefaultHostname() pulumi.StringOutput {
 // Is the Backup enabled?
 func (o LookupLinuxWebAppResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The ID of the App Service Environment used by App Service.
+func (o LookupLinuxWebAppResultOutput) HostingEnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinuxWebAppResult) string { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
 // Should the Linux Web App require HTTPS connections.

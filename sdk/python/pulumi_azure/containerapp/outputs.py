@@ -1951,7 +1951,7 @@ class GetAppTemplateContainerResult(dict):
         :param str ephemeral_storage: The amount of ephemeral storage available to the Container App.
         :param str image: The image to use to create the container.
         :param Sequence['GetAppTemplateContainerLivenessProbeArgs'] liveness_probes: A `liveness_probe` block as detailed below.
-        :param str memory: The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+        :param str memory: The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
         :param str name: The name of the Container App.
         :param Sequence['GetAppTemplateContainerReadinessProbeArgs'] readiness_probes: A `readiness_probe` block as detailed below.
         :param Sequence['GetAppTemplateContainerStartupProbeArgs'] startup_probes: A `startup_probe` block as detailed below.
@@ -2030,7 +2030,7 @@ class GetAppTemplateContainerResult(dict):
     @pulumi.getter
     def memory(self) -> str:
         """
-        The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+        The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
         """
         return pulumi.get(self, "memory")
 

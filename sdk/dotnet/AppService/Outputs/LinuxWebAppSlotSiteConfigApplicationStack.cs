@@ -46,7 +46,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? NodeVersion;
         /// <summary>
-        /// The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
+        /// The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
         /// </summary>
         public readonly string? PhpVersion;
         /// <summary>

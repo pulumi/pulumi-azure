@@ -94,6 +94,8 @@ type WindowsWebApp struct {
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Should the Windows Web App be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The ID of the App Service Environment used by App Service.
+	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
 	// Should the Windows Web App require HTTPS connections.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
@@ -203,6 +205,8 @@ type windowsWebAppState struct {
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Should the Windows Web App be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The ID of the App Service Environment used by App Service.
+	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
 	// Should the Windows Web App require HTTPS connections.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
@@ -270,6 +274,8 @@ type WindowsWebAppState struct {
 	DefaultHostname pulumi.StringPtrInput
 	// Should the Windows Web App be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The ID of the App Service Environment used by App Service.
+	HostingEnvironmentId pulumi.StringPtrInput
 	// Should the Windows Web App require HTTPS connections.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
@@ -564,6 +570,11 @@ func (o WindowsWebAppOutput) DefaultHostname() pulumi.StringOutput {
 // Should the Windows Web App be enabled? Defaults to `true`.
 func (o WindowsWebAppOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the App Service Environment used by App Service.
+func (o WindowsWebAppOutput) HostingEnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WindowsWebApp) pulumi.StringOutput { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
 // Should the Windows Web App require HTTPS connections.

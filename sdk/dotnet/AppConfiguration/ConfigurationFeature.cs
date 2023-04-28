@@ -12,6 +12,8 @@ namespace Pulumi.Azure.AppConfiguration
     /// <summary>
     /// Manages an Azure App Configuration Feature.
     /// 
+    /// &gt; **Note:** App Configuration Features are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration). This is similar to providing App Configuration Keys.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -30,6 +32,15 @@ namespace Pulumi.Azure.AppConfiguration
     ///     {
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var appconfDataowner = new Azure.Authorization.Assignment("appconfDataowner", new()
+    ///     {
+    ///         Scope = appconf.Id,
+    ///         RoleDefinitionName = "App Configuration Data Owner",
+    ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///     });
     /// 
     ///     var test = new Azure.AppConfiguration.ConfigurationFeature("test", new()

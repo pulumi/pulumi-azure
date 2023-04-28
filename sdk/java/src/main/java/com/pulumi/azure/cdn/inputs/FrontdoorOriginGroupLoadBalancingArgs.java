@@ -16,14 +16,14 @@ public final class FrontdoorOriginGroupLoadBalancingArgs extends com.pulumi.reso
     public static final FrontdoorOriginGroupLoadBalancingArgs Empty = new FrontdoorOriginGroupLoadBalancingArgs();
 
     /**
-     * Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+     * Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` milliseconds (inclusive). Defaults to `50`.
      * 
      */
     @Import(name="additionalLatencyInMilliseconds")
     private @Nullable Output<Integer> additionalLatencyInMilliseconds;
 
     /**
-     * @return Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+     * @return Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` milliseconds (inclusive). Defaults to `50`.
      * 
      */
     public Optional<Output<Integer>> additionalLatencyInMilliseconds() {
@@ -87,7 +87,7 @@ public final class FrontdoorOriginGroupLoadBalancingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param additionalLatencyInMilliseconds Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+         * @param additionalLatencyInMilliseconds Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` milliseconds (inclusive). Defaults to `50`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class FrontdoorOriginGroupLoadBalancingArgs extends com.pulumi.reso
         }
 
         /**
-         * @param additionalLatencyInMilliseconds Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+         * @param additionalLatencyInMilliseconds Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` milliseconds (inclusive). Defaults to `50`.
          * 
          * @return builder
          * 

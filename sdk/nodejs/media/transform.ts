@@ -74,6 +74,16 @@ import * as utilities from "../utilities";
  *             onErrorAction: "ContinueJob",
  *             builtinPreset: {
  *                 presetName: "AACGoodQualityAudio",
+ *                 presetConfiguration: {
+ *                     complexity: "Balanced",
+ *                     interleaveOutput: "NonInterleavedOutput",
+ *                     keyFrameIntervalInSeconds: 123122.5,
+ *                     maxBitrateBps: 300000,
+ *                     maxHeight: 480,
+ *                     maxLayers: 14,
+ *                     minBitrateBps: 200000,
+ *                     minHeight: 360,
+ *                 },
  *             },
  *         },
  *         {
@@ -82,6 +92,9 @@ import * as utilities from "../utilities";
  *             audioAnalyzerPreset: {
  *                 audioLanguage: "en-US",
  *                 audioAnalysisMode: "Basic",
+ *                 experimentalOptions: {
+ *                     env: "test",
+ *                 },
  *             },
  *         },
  *         {
@@ -89,6 +102,196 @@ import * as utilities from "../utilities";
  *             onErrorAction: "StopProcessingJob",
  *             faceDetectorPreset: {
  *                 analysisResolution: "StandardDefinition",
+ *                 blurType: "Med",
+ *                 faceRedactorMode: "Combined",
+ *                 experimentalOptions: {
+ *                     env: "test",
+ *                 },
+ *             },
+ *         },
+ *         {
+ *             relativePriority: "Normal",
+ *             onErrorAction: "StopProcessingJob",
+ *             videoAnalyzerPreset: {
+ *                 audioLanguage: "en-US",
+ *                 audioAnalysisMode: "Basic",
+ *                 insightsType: "AllInsights",
+ *                 experimentalOptions: {
+ *                     env: "test",
+ *                 },
+ *             },
+ *         },
+ *         {
+ *             relativePriority: "Low",
+ *             onErrorAction: "ContinueJob",
+ *             customPreset: {
+ *                 codecs: [
+ *                     {
+ *                         aacAudio: {
+ *                             bitrate: 128000,
+ *                             channels: 2,
+ *                             samplingRate: 48000,
+ *                             profile: "AacLc",
+ *                         },
+ *                     },
+ *                     {
+ *                         copyAudio: {
+ *                             label: "test",
+ *                         },
+ *                     },
+ *                     {
+ *                         copyVideo: {
+ *                             label: "test",
+ *                         },
+ *                     },
+ *                     {
+ *                         h264Video: {
+ *                             keyFrameInterval: "PT1S",
+ *                             stretchMode: "AutoSize",
+ *                             syncMode: "Auto",
+ *                             sceneChangeDetectionEnabled: false,
+ *                             rateControlMode: "ABR",
+ *                             complexity: "Quality",
+ *                             layers: [
+ *                                 {
+ *                                     width: "64",
+ *                                     height: "64",
+ *                                     bitrate: 1045000,
+ *                                     maxBitrate: 1045000,
+ *                                     bFrames: 3,
+ *                                     slices: 0,
+ *                                     adaptiveBFrameEnabled: true,
+ *                                     profile: "Auto",
+ *                                     level: "auto",
+ *                                     bufferWindow: "PT5S",
+ *                                     referenceFrames: 4,
+ *                                     crf: 23,
+ *                                     entropyMode: "Cabac",
+ *                                 },
+ *                                 {
+ *                                     width: "64",
+ *                                     height: "64",
+ *                                     bitrate: 1000,
+ *                                     maxBitrate: 1000,
+ *                                     bFrames: 3,
+ *                                     frameRate: "32",
+ *                                     slices: 1,
+ *                                     adaptiveBFrameEnabled: true,
+ *                                     profile: "High444",
+ *                                     level: "auto",
+ *                                     bufferWindow: "PT5S",
+ *                                     referenceFrames: 4,
+ *                                     crf: 23,
+ *                                     entropyMode: "Cavlc",
+ *                                 },
+ *                             ],
+ *                         },
+ *                     },
+ *                     {
+ *                         h265Video: {
+ *                             keyFrameInterval: "PT2S",
+ *                             stretchMode: "AutoSize",
+ *                             syncMode: "Auto",
+ *                             sceneChangeDetectionEnabled: false,
+ *                             complexity: "Speed",
+ *                             layers: [{
+ *                                 width: "64",
+ *                                 height: "64",
+ *                                 bitrate: 1045000,
+ *                                 maxBitrate: 1045000,
+ *                                 bFrames: 3,
+ *                                 slices: 5,
+ *                                 adaptiveBFrameEnabled: true,
+ *                                 profile: "Auto",
+ *                                 label: "test",
+ *                                 level: "auto",
+ *                                 bufferWindow: "PT5S",
+ *                                 frameRate: "32",
+ *                                 referenceFrames: 4,
+ *                                 crf: 23,
+ *                             }],
+ *                         },
+ *                     },
+ *                 ],
+ *                 formats: [
+ *                     {
+ *                         mp4: {
+ *                             filenamePattern: "test{Bitrate}",
+ *                             outputFiles: [{
+ *                                 labels: [
+ *                                     "test",
+ *                                     "ppe",
+ *                                 ],
+ *                             }],
+ *                         },
+ *                     },
+ *                     {
+ *                         transportStream: {
+ *                             filenamePattern: "test{Bitrate}",
+ *                             outputFiles: [{
+ *                                 labels: ["prod"],
+ *                             }],
+ *                         },
+ *                     },
+ *                 ],
+ *                 filter: {
+ *                     cropRectangle: {
+ *                         height: "240",
+ *                         left: "30",
+ *                         top: "360",
+ *                         width: "70",
+ *                     },
+ *                     deinterlace: {
+ *                         parity: "TopFieldFirst",
+ *                         mode: "AutoPixelAdaptive",
+ *                     },
+ *                     fadeIn: {
+ *                         duration: "PT5S",
+ *                         fadeColor: "0xFF0000",
+ *                         start: "10",
+ *                     },
+ *                     fadeOut: {
+ *                         duration: "90%%",
+ *                         fadeColor: "#FF0C7B",
+ *                         start: "10%%",
+ *                     },
+ *                     rotation: "Auto",
+ *                     overlays: [
+ *                         {
+ *                             audio: {
+ *                                 inputLabel: "label.jpg",
+ *                                 start: "PT5S",
+ *                                 end: "PT30S",
+ *                                 fadeInDuration: "PT1S",
+ *                                 fadeOutDuration: "PT2S",
+ *                                 audioGainLevel: 1,
+ *                             },
+ *                         },
+ *                         {
+ *                             video: {
+ *                                 inputLabel: "label.jpg",
+ *                                 start: "PT5S",
+ *                                 end: "PT30S",
+ *                                 fadeInDuration: "PT1S",
+ *                                 fadeOutDuration: "PT2S",
+ *                                 audioGainLevel: 1,
+ *                                 opacity: 1,
+ *                                 position: {
+ *                                     height: "180",
+ *                                     left: "20",
+ *                                     top: "240",
+ *                                     width: "140",
+ *                                 },
+ *                                 cropRectangle: {
+ *                                     height: "240",
+ *                                     left: "30",
+ *                                     top: "360",
+ *                                     width: "70",
+ *                                 },
+ *                             },
+ *                         },
+ *                     ],
+ *                 },
  *             },
  *         },
  *     ],

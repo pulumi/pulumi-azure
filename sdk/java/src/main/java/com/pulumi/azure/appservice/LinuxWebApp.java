@@ -259,6 +259,20 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabled);
     }
     /**
+     * The ID of the App Service Environment used by App Service.
+     * 
+     */
+    @Export(name="hostingEnvironmentId", refs={String.class}, tree="[0]")
+    private Output<String> hostingEnvironmentId;
+
+    /**
+     * @return The ID of the App Service Environment used by App Service.
+     * 
+     */
+    public Output<String> hostingEnvironmentId() {
+        return this.hostingEnvironmentId;
+    }
+    /**
      * Should the Linux Web App require HTTPS connections.
      * 
      */

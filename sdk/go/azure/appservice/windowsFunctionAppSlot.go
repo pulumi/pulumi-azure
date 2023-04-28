@@ -121,6 +121,8 @@ type WindowsFunctionAppSlot struct {
 	FunctionAppId pulumi.StringOutput `pulumi:"functionAppId"`
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrOutput `pulumi:"functionsExtensionVersion"`
+	// The ID of the App Service Environment used by Function App Slot.
+	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
 	// Can the Function App Slot only be accessed via HTTPS?
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// an `identity` block as detailed below.
@@ -237,6 +239,8 @@ type windowsFunctionAppSlotState struct {
 	FunctionAppId *string `pulumi:"functionAppId"`
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion *string `pulumi:"functionsExtensionVersion"`
+	// The ID of the App Service Environment used by Function App Slot.
+	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
 	// Can the Function App Slot only be accessed via HTTPS?
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// an `identity` block as detailed below.
@@ -310,6 +314,8 @@ type WindowsFunctionAppSlotState struct {
 	FunctionAppId pulumi.StringPtrInput
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrInput
+	// The ID of the App Service Environment used by Function App Slot.
+	HostingEnvironmentId pulumi.StringPtrInput
 	// Can the Function App Slot only be accessed via HTTPS?
 	HttpsOnly pulumi.BoolPtrInput
 	// an `identity` block as detailed below.
@@ -636,6 +642,11 @@ func (o WindowsFunctionAppSlotOutput) FunctionAppId() pulumi.StringOutput {
 // The runtime version associated with the Function App Slot. Defaults to `~4`.
 func (o WindowsFunctionAppSlotOutput) FunctionsExtensionVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringPtrOutput { return v.FunctionsExtensionVersion }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the App Service Environment used by Function App Slot.
+func (o WindowsFunctionAppSlotOutput) HostingEnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringOutput { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
 // Can the Function App Slot only be accessed via HTTPS?

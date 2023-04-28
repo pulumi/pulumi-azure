@@ -7,7 +7,7 @@ require (
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 )
 
-replace github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20230420102249-ca19a98e875e
+replace github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.44.1-0.20230427234417-6db04cb6a3ad
 
 require (
 	github.com/Azure/azure-sdk-for-go v66.0.0+incompatible // indirect

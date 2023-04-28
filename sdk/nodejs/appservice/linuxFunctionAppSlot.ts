@@ -143,6 +143,10 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly functionsExtensionVersion!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the App Service Environment used by Function App Slot.
+     */
+    public /*out*/ readonly hostingEnvironmentId!: pulumi.Output<string>;
+    /**
      * Can the Function App Slot only be accessed via HTTPS?
      */
     public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
@@ -248,6 +252,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["functionAppId"] = state ? state.functionAppId : undefined;
             resourceInputs["functionsExtensionVersion"] = state ? state.functionsExtensionVersion : undefined;
+            resourceInputs["hostingEnvironmentId"] = state ? state.hostingEnvironmentId : undefined;
             resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["keyVaultReferenceIdentityId"] = state ? state.keyVaultReferenceIdentityId : undefined;
@@ -304,6 +309,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
+            resourceInputs["hostingEnvironmentId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["outboundIpAddressLists"] = undefined /*out*/;
             resourceInputs["outboundIpAddresses"] = undefined /*out*/;
@@ -386,6 +392,10 @@ export interface LinuxFunctionAppSlotState {
      * The runtime version associated with the Function App Slot. Defaults to `~4`.
      */
     functionsExtensionVersion?: pulumi.Input<string>;
+    /**
+     * The ID of the App Service Environment used by Function App Slot.
+     */
+    hostingEnvironmentId?: pulumi.Input<string>;
     /**
      * Can the Function App Slot only be accessed via HTTPS?
      */

@@ -88,6 +88,11 @@ public final class GetLinuxWebAppResult {
      */
     private Boolean enabled;
     /**
+     * @return The ID of the App Service Environment used by App Service.
+     * 
+     */
+    private String hostingEnvironmentId;
+    /**
      * @return Should the Linux Web App require HTTPS connections.
      * 
      */
@@ -273,6 +278,13 @@ public final class GetLinuxWebAppResult {
         return this.enabled;
     }
     /**
+     * @return The ID of the App Service Environment used by App Service.
+     * 
+     */
+    public String hostingEnvironmentId() {
+        return this.hostingEnvironmentId;
+    }
+    /**
      * @return Should the Linux Web App require HTTPS connections.
      * 
      */
@@ -427,6 +439,7 @@ public final class GetLinuxWebAppResult {
         private String customDomainVerificationId;
         private String defaultHostname;
         private Boolean enabled;
+        private String hostingEnvironmentId;
         private Boolean httpsOnly;
         private String id;
         private List<GetLinuxWebAppIdentity> identities;
@@ -463,6 +476,7 @@ public final class GetLinuxWebAppResult {
     	      this.customDomainVerificationId = defaults.customDomainVerificationId;
     	      this.defaultHostname = defaults.defaultHostname;
     	      this.enabled = defaults.enabled;
+    	      this.hostingEnvironmentId = defaults.hostingEnvironmentId;
     	      this.httpsOnly = defaults.httpsOnly;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
@@ -560,6 +574,11 @@ public final class GetLinuxWebAppResult {
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hostingEnvironmentId(String hostingEnvironmentId) {
+            this.hostingEnvironmentId = Objects.requireNonNull(hostingEnvironmentId);
             return this;
         }
         @CustomType.Setter
@@ -701,6 +720,7 @@ public final class GetLinuxWebAppResult {
             o.customDomainVerificationId = customDomainVerificationId;
             o.defaultHostname = defaultHostname;
             o.enabled = enabled;
+            o.hostingEnvironmentId = hostingEnvironmentId;
             o.httpsOnly = httpsOnly;
             o.id = id;
             o.identities = identities;

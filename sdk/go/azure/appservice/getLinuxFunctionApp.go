@@ -88,6 +88,8 @@ type LookupLinuxFunctionAppResult struct {
 	Enabled bool `pulumi:"enabled"`
 	// The runtime version associated with the Function App.
 	FunctionsExtensionVersion string `pulumi:"functionsExtensionVersion"`
+	// The ID of the App Service Environment used by Function App.
+	HostingEnvironmentId string `pulumi:"hostingEnvironmentId"`
 	// Can the Function App only be accessed via HTTPS?
 	HttpsOnly bool `pulumi:"httpsOnly"`
 	// The provider-assigned unique ID for this managed resource.
@@ -244,6 +246,11 @@ func (o LookupLinuxFunctionAppResultOutput) Enabled() pulumi.BoolOutput {
 // The runtime version associated with the Function App.
 func (o LookupLinuxFunctionAppResultOutput) FunctionsExtensionVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) string { return v.FunctionsExtensionVersion }).(pulumi.StringOutput)
+}
+
+// The ID of the App Service Environment used by Function App.
+func (o LookupLinuxFunctionAppResultOutput) HostingEnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinuxFunctionAppResult) string { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
 // Can the Function App only be accessed via HTTPS?

@@ -14,23 +14,27 @@ namespace Pulumi.Azure.Media.Outputs
     public sealed class TransformOutput
     {
         /// <summary>
-        /// A `audio_analyzer_preset` block as defined below.
+        /// An `audio_analyzer_preset` block as defined above.
         /// </summary>
         public readonly Outputs.TransformOutputAudioAnalyzerPreset? AudioAnalyzerPreset;
         /// <summary>
-        /// A `builtin_preset` block as defined below.
+        /// A `builtin_preset` block as defined above.
         /// </summary>
         public readonly Outputs.TransformOutputBuiltinPreset? BuiltinPreset;
         /// <summary>
-        /// A `face_detector_preset` block as defined below.
+        /// A `custom_preset` block as defined above.
+        /// </summary>
+        public readonly Outputs.TransformOutputCustomPreset? CustomPreset;
+        /// <summary>
+        /// A `face_detector_preset` block as defined above.
         /// </summary>
         public readonly Outputs.TransformOutputFaceDetectorPreset? FaceDetectorPreset;
         /// <summary>
-        /// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+        /// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
         /// </summary>
         public readonly string? OnErrorAction;
         /// <summary>
-        /// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+        /// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
         /// </summary>
         public readonly string? RelativePriority;
         /// <summary>
@@ -44,6 +48,8 @@ namespace Pulumi.Azure.Media.Outputs
 
             Outputs.TransformOutputBuiltinPreset? builtinPreset,
 
+            Outputs.TransformOutputCustomPreset? customPreset,
+
             Outputs.TransformOutputFaceDetectorPreset? faceDetectorPreset,
 
             string? onErrorAction,
@@ -54,6 +60,7 @@ namespace Pulumi.Azure.Media.Outputs
         {
             AudioAnalyzerPreset = audioAnalyzerPreset;
             BuiltinPreset = builtinPreset;
+            CustomPreset = customPreset;
             FaceDetectorPreset = faceDetectorPreset;
             OnErrorAction = onErrorAction;
             RelativePriority = relativePriority;

@@ -45,6 +45,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ManagementPolicy{}
 	case "azure:storage/mover:Mover":
 		r = &Mover{}
+	case "azure:storage/moverAgent:MoverAgent":
+		r = &MoverAgent{}
+	case "azure:storage/moverSourceEndpoint:MoverSourceEndpoint":
+		r = &MoverSourceEndpoint{}
+	case "azure:storage/moverTargetEndpoint:MoverTargetEndpoint":
+		r = &MoverTargetEndpoint{}
 	case "azure:storage/objectReplication:ObjectReplication":
 		r = &ObjectReplication{}
 	case "azure:storage/queue:Queue":
@@ -138,6 +144,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"storage/mover",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"storage/moverAgent",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"storage/moverSourceEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"storage/moverTargetEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

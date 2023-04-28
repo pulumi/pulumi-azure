@@ -82,6 +82,8 @@ type LookupWindowsWebAppResult struct {
 	DefaultHostname string `pulumi:"defaultHostname"`
 	// Is the Backup enabled?
 	Enabled bool `pulumi:"enabled"`
+	// The ID of the App Service Environment used by App Service.
+	HostingEnvironmentId string `pulumi:"hostingEnvironmentId"`
 	// Does the Windows Web App require HTTPS connections.
 	HttpsOnly bool `pulumi:"httpsOnly"`
 	// The provider-assigned unique ID for this managed resource.
@@ -219,6 +221,11 @@ func (o LookupWindowsWebAppResultOutput) DefaultHostname() pulumi.StringOutput {
 // Is the Backup enabled?
 func (o LookupWindowsWebAppResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupWindowsWebAppResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The ID of the App Service Environment used by App Service.
+func (o LookupWindowsWebAppResultOutput) HostingEnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWindowsWebAppResult) string { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
 // Does the Windows Web App require HTTPS connections.

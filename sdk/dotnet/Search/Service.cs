@@ -148,6 +148,11 @@ namespace Pulumi.Azure.Search
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "primaryKey",
+                    "secondaryKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -287,11 +292,21 @@ namespace Pulumi.Azure.Search
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
 
+        [Input("primaryKey")]
+        private Input<string>? _primaryKey;
+
         /// <summary>
         /// The Primary Key used for Search Service Administration.
         /// </summary>
-        [Input("primaryKey")]
-        public Input<string>? PrimaryKey { get; set; }
+        public Input<string>? PrimaryKey
+        {
+            get => _primaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _primaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Whether or not public network access is allowed for this resource. Defaults to `true`.
@@ -323,11 +338,21 @@ namespace Pulumi.Azure.Search
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("secondaryKey")]
+        private Input<string>? _secondaryKey;
+
         /// <summary>
         /// The Secondary Key used for Search Service Administration.
         /// </summary>
-        [Input("secondaryKey")]
-        public Input<string>? SecondaryKey { get; set; }
+        public Input<string>? SecondaryKey
+        {
+            get => _secondaryKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secondaryKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.

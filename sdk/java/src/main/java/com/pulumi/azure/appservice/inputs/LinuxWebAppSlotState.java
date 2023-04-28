@@ -238,6 +238,21 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The ID of the App Service Environment used by App Service Slot.
+     * 
+     */
+    @Import(name="hostingEnvironmentId")
+    private @Nullable Output<String> hostingEnvironmentId;
+
+    /**
+     * @return The ID of the App Service Environment used by App Service Slot.
+     * 
+     */
+    public Optional<Output<String>> hostingEnvironmentId() {
+        return Optional.ofNullable(this.hostingEnvironmentId);
+    }
+
+    /**
      * Should the Linux Web App require HTTPS connections.
      * 
      */
@@ -509,6 +524,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         this.customDomainVerificationId = $.customDomainVerificationId;
         this.defaultHostname = $.defaultHostname;
         this.enabled = $.enabled;
+        this.hostingEnvironmentId = $.hostingEnvironmentId;
         this.httpsOnly = $.httpsOnly;
         this.identity = $.identity;
         this.keyVaultReferenceIdentityId = $.keyVaultReferenceIdentityId;
@@ -848,6 +864,27 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param hostingEnvironmentId The ID of the App Service Environment used by App Service Slot.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostingEnvironmentId(@Nullable Output<String> hostingEnvironmentId) {
+            $.hostingEnvironmentId = hostingEnvironmentId;
+            return this;
+        }
+
+        /**
+         * @param hostingEnvironmentId The ID of the App Service Environment used by App Service Slot.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostingEnvironmentId(String hostingEnvironmentId) {
+            return hostingEnvironmentId(Output.of(hostingEnvironmentId));
         }
 
         /**

@@ -13,31 +13,37 @@ namespace Pulumi.Azure.Media.Inputs
     public sealed class TransformOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `audio_analyzer_preset` block as defined below.
+        /// An `audio_analyzer_preset` block as defined above.
         /// </summary>
         [Input("audioAnalyzerPreset")]
         public Input<Inputs.TransformOutputAudioAnalyzerPresetArgs>? AudioAnalyzerPreset { get; set; }
 
         /// <summary>
-        /// A `builtin_preset` block as defined below.
+        /// A `builtin_preset` block as defined above.
         /// </summary>
         [Input("builtinPreset")]
         public Input<Inputs.TransformOutputBuiltinPresetArgs>? BuiltinPreset { get; set; }
 
         /// <summary>
-        /// A `face_detector_preset` block as defined below.
+        /// A `custom_preset` block as defined above.
+        /// </summary>
+        [Input("customPreset")]
+        public Input<Inputs.TransformOutputCustomPresetArgs>? CustomPreset { get; set; }
+
+        /// <summary>
+        /// A `face_detector_preset` block as defined above.
         /// </summary>
         [Input("faceDetectorPreset")]
         public Input<Inputs.TransformOutputFaceDetectorPresetArgs>? FaceDetectorPreset { get; set; }
 
         /// <summary>
-        /// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+        /// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
         /// </summary>
         [Input("onErrorAction")]
         public Input<string>? OnErrorAction { get; set; }
 
         /// <summary>
-        /// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+        /// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
         /// </summary>
         [Input("relativePriority")]
         public Input<string>? RelativePriority { get; set; }

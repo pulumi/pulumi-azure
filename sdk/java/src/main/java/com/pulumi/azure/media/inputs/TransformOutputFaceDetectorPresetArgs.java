@@ -6,6 +6,7 @@ package com.pulumi.azure.media.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,24 +17,72 @@ public final class TransformOutputFaceDetectorPresetArgs extends com.pulumi.reso
     public static final TransformOutputFaceDetectorPresetArgs Empty = new TransformOutputFaceDetectorPresetArgs();
 
     /**
-     * Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see &lt;https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics&gt; for details). However, faces that end up being too small in the resized video may not be detected.
+     * Possible values are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see &lt;https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics&gt; for details). However, faces that end up being too small in the resized video may not be detected. Default to `SourceResolution`.
      * 
      */
     @Import(name="analysisResolution")
     private @Nullable Output<String> analysisResolution;
 
     /**
-     * @return Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see &lt;https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics&gt; for details). However, faces that end up being too small in the resized video may not be detected.
+     * @return Possible values are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see &lt;https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics&gt; for details). However, faces that end up being too small in the resized video may not be detected. Default to `SourceResolution`.
      * 
      */
     public Optional<Output<String>> analysisResolution() {
         return Optional.ofNullable(this.analysisResolution);
     }
 
+    /**
+     * Specifies the type of blur to apply to faces in the output video. Possible values are `Black`, `Box`, `High`, `Low`,and `Med`.
+     * 
+     */
+    @Import(name="blurType")
+    private @Nullable Output<String> blurType;
+
+    /**
+     * @return Specifies the type of blur to apply to faces in the output video. Possible values are `Black`, `Box`, `High`, `Low`,and `Med`.
+     * 
+     */
+    public Optional<Output<String>> blurType() {
+        return Optional.ofNullable(this.blurType);
+    }
+
+    /**
+     * Dictionary containing key value pairs for parameters not exposed in the preset itself.
+     * 
+     */
+    @Import(name="experimentalOptions")
+    private @Nullable Output<Map<String,String>> experimentalOptions;
+
+    /**
+     * @return Dictionary containing key value pairs for parameters not exposed in the preset itself.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> experimentalOptions() {
+        return Optional.ofNullable(this.experimentalOptions);
+    }
+
+    /**
+     * This mode provides the ability to choose between the following settings: 1) `Analyze` - For detection only. This mode generates a metadata JSON file marking appearances of faces throughout the video. Where possible, appearances of the same person are assigned the same ID. 2) `Combined` - Additionally redacts(blurs) detected faces. 3) `Redact` - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces. It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction. Default to `Analyze`.
+     * 
+     */
+    @Import(name="faceRedactorMode")
+    private @Nullable Output<String> faceRedactorMode;
+
+    /**
+     * @return This mode provides the ability to choose between the following settings: 1) `Analyze` - For detection only. This mode generates a metadata JSON file marking appearances of faces throughout the video. Where possible, appearances of the same person are assigned the same ID. 2) `Combined` - Additionally redacts(blurs) detected faces. 3) `Redact` - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces. It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction. Default to `Analyze`.
+     * 
+     */
+    public Optional<Output<String>> faceRedactorMode() {
+        return Optional.ofNullable(this.faceRedactorMode);
+    }
+
     private TransformOutputFaceDetectorPresetArgs() {}
 
     private TransformOutputFaceDetectorPresetArgs(TransformOutputFaceDetectorPresetArgs $) {
         this.analysisResolution = $.analysisResolution;
+        this.blurType = $.blurType;
+        this.experimentalOptions = $.experimentalOptions;
+        this.faceRedactorMode = $.faceRedactorMode;
     }
 
     public static Builder builder() {
@@ -55,7 +104,7 @@ public final class TransformOutputFaceDetectorPresetArgs extends com.pulumi.reso
         }
 
         /**
-         * @param analysisResolution Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see &lt;https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics&gt; for details). However, faces that end up being too small in the resized video may not be detected.
+         * @param analysisResolution Possible values are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see &lt;https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics&gt; for details). However, faces that end up being too small in the resized video may not be detected. Default to `SourceResolution`.
          * 
          * @return builder
          * 
@@ -66,13 +115,76 @@ public final class TransformOutputFaceDetectorPresetArgs extends com.pulumi.reso
         }
 
         /**
-         * @param analysisResolution Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see &lt;https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics&gt; for details). However, faces that end up being too small in the resized video may not be detected.
+         * @param analysisResolution Possible values are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see &lt;https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics&gt; for details). However, faces that end up being too small in the resized video may not be detected. Default to `SourceResolution`.
          * 
          * @return builder
          * 
          */
         public Builder analysisResolution(String analysisResolution) {
             return analysisResolution(Output.of(analysisResolution));
+        }
+
+        /**
+         * @param blurType Specifies the type of blur to apply to faces in the output video. Possible values are `Black`, `Box`, `High`, `Low`,and `Med`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blurType(@Nullable Output<String> blurType) {
+            $.blurType = blurType;
+            return this;
+        }
+
+        /**
+         * @param blurType Specifies the type of blur to apply to faces in the output video. Possible values are `Black`, `Box`, `High`, `Low`,and `Med`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blurType(String blurType) {
+            return blurType(Output.of(blurType));
+        }
+
+        /**
+         * @param experimentalOptions Dictionary containing key value pairs for parameters not exposed in the preset itself.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentalOptions(@Nullable Output<Map<String,String>> experimentalOptions) {
+            $.experimentalOptions = experimentalOptions;
+            return this;
+        }
+
+        /**
+         * @param experimentalOptions Dictionary containing key value pairs for parameters not exposed in the preset itself.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentalOptions(Map<String,String> experimentalOptions) {
+            return experimentalOptions(Output.of(experimentalOptions));
+        }
+
+        /**
+         * @param faceRedactorMode This mode provides the ability to choose between the following settings: 1) `Analyze` - For detection only. This mode generates a metadata JSON file marking appearances of faces throughout the video. Where possible, appearances of the same person are assigned the same ID. 2) `Combined` - Additionally redacts(blurs) detected faces. 3) `Redact` - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces. It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction. Default to `Analyze`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder faceRedactorMode(@Nullable Output<String> faceRedactorMode) {
+            $.faceRedactorMode = faceRedactorMode;
+            return this;
+        }
+
+        /**
+         * @param faceRedactorMode This mode provides the ability to choose between the following settings: 1) `Analyze` - For detection only. This mode generates a metadata JSON file marking appearances of faces throughout the video. Where possible, appearances of the same person are assigned the same ID. 2) `Combined` - Additionally redacts(blurs) detected faces. 3) `Redact` - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces. It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction. Default to `Analyze`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder faceRedactorMode(String faceRedactorMode) {
+            return faceRedactorMode(Output.of(faceRedactorMode));
         }
 
         public TransformOutputFaceDetectorPresetArgs build() {

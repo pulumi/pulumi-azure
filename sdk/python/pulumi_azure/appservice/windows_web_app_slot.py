@@ -387,6 +387,7 @@ class _WindowsWebAppSlotState:
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  default_hostname: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 hosting_environment_id: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['WindowsWebAppSlotIdentityArgs']] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
@@ -419,6 +420,7 @@ class _WindowsWebAppSlotState:
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_hostname: The default hostname of the Windows Web App Slot.
         :param pulumi.Input[bool] enabled: Should the Windows Web App Slot be enabled? Defaults to `true`.
+        :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by App Service Slot.
         :param pulumi.Input[bool] https_only: Should the Windows Web App Slot require HTTPS connections.
         :param pulumi.Input['WindowsWebAppSlotIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
@@ -463,6 +465,8 @@ class _WindowsWebAppSlotState:
             pulumi.set(__self__, "default_hostname", default_hostname)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if hosting_environment_id is not None:
+            pulumi.set(__self__, "hosting_environment_id", hosting_environment_id)
         if https_only is not None:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
@@ -653,6 +657,18 @@ class _WindowsWebAppSlotState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="hostingEnvironmentId")
+    def hosting_environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the App Service Environment used by App Service Slot.
+        """
+        return pulumi.get(self, "hosting_environment_id")
+
+    @hosting_environment_id.setter
+    def hosting_environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hosting_environment_id", value)
 
     @property
     @pulumi.getter(name="httpsOnly")
@@ -1058,6 +1074,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
             __props__.__dict__["zip_deploy_file"] = zip_deploy_file
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
+            __props__.__dict__["hosting_environment_id"] = None
             __props__.__dict__["kind"] = None
             __props__.__dict__["outbound_ip_address_lists"] = None
             __props__.__dict__["outbound_ip_addresses"] = None
@@ -1089,6 +1106,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
             default_hostname: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            hosting_environment_id: Optional[pulumi.Input[str]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['WindowsWebAppSlotIdentityArgs']]] = None,
             key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
@@ -1126,6 +1144,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_hostname: The default hostname of the Windows Web App Slot.
         :param pulumi.Input[bool] enabled: Should the Windows Web App Slot be enabled? Defaults to `true`.
+        :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by App Service Slot.
         :param pulumi.Input[bool] https_only: Should the Windows Web App Slot require HTTPS connections.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSlotIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
@@ -1161,6 +1180,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         __props__.__dict__["custom_domain_verification_id"] = custom_domain_verification_id
         __props__.__dict__["default_hostname"] = default_hostname
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["hosting_environment_id"] = hosting_environment_id
         __props__.__dict__["https_only"] = https_only
         __props__.__dict__["identity"] = identity
         __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
@@ -1283,6 +1303,14 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         Should the Windows Web App Slot be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="hostingEnvironmentId")
+    def hosting_environment_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the App Service Environment used by App Service Slot.
+        """
+        return pulumi.get(self, "hosting_environment_id")
 
     @property
     @pulumi.getter(name="httpsOnly")

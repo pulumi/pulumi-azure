@@ -147,6 +147,9 @@ class GetEnvironmentResult:
     @property
     @pulumi.getter(name="staticIpAddress")
     def static_ip_address(self) -> str:
+        """
+        The Static IP address of the Environment.
+        """
         return pulumi.get(self, "static_ip_address")
 
     @property

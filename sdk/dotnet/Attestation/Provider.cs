@@ -67,6 +67,12 @@ namespace Pulumi.Azure.Attestation
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `policy` blocks as defined below.
+        /// </summary>
+        [Output("policies")]
+        public Output<ImmutableArray<Outputs.ProviderPolicy>> Policies { get; private set; } = null!;
+
+        /// <summary>
         /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
         /// </summary>
         [Output("policySigningCertificateData")]
@@ -148,6 +154,18 @@ namespace Pulumi.Azure.Attestation
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("policies")]
+        private InputList<Inputs.ProviderPolicyArgs>? _policies;
+
+        /// <summary>
+        /// One or more `policy` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ProviderPolicyArgs> Policies
+        {
+            get => _policies ?? (_policies = new InputList<Inputs.ProviderPolicyArgs>());
+            set => _policies = value;
+        }
+
         /// <summary>
         /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
         /// </summary>
@@ -197,6 +215,18 @@ namespace Pulumi.Azure.Attestation
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("policies")]
+        private InputList<Inputs.ProviderPolicyGetArgs>? _policies;
+
+        /// <summary>
+        /// One or more `policy` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.ProviderPolicyGetArgs> Policies
+        {
+            get => _policies ?? (_policies = new InputList<Inputs.ProviderPolicyGetArgs>());
+            set => _policies = value;
+        }
 
         /// <summary>
         /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.

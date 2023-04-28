@@ -151,6 +151,9 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         public readonly string PlatformReservedDnsIpAddress;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// The Static IP address of the Environment.
+        /// </summary>
         public readonly string StaticIpAddress;
         /// <summary>
         /// A mapping of tags assigned to the resource.

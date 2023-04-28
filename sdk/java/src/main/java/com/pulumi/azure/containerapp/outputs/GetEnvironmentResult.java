@@ -58,6 +58,10 @@ public final class GetEnvironmentResult {
      */
     private String platformReservedDnsIpAddress;
     private String resourceGroupName;
+    /**
+     * @return The Static IP address of the Environment.
+     * 
+     */
     private String staticIpAddress;
     /**
      * @return A mapping of tags assigned to the resource.
@@ -135,6 +139,10 @@ public final class GetEnvironmentResult {
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * @return The Static IP address of the Environment.
+     * 
+     */
     public String staticIpAddress() {
         return this.staticIpAddress;
     }

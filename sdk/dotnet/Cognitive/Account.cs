@@ -231,6 +231,7 @@ namespace Pulumi.Azure.Cognitive
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "customQuestionAnsweringSearchServiceKey",
                     "primaryAccessKey",
                     "secondaryAccessKey",
                 },
@@ -263,11 +264,21 @@ namespace Pulumi.Azure.Cognitive
         [Input("customQuestionAnsweringSearchServiceId")]
         public Input<string>? CustomQuestionAnsweringSearchServiceId { get; set; }
 
+        [Input("customQuestionAnsweringSearchServiceKey")]
+        private Input<string>? _customQuestionAnsweringSearchServiceKey;
+
         /// <summary>
         /// If `kind` is `TextAnalytics` this specifies the key of the Search service.
         /// </summary>
-        [Input("customQuestionAnsweringSearchServiceKey")]
-        public Input<string>? CustomQuestionAnsweringSearchServiceKey { get; set; }
+        public Input<string>? CustomQuestionAnsweringSearchServiceKey
+        {
+            get => _customQuestionAnsweringSearchServiceKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _customQuestionAnsweringSearchServiceKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
@@ -427,11 +438,21 @@ namespace Pulumi.Azure.Cognitive
         [Input("customQuestionAnsweringSearchServiceId")]
         public Input<string>? CustomQuestionAnsweringSearchServiceId { get; set; }
 
+        [Input("customQuestionAnsweringSearchServiceKey")]
+        private Input<string>? _customQuestionAnsweringSearchServiceKey;
+
         /// <summary>
         /// If `kind` is `TextAnalytics` this specifies the key of the Search service.
         /// </summary>
-        [Input("customQuestionAnsweringSearchServiceKey")]
-        public Input<string>? CustomQuestionAnsweringSearchServiceKey { get; set; }
+        public Input<string>? CustomQuestionAnsweringSearchServiceKey
+        {
+            get => _customQuestionAnsweringSearchServiceKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _customQuestionAnsweringSearchServiceKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.

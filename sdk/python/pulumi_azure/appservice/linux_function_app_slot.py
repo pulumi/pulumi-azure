@@ -470,6 +470,7 @@ class _LinuxFunctionAppSlotState:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  function_app_id: Optional[pulumi.Input[str]] = None,
                  functions_extension_version: Optional[pulumi.Input[str]] = None,
+                 hosting_environment_id: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['LinuxFunctionAppSlotIdentityArgs']] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
@@ -507,6 +508,7 @@ class _LinuxFunctionAppSlotState:
         :param pulumi.Input[bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
         :param pulumi.Input[str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
+        :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App Slot.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
         :param pulumi.Input['LinuxFunctionAppSlotIdentityArgs'] identity: An `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
@@ -559,6 +561,8 @@ class _LinuxFunctionAppSlotState:
             pulumi.set(__self__, "function_app_id", function_app_id)
         if functions_extension_version is not None:
             pulumi.set(__self__, "functions_extension_version", functions_extension_version)
+        if hosting_environment_id is not None:
+            pulumi.set(__self__, "hosting_environment_id", hosting_environment_id)
         if https_only is not None:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
@@ -789,6 +793,18 @@ class _LinuxFunctionAppSlotState:
     @functions_extension_version.setter
     def functions_extension_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "functions_extension_version", value)
+
+    @property
+    @pulumi.getter(name="hostingEnvironmentId")
+    def hosting_environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the App Service Environment used by Function App Slot.
+        """
+        return pulumi.get(self, "hosting_environment_id")
+
+    @hosting_environment_id.setter
+    def hosting_environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hosting_environment_id", value)
 
     @property
     @pulumi.getter(name="httpsOnly")
@@ -1252,6 +1268,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
+            __props__.__dict__["hosting_environment_id"] = None
             __props__.__dict__["kind"] = None
             __props__.__dict__["outbound_ip_address_lists"] = None
             __props__.__dict__["outbound_ip_addresses"] = None
@@ -1286,6 +1303,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             function_app_id: Optional[pulumi.Input[str]] = None,
             functions_extension_version: Optional[pulumi.Input[str]] = None,
+            hosting_environment_id: Optional[pulumi.Input[str]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppSlotIdentityArgs']]] = None,
             key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
@@ -1328,6 +1346,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
         :param pulumi.Input[str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
+        :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App Slot.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
         :param pulumi.Input[pulumi.InputType['LinuxFunctionAppSlotIdentityArgs']] identity: An `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
@@ -1368,6 +1387,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["function_app_id"] = function_app_id
         __props__.__dict__["functions_extension_version"] = functions_extension_version
+        __props__.__dict__["hosting_environment_id"] = hosting_environment_id
         __props__.__dict__["https_only"] = https_only
         __props__.__dict__["identity"] = identity
         __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
@@ -1516,6 +1536,14 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         The runtime version associated with the Function App Slot. Defaults to `~4`.
         """
         return pulumi.get(self, "functions_extension_version")
+
+    @property
+    @pulumi.getter(name="hostingEnvironmentId")
+    def hosting_environment_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the App Service Environment used by Function App Slot.
+        """
+        return pulumi.get(self, "hosting_environment_id")
 
     @property
     @pulumi.getter(name="httpsOnly")

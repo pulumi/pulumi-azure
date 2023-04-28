@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ProviderArgs', 'Provider']
 
@@ -17,6 +19,7 @@ class ProviderArgs:
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]] = None,
                  policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -24,6 +27,7 @@ class ProviderArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]] policies: One or more `policy` blocks as defined below.
         :param pulumi.Input[str] policy_signing_certificate_data: A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
         """
@@ -32,6 +36,8 @@ class ProviderArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if policies is not None:
+            pulumi.set(__self__, "policies", policies)
         if policy_signing_certificate_data is not None:
             pulumi.set(__self__, "policy_signing_certificate_data", policy_signing_certificate_data)
         if tags is not None:
@@ -74,6 +80,18 @@ class ProviderArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]]:
+        """
+        One or more `policy` blocks as defined below.
+        """
+        return pulumi.get(self, "policies")
+
+    @policies.setter
+    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]]):
+        pulumi.set(self, "policies", value)
+
+    @property
     @pulumi.getter(name="policySigningCertificateData")
     def policy_signing_certificate_data(self) -> Optional[pulumi.Input[str]]:
         """
@@ -104,6 +122,7 @@ class _ProviderState:
                  attestation_uri: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]] = None,
                  policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -113,6 +132,7 @@ class _ProviderState:
         :param pulumi.Input[str] attestation_uri: The URI of the Attestation Service.
         :param pulumi.Input[str] location: The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]] policies: One or more `policy` blocks as defined below.
         :param pulumi.Input[str] policy_signing_certificate_data: A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
@@ -124,6 +144,8 @@ class _ProviderState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if policies is not None:
+            pulumi.set(__self__, "policies", policies)
         if policy_signing_certificate_data is not None:
             pulumi.set(__self__, "policy_signing_certificate_data", policy_signing_certificate_data)
         if resource_group_name is not None:
@@ -168,6 +190,18 @@ class _ProviderState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]]:
+        """
+        One or more `policy` blocks as defined below.
+        """
+        return pulumi.get(self, "policies")
+
+    @policies.setter
+    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderPolicyArgs']]]]):
+        pulumi.set(self, "policies", value)
 
     @property
     @pulumi.getter(name="policySigningCertificateData")
@@ -225,6 +259,7 @@ class Provider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArgs']]]]] = None,
                  policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -257,6 +292,7 @@ class Provider(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArgs']]]] policies: One or more `policy` blocks as defined below.
         :param pulumi.Input[str] policy_signing_certificate_data: A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
@@ -308,6 +344,7 @@ class Provider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArgs']]]]] = None,
                  policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -322,6 +359,7 @@ class Provider(pulumi.CustomResource):
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["policies"] = policies
             __props__.__dict__["policy_signing_certificate_data"] = policy_signing_certificate_data
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -342,6 +380,7 @@ class Provider(pulumi.CustomResource):
             attestation_uri: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArgs']]]]] = None,
             policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -356,6 +395,7 @@ class Provider(pulumi.CustomResource):
         :param pulumi.Input[str] attestation_uri: The URI of the Attestation Service.
         :param pulumi.Input[str] location: The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArgs']]]] policies: One or more `policy` blocks as defined below.
         :param pulumi.Input[str] policy_signing_certificate_data: A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Attestation Provider.
@@ -368,6 +408,7 @@ class Provider(pulumi.CustomResource):
         __props__.__dict__["attestation_uri"] = attestation_uri
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["policies"] = policies
         __props__.__dict__["policy_signing_certificate_data"] = policy_signing_certificate_data
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
@@ -397,6 +438,14 @@ class Provider(pulumi.CustomResource):
         The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def policies(self) -> pulumi.Output[Optional[Sequence['outputs.ProviderPolicy']]]:
+        """
+        One or more `policy` blocks as defined below.
+        """
+        return pulumi.get(self, "policies")
 
     @property
     @pulumi.getter(name="policySigningCertificateData")

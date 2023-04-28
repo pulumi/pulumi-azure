@@ -16183,7 +16183,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] java_server_version: The Version of the `java_server` to use.
         :param pulumi.Input[str] java_version: The Version of Java to use. Possible values include `8`, `11`, and `17`.
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
-        :param pulumi.Input[str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
+        :param pulumi.Input[str] php_version: The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
         :param pulumi.Input[str] ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
@@ -16310,7 +16310,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
+        The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
         """
         return pulumi.get(self, "php_version")
 
@@ -20186,7 +20186,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] java_server_version: The Version of the `java_server` to use.
         :param pulumi.Input[str] java_version: The Version of Java to use. Possible values include `8`, `11`, and `17`.
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
-        :param pulumi.Input[str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
+        :param pulumi.Input[str] php_version: The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
         :param pulumi.Input[str] ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
@@ -20313,7 +20313,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
+        The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
         """
         return pulumi.get(self, "php_version")
 

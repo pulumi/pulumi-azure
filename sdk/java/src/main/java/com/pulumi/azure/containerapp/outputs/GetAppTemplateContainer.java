@@ -52,7 +52,7 @@ public final class GetAppTemplateContainer {
      */
     private List<GetAppTemplateContainerLivenessProbe> livenessProbes;
     /**
-     * @return The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+     * @return The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
      * 
      */
     private String memory;
@@ -128,7 +128,7 @@ public final class GetAppTemplateContainer {
         return this.livenessProbes;
     }
     /**
-     * @return The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+     * @return The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
      * 
      */
     public String memory() {

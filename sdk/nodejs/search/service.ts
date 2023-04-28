@@ -161,6 +161,8 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["secondaryKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["primaryKey", "secondaryKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }

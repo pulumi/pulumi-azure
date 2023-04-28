@@ -6,6 +6,7 @@ package com.pulumi.azure.media.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,14 +17,14 @@ public final class TransformOutputAudioAnalyzerPresetArgs extends com.pulumi.res
     public static final TransformOutputAudioAnalyzerPresetArgs Empty = new TransformOutputAudioAnalyzerPresetArgs();
 
     /**
-     * Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+     * Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
      * 
      */
     @Import(name="audioAnalysisMode")
     private @Nullable Output<String> audioAnalysisMode;
 
     /**
-     * @return Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+     * @return Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
      * 
      */
     public Optional<Output<String>> audioAnalysisMode() {
@@ -31,18 +32,33 @@ public final class TransformOutputAudioAnalyzerPresetArgs extends com.pulumi.res
     }
 
     /**
-     * The language for the audio payload in the input using the BCP-47 format of &#39;language tag-region&#39; (e.g: &#39;en-US&#39;). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn&#39;t specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to &#39;en-US&#39;.&#34; The list of supported languages is available here: &lt;https://go.microsoft.com/fwlink/?linkid=2109463&gt;. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+     * The language for the audio payload in the input using the BCP-47 format of &#39;language tag-region&#39; (e.g: &#39;en-US&#39;). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn&#39;t specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: &lt;https://go.microsoft.com/fwlink/?linkid=2109463&gt;.
      * 
      */
     @Import(name="audioLanguage")
     private @Nullable Output<String> audioLanguage;
 
     /**
-     * @return The language for the audio payload in the input using the BCP-47 format of &#39;language tag-region&#39; (e.g: &#39;en-US&#39;). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn&#39;t specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to &#39;en-US&#39;.&#34; The list of supported languages is available here: &lt;https://go.microsoft.com/fwlink/?linkid=2109463&gt;. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+     * @return The language for the audio payload in the input using the BCP-47 format of &#39;language tag-region&#39; (e.g: &#39;en-US&#39;). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn&#39;t specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: &lt;https://go.microsoft.com/fwlink/?linkid=2109463&gt;.
      * 
      */
     public Optional<Output<String>> audioLanguage() {
         return Optional.ofNullable(this.audioLanguage);
+    }
+
+    /**
+     * Dictionary containing key value pairs for parameters not exposed in the preset itself.
+     * 
+     */
+    @Import(name="experimentalOptions")
+    private @Nullable Output<Map<String,String>> experimentalOptions;
+
+    /**
+     * @return Dictionary containing key value pairs for parameters not exposed in the preset itself.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> experimentalOptions() {
+        return Optional.ofNullable(this.experimentalOptions);
     }
 
     private TransformOutputAudioAnalyzerPresetArgs() {}
@@ -50,6 +66,7 @@ public final class TransformOutputAudioAnalyzerPresetArgs extends com.pulumi.res
     private TransformOutputAudioAnalyzerPresetArgs(TransformOutputAudioAnalyzerPresetArgs $) {
         this.audioAnalysisMode = $.audioAnalysisMode;
         this.audioLanguage = $.audioLanguage;
+        this.experimentalOptions = $.experimentalOptions;
     }
 
     public static Builder builder() {
@@ -71,7 +88,7 @@ public final class TransformOutputAudioAnalyzerPresetArgs extends com.pulumi.res
         }
 
         /**
-         * @param audioAnalysisMode Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+         * @param audioAnalysisMode Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
          * 
          * @return builder
          * 
@@ -82,7 +99,7 @@ public final class TransformOutputAudioAnalyzerPresetArgs extends com.pulumi.res
         }
 
         /**
-         * @param audioAnalysisMode Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+         * @param audioAnalysisMode Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
          * 
          * @return builder
          * 
@@ -92,7 +109,7 @@ public final class TransformOutputAudioAnalyzerPresetArgs extends com.pulumi.res
         }
 
         /**
-         * @param audioLanguage The language for the audio payload in the input using the BCP-47 format of &#39;language tag-region&#39; (e.g: &#39;en-US&#39;). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn&#39;t specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to &#39;en-US&#39;.&#34; The list of supported languages is available here: &lt;https://go.microsoft.com/fwlink/?linkid=2109463&gt;. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+         * @param audioLanguage The language for the audio payload in the input using the BCP-47 format of &#39;language tag-region&#39; (e.g: &#39;en-US&#39;). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn&#39;t specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: &lt;https://go.microsoft.com/fwlink/?linkid=2109463&gt;.
          * 
          * @return builder
          * 
@@ -103,13 +120,34 @@ public final class TransformOutputAudioAnalyzerPresetArgs extends com.pulumi.res
         }
 
         /**
-         * @param audioLanguage The language for the audio payload in the input using the BCP-47 format of &#39;language tag-region&#39; (e.g: &#39;en-US&#39;). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn&#39;t specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to &#39;en-US&#39;.&#34; The list of supported languages is available here: &lt;https://go.microsoft.com/fwlink/?linkid=2109463&gt;. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+         * @param audioLanguage The language for the audio payload in the input using the BCP-47 format of &#39;language tag-region&#39; (e.g: &#39;en-US&#39;). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn&#39;t specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: &lt;https://go.microsoft.com/fwlink/?linkid=2109463&gt;.
          * 
          * @return builder
          * 
          */
         public Builder audioLanguage(String audioLanguage) {
             return audioLanguage(Output.of(audioLanguage));
+        }
+
+        /**
+         * @param experimentalOptions Dictionary containing key value pairs for parameters not exposed in the preset itself.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentalOptions(@Nullable Output<Map<String,String>> experimentalOptions) {
+            $.experimentalOptions = experimentalOptions;
+            return this;
+        }
+
+        /**
+         * @param experimentalOptions Dictionary containing key value pairs for parameters not exposed in the preset itself.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder experimentalOptions(Map<String,String> experimentalOptions) {
+            return experimentalOptions(Output.of(experimentalOptions));
         }
 
         public TransformOutputAudioAnalyzerPresetArgs build() {

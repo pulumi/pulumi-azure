@@ -6,6 +6,7 @@ package com.pulumi.azure.healthcare.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,13 @@ import javax.annotation.Nullable;
 public final class FhirServiceIdentityArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FhirServiceIdentityArgs Empty = new FhirServiceIdentityArgs();
+
+    @Import(name="identityIds")
+    private @Nullable Output<List<String>> identityIds;
+
+    public Optional<Output<List<String>>> identityIds() {
+        return Optional.ofNullable(this.identityIds);
+    }
 
     @Import(name="principalId")
     private @Nullable Output<String> principalId;
@@ -47,6 +55,7 @@ public final class FhirServiceIdentityArgs extends com.pulumi.resources.Resource
     private FhirServiceIdentityArgs() {}
 
     private FhirServiceIdentityArgs(FhirServiceIdentityArgs $) {
+        this.identityIds = $.identityIds;
         this.principalId = $.principalId;
         this.tenantId = $.tenantId;
         this.type = $.type;
@@ -68,6 +77,19 @@ public final class FhirServiceIdentityArgs extends com.pulumi.resources.Resource
 
         public Builder(FhirServiceIdentityArgs defaults) {
             $ = new FhirServiceIdentityArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder identityIds(@Nullable Output<List<String>> identityIds) {
+            $.identityIds = identityIds;
+            return this;
+        }
+
+        public Builder identityIds(List<String> identityIds) {
+            return identityIds(Output.of(identityIds));
+        }
+
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
         }
 
         public Builder principalId(@Nullable Output<String> principalId) {

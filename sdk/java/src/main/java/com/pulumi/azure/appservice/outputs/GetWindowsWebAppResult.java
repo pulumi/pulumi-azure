@@ -83,6 +83,11 @@ public final class GetWindowsWebAppResult {
      */
     private Boolean enabled;
     /**
+     * @return The ID of the App Service Environment used by App Service.
+     * 
+     */
+    private String hostingEnvironmentId;
+    /**
      * @return Does the Windows Web App require HTTPS connections.
      * 
      */
@@ -260,6 +265,13 @@ public final class GetWindowsWebAppResult {
         return this.enabled;
     }
     /**
+     * @return The ID of the App Service Environment used by App Service.
+     * 
+     */
+    public String hostingEnvironmentId() {
+        return this.hostingEnvironmentId;
+    }
+    /**
      * @return Does the Windows Web App require HTTPS connections.
      * 
      */
@@ -410,6 +422,7 @@ public final class GetWindowsWebAppResult {
         private String customDomainVerificationId;
         private String defaultHostname;
         private Boolean enabled;
+        private String hostingEnvironmentId;
         private Boolean httpsOnly;
         private String id;
         private List<GetWindowsWebAppIdentity> identities;
@@ -444,6 +457,7 @@ public final class GetWindowsWebAppResult {
     	      this.customDomainVerificationId = defaults.customDomainVerificationId;
     	      this.defaultHostname = defaults.defaultHostname;
     	      this.enabled = defaults.enabled;
+    	      this.hostingEnvironmentId = defaults.hostingEnvironmentId;
     	      this.httpsOnly = defaults.httpsOnly;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
@@ -535,6 +549,11 @@ public final class GetWindowsWebAppResult {
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hostingEnvironmentId(String hostingEnvironmentId) {
+            this.hostingEnvironmentId = Objects.requireNonNull(hostingEnvironmentId);
             return this;
         }
         @CustomType.Setter
@@ -670,6 +689,7 @@ public final class GetWindowsWebAppResult {
             o.customDomainVerificationId = customDomainVerificationId;
             o.defaultHostname = defaultHostname;
             o.enabled = enabled;
+            o.hostingEnvironmentId = hostingEnvironmentId;
             o.httpsOnly = httpsOnly;
             o.id = id;
             o.identities = identities;

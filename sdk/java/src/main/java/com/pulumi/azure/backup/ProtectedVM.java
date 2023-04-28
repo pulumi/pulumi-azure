@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.backup.PolicyVM;
  * import com.pulumi.azure.backup.PolicyVMArgs;
  * import com.pulumi.azure.backup.inputs.PolicyVMBackupArgs;
+ * import com.pulumi.azure.backup.inputs.PolicyVMRetentionDailyArgs;
  * import com.pulumi.azure.compute.ComputeFunctions;
  * import com.pulumi.azure.compute.inputs.GetVirtualMachineArgs;
  * import com.pulumi.azure.backup.ProtectedVM;
@@ -67,10 +68,13 @@ import javax.annotation.Nullable;
  *                 .frequency(&#34;Daily&#34;)
  *                 .time(&#34;23:00&#34;)
  *                 .build())
+ *             .retentionDaily(PolicyVMRetentionDailyArgs.builder()
+ *                 .count(10)
+ *                 .build())
  *             .build());
  * 
  *         final var exampleVirtualMachine = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
- *             .name(&#34;production&#34;)
+ *             .name(&#34;example-vm&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 

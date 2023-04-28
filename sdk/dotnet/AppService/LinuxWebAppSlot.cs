@@ -147,6 +147,12 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the App Service Environment used by App Service Slot.
+        /// </summary>
+        [Output("hostingEnvironmentId")]
+        public Output<string> HostingEnvironmentId { get; private set; } = null!;
+
+        /// <summary>
         /// Should the Linux Web App require HTTPS connections.
         /// </summary>
         [Output("httpsOnly")]
@@ -574,6 +580,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// The ID of the App Service Environment used by App Service Slot.
+        /// </summary>
+        [Input("hostingEnvironmentId")]
+        public Input<string>? HostingEnvironmentId { get; set; }
 
         /// <summary>
         /// Should the Linux Web App require HTTPS connections.

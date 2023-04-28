@@ -70,6 +70,32 @@ __all__ = [
     'TransformOutput',
     'TransformOutputAudioAnalyzerPreset',
     'TransformOutputBuiltinPreset',
+    'TransformOutputBuiltinPresetPresetConfiguration',
+    'TransformOutputCustomPreset',
+    'TransformOutputCustomPresetCodec',
+    'TransformOutputCustomPresetCodecAacAudio',
+    'TransformOutputCustomPresetCodecCopyAudio',
+    'TransformOutputCustomPresetCodecCopyVideo',
+    'TransformOutputCustomPresetCodecDdAudio',
+    'TransformOutputCustomPresetCodecH264Video',
+    'TransformOutputCustomPresetCodecH264VideoLayer',
+    'TransformOutputCustomPresetCodecH265Video',
+    'TransformOutputCustomPresetCodecH265VideoLayer',
+    'TransformOutputCustomPresetFilter',
+    'TransformOutputCustomPresetFilterCropRectangle',
+    'TransformOutputCustomPresetFilterDeinterlace',
+    'TransformOutputCustomPresetFilterFadeIn',
+    'TransformOutputCustomPresetFilterFadeOut',
+    'TransformOutputCustomPresetFilterOverlay',
+    'TransformOutputCustomPresetFilterOverlayAudio',
+    'TransformOutputCustomPresetFilterOverlayVideo',
+    'TransformOutputCustomPresetFilterOverlayVideoCropRectangle',
+    'TransformOutputCustomPresetFilterOverlayVideoPosition',
+    'TransformOutputCustomPresetFormat',
+    'TransformOutputCustomPresetFormatMp4',
+    'TransformOutputCustomPresetFormatMp4OutputFile',
+    'TransformOutputCustomPresetFormatTransportStream',
+    'TransformOutputCustomPresetFormatTransportStreamOutputFile',
     'TransformOutputFaceDetectorPreset',
     'TransformOutputVideoAnalyzerPreset',
 ]
@@ -3674,6 +3700,8 @@ class TransformOutput(dict):
             suggest = "audio_analyzer_preset"
         elif key == "builtinPreset":
             suggest = "builtin_preset"
+        elif key == "customPreset":
+            suggest = "custom_preset"
         elif key == "faceDetectorPreset":
             suggest = "face_detector_preset"
         elif key == "onErrorAction":
@@ -3697,22 +3725,26 @@ class TransformOutput(dict):
     def __init__(__self__, *,
                  audio_analyzer_preset: Optional['outputs.TransformOutputAudioAnalyzerPreset'] = None,
                  builtin_preset: Optional['outputs.TransformOutputBuiltinPreset'] = None,
+                 custom_preset: Optional['outputs.TransformOutputCustomPreset'] = None,
                  face_detector_preset: Optional['outputs.TransformOutputFaceDetectorPreset'] = None,
                  on_error_action: Optional[str] = None,
                  relative_priority: Optional[str] = None,
                  video_analyzer_preset: Optional['outputs.TransformOutputVideoAnalyzerPreset'] = None):
         """
-        :param 'TransformOutputAudioAnalyzerPresetArgs' audio_analyzer_preset: A `audio_analyzer_preset` block as defined below.
-        :param 'TransformOutputBuiltinPresetArgs' builtin_preset: A `builtin_preset` block as defined below.
-        :param 'TransformOutputFaceDetectorPresetArgs' face_detector_preset: A `face_detector_preset` block as defined below.
-        :param str on_error_action: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
-        :param str relative_priority: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+        :param 'TransformOutputAudioAnalyzerPresetArgs' audio_analyzer_preset: An `audio_analyzer_preset` block as defined above.
+        :param 'TransformOutputBuiltinPresetArgs' builtin_preset: A `builtin_preset` block as defined above.
+        :param 'TransformOutputCustomPresetArgs' custom_preset: A `custom_preset` block as defined above.
+        :param 'TransformOutputFaceDetectorPresetArgs' face_detector_preset: A `face_detector_preset` block as defined above.
+        :param str on_error_action: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
+        :param str relative_priority: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
         :param 'TransformOutputVideoAnalyzerPresetArgs' video_analyzer_preset: A `video_analyzer_preset` block as defined below.
         """
         if audio_analyzer_preset is not None:
             pulumi.set(__self__, "audio_analyzer_preset", audio_analyzer_preset)
         if builtin_preset is not None:
             pulumi.set(__self__, "builtin_preset", builtin_preset)
+        if custom_preset is not None:
+            pulumi.set(__self__, "custom_preset", custom_preset)
         if face_detector_preset is not None:
             pulumi.set(__self__, "face_detector_preset", face_detector_preset)
         if on_error_action is not None:
@@ -3726,7 +3758,7 @@ class TransformOutput(dict):
     @pulumi.getter(name="audioAnalyzerPreset")
     def audio_analyzer_preset(self) -> Optional['outputs.TransformOutputAudioAnalyzerPreset']:
         """
-        A `audio_analyzer_preset` block as defined below.
+        An `audio_analyzer_preset` block as defined above.
         """
         return pulumi.get(self, "audio_analyzer_preset")
 
@@ -3734,15 +3766,23 @@ class TransformOutput(dict):
     @pulumi.getter(name="builtinPreset")
     def builtin_preset(self) -> Optional['outputs.TransformOutputBuiltinPreset']:
         """
-        A `builtin_preset` block as defined below.
+        A `builtin_preset` block as defined above.
         """
         return pulumi.get(self, "builtin_preset")
+
+    @property
+    @pulumi.getter(name="customPreset")
+    def custom_preset(self) -> Optional['outputs.TransformOutputCustomPreset']:
+        """
+        A `custom_preset` block as defined above.
+        """
+        return pulumi.get(self, "custom_preset")
 
     @property
     @pulumi.getter(name="faceDetectorPreset")
     def face_detector_preset(self) -> Optional['outputs.TransformOutputFaceDetectorPreset']:
         """
-        A `face_detector_preset` block as defined below.
+        A `face_detector_preset` block as defined above.
         """
         return pulumi.get(self, "face_detector_preset")
 
@@ -3750,7 +3790,7 @@ class TransformOutput(dict):
     @pulumi.getter(name="onErrorAction")
     def on_error_action(self) -> Optional[str]:
         """
-        A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+        A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
         """
         return pulumi.get(self, "on_error_action")
 
@@ -3758,7 +3798,7 @@ class TransformOutput(dict):
     @pulumi.getter(name="relativePriority")
     def relative_priority(self) -> Optional[str]:
         """
-        Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+        Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
         """
         return pulumi.get(self, "relative_priority")
 
@@ -3780,6 +3820,8 @@ class TransformOutputAudioAnalyzerPreset(dict):
             suggest = "audio_analysis_mode"
         elif key == "audioLanguage":
             suggest = "audio_language"
+        elif key == "experimentalOptions":
+            suggest = "experimental_options"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TransformOutputAudioAnalyzerPreset. Access the value via the '{suggest}' property getter instead.")
@@ -3794,21 +3836,25 @@ class TransformOutputAudioAnalyzerPreset(dict):
 
     def __init__(__self__, *,
                  audio_analysis_mode: Optional[str] = None,
-                 audio_language: Optional[str] = None):
+                 audio_language: Optional[str] = None,
+                 experimental_options: Optional[Mapping[str, str]] = None):
         """
-        :param str audio_analysis_mode: Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
-        :param str audio_language: The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+        :param str audio_analysis_mode: Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
+        :param str audio_language: The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
+        :param Mapping[str, str] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself.
         """
         if audio_analysis_mode is not None:
             pulumi.set(__self__, "audio_analysis_mode", audio_analysis_mode)
         if audio_language is not None:
             pulumi.set(__self__, "audio_language", audio_language)
+        if experimental_options is not None:
+            pulumi.set(__self__, "experimental_options", experimental_options)
 
     @property
     @pulumi.getter(name="audioAnalysisMode")
     def audio_analysis_mode(self) -> Optional[str]:
         """
-        Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+        Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
         """
         return pulumi.get(self, "audio_analysis_mode")
 
@@ -3816,9 +3862,17 @@ class TransformOutputAudioAnalyzerPreset(dict):
     @pulumi.getter(name="audioLanguage")
     def audio_language(self) -> Optional[str]:
         """
-        The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+        The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
         """
         return pulumi.get(self, "audio_language")
+
+    @property
+    @pulumi.getter(name="experimentalOptions")
+    def experimental_options(self) -> Optional[Mapping[str, str]]:
+        """
+        Dictionary containing key value pairs for parameters not exposed in the preset itself.
+        """
+        return pulumi.get(self, "experimental_options")
 
 
 @pulumi.output_type
@@ -3828,6 +3882,8 @@ class TransformOutputBuiltinPreset(dict):
         suggest = None
         if key == "presetName":
             suggest = "preset_name"
+        elif key == "presetConfiguration":
+            suggest = "preset_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TransformOutputBuiltinPreset. Access the value via the '{suggest}' property getter instead.")
@@ -3841,19 +3897,2027 @@ class TransformOutputBuiltinPreset(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 preset_name: str):
+                 preset_name: str,
+                 preset_configuration: Optional['outputs.TransformOutputBuiltinPresetPresetConfiguration'] = None):
         """
-        :param str preset_name: The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+        :param str preset_name: The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+        :param 'TransformOutputBuiltinPresetPresetConfigurationArgs' preset_configuration: A `present_configuration` block as defined below.
         """
         pulumi.set(__self__, "preset_name", preset_name)
+        if preset_configuration is not None:
+            pulumi.set(__self__, "preset_configuration", preset_configuration)
 
     @property
     @pulumi.getter(name="presetName")
     def preset_name(self) -> str:
         """
-        The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+        The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
         """
         return pulumi.get(self, "preset_name")
+
+    @property
+    @pulumi.getter(name="presetConfiguration")
+    def preset_configuration(self) -> Optional['outputs.TransformOutputBuiltinPresetPresetConfiguration']:
+        """
+        A `present_configuration` block as defined below.
+        """
+        return pulumi.get(self, "preset_configuration")
+
+
+@pulumi.output_type
+class TransformOutputBuiltinPresetPresetConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "interleaveOutput":
+            suggest = "interleave_output"
+        elif key == "keyFrameIntervalInSeconds":
+            suggest = "key_frame_interval_in_seconds"
+        elif key == "maxBitrateBps":
+            suggest = "max_bitrate_bps"
+        elif key == "maxHeight":
+            suggest = "max_height"
+        elif key == "maxLayers":
+            suggest = "max_layers"
+        elif key == "minBitrateBps":
+            suggest = "min_bitrate_bps"
+        elif key == "minHeight":
+            suggest = "min_height"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputBuiltinPresetPresetConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputBuiltinPresetPresetConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputBuiltinPresetPresetConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 complexity: Optional[str] = None,
+                 interleave_output: Optional[str] = None,
+                 key_frame_interval_in_seconds: Optional[float] = None,
+                 max_bitrate_bps: Optional[int] = None,
+                 max_height: Optional[int] = None,
+                 max_layers: Optional[int] = None,
+                 min_bitrate_bps: Optional[int] = None,
+                 min_height: Optional[int] = None):
+        """
+        :param str complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`.
+        :param str interleave_output: Specifies the interleave mode of the output to control how audio are stored in the container format. Possible values are `InterleavedOutput` and `NonInterleavedOutput`.
+        :param float key_frame_interval_in_seconds: The key frame interval in seconds. Possible value is a positive float. For example, set as `2.0` to reduce the playback buffering for some players.
+        :param int max_bitrate_bps: The maximum bitrate in bits per second (threshold for the top video layer). For example, set as `6000000` to avoid producing very high bitrate outputs for contents with high complexity.
+        :param int max_height: The maximum height of output video layers. For example, set as `720` to produce output layers up to 720P even if the input is 4K.
+        :param int max_layers: The maximum number of output video layers. For example, set as `4` to make sure at most 4 output layers are produced to control the overall cost of the encoding job.
+        :param int min_bitrate_bps: The minimum bitrate in bits per second (threshold for the bottom video layer). For example, set as `200000` to have a bottom layer that covers users with low network bandwidth.
+        :param int min_height: The minimum height of output video layers. For example, set as `360` to avoid output layers of smaller resolutions like 180P.
+        """
+        if complexity is not None:
+            pulumi.set(__self__, "complexity", complexity)
+        if interleave_output is not None:
+            pulumi.set(__self__, "interleave_output", interleave_output)
+        if key_frame_interval_in_seconds is not None:
+            pulumi.set(__self__, "key_frame_interval_in_seconds", key_frame_interval_in_seconds)
+        if max_bitrate_bps is not None:
+            pulumi.set(__self__, "max_bitrate_bps", max_bitrate_bps)
+        if max_height is not None:
+            pulumi.set(__self__, "max_height", max_height)
+        if max_layers is not None:
+            pulumi.set(__self__, "max_layers", max_layers)
+        if min_bitrate_bps is not None:
+            pulumi.set(__self__, "min_bitrate_bps", min_bitrate_bps)
+        if min_height is not None:
+            pulumi.set(__self__, "min_height", min_height)
+
+    @property
+    @pulumi.getter
+    def complexity(self) -> Optional[str]:
+        """
+        The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`.
+        """
+        return pulumi.get(self, "complexity")
+
+    @property
+    @pulumi.getter(name="interleaveOutput")
+    def interleave_output(self) -> Optional[str]:
+        """
+        Specifies the interleave mode of the output to control how audio are stored in the container format. Possible values are `InterleavedOutput` and `NonInterleavedOutput`.
+        """
+        return pulumi.get(self, "interleave_output")
+
+    @property
+    @pulumi.getter(name="keyFrameIntervalInSeconds")
+    def key_frame_interval_in_seconds(self) -> Optional[float]:
+        """
+        The key frame interval in seconds. Possible value is a positive float. For example, set as `2.0` to reduce the playback buffering for some players.
+        """
+        return pulumi.get(self, "key_frame_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="maxBitrateBps")
+    def max_bitrate_bps(self) -> Optional[int]:
+        """
+        The maximum bitrate in bits per second (threshold for the top video layer). For example, set as `6000000` to avoid producing very high bitrate outputs for contents with high complexity.
+        """
+        return pulumi.get(self, "max_bitrate_bps")
+
+    @property
+    @pulumi.getter(name="maxHeight")
+    def max_height(self) -> Optional[int]:
+        """
+        The maximum height of output video layers. For example, set as `720` to produce output layers up to 720P even if the input is 4K.
+        """
+        return pulumi.get(self, "max_height")
+
+    @property
+    @pulumi.getter(name="maxLayers")
+    def max_layers(self) -> Optional[int]:
+        """
+        The maximum number of output video layers. For example, set as `4` to make sure at most 4 output layers are produced to control the overall cost of the encoding job.
+        """
+        return pulumi.get(self, "max_layers")
+
+    @property
+    @pulumi.getter(name="minBitrateBps")
+    def min_bitrate_bps(self) -> Optional[int]:
+        """
+        The minimum bitrate in bits per second (threshold for the bottom video layer). For example, set as `200000` to have a bottom layer that covers users with low network bandwidth.
+        """
+        return pulumi.get(self, "min_bitrate_bps")
+
+    @property
+    @pulumi.getter(name="minHeight")
+    def min_height(self) -> Optional[int]:
+        """
+        The minimum height of output video layers. For example, set as `360` to avoid output layers of smaller resolutions like 180P.
+        """
+        return pulumi.get(self, "min_height")
+
+
+@pulumi.output_type
+class TransformOutputCustomPreset(dict):
+    def __init__(__self__, *,
+                 codecs: Sequence['outputs.TransformOutputCustomPresetCodec'],
+                 formats: Sequence['outputs.TransformOutputCustomPresetFormat'],
+                 filter: Optional['outputs.TransformOutputCustomPresetFilter'] = None):
+        """
+        :param Sequence['TransformOutputCustomPresetCodecArgs'] codecs: One or more `codec` blocks as defined above.
+        :param Sequence['TransformOutputCustomPresetFormatArgs'] formats: One or more `format` blocks as defined below.
+        :param 'TransformOutputCustomPresetFilterArgs' filter: A `filter` block as defined below.
+        """
+        pulumi.set(__self__, "codecs", codecs)
+        pulumi.set(__self__, "formats", formats)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def codecs(self) -> Sequence['outputs.TransformOutputCustomPresetCodec']:
+        """
+        One or more `codec` blocks as defined above.
+        """
+        return pulumi.get(self, "codecs")
+
+    @property
+    @pulumi.getter
+    def formats(self) -> Sequence['outputs.TransformOutputCustomPresetFormat']:
+        """
+        One or more `format` blocks as defined below.
+        """
+        return pulumi.get(self, "formats")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.TransformOutputCustomPresetFilter']:
+        """
+        A `filter` block as defined below.
+        """
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetCodec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aacAudio":
+            suggest = "aac_audio"
+        elif key == "copyAudio":
+            suggest = "copy_audio"
+        elif key == "copyVideo":
+            suggest = "copy_video"
+        elif key == "ddAudio":
+            suggest = "dd_audio"
+        elif key == "h264Video":
+            suggest = "h264_video"
+        elif key == "h265Video":
+            suggest = "h265_video"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetCodec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetCodec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetCodec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aac_audio: Optional['outputs.TransformOutputCustomPresetCodecAacAudio'] = None,
+                 copy_audio: Optional['outputs.TransformOutputCustomPresetCodecCopyAudio'] = None,
+                 copy_video: Optional['outputs.TransformOutputCustomPresetCodecCopyVideo'] = None,
+                 dd_audio: Optional['outputs.TransformOutputCustomPresetCodecDdAudio'] = None,
+                 h264_video: Optional['outputs.TransformOutputCustomPresetCodecH264Video'] = None,
+                 h265_video: Optional['outputs.TransformOutputCustomPresetCodecH265Video'] = None):
+        """
+        :param 'TransformOutputCustomPresetCodecAacAudioArgs' aac_audio: A `aac_audio` block as defined above.
+        :param 'TransformOutputCustomPresetCodecCopyAudioArgs' copy_audio: A `copy_audio` block as defined below.
+        :param 'TransformOutputCustomPresetCodecCopyVideoArgs' copy_video: A `copy_video` block as defined below.
+        :param 'TransformOutputCustomPresetCodecDdAudioArgs' dd_audio: A `dd_audio` block as defined below.
+        :param 'TransformOutputCustomPresetCodecH264VideoArgs' h264_video: A `h264_video` block as defined below.
+        :param 'TransformOutputCustomPresetCodecH265VideoArgs' h265_video: A `h265_video` block as defined below.
+        """
+        if aac_audio is not None:
+            pulumi.set(__self__, "aac_audio", aac_audio)
+        if copy_audio is not None:
+            pulumi.set(__self__, "copy_audio", copy_audio)
+        if copy_video is not None:
+            pulumi.set(__self__, "copy_video", copy_video)
+        if dd_audio is not None:
+            pulumi.set(__self__, "dd_audio", dd_audio)
+        if h264_video is not None:
+            pulumi.set(__self__, "h264_video", h264_video)
+        if h265_video is not None:
+            pulumi.set(__self__, "h265_video", h265_video)
+
+    @property
+    @pulumi.getter(name="aacAudio")
+    def aac_audio(self) -> Optional['outputs.TransformOutputCustomPresetCodecAacAudio']:
+        """
+        A `aac_audio` block as defined above.
+        """
+        return pulumi.get(self, "aac_audio")
+
+    @property
+    @pulumi.getter(name="copyAudio")
+    def copy_audio(self) -> Optional['outputs.TransformOutputCustomPresetCodecCopyAudio']:
+        """
+        A `copy_audio` block as defined below.
+        """
+        return pulumi.get(self, "copy_audio")
+
+    @property
+    @pulumi.getter(name="copyVideo")
+    def copy_video(self) -> Optional['outputs.TransformOutputCustomPresetCodecCopyVideo']:
+        """
+        A `copy_video` block as defined below.
+        """
+        return pulumi.get(self, "copy_video")
+
+    @property
+    @pulumi.getter(name="ddAudio")
+    def dd_audio(self) -> Optional['outputs.TransformOutputCustomPresetCodecDdAudio']:
+        """
+        A `dd_audio` block as defined below.
+        """
+        return pulumi.get(self, "dd_audio")
+
+    @property
+    @pulumi.getter(name="h264Video")
+    def h264_video(self) -> Optional['outputs.TransformOutputCustomPresetCodecH264Video']:
+        """
+        A `h264_video` block as defined below.
+        """
+        return pulumi.get(self, "h264_video")
+
+    @property
+    @pulumi.getter(name="h265Video")
+    def h265_video(self) -> Optional['outputs.TransformOutputCustomPresetCodecH265Video']:
+        """
+        A `h265_video` block as defined below.
+        """
+        return pulumi.get(self, "h265_video")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetCodecAacAudio(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "samplingRate":
+            suggest = "sampling_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetCodecAacAudio. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetCodecAacAudio.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetCodecAacAudio.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bitrate: Optional[int] = None,
+                 channels: Optional[int] = None,
+                 label: Optional[str] = None,
+                 profile: Optional[str] = None,
+                 sampling_rate: Optional[int] = None):
+        """
+        :param int bitrate: The bitrate of the audio in bits per second. Default to `128000`.
+        :param int channels: The number of audio channels. Default to `2`.
+        :param str label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        :param str profile: The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
+        :param int sampling_rate: The sampling rate to use for encoding in Hertz. Default to `48000`.
+        """
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if channels is not None:
+            pulumi.set(__self__, "channels", channels)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if sampling_rate is not None:
+            pulumi.set(__self__, "sampling_rate", sampling_rate)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[int]:
+        """
+        The bitrate of the audio in bits per second. Default to `128000`.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter
+    def channels(self) -> Optional[int]:
+        """
+        The number of audio channels. Default to `2`.
+        """
+        return pulumi.get(self, "channels")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[str]:
+        """
+        The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
+        """
+        return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="samplingRate")
+    def sampling_rate(self) -> Optional[int]:
+        """
+        The sampling rate to use for encoding in Hertz. Default to `48000`.
+        """
+        return pulumi.get(self, "sampling_rate")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetCodecCopyAudio(dict):
+    def __init__(__self__, *,
+                 label: Optional[str] = None):
+        """
+        :param str label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetCodecCopyVideo(dict):
+    def __init__(__self__, *,
+                 label: Optional[str] = None):
+        """
+        :param str label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetCodecDdAudio(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "samplingRate":
+            suggest = "sampling_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetCodecDdAudio. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetCodecDdAudio.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetCodecDdAudio.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bitrate: Optional[int] = None,
+                 channels: Optional[int] = None,
+                 label: Optional[str] = None,
+                 sampling_rate: Optional[int] = None):
+        """
+        :param int bitrate: The bitrate of the audio in bits per second. Default to `192000`.
+        :param int channels: The number of audio channels. Default to `2`.
+        :param str label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        :param int sampling_rate: The sampling rate to use for encoding in Hertz. Default to `48000`.
+        """
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if channels is not None:
+            pulumi.set(__self__, "channels", channels)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if sampling_rate is not None:
+            pulumi.set(__self__, "sampling_rate", sampling_rate)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[int]:
+        """
+        The bitrate of the audio in bits per second. Default to `192000`.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter
+    def channels(self) -> Optional[int]:
+        """
+        The number of audio channels. Default to `2`.
+        """
+        return pulumi.get(self, "channels")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="samplingRate")
+    def sampling_rate(self) -> Optional[int]:
+        """
+        The sampling rate to use for encoding in Hertz. Default to `48000`.
+        """
+        return pulumi.get(self, "sampling_rate")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetCodecH264Video(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyFrameInterval":
+            suggest = "key_frame_interval"
+        elif key == "rateControlMode":
+            suggest = "rate_control_mode"
+        elif key == "sceneChangeDetectionEnabled":
+            suggest = "scene_change_detection_enabled"
+        elif key == "stretchMode":
+            suggest = "stretch_mode"
+        elif key == "syncMode":
+            suggest = "sync_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetCodecH264Video. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetCodecH264Video.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetCodecH264Video.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 complexity: Optional[str] = None,
+                 key_frame_interval: Optional[str] = None,
+                 label: Optional[str] = None,
+                 layers: Optional[Sequence['outputs.TransformOutputCustomPresetCodecH264VideoLayer']] = None,
+                 rate_control_mode: Optional[str] = None,
+                 scene_change_detection_enabled: Optional[bool] = None,
+                 stretch_mode: Optional[str] = None,
+                 sync_mode: Optional[str] = None):
+        """
+        :param str complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+        :param str key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        :param str label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        :param Sequence['TransformOutputCustomPresetCodecH264VideoLayerArgs'] layers: One or more `layer` blocks as defined below.
+        :param str rate_control_mode: The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
+        :param bool scene_change_detection_enabled: Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+        :param str stretch_mode: Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        :param str sync_mode: Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+        """
+        if complexity is not None:
+            pulumi.set(__self__, "complexity", complexity)
+        if key_frame_interval is not None:
+            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if layers is not None:
+            pulumi.set(__self__, "layers", layers)
+        if rate_control_mode is not None:
+            pulumi.set(__self__, "rate_control_mode", rate_control_mode)
+        if scene_change_detection_enabled is not None:
+            pulumi.set(__self__, "scene_change_detection_enabled", scene_change_detection_enabled)
+        if stretch_mode is not None:
+            pulumi.set(__self__, "stretch_mode", stretch_mode)
+        if sync_mode is not None:
+            pulumi.set(__self__, "sync_mode", sync_mode)
+
+    @property
+    @pulumi.getter
+    def complexity(self) -> Optional[str]:
+        """
+        The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+        """
+        return pulumi.get(self, "complexity")
+
+    @property
+    @pulumi.getter(name="keyFrameInterval")
+    def key_frame_interval(self) -> Optional[str]:
+        """
+        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        """
+        return pulumi.get(self, "key_frame_interval")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def layers(self) -> Optional[Sequence['outputs.TransformOutputCustomPresetCodecH264VideoLayer']]:
+        """
+        One or more `layer` blocks as defined below.
+        """
+        return pulumi.get(self, "layers")
+
+    @property
+    @pulumi.getter(name="rateControlMode")
+    def rate_control_mode(self) -> Optional[str]:
+        """
+        The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
+        """
+        return pulumi.get(self, "rate_control_mode")
+
+    @property
+    @pulumi.getter(name="sceneChangeDetectionEnabled")
+    def scene_change_detection_enabled(self) -> Optional[bool]:
+        """
+        Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+        """
+        return pulumi.get(self, "scene_change_detection_enabled")
+
+    @property
+    @pulumi.getter(name="stretchMode")
+    def stretch_mode(self) -> Optional[str]:
+        """
+        Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        """
+        return pulumi.get(self, "stretch_mode")
+
+    @property
+    @pulumi.getter(name="syncMode")
+    def sync_mode(self) -> Optional[str]:
+        """
+        Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+        """
+        return pulumi.get(self, "sync_mode")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetCodecH264VideoLayer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adaptiveBFrameEnabled":
+            suggest = "adaptive_b_frame_enabled"
+        elif key == "bFrames":
+            suggest = "b_frames"
+        elif key == "bufferWindow":
+            suggest = "buffer_window"
+        elif key == "entropyMode":
+            suggest = "entropy_mode"
+        elif key == "frameRate":
+            suggest = "frame_rate"
+        elif key == "maxBitrate":
+            suggest = "max_bitrate"
+        elif key == "referenceFrames":
+            suggest = "reference_frames"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetCodecH264VideoLayer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetCodecH264VideoLayer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetCodecH264VideoLayer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bitrate: int,
+                 adaptive_b_frame_enabled: Optional[bool] = None,
+                 b_frames: Optional[int] = None,
+                 buffer_window: Optional[str] = None,
+                 crf: Optional[float] = None,
+                 entropy_mode: Optional[str] = None,
+                 frame_rate: Optional[str] = None,
+                 height: Optional[str] = None,
+                 label: Optional[str] = None,
+                 level: Optional[str] = None,
+                 max_bitrate: Optional[int] = None,
+                 profile: Optional[str] = None,
+                 reference_frames: Optional[int] = None,
+                 slices: Optional[int] = None,
+                 width: Optional[str] = None):
+        """
+        :param int bitrate: The average bitrate in bits per second at which to encode the input video when generating this layer.
+        :param bool adaptive_b_frame_enabled: Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+        :param int b_frames: The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+        :param str buffer_window: Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+        :param float crf: The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+        :param str entropy_mode: The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+        :param str frame_rate: The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+        :param str height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        :param str label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        :param str level: The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+        :param int max_bitrate: The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+        :param str profile: The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+        :param int reference_frames: The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+        :param int slices: The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+        :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        """
+        pulumi.set(__self__, "bitrate", bitrate)
+        if adaptive_b_frame_enabled is not None:
+            pulumi.set(__self__, "adaptive_b_frame_enabled", adaptive_b_frame_enabled)
+        if b_frames is not None:
+            pulumi.set(__self__, "b_frames", b_frames)
+        if buffer_window is not None:
+            pulumi.set(__self__, "buffer_window", buffer_window)
+        if crf is not None:
+            pulumi.set(__self__, "crf", crf)
+        if entropy_mode is not None:
+            pulumi.set(__self__, "entropy_mode", entropy_mode)
+        if frame_rate is not None:
+            pulumi.set(__self__, "frame_rate", frame_rate)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if max_bitrate is not None:
+            pulumi.set(__self__, "max_bitrate", max_bitrate)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if reference_frames is not None:
+            pulumi.set(__self__, "reference_frames", reference_frames)
+        if slices is not None:
+            pulumi.set(__self__, "slices", slices)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> int:
+        """
+        The average bitrate in bits per second at which to encode the input video when generating this layer.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter(name="adaptiveBFrameEnabled")
+    def adaptive_b_frame_enabled(self) -> Optional[bool]:
+        """
+        Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+        """
+        return pulumi.get(self, "adaptive_b_frame_enabled")
+
+    @property
+    @pulumi.getter(name="bFrames")
+    def b_frames(self) -> Optional[int]:
+        """
+        The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+        """
+        return pulumi.get(self, "b_frames")
+
+    @property
+    @pulumi.getter(name="bufferWindow")
+    def buffer_window(self) -> Optional[str]:
+        """
+        Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+        """
+        return pulumi.get(self, "buffer_window")
+
+    @property
+    @pulumi.getter
+    def crf(self) -> Optional[float]:
+        """
+        The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+        """
+        return pulumi.get(self, "crf")
+
+    @property
+    @pulumi.getter(name="entropyMode")
+    def entropy_mode(self) -> Optional[str]:
+        """
+        The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+        """
+        return pulumi.get(self, "entropy_mode")
+
+    @property
+    @pulumi.getter(name="frameRate")
+    def frame_rate(self) -> Optional[str]:
+        """
+        The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+        """
+        return pulumi.get(self, "frame_rate")
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[str]:
+        """
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter(name="maxBitrate")
+    def max_bitrate(self) -> Optional[int]:
+        """
+        The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+        """
+        return pulumi.get(self, "max_bitrate")
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[str]:
+        """
+        The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+        """
+        return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="referenceFrames")
+    def reference_frames(self) -> Optional[int]:
+        """
+        The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+        """
+        return pulumi.get(self, "reference_frames")
+
+    @property
+    @pulumi.getter
+    def slices(self) -> Optional[int]:
+        """
+        The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+        """
+        return pulumi.get(self, "slices")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[str]:
+        """
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        """
+        return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetCodecH265Video(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyFrameInterval":
+            suggest = "key_frame_interval"
+        elif key == "sceneChangeDetectionEnabled":
+            suggest = "scene_change_detection_enabled"
+        elif key == "stretchMode":
+            suggest = "stretch_mode"
+        elif key == "syncMode":
+            suggest = "sync_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetCodecH265Video. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetCodecH265Video.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetCodecH265Video.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 complexity: Optional[str] = None,
+                 key_frame_interval: Optional[str] = None,
+                 label: Optional[str] = None,
+                 layers: Optional[Sequence['outputs.TransformOutputCustomPresetCodecH265VideoLayer']] = None,
+                 scene_change_detection_enabled: Optional[bool] = None,
+                 stretch_mode: Optional[str] = None,
+                 sync_mode: Optional[str] = None):
+        """
+        :param str complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+        :param str key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        :param str label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        :param Sequence['TransformOutputCustomPresetCodecH265VideoLayerArgs'] layers: One or more `layer` blocks as defined below.
+        :param bool scene_change_detection_enabled: Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+        :param str stretch_mode: Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        :param str sync_mode: Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+        """
+        if complexity is not None:
+            pulumi.set(__self__, "complexity", complexity)
+        if key_frame_interval is not None:
+            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if layers is not None:
+            pulumi.set(__self__, "layers", layers)
+        if scene_change_detection_enabled is not None:
+            pulumi.set(__self__, "scene_change_detection_enabled", scene_change_detection_enabled)
+        if stretch_mode is not None:
+            pulumi.set(__self__, "stretch_mode", stretch_mode)
+        if sync_mode is not None:
+            pulumi.set(__self__, "sync_mode", sync_mode)
+
+    @property
+    @pulumi.getter
+    def complexity(self) -> Optional[str]:
+        """
+        The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+        """
+        return pulumi.get(self, "complexity")
+
+    @property
+    @pulumi.getter(name="keyFrameInterval")
+    def key_frame_interval(self) -> Optional[str]:
+        """
+        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        """
+        return pulumi.get(self, "key_frame_interval")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def layers(self) -> Optional[Sequence['outputs.TransformOutputCustomPresetCodecH265VideoLayer']]:
+        """
+        One or more `layer` blocks as defined below.
+        """
+        return pulumi.get(self, "layers")
+
+    @property
+    @pulumi.getter(name="sceneChangeDetectionEnabled")
+    def scene_change_detection_enabled(self) -> Optional[bool]:
+        """
+        Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+        """
+        return pulumi.get(self, "scene_change_detection_enabled")
+
+    @property
+    @pulumi.getter(name="stretchMode")
+    def stretch_mode(self) -> Optional[str]:
+        """
+        Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        """
+        return pulumi.get(self, "stretch_mode")
+
+    @property
+    @pulumi.getter(name="syncMode")
+    def sync_mode(self) -> Optional[str]:
+        """
+        Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+        """
+        return pulumi.get(self, "sync_mode")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetCodecH265VideoLayer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adaptiveBFrameEnabled":
+            suggest = "adaptive_b_frame_enabled"
+        elif key == "bFrames":
+            suggest = "b_frames"
+        elif key == "bufferWindow":
+            suggest = "buffer_window"
+        elif key == "frameRate":
+            suggest = "frame_rate"
+        elif key == "maxBitrate":
+            suggest = "max_bitrate"
+        elif key == "referenceFrames":
+            suggest = "reference_frames"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetCodecH265VideoLayer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetCodecH265VideoLayer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetCodecH265VideoLayer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bitrate: int,
+                 adaptive_b_frame_enabled: Optional[bool] = None,
+                 b_frames: Optional[int] = None,
+                 buffer_window: Optional[str] = None,
+                 crf: Optional[float] = None,
+                 frame_rate: Optional[str] = None,
+                 height: Optional[str] = None,
+                 label: Optional[str] = None,
+                 level: Optional[str] = None,
+                 max_bitrate: Optional[int] = None,
+                 profile: Optional[str] = None,
+                 reference_frames: Optional[int] = None,
+                 slices: Optional[int] = None,
+                 width: Optional[str] = None):
+        """
+        :param int bitrate: The average bitrate in bits per second at which to encode the input video when generating this layer.
+        :param bool adaptive_b_frame_enabled: Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+        :param int b_frames: The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+        :param str buffer_window: Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+        :param float crf: The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+        :param str frame_rate: The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+        :param str height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        :param str label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        :param str level: The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+        :param int max_bitrate: The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+        :param str profile: The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+        :param int reference_frames: The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+        :param int slices: The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+        :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        """
+        pulumi.set(__self__, "bitrate", bitrate)
+        if adaptive_b_frame_enabled is not None:
+            pulumi.set(__self__, "adaptive_b_frame_enabled", adaptive_b_frame_enabled)
+        if b_frames is not None:
+            pulumi.set(__self__, "b_frames", b_frames)
+        if buffer_window is not None:
+            pulumi.set(__self__, "buffer_window", buffer_window)
+        if crf is not None:
+            pulumi.set(__self__, "crf", crf)
+        if frame_rate is not None:
+            pulumi.set(__self__, "frame_rate", frame_rate)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if max_bitrate is not None:
+            pulumi.set(__self__, "max_bitrate", max_bitrate)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if reference_frames is not None:
+            pulumi.set(__self__, "reference_frames", reference_frames)
+        if slices is not None:
+            pulumi.set(__self__, "slices", slices)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> int:
+        """
+        The average bitrate in bits per second at which to encode the input video when generating this layer.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter(name="adaptiveBFrameEnabled")
+    def adaptive_b_frame_enabled(self) -> Optional[bool]:
+        """
+        Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+        """
+        return pulumi.get(self, "adaptive_b_frame_enabled")
+
+    @property
+    @pulumi.getter(name="bFrames")
+    def b_frames(self) -> Optional[int]:
+        """
+        The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+        """
+        return pulumi.get(self, "b_frames")
+
+    @property
+    @pulumi.getter(name="bufferWindow")
+    def buffer_window(self) -> Optional[str]:
+        """
+        Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+        """
+        return pulumi.get(self, "buffer_window")
+
+    @property
+    @pulumi.getter
+    def crf(self) -> Optional[float]:
+        """
+        The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+        """
+        return pulumi.get(self, "crf")
+
+    @property
+    @pulumi.getter(name="frameRate")
+    def frame_rate(self) -> Optional[str]:
+        """
+        The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+        """
+        return pulumi.get(self, "frame_rate")
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[str]:
+        """
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter(name="maxBitrate")
+    def max_bitrate(self) -> Optional[int]:
+        """
+        The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+        """
+        return pulumi.get(self, "max_bitrate")
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[str]:
+        """
+        The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+        """
+        return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="referenceFrames")
+    def reference_frames(self) -> Optional[int]:
+        """
+        The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+        """
+        return pulumi.get(self, "reference_frames")
+
+    @property
+    @pulumi.getter
+    def slices(self) -> Optional[int]:
+        """
+        The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+        """
+        return pulumi.get(self, "slices")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[str]:
+        """
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        """
+        return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cropRectangle":
+            suggest = "crop_rectangle"
+        elif key == "fadeIn":
+            suggest = "fade_in"
+        elif key == "fadeOut":
+            suggest = "fade_out"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 crop_rectangle: Optional['outputs.TransformOutputCustomPresetFilterCropRectangle'] = None,
+                 deinterlace: Optional['outputs.TransformOutputCustomPresetFilterDeinterlace'] = None,
+                 fade_in: Optional['outputs.TransformOutputCustomPresetFilterFadeIn'] = None,
+                 fade_out: Optional['outputs.TransformOutputCustomPresetFilterFadeOut'] = None,
+                 overlays: Optional[Sequence['outputs.TransformOutputCustomPresetFilterOverlay']] = None,
+                 rotation: Optional[str] = None):
+        """
+        :param 'TransformOutputCustomPresetFilterCropRectangleArgs' crop_rectangle: A `crop_rectangle` block as defined above.
+        :param 'TransformOutputCustomPresetFilterDeinterlaceArgs' deinterlace: A `deinterlace` block as defined below.
+        :param 'TransformOutputCustomPresetFilterFadeInArgs' fade_in: A `fade_in` block as defined above.
+        :param 'TransformOutputCustomPresetFilterFadeOutArgs' fade_out: A `fade_out` block as defined above.
+        :param Sequence['TransformOutputCustomPresetFilterOverlayArgs'] overlays: One or more `overlay` blocks as defined below.
+        :param str rotation: The rotation to be applied to the input video before it is encoded. Possible values are `Auto`, `None`, `Rotate90`, `Rotate180`, `Rotate270`,or `Rotate0`. Default to `Auto`.
+        """
+        if crop_rectangle is not None:
+            pulumi.set(__self__, "crop_rectangle", crop_rectangle)
+        if deinterlace is not None:
+            pulumi.set(__self__, "deinterlace", deinterlace)
+        if fade_in is not None:
+            pulumi.set(__self__, "fade_in", fade_in)
+        if fade_out is not None:
+            pulumi.set(__self__, "fade_out", fade_out)
+        if overlays is not None:
+            pulumi.set(__self__, "overlays", overlays)
+        if rotation is not None:
+            pulumi.set(__self__, "rotation", rotation)
+
+    @property
+    @pulumi.getter(name="cropRectangle")
+    def crop_rectangle(self) -> Optional['outputs.TransformOutputCustomPresetFilterCropRectangle']:
+        """
+        A `crop_rectangle` block as defined above.
+        """
+        return pulumi.get(self, "crop_rectangle")
+
+    @property
+    @pulumi.getter
+    def deinterlace(self) -> Optional['outputs.TransformOutputCustomPresetFilterDeinterlace']:
+        """
+        A `deinterlace` block as defined below.
+        """
+        return pulumi.get(self, "deinterlace")
+
+    @property
+    @pulumi.getter(name="fadeIn")
+    def fade_in(self) -> Optional['outputs.TransformOutputCustomPresetFilterFadeIn']:
+        """
+        A `fade_in` block as defined above.
+        """
+        return pulumi.get(self, "fade_in")
+
+    @property
+    @pulumi.getter(name="fadeOut")
+    def fade_out(self) -> Optional['outputs.TransformOutputCustomPresetFilterFadeOut']:
+        """
+        A `fade_out` block as defined above.
+        """
+        return pulumi.get(self, "fade_out")
+
+    @property
+    @pulumi.getter
+    def overlays(self) -> Optional[Sequence['outputs.TransformOutputCustomPresetFilterOverlay']]:
+        """
+        One or more `overlay` blocks as defined below.
+        """
+        return pulumi.get(self, "overlays")
+
+    @property
+    @pulumi.getter
+    def rotation(self) -> Optional[str]:
+        """
+        The rotation to be applied to the input video before it is encoded. Possible values are `Auto`, `None`, `Rotate90`, `Rotate180`, `Rotate270`,or `Rotate0`. Default to `Auto`.
+        """
+        return pulumi.get(self, "rotation")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFilterCropRectangle(dict):
+    def __init__(__self__, *,
+                 height: Optional[str] = None,
+                 left: Optional[str] = None,
+                 top: Optional[str] = None,
+                 width: Optional[str] = None):
+        """
+        :param str height: The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param str left: The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param str top: The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param str width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
+        """
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if left is not None:
+            pulumi.set(__self__, "left", left)
+        if top is not None:
+            pulumi.set(__self__, "top", top)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[str]:
+        """
+        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def left(self) -> Optional[str]:
+        """
+        The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        return pulumi.get(self, "left")
+
+    @property
+    @pulumi.getter
+    def top(self) -> Optional[str]:
+        """
+        The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        return pulumi.get(self, "top")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[str]:
+        """
+        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
+        """
+        return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFilterDeinterlace(dict):
+    def __init__(__self__, *,
+                 mode: Optional[str] = None,
+                 parity: Optional[str] = None):
+        """
+        :param str mode: The deinterlacing mode. Possible values are `AutoPixelAdaptive` or `Off`. Default to `AutoPixelAdaptive`.
+        :param str parity: The field parity to use for deinterlacing. Possible values are `Auto`, `TopFieldFirst` or `BottomFieldFirst`. Default to `Auto`.
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if parity is not None:
+            pulumi.set(__self__, "parity", parity)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        The deinterlacing mode. Possible values are `AutoPixelAdaptive` or `Off`. Default to `AutoPixelAdaptive`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def parity(self) -> Optional[str]:
+        """
+        The field parity to use for deinterlacing. Possible values are `Auto`, `TopFieldFirst` or `BottomFieldFirst`. Default to `Auto`.
+        """
+        return pulumi.get(self, "parity")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFilterFadeIn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fadeColor":
+            suggest = "fade_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetFilterFadeIn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetFilterFadeIn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetFilterFadeIn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: str,
+                 fade_color: str,
+                 start: Optional[str] = None):
+        """
+        :param str duration: The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+        :param str fade_color: The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+        :param str start: The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "fade_color", fade_color)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        """
+        The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="fadeColor")
+    def fade_color(self) -> str:
+        """
+        The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+        """
+        return pulumi.get(self, "fade_color")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+        """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFilterFadeOut(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fadeColor":
+            suggest = "fade_color"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetFilterFadeOut. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetFilterFadeOut.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetFilterFadeOut.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: str,
+                 fade_color: str,
+                 start: Optional[str] = None):
+        """
+        :param str duration: The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+        :param str fade_color: The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+        :param str start: The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "fade_color", fade_color)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        """
+        The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="fadeColor")
+    def fade_color(self) -> str:
+        """
+        The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+        """
+        return pulumi.get(self, "fade_color")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+        """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFilterOverlay(dict):
+    def __init__(__self__, *,
+                 audio: Optional['outputs.TransformOutputCustomPresetFilterOverlayAudio'] = None,
+                 video: Optional['outputs.TransformOutputCustomPresetFilterOverlayVideo'] = None):
+        """
+        :param 'TransformOutputCustomPresetFilterOverlayAudioArgs' audio: An `audio` block as defined above.
+        :param 'TransformOutputCustomPresetFilterOverlayVideoArgs' video: A `video` block as defined below.
+        """
+        if audio is not None:
+            pulumi.set(__self__, "audio", audio)
+        if video is not None:
+            pulumi.set(__self__, "video", video)
+
+    @property
+    @pulumi.getter
+    def audio(self) -> Optional['outputs.TransformOutputCustomPresetFilterOverlayAudio']:
+        """
+        An `audio` block as defined above.
+        """
+        return pulumi.get(self, "audio")
+
+    @property
+    @pulumi.getter
+    def video(self) -> Optional['outputs.TransformOutputCustomPresetFilterOverlayVideo']:
+        """
+        A `video` block as defined below.
+        """
+        return pulumi.get(self, "video")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFilterOverlayAudio(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputLabel":
+            suggest = "input_label"
+        elif key == "audioGainLevel":
+            suggest = "audio_gain_level"
+        elif key == "fadeInDuration":
+            suggest = "fade_in_duration"
+        elif key == "fadeOutDuration":
+            suggest = "fade_out_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetFilterOverlayAudio. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetFilterOverlayAudio.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetFilterOverlayAudio.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_label: str,
+                 audio_gain_level: Optional[float] = None,
+                 end: Optional[str] = None,
+                 fade_in_duration: Optional[str] = None,
+                 fade_out_duration: Optional[str] = None,
+                 start: Optional[str] = None):
+        """
+        :param str input_label: The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+        :param float audio_gain_level: The gain level of audio in the overlay. The value should be in the range `0` to `1.0`. The default is `1.0`.
+        :param str end: The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+        :param str fade_in_duration: The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+        :param str fade_out_duration: The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+        :param str start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+        """
+        pulumi.set(__self__, "input_label", input_label)
+        if audio_gain_level is not None:
+            pulumi.set(__self__, "audio_gain_level", audio_gain_level)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if fade_in_duration is not None:
+            pulumi.set(__self__, "fade_in_duration", fade_in_duration)
+        if fade_out_duration is not None:
+            pulumi.set(__self__, "fade_out_duration", fade_out_duration)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter(name="inputLabel")
+    def input_label(self) -> str:
+        """
+        The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+        """
+        return pulumi.get(self, "input_label")
+
+    @property
+    @pulumi.getter(name="audioGainLevel")
+    def audio_gain_level(self) -> Optional[float]:
+        """
+        The gain level of audio in the overlay. The value should be in the range `0` to `1.0`. The default is `1.0`.
+        """
+        return pulumi.get(self, "audio_gain_level")
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[str]:
+        """
+        The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter(name="fadeInDuration")
+    def fade_in_duration(self) -> Optional[str]:
+        """
+        The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+        """
+        return pulumi.get(self, "fade_in_duration")
+
+    @property
+    @pulumi.getter(name="fadeOutDuration")
+    def fade_out_duration(self) -> Optional[str]:
+        """
+        The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+        """
+        return pulumi.get(self, "fade_out_duration")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+        """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFilterOverlayVideo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputLabel":
+            suggest = "input_label"
+        elif key == "audioGainLevel":
+            suggest = "audio_gain_level"
+        elif key == "cropRectangle":
+            suggest = "crop_rectangle"
+        elif key == "fadeInDuration":
+            suggest = "fade_in_duration"
+        elif key == "fadeOutDuration":
+            suggest = "fade_out_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetFilterOverlayVideo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetFilterOverlayVideo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetFilterOverlayVideo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_label: str,
+                 audio_gain_level: Optional[float] = None,
+                 crop_rectangle: Optional['outputs.TransformOutputCustomPresetFilterOverlayVideoCropRectangle'] = None,
+                 end: Optional[str] = None,
+                 fade_in_duration: Optional[str] = None,
+                 fade_out_duration: Optional[str] = None,
+                 opacity: Optional[float] = None,
+                 position: Optional['outputs.TransformOutputCustomPresetFilterOverlayVideoPosition'] = None,
+                 start: Optional[str] = None):
+        """
+        :param str input_label: The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+        :param float audio_gain_level: The gain level of audio in the overlay. The value should be in range between `0` to `1.0`. The default is `1.0`.
+        :param 'TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs' crop_rectangle: A `crop_rectangle` block as defined above.
+        :param str end: The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+        :param str fade_in_duration: The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+        :param str fade_out_duration: The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+        :param float opacity: The opacity of the overlay. The value should be in the range between `0` to `1.0`. Default to `1.0`, which means the overlay is opaque.
+        :param 'TransformOutputCustomPresetFilterOverlayVideoPositionArgs' position: A `position` block as defined above.
+        :param str start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+        """
+        pulumi.set(__self__, "input_label", input_label)
+        if audio_gain_level is not None:
+            pulumi.set(__self__, "audio_gain_level", audio_gain_level)
+        if crop_rectangle is not None:
+            pulumi.set(__self__, "crop_rectangle", crop_rectangle)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if fade_in_duration is not None:
+            pulumi.set(__self__, "fade_in_duration", fade_in_duration)
+        if fade_out_duration is not None:
+            pulumi.set(__self__, "fade_out_duration", fade_out_duration)
+        if opacity is not None:
+            pulumi.set(__self__, "opacity", opacity)
+        if position is not None:
+            pulumi.set(__self__, "position", position)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter(name="inputLabel")
+    def input_label(self) -> str:
+        """
+        The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+        """
+        return pulumi.get(self, "input_label")
+
+    @property
+    @pulumi.getter(name="audioGainLevel")
+    def audio_gain_level(self) -> Optional[float]:
+        """
+        The gain level of audio in the overlay. The value should be in range between `0` to `1.0`. The default is `1.0`.
+        """
+        return pulumi.get(self, "audio_gain_level")
+
+    @property
+    @pulumi.getter(name="cropRectangle")
+    def crop_rectangle(self) -> Optional['outputs.TransformOutputCustomPresetFilterOverlayVideoCropRectangle']:
+        """
+        A `crop_rectangle` block as defined above.
+        """
+        return pulumi.get(self, "crop_rectangle")
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[str]:
+        """
+        The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter(name="fadeInDuration")
+    def fade_in_duration(self) -> Optional[str]:
+        """
+        The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+        """
+        return pulumi.get(self, "fade_in_duration")
+
+    @property
+    @pulumi.getter(name="fadeOutDuration")
+    def fade_out_duration(self) -> Optional[str]:
+        """
+        The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+        """
+        return pulumi.get(self, "fade_out_duration")
+
+    @property
+    @pulumi.getter
+    def opacity(self) -> Optional[float]:
+        """
+        The opacity of the overlay. The value should be in the range between `0` to `1.0`. Default to `1.0`, which means the overlay is opaque.
+        """
+        return pulumi.get(self, "opacity")
+
+    @property
+    @pulumi.getter
+    def position(self) -> Optional['outputs.TransformOutputCustomPresetFilterOverlayVideoPosition']:
+        """
+        A `position` block as defined above.
+        """
+        return pulumi.get(self, "position")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+        """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFilterOverlayVideoCropRectangle(dict):
+    def __init__(__self__, *,
+                 height: Optional[str] = None,
+                 left: Optional[str] = None,
+                 top: Optional[str] = None,
+                 width: Optional[str] = None):
+        """
+        :param str height: The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param str left: The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param str top: The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param str width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
+        """
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if left is not None:
+            pulumi.set(__self__, "left", left)
+        if top is not None:
+            pulumi.set(__self__, "top", top)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[str]:
+        """
+        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def left(self) -> Optional[str]:
+        """
+        The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        return pulumi.get(self, "left")
+
+    @property
+    @pulumi.getter
+    def top(self) -> Optional[str]:
+        """
+        The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        return pulumi.get(self, "top")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[str]:
+        """
+        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
+        """
+        return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFilterOverlayVideoPosition(dict):
+    def __init__(__self__, *,
+                 height: Optional[str] = None,
+                 left: Optional[str] = None,
+                 top: Optional[str] = None,
+                 width: Optional[str] = None):
+        """
+        :param str height: The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param str left: The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param str top: The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param str width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
+        """
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if left is not None:
+            pulumi.set(__self__, "left", left)
+        if top is not None:
+            pulumi.set(__self__, "top", top)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[str]:
+        """
+        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter
+    def left(self) -> Optional[str]:
+        """
+        The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        return pulumi.get(self, "left")
+
+    @property
+    @pulumi.getter
+    def top(self) -> Optional[str]:
+        """
+        The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        return pulumi.get(self, "top")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[str]:
+        """
+        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
+        """
+        return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFormat(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "transportStream":
+            suggest = "transport_stream"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetFormat. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetFormat.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetFormat.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mp4: Optional['outputs.TransformOutputCustomPresetFormatMp4'] = None,
+                 transport_stream: Optional['outputs.TransformOutputCustomPresetFormatTransportStream'] = None):
+        """
+        :param 'TransformOutputCustomPresetFormatMp4Args' mp4: A `mp4` block as defined below.
+        :param 'TransformOutputCustomPresetFormatTransportStreamArgs' transport_stream: A `transport_stream` block as defined below.
+        """
+        if mp4 is not None:
+            pulumi.set(__self__, "mp4", mp4)
+        if transport_stream is not None:
+            pulumi.set(__self__, "transport_stream", transport_stream)
+
+    @property
+    @pulumi.getter
+    def mp4(self) -> Optional['outputs.TransformOutputCustomPresetFormatMp4']:
+        """
+        A `mp4` block as defined below.
+        """
+        return pulumi.get(self, "mp4")
+
+    @property
+    @pulumi.getter(name="transportStream")
+    def transport_stream(self) -> Optional['outputs.TransformOutputCustomPresetFormatTransportStream']:
+        """
+        A `transport_stream` block as defined below.
+        """
+        return pulumi.get(self, "transport_stream")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFormatMp4(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filenamePattern":
+            suggest = "filename_pattern"
+        elif key == "outputFiles":
+            suggest = "output_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetFormatMp4. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetFormatMp4.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetFormatMp4.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filename_pattern: str,
+                 output_files: Optional[Sequence['outputs.TransformOutputCustomPresetFormatMp4OutputFile']] = None):
+        """
+        :param str filename_pattern: The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+        :param Sequence['TransformOutputCustomPresetFormatMp4OutputFileArgs'] output_files: One or more `output_file` blocks as defined below.
+        """
+        pulumi.set(__self__, "filename_pattern", filename_pattern)
+        if output_files is not None:
+            pulumi.set(__self__, "output_files", output_files)
+
+    @property
+    @pulumi.getter(name="filenamePattern")
+    def filename_pattern(self) -> str:
+        """
+        The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        return pulumi.get(self, "filename_pattern")
+
+    @property
+    @pulumi.getter(name="outputFiles")
+    def output_files(self) -> Optional[Sequence['outputs.TransformOutputCustomPresetFormatMp4OutputFile']]:
+        """
+        One or more `output_file` blocks as defined below.
+        """
+        return pulumi.get(self, "output_files")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFormatMp4OutputFile(dict):
+    def __init__(__self__, *,
+                 labels: Sequence[str]):
+        """
+        :param Sequence[str] labels: The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
+        """
+        pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Sequence[str]:
+        """
+        The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
+        """
+        return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFormatTransportStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filenamePattern":
+            suggest = "filename_pattern"
+        elif key == "outputFiles":
+            suggest = "output_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputCustomPresetFormatTransportStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputCustomPresetFormatTransportStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputCustomPresetFormatTransportStream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filename_pattern: str,
+                 output_files: Optional[Sequence['outputs.TransformOutputCustomPresetFormatTransportStreamOutputFile']] = None):
+        """
+        :param str filename_pattern: The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+        :param Sequence['TransformOutputCustomPresetFormatTransportStreamOutputFileArgs'] output_files: One or more `output_file` blocks as defined above.
+        """
+        pulumi.set(__self__, "filename_pattern", filename_pattern)
+        if output_files is not None:
+            pulumi.set(__self__, "output_files", output_files)
+
+    @property
+    @pulumi.getter(name="filenamePattern")
+    def filename_pattern(self) -> str:
+        """
+        The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        return pulumi.get(self, "filename_pattern")
+
+    @property
+    @pulumi.getter(name="outputFiles")
+    def output_files(self) -> Optional[Sequence['outputs.TransformOutputCustomPresetFormatTransportStreamOutputFile']]:
+        """
+        One or more `output_file` blocks as defined above.
+        """
+        return pulumi.get(self, "output_files")
+
+
+@pulumi.output_type
+class TransformOutputCustomPresetFormatTransportStreamOutputFile(dict):
+    def __init__(__self__, *,
+                 labels: Sequence[str]):
+        """
+        :param Sequence[str] labels: The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
+        """
+        pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Sequence[str]:
+        """
+        The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
+        """
+        return pulumi.get(self, "labels")
 
 
 @pulumi.output_type
@@ -3863,6 +5927,12 @@ class TransformOutputFaceDetectorPreset(dict):
         suggest = None
         if key == "analysisResolution":
             suggest = "analysis_resolution"
+        elif key == "blurType":
+            suggest = "blur_type"
+        elif key == "experimentalOptions":
+            suggest = "experimental_options"
+        elif key == "faceRedactorMode":
+            suggest = "face_redactor_mode"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TransformOutputFaceDetectorPreset. Access the value via the '{suggest}' property getter instead.")
@@ -3876,20 +5946,56 @@ class TransformOutputFaceDetectorPreset(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 analysis_resolution: Optional[str] = None):
+                 analysis_resolution: Optional[str] = None,
+                 blur_type: Optional[str] = None,
+                 experimental_options: Optional[Mapping[str, str]] = None,
+                 face_redactor_mode: Optional[str] = None):
         """
-        :param str analysis_resolution: Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected.
+        :param str analysis_resolution: Possible values are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected. Default to `SourceResolution`.
+        :param str blur_type: Specifies the type of blur to apply to faces in the output video. Possible values are `Black`, `Box`, `High`, `Low`,and `Med`.
+        :param Mapping[str, str] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself.
+        :param str face_redactor_mode: This mode provides the ability to choose between the following settings: 1) `Analyze` - For detection only. This mode generates a metadata JSON file marking appearances of faces throughout the video. Where possible, appearances of the same person are assigned the same ID. 2) `Combined` - Additionally redacts(blurs) detected faces. 3) `Redact` - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces. It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction. Default to `Analyze`.
         """
         if analysis_resolution is not None:
             pulumi.set(__self__, "analysis_resolution", analysis_resolution)
+        if blur_type is not None:
+            pulumi.set(__self__, "blur_type", blur_type)
+        if experimental_options is not None:
+            pulumi.set(__self__, "experimental_options", experimental_options)
+        if face_redactor_mode is not None:
+            pulumi.set(__self__, "face_redactor_mode", face_redactor_mode)
 
     @property
     @pulumi.getter(name="analysisResolution")
     def analysis_resolution(self) -> Optional[str]:
         """
-        Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected.
+        Possible values are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected. Default to `SourceResolution`.
         """
         return pulumi.get(self, "analysis_resolution")
+
+    @property
+    @pulumi.getter(name="blurType")
+    def blur_type(self) -> Optional[str]:
+        """
+        Specifies the type of blur to apply to faces in the output video. Possible values are `Black`, `Box`, `High`, `Low`,and `Med`.
+        """
+        return pulumi.get(self, "blur_type")
+
+    @property
+    @pulumi.getter(name="experimentalOptions")
+    def experimental_options(self) -> Optional[Mapping[str, str]]:
+        """
+        Dictionary containing key value pairs for parameters not exposed in the preset itself.
+        """
+        return pulumi.get(self, "experimental_options")
+
+    @property
+    @pulumi.getter(name="faceRedactorMode")
+    def face_redactor_mode(self) -> Optional[str]:
+        """
+        This mode provides the ability to choose between the following settings: 1) `Analyze` - For detection only. This mode generates a metadata JSON file marking appearances of faces throughout the video. Where possible, appearances of the same person are assigned the same ID. 2) `Combined` - Additionally redacts(blurs) detected faces. 3) `Redact` - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces. It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction. Default to `Analyze`.
+        """
+        return pulumi.get(self, "face_redactor_mode")
 
 
 @pulumi.output_type
@@ -3901,6 +6007,8 @@ class TransformOutputVideoAnalyzerPreset(dict):
             suggest = "audio_analysis_mode"
         elif key == "audioLanguage":
             suggest = "audio_language"
+        elif key == "experimentalOptions":
+            suggest = "experimental_options"
         elif key == "insightsType":
             suggest = "insights_type"
 
@@ -3918,16 +6026,20 @@ class TransformOutputVideoAnalyzerPreset(dict):
     def __init__(__self__, *,
                  audio_analysis_mode: Optional[str] = None,
                  audio_language: Optional[str] = None,
+                 experimental_options: Optional[Mapping[str, str]] = None,
                  insights_type: Optional[str] = None):
         """
-        :param str audio_analysis_mode: Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
-        :param str audio_language: The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
-        :param str insights_type: Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+        :param str audio_analysis_mode: Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
+        :param str audio_language: The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
+        :param Mapping[str, str] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself.
+        :param str insights_type: Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly, if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out. Default to `AllInsights`.
         """
         if audio_analysis_mode is not None:
             pulumi.set(__self__, "audio_analysis_mode", audio_analysis_mode)
         if audio_language is not None:
             pulumi.set(__self__, "audio_language", audio_language)
+        if experimental_options is not None:
+            pulumi.set(__self__, "experimental_options", experimental_options)
         if insights_type is not None:
             pulumi.set(__self__, "insights_type", insights_type)
 
@@ -3935,7 +6047,7 @@ class TransformOutputVideoAnalyzerPreset(dict):
     @pulumi.getter(name="audioAnalysisMode")
     def audio_analysis_mode(self) -> Optional[str]:
         """
-        Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+        Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
         """
         return pulumi.get(self, "audio_analysis_mode")
 
@@ -3943,15 +6055,23 @@ class TransformOutputVideoAnalyzerPreset(dict):
     @pulumi.getter(name="audioLanguage")
     def audio_language(self) -> Optional[str]:
         """
-        The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+        The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
         """
         return pulumi.get(self, "audio_language")
+
+    @property
+    @pulumi.getter(name="experimentalOptions")
+    def experimental_options(self) -> Optional[Mapping[str, str]]:
+        """
+        Dictionary containing key value pairs for parameters not exposed in the preset itself.
+        """
+        return pulumi.get(self, "experimental_options")
 
     @property
     @pulumi.getter(name="insightsType")
     def insights_type(self) -> Optional[str]:
         """
-        Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+        Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly, if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out. Default to `AllInsights`.
         """
         return pulumi.get(self, "insights_type")
 

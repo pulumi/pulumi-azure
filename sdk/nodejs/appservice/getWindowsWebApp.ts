@@ -98,6 +98,10 @@ export interface GetWindowsWebAppResult {
      */
     readonly enabled: boolean;
     /**
+     * The ID of the App Service Environment used by App Service.
+     */
+    readonly hostingEnvironmentId: string;
+    /**
      * Does the Windows Web App require HTTPS connections.
      */
     readonly httpsOnly: boolean;

@@ -127,6 +127,10 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The ID of the App Service Environment used by App Service Slot.
+     */
+    public /*out*/ readonly hostingEnvironmentId!: pulumi.Output<string>;
+    /**
      * Should the Linux Web App require HTTPS connections.
      */
     public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
@@ -222,6 +226,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
             resourceInputs["defaultHostname"] = state ? state.defaultHostname : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["hostingEnvironmentId"] = state ? state.hostingEnvironmentId : undefined;
             resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["keyVaultReferenceIdentityId"] = state ? state.keyVaultReferenceIdentityId : undefined;
@@ -272,6 +277,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["appMetadata"] = undefined /*out*/;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
+            resourceInputs["hostingEnvironmentId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["outboundIpAddressLists"] = undefined /*out*/;
             resourceInputs["outboundIpAddresses"] = undefined /*out*/;
@@ -346,6 +352,10 @@ export interface LinuxWebAppSlotState {
      * Should the Linux Web App be enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The ID of the App Service Environment used by App Service Slot.
+     */
+    hostingEnvironmentId?: pulumi.Input<string>;
     /**
      * Should the Linux Web App require HTTPS connections.
      */

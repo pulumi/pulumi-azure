@@ -312,6 +312,20 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.functionsExtensionVersion);
     }
     /**
+     * The ID of the App Service Environment used by Function App.
+     * 
+     */
+    @Export(name="hostingEnvironmentId", refs={String.class}, tree="[0]")
+    private Output<String> hostingEnvironmentId;
+
+    /**
+     * @return The ID of the App Service Environment used by Function App.
+     * 
+     */
+    public Output<String> hostingEnvironmentId() {
+        return this.hostingEnvironmentId;
+    }
+    /**
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      * 
      */

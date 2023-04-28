@@ -6,11 +6,13 @@ package com.pulumi.azure.attestation;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.attestation.ProviderArgs;
 import com.pulumi.azure.attestation.inputs.ProviderState;
+import com.pulumi.azure.attestation.outputs.ProviderPolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -108,6 +110,20 @@ public class Provider extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * One or more `policy` blocks as defined below.
+     * 
+     */
+    @Export(name="policies", refs={List.class,ProviderPolicy.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ProviderPolicy>> policies;
+
+    /**
+     * @return One or more `policy` blocks as defined below.
+     * 
+     */
+    public Output<Optional<List<ProviderPolicy>>> policies() {
+        return Codegen.optional(this.policies);
     }
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.

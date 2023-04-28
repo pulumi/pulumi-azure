@@ -273,7 +273,7 @@ class ServiceSkuArgs:
                  capacity: pulumi.Input[int],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[int] capacity: Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+        :param pulumi.Input[int] capacity: Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90` and `100`.
         :param pulumi.Input[str] name: Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1` and `Premium_P1`.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -283,7 +283,7 @@ class ServiceSkuArgs:
     @pulumi.getter
     def capacity(self) -> pulumi.Input[int]:
         """
-        Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+        Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90` and `100`.
         """
         return pulumi.get(self, "capacity")
 

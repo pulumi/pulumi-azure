@@ -209,6 +209,21 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The ID of the App Service Environment used by App Service.
+     * 
+     */
+    @Import(name="hostingEnvironmentId")
+    private @Nullable Output<String> hostingEnvironmentId;
+
+    /**
+     * @return The ID of the App Service Environment used by App Service.
+     * 
+     */
+    public Optional<Output<String>> hostingEnvironmentId() {
+        return Optional.ofNullable(this.hostingEnvironmentId);
+    }
+
+    /**
      * Should the Windows Web App require HTTPS connections.
      * 
      */
@@ -523,6 +538,7 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
         this.customDomainVerificationId = $.customDomainVerificationId;
         this.defaultHostname = $.defaultHostname;
         this.enabled = $.enabled;
+        this.hostingEnvironmentId = $.hostingEnvironmentId;
         this.httpsOnly = $.httpsOnly;
         this.identity = $.identity;
         this.keyVaultReferenceIdentityId = $.keyVaultReferenceIdentityId;
@@ -823,6 +839,27 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param hostingEnvironmentId The ID of the App Service Environment used by App Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostingEnvironmentId(@Nullable Output<String> hostingEnvironmentId) {
+            $.hostingEnvironmentId = hostingEnvironmentId;
+            return this;
+        }
+
+        /**
+         * @param hostingEnvironmentId The ID of the App Service Environment used by App Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostingEnvironmentId(String hostingEnvironmentId) {
+            return hostingEnvironmentId(Output.of(hostingEnvironmentId));
         }
 
         /**

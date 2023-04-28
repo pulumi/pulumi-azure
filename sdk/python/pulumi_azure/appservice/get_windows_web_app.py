@@ -22,7 +22,7 @@ class GetWindowsWebAppResult:
     """
     A collection of values returned by getWindowsWebApp.
     """
-    def __init__(__self__, app_settings=None, auth_settings=None, auth_settings_v2s=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None, virtual_network_subnet_id=None):
+    def __init__(__self__, app_settings=None, auth_settings=None, auth_settings_v2s=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, hosting_environment_id=None, https_only=None, id=None, identities=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None, virtual_network_subnet_id=None):
         if app_settings and not isinstance(app_settings, dict):
             raise TypeError("Expected argument 'app_settings' to be a dict")
         pulumi.set(__self__, "app_settings", app_settings)
@@ -59,6 +59,9 @@ class GetWindowsWebAppResult:
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if hosting_environment_id and not isinstance(hosting_environment_id, str):
+            raise TypeError("Expected argument 'hosting_environment_id' to be a str")
+        pulumi.set(__self__, "hosting_environment_id", hosting_environment_id)
         if https_only and not isinstance(https_only, bool):
             raise TypeError("Expected argument 'https_only' to be a bool")
         pulumi.set(__self__, "https_only", https_only)
@@ -212,6 +215,14 @@ class GetWindowsWebAppResult:
         Is the Backup enabled?
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="hostingEnvironmentId")
+    def hosting_environment_id(self) -> str:
+        """
+        The ID of the App Service Environment used by App Service.
+        """
+        return pulumi.get(self, "hosting_environment_id")
 
     @property
     @pulumi.getter(name="httpsOnly")
@@ -381,6 +392,7 @@ class AwaitableGetWindowsWebAppResult(GetWindowsWebAppResult):
             custom_domain_verification_id=self.custom_domain_verification_id,
             default_hostname=self.default_hostname,
             enabled=self.enabled,
+            hosting_environment_id=self.hosting_environment_id,
             https_only=self.https_only,
             id=self.id,
             identities=self.identities,
@@ -442,6 +454,7 @@ def get_windows_web_app(name: Optional[str] = None,
         custom_domain_verification_id=__ret__.custom_domain_verification_id,
         default_hostname=__ret__.default_hostname,
         enabled=__ret__.enabled,
+        hosting_environment_id=__ret__.hosting_environment_id,
         https_only=__ret__.https_only,
         id=__ret__.id,
         identities=__ret__.identities,

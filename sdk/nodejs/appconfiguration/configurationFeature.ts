@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure App Configuration Feature.
  *
+ * > **Note:** App Configuration Features are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration). This is similar to providing App Configuration Keys.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -19,6 +21,12 @@ import * as utilities from "../utilities";
  * const appconf = new azure.appconfiguration.ConfigurationStore("appconf", {
  *     resourceGroupName: example.name,
  *     location: example.location,
+ * });
+ * const current = azure.core.getClientConfig({});
+ * const appconfDataowner = new azure.authorization.Assignment("appconfDataowner", {
+ *     scope: appconf.id,
+ *     roleDefinitionName: "App Configuration Data Owner",
+ *     principalId: current.then(current => current.objectId),
  * });
  * const test = new azure.appconfiguration.ConfigurationFeature("test", {
  *     configurationStoreId: appconf.id,

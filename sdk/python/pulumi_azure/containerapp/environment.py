@@ -156,7 +156,7 @@ class _EnvironmentState:
         :param pulumi.Input[str] platform_reserved_cidr: The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
         :param pulumi.Input[str] platform_reserved_dns_ip_address: The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] static_ip_address: The Static IP of the Environment.
+        :param pulumi.Input[str] static_ip_address: The Static IP address of the Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if default_domain is not None:
@@ -308,7 +308,7 @@ class _EnvironmentState:
     @pulumi.getter(name="staticIpAddress")
     def static_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The Static IP of the Environment.
+        The Static IP address of the Environment.
         """
         return pulumi.get(self, "static_ip_address")
 
@@ -502,7 +502,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] platform_reserved_cidr: The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
         :param pulumi.Input[str] platform_reserved_dns_ip_address: The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] static_ip_address: The Static IP of the Environment.
+        :param pulumi.Input[str] static_ip_address: The Static IP address of the Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -607,7 +607,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="staticIpAddress")
     def static_ip_address(self) -> pulumi.Output[str]:
         """
-        The Static IP of the Environment.
+        The Static IP address of the Environment.
         """
         return pulumi.get(self, "static_ip_address")
 

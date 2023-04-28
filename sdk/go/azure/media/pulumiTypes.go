@@ -9029,15 +9029,17 @@ func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) SmoothStreaming() 
 }
 
 type TransformOutputType struct {
-	// A `audioAnalyzerPreset` block as defined below.
+	// An `audioAnalyzerPreset` block as defined above.
 	AudioAnalyzerPreset *TransformOutputAudioAnalyzerPreset `pulumi:"audioAnalyzerPreset"`
-	// A `builtinPreset` block as defined below.
+	// A `builtinPreset` block as defined above.
 	BuiltinPreset *TransformOutputBuiltinPreset `pulumi:"builtinPreset"`
-	// A `faceDetectorPreset` block as defined below.
+	// A `customPreset` block as defined above.
+	CustomPreset *TransformOutputCustomPreset `pulumi:"customPreset"`
+	// A `faceDetectorPreset` block as defined above.
 	FaceDetectorPreset *TransformOutputFaceDetectorPreset `pulumi:"faceDetectorPreset"`
-	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
 	OnErrorAction *string `pulumi:"onErrorAction"`
-	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
 	RelativePriority *string `pulumi:"relativePriority"`
 	// A `videoAnalyzerPreset` block as defined below.
 	VideoAnalyzerPreset *TransformOutputVideoAnalyzerPreset `pulumi:"videoAnalyzerPreset"`
@@ -9055,15 +9057,17 @@ type TransformOutputTypeInput interface {
 }
 
 type TransformOutputTypeArgs struct {
-	// A `audioAnalyzerPreset` block as defined below.
+	// An `audioAnalyzerPreset` block as defined above.
 	AudioAnalyzerPreset TransformOutputAudioAnalyzerPresetPtrInput `pulumi:"audioAnalyzerPreset"`
-	// A `builtinPreset` block as defined below.
+	// A `builtinPreset` block as defined above.
 	BuiltinPreset TransformOutputBuiltinPresetPtrInput `pulumi:"builtinPreset"`
-	// A `faceDetectorPreset` block as defined below.
+	// A `customPreset` block as defined above.
+	CustomPreset TransformOutputCustomPresetPtrInput `pulumi:"customPreset"`
+	// A `faceDetectorPreset` block as defined above.
 	FaceDetectorPreset TransformOutputFaceDetectorPresetPtrInput `pulumi:"faceDetectorPreset"`
-	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
 	OnErrorAction pulumi.StringPtrInput `pulumi:"onErrorAction"`
-	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
 	RelativePriority pulumi.StringPtrInput `pulumi:"relativePriority"`
 	// A `videoAnalyzerPreset` block as defined below.
 	VideoAnalyzerPreset TransformOutputVideoAnalyzerPresetPtrInput `pulumi:"videoAnalyzerPreset"`
@@ -9120,27 +9124,32 @@ func (o TransformOutputTypeOutput) ToTransformOutputTypeOutputWithContext(ctx co
 	return o
 }
 
-// A `audioAnalyzerPreset` block as defined below.
+// An `audioAnalyzerPreset` block as defined above.
 func (o TransformOutputTypeOutput) AudioAnalyzerPreset() TransformOutputAudioAnalyzerPresetPtrOutput {
 	return o.ApplyT(func(v TransformOutputType) *TransformOutputAudioAnalyzerPreset { return v.AudioAnalyzerPreset }).(TransformOutputAudioAnalyzerPresetPtrOutput)
 }
 
-// A `builtinPreset` block as defined below.
+// A `builtinPreset` block as defined above.
 func (o TransformOutputTypeOutput) BuiltinPreset() TransformOutputBuiltinPresetPtrOutput {
 	return o.ApplyT(func(v TransformOutputType) *TransformOutputBuiltinPreset { return v.BuiltinPreset }).(TransformOutputBuiltinPresetPtrOutput)
 }
 
-// A `faceDetectorPreset` block as defined below.
+// A `customPreset` block as defined above.
+func (o TransformOutputTypeOutput) CustomPreset() TransformOutputCustomPresetPtrOutput {
+	return o.ApplyT(func(v TransformOutputType) *TransformOutputCustomPreset { return v.CustomPreset }).(TransformOutputCustomPresetPtrOutput)
+}
+
+// A `faceDetectorPreset` block as defined above.
 func (o TransformOutputTypeOutput) FaceDetectorPreset() TransformOutputFaceDetectorPresetPtrOutput {
 	return o.ApplyT(func(v TransformOutputType) *TransformOutputFaceDetectorPreset { return v.FaceDetectorPreset }).(TransformOutputFaceDetectorPresetPtrOutput)
 }
 
-// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
 func (o TransformOutputTypeOutput) OnErrorAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputType) *string { return v.OnErrorAction }).(pulumi.StringPtrOutput)
 }
 
-// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
 func (o TransformOutputTypeOutput) RelativePriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputType) *string { return v.RelativePriority }).(pulumi.StringPtrOutput)
 }
@@ -9171,10 +9180,12 @@ func (o TransformOutputTypeArrayOutput) Index(i pulumi.IntInput) TransformOutput
 }
 
 type TransformOutputAudioAnalyzerPreset struct {
-	// Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+	// Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
 	AudioAnalysisMode *string `pulumi:"audioAnalysisMode"`
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
 	AudioLanguage *string `pulumi:"audioLanguage"`
+	// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+	ExperimentalOptions map[string]string `pulumi:"experimentalOptions"`
 }
 
 // TransformOutputAudioAnalyzerPresetInput is an input type that accepts TransformOutputAudioAnalyzerPresetArgs and TransformOutputAudioAnalyzerPresetOutput values.
@@ -9189,10 +9200,12 @@ type TransformOutputAudioAnalyzerPresetInput interface {
 }
 
 type TransformOutputAudioAnalyzerPresetArgs struct {
-	// Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+	// Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
 	AudioAnalysisMode pulumi.StringPtrInput `pulumi:"audioAnalysisMode"`
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
 	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
+	// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+	ExperimentalOptions pulumi.StringMapInput `pulumi:"experimentalOptions"`
 }
 
 func (TransformOutputAudioAnalyzerPresetArgs) ElementType() reflect.Type {
@@ -9272,14 +9285,19 @@ func (o TransformOutputAudioAnalyzerPresetOutput) ToTransformOutputAudioAnalyzer
 	}).(TransformOutputAudioAnalyzerPresetPtrOutput)
 }
 
-// Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+// Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
 func (o TransformOutputAudioAnalyzerPresetOutput) AudioAnalysisMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputAudioAnalyzerPreset) *string { return v.AudioAnalysisMode }).(pulumi.StringPtrOutput)
 }
 
-// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
 func (o TransformOutputAudioAnalyzerPresetOutput) AudioLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputAudioAnalyzerPreset) *string { return v.AudioLanguage }).(pulumi.StringPtrOutput)
+}
+
+// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+func (o TransformOutputAudioAnalyzerPresetOutput) ExperimentalOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TransformOutputAudioAnalyzerPreset) map[string]string { return v.ExperimentalOptions }).(pulumi.StringMapOutput)
 }
 
 type TransformOutputAudioAnalyzerPresetPtrOutput struct{ *pulumi.OutputState }
@@ -9306,7 +9324,7 @@ func (o TransformOutputAudioAnalyzerPresetPtrOutput) Elem() TransformOutputAudio
 	}).(TransformOutputAudioAnalyzerPresetOutput)
 }
 
-// Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+// Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
 func (o TransformOutputAudioAnalyzerPresetPtrOutput) AudioAnalysisMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputAudioAnalyzerPreset) *string {
 		if v == nil {
@@ -9316,7 +9334,7 @@ func (o TransformOutputAudioAnalyzerPresetPtrOutput) AudioAnalysisMode() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
 func (o TransformOutputAudioAnalyzerPresetPtrOutput) AudioLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputAudioAnalyzerPreset) *string {
 		if v == nil {
@@ -9326,8 +9344,20 @@ func (o TransformOutputAudioAnalyzerPresetPtrOutput) AudioLanguage() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+func (o TransformOutputAudioAnalyzerPresetPtrOutput) ExperimentalOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TransformOutputAudioAnalyzerPreset) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ExperimentalOptions
+	}).(pulumi.StringMapOutput)
+}
+
 type TransformOutputBuiltinPreset struct {
-	// The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+	// A `presentConfiguration` block as defined below.
+	PresetConfiguration *TransformOutputBuiltinPresetPresetConfiguration `pulumi:"presetConfiguration"`
+	// The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
 	PresetName string `pulumi:"presetName"`
 }
 
@@ -9343,7 +9373,9 @@ type TransformOutputBuiltinPresetInput interface {
 }
 
 type TransformOutputBuiltinPresetArgs struct {
-	// The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+	// A `presentConfiguration` block as defined below.
+	PresetConfiguration TransformOutputBuiltinPresetPresetConfigurationPtrInput `pulumi:"presetConfiguration"`
+	// The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
 	PresetName pulumi.StringInput `pulumi:"presetName"`
 }
 
@@ -9424,7 +9456,14 @@ func (o TransformOutputBuiltinPresetOutput) ToTransformOutputBuiltinPresetPtrOut
 	}).(TransformOutputBuiltinPresetPtrOutput)
 }
 
-// The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+// A `presentConfiguration` block as defined below.
+func (o TransformOutputBuiltinPresetOutput) PresetConfiguration() TransformOutputBuiltinPresetPresetConfigurationPtrOutput {
+	return o.ApplyT(func(v TransformOutputBuiltinPreset) *TransformOutputBuiltinPresetPresetConfiguration {
+		return v.PresetConfiguration
+	}).(TransformOutputBuiltinPresetPresetConfigurationPtrOutput)
+}
+
+// The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
 func (o TransformOutputBuiltinPresetOutput) PresetName() pulumi.StringOutput {
 	return o.ApplyT(func(v TransformOutputBuiltinPreset) string { return v.PresetName }).(pulumi.StringOutput)
 }
@@ -9453,7 +9492,17 @@ func (o TransformOutputBuiltinPresetPtrOutput) Elem() TransformOutputBuiltinPres
 	}).(TransformOutputBuiltinPresetOutput)
 }
 
-// The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+// A `presentConfiguration` block as defined below.
+func (o TransformOutputBuiltinPresetPtrOutput) PresetConfiguration() TransformOutputBuiltinPresetPresetConfigurationPtrOutput {
+	return o.ApplyT(func(v *TransformOutputBuiltinPreset) *TransformOutputBuiltinPresetPresetConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PresetConfiguration
+	}).(TransformOutputBuiltinPresetPresetConfigurationPtrOutput)
+}
+
+// The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
 func (o TransformOutputBuiltinPresetPtrOutput) PresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputBuiltinPreset) *string {
 		if v == nil {
@@ -9463,9 +9512,4832 @@ func (o TransformOutputBuiltinPresetPtrOutput) PresetName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type TransformOutputBuiltinPresetPresetConfiguration struct {
+	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`.
+	Complexity *string `pulumi:"complexity"`
+	// Specifies the interleave mode of the output to control how audio are stored in the container format. Possible values are `InterleavedOutput` and `NonInterleavedOutput`.
+	InterleaveOutput *string `pulumi:"interleaveOutput"`
+	// The key frame interval in seconds. Possible value is a positive float. For example, set as `2.0` to reduce the playback buffering for some players.
+	KeyFrameIntervalInSeconds *float64 `pulumi:"keyFrameIntervalInSeconds"`
+	// The maximum bitrate in bits per second (threshold for the top video layer). For example, set as `6000000` to avoid producing very high bitrate outputs for contents with high complexity.
+	MaxBitrateBps *int `pulumi:"maxBitrateBps"`
+	// The maximum height of output video layers. For example, set as `720` to produce output layers up to 720P even if the input is 4K.
+	MaxHeight *int `pulumi:"maxHeight"`
+	// The maximum number of output video layers. For example, set as `4` to make sure at most 4 output layers are produced to control the overall cost of the encoding job.
+	MaxLayers *int `pulumi:"maxLayers"`
+	// The minimum bitrate in bits per second (threshold for the bottom video layer). For example, set as `200000` to have a bottom layer that covers users with low network bandwidth.
+	MinBitrateBps *int `pulumi:"minBitrateBps"`
+	// The minimum height of output video layers. For example, set as `360` to avoid output layers of smaller resolutions like 180P.
+	MinHeight *int `pulumi:"minHeight"`
+}
+
+// TransformOutputBuiltinPresetPresetConfigurationInput is an input type that accepts TransformOutputBuiltinPresetPresetConfigurationArgs and TransformOutputBuiltinPresetPresetConfigurationOutput values.
+// You can construct a concrete instance of `TransformOutputBuiltinPresetPresetConfigurationInput` via:
+//
+//	TransformOutputBuiltinPresetPresetConfigurationArgs{...}
+type TransformOutputBuiltinPresetPresetConfigurationInput interface {
+	pulumi.Input
+
+	ToTransformOutputBuiltinPresetPresetConfigurationOutput() TransformOutputBuiltinPresetPresetConfigurationOutput
+	ToTransformOutputBuiltinPresetPresetConfigurationOutputWithContext(context.Context) TransformOutputBuiltinPresetPresetConfigurationOutput
+}
+
+type TransformOutputBuiltinPresetPresetConfigurationArgs struct {
+	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`.
+	Complexity pulumi.StringPtrInput `pulumi:"complexity"`
+	// Specifies the interleave mode of the output to control how audio are stored in the container format. Possible values are `InterleavedOutput` and `NonInterleavedOutput`.
+	InterleaveOutput pulumi.StringPtrInput `pulumi:"interleaveOutput"`
+	// The key frame interval in seconds. Possible value is a positive float. For example, set as `2.0` to reduce the playback buffering for some players.
+	KeyFrameIntervalInSeconds pulumi.Float64PtrInput `pulumi:"keyFrameIntervalInSeconds"`
+	// The maximum bitrate in bits per second (threshold for the top video layer). For example, set as `6000000` to avoid producing very high bitrate outputs for contents with high complexity.
+	MaxBitrateBps pulumi.IntPtrInput `pulumi:"maxBitrateBps"`
+	// The maximum height of output video layers. For example, set as `720` to produce output layers up to 720P even if the input is 4K.
+	MaxHeight pulumi.IntPtrInput `pulumi:"maxHeight"`
+	// The maximum number of output video layers. For example, set as `4` to make sure at most 4 output layers are produced to control the overall cost of the encoding job.
+	MaxLayers pulumi.IntPtrInput `pulumi:"maxLayers"`
+	// The minimum bitrate in bits per second (threshold for the bottom video layer). For example, set as `200000` to have a bottom layer that covers users with low network bandwidth.
+	MinBitrateBps pulumi.IntPtrInput `pulumi:"minBitrateBps"`
+	// The minimum height of output video layers. For example, set as `360` to avoid output layers of smaller resolutions like 180P.
+	MinHeight pulumi.IntPtrInput `pulumi:"minHeight"`
+}
+
+func (TransformOutputBuiltinPresetPresetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputBuiltinPresetPresetConfiguration)(nil)).Elem()
+}
+
+func (i TransformOutputBuiltinPresetPresetConfigurationArgs) ToTransformOutputBuiltinPresetPresetConfigurationOutput() TransformOutputBuiltinPresetPresetConfigurationOutput {
+	return i.ToTransformOutputBuiltinPresetPresetConfigurationOutputWithContext(context.Background())
+}
+
+func (i TransformOutputBuiltinPresetPresetConfigurationArgs) ToTransformOutputBuiltinPresetPresetConfigurationOutputWithContext(ctx context.Context) TransformOutputBuiltinPresetPresetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputBuiltinPresetPresetConfigurationOutput)
+}
+
+func (i TransformOutputBuiltinPresetPresetConfigurationArgs) ToTransformOutputBuiltinPresetPresetConfigurationPtrOutput() TransformOutputBuiltinPresetPresetConfigurationPtrOutput {
+	return i.ToTransformOutputBuiltinPresetPresetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputBuiltinPresetPresetConfigurationArgs) ToTransformOutputBuiltinPresetPresetConfigurationPtrOutputWithContext(ctx context.Context) TransformOutputBuiltinPresetPresetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputBuiltinPresetPresetConfigurationOutput).ToTransformOutputBuiltinPresetPresetConfigurationPtrOutputWithContext(ctx)
+}
+
+// TransformOutputBuiltinPresetPresetConfigurationPtrInput is an input type that accepts TransformOutputBuiltinPresetPresetConfigurationArgs, TransformOutputBuiltinPresetPresetConfigurationPtr and TransformOutputBuiltinPresetPresetConfigurationPtrOutput values.
+// You can construct a concrete instance of `TransformOutputBuiltinPresetPresetConfigurationPtrInput` via:
+//
+//	        TransformOutputBuiltinPresetPresetConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputBuiltinPresetPresetConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputBuiltinPresetPresetConfigurationPtrOutput() TransformOutputBuiltinPresetPresetConfigurationPtrOutput
+	ToTransformOutputBuiltinPresetPresetConfigurationPtrOutputWithContext(context.Context) TransformOutputBuiltinPresetPresetConfigurationPtrOutput
+}
+
+type transformOutputBuiltinPresetPresetConfigurationPtrType TransformOutputBuiltinPresetPresetConfigurationArgs
+
+func TransformOutputBuiltinPresetPresetConfigurationPtr(v *TransformOutputBuiltinPresetPresetConfigurationArgs) TransformOutputBuiltinPresetPresetConfigurationPtrInput {
+	return (*transformOutputBuiltinPresetPresetConfigurationPtrType)(v)
+}
+
+func (*transformOutputBuiltinPresetPresetConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputBuiltinPresetPresetConfiguration)(nil)).Elem()
+}
+
+func (i *transformOutputBuiltinPresetPresetConfigurationPtrType) ToTransformOutputBuiltinPresetPresetConfigurationPtrOutput() TransformOutputBuiltinPresetPresetConfigurationPtrOutput {
+	return i.ToTransformOutputBuiltinPresetPresetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputBuiltinPresetPresetConfigurationPtrType) ToTransformOutputBuiltinPresetPresetConfigurationPtrOutputWithContext(ctx context.Context) TransformOutputBuiltinPresetPresetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputBuiltinPresetPresetConfigurationPtrOutput)
+}
+
+type TransformOutputBuiltinPresetPresetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputBuiltinPresetPresetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputBuiltinPresetPresetConfiguration)(nil)).Elem()
+}
+
+func (o TransformOutputBuiltinPresetPresetConfigurationOutput) ToTransformOutputBuiltinPresetPresetConfigurationOutput() TransformOutputBuiltinPresetPresetConfigurationOutput {
+	return o
+}
+
+func (o TransformOutputBuiltinPresetPresetConfigurationOutput) ToTransformOutputBuiltinPresetPresetConfigurationOutputWithContext(ctx context.Context) TransformOutputBuiltinPresetPresetConfigurationOutput {
+	return o
+}
+
+func (o TransformOutputBuiltinPresetPresetConfigurationOutput) ToTransformOutputBuiltinPresetPresetConfigurationPtrOutput() TransformOutputBuiltinPresetPresetConfigurationPtrOutput {
+	return o.ToTransformOutputBuiltinPresetPresetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputBuiltinPresetPresetConfigurationOutput) ToTransformOutputBuiltinPresetPresetConfigurationPtrOutputWithContext(ctx context.Context) TransformOutputBuiltinPresetPresetConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputBuiltinPresetPresetConfiguration) *TransformOutputBuiltinPresetPresetConfiguration {
+		return &v
+	}).(TransformOutputBuiltinPresetPresetConfigurationPtrOutput)
+}
+
+// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`.
+func (o TransformOutputBuiltinPresetPresetConfigurationOutput) Complexity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputBuiltinPresetPresetConfiguration) *string { return v.Complexity }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the interleave mode of the output to control how audio are stored in the container format. Possible values are `InterleavedOutput` and `NonInterleavedOutput`.
+func (o TransformOutputBuiltinPresetPresetConfigurationOutput) InterleaveOutput() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputBuiltinPresetPresetConfiguration) *string { return v.InterleaveOutput }).(pulumi.StringPtrOutput)
+}
+
+// The key frame interval in seconds. Possible value is a positive float. For example, set as `2.0` to reduce the playback buffering for some players.
+func (o TransformOutputBuiltinPresetPresetConfigurationOutput) KeyFrameIntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TransformOutputBuiltinPresetPresetConfiguration) *float64 { return v.KeyFrameIntervalInSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// The maximum bitrate in bits per second (threshold for the top video layer). For example, set as `6000000` to avoid producing very high bitrate outputs for contents with high complexity.
+func (o TransformOutputBuiltinPresetPresetConfigurationOutput) MaxBitrateBps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputBuiltinPresetPresetConfiguration) *int { return v.MaxBitrateBps }).(pulumi.IntPtrOutput)
+}
+
+// The maximum height of output video layers. For example, set as `720` to produce output layers up to 720P even if the input is 4K.
+func (o TransformOutputBuiltinPresetPresetConfigurationOutput) MaxHeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputBuiltinPresetPresetConfiguration) *int { return v.MaxHeight }).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of output video layers. For example, set as `4` to make sure at most 4 output layers are produced to control the overall cost of the encoding job.
+func (o TransformOutputBuiltinPresetPresetConfigurationOutput) MaxLayers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputBuiltinPresetPresetConfiguration) *int { return v.MaxLayers }).(pulumi.IntPtrOutput)
+}
+
+// The minimum bitrate in bits per second (threshold for the bottom video layer). For example, set as `200000` to have a bottom layer that covers users with low network bandwidth.
+func (o TransformOutputBuiltinPresetPresetConfigurationOutput) MinBitrateBps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputBuiltinPresetPresetConfiguration) *int { return v.MinBitrateBps }).(pulumi.IntPtrOutput)
+}
+
+// The minimum height of output video layers. For example, set as `360` to avoid output layers of smaller resolutions like 180P.
+func (o TransformOutputBuiltinPresetPresetConfigurationOutput) MinHeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputBuiltinPresetPresetConfiguration) *int { return v.MinHeight }).(pulumi.IntPtrOutput)
+}
+
+type TransformOutputBuiltinPresetPresetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputBuiltinPresetPresetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputBuiltinPresetPresetConfiguration)(nil)).Elem()
+}
+
+func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) ToTransformOutputBuiltinPresetPresetConfigurationPtrOutput() TransformOutputBuiltinPresetPresetConfigurationPtrOutput {
+	return o
+}
+
+func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) ToTransformOutputBuiltinPresetPresetConfigurationPtrOutputWithContext(ctx context.Context) TransformOutputBuiltinPresetPresetConfigurationPtrOutput {
+	return o
+}
+
+func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) Elem() TransformOutputBuiltinPresetPresetConfigurationOutput {
+	return o.ApplyT(func(v *TransformOutputBuiltinPresetPresetConfiguration) TransformOutputBuiltinPresetPresetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputBuiltinPresetPresetConfiguration
+		return ret
+	}).(TransformOutputBuiltinPresetPresetConfigurationOutput)
+}
+
+// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`.
+func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) Complexity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputBuiltinPresetPresetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Complexity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the interleave mode of the output to control how audio are stored in the container format. Possible values are `InterleavedOutput` and `NonInterleavedOutput`.
+func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) InterleaveOutput() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputBuiltinPresetPresetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InterleaveOutput
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key frame interval in seconds. Possible value is a positive float. For example, set as `2.0` to reduce the playback buffering for some players.
+func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) KeyFrameIntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TransformOutputBuiltinPresetPresetConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFrameIntervalInSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The maximum bitrate in bits per second (threshold for the top video layer). For example, set as `6000000` to avoid producing very high bitrate outputs for contents with high complexity.
+func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) MaxBitrateBps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransformOutputBuiltinPresetPresetConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxBitrateBps
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum height of output video layers. For example, set as `720` to produce output layers up to 720P even if the input is 4K.
+func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) MaxHeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransformOutputBuiltinPresetPresetConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxHeight
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of output video layers. For example, set as `4` to make sure at most 4 output layers are produced to control the overall cost of the encoding job.
+func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) MaxLayers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransformOutputBuiltinPresetPresetConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxLayers
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum bitrate in bits per second (threshold for the bottom video layer). For example, set as `200000` to have a bottom layer that covers users with low network bandwidth.
+func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) MinBitrateBps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransformOutputBuiltinPresetPresetConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinBitrateBps
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum height of output video layers. For example, set as `360` to avoid output layers of smaller resolutions like 180P.
+func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) MinHeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransformOutputBuiltinPresetPresetConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinHeight
+	}).(pulumi.IntPtrOutput)
+}
+
+type TransformOutputCustomPreset struct {
+	// One or more `codec` blocks as defined above.
+	Codecs []TransformOutputCustomPresetCodec `pulumi:"codecs"`
+	// A `filter` block as defined below.
+	Filter *TransformOutputCustomPresetFilter `pulumi:"filter"`
+	// One or more `format` blocks as defined below.
+	Formats []TransformOutputCustomPresetFormat `pulumi:"formats"`
+}
+
+// TransformOutputCustomPresetInput is an input type that accepts TransformOutputCustomPresetArgs and TransformOutputCustomPresetOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetInput` via:
+//
+//	TransformOutputCustomPresetArgs{...}
+type TransformOutputCustomPresetInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetOutput() TransformOutputCustomPresetOutput
+	ToTransformOutputCustomPresetOutputWithContext(context.Context) TransformOutputCustomPresetOutput
+}
+
+type TransformOutputCustomPresetArgs struct {
+	// One or more `codec` blocks as defined above.
+	Codecs TransformOutputCustomPresetCodecArrayInput `pulumi:"codecs"`
+	// A `filter` block as defined below.
+	Filter TransformOutputCustomPresetFilterPtrInput `pulumi:"filter"`
+	// One or more `format` blocks as defined below.
+	Formats TransformOutputCustomPresetFormatArrayInput `pulumi:"formats"`
+}
+
+func (TransformOutputCustomPresetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPreset)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetArgs) ToTransformOutputCustomPresetOutput() TransformOutputCustomPresetOutput {
+	return i.ToTransformOutputCustomPresetOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetArgs) ToTransformOutputCustomPresetOutputWithContext(ctx context.Context) TransformOutputCustomPresetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetOutput)
+}
+
+func (i TransformOutputCustomPresetArgs) ToTransformOutputCustomPresetPtrOutput() TransformOutputCustomPresetPtrOutput {
+	return i.ToTransformOutputCustomPresetPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetArgs) ToTransformOutputCustomPresetPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetOutput).ToTransformOutputCustomPresetPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetPtrInput is an input type that accepts TransformOutputCustomPresetArgs, TransformOutputCustomPresetPtr and TransformOutputCustomPresetPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetPtrInput` via:
+//
+//	        TransformOutputCustomPresetArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetPtrOutput() TransformOutputCustomPresetPtrOutput
+	ToTransformOutputCustomPresetPtrOutputWithContext(context.Context) TransformOutputCustomPresetPtrOutput
+}
+
+type transformOutputCustomPresetPtrType TransformOutputCustomPresetArgs
+
+func TransformOutputCustomPresetPtr(v *TransformOutputCustomPresetArgs) TransformOutputCustomPresetPtrInput {
+	return (*transformOutputCustomPresetPtrType)(v)
+}
+
+func (*transformOutputCustomPresetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPreset)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetPtrType) ToTransformOutputCustomPresetPtrOutput() TransformOutputCustomPresetPtrOutput {
+	return i.ToTransformOutputCustomPresetPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetPtrType) ToTransformOutputCustomPresetPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetPtrOutput)
+}
+
+type TransformOutputCustomPresetOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPreset)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetOutput) ToTransformOutputCustomPresetOutput() TransformOutputCustomPresetOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetOutput) ToTransformOutputCustomPresetOutputWithContext(ctx context.Context) TransformOutputCustomPresetOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetOutput) ToTransformOutputCustomPresetPtrOutput() TransformOutputCustomPresetPtrOutput {
+	return o.ToTransformOutputCustomPresetPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetOutput) ToTransformOutputCustomPresetPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPreset) *TransformOutputCustomPreset {
+		return &v
+	}).(TransformOutputCustomPresetPtrOutput)
+}
+
+// One or more `codec` blocks as defined above.
+func (o TransformOutputCustomPresetOutput) Codecs() TransformOutputCustomPresetCodecArrayOutput {
+	return o.ApplyT(func(v TransformOutputCustomPreset) []TransformOutputCustomPresetCodec { return v.Codecs }).(TransformOutputCustomPresetCodecArrayOutput)
+}
+
+// A `filter` block as defined below.
+func (o TransformOutputCustomPresetOutput) Filter() TransformOutputCustomPresetFilterPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPreset) *TransformOutputCustomPresetFilter { return v.Filter }).(TransformOutputCustomPresetFilterPtrOutput)
+}
+
+// One or more `format` blocks as defined below.
+func (o TransformOutputCustomPresetOutput) Formats() TransformOutputCustomPresetFormatArrayOutput {
+	return o.ApplyT(func(v TransformOutputCustomPreset) []TransformOutputCustomPresetFormat { return v.Formats }).(TransformOutputCustomPresetFormatArrayOutput)
+}
+
+type TransformOutputCustomPresetPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPreset)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetPtrOutput) ToTransformOutputCustomPresetPtrOutput() TransformOutputCustomPresetPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetPtrOutput) ToTransformOutputCustomPresetPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetPtrOutput) Elem() TransformOutputCustomPresetOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPreset) TransformOutputCustomPreset {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPreset
+		return ret
+	}).(TransformOutputCustomPresetOutput)
+}
+
+// One or more `codec` blocks as defined above.
+func (o TransformOutputCustomPresetPtrOutput) Codecs() TransformOutputCustomPresetCodecArrayOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPreset) []TransformOutputCustomPresetCodec {
+		if v == nil {
+			return nil
+		}
+		return v.Codecs
+	}).(TransformOutputCustomPresetCodecArrayOutput)
+}
+
+// A `filter` block as defined below.
+func (o TransformOutputCustomPresetPtrOutput) Filter() TransformOutputCustomPresetFilterPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPreset) *TransformOutputCustomPresetFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Filter
+	}).(TransformOutputCustomPresetFilterPtrOutput)
+}
+
+// One or more `format` blocks as defined below.
+func (o TransformOutputCustomPresetPtrOutput) Formats() TransformOutputCustomPresetFormatArrayOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPreset) []TransformOutputCustomPresetFormat {
+		if v == nil {
+			return nil
+		}
+		return v.Formats
+	}).(TransformOutputCustomPresetFormatArrayOutput)
+}
+
+type TransformOutputCustomPresetCodec struct {
+	// A `aacAudio` block as defined above.
+	AacAudio *TransformOutputCustomPresetCodecAacAudio `pulumi:"aacAudio"`
+	// A `copyAudio` block as defined below.
+	CopyAudio *TransformOutputCustomPresetCodecCopyAudio `pulumi:"copyAudio"`
+	// A `copyVideo` block as defined below.
+	CopyVideo *TransformOutputCustomPresetCodecCopyVideo `pulumi:"copyVideo"`
+	// A `ddAudio` block as defined below.
+	DdAudio *TransformOutputCustomPresetCodecDdAudio `pulumi:"ddAudio"`
+	// A `h264Video` block as defined below.
+	H264Video *TransformOutputCustomPresetCodecH264Video `pulumi:"h264Video"`
+	// A `h265Video` block as defined below.
+	H265Video *TransformOutputCustomPresetCodecH265Video `pulumi:"h265Video"`
+}
+
+// TransformOutputCustomPresetCodecInput is an input type that accepts TransformOutputCustomPresetCodecArgs and TransformOutputCustomPresetCodecOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecInput` via:
+//
+//	TransformOutputCustomPresetCodecArgs{...}
+type TransformOutputCustomPresetCodecInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecOutput() TransformOutputCustomPresetCodecOutput
+	ToTransformOutputCustomPresetCodecOutputWithContext(context.Context) TransformOutputCustomPresetCodecOutput
+}
+
+type TransformOutputCustomPresetCodecArgs struct {
+	// A `aacAudio` block as defined above.
+	AacAudio TransformOutputCustomPresetCodecAacAudioPtrInput `pulumi:"aacAudio"`
+	// A `copyAudio` block as defined below.
+	CopyAudio TransformOutputCustomPresetCodecCopyAudioPtrInput `pulumi:"copyAudio"`
+	// A `copyVideo` block as defined below.
+	CopyVideo TransformOutputCustomPresetCodecCopyVideoPtrInput `pulumi:"copyVideo"`
+	// A `ddAudio` block as defined below.
+	DdAudio TransformOutputCustomPresetCodecDdAudioPtrInput `pulumi:"ddAudio"`
+	// A `h264Video` block as defined below.
+	H264Video TransformOutputCustomPresetCodecH264VideoPtrInput `pulumi:"h264Video"`
+	// A `h265Video` block as defined below.
+	H265Video TransformOutputCustomPresetCodecH265VideoPtrInput `pulumi:"h265Video"`
+}
+
+func (TransformOutputCustomPresetCodecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodec)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecArgs) ToTransformOutputCustomPresetCodecOutput() TransformOutputCustomPresetCodecOutput {
+	return i.ToTransformOutputCustomPresetCodecOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecArgs) ToTransformOutputCustomPresetCodecOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecOutput)
+}
+
+// TransformOutputCustomPresetCodecArrayInput is an input type that accepts TransformOutputCustomPresetCodecArray and TransformOutputCustomPresetCodecArrayOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecArrayInput` via:
+//
+//	TransformOutputCustomPresetCodecArray{ TransformOutputCustomPresetCodecArgs{...} }
+type TransformOutputCustomPresetCodecArrayInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecArrayOutput() TransformOutputCustomPresetCodecArrayOutput
+	ToTransformOutputCustomPresetCodecArrayOutputWithContext(context.Context) TransformOutputCustomPresetCodecArrayOutput
+}
+
+type TransformOutputCustomPresetCodecArray []TransformOutputCustomPresetCodecInput
+
+func (TransformOutputCustomPresetCodecArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetCodec)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecArray) ToTransformOutputCustomPresetCodecArrayOutput() TransformOutputCustomPresetCodecArrayOutput {
+	return i.ToTransformOutputCustomPresetCodecArrayOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecArray) ToTransformOutputCustomPresetCodecArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecArrayOutput)
+}
+
+type TransformOutputCustomPresetCodecOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodec)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecOutput) ToTransformOutputCustomPresetCodecOutput() TransformOutputCustomPresetCodecOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecOutput) ToTransformOutputCustomPresetCodecOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecOutput {
+	return o
+}
+
+// A `aacAudio` block as defined above.
+func (o TransformOutputCustomPresetCodecOutput) AacAudio() TransformOutputCustomPresetCodecAacAudioPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodec) *TransformOutputCustomPresetCodecAacAudio { return v.AacAudio }).(TransformOutputCustomPresetCodecAacAudioPtrOutput)
+}
+
+// A `copyAudio` block as defined below.
+func (o TransformOutputCustomPresetCodecOutput) CopyAudio() TransformOutputCustomPresetCodecCopyAudioPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodec) *TransformOutputCustomPresetCodecCopyAudio {
+		return v.CopyAudio
+	}).(TransformOutputCustomPresetCodecCopyAudioPtrOutput)
+}
+
+// A `copyVideo` block as defined below.
+func (o TransformOutputCustomPresetCodecOutput) CopyVideo() TransformOutputCustomPresetCodecCopyVideoPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodec) *TransformOutputCustomPresetCodecCopyVideo {
+		return v.CopyVideo
+	}).(TransformOutputCustomPresetCodecCopyVideoPtrOutput)
+}
+
+// A `ddAudio` block as defined below.
+func (o TransformOutputCustomPresetCodecOutput) DdAudio() TransformOutputCustomPresetCodecDdAudioPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodec) *TransformOutputCustomPresetCodecDdAudio { return v.DdAudio }).(TransformOutputCustomPresetCodecDdAudioPtrOutput)
+}
+
+// A `h264Video` block as defined below.
+func (o TransformOutputCustomPresetCodecOutput) H264Video() TransformOutputCustomPresetCodecH264VideoPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodec) *TransformOutputCustomPresetCodecH264Video {
+		return v.H264Video
+	}).(TransformOutputCustomPresetCodecH264VideoPtrOutput)
+}
+
+// A `h265Video` block as defined below.
+func (o TransformOutputCustomPresetCodecOutput) H265Video() TransformOutputCustomPresetCodecH265VideoPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodec) *TransformOutputCustomPresetCodecH265Video {
+		return v.H265Video
+	}).(TransformOutputCustomPresetCodecH265VideoPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecArrayOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetCodec)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecArrayOutput) ToTransformOutputCustomPresetCodecArrayOutput() TransformOutputCustomPresetCodecArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecArrayOutput) ToTransformOutputCustomPresetCodecArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetCodecOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetCodec {
+		return vs[0].([]TransformOutputCustomPresetCodec)[vs[1].(int)]
+	}).(TransformOutputCustomPresetCodecOutput)
+}
+
+type TransformOutputCustomPresetCodecAacAudio struct {
+	// The bitrate of the audio in bits per second. Default to `128000`.
+	Bitrate *int `pulumi:"bitrate"`
+	// The number of audio channels. Default to `2`.
+	Channels *int `pulumi:"channels"`
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
+	Profile *string `pulumi:"profile"`
+	// The sampling rate to use for encoding in Hertz. Default to `48000`.
+	SamplingRate *int `pulumi:"samplingRate"`
+}
+
+// TransformOutputCustomPresetCodecAacAudioInput is an input type that accepts TransformOutputCustomPresetCodecAacAudioArgs and TransformOutputCustomPresetCodecAacAudioOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecAacAudioInput` via:
+//
+//	TransformOutputCustomPresetCodecAacAudioArgs{...}
+type TransformOutputCustomPresetCodecAacAudioInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecAacAudioOutput() TransformOutputCustomPresetCodecAacAudioOutput
+	ToTransformOutputCustomPresetCodecAacAudioOutputWithContext(context.Context) TransformOutputCustomPresetCodecAacAudioOutput
+}
+
+type TransformOutputCustomPresetCodecAacAudioArgs struct {
+	// The bitrate of the audio in bits per second. Default to `128000`.
+	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
+	// The number of audio channels. Default to `2`.
+	Channels pulumi.IntPtrInput `pulumi:"channels"`
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
+	Profile pulumi.StringPtrInput `pulumi:"profile"`
+	// The sampling rate to use for encoding in Hertz. Default to `48000`.
+	SamplingRate pulumi.IntPtrInput `pulumi:"samplingRate"`
+}
+
+func (TransformOutputCustomPresetCodecAacAudioArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecAacAudio)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecAacAudioArgs) ToTransformOutputCustomPresetCodecAacAudioOutput() TransformOutputCustomPresetCodecAacAudioOutput {
+	return i.ToTransformOutputCustomPresetCodecAacAudioOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecAacAudioArgs) ToTransformOutputCustomPresetCodecAacAudioOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecAacAudioOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecAacAudioOutput)
+}
+
+func (i TransformOutputCustomPresetCodecAacAudioArgs) ToTransformOutputCustomPresetCodecAacAudioPtrOutput() TransformOutputCustomPresetCodecAacAudioPtrOutput {
+	return i.ToTransformOutputCustomPresetCodecAacAudioPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecAacAudioArgs) ToTransformOutputCustomPresetCodecAacAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecAacAudioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecAacAudioOutput).ToTransformOutputCustomPresetCodecAacAudioPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetCodecAacAudioPtrInput is an input type that accepts TransformOutputCustomPresetCodecAacAudioArgs, TransformOutputCustomPresetCodecAacAudioPtr and TransformOutputCustomPresetCodecAacAudioPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecAacAudioPtrInput` via:
+//
+//	        TransformOutputCustomPresetCodecAacAudioArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetCodecAacAudioPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecAacAudioPtrOutput() TransformOutputCustomPresetCodecAacAudioPtrOutput
+	ToTransformOutputCustomPresetCodecAacAudioPtrOutputWithContext(context.Context) TransformOutputCustomPresetCodecAacAudioPtrOutput
+}
+
+type transformOutputCustomPresetCodecAacAudioPtrType TransformOutputCustomPresetCodecAacAudioArgs
+
+func TransformOutputCustomPresetCodecAacAudioPtr(v *TransformOutputCustomPresetCodecAacAudioArgs) TransformOutputCustomPresetCodecAacAudioPtrInput {
+	return (*transformOutputCustomPresetCodecAacAudioPtrType)(v)
+}
+
+func (*transformOutputCustomPresetCodecAacAudioPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecAacAudio)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetCodecAacAudioPtrType) ToTransformOutputCustomPresetCodecAacAudioPtrOutput() TransformOutputCustomPresetCodecAacAudioPtrOutput {
+	return i.ToTransformOutputCustomPresetCodecAacAudioPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetCodecAacAudioPtrType) ToTransformOutputCustomPresetCodecAacAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecAacAudioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecAacAudioPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecAacAudioOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecAacAudioOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecAacAudio)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecAacAudioOutput) ToTransformOutputCustomPresetCodecAacAudioOutput() TransformOutputCustomPresetCodecAacAudioOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecAacAudioOutput) ToTransformOutputCustomPresetCodecAacAudioOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecAacAudioOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecAacAudioOutput) ToTransformOutputCustomPresetCodecAacAudioPtrOutput() TransformOutputCustomPresetCodecAacAudioPtrOutput {
+	return o.ToTransformOutputCustomPresetCodecAacAudioPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetCodecAacAudioOutput) ToTransformOutputCustomPresetCodecAacAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecAacAudioPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetCodecAacAudio) *TransformOutputCustomPresetCodecAacAudio {
+		return &v
+	}).(TransformOutputCustomPresetCodecAacAudioPtrOutput)
+}
+
+// The bitrate of the audio in bits per second. Default to `128000`.
+func (o TransformOutputCustomPresetCodecAacAudioOutput) Bitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecAacAudio) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
+}
+
+// The number of audio channels. Default to `2`.
+func (o TransformOutputCustomPresetCodecAacAudioOutput) Channels() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecAacAudio) *int { return v.Channels }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecAacAudioOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecAacAudio) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
+func (o TransformOutputCustomPresetCodecAacAudioOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecAacAudio) *string { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+// The sampling rate to use for encoding in Hertz. Default to `48000`.
+func (o TransformOutputCustomPresetCodecAacAudioOutput) SamplingRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecAacAudio) *int { return v.SamplingRate }).(pulumi.IntPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecAacAudioPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecAacAudioPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecAacAudio)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecAacAudioPtrOutput) ToTransformOutputCustomPresetCodecAacAudioPtrOutput() TransformOutputCustomPresetCodecAacAudioPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecAacAudioPtrOutput) ToTransformOutputCustomPresetCodecAacAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecAacAudioPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecAacAudioPtrOutput) Elem() TransformOutputCustomPresetCodecAacAudioOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecAacAudio) TransformOutputCustomPresetCodecAacAudio {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetCodecAacAudio
+		return ret
+	}).(TransformOutputCustomPresetCodecAacAudioOutput)
+}
+
+// The bitrate of the audio in bits per second. Default to `128000`.
+func (o TransformOutputCustomPresetCodecAacAudioPtrOutput) Bitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecAacAudio) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Bitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of audio channels. Default to `2`.
+func (o TransformOutputCustomPresetCodecAacAudioPtrOutput) Channels() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecAacAudio) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Channels
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecAacAudioPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecAacAudio) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
+func (o TransformOutputCustomPresetCodecAacAudioPtrOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecAacAudio) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Profile
+	}).(pulumi.StringPtrOutput)
+}
+
+// The sampling rate to use for encoding in Hertz. Default to `48000`.
+func (o TransformOutputCustomPresetCodecAacAudioPtrOutput) SamplingRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecAacAudio) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SamplingRate
+	}).(pulumi.IntPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecCopyAudio struct {
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+}
+
+// TransformOutputCustomPresetCodecCopyAudioInput is an input type that accepts TransformOutputCustomPresetCodecCopyAudioArgs and TransformOutputCustomPresetCodecCopyAudioOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecCopyAudioInput` via:
+//
+//	TransformOutputCustomPresetCodecCopyAudioArgs{...}
+type TransformOutputCustomPresetCodecCopyAudioInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecCopyAudioOutput() TransformOutputCustomPresetCodecCopyAudioOutput
+	ToTransformOutputCustomPresetCodecCopyAudioOutputWithContext(context.Context) TransformOutputCustomPresetCodecCopyAudioOutput
+}
+
+type TransformOutputCustomPresetCodecCopyAudioArgs struct {
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+}
+
+func (TransformOutputCustomPresetCodecCopyAudioArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecCopyAudio)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecCopyAudioArgs) ToTransformOutputCustomPresetCodecCopyAudioOutput() TransformOutputCustomPresetCodecCopyAudioOutput {
+	return i.ToTransformOutputCustomPresetCodecCopyAudioOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecCopyAudioArgs) ToTransformOutputCustomPresetCodecCopyAudioOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecCopyAudioOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecCopyAudioOutput)
+}
+
+func (i TransformOutputCustomPresetCodecCopyAudioArgs) ToTransformOutputCustomPresetCodecCopyAudioPtrOutput() TransformOutputCustomPresetCodecCopyAudioPtrOutput {
+	return i.ToTransformOutputCustomPresetCodecCopyAudioPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecCopyAudioArgs) ToTransformOutputCustomPresetCodecCopyAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecCopyAudioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecCopyAudioOutput).ToTransformOutputCustomPresetCodecCopyAudioPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetCodecCopyAudioPtrInput is an input type that accepts TransformOutputCustomPresetCodecCopyAudioArgs, TransformOutputCustomPresetCodecCopyAudioPtr and TransformOutputCustomPresetCodecCopyAudioPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecCopyAudioPtrInput` via:
+//
+//	        TransformOutputCustomPresetCodecCopyAudioArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetCodecCopyAudioPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecCopyAudioPtrOutput() TransformOutputCustomPresetCodecCopyAudioPtrOutput
+	ToTransformOutputCustomPresetCodecCopyAudioPtrOutputWithContext(context.Context) TransformOutputCustomPresetCodecCopyAudioPtrOutput
+}
+
+type transformOutputCustomPresetCodecCopyAudioPtrType TransformOutputCustomPresetCodecCopyAudioArgs
+
+func TransformOutputCustomPresetCodecCopyAudioPtr(v *TransformOutputCustomPresetCodecCopyAudioArgs) TransformOutputCustomPresetCodecCopyAudioPtrInput {
+	return (*transformOutputCustomPresetCodecCopyAudioPtrType)(v)
+}
+
+func (*transformOutputCustomPresetCodecCopyAudioPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecCopyAudio)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetCodecCopyAudioPtrType) ToTransformOutputCustomPresetCodecCopyAudioPtrOutput() TransformOutputCustomPresetCodecCopyAudioPtrOutput {
+	return i.ToTransformOutputCustomPresetCodecCopyAudioPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetCodecCopyAudioPtrType) ToTransformOutputCustomPresetCodecCopyAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecCopyAudioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecCopyAudioPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecCopyAudioOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecCopyAudioOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecCopyAudio)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecCopyAudioOutput) ToTransformOutputCustomPresetCodecCopyAudioOutput() TransformOutputCustomPresetCodecCopyAudioOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecCopyAudioOutput) ToTransformOutputCustomPresetCodecCopyAudioOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecCopyAudioOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecCopyAudioOutput) ToTransformOutputCustomPresetCodecCopyAudioPtrOutput() TransformOutputCustomPresetCodecCopyAudioPtrOutput {
+	return o.ToTransformOutputCustomPresetCodecCopyAudioPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetCodecCopyAudioOutput) ToTransformOutputCustomPresetCodecCopyAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecCopyAudioPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetCodecCopyAudio) *TransformOutputCustomPresetCodecCopyAudio {
+		return &v
+	}).(TransformOutputCustomPresetCodecCopyAudioPtrOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecCopyAudioOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecCopyAudio) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecCopyAudioPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecCopyAudioPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecCopyAudio)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecCopyAudioPtrOutput) ToTransformOutputCustomPresetCodecCopyAudioPtrOutput() TransformOutputCustomPresetCodecCopyAudioPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecCopyAudioPtrOutput) ToTransformOutputCustomPresetCodecCopyAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecCopyAudioPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecCopyAudioPtrOutput) Elem() TransformOutputCustomPresetCodecCopyAudioOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecCopyAudio) TransformOutputCustomPresetCodecCopyAudio {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetCodecCopyAudio
+		return ret
+	}).(TransformOutputCustomPresetCodecCopyAudioOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecCopyAudioPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecCopyAudio) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecCopyVideo struct {
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+}
+
+// TransformOutputCustomPresetCodecCopyVideoInput is an input type that accepts TransformOutputCustomPresetCodecCopyVideoArgs and TransformOutputCustomPresetCodecCopyVideoOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecCopyVideoInput` via:
+//
+//	TransformOutputCustomPresetCodecCopyVideoArgs{...}
+type TransformOutputCustomPresetCodecCopyVideoInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecCopyVideoOutput() TransformOutputCustomPresetCodecCopyVideoOutput
+	ToTransformOutputCustomPresetCodecCopyVideoOutputWithContext(context.Context) TransformOutputCustomPresetCodecCopyVideoOutput
+}
+
+type TransformOutputCustomPresetCodecCopyVideoArgs struct {
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+}
+
+func (TransformOutputCustomPresetCodecCopyVideoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecCopyVideo)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecCopyVideoArgs) ToTransformOutputCustomPresetCodecCopyVideoOutput() TransformOutputCustomPresetCodecCopyVideoOutput {
+	return i.ToTransformOutputCustomPresetCodecCopyVideoOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecCopyVideoArgs) ToTransformOutputCustomPresetCodecCopyVideoOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecCopyVideoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecCopyVideoOutput)
+}
+
+func (i TransformOutputCustomPresetCodecCopyVideoArgs) ToTransformOutputCustomPresetCodecCopyVideoPtrOutput() TransformOutputCustomPresetCodecCopyVideoPtrOutput {
+	return i.ToTransformOutputCustomPresetCodecCopyVideoPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecCopyVideoArgs) ToTransformOutputCustomPresetCodecCopyVideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecCopyVideoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecCopyVideoOutput).ToTransformOutputCustomPresetCodecCopyVideoPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetCodecCopyVideoPtrInput is an input type that accepts TransformOutputCustomPresetCodecCopyVideoArgs, TransformOutputCustomPresetCodecCopyVideoPtr and TransformOutputCustomPresetCodecCopyVideoPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecCopyVideoPtrInput` via:
+//
+//	        TransformOutputCustomPresetCodecCopyVideoArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetCodecCopyVideoPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecCopyVideoPtrOutput() TransformOutputCustomPresetCodecCopyVideoPtrOutput
+	ToTransformOutputCustomPresetCodecCopyVideoPtrOutputWithContext(context.Context) TransformOutputCustomPresetCodecCopyVideoPtrOutput
+}
+
+type transformOutputCustomPresetCodecCopyVideoPtrType TransformOutputCustomPresetCodecCopyVideoArgs
+
+func TransformOutputCustomPresetCodecCopyVideoPtr(v *TransformOutputCustomPresetCodecCopyVideoArgs) TransformOutputCustomPresetCodecCopyVideoPtrInput {
+	return (*transformOutputCustomPresetCodecCopyVideoPtrType)(v)
+}
+
+func (*transformOutputCustomPresetCodecCopyVideoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecCopyVideo)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetCodecCopyVideoPtrType) ToTransformOutputCustomPresetCodecCopyVideoPtrOutput() TransformOutputCustomPresetCodecCopyVideoPtrOutput {
+	return i.ToTransformOutputCustomPresetCodecCopyVideoPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetCodecCopyVideoPtrType) ToTransformOutputCustomPresetCodecCopyVideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecCopyVideoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecCopyVideoPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecCopyVideoOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecCopyVideoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecCopyVideo)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecCopyVideoOutput) ToTransformOutputCustomPresetCodecCopyVideoOutput() TransformOutputCustomPresetCodecCopyVideoOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecCopyVideoOutput) ToTransformOutputCustomPresetCodecCopyVideoOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecCopyVideoOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecCopyVideoOutput) ToTransformOutputCustomPresetCodecCopyVideoPtrOutput() TransformOutputCustomPresetCodecCopyVideoPtrOutput {
+	return o.ToTransformOutputCustomPresetCodecCopyVideoPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetCodecCopyVideoOutput) ToTransformOutputCustomPresetCodecCopyVideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecCopyVideoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetCodecCopyVideo) *TransformOutputCustomPresetCodecCopyVideo {
+		return &v
+	}).(TransformOutputCustomPresetCodecCopyVideoPtrOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecCopyVideoOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecCopyVideo) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecCopyVideoPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecCopyVideoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecCopyVideo)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecCopyVideoPtrOutput) ToTransformOutputCustomPresetCodecCopyVideoPtrOutput() TransformOutputCustomPresetCodecCopyVideoPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecCopyVideoPtrOutput) ToTransformOutputCustomPresetCodecCopyVideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecCopyVideoPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecCopyVideoPtrOutput) Elem() TransformOutputCustomPresetCodecCopyVideoOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecCopyVideo) TransformOutputCustomPresetCodecCopyVideo {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetCodecCopyVideo
+		return ret
+	}).(TransformOutputCustomPresetCodecCopyVideoOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecCopyVideoPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecCopyVideo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecDdAudio struct {
+	// The bitrate of the audio in bits per second. Default to `192000`.
+	Bitrate *int `pulumi:"bitrate"`
+	// The number of audio channels. Default to `2`.
+	Channels *int `pulumi:"channels"`
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The sampling rate to use for encoding in Hertz. Default to `48000`.
+	SamplingRate *int `pulumi:"samplingRate"`
+}
+
+// TransformOutputCustomPresetCodecDdAudioInput is an input type that accepts TransformOutputCustomPresetCodecDdAudioArgs and TransformOutputCustomPresetCodecDdAudioOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecDdAudioInput` via:
+//
+//	TransformOutputCustomPresetCodecDdAudioArgs{...}
+type TransformOutputCustomPresetCodecDdAudioInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecDdAudioOutput() TransformOutputCustomPresetCodecDdAudioOutput
+	ToTransformOutputCustomPresetCodecDdAudioOutputWithContext(context.Context) TransformOutputCustomPresetCodecDdAudioOutput
+}
+
+type TransformOutputCustomPresetCodecDdAudioArgs struct {
+	// The bitrate of the audio in bits per second. Default to `192000`.
+	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
+	// The number of audio channels. Default to `2`.
+	Channels pulumi.IntPtrInput `pulumi:"channels"`
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The sampling rate to use for encoding in Hertz. Default to `48000`.
+	SamplingRate pulumi.IntPtrInput `pulumi:"samplingRate"`
+}
+
+func (TransformOutputCustomPresetCodecDdAudioArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecDdAudio)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecDdAudioArgs) ToTransformOutputCustomPresetCodecDdAudioOutput() TransformOutputCustomPresetCodecDdAudioOutput {
+	return i.ToTransformOutputCustomPresetCodecDdAudioOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecDdAudioArgs) ToTransformOutputCustomPresetCodecDdAudioOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecDdAudioOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecDdAudioOutput)
+}
+
+func (i TransformOutputCustomPresetCodecDdAudioArgs) ToTransformOutputCustomPresetCodecDdAudioPtrOutput() TransformOutputCustomPresetCodecDdAudioPtrOutput {
+	return i.ToTransformOutputCustomPresetCodecDdAudioPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecDdAudioArgs) ToTransformOutputCustomPresetCodecDdAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecDdAudioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecDdAudioOutput).ToTransformOutputCustomPresetCodecDdAudioPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetCodecDdAudioPtrInput is an input type that accepts TransformOutputCustomPresetCodecDdAudioArgs, TransformOutputCustomPresetCodecDdAudioPtr and TransformOutputCustomPresetCodecDdAudioPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecDdAudioPtrInput` via:
+//
+//	        TransformOutputCustomPresetCodecDdAudioArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetCodecDdAudioPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecDdAudioPtrOutput() TransformOutputCustomPresetCodecDdAudioPtrOutput
+	ToTransformOutputCustomPresetCodecDdAudioPtrOutputWithContext(context.Context) TransformOutputCustomPresetCodecDdAudioPtrOutput
+}
+
+type transformOutputCustomPresetCodecDdAudioPtrType TransformOutputCustomPresetCodecDdAudioArgs
+
+func TransformOutputCustomPresetCodecDdAudioPtr(v *TransformOutputCustomPresetCodecDdAudioArgs) TransformOutputCustomPresetCodecDdAudioPtrInput {
+	return (*transformOutputCustomPresetCodecDdAudioPtrType)(v)
+}
+
+func (*transformOutputCustomPresetCodecDdAudioPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecDdAudio)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetCodecDdAudioPtrType) ToTransformOutputCustomPresetCodecDdAudioPtrOutput() TransformOutputCustomPresetCodecDdAudioPtrOutput {
+	return i.ToTransformOutputCustomPresetCodecDdAudioPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetCodecDdAudioPtrType) ToTransformOutputCustomPresetCodecDdAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecDdAudioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecDdAudioPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecDdAudioOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecDdAudioOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecDdAudio)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecDdAudioOutput) ToTransformOutputCustomPresetCodecDdAudioOutput() TransformOutputCustomPresetCodecDdAudioOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecDdAudioOutput) ToTransformOutputCustomPresetCodecDdAudioOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecDdAudioOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecDdAudioOutput) ToTransformOutputCustomPresetCodecDdAudioPtrOutput() TransformOutputCustomPresetCodecDdAudioPtrOutput {
+	return o.ToTransformOutputCustomPresetCodecDdAudioPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetCodecDdAudioOutput) ToTransformOutputCustomPresetCodecDdAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecDdAudioPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetCodecDdAudio) *TransformOutputCustomPresetCodecDdAudio {
+		return &v
+	}).(TransformOutputCustomPresetCodecDdAudioPtrOutput)
+}
+
+// The bitrate of the audio in bits per second. Default to `192000`.
+func (o TransformOutputCustomPresetCodecDdAudioOutput) Bitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecDdAudio) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
+}
+
+// The number of audio channels. Default to `2`.
+func (o TransformOutputCustomPresetCodecDdAudioOutput) Channels() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecDdAudio) *int { return v.Channels }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecDdAudioOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecDdAudio) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The sampling rate to use for encoding in Hertz. Default to `48000`.
+func (o TransformOutputCustomPresetCodecDdAudioOutput) SamplingRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecDdAudio) *int { return v.SamplingRate }).(pulumi.IntPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecDdAudioPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecDdAudioPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecDdAudio)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecDdAudioPtrOutput) ToTransformOutputCustomPresetCodecDdAudioPtrOutput() TransformOutputCustomPresetCodecDdAudioPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecDdAudioPtrOutput) ToTransformOutputCustomPresetCodecDdAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecDdAudioPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecDdAudioPtrOutput) Elem() TransformOutputCustomPresetCodecDdAudioOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecDdAudio) TransformOutputCustomPresetCodecDdAudio {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetCodecDdAudio
+		return ret
+	}).(TransformOutputCustomPresetCodecDdAudioOutput)
+}
+
+// The bitrate of the audio in bits per second. Default to `192000`.
+func (o TransformOutputCustomPresetCodecDdAudioPtrOutput) Bitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecDdAudio) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Bitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of audio channels. Default to `2`.
+func (o TransformOutputCustomPresetCodecDdAudioPtrOutput) Channels() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecDdAudio) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Channels
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecDdAudioPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecDdAudio) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// The sampling rate to use for encoding in Hertz. Default to `48000`.
+func (o TransformOutputCustomPresetCodecDdAudioPtrOutput) SamplingRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecDdAudio) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SamplingRate
+	}).(pulumi.IntPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecH264Video struct {
+	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+	Complexity *string `pulumi:"complexity"`
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// One or more `layer` blocks as defined below.
+	Layers []TransformOutputCustomPresetCodecH264VideoLayer `pulumi:"layers"`
+	// The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
+	RateControlMode *string `pulumi:"rateControlMode"`
+	// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+	SceneChangeDetectionEnabled *bool `pulumi:"sceneChangeDetectionEnabled"`
+	// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+	StretchMode *string `pulumi:"stretchMode"`
+	// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+	SyncMode *string `pulumi:"syncMode"`
+}
+
+// TransformOutputCustomPresetCodecH264VideoInput is an input type that accepts TransformOutputCustomPresetCodecH264VideoArgs and TransformOutputCustomPresetCodecH264VideoOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecH264VideoInput` via:
+//
+//	TransformOutputCustomPresetCodecH264VideoArgs{...}
+type TransformOutputCustomPresetCodecH264VideoInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecH264VideoOutput() TransformOutputCustomPresetCodecH264VideoOutput
+	ToTransformOutputCustomPresetCodecH264VideoOutputWithContext(context.Context) TransformOutputCustomPresetCodecH264VideoOutput
+}
+
+type TransformOutputCustomPresetCodecH264VideoArgs struct {
+	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+	Complexity pulumi.StringPtrInput `pulumi:"complexity"`
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// One or more `layer` blocks as defined below.
+	Layers TransformOutputCustomPresetCodecH264VideoLayerArrayInput `pulumi:"layers"`
+	// The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
+	RateControlMode pulumi.StringPtrInput `pulumi:"rateControlMode"`
+	// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+	SceneChangeDetectionEnabled pulumi.BoolPtrInput `pulumi:"sceneChangeDetectionEnabled"`
+	// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+	SyncMode pulumi.StringPtrInput `pulumi:"syncMode"`
+}
+
+func (TransformOutputCustomPresetCodecH264VideoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecH264Video)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecH264VideoArgs) ToTransformOutputCustomPresetCodecH264VideoOutput() TransformOutputCustomPresetCodecH264VideoOutput {
+	return i.ToTransformOutputCustomPresetCodecH264VideoOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecH264VideoArgs) ToTransformOutputCustomPresetCodecH264VideoOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH264VideoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH264VideoOutput)
+}
+
+func (i TransformOutputCustomPresetCodecH264VideoArgs) ToTransformOutputCustomPresetCodecH264VideoPtrOutput() TransformOutputCustomPresetCodecH264VideoPtrOutput {
+	return i.ToTransformOutputCustomPresetCodecH264VideoPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecH264VideoArgs) ToTransformOutputCustomPresetCodecH264VideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH264VideoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH264VideoOutput).ToTransformOutputCustomPresetCodecH264VideoPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetCodecH264VideoPtrInput is an input type that accepts TransformOutputCustomPresetCodecH264VideoArgs, TransformOutputCustomPresetCodecH264VideoPtr and TransformOutputCustomPresetCodecH264VideoPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecH264VideoPtrInput` via:
+//
+//	        TransformOutputCustomPresetCodecH264VideoArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetCodecH264VideoPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecH264VideoPtrOutput() TransformOutputCustomPresetCodecH264VideoPtrOutput
+	ToTransformOutputCustomPresetCodecH264VideoPtrOutputWithContext(context.Context) TransformOutputCustomPresetCodecH264VideoPtrOutput
+}
+
+type transformOutputCustomPresetCodecH264VideoPtrType TransformOutputCustomPresetCodecH264VideoArgs
+
+func TransformOutputCustomPresetCodecH264VideoPtr(v *TransformOutputCustomPresetCodecH264VideoArgs) TransformOutputCustomPresetCodecH264VideoPtrInput {
+	return (*transformOutputCustomPresetCodecH264VideoPtrType)(v)
+}
+
+func (*transformOutputCustomPresetCodecH264VideoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecH264Video)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetCodecH264VideoPtrType) ToTransformOutputCustomPresetCodecH264VideoPtrOutput() TransformOutputCustomPresetCodecH264VideoPtrOutput {
+	return i.ToTransformOutputCustomPresetCodecH264VideoPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetCodecH264VideoPtrType) ToTransformOutputCustomPresetCodecH264VideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH264VideoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH264VideoPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecH264VideoOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecH264VideoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecH264Video)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecH264VideoOutput) ToTransformOutputCustomPresetCodecH264VideoOutput() TransformOutputCustomPresetCodecH264VideoOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecH264VideoOutput) ToTransformOutputCustomPresetCodecH264VideoOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH264VideoOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecH264VideoOutput) ToTransformOutputCustomPresetCodecH264VideoPtrOutput() TransformOutputCustomPresetCodecH264VideoPtrOutput {
+	return o.ToTransformOutputCustomPresetCodecH264VideoPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetCodecH264VideoOutput) ToTransformOutputCustomPresetCodecH264VideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH264VideoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetCodecH264Video) *TransformOutputCustomPresetCodecH264Video {
+		return &v
+	}).(TransformOutputCustomPresetCodecH264VideoPtrOutput)
+}
+
+// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+func (o TransformOutputCustomPresetCodecH264VideoOutput) Complexity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.Complexity }).(pulumi.StringPtrOutput)
+}
+
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+func (o TransformOutputCustomPresetCodecH264VideoOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecH264VideoOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// One or more `layer` blocks as defined below.
+func (o TransformOutputCustomPresetCodecH264VideoOutput) Layers() TransformOutputCustomPresetCodecH264VideoLayerArrayOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) []TransformOutputCustomPresetCodecH264VideoLayer {
+		return v.Layers
+	}).(TransformOutputCustomPresetCodecH264VideoLayerArrayOutput)
+}
+
+// The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
+func (o TransformOutputCustomPresetCodecH264VideoOutput) RateControlMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.RateControlMode }).(pulumi.StringPtrOutput)
+}
+
+// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+func (o TransformOutputCustomPresetCodecH264VideoOutput) SceneChangeDetectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *bool { return v.SceneChangeDetectionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+func (o TransformOutputCustomPresetCodecH264VideoOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+func (o TransformOutputCustomPresetCodecH264VideoOutput) SyncMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.SyncMode }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecH264VideoPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecH264VideoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecH264Video)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) ToTransformOutputCustomPresetCodecH264VideoPtrOutput() TransformOutputCustomPresetCodecH264VideoPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) ToTransformOutputCustomPresetCodecH264VideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH264VideoPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) Elem() TransformOutputCustomPresetCodecH264VideoOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) TransformOutputCustomPresetCodecH264Video {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetCodecH264Video
+		return ret
+	}).(TransformOutputCustomPresetCodecH264VideoOutput)
+}
+
+// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) Complexity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Complexity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFrameInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `layer` blocks as defined below.
+func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) Layers() TransformOutputCustomPresetCodecH264VideoLayerArrayOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) []TransformOutputCustomPresetCodecH264VideoLayer {
+		if v == nil {
+			return nil
+		}
+		return v.Layers
+	}).(TransformOutputCustomPresetCodecH264VideoLayerArrayOutput)
+}
+
+// The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
+func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) RateControlMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RateControlMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) SceneChangeDetectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SceneChangeDetectionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StretchMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) SyncMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SyncMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecH264VideoLayer struct {
+	// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+	AdaptiveBFrameEnabled *bool `pulumi:"adaptiveBFrameEnabled"`
+	// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+	BFrames *int `pulumi:"bFrames"`
+	// The average bitrate in bits per second at which to encode the input video when generating this layer.
+	Bitrate int `pulumi:"bitrate"`
+	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+	BufferWindow *string `pulumi:"bufferWindow"`
+	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+	Crf *float64 `pulumi:"crf"`
+	// The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+	EntropyMode *string `pulumi:"entropyMode"`
+	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+	FrameRate *string `pulumi:"frameRate"`
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	Height *string `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label *string `pulumi:"label"`
+	// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+	Level *string `pulumi:"level"`
+	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+	MaxBitrate *int `pulumi:"maxBitrate"`
+	// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+	Profile *string `pulumi:"profile"`
+	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+	ReferenceFrames *int `pulumi:"referenceFrames"`
+	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+	Slices *int `pulumi:"slices"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	Width *string `pulumi:"width"`
+}
+
+// TransformOutputCustomPresetCodecH264VideoLayerInput is an input type that accepts TransformOutputCustomPresetCodecH264VideoLayerArgs and TransformOutputCustomPresetCodecH264VideoLayerOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecH264VideoLayerInput` via:
+//
+//	TransformOutputCustomPresetCodecH264VideoLayerArgs{...}
+type TransformOutputCustomPresetCodecH264VideoLayerInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecH264VideoLayerOutput() TransformOutputCustomPresetCodecH264VideoLayerOutput
+	ToTransformOutputCustomPresetCodecH264VideoLayerOutputWithContext(context.Context) TransformOutputCustomPresetCodecH264VideoLayerOutput
+}
+
+type TransformOutputCustomPresetCodecH264VideoLayerArgs struct {
+	// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+	AdaptiveBFrameEnabled pulumi.BoolPtrInput `pulumi:"adaptiveBFrameEnabled"`
+	// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+	BFrames pulumi.IntPtrInput `pulumi:"bFrames"`
+	// The average bitrate in bits per second at which to encode the input video when generating this layer.
+	Bitrate pulumi.IntInput `pulumi:"bitrate"`
+	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+	BufferWindow pulumi.StringPtrInput `pulumi:"bufferWindow"`
+	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+	Crf pulumi.Float64PtrInput `pulumi:"crf"`
+	// The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+	EntropyMode pulumi.StringPtrInput `pulumi:"entropyMode"`
+	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+	FrameRate pulumi.StringPtrInput `pulumi:"frameRate"`
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
+	// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+	Profile pulumi.StringPtrInput `pulumi:"profile"`
+	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+	ReferenceFrames pulumi.IntPtrInput `pulumi:"referenceFrames"`
+	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+	Slices pulumi.IntPtrInput `pulumi:"slices"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (TransformOutputCustomPresetCodecH264VideoLayerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecH264VideoLayer)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecH264VideoLayerArgs) ToTransformOutputCustomPresetCodecH264VideoLayerOutput() TransformOutputCustomPresetCodecH264VideoLayerOutput {
+	return i.ToTransformOutputCustomPresetCodecH264VideoLayerOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecH264VideoLayerArgs) ToTransformOutputCustomPresetCodecH264VideoLayerOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH264VideoLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH264VideoLayerOutput)
+}
+
+// TransformOutputCustomPresetCodecH264VideoLayerArrayInput is an input type that accepts TransformOutputCustomPresetCodecH264VideoLayerArray and TransformOutputCustomPresetCodecH264VideoLayerArrayOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecH264VideoLayerArrayInput` via:
+//
+//	TransformOutputCustomPresetCodecH264VideoLayerArray{ TransformOutputCustomPresetCodecH264VideoLayerArgs{...} }
+type TransformOutputCustomPresetCodecH264VideoLayerArrayInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecH264VideoLayerArrayOutput() TransformOutputCustomPresetCodecH264VideoLayerArrayOutput
+	ToTransformOutputCustomPresetCodecH264VideoLayerArrayOutputWithContext(context.Context) TransformOutputCustomPresetCodecH264VideoLayerArrayOutput
+}
+
+type TransformOutputCustomPresetCodecH264VideoLayerArray []TransformOutputCustomPresetCodecH264VideoLayerInput
+
+func (TransformOutputCustomPresetCodecH264VideoLayerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetCodecH264VideoLayer)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecH264VideoLayerArray) ToTransformOutputCustomPresetCodecH264VideoLayerArrayOutput() TransformOutputCustomPresetCodecH264VideoLayerArrayOutput {
+	return i.ToTransformOutputCustomPresetCodecH264VideoLayerArrayOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecH264VideoLayerArray) ToTransformOutputCustomPresetCodecH264VideoLayerArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH264VideoLayerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH264VideoLayerArrayOutput)
+}
+
+type TransformOutputCustomPresetCodecH264VideoLayerOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecH264VideoLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecH264VideoLayer)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) ToTransformOutputCustomPresetCodecH264VideoLayerOutput() TransformOutputCustomPresetCodecH264VideoLayerOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) ToTransformOutputCustomPresetCodecH264VideoLayerOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH264VideoLayerOutput {
+	return o
+}
+
+// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) AdaptiveBFrameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *bool { return v.AdaptiveBFrameEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) BFrames() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *int { return v.BFrames }).(pulumi.IntPtrOutput)
+}
+
+// The average bitrate in bits per second at which to encode the input video when generating this layer.
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Bitrate() pulumi.IntOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) int { return v.Bitrate }).(pulumi.IntOutput)
+}
+
+// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) BufferWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.BufferWindow }).(pulumi.StringPtrOutput)
+}
+
+// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Crf() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *float64 { return v.Crf }).(pulumi.Float64PtrOutput)
+}
+
+// The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) EntropyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.EntropyMode }).(pulumi.StringPtrOutput)
+}
+
+// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) FrameRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
+}
+
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) MaxBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *int { return v.MaxBitrate }).(pulumi.IntPtrOutput)
+}
+
+// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) ReferenceFrames() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *int { return v.ReferenceFrames }).(pulumi.IntPtrOutput)
+}
+
+// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Slices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *int { return v.Slices }).(pulumi.IntPtrOutput)
+}
+
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecH264VideoLayerArrayOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecH264VideoLayerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetCodecH264VideoLayer)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecH264VideoLayerArrayOutput) ToTransformOutputCustomPresetCodecH264VideoLayerArrayOutput() TransformOutputCustomPresetCodecH264VideoLayerArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecH264VideoLayerArrayOutput) ToTransformOutputCustomPresetCodecH264VideoLayerArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH264VideoLayerArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecH264VideoLayerArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetCodecH264VideoLayerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetCodecH264VideoLayer {
+		return vs[0].([]TransformOutputCustomPresetCodecH264VideoLayer)[vs[1].(int)]
+	}).(TransformOutputCustomPresetCodecH264VideoLayerOutput)
+}
+
+type TransformOutputCustomPresetCodecH265Video struct {
+	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+	Complexity *string `pulumi:"complexity"`
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// One or more `layer` blocks as defined below.
+	Layers []TransformOutputCustomPresetCodecH265VideoLayer `pulumi:"layers"`
+	// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+	SceneChangeDetectionEnabled *bool `pulumi:"sceneChangeDetectionEnabled"`
+	// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+	StretchMode *string `pulumi:"stretchMode"`
+	// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+	SyncMode *string `pulumi:"syncMode"`
+}
+
+// TransformOutputCustomPresetCodecH265VideoInput is an input type that accepts TransformOutputCustomPresetCodecH265VideoArgs and TransformOutputCustomPresetCodecH265VideoOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecH265VideoInput` via:
+//
+//	TransformOutputCustomPresetCodecH265VideoArgs{...}
+type TransformOutputCustomPresetCodecH265VideoInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecH265VideoOutput() TransformOutputCustomPresetCodecH265VideoOutput
+	ToTransformOutputCustomPresetCodecH265VideoOutputWithContext(context.Context) TransformOutputCustomPresetCodecH265VideoOutput
+}
+
+type TransformOutputCustomPresetCodecH265VideoArgs struct {
+	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+	Complexity pulumi.StringPtrInput `pulumi:"complexity"`
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// One or more `layer` blocks as defined below.
+	Layers TransformOutputCustomPresetCodecH265VideoLayerArrayInput `pulumi:"layers"`
+	// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+	SceneChangeDetectionEnabled pulumi.BoolPtrInput `pulumi:"sceneChangeDetectionEnabled"`
+	// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+	// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+	SyncMode pulumi.StringPtrInput `pulumi:"syncMode"`
+}
+
+func (TransformOutputCustomPresetCodecH265VideoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecH265Video)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecH265VideoArgs) ToTransformOutputCustomPresetCodecH265VideoOutput() TransformOutputCustomPresetCodecH265VideoOutput {
+	return i.ToTransformOutputCustomPresetCodecH265VideoOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecH265VideoArgs) ToTransformOutputCustomPresetCodecH265VideoOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH265VideoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH265VideoOutput)
+}
+
+func (i TransformOutputCustomPresetCodecH265VideoArgs) ToTransformOutputCustomPresetCodecH265VideoPtrOutput() TransformOutputCustomPresetCodecH265VideoPtrOutput {
+	return i.ToTransformOutputCustomPresetCodecH265VideoPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecH265VideoArgs) ToTransformOutputCustomPresetCodecH265VideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH265VideoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH265VideoOutput).ToTransformOutputCustomPresetCodecH265VideoPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetCodecH265VideoPtrInput is an input type that accepts TransformOutputCustomPresetCodecH265VideoArgs, TransformOutputCustomPresetCodecH265VideoPtr and TransformOutputCustomPresetCodecH265VideoPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecH265VideoPtrInput` via:
+//
+//	        TransformOutputCustomPresetCodecH265VideoArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetCodecH265VideoPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecH265VideoPtrOutput() TransformOutputCustomPresetCodecH265VideoPtrOutput
+	ToTransformOutputCustomPresetCodecH265VideoPtrOutputWithContext(context.Context) TransformOutputCustomPresetCodecH265VideoPtrOutput
+}
+
+type transformOutputCustomPresetCodecH265VideoPtrType TransformOutputCustomPresetCodecH265VideoArgs
+
+func TransformOutputCustomPresetCodecH265VideoPtr(v *TransformOutputCustomPresetCodecH265VideoArgs) TransformOutputCustomPresetCodecH265VideoPtrInput {
+	return (*transformOutputCustomPresetCodecH265VideoPtrType)(v)
+}
+
+func (*transformOutputCustomPresetCodecH265VideoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecH265Video)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetCodecH265VideoPtrType) ToTransformOutputCustomPresetCodecH265VideoPtrOutput() TransformOutputCustomPresetCodecH265VideoPtrOutput {
+	return i.ToTransformOutputCustomPresetCodecH265VideoPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetCodecH265VideoPtrType) ToTransformOutputCustomPresetCodecH265VideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH265VideoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH265VideoPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecH265VideoOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecH265VideoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecH265Video)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecH265VideoOutput) ToTransformOutputCustomPresetCodecH265VideoOutput() TransformOutputCustomPresetCodecH265VideoOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecH265VideoOutput) ToTransformOutputCustomPresetCodecH265VideoOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH265VideoOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecH265VideoOutput) ToTransformOutputCustomPresetCodecH265VideoPtrOutput() TransformOutputCustomPresetCodecH265VideoPtrOutput {
+	return o.ToTransformOutputCustomPresetCodecH265VideoPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetCodecH265VideoOutput) ToTransformOutputCustomPresetCodecH265VideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH265VideoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetCodecH265Video) *TransformOutputCustomPresetCodecH265Video {
+		return &v
+	}).(TransformOutputCustomPresetCodecH265VideoPtrOutput)
+}
+
+// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+func (o TransformOutputCustomPresetCodecH265VideoOutput) Complexity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *string { return v.Complexity }).(pulumi.StringPtrOutput)
+}
+
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+func (o TransformOutputCustomPresetCodecH265VideoOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecH265VideoOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// One or more `layer` blocks as defined below.
+func (o TransformOutputCustomPresetCodecH265VideoOutput) Layers() TransformOutputCustomPresetCodecH265VideoLayerArrayOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) []TransformOutputCustomPresetCodecH265VideoLayer {
+		return v.Layers
+	}).(TransformOutputCustomPresetCodecH265VideoLayerArrayOutput)
+}
+
+// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+func (o TransformOutputCustomPresetCodecH265VideoOutput) SceneChangeDetectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *bool { return v.SceneChangeDetectionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+func (o TransformOutputCustomPresetCodecH265VideoOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+func (o TransformOutputCustomPresetCodecH265VideoOutput) SyncMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *string { return v.SyncMode }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecH265VideoPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecH265VideoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetCodecH265Video)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) ToTransformOutputCustomPresetCodecH265VideoPtrOutput() TransformOutputCustomPresetCodecH265VideoPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) ToTransformOutputCustomPresetCodecH265VideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH265VideoPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) Elem() TransformOutputCustomPresetCodecH265VideoOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) TransformOutputCustomPresetCodecH265Video {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetCodecH265Video
+		return ret
+	}).(TransformOutputCustomPresetCodecH265VideoOutput)
+}
+
+// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) Complexity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Complexity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFrameInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the label for the codec. The label can be used to control muxing behavior.
+func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `layer` blocks as defined below.
+func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) Layers() TransformOutputCustomPresetCodecH265VideoLayerArrayOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) []TransformOutputCustomPresetCodecH265VideoLayer {
+		if v == nil {
+			return nil
+		}
+		return v.Layers
+	}).(TransformOutputCustomPresetCodecH265VideoLayerArrayOutput)
+}
+
+// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) SceneChangeDetectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SceneChangeDetectionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StretchMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) SyncMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SyncMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecH265VideoLayer struct {
+	// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+	AdaptiveBFrameEnabled *bool `pulumi:"adaptiveBFrameEnabled"`
+	// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+	BFrames *int `pulumi:"bFrames"`
+	// The average bitrate in bits per second at which to encode the input video when generating this layer.
+	Bitrate int `pulumi:"bitrate"`
+	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+	BufferWindow *string `pulumi:"bufferWindow"`
+	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+	Crf *float64 `pulumi:"crf"`
+	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+	FrameRate *string `pulumi:"frameRate"`
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	Height *string `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label *string `pulumi:"label"`
+	// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+	Level *string `pulumi:"level"`
+	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+	MaxBitrate *int `pulumi:"maxBitrate"`
+	// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+	Profile *string `pulumi:"profile"`
+	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+	ReferenceFrames *int `pulumi:"referenceFrames"`
+	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+	Slices *int `pulumi:"slices"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	Width *string `pulumi:"width"`
+}
+
+// TransformOutputCustomPresetCodecH265VideoLayerInput is an input type that accepts TransformOutputCustomPresetCodecH265VideoLayerArgs and TransformOutputCustomPresetCodecH265VideoLayerOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecH265VideoLayerInput` via:
+//
+//	TransformOutputCustomPresetCodecH265VideoLayerArgs{...}
+type TransformOutputCustomPresetCodecH265VideoLayerInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecH265VideoLayerOutput() TransformOutputCustomPresetCodecH265VideoLayerOutput
+	ToTransformOutputCustomPresetCodecH265VideoLayerOutputWithContext(context.Context) TransformOutputCustomPresetCodecH265VideoLayerOutput
+}
+
+type TransformOutputCustomPresetCodecH265VideoLayerArgs struct {
+	// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+	AdaptiveBFrameEnabled pulumi.BoolPtrInput `pulumi:"adaptiveBFrameEnabled"`
+	// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+	BFrames pulumi.IntPtrInput `pulumi:"bFrames"`
+	// The average bitrate in bits per second at which to encode the input video when generating this layer.
+	Bitrate pulumi.IntInput `pulumi:"bitrate"`
+	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+	BufferWindow pulumi.StringPtrInput `pulumi:"bufferWindow"`
+	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+	Crf pulumi.Float64PtrInput `pulumi:"crf"`
+	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+	FrameRate pulumi.StringPtrInput `pulumi:"frameRate"`
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
+	// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+	Profile pulumi.StringPtrInput `pulumi:"profile"`
+	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+	ReferenceFrames pulumi.IntPtrInput `pulumi:"referenceFrames"`
+	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+	Slices pulumi.IntPtrInput `pulumi:"slices"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (TransformOutputCustomPresetCodecH265VideoLayerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecH265VideoLayer)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecH265VideoLayerArgs) ToTransformOutputCustomPresetCodecH265VideoLayerOutput() TransformOutputCustomPresetCodecH265VideoLayerOutput {
+	return i.ToTransformOutputCustomPresetCodecH265VideoLayerOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecH265VideoLayerArgs) ToTransformOutputCustomPresetCodecH265VideoLayerOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH265VideoLayerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH265VideoLayerOutput)
+}
+
+// TransformOutputCustomPresetCodecH265VideoLayerArrayInput is an input type that accepts TransformOutputCustomPresetCodecH265VideoLayerArray and TransformOutputCustomPresetCodecH265VideoLayerArrayOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetCodecH265VideoLayerArrayInput` via:
+//
+//	TransformOutputCustomPresetCodecH265VideoLayerArray{ TransformOutputCustomPresetCodecH265VideoLayerArgs{...} }
+type TransformOutputCustomPresetCodecH265VideoLayerArrayInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetCodecH265VideoLayerArrayOutput() TransformOutputCustomPresetCodecH265VideoLayerArrayOutput
+	ToTransformOutputCustomPresetCodecH265VideoLayerArrayOutputWithContext(context.Context) TransformOutputCustomPresetCodecH265VideoLayerArrayOutput
+}
+
+type TransformOutputCustomPresetCodecH265VideoLayerArray []TransformOutputCustomPresetCodecH265VideoLayerInput
+
+func (TransformOutputCustomPresetCodecH265VideoLayerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetCodecH265VideoLayer)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetCodecH265VideoLayerArray) ToTransformOutputCustomPresetCodecH265VideoLayerArrayOutput() TransformOutputCustomPresetCodecH265VideoLayerArrayOutput {
+	return i.ToTransformOutputCustomPresetCodecH265VideoLayerArrayOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetCodecH265VideoLayerArray) ToTransformOutputCustomPresetCodecH265VideoLayerArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH265VideoLayerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH265VideoLayerArrayOutput)
+}
+
+type TransformOutputCustomPresetCodecH265VideoLayerOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecH265VideoLayerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetCodecH265VideoLayer)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) ToTransformOutputCustomPresetCodecH265VideoLayerOutput() TransformOutputCustomPresetCodecH265VideoLayerOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) ToTransformOutputCustomPresetCodecH265VideoLayerOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH265VideoLayerOutput {
+	return o
+}
+
+// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) AdaptiveBFrameEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *bool { return v.AdaptiveBFrameEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) BFrames() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *int { return v.BFrames }).(pulumi.IntPtrOutput)
+}
+
+// The average bitrate in bits per second at which to encode the input video when generating this layer.
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Bitrate() pulumi.IntOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) int { return v.Bitrate }).(pulumi.IntOutput)
+}
+
+// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) BufferWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.BufferWindow }).(pulumi.StringPtrOutput)
+}
+
+// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Crf() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *float64 { return v.Crf }).(pulumi.Float64PtrOutput)
+}
+
+// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) FrameRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
+}
+
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) MaxBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *int { return v.MaxBitrate }).(pulumi.IntPtrOutput)
+}
+
+// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) ReferenceFrames() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *int { return v.ReferenceFrames }).(pulumi.IntPtrOutput)
+}
+
+// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Slices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *int { return v.Slices }).(pulumi.IntPtrOutput)
+}
+
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetCodecH265VideoLayerArrayOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetCodecH265VideoLayerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetCodecH265VideoLayer)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetCodecH265VideoLayerArrayOutput) ToTransformOutputCustomPresetCodecH265VideoLayerArrayOutput() TransformOutputCustomPresetCodecH265VideoLayerArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecH265VideoLayerArrayOutput) ToTransformOutputCustomPresetCodecH265VideoLayerArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH265VideoLayerArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetCodecH265VideoLayerArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetCodecH265VideoLayerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetCodecH265VideoLayer {
+		return vs[0].([]TransformOutputCustomPresetCodecH265VideoLayer)[vs[1].(int)]
+	}).(TransformOutputCustomPresetCodecH265VideoLayerOutput)
+}
+
+type TransformOutputCustomPresetFilter struct {
+	// A `cropRectangle` block as defined above.
+	CropRectangle *TransformOutputCustomPresetFilterCropRectangle `pulumi:"cropRectangle"`
+	// A `deinterlace` block as defined below.
+	Deinterlace *TransformOutputCustomPresetFilterDeinterlace `pulumi:"deinterlace"`
+	// A `fadeIn` block as defined above.
+	FadeIn *TransformOutputCustomPresetFilterFadeIn `pulumi:"fadeIn"`
+	// A `fadeOut` block as defined above.
+	FadeOut *TransformOutputCustomPresetFilterFadeOut `pulumi:"fadeOut"`
+	// One or more `overlay` blocks as defined below.
+	Overlays []TransformOutputCustomPresetFilterOverlay `pulumi:"overlays"`
+	// The rotation to be applied to the input video before it is encoded. Possible values are `Auto`, `None`, `Rotate90`, `Rotate180`, `Rotate270`,or `Rotate0`. Default to `Auto`.
+	Rotation *string `pulumi:"rotation"`
+}
+
+// TransformOutputCustomPresetFilterInput is an input type that accepts TransformOutputCustomPresetFilterArgs and TransformOutputCustomPresetFilterOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterInput` via:
+//
+//	TransformOutputCustomPresetFilterArgs{...}
+type TransformOutputCustomPresetFilterInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterOutput() TransformOutputCustomPresetFilterOutput
+	ToTransformOutputCustomPresetFilterOutputWithContext(context.Context) TransformOutputCustomPresetFilterOutput
+}
+
+type TransformOutputCustomPresetFilterArgs struct {
+	// A `cropRectangle` block as defined above.
+	CropRectangle TransformOutputCustomPresetFilterCropRectanglePtrInput `pulumi:"cropRectangle"`
+	// A `deinterlace` block as defined below.
+	Deinterlace TransformOutputCustomPresetFilterDeinterlacePtrInput `pulumi:"deinterlace"`
+	// A `fadeIn` block as defined above.
+	FadeIn TransformOutputCustomPresetFilterFadeInPtrInput `pulumi:"fadeIn"`
+	// A `fadeOut` block as defined above.
+	FadeOut TransformOutputCustomPresetFilterFadeOutPtrInput `pulumi:"fadeOut"`
+	// One or more `overlay` blocks as defined below.
+	Overlays TransformOutputCustomPresetFilterOverlayArrayInput `pulumi:"overlays"`
+	// The rotation to be applied to the input video before it is encoded. Possible values are `Auto`, `None`, `Rotate90`, `Rotate180`, `Rotate270`,or `Rotate0`. Default to `Auto`.
+	Rotation pulumi.StringPtrInput `pulumi:"rotation"`
+}
+
+func (TransformOutputCustomPresetFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilter)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFilterArgs) ToTransformOutputCustomPresetFilterOutput() TransformOutputCustomPresetFilterOutput {
+	return i.ToTransformOutputCustomPresetFilterOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterArgs) ToTransformOutputCustomPresetFilterOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOutput)
+}
+
+func (i TransformOutputCustomPresetFilterArgs) ToTransformOutputCustomPresetFilterPtrOutput() TransformOutputCustomPresetFilterPtrOutput {
+	return i.ToTransformOutputCustomPresetFilterPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterArgs) ToTransformOutputCustomPresetFilterPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOutput).ToTransformOutputCustomPresetFilterPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetFilterPtrInput is an input type that accepts TransformOutputCustomPresetFilterArgs, TransformOutputCustomPresetFilterPtr and TransformOutputCustomPresetFilterPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterPtrInput` via:
+//
+//	        TransformOutputCustomPresetFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetFilterPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterPtrOutput() TransformOutputCustomPresetFilterPtrOutput
+	ToTransformOutputCustomPresetFilterPtrOutputWithContext(context.Context) TransformOutputCustomPresetFilterPtrOutput
+}
+
+type transformOutputCustomPresetFilterPtrType TransformOutputCustomPresetFilterArgs
+
+func TransformOutputCustomPresetFilterPtr(v *TransformOutputCustomPresetFilterArgs) TransformOutputCustomPresetFilterPtrInput {
+	return (*transformOutputCustomPresetFilterPtrType)(v)
+}
+
+func (*transformOutputCustomPresetFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilter)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetFilterPtrType) ToTransformOutputCustomPresetFilterPtrOutput() TransformOutputCustomPresetFilterPtrOutput {
+	return i.ToTransformOutputCustomPresetFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetFilterPtrType) ToTransformOutputCustomPresetFilterPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilter)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterOutput) ToTransformOutputCustomPresetFilterOutput() TransformOutputCustomPresetFilterOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOutput) ToTransformOutputCustomPresetFilterOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOutput) ToTransformOutputCustomPresetFilterPtrOutput() TransformOutputCustomPresetFilterPtrOutput {
+	return o.ToTransformOutputCustomPresetFilterPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetFilterOutput) ToTransformOutputCustomPresetFilterPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilter) *TransformOutputCustomPresetFilter {
+		return &v
+	}).(TransformOutputCustomPresetFilterPtrOutput)
+}
+
+// A `cropRectangle` block as defined above.
+func (o TransformOutputCustomPresetFilterOutput) CropRectangle() TransformOutputCustomPresetFilterCropRectanglePtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilter) *TransformOutputCustomPresetFilterCropRectangle {
+		return v.CropRectangle
+	}).(TransformOutputCustomPresetFilterCropRectanglePtrOutput)
+}
+
+// A `deinterlace` block as defined below.
+func (o TransformOutputCustomPresetFilterOutput) Deinterlace() TransformOutputCustomPresetFilterDeinterlacePtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilter) *TransformOutputCustomPresetFilterDeinterlace {
+		return v.Deinterlace
+	}).(TransformOutputCustomPresetFilterDeinterlacePtrOutput)
+}
+
+// A `fadeIn` block as defined above.
+func (o TransformOutputCustomPresetFilterOutput) FadeIn() TransformOutputCustomPresetFilterFadeInPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilter) *TransformOutputCustomPresetFilterFadeIn { return v.FadeIn }).(TransformOutputCustomPresetFilterFadeInPtrOutput)
+}
+
+// A `fadeOut` block as defined above.
+func (o TransformOutputCustomPresetFilterOutput) FadeOut() TransformOutputCustomPresetFilterFadeOutPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilter) *TransformOutputCustomPresetFilterFadeOut { return v.FadeOut }).(TransformOutputCustomPresetFilterFadeOutPtrOutput)
+}
+
+// One or more `overlay` blocks as defined below.
+func (o TransformOutputCustomPresetFilterOutput) Overlays() TransformOutputCustomPresetFilterOverlayArrayOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilter) []TransformOutputCustomPresetFilterOverlay {
+		return v.Overlays
+	}).(TransformOutputCustomPresetFilterOverlayArrayOutput)
+}
+
+// The rotation to be applied to the input video before it is encoded. Possible values are `Auto`, `None`, `Rotate90`, `Rotate180`, `Rotate270`,or `Rotate0`. Default to `Auto`.
+func (o TransformOutputCustomPresetFilterOutput) Rotation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilter) *string { return v.Rotation }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilter)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterPtrOutput) ToTransformOutputCustomPresetFilterPtrOutput() TransformOutputCustomPresetFilterPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterPtrOutput) ToTransformOutputCustomPresetFilterPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterPtrOutput) Elem() TransformOutputCustomPresetFilterOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilter) TransformOutputCustomPresetFilter {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetFilter
+		return ret
+	}).(TransformOutputCustomPresetFilterOutput)
+}
+
+// A `cropRectangle` block as defined above.
+func (o TransformOutputCustomPresetFilterPtrOutput) CropRectangle() TransformOutputCustomPresetFilterCropRectanglePtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilter) *TransformOutputCustomPresetFilterCropRectangle {
+		if v == nil {
+			return nil
+		}
+		return v.CropRectangle
+	}).(TransformOutputCustomPresetFilterCropRectanglePtrOutput)
+}
+
+// A `deinterlace` block as defined below.
+func (o TransformOutputCustomPresetFilterPtrOutput) Deinterlace() TransformOutputCustomPresetFilterDeinterlacePtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilter) *TransformOutputCustomPresetFilterDeinterlace {
+		if v == nil {
+			return nil
+		}
+		return v.Deinterlace
+	}).(TransformOutputCustomPresetFilterDeinterlacePtrOutput)
+}
+
+// A `fadeIn` block as defined above.
+func (o TransformOutputCustomPresetFilterPtrOutput) FadeIn() TransformOutputCustomPresetFilterFadeInPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilter) *TransformOutputCustomPresetFilterFadeIn {
+		if v == nil {
+			return nil
+		}
+		return v.FadeIn
+	}).(TransformOutputCustomPresetFilterFadeInPtrOutput)
+}
+
+// A `fadeOut` block as defined above.
+func (o TransformOutputCustomPresetFilterPtrOutput) FadeOut() TransformOutputCustomPresetFilterFadeOutPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilter) *TransformOutputCustomPresetFilterFadeOut {
+		if v == nil {
+			return nil
+		}
+		return v.FadeOut
+	}).(TransformOutputCustomPresetFilterFadeOutPtrOutput)
+}
+
+// One or more `overlay` blocks as defined below.
+func (o TransformOutputCustomPresetFilterPtrOutput) Overlays() TransformOutputCustomPresetFilterOverlayArrayOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilter) []TransformOutputCustomPresetFilterOverlay {
+		if v == nil {
+			return nil
+		}
+		return v.Overlays
+	}).(TransformOutputCustomPresetFilterOverlayArrayOutput)
+}
+
+// The rotation to be applied to the input video before it is encoded. Possible values are `Auto`, `None`, `Rotate90`, `Rotate180`, `Rotate270`,or `Rotate0`. Default to `Auto`.
+func (o TransformOutputCustomPresetFilterPtrOutput) Rotation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Rotation
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterCropRectangle struct {
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Height *string `pulumi:"height"`
+	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Left *string `pulumi:"left"`
+	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Top *string `pulumi:"top"`
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
+	Width *string `pulumi:"width"`
+}
+
+// TransformOutputCustomPresetFilterCropRectangleInput is an input type that accepts TransformOutputCustomPresetFilterCropRectangleArgs and TransformOutputCustomPresetFilterCropRectangleOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterCropRectangleInput` via:
+//
+//	TransformOutputCustomPresetFilterCropRectangleArgs{...}
+type TransformOutputCustomPresetFilterCropRectangleInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterCropRectangleOutput() TransformOutputCustomPresetFilterCropRectangleOutput
+	ToTransformOutputCustomPresetFilterCropRectangleOutputWithContext(context.Context) TransformOutputCustomPresetFilterCropRectangleOutput
+}
+
+type TransformOutputCustomPresetFilterCropRectangleArgs struct {
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Left pulumi.StringPtrInput `pulumi:"left"`
+	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Top pulumi.StringPtrInput `pulumi:"top"`
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (TransformOutputCustomPresetFilterCropRectangleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterCropRectangle)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFilterCropRectangleArgs) ToTransformOutputCustomPresetFilterCropRectangleOutput() TransformOutputCustomPresetFilterCropRectangleOutput {
+	return i.ToTransformOutputCustomPresetFilterCropRectangleOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterCropRectangleArgs) ToTransformOutputCustomPresetFilterCropRectangleOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterCropRectangleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterCropRectangleOutput)
+}
+
+func (i TransformOutputCustomPresetFilterCropRectangleArgs) ToTransformOutputCustomPresetFilterCropRectanglePtrOutput() TransformOutputCustomPresetFilterCropRectanglePtrOutput {
+	return i.ToTransformOutputCustomPresetFilterCropRectanglePtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterCropRectangleArgs) ToTransformOutputCustomPresetFilterCropRectanglePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterCropRectanglePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterCropRectangleOutput).ToTransformOutputCustomPresetFilterCropRectanglePtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetFilterCropRectanglePtrInput is an input type that accepts TransformOutputCustomPresetFilterCropRectangleArgs, TransformOutputCustomPresetFilterCropRectanglePtr and TransformOutputCustomPresetFilterCropRectanglePtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterCropRectanglePtrInput` via:
+//
+//	        TransformOutputCustomPresetFilterCropRectangleArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetFilterCropRectanglePtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterCropRectanglePtrOutput() TransformOutputCustomPresetFilterCropRectanglePtrOutput
+	ToTransformOutputCustomPresetFilterCropRectanglePtrOutputWithContext(context.Context) TransformOutputCustomPresetFilterCropRectanglePtrOutput
+}
+
+type transformOutputCustomPresetFilterCropRectanglePtrType TransformOutputCustomPresetFilterCropRectangleArgs
+
+func TransformOutputCustomPresetFilterCropRectanglePtr(v *TransformOutputCustomPresetFilterCropRectangleArgs) TransformOutputCustomPresetFilterCropRectanglePtrInput {
+	return (*transformOutputCustomPresetFilterCropRectanglePtrType)(v)
+}
+
+func (*transformOutputCustomPresetFilterCropRectanglePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterCropRectangle)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetFilterCropRectanglePtrType) ToTransformOutputCustomPresetFilterCropRectanglePtrOutput() TransformOutputCustomPresetFilterCropRectanglePtrOutput {
+	return i.ToTransformOutputCustomPresetFilterCropRectanglePtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetFilterCropRectanglePtrType) ToTransformOutputCustomPresetFilterCropRectanglePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterCropRectanglePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterCropRectanglePtrOutput)
+}
+
+type TransformOutputCustomPresetFilterCropRectangleOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterCropRectangleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterCropRectangle)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterCropRectangleOutput) ToTransformOutputCustomPresetFilterCropRectangleOutput() TransformOutputCustomPresetFilterCropRectangleOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterCropRectangleOutput) ToTransformOutputCustomPresetFilterCropRectangleOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterCropRectangleOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterCropRectangleOutput) ToTransformOutputCustomPresetFilterCropRectanglePtrOutput() TransformOutputCustomPresetFilterCropRectanglePtrOutput {
+	return o.ToTransformOutputCustomPresetFilterCropRectanglePtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetFilterCropRectangleOutput) ToTransformOutputCustomPresetFilterCropRectanglePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterCropRectanglePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterCropRectangle) *TransformOutputCustomPresetFilterCropRectangle {
+		return &v
+	}).(TransformOutputCustomPresetFilterCropRectanglePtrOutput)
+}
+
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterCropRectangleOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterCropRectangle) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterCropRectangleOutput) Left() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterCropRectangle) *string { return v.Left }).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterCropRectangleOutput) Top() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterCropRectangle) *string { return v.Top }).(pulumi.StringPtrOutput)
+}
+
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterCropRectangleOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterCropRectangle) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterCropRectanglePtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterCropRectanglePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterCropRectangle)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) ToTransformOutputCustomPresetFilterCropRectanglePtrOutput() TransformOutputCustomPresetFilterCropRectanglePtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) ToTransformOutputCustomPresetFilterCropRectanglePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterCropRectanglePtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) Elem() TransformOutputCustomPresetFilterCropRectangleOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterCropRectangle) TransformOutputCustomPresetFilterCropRectangle {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetFilterCropRectangle
+		return ret
+	}).(TransformOutputCustomPresetFilterCropRectangleOutput)
+}
+
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterCropRectangle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Height
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) Left() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterCropRectangle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Left
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) Top() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterCropRectangle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Top
+	}).(pulumi.StringPtrOutput)
+}
+
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterCropRectangle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Width
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterDeinterlace struct {
+	// The deinterlacing mode. Possible values are `AutoPixelAdaptive` or `Off`. Default to `AutoPixelAdaptive`.
+	Mode *string `pulumi:"mode"`
+	// The field parity to use for deinterlacing. Possible values are `Auto`, `TopFieldFirst` or `BottomFieldFirst`. Default to `Auto`.
+	Parity *string `pulumi:"parity"`
+}
+
+// TransformOutputCustomPresetFilterDeinterlaceInput is an input type that accepts TransformOutputCustomPresetFilterDeinterlaceArgs and TransformOutputCustomPresetFilterDeinterlaceOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterDeinterlaceInput` via:
+//
+//	TransformOutputCustomPresetFilterDeinterlaceArgs{...}
+type TransformOutputCustomPresetFilterDeinterlaceInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterDeinterlaceOutput() TransformOutputCustomPresetFilterDeinterlaceOutput
+	ToTransformOutputCustomPresetFilterDeinterlaceOutputWithContext(context.Context) TransformOutputCustomPresetFilterDeinterlaceOutput
+}
+
+type TransformOutputCustomPresetFilterDeinterlaceArgs struct {
+	// The deinterlacing mode. Possible values are `AutoPixelAdaptive` or `Off`. Default to `AutoPixelAdaptive`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// The field parity to use for deinterlacing. Possible values are `Auto`, `TopFieldFirst` or `BottomFieldFirst`. Default to `Auto`.
+	Parity pulumi.StringPtrInput `pulumi:"parity"`
+}
+
+func (TransformOutputCustomPresetFilterDeinterlaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterDeinterlace)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFilterDeinterlaceArgs) ToTransformOutputCustomPresetFilterDeinterlaceOutput() TransformOutputCustomPresetFilterDeinterlaceOutput {
+	return i.ToTransformOutputCustomPresetFilterDeinterlaceOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterDeinterlaceArgs) ToTransformOutputCustomPresetFilterDeinterlaceOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterDeinterlaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterDeinterlaceOutput)
+}
+
+func (i TransformOutputCustomPresetFilterDeinterlaceArgs) ToTransformOutputCustomPresetFilterDeinterlacePtrOutput() TransformOutputCustomPresetFilterDeinterlacePtrOutput {
+	return i.ToTransformOutputCustomPresetFilterDeinterlacePtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterDeinterlaceArgs) ToTransformOutputCustomPresetFilterDeinterlacePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterDeinterlacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterDeinterlaceOutput).ToTransformOutputCustomPresetFilterDeinterlacePtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetFilterDeinterlacePtrInput is an input type that accepts TransformOutputCustomPresetFilterDeinterlaceArgs, TransformOutputCustomPresetFilterDeinterlacePtr and TransformOutputCustomPresetFilterDeinterlacePtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterDeinterlacePtrInput` via:
+//
+//	        TransformOutputCustomPresetFilterDeinterlaceArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetFilterDeinterlacePtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterDeinterlacePtrOutput() TransformOutputCustomPresetFilterDeinterlacePtrOutput
+	ToTransformOutputCustomPresetFilterDeinterlacePtrOutputWithContext(context.Context) TransformOutputCustomPresetFilterDeinterlacePtrOutput
+}
+
+type transformOutputCustomPresetFilterDeinterlacePtrType TransformOutputCustomPresetFilterDeinterlaceArgs
+
+func TransformOutputCustomPresetFilterDeinterlacePtr(v *TransformOutputCustomPresetFilterDeinterlaceArgs) TransformOutputCustomPresetFilterDeinterlacePtrInput {
+	return (*transformOutputCustomPresetFilterDeinterlacePtrType)(v)
+}
+
+func (*transformOutputCustomPresetFilterDeinterlacePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterDeinterlace)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetFilterDeinterlacePtrType) ToTransformOutputCustomPresetFilterDeinterlacePtrOutput() TransformOutputCustomPresetFilterDeinterlacePtrOutput {
+	return i.ToTransformOutputCustomPresetFilterDeinterlacePtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetFilterDeinterlacePtrType) ToTransformOutputCustomPresetFilterDeinterlacePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterDeinterlacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterDeinterlacePtrOutput)
+}
+
+type TransformOutputCustomPresetFilterDeinterlaceOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterDeinterlaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterDeinterlace)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterDeinterlaceOutput) ToTransformOutputCustomPresetFilterDeinterlaceOutput() TransformOutputCustomPresetFilterDeinterlaceOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterDeinterlaceOutput) ToTransformOutputCustomPresetFilterDeinterlaceOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterDeinterlaceOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterDeinterlaceOutput) ToTransformOutputCustomPresetFilterDeinterlacePtrOutput() TransformOutputCustomPresetFilterDeinterlacePtrOutput {
+	return o.ToTransformOutputCustomPresetFilterDeinterlacePtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetFilterDeinterlaceOutput) ToTransformOutputCustomPresetFilterDeinterlacePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterDeinterlacePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterDeinterlace) *TransformOutputCustomPresetFilterDeinterlace {
+		return &v
+	}).(TransformOutputCustomPresetFilterDeinterlacePtrOutput)
+}
+
+// The deinterlacing mode. Possible values are `AutoPixelAdaptive` or `Off`. Default to `AutoPixelAdaptive`.
+func (o TransformOutputCustomPresetFilterDeinterlaceOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterDeinterlace) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// The field parity to use for deinterlacing. Possible values are `Auto`, `TopFieldFirst` or `BottomFieldFirst`. Default to `Auto`.
+func (o TransformOutputCustomPresetFilterDeinterlaceOutput) Parity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterDeinterlace) *string { return v.Parity }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterDeinterlacePtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterDeinterlacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterDeinterlace)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterDeinterlacePtrOutput) ToTransformOutputCustomPresetFilterDeinterlacePtrOutput() TransformOutputCustomPresetFilterDeinterlacePtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterDeinterlacePtrOutput) ToTransformOutputCustomPresetFilterDeinterlacePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterDeinterlacePtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterDeinterlacePtrOutput) Elem() TransformOutputCustomPresetFilterDeinterlaceOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterDeinterlace) TransformOutputCustomPresetFilterDeinterlace {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetFilterDeinterlace
+		return ret
+	}).(TransformOutputCustomPresetFilterDeinterlaceOutput)
+}
+
+// The deinterlacing mode. Possible values are `AutoPixelAdaptive` or `Off`. Default to `AutoPixelAdaptive`.
+func (o TransformOutputCustomPresetFilterDeinterlacePtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterDeinterlace) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The field parity to use for deinterlacing. Possible values are `Auto`, `TopFieldFirst` or `BottomFieldFirst`. Default to `Auto`.
+func (o TransformOutputCustomPresetFilterDeinterlacePtrOutput) Parity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterDeinterlace) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Parity
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterFadeIn struct {
+	// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+	Duration string `pulumi:"duration"`
+	// The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+	FadeColor string `pulumi:"fadeColor"`
+	// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+	Start *string `pulumi:"start"`
+}
+
+// TransformOutputCustomPresetFilterFadeInInput is an input type that accepts TransformOutputCustomPresetFilterFadeInArgs and TransformOutputCustomPresetFilterFadeInOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterFadeInInput` via:
+//
+//	TransformOutputCustomPresetFilterFadeInArgs{...}
+type TransformOutputCustomPresetFilterFadeInInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterFadeInOutput() TransformOutputCustomPresetFilterFadeInOutput
+	ToTransformOutputCustomPresetFilterFadeInOutputWithContext(context.Context) TransformOutputCustomPresetFilterFadeInOutput
+}
+
+type TransformOutputCustomPresetFilterFadeInArgs struct {
+	// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+	FadeColor pulumi.StringInput `pulumi:"fadeColor"`
+	// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (TransformOutputCustomPresetFilterFadeInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterFadeIn)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFilterFadeInArgs) ToTransformOutputCustomPresetFilterFadeInOutput() TransformOutputCustomPresetFilterFadeInOutput {
+	return i.ToTransformOutputCustomPresetFilterFadeInOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterFadeInArgs) ToTransformOutputCustomPresetFilterFadeInOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterFadeInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterFadeInOutput)
+}
+
+func (i TransformOutputCustomPresetFilterFadeInArgs) ToTransformOutputCustomPresetFilterFadeInPtrOutput() TransformOutputCustomPresetFilterFadeInPtrOutput {
+	return i.ToTransformOutputCustomPresetFilterFadeInPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterFadeInArgs) ToTransformOutputCustomPresetFilterFadeInPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterFadeInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterFadeInOutput).ToTransformOutputCustomPresetFilterFadeInPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetFilterFadeInPtrInput is an input type that accepts TransformOutputCustomPresetFilterFadeInArgs, TransformOutputCustomPresetFilterFadeInPtr and TransformOutputCustomPresetFilterFadeInPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterFadeInPtrInput` via:
+//
+//	        TransformOutputCustomPresetFilterFadeInArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetFilterFadeInPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterFadeInPtrOutput() TransformOutputCustomPresetFilterFadeInPtrOutput
+	ToTransformOutputCustomPresetFilterFadeInPtrOutputWithContext(context.Context) TransformOutputCustomPresetFilterFadeInPtrOutput
+}
+
+type transformOutputCustomPresetFilterFadeInPtrType TransformOutputCustomPresetFilterFadeInArgs
+
+func TransformOutputCustomPresetFilterFadeInPtr(v *TransformOutputCustomPresetFilterFadeInArgs) TransformOutputCustomPresetFilterFadeInPtrInput {
+	return (*transformOutputCustomPresetFilterFadeInPtrType)(v)
+}
+
+func (*transformOutputCustomPresetFilterFadeInPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterFadeIn)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetFilterFadeInPtrType) ToTransformOutputCustomPresetFilterFadeInPtrOutput() TransformOutputCustomPresetFilterFadeInPtrOutput {
+	return i.ToTransformOutputCustomPresetFilterFadeInPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetFilterFadeInPtrType) ToTransformOutputCustomPresetFilterFadeInPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterFadeInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterFadeInPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterFadeInOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterFadeInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterFadeIn)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterFadeInOutput) ToTransformOutputCustomPresetFilterFadeInOutput() TransformOutputCustomPresetFilterFadeInOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterFadeInOutput) ToTransformOutputCustomPresetFilterFadeInOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterFadeInOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterFadeInOutput) ToTransformOutputCustomPresetFilterFadeInPtrOutput() TransformOutputCustomPresetFilterFadeInPtrOutput {
+	return o.ToTransformOutputCustomPresetFilterFadeInPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetFilterFadeInOutput) ToTransformOutputCustomPresetFilterFadeInPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterFadeInPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterFadeIn) *TransformOutputCustomPresetFilterFadeIn {
+		return &v
+	}).(TransformOutputCustomPresetFilterFadeInPtrOutput)
+}
+
+// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+func (o TransformOutputCustomPresetFilterFadeInOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterFadeIn) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+func (o TransformOutputCustomPresetFilterFadeInOutput) FadeColor() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterFadeIn) string { return v.FadeColor }).(pulumi.StringOutput)
+}
+
+// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+func (o TransformOutputCustomPresetFilterFadeInOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterFadeIn) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterFadeInPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterFadeInPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterFadeIn)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterFadeInPtrOutput) ToTransformOutputCustomPresetFilterFadeInPtrOutput() TransformOutputCustomPresetFilterFadeInPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterFadeInPtrOutput) ToTransformOutputCustomPresetFilterFadeInPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterFadeInPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterFadeInPtrOutput) Elem() TransformOutputCustomPresetFilterFadeInOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterFadeIn) TransformOutputCustomPresetFilterFadeIn {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetFilterFadeIn
+		return ret
+	}).(TransformOutputCustomPresetFilterFadeInOutput)
+}
+
+// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+func (o TransformOutputCustomPresetFilterFadeInPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterFadeIn) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+func (o TransformOutputCustomPresetFilterFadeInPtrOutput) FadeColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterFadeIn) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FadeColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+func (o TransformOutputCustomPresetFilterFadeInPtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterFadeIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterFadeOut struct {
+	// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+	Duration string `pulumi:"duration"`
+	// The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+	FadeColor string `pulumi:"fadeColor"`
+	// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+	Start *string `pulumi:"start"`
+}
+
+// TransformOutputCustomPresetFilterFadeOutInput is an input type that accepts TransformOutputCustomPresetFilterFadeOutArgs and TransformOutputCustomPresetFilterFadeOutOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterFadeOutInput` via:
+//
+//	TransformOutputCustomPresetFilterFadeOutArgs{...}
+type TransformOutputCustomPresetFilterFadeOutInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterFadeOutOutput() TransformOutputCustomPresetFilterFadeOutOutput
+	ToTransformOutputCustomPresetFilterFadeOutOutputWithContext(context.Context) TransformOutputCustomPresetFilterFadeOutOutput
+}
+
+type TransformOutputCustomPresetFilterFadeOutArgs struct {
+	// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+	FadeColor pulumi.StringInput `pulumi:"fadeColor"`
+	// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (TransformOutputCustomPresetFilterFadeOutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterFadeOut)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFilterFadeOutArgs) ToTransformOutputCustomPresetFilterFadeOutOutput() TransformOutputCustomPresetFilterFadeOutOutput {
+	return i.ToTransformOutputCustomPresetFilterFadeOutOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterFadeOutArgs) ToTransformOutputCustomPresetFilterFadeOutOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterFadeOutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterFadeOutOutput)
+}
+
+func (i TransformOutputCustomPresetFilterFadeOutArgs) ToTransformOutputCustomPresetFilterFadeOutPtrOutput() TransformOutputCustomPresetFilterFadeOutPtrOutput {
+	return i.ToTransformOutputCustomPresetFilterFadeOutPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterFadeOutArgs) ToTransformOutputCustomPresetFilterFadeOutPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterFadeOutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterFadeOutOutput).ToTransformOutputCustomPresetFilterFadeOutPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetFilterFadeOutPtrInput is an input type that accepts TransformOutputCustomPresetFilterFadeOutArgs, TransformOutputCustomPresetFilterFadeOutPtr and TransformOutputCustomPresetFilterFadeOutPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterFadeOutPtrInput` via:
+//
+//	        TransformOutputCustomPresetFilterFadeOutArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetFilterFadeOutPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterFadeOutPtrOutput() TransformOutputCustomPresetFilterFadeOutPtrOutput
+	ToTransformOutputCustomPresetFilterFadeOutPtrOutputWithContext(context.Context) TransformOutputCustomPresetFilterFadeOutPtrOutput
+}
+
+type transformOutputCustomPresetFilterFadeOutPtrType TransformOutputCustomPresetFilterFadeOutArgs
+
+func TransformOutputCustomPresetFilterFadeOutPtr(v *TransformOutputCustomPresetFilterFadeOutArgs) TransformOutputCustomPresetFilterFadeOutPtrInput {
+	return (*transformOutputCustomPresetFilterFadeOutPtrType)(v)
+}
+
+func (*transformOutputCustomPresetFilterFadeOutPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterFadeOut)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetFilterFadeOutPtrType) ToTransformOutputCustomPresetFilterFadeOutPtrOutput() TransformOutputCustomPresetFilterFadeOutPtrOutput {
+	return i.ToTransformOutputCustomPresetFilterFadeOutPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetFilterFadeOutPtrType) ToTransformOutputCustomPresetFilterFadeOutPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterFadeOutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterFadeOutPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterFadeOutOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterFadeOutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterFadeOut)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterFadeOutOutput) ToTransformOutputCustomPresetFilterFadeOutOutput() TransformOutputCustomPresetFilterFadeOutOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterFadeOutOutput) ToTransformOutputCustomPresetFilterFadeOutOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterFadeOutOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterFadeOutOutput) ToTransformOutputCustomPresetFilterFadeOutPtrOutput() TransformOutputCustomPresetFilterFadeOutPtrOutput {
+	return o.ToTransformOutputCustomPresetFilterFadeOutPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetFilterFadeOutOutput) ToTransformOutputCustomPresetFilterFadeOutPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterFadeOutPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterFadeOut) *TransformOutputCustomPresetFilterFadeOut {
+		return &v
+	}).(TransformOutputCustomPresetFilterFadeOutPtrOutput)
+}
+
+// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+func (o TransformOutputCustomPresetFilterFadeOutOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterFadeOut) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+func (o TransformOutputCustomPresetFilterFadeOutOutput) FadeColor() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterFadeOut) string { return v.FadeColor }).(pulumi.StringOutput)
+}
+
+// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+func (o TransformOutputCustomPresetFilterFadeOutOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterFadeOut) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterFadeOutPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterFadeOutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterFadeOut)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterFadeOutPtrOutput) ToTransformOutputCustomPresetFilterFadeOutPtrOutput() TransformOutputCustomPresetFilterFadeOutPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterFadeOutPtrOutput) ToTransformOutputCustomPresetFilterFadeOutPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterFadeOutPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterFadeOutPtrOutput) Elem() TransformOutputCustomPresetFilterFadeOutOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterFadeOut) TransformOutputCustomPresetFilterFadeOut {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetFilterFadeOut
+		return ret
+	}).(TransformOutputCustomPresetFilterFadeOutOutput)
+}
+
+// The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+func (o TransformOutputCustomPresetFilterFadeOutPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterFadeOut) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+func (o TransformOutputCustomPresetFilterFadeOutPtrOutput) FadeColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterFadeOut) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FadeColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+func (o TransformOutputCustomPresetFilterFadeOutPtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterFadeOut) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlay struct {
+	// An `audio` block as defined above.
+	Audio *TransformOutputCustomPresetFilterOverlayAudio `pulumi:"audio"`
+	// A `video` block as defined below.
+	Video *TransformOutputCustomPresetFilterOverlayVideo `pulumi:"video"`
+}
+
+// TransformOutputCustomPresetFilterOverlayInput is an input type that accepts TransformOutputCustomPresetFilterOverlayArgs and TransformOutputCustomPresetFilterOverlayOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterOverlayInput` via:
+//
+//	TransformOutputCustomPresetFilterOverlayArgs{...}
+type TransformOutputCustomPresetFilterOverlayInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterOverlayOutput() TransformOutputCustomPresetFilterOverlayOutput
+	ToTransformOutputCustomPresetFilterOverlayOutputWithContext(context.Context) TransformOutputCustomPresetFilterOverlayOutput
+}
+
+type TransformOutputCustomPresetFilterOverlayArgs struct {
+	// An `audio` block as defined above.
+	Audio TransformOutputCustomPresetFilterOverlayAudioPtrInput `pulumi:"audio"`
+	// A `video` block as defined below.
+	Video TransformOutputCustomPresetFilterOverlayVideoPtrInput `pulumi:"video"`
+}
+
+func (TransformOutputCustomPresetFilterOverlayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterOverlay)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFilterOverlayArgs) ToTransformOutputCustomPresetFilterOverlayOutput() TransformOutputCustomPresetFilterOverlayOutput {
+	return i.ToTransformOutputCustomPresetFilterOverlayOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterOverlayArgs) ToTransformOutputCustomPresetFilterOverlayOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayOutput)
+}
+
+// TransformOutputCustomPresetFilterOverlayArrayInput is an input type that accepts TransformOutputCustomPresetFilterOverlayArray and TransformOutputCustomPresetFilterOverlayArrayOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterOverlayArrayInput` via:
+//
+//	TransformOutputCustomPresetFilterOverlayArray{ TransformOutputCustomPresetFilterOverlayArgs{...} }
+type TransformOutputCustomPresetFilterOverlayArrayInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterOverlayArrayOutput() TransformOutputCustomPresetFilterOverlayArrayOutput
+	ToTransformOutputCustomPresetFilterOverlayArrayOutputWithContext(context.Context) TransformOutputCustomPresetFilterOverlayArrayOutput
+}
+
+type TransformOutputCustomPresetFilterOverlayArray []TransformOutputCustomPresetFilterOverlayInput
+
+func (TransformOutputCustomPresetFilterOverlayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetFilterOverlay)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFilterOverlayArray) ToTransformOutputCustomPresetFilterOverlayArrayOutput() TransformOutputCustomPresetFilterOverlayArrayOutput {
+	return i.ToTransformOutputCustomPresetFilterOverlayArrayOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterOverlayArray) ToTransformOutputCustomPresetFilterOverlayArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayArrayOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlayOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterOverlayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterOverlay)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterOverlayOutput) ToTransformOutputCustomPresetFilterOverlayOutput() TransformOutputCustomPresetFilterOverlayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayOutput) ToTransformOutputCustomPresetFilterOverlayOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayOutput {
+	return o
+}
+
+// An `audio` block as defined above.
+func (o TransformOutputCustomPresetFilterOverlayOutput) Audio() TransformOutputCustomPresetFilterOverlayAudioPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlay) *TransformOutputCustomPresetFilterOverlayAudio {
+		return v.Audio
+	}).(TransformOutputCustomPresetFilterOverlayAudioPtrOutput)
+}
+
+// A `video` block as defined below.
+func (o TransformOutputCustomPresetFilterOverlayOutput) Video() TransformOutputCustomPresetFilterOverlayVideoPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlay) *TransformOutputCustomPresetFilterOverlayVideo {
+		return v.Video
+	}).(TransformOutputCustomPresetFilterOverlayVideoPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlayArrayOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterOverlayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetFilterOverlay)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterOverlayArrayOutput) ToTransformOutputCustomPresetFilterOverlayArrayOutput() TransformOutputCustomPresetFilterOverlayArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayArrayOutput) ToTransformOutputCustomPresetFilterOverlayArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetFilterOverlayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetFilterOverlay {
+		return vs[0].([]TransformOutputCustomPresetFilterOverlay)[vs[1].(int)]
+	}).(TransformOutputCustomPresetFilterOverlayOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlayAudio struct {
+	// The gain level of audio in the overlay. The value should be in the range `0` to `1.0`. The default is `1.0`.
+	AudioGainLevel *float64 `pulumi:"audioGainLevel"`
+	// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+	End *string `pulumi:"end"`
+	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+	FadeInDuration *string `pulumi:"fadeInDuration"`
+	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+	FadeOutDuration *string `pulumi:"fadeOutDuration"`
+	// The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+	InputLabel string `pulumi:"inputLabel"`
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+	Start *string `pulumi:"start"`
+}
+
+// TransformOutputCustomPresetFilterOverlayAudioInput is an input type that accepts TransformOutputCustomPresetFilterOverlayAudioArgs and TransformOutputCustomPresetFilterOverlayAudioOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterOverlayAudioInput` via:
+//
+//	TransformOutputCustomPresetFilterOverlayAudioArgs{...}
+type TransformOutputCustomPresetFilterOverlayAudioInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterOverlayAudioOutput() TransformOutputCustomPresetFilterOverlayAudioOutput
+	ToTransformOutputCustomPresetFilterOverlayAudioOutputWithContext(context.Context) TransformOutputCustomPresetFilterOverlayAudioOutput
+}
+
+type TransformOutputCustomPresetFilterOverlayAudioArgs struct {
+	// The gain level of audio in the overlay. The value should be in the range `0` to `1.0`. The default is `1.0`.
+	AudioGainLevel pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
+	// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+	FadeInDuration pulumi.StringPtrInput `pulumi:"fadeInDuration"`
+	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+	FadeOutDuration pulumi.StringPtrInput `pulumi:"fadeOutDuration"`
+	// The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+	InputLabel pulumi.StringInput `pulumi:"inputLabel"`
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (TransformOutputCustomPresetFilterOverlayAudioArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayAudio)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFilterOverlayAudioArgs) ToTransformOutputCustomPresetFilterOverlayAudioOutput() TransformOutputCustomPresetFilterOverlayAudioOutput {
+	return i.ToTransformOutputCustomPresetFilterOverlayAudioOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterOverlayAudioArgs) ToTransformOutputCustomPresetFilterOverlayAudioOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayAudioOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayAudioOutput)
+}
+
+func (i TransformOutputCustomPresetFilterOverlayAudioArgs) ToTransformOutputCustomPresetFilterOverlayAudioPtrOutput() TransformOutputCustomPresetFilterOverlayAudioPtrOutput {
+	return i.ToTransformOutputCustomPresetFilterOverlayAudioPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterOverlayAudioArgs) ToTransformOutputCustomPresetFilterOverlayAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayAudioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayAudioOutput).ToTransformOutputCustomPresetFilterOverlayAudioPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetFilterOverlayAudioPtrInput is an input type that accepts TransformOutputCustomPresetFilterOverlayAudioArgs, TransformOutputCustomPresetFilterOverlayAudioPtr and TransformOutputCustomPresetFilterOverlayAudioPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterOverlayAudioPtrInput` via:
+//
+//	        TransformOutputCustomPresetFilterOverlayAudioArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetFilterOverlayAudioPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterOverlayAudioPtrOutput() TransformOutputCustomPresetFilterOverlayAudioPtrOutput
+	ToTransformOutputCustomPresetFilterOverlayAudioPtrOutputWithContext(context.Context) TransformOutputCustomPresetFilterOverlayAudioPtrOutput
+}
+
+type transformOutputCustomPresetFilterOverlayAudioPtrType TransformOutputCustomPresetFilterOverlayAudioArgs
+
+func TransformOutputCustomPresetFilterOverlayAudioPtr(v *TransformOutputCustomPresetFilterOverlayAudioArgs) TransformOutputCustomPresetFilterOverlayAudioPtrInput {
+	return (*transformOutputCustomPresetFilterOverlayAudioPtrType)(v)
+}
+
+func (*transformOutputCustomPresetFilterOverlayAudioPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterOverlayAudio)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetFilterOverlayAudioPtrType) ToTransformOutputCustomPresetFilterOverlayAudioPtrOutput() TransformOutputCustomPresetFilterOverlayAudioPtrOutput {
+	return i.ToTransformOutputCustomPresetFilterOverlayAudioPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetFilterOverlayAudioPtrType) ToTransformOutputCustomPresetFilterOverlayAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayAudioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayAudioPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlayAudioOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterOverlayAudioOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayAudio)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterOverlayAudioOutput) ToTransformOutputCustomPresetFilterOverlayAudioOutput() TransformOutputCustomPresetFilterOverlayAudioOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayAudioOutput) ToTransformOutputCustomPresetFilterOverlayAudioOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayAudioOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayAudioOutput) ToTransformOutputCustomPresetFilterOverlayAudioPtrOutput() TransformOutputCustomPresetFilterOverlayAudioPtrOutput {
+	return o.ToTransformOutputCustomPresetFilterOverlayAudioPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetFilterOverlayAudioOutput) ToTransformOutputCustomPresetFilterOverlayAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayAudioPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterOverlayAudio) *TransformOutputCustomPresetFilterOverlayAudio {
+		return &v
+	}).(TransformOutputCustomPresetFilterOverlayAudioPtrOutput)
+}
+
+// The gain level of audio in the overlay. The value should be in the range `0` to `1.0`. The default is `1.0`.
+func (o TransformOutputCustomPresetFilterOverlayAudioOutput) AudioGainLevel() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayAudio) *float64 { return v.AudioGainLevel }).(pulumi.Float64PtrOutput)
+}
+
+// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+func (o TransformOutputCustomPresetFilterOverlayAudioOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayAudio) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+func (o TransformOutputCustomPresetFilterOverlayAudioOutput) FadeInDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayAudio) *string { return v.FadeInDuration }).(pulumi.StringPtrOutput)
+}
+
+// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+func (o TransformOutputCustomPresetFilterOverlayAudioOutput) FadeOutDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayAudio) *string { return v.FadeOutDuration }).(pulumi.StringPtrOutput)
+}
+
+// The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+func (o TransformOutputCustomPresetFilterOverlayAudioOutput) InputLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayAudio) string { return v.InputLabel }).(pulumi.StringOutput)
+}
+
+// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+func (o TransformOutputCustomPresetFilterOverlayAudioOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayAudio) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlayAudioPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterOverlayAudioPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterOverlayAudio)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterOverlayAudioPtrOutput) ToTransformOutputCustomPresetFilterOverlayAudioPtrOutput() TransformOutputCustomPresetFilterOverlayAudioPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayAudioPtrOutput) ToTransformOutputCustomPresetFilterOverlayAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayAudioPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayAudioPtrOutput) Elem() TransformOutputCustomPresetFilterOverlayAudioOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayAudio) TransformOutputCustomPresetFilterOverlayAudio {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetFilterOverlayAudio
+		return ret
+	}).(TransformOutputCustomPresetFilterOverlayAudioOutput)
+}
+
+// The gain level of audio in the overlay. The value should be in the range `0` to `1.0`. The default is `1.0`.
+func (o TransformOutputCustomPresetFilterOverlayAudioPtrOutput) AudioGainLevel() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayAudio) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.AudioGainLevel
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+func (o TransformOutputCustomPresetFilterOverlayAudioPtrOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayAudio) *string {
+		if v == nil {
+			return nil
+		}
+		return v.End
+	}).(pulumi.StringPtrOutput)
+}
+
+// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+func (o TransformOutputCustomPresetFilterOverlayAudioPtrOutput) FadeInDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayAudio) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FadeInDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+func (o TransformOutputCustomPresetFilterOverlayAudioPtrOutput) FadeOutDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayAudio) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FadeOutDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+func (o TransformOutputCustomPresetFilterOverlayAudioPtrOutput) InputLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayAudio) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InputLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+func (o TransformOutputCustomPresetFilterOverlayAudioPtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayAudio) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlayVideo struct {
+	// The gain level of audio in the overlay. The value should be in range between `0` to `1.0`. The default is `1.0`.
+	AudioGainLevel *float64 `pulumi:"audioGainLevel"`
+	// A `cropRectangle` block as defined above.
+	CropRectangle *TransformOutputCustomPresetFilterOverlayVideoCropRectangle `pulumi:"cropRectangle"`
+	// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+	End *string `pulumi:"end"`
+	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+	FadeInDuration *string `pulumi:"fadeInDuration"`
+	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+	FadeOutDuration *string `pulumi:"fadeOutDuration"`
+	// The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+	InputLabel string `pulumi:"inputLabel"`
+	// The opacity of the overlay. The value should be in the range between `0` to `1.0`. Default to `1.0`, which means the overlay is opaque.
+	Opacity *float64 `pulumi:"opacity"`
+	// A `position` block as defined above.
+	Position *TransformOutputCustomPresetFilterOverlayVideoPosition `pulumi:"position"`
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+	Start *string `pulumi:"start"`
+}
+
+// TransformOutputCustomPresetFilterOverlayVideoInput is an input type that accepts TransformOutputCustomPresetFilterOverlayVideoArgs and TransformOutputCustomPresetFilterOverlayVideoOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterOverlayVideoInput` via:
+//
+//	TransformOutputCustomPresetFilterOverlayVideoArgs{...}
+type TransformOutputCustomPresetFilterOverlayVideoInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterOverlayVideoOutput() TransformOutputCustomPresetFilterOverlayVideoOutput
+	ToTransformOutputCustomPresetFilterOverlayVideoOutputWithContext(context.Context) TransformOutputCustomPresetFilterOverlayVideoOutput
+}
+
+type TransformOutputCustomPresetFilterOverlayVideoArgs struct {
+	// The gain level of audio in the overlay. The value should be in range between `0` to `1.0`. The default is `1.0`.
+	AudioGainLevel pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
+	// A `cropRectangle` block as defined above.
+	CropRectangle TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrInput `pulumi:"cropRectangle"`
+	// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+	FadeInDuration pulumi.StringPtrInput `pulumi:"fadeInDuration"`
+	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+	FadeOutDuration pulumi.StringPtrInput `pulumi:"fadeOutDuration"`
+	// The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+	InputLabel pulumi.StringInput `pulumi:"inputLabel"`
+	// The opacity of the overlay. The value should be in the range between `0` to `1.0`. Default to `1.0`, which means the overlay is opaque.
+	Opacity pulumi.Float64PtrInput `pulumi:"opacity"`
+	// A `position` block as defined above.
+	Position TransformOutputCustomPresetFilterOverlayVideoPositionPtrInput `pulumi:"position"`
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (TransformOutputCustomPresetFilterOverlayVideoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayVideo)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFilterOverlayVideoArgs) ToTransformOutputCustomPresetFilterOverlayVideoOutput() TransformOutputCustomPresetFilterOverlayVideoOutput {
+	return i.ToTransformOutputCustomPresetFilterOverlayVideoOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterOverlayVideoArgs) ToTransformOutputCustomPresetFilterOverlayVideoOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoOutput)
+}
+
+func (i TransformOutputCustomPresetFilterOverlayVideoArgs) ToTransformOutputCustomPresetFilterOverlayVideoPtrOutput() TransformOutputCustomPresetFilterOverlayVideoPtrOutput {
+	return i.ToTransformOutputCustomPresetFilterOverlayVideoPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterOverlayVideoArgs) ToTransformOutputCustomPresetFilterOverlayVideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoOutput).ToTransformOutputCustomPresetFilterOverlayVideoPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetFilterOverlayVideoPtrInput is an input type that accepts TransformOutputCustomPresetFilterOverlayVideoArgs, TransformOutputCustomPresetFilterOverlayVideoPtr and TransformOutputCustomPresetFilterOverlayVideoPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterOverlayVideoPtrInput` via:
+//
+//	        TransformOutputCustomPresetFilterOverlayVideoArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetFilterOverlayVideoPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterOverlayVideoPtrOutput() TransformOutputCustomPresetFilterOverlayVideoPtrOutput
+	ToTransformOutputCustomPresetFilterOverlayVideoPtrOutputWithContext(context.Context) TransformOutputCustomPresetFilterOverlayVideoPtrOutput
+}
+
+type transformOutputCustomPresetFilterOverlayVideoPtrType TransformOutputCustomPresetFilterOverlayVideoArgs
+
+func TransformOutputCustomPresetFilterOverlayVideoPtr(v *TransformOutputCustomPresetFilterOverlayVideoArgs) TransformOutputCustomPresetFilterOverlayVideoPtrInput {
+	return (*transformOutputCustomPresetFilterOverlayVideoPtrType)(v)
+}
+
+func (*transformOutputCustomPresetFilterOverlayVideoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterOverlayVideo)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetFilterOverlayVideoPtrType) ToTransformOutputCustomPresetFilterOverlayVideoPtrOutput() TransformOutputCustomPresetFilterOverlayVideoPtrOutput {
+	return i.ToTransformOutputCustomPresetFilterOverlayVideoPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetFilterOverlayVideoPtrType) ToTransformOutputCustomPresetFilterOverlayVideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlayVideoOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterOverlayVideoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayVideo)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoOutput) ToTransformOutputCustomPresetFilterOverlayVideoOutput() TransformOutputCustomPresetFilterOverlayVideoOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoOutput) ToTransformOutputCustomPresetFilterOverlayVideoOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoOutput) ToTransformOutputCustomPresetFilterOverlayVideoPtrOutput() TransformOutputCustomPresetFilterOverlayVideoPtrOutput {
+	return o.ToTransformOutputCustomPresetFilterOverlayVideoPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoOutput) ToTransformOutputCustomPresetFilterOverlayVideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterOverlayVideo) *TransformOutputCustomPresetFilterOverlayVideo {
+		return &v
+	}).(TransformOutputCustomPresetFilterOverlayVideoPtrOutput)
+}
+
+// The gain level of audio in the overlay. The value should be in range between `0` to `1.0`. The default is `1.0`.
+func (o TransformOutputCustomPresetFilterOverlayVideoOutput) AudioGainLevel() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideo) *float64 { return v.AudioGainLevel }).(pulumi.Float64PtrOutput)
+}
+
+// A `cropRectangle` block as defined above.
+func (o TransformOutputCustomPresetFilterOverlayVideoOutput) CropRectangle() TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideo) *TransformOutputCustomPresetFilterOverlayVideoCropRectangle {
+		return v.CropRectangle
+	}).(TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput)
+}
+
+// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+func (o TransformOutputCustomPresetFilterOverlayVideoOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideo) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+func (o TransformOutputCustomPresetFilterOverlayVideoOutput) FadeInDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideo) *string { return v.FadeInDuration }).(pulumi.StringPtrOutput)
+}
+
+// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+func (o TransformOutputCustomPresetFilterOverlayVideoOutput) FadeOutDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideo) *string { return v.FadeOutDuration }).(pulumi.StringPtrOutput)
+}
+
+// The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+func (o TransformOutputCustomPresetFilterOverlayVideoOutput) InputLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideo) string { return v.InputLabel }).(pulumi.StringOutput)
+}
+
+// The opacity of the overlay. The value should be in the range between `0` to `1.0`. Default to `1.0`, which means the overlay is opaque.
+func (o TransformOutputCustomPresetFilterOverlayVideoOutput) Opacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideo) *float64 { return v.Opacity }).(pulumi.Float64PtrOutput)
+}
+
+// A `position` block as defined above.
+func (o TransformOutputCustomPresetFilterOverlayVideoOutput) Position() TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideo) *TransformOutputCustomPresetFilterOverlayVideoPosition {
+		return v.Position
+	}).(TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput)
+}
+
+// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+func (o TransformOutputCustomPresetFilterOverlayVideoOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideo) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlayVideoPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterOverlayVideoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterOverlayVideo)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) ToTransformOutputCustomPresetFilterOverlayVideoPtrOutput() TransformOutputCustomPresetFilterOverlayVideoPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) ToTransformOutputCustomPresetFilterOverlayVideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) Elem() TransformOutputCustomPresetFilterOverlayVideoOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideo) TransformOutputCustomPresetFilterOverlayVideo {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetFilterOverlayVideo
+		return ret
+	}).(TransformOutputCustomPresetFilterOverlayVideoOutput)
+}
+
+// The gain level of audio in the overlay. The value should be in range between `0` to `1.0`. The default is `1.0`.
+func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) AudioGainLevel() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideo) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.AudioGainLevel
+	}).(pulumi.Float64PtrOutput)
+}
+
+// A `cropRectangle` block as defined above.
+func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) CropRectangle() TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideo) *TransformOutputCustomPresetFilterOverlayVideoCropRectangle {
+		if v == nil {
+			return nil
+		}
+		return v.CropRectangle
+	}).(TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput)
+}
+
+// The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.End
+	}).(pulumi.StringPtrOutput)
+}
+
+// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) FadeInDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FadeInDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) FadeOutDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FadeOutDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) InputLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InputLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+// The opacity of the overlay. The value should be in the range between `0` to `1.0`. Default to `1.0`, which means the overlay is opaque.
+func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) Opacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideo) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Opacity
+	}).(pulumi.Float64PtrOutput)
+}
+
+// A `position` block as defined above.
+func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) Position() TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideo) *TransformOutputCustomPresetFilterOverlayVideoPosition {
+		if v == nil {
+			return nil
+		}
+		return v.Position
+	}).(TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput)
+}
+
+// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlayVideoCropRectangle struct {
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Height *string `pulumi:"height"`
+	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Left *string `pulumi:"left"`
+	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Top *string `pulumi:"top"`
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
+	Width *string `pulumi:"width"`
+}
+
+// TransformOutputCustomPresetFilterOverlayVideoCropRectangleInput is an input type that accepts TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs and TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterOverlayVideoCropRectangleInput` via:
+//
+//	TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs{...}
+type TransformOutputCustomPresetFilterOverlayVideoCropRectangleInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput() TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput
+	ToTransformOutputCustomPresetFilterOverlayVideoCropRectangleOutputWithContext(context.Context) TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput
+}
+
+type TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs struct {
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Left pulumi.StringPtrInput `pulumi:"left"`
+	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Top pulumi.StringPtrInput `pulumi:"top"`
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayVideoCropRectangle)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs) ToTransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput() TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput {
+	return i.ToTransformOutputCustomPresetFilterOverlayVideoCropRectangleOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs) ToTransformOutputCustomPresetFilterOverlayVideoCropRectangleOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput)
+}
+
+func (i TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs) ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput() TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput {
+	return i.ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs) ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput).ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrInput is an input type that accepts TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs, TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtr and TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrInput` via:
+//
+//	        TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput() TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput
+	ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutputWithContext(context.Context) TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput
+}
+
+type transformOutputCustomPresetFilterOverlayVideoCropRectanglePtrType TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs
+
+func TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtr(v *TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs) TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrInput {
+	return (*transformOutputCustomPresetFilterOverlayVideoCropRectanglePtrType)(v)
+}
+
+func (*transformOutputCustomPresetFilterOverlayVideoCropRectanglePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterOverlayVideoCropRectangle)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetFilterOverlayVideoCropRectanglePtrType) ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput() TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput {
+	return i.ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetFilterOverlayVideoCropRectanglePtrType) ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayVideoCropRectangle)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) ToTransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput() TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) ToTransformOutputCustomPresetFilterOverlayVideoCropRectangleOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput() TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput {
+	return o.ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *TransformOutputCustomPresetFilterOverlayVideoCropRectangle {
+		return &v
+	}).(TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput)
+}
+
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) Left() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string { return v.Left }).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) Top() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string { return v.Top }).(pulumi.StringPtrOutput)
+}
+
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterOverlayVideoCropRectangle)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput() TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Elem() TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoCropRectangle) TransformOutputCustomPresetFilterOverlayVideoCropRectangle {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetFilterOverlayVideoCropRectangle
+		return ret
+	}).(TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput)
+}
+
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Height
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Left() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Left
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Top() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Top
+	}).(pulumi.StringPtrOutput)
+}
+
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Width
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlayVideoPosition struct {
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Height *string `pulumi:"height"`
+	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Left *string `pulumi:"left"`
+	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Top *string `pulumi:"top"`
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
+	Width *string `pulumi:"width"`
+}
+
+// TransformOutputCustomPresetFilterOverlayVideoPositionInput is an input type that accepts TransformOutputCustomPresetFilterOverlayVideoPositionArgs and TransformOutputCustomPresetFilterOverlayVideoPositionOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterOverlayVideoPositionInput` via:
+//
+//	TransformOutputCustomPresetFilterOverlayVideoPositionArgs{...}
+type TransformOutputCustomPresetFilterOverlayVideoPositionInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterOverlayVideoPositionOutput() TransformOutputCustomPresetFilterOverlayVideoPositionOutput
+	ToTransformOutputCustomPresetFilterOverlayVideoPositionOutputWithContext(context.Context) TransformOutputCustomPresetFilterOverlayVideoPositionOutput
+}
+
+type TransformOutputCustomPresetFilterOverlayVideoPositionArgs struct {
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Left pulumi.StringPtrInput `pulumi:"left"`
+	// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+	Top pulumi.StringPtrInput `pulumi:"top"`
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (TransformOutputCustomPresetFilterOverlayVideoPositionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayVideoPosition)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFilterOverlayVideoPositionArgs) ToTransformOutputCustomPresetFilterOverlayVideoPositionOutput() TransformOutputCustomPresetFilterOverlayVideoPositionOutput {
+	return i.ToTransformOutputCustomPresetFilterOverlayVideoPositionOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterOverlayVideoPositionArgs) ToTransformOutputCustomPresetFilterOverlayVideoPositionOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoPositionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoPositionOutput)
+}
+
+func (i TransformOutputCustomPresetFilterOverlayVideoPositionArgs) ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput() TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput {
+	return i.ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFilterOverlayVideoPositionArgs) ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoPositionOutput).ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetFilterOverlayVideoPositionPtrInput is an input type that accepts TransformOutputCustomPresetFilterOverlayVideoPositionArgs, TransformOutputCustomPresetFilterOverlayVideoPositionPtr and TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFilterOverlayVideoPositionPtrInput` via:
+//
+//	        TransformOutputCustomPresetFilterOverlayVideoPositionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetFilterOverlayVideoPositionPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput() TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput
+	ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutputWithContext(context.Context) TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput
+}
+
+type transformOutputCustomPresetFilterOverlayVideoPositionPtrType TransformOutputCustomPresetFilterOverlayVideoPositionArgs
+
+func TransformOutputCustomPresetFilterOverlayVideoPositionPtr(v *TransformOutputCustomPresetFilterOverlayVideoPositionArgs) TransformOutputCustomPresetFilterOverlayVideoPositionPtrInput {
+	return (*transformOutputCustomPresetFilterOverlayVideoPositionPtrType)(v)
+}
+
+func (*transformOutputCustomPresetFilterOverlayVideoPositionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterOverlayVideoPosition)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetFilterOverlayVideoPositionPtrType) ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput() TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput {
+	return i.ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetFilterOverlayVideoPositionPtrType) ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlayVideoPositionOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterOverlayVideoPositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayVideoPosition)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) ToTransformOutputCustomPresetFilterOverlayVideoPositionOutput() TransformOutputCustomPresetFilterOverlayVideoPositionOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) ToTransformOutputCustomPresetFilterOverlayVideoPositionOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoPositionOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput() TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput {
+	return o.ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterOverlayVideoPosition) *TransformOutputCustomPresetFilterOverlayVideoPosition {
+		return &v
+	}).(TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput)
+}
+
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoPosition) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) Left() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoPosition) *string { return v.Left }).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) Top() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoPosition) *string { return v.Top }).(pulumi.StringPtrOutput)
+}
+
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlayVideoPosition) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFilterOverlayVideoPosition)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput() TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Elem() TransformOutputCustomPresetFilterOverlayVideoPositionOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoPosition) TransformOutputCustomPresetFilterOverlayVideoPosition {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetFilterOverlayVideoPosition
+		return ret
+	}).(TransformOutputCustomPresetFilterOverlayVideoPositionOutput)
+}
+
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoPosition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Height
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Left() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoPosition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Left
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Top() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoPosition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Top
+	}).(pulumi.StringPtrOutput)
+}
+
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
+func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFilterOverlayVideoPosition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Width
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputCustomPresetFormat struct {
+	// A `mp4` block as defined below.
+	Mp4 *TransformOutputCustomPresetFormatMp4 `pulumi:"mp4"`
+	// A `transportStream` block as defined below.
+	TransportStream *TransformOutputCustomPresetFormatTransportStream `pulumi:"transportStream"`
+}
+
+// TransformOutputCustomPresetFormatInput is an input type that accepts TransformOutputCustomPresetFormatArgs and TransformOutputCustomPresetFormatOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFormatInput` via:
+//
+//	TransformOutputCustomPresetFormatArgs{...}
+type TransformOutputCustomPresetFormatInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFormatOutput() TransformOutputCustomPresetFormatOutput
+	ToTransformOutputCustomPresetFormatOutputWithContext(context.Context) TransformOutputCustomPresetFormatOutput
+}
+
+type TransformOutputCustomPresetFormatArgs struct {
+	// A `mp4` block as defined below.
+	Mp4 TransformOutputCustomPresetFormatMp4PtrInput `pulumi:"mp4"`
+	// A `transportStream` block as defined below.
+	TransportStream TransformOutputCustomPresetFormatTransportStreamPtrInput `pulumi:"transportStream"`
+}
+
+func (TransformOutputCustomPresetFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFormat)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFormatArgs) ToTransformOutputCustomPresetFormatOutput() TransformOutputCustomPresetFormatOutput {
+	return i.ToTransformOutputCustomPresetFormatOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFormatArgs) ToTransformOutputCustomPresetFormatOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatOutput)
+}
+
+// TransformOutputCustomPresetFormatArrayInput is an input type that accepts TransformOutputCustomPresetFormatArray and TransformOutputCustomPresetFormatArrayOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFormatArrayInput` via:
+//
+//	TransformOutputCustomPresetFormatArray{ TransformOutputCustomPresetFormatArgs{...} }
+type TransformOutputCustomPresetFormatArrayInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFormatArrayOutput() TransformOutputCustomPresetFormatArrayOutput
+	ToTransformOutputCustomPresetFormatArrayOutputWithContext(context.Context) TransformOutputCustomPresetFormatArrayOutput
+}
+
+type TransformOutputCustomPresetFormatArray []TransformOutputCustomPresetFormatInput
+
+func (TransformOutputCustomPresetFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetFormat)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFormatArray) ToTransformOutputCustomPresetFormatArrayOutput() TransformOutputCustomPresetFormatArrayOutput {
+	return i.ToTransformOutputCustomPresetFormatArrayOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFormatArray) ToTransformOutputCustomPresetFormatArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatArrayOutput)
+}
+
+type TransformOutputCustomPresetFormatOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFormat)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFormatOutput) ToTransformOutputCustomPresetFormatOutput() TransformOutputCustomPresetFormatOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatOutput) ToTransformOutputCustomPresetFormatOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatOutput {
+	return o
+}
+
+// A `mp4` block as defined below.
+func (o TransformOutputCustomPresetFormatOutput) Mp4() TransformOutputCustomPresetFormatMp4PtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFormat) *TransformOutputCustomPresetFormatMp4 { return v.Mp4 }).(TransformOutputCustomPresetFormatMp4PtrOutput)
+}
+
+// A `transportStream` block as defined below.
+func (o TransformOutputCustomPresetFormatOutput) TransportStream() TransformOutputCustomPresetFormatTransportStreamPtrOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFormat) *TransformOutputCustomPresetFormatTransportStream {
+		return v.TransportStream
+	}).(TransformOutputCustomPresetFormatTransportStreamPtrOutput)
+}
+
+type TransformOutputCustomPresetFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetFormat)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFormatArrayOutput) ToTransformOutputCustomPresetFormatArrayOutput() TransformOutputCustomPresetFormatArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatArrayOutput) ToTransformOutputCustomPresetFormatArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetFormat {
+		return vs[0].([]TransformOutputCustomPresetFormat)[vs[1].(int)]
+	}).(TransformOutputCustomPresetFormatOutput)
+}
+
+type TransformOutputCustomPresetFormatMp4 struct {
+	// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern string `pulumi:"filenamePattern"`
+	// One or more `outputFile` blocks as defined below.
+	OutputFiles []TransformOutputCustomPresetFormatMp4OutputFile `pulumi:"outputFiles"`
+}
+
+// TransformOutputCustomPresetFormatMp4Input is an input type that accepts TransformOutputCustomPresetFormatMp4Args and TransformOutputCustomPresetFormatMp4Output values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFormatMp4Input` via:
+//
+//	TransformOutputCustomPresetFormatMp4Args{...}
+type TransformOutputCustomPresetFormatMp4Input interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFormatMp4Output() TransformOutputCustomPresetFormatMp4Output
+	ToTransformOutputCustomPresetFormatMp4OutputWithContext(context.Context) TransformOutputCustomPresetFormatMp4Output
+}
+
+type TransformOutputCustomPresetFormatMp4Args struct {
+	// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringInput `pulumi:"filenamePattern"`
+	// One or more `outputFile` blocks as defined below.
+	OutputFiles TransformOutputCustomPresetFormatMp4OutputFileArrayInput `pulumi:"outputFiles"`
+}
+
+func (TransformOutputCustomPresetFormatMp4Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFormatMp4)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFormatMp4Args) ToTransformOutputCustomPresetFormatMp4Output() TransformOutputCustomPresetFormatMp4Output {
+	return i.ToTransformOutputCustomPresetFormatMp4OutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFormatMp4Args) ToTransformOutputCustomPresetFormatMp4OutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatMp4Output {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatMp4Output)
+}
+
+func (i TransformOutputCustomPresetFormatMp4Args) ToTransformOutputCustomPresetFormatMp4PtrOutput() TransformOutputCustomPresetFormatMp4PtrOutput {
+	return i.ToTransformOutputCustomPresetFormatMp4PtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFormatMp4Args) ToTransformOutputCustomPresetFormatMp4PtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatMp4PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatMp4Output).ToTransformOutputCustomPresetFormatMp4PtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetFormatMp4PtrInput is an input type that accepts TransformOutputCustomPresetFormatMp4Args, TransformOutputCustomPresetFormatMp4Ptr and TransformOutputCustomPresetFormatMp4PtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFormatMp4PtrInput` via:
+//
+//	        TransformOutputCustomPresetFormatMp4Args{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetFormatMp4PtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFormatMp4PtrOutput() TransformOutputCustomPresetFormatMp4PtrOutput
+	ToTransformOutputCustomPresetFormatMp4PtrOutputWithContext(context.Context) TransformOutputCustomPresetFormatMp4PtrOutput
+}
+
+type transformOutputCustomPresetFormatMp4PtrType TransformOutputCustomPresetFormatMp4Args
+
+func TransformOutputCustomPresetFormatMp4Ptr(v *TransformOutputCustomPresetFormatMp4Args) TransformOutputCustomPresetFormatMp4PtrInput {
+	return (*transformOutputCustomPresetFormatMp4PtrType)(v)
+}
+
+func (*transformOutputCustomPresetFormatMp4PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFormatMp4)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetFormatMp4PtrType) ToTransformOutputCustomPresetFormatMp4PtrOutput() TransformOutputCustomPresetFormatMp4PtrOutput {
+	return i.ToTransformOutputCustomPresetFormatMp4PtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetFormatMp4PtrType) ToTransformOutputCustomPresetFormatMp4PtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatMp4PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatMp4PtrOutput)
+}
+
+type TransformOutputCustomPresetFormatMp4Output struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFormatMp4Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFormatMp4)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFormatMp4Output) ToTransformOutputCustomPresetFormatMp4Output() TransformOutputCustomPresetFormatMp4Output {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatMp4Output) ToTransformOutputCustomPresetFormatMp4OutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatMp4Output {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatMp4Output) ToTransformOutputCustomPresetFormatMp4PtrOutput() TransformOutputCustomPresetFormatMp4PtrOutput {
+	return o.ToTransformOutputCustomPresetFormatMp4PtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetFormatMp4Output) ToTransformOutputCustomPresetFormatMp4PtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatMp4PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFormatMp4) *TransformOutputCustomPresetFormatMp4 {
+		return &v
+	}).(TransformOutputCustomPresetFormatMp4PtrOutput)
+}
+
+// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o TransformOutputCustomPresetFormatMp4Output) FilenamePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFormatMp4) string { return v.FilenamePattern }).(pulumi.StringOutput)
+}
+
+// One or more `outputFile` blocks as defined below.
+func (o TransformOutputCustomPresetFormatMp4Output) OutputFiles() TransformOutputCustomPresetFormatMp4OutputFileArrayOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFormatMp4) []TransformOutputCustomPresetFormatMp4OutputFile {
+		return v.OutputFiles
+	}).(TransformOutputCustomPresetFormatMp4OutputFileArrayOutput)
+}
+
+type TransformOutputCustomPresetFormatMp4PtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFormatMp4PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFormatMp4)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFormatMp4PtrOutput) ToTransformOutputCustomPresetFormatMp4PtrOutput() TransformOutputCustomPresetFormatMp4PtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatMp4PtrOutput) ToTransformOutputCustomPresetFormatMp4PtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatMp4PtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatMp4PtrOutput) Elem() TransformOutputCustomPresetFormatMp4Output {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFormatMp4) TransformOutputCustomPresetFormatMp4 {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetFormatMp4
+		return ret
+	}).(TransformOutputCustomPresetFormatMp4Output)
+}
+
+// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o TransformOutputCustomPresetFormatMp4PtrOutput) FilenamePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFormatMp4) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FilenamePattern
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `outputFile` blocks as defined below.
+func (o TransformOutputCustomPresetFormatMp4PtrOutput) OutputFiles() TransformOutputCustomPresetFormatMp4OutputFileArrayOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFormatMp4) []TransformOutputCustomPresetFormatMp4OutputFile {
+		if v == nil {
+			return nil
+		}
+		return v.OutputFiles
+	}).(TransformOutputCustomPresetFormatMp4OutputFileArrayOutput)
+}
+
+type TransformOutputCustomPresetFormatMp4OutputFile struct {
+	// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
+	Labels []string `pulumi:"labels"`
+}
+
+// TransformOutputCustomPresetFormatMp4OutputFileInput is an input type that accepts TransformOutputCustomPresetFormatMp4OutputFileArgs and TransformOutputCustomPresetFormatMp4OutputFileOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFormatMp4OutputFileInput` via:
+//
+//	TransformOutputCustomPresetFormatMp4OutputFileArgs{...}
+type TransformOutputCustomPresetFormatMp4OutputFileInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFormatMp4OutputFileOutput() TransformOutputCustomPresetFormatMp4OutputFileOutput
+	ToTransformOutputCustomPresetFormatMp4OutputFileOutputWithContext(context.Context) TransformOutputCustomPresetFormatMp4OutputFileOutput
+}
+
+type TransformOutputCustomPresetFormatMp4OutputFileArgs struct {
+	// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+}
+
+func (TransformOutputCustomPresetFormatMp4OutputFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFormatMp4OutputFile)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFormatMp4OutputFileArgs) ToTransformOutputCustomPresetFormatMp4OutputFileOutput() TransformOutputCustomPresetFormatMp4OutputFileOutput {
+	return i.ToTransformOutputCustomPresetFormatMp4OutputFileOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFormatMp4OutputFileArgs) ToTransformOutputCustomPresetFormatMp4OutputFileOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatMp4OutputFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatMp4OutputFileOutput)
+}
+
+// TransformOutputCustomPresetFormatMp4OutputFileArrayInput is an input type that accepts TransformOutputCustomPresetFormatMp4OutputFileArray and TransformOutputCustomPresetFormatMp4OutputFileArrayOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFormatMp4OutputFileArrayInput` via:
+//
+//	TransformOutputCustomPresetFormatMp4OutputFileArray{ TransformOutputCustomPresetFormatMp4OutputFileArgs{...} }
+type TransformOutputCustomPresetFormatMp4OutputFileArrayInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFormatMp4OutputFileArrayOutput() TransformOutputCustomPresetFormatMp4OutputFileArrayOutput
+	ToTransformOutputCustomPresetFormatMp4OutputFileArrayOutputWithContext(context.Context) TransformOutputCustomPresetFormatMp4OutputFileArrayOutput
+}
+
+type TransformOutputCustomPresetFormatMp4OutputFileArray []TransformOutputCustomPresetFormatMp4OutputFileInput
+
+func (TransformOutputCustomPresetFormatMp4OutputFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetFormatMp4OutputFile)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFormatMp4OutputFileArray) ToTransformOutputCustomPresetFormatMp4OutputFileArrayOutput() TransformOutputCustomPresetFormatMp4OutputFileArrayOutput {
+	return i.ToTransformOutputCustomPresetFormatMp4OutputFileArrayOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFormatMp4OutputFileArray) ToTransformOutputCustomPresetFormatMp4OutputFileArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatMp4OutputFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatMp4OutputFileArrayOutput)
+}
+
+type TransformOutputCustomPresetFormatMp4OutputFileOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFormatMp4OutputFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFormatMp4OutputFile)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFormatMp4OutputFileOutput) ToTransformOutputCustomPresetFormatMp4OutputFileOutput() TransformOutputCustomPresetFormatMp4OutputFileOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatMp4OutputFileOutput) ToTransformOutputCustomPresetFormatMp4OutputFileOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatMp4OutputFileOutput {
+	return o
+}
+
+// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
+func (o TransformOutputCustomPresetFormatMp4OutputFileOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFormatMp4OutputFile) []string { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+type TransformOutputCustomPresetFormatMp4OutputFileArrayOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFormatMp4OutputFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetFormatMp4OutputFile)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFormatMp4OutputFileArrayOutput) ToTransformOutputCustomPresetFormatMp4OutputFileArrayOutput() TransformOutputCustomPresetFormatMp4OutputFileArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatMp4OutputFileArrayOutput) ToTransformOutputCustomPresetFormatMp4OutputFileArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatMp4OutputFileArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatMp4OutputFileArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetFormatMp4OutputFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetFormatMp4OutputFile {
+		return vs[0].([]TransformOutputCustomPresetFormatMp4OutputFile)[vs[1].(int)]
+	}).(TransformOutputCustomPresetFormatMp4OutputFileOutput)
+}
+
+type TransformOutputCustomPresetFormatTransportStream struct {
+	// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern string `pulumi:"filenamePattern"`
+	// One or more `outputFile` blocks as defined above.
+	OutputFiles []TransformOutputCustomPresetFormatTransportStreamOutputFile `pulumi:"outputFiles"`
+}
+
+// TransformOutputCustomPresetFormatTransportStreamInput is an input type that accepts TransformOutputCustomPresetFormatTransportStreamArgs and TransformOutputCustomPresetFormatTransportStreamOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFormatTransportStreamInput` via:
+//
+//	TransformOutputCustomPresetFormatTransportStreamArgs{...}
+type TransformOutputCustomPresetFormatTransportStreamInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFormatTransportStreamOutput() TransformOutputCustomPresetFormatTransportStreamOutput
+	ToTransformOutputCustomPresetFormatTransportStreamOutputWithContext(context.Context) TransformOutputCustomPresetFormatTransportStreamOutput
+}
+
+type TransformOutputCustomPresetFormatTransportStreamArgs struct {
+	// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringInput `pulumi:"filenamePattern"`
+	// One or more `outputFile` blocks as defined above.
+	OutputFiles TransformOutputCustomPresetFormatTransportStreamOutputFileArrayInput `pulumi:"outputFiles"`
+}
+
+func (TransformOutputCustomPresetFormatTransportStreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFormatTransportStream)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFormatTransportStreamArgs) ToTransformOutputCustomPresetFormatTransportStreamOutput() TransformOutputCustomPresetFormatTransportStreamOutput {
+	return i.ToTransformOutputCustomPresetFormatTransportStreamOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFormatTransportStreamArgs) ToTransformOutputCustomPresetFormatTransportStreamOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatTransportStreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatTransportStreamOutput)
+}
+
+func (i TransformOutputCustomPresetFormatTransportStreamArgs) ToTransformOutputCustomPresetFormatTransportStreamPtrOutput() TransformOutputCustomPresetFormatTransportStreamPtrOutput {
+	return i.ToTransformOutputCustomPresetFormatTransportStreamPtrOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFormatTransportStreamArgs) ToTransformOutputCustomPresetFormatTransportStreamPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatTransportStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatTransportStreamOutput).ToTransformOutputCustomPresetFormatTransportStreamPtrOutputWithContext(ctx)
+}
+
+// TransformOutputCustomPresetFormatTransportStreamPtrInput is an input type that accepts TransformOutputCustomPresetFormatTransportStreamArgs, TransformOutputCustomPresetFormatTransportStreamPtr and TransformOutputCustomPresetFormatTransportStreamPtrOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFormatTransportStreamPtrInput` via:
+//
+//	        TransformOutputCustomPresetFormatTransportStreamArgs{...}
+//
+//	or:
+//
+//	        nil
+type TransformOutputCustomPresetFormatTransportStreamPtrInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFormatTransportStreamPtrOutput() TransformOutputCustomPresetFormatTransportStreamPtrOutput
+	ToTransformOutputCustomPresetFormatTransportStreamPtrOutputWithContext(context.Context) TransformOutputCustomPresetFormatTransportStreamPtrOutput
+}
+
+type transformOutputCustomPresetFormatTransportStreamPtrType TransformOutputCustomPresetFormatTransportStreamArgs
+
+func TransformOutputCustomPresetFormatTransportStreamPtr(v *TransformOutputCustomPresetFormatTransportStreamArgs) TransformOutputCustomPresetFormatTransportStreamPtrInput {
+	return (*transformOutputCustomPresetFormatTransportStreamPtrType)(v)
+}
+
+func (*transformOutputCustomPresetFormatTransportStreamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFormatTransportStream)(nil)).Elem()
+}
+
+func (i *transformOutputCustomPresetFormatTransportStreamPtrType) ToTransformOutputCustomPresetFormatTransportStreamPtrOutput() TransformOutputCustomPresetFormatTransportStreamPtrOutput {
+	return i.ToTransformOutputCustomPresetFormatTransportStreamPtrOutputWithContext(context.Background())
+}
+
+func (i *transformOutputCustomPresetFormatTransportStreamPtrType) ToTransformOutputCustomPresetFormatTransportStreamPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatTransportStreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatTransportStreamPtrOutput)
+}
+
+type TransformOutputCustomPresetFormatTransportStreamOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFormatTransportStreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFormatTransportStream)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFormatTransportStreamOutput) ToTransformOutputCustomPresetFormatTransportStreamOutput() TransformOutputCustomPresetFormatTransportStreamOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatTransportStreamOutput) ToTransformOutputCustomPresetFormatTransportStreamOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatTransportStreamOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatTransportStreamOutput) ToTransformOutputCustomPresetFormatTransportStreamPtrOutput() TransformOutputCustomPresetFormatTransportStreamPtrOutput {
+	return o.ToTransformOutputCustomPresetFormatTransportStreamPtrOutputWithContext(context.Background())
+}
+
+func (o TransformOutputCustomPresetFormatTransportStreamOutput) ToTransformOutputCustomPresetFormatTransportStreamPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatTransportStreamPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFormatTransportStream) *TransformOutputCustomPresetFormatTransportStream {
+		return &v
+	}).(TransformOutputCustomPresetFormatTransportStreamPtrOutput)
+}
+
+// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o TransformOutputCustomPresetFormatTransportStreamOutput) FilenamePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFormatTransportStream) string { return v.FilenamePattern }).(pulumi.StringOutput)
+}
+
+// One or more `outputFile` blocks as defined above.
+func (o TransformOutputCustomPresetFormatTransportStreamOutput) OutputFiles() TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFormatTransportStream) []TransformOutputCustomPresetFormatTransportStreamOutputFile {
+		return v.OutputFiles
+	}).(TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput)
+}
+
+type TransformOutputCustomPresetFormatTransportStreamPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFormatTransportStreamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformOutputCustomPresetFormatTransportStream)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFormatTransportStreamPtrOutput) ToTransformOutputCustomPresetFormatTransportStreamPtrOutput() TransformOutputCustomPresetFormatTransportStreamPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatTransportStreamPtrOutput) ToTransformOutputCustomPresetFormatTransportStreamPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatTransportStreamPtrOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatTransportStreamPtrOutput) Elem() TransformOutputCustomPresetFormatTransportStreamOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFormatTransportStream) TransformOutputCustomPresetFormatTransportStream {
+		if v != nil {
+			return *v
+		}
+		var ret TransformOutputCustomPresetFormatTransportStream
+		return ret
+	}).(TransformOutputCustomPresetFormatTransportStreamOutput)
+}
+
+// The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o TransformOutputCustomPresetFormatTransportStreamPtrOutput) FilenamePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFormatTransportStream) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FilenamePattern
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `outputFile` blocks as defined above.
+func (o TransformOutputCustomPresetFormatTransportStreamPtrOutput) OutputFiles() TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput {
+	return o.ApplyT(func(v *TransformOutputCustomPresetFormatTransportStream) []TransformOutputCustomPresetFormatTransportStreamOutputFile {
+		if v == nil {
+			return nil
+		}
+		return v.OutputFiles
+	}).(TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput)
+}
+
+type TransformOutputCustomPresetFormatTransportStreamOutputFile struct {
+	// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
+	Labels []string `pulumi:"labels"`
+}
+
+// TransformOutputCustomPresetFormatTransportStreamOutputFileInput is an input type that accepts TransformOutputCustomPresetFormatTransportStreamOutputFileArgs and TransformOutputCustomPresetFormatTransportStreamOutputFileOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFormatTransportStreamOutputFileInput` via:
+//
+//	TransformOutputCustomPresetFormatTransportStreamOutputFileArgs{...}
+type TransformOutputCustomPresetFormatTransportStreamOutputFileInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFormatTransportStreamOutputFileOutput() TransformOutputCustomPresetFormatTransportStreamOutputFileOutput
+	ToTransformOutputCustomPresetFormatTransportStreamOutputFileOutputWithContext(context.Context) TransformOutputCustomPresetFormatTransportStreamOutputFileOutput
+}
+
+type TransformOutputCustomPresetFormatTransportStreamOutputFileArgs struct {
+	// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+}
+
+func (TransformOutputCustomPresetFormatTransportStreamOutputFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFormatTransportStreamOutputFile)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFormatTransportStreamOutputFileArgs) ToTransformOutputCustomPresetFormatTransportStreamOutputFileOutput() TransformOutputCustomPresetFormatTransportStreamOutputFileOutput {
+	return i.ToTransformOutputCustomPresetFormatTransportStreamOutputFileOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFormatTransportStreamOutputFileArgs) ToTransformOutputCustomPresetFormatTransportStreamOutputFileOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatTransportStreamOutputFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatTransportStreamOutputFileOutput)
+}
+
+// TransformOutputCustomPresetFormatTransportStreamOutputFileArrayInput is an input type that accepts TransformOutputCustomPresetFormatTransportStreamOutputFileArray and TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput values.
+// You can construct a concrete instance of `TransformOutputCustomPresetFormatTransportStreamOutputFileArrayInput` via:
+//
+//	TransformOutputCustomPresetFormatTransportStreamOutputFileArray{ TransformOutputCustomPresetFormatTransportStreamOutputFileArgs{...} }
+type TransformOutputCustomPresetFormatTransportStreamOutputFileArrayInput interface {
+	pulumi.Input
+
+	ToTransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput() TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput
+	ToTransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutputWithContext(context.Context) TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput
+}
+
+type TransformOutputCustomPresetFormatTransportStreamOutputFileArray []TransformOutputCustomPresetFormatTransportStreamOutputFileInput
+
+func (TransformOutputCustomPresetFormatTransportStreamOutputFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetFormatTransportStreamOutputFile)(nil)).Elem()
+}
+
+func (i TransformOutputCustomPresetFormatTransportStreamOutputFileArray) ToTransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput() TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput {
+	return i.ToTransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutputWithContext(context.Background())
+}
+
+func (i TransformOutputCustomPresetFormatTransportStreamOutputFileArray) ToTransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput)
+}
+
+type TransformOutputCustomPresetFormatTransportStreamOutputFileOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFormatTransportStreamOutputFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputCustomPresetFormatTransportStreamOutputFile)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFormatTransportStreamOutputFileOutput) ToTransformOutputCustomPresetFormatTransportStreamOutputFileOutput() TransformOutputCustomPresetFormatTransportStreamOutputFileOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatTransportStreamOutputFileOutput) ToTransformOutputCustomPresetFormatTransportStreamOutputFileOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatTransportStreamOutputFileOutput {
+	return o
+}
+
+// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
+func (o TransformOutputCustomPresetFormatTransportStreamOutputFileOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TransformOutputCustomPresetFormatTransportStreamOutputFile) []string { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+type TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputCustomPresetFormatTransportStreamOutputFile)(nil)).Elem()
+}
+
+func (o TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput) ToTransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput() TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput) ToTransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput {
+	return o
+}
+
+func (o TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetFormatTransportStreamOutputFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetFormatTransportStreamOutputFile {
+		return vs[0].([]TransformOutputCustomPresetFormatTransportStreamOutputFile)[vs[1].(int)]
+	}).(TransformOutputCustomPresetFormatTransportStreamOutputFileOutput)
+}
+
 type TransformOutputFaceDetectorPreset struct {
-	// Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected.
+	// Possible values are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected. Default to `SourceResolution`.
 	AnalysisResolution *string `pulumi:"analysisResolution"`
+	// Specifies the type of blur to apply to faces in the output video. Possible values are `Black`, `Box`, `High`, `Low`,and `Med`.
+	BlurType *string `pulumi:"blurType"`
+	// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+	ExperimentalOptions map[string]string `pulumi:"experimentalOptions"`
+	// This mode provides the ability to choose between the following settings: 1) `Analyze` - For detection only. This mode generates a metadata JSON file marking appearances of faces throughout the video. Where possible, appearances of the same person are assigned the same ID. 2) `Combined` - Additionally redacts(blurs) detected faces. 3) `Redact` - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces. It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction. Default to `Analyze`.
+	FaceRedactorMode *string `pulumi:"faceRedactorMode"`
 }
 
 // TransformOutputFaceDetectorPresetInput is an input type that accepts TransformOutputFaceDetectorPresetArgs and TransformOutputFaceDetectorPresetOutput values.
@@ -9480,8 +14352,14 @@ type TransformOutputFaceDetectorPresetInput interface {
 }
 
 type TransformOutputFaceDetectorPresetArgs struct {
-	// Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected.
+	// Possible values are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected. Default to `SourceResolution`.
 	AnalysisResolution pulumi.StringPtrInput `pulumi:"analysisResolution"`
+	// Specifies the type of blur to apply to faces in the output video. Possible values are `Black`, `Box`, `High`, `Low`,and `Med`.
+	BlurType pulumi.StringPtrInput `pulumi:"blurType"`
+	// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+	ExperimentalOptions pulumi.StringMapInput `pulumi:"experimentalOptions"`
+	// This mode provides the ability to choose between the following settings: 1) `Analyze` - For detection only. This mode generates a metadata JSON file marking appearances of faces throughout the video. Where possible, appearances of the same person are assigned the same ID. 2) `Combined` - Additionally redacts(blurs) detected faces. 3) `Redact` - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces. It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction. Default to `Analyze`.
+	FaceRedactorMode pulumi.StringPtrInput `pulumi:"faceRedactorMode"`
 }
 
 func (TransformOutputFaceDetectorPresetArgs) ElementType() reflect.Type {
@@ -9561,9 +14439,24 @@ func (o TransformOutputFaceDetectorPresetOutput) ToTransformOutputFaceDetectorPr
 	}).(TransformOutputFaceDetectorPresetPtrOutput)
 }
 
-// Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected.
+// Possible values are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected. Default to `SourceResolution`.
 func (o TransformOutputFaceDetectorPresetOutput) AnalysisResolution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputFaceDetectorPreset) *string { return v.AnalysisResolution }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of blur to apply to faces in the output video. Possible values are `Black`, `Box`, `High`, `Low`,and `Med`.
+func (o TransformOutputFaceDetectorPresetOutput) BlurType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputFaceDetectorPreset) *string { return v.BlurType }).(pulumi.StringPtrOutput)
+}
+
+// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+func (o TransformOutputFaceDetectorPresetOutput) ExperimentalOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TransformOutputFaceDetectorPreset) map[string]string { return v.ExperimentalOptions }).(pulumi.StringMapOutput)
+}
+
+// This mode provides the ability to choose between the following settings: 1) `Analyze` - For detection only. This mode generates a metadata JSON file marking appearances of faces throughout the video. Where possible, appearances of the same person are assigned the same ID. 2) `Combined` - Additionally redacts(blurs) detected faces. 3) `Redact` - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces. It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction. Default to `Analyze`.
+func (o TransformOutputFaceDetectorPresetOutput) FaceRedactorMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputFaceDetectorPreset) *string { return v.FaceRedactorMode }).(pulumi.StringPtrOutput)
 }
 
 type TransformOutputFaceDetectorPresetPtrOutput struct{ *pulumi.OutputState }
@@ -9590,7 +14483,7 @@ func (o TransformOutputFaceDetectorPresetPtrOutput) Elem() TransformOutputFaceDe
 	}).(TransformOutputFaceDetectorPresetOutput)
 }
 
-// Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected.
+// Possible values are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected. Default to `SourceResolution`.
 func (o TransformOutputFaceDetectorPresetPtrOutput) AnalysisResolution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputFaceDetectorPreset) *string {
 		if v == nil {
@@ -9600,12 +14493,44 @@ func (o TransformOutputFaceDetectorPresetPtrOutput) AnalysisResolution() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the type of blur to apply to faces in the output video. Possible values are `Black`, `Box`, `High`, `Low`,and `Med`.
+func (o TransformOutputFaceDetectorPresetPtrOutput) BlurType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputFaceDetectorPreset) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BlurType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+func (o TransformOutputFaceDetectorPresetPtrOutput) ExperimentalOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TransformOutputFaceDetectorPreset) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ExperimentalOptions
+	}).(pulumi.StringMapOutput)
+}
+
+// This mode provides the ability to choose between the following settings: 1) `Analyze` - For detection only. This mode generates a metadata JSON file marking appearances of faces throughout the video. Where possible, appearances of the same person are assigned the same ID. 2) `Combined` - Additionally redacts(blurs) detected faces. 3) `Redact` - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces. It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction. Default to `Analyze`.
+func (o TransformOutputFaceDetectorPresetPtrOutput) FaceRedactorMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformOutputFaceDetectorPreset) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FaceRedactorMode
+	}).(pulumi.StringPtrOutput)
+}
+
 type TransformOutputVideoAnalyzerPreset struct {
-	// Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+	// Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
 	AudioAnalysisMode *string `pulumi:"audioAnalysisMode"`
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
 	AudioLanguage *string `pulumi:"audioLanguage"`
-	// Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+	// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+	ExperimentalOptions map[string]string `pulumi:"experimentalOptions"`
+	// Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly, if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out. Default to `AllInsights`.
 	InsightsType *string `pulumi:"insightsType"`
 }
 
@@ -9621,11 +14546,13 @@ type TransformOutputVideoAnalyzerPresetInput interface {
 }
 
 type TransformOutputVideoAnalyzerPresetArgs struct {
-	// Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+	// Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
 	AudioAnalysisMode pulumi.StringPtrInput `pulumi:"audioAnalysisMode"`
-	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
 	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
-	// Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+	// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+	ExperimentalOptions pulumi.StringMapInput `pulumi:"experimentalOptions"`
+	// Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly, if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out. Default to `AllInsights`.
 	InsightsType pulumi.StringPtrInput `pulumi:"insightsType"`
 }
 
@@ -9706,17 +14633,22 @@ func (o TransformOutputVideoAnalyzerPresetOutput) ToTransformOutputVideoAnalyzer
 	}).(TransformOutputVideoAnalyzerPresetPtrOutput)
 }
 
-// Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+// Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
 func (o TransformOutputVideoAnalyzerPresetOutput) AudioAnalysisMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputVideoAnalyzerPreset) *string { return v.AudioAnalysisMode }).(pulumi.StringPtrOutput)
 }
 
-// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
 func (o TransformOutputVideoAnalyzerPresetOutput) AudioLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputVideoAnalyzerPreset) *string { return v.AudioLanguage }).(pulumi.StringPtrOutput)
 }
 
-// Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+func (o TransformOutputVideoAnalyzerPresetOutput) ExperimentalOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TransformOutputVideoAnalyzerPreset) map[string]string { return v.ExperimentalOptions }).(pulumi.StringMapOutput)
+}
+
+// Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly, if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out. Default to `AllInsights`.
 func (o TransformOutputVideoAnalyzerPresetOutput) InsightsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputVideoAnalyzerPreset) *string { return v.InsightsType }).(pulumi.StringPtrOutput)
 }
@@ -9745,7 +14677,7 @@ func (o TransformOutputVideoAnalyzerPresetPtrOutput) Elem() TransformOutputVideo
 	}).(TransformOutputVideoAnalyzerPresetOutput)
 }
 
-// Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+// Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
 func (o TransformOutputVideoAnalyzerPresetPtrOutput) AudioAnalysisMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputVideoAnalyzerPreset) *string {
 		if v == nil {
@@ -9755,7 +14687,7 @@ func (o TransformOutputVideoAnalyzerPresetPtrOutput) AudioAnalysisMode() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
 func (o TransformOutputVideoAnalyzerPresetPtrOutput) AudioLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputVideoAnalyzerPreset) *string {
 		if v == nil {
@@ -9765,7 +14697,17 @@ func (o TransformOutputVideoAnalyzerPresetPtrOutput) AudioLanguage() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+func (o TransformOutputVideoAnalyzerPresetPtrOutput) ExperimentalOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TransformOutputVideoAnalyzerPreset) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ExperimentalOptions
+	}).(pulumi.StringMapOutput)
+}
+
+// Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly, if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out. Default to `AllInsights`.
 func (o TransformOutputVideoAnalyzerPresetPtrOutput) InsightsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputVideoAnalyzerPreset) *string {
 		if v == nil {
@@ -9894,6 +14836,58 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputAudioAnalyzerPresetPtrInput)(nil)).Elem(), TransformOutputAudioAnalyzerPresetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputBuiltinPresetInput)(nil)).Elem(), TransformOutputBuiltinPresetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputBuiltinPresetPtrInput)(nil)).Elem(), TransformOutputBuiltinPresetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputBuiltinPresetPresetConfigurationInput)(nil)).Elem(), TransformOutputBuiltinPresetPresetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputBuiltinPresetPresetConfigurationPtrInput)(nil)).Elem(), TransformOutputBuiltinPresetPresetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetInput)(nil)).Elem(), TransformOutputCustomPresetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetPtrInput)(nil)).Elem(), TransformOutputCustomPresetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecInput)(nil)).Elem(), TransformOutputCustomPresetCodecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecArrayInput)(nil)).Elem(), TransformOutputCustomPresetCodecArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecAacAudioInput)(nil)).Elem(), TransformOutputCustomPresetCodecAacAudioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecAacAudioPtrInput)(nil)).Elem(), TransformOutputCustomPresetCodecAacAudioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecCopyAudioInput)(nil)).Elem(), TransformOutputCustomPresetCodecCopyAudioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecCopyAudioPtrInput)(nil)).Elem(), TransformOutputCustomPresetCodecCopyAudioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecCopyVideoInput)(nil)).Elem(), TransformOutputCustomPresetCodecCopyVideoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecCopyVideoPtrInput)(nil)).Elem(), TransformOutputCustomPresetCodecCopyVideoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecDdAudioInput)(nil)).Elem(), TransformOutputCustomPresetCodecDdAudioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecDdAudioPtrInput)(nil)).Elem(), TransformOutputCustomPresetCodecDdAudioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecH264VideoInput)(nil)).Elem(), TransformOutputCustomPresetCodecH264VideoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecH264VideoPtrInput)(nil)).Elem(), TransformOutputCustomPresetCodecH264VideoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecH264VideoLayerInput)(nil)).Elem(), TransformOutputCustomPresetCodecH264VideoLayerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecH264VideoLayerArrayInput)(nil)).Elem(), TransformOutputCustomPresetCodecH264VideoLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecH265VideoInput)(nil)).Elem(), TransformOutputCustomPresetCodecH265VideoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecH265VideoPtrInput)(nil)).Elem(), TransformOutputCustomPresetCodecH265VideoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecH265VideoLayerInput)(nil)).Elem(), TransformOutputCustomPresetCodecH265VideoLayerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetCodecH265VideoLayerArrayInput)(nil)).Elem(), TransformOutputCustomPresetCodecH265VideoLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterInput)(nil)).Elem(), TransformOutputCustomPresetFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterPtrInput)(nil)).Elem(), TransformOutputCustomPresetFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterCropRectangleInput)(nil)).Elem(), TransformOutputCustomPresetFilterCropRectangleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterCropRectanglePtrInput)(nil)).Elem(), TransformOutputCustomPresetFilterCropRectangleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterDeinterlaceInput)(nil)).Elem(), TransformOutputCustomPresetFilterDeinterlaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterDeinterlacePtrInput)(nil)).Elem(), TransformOutputCustomPresetFilterDeinterlaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterFadeInInput)(nil)).Elem(), TransformOutputCustomPresetFilterFadeInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterFadeInPtrInput)(nil)).Elem(), TransformOutputCustomPresetFilterFadeInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterFadeOutInput)(nil)).Elem(), TransformOutputCustomPresetFilterFadeOutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterFadeOutPtrInput)(nil)).Elem(), TransformOutputCustomPresetFilterFadeOutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayInput)(nil)).Elem(), TransformOutputCustomPresetFilterOverlayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayArrayInput)(nil)).Elem(), TransformOutputCustomPresetFilterOverlayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayAudioInput)(nil)).Elem(), TransformOutputCustomPresetFilterOverlayAudioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayAudioPtrInput)(nil)).Elem(), TransformOutputCustomPresetFilterOverlayAudioArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayVideoInput)(nil)).Elem(), TransformOutputCustomPresetFilterOverlayVideoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayVideoPtrInput)(nil)).Elem(), TransformOutputCustomPresetFilterOverlayVideoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayVideoCropRectangleInput)(nil)).Elem(), TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrInput)(nil)).Elem(), TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayVideoPositionInput)(nil)).Elem(), TransformOutputCustomPresetFilterOverlayVideoPositionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFilterOverlayVideoPositionPtrInput)(nil)).Elem(), TransformOutputCustomPresetFilterOverlayVideoPositionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatInput)(nil)).Elem(), TransformOutputCustomPresetFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatArrayInput)(nil)).Elem(), TransformOutputCustomPresetFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatMp4Input)(nil)).Elem(), TransformOutputCustomPresetFormatMp4Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatMp4PtrInput)(nil)).Elem(), TransformOutputCustomPresetFormatMp4Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatMp4OutputFileInput)(nil)).Elem(), TransformOutputCustomPresetFormatMp4OutputFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatMp4OutputFileArrayInput)(nil)).Elem(), TransformOutputCustomPresetFormatMp4OutputFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatTransportStreamInput)(nil)).Elem(), TransformOutputCustomPresetFormatTransportStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatTransportStreamPtrInput)(nil)).Elem(), TransformOutputCustomPresetFormatTransportStreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatTransportStreamOutputFileInput)(nil)).Elem(), TransformOutputCustomPresetFormatTransportStreamOutputFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputCustomPresetFormatTransportStreamOutputFileArrayInput)(nil)).Elem(), TransformOutputCustomPresetFormatTransportStreamOutputFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputFaceDetectorPresetInput)(nil)).Elem(), TransformOutputFaceDetectorPresetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputFaceDetectorPresetPtrInput)(nil)).Elem(), TransformOutputFaceDetectorPresetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformOutputVideoAnalyzerPresetInput)(nil)).Elem(), TransformOutputVideoAnalyzerPresetArgs{})
@@ -10016,6 +15010,58 @@ func init() {
 	pulumi.RegisterOutputType(TransformOutputAudioAnalyzerPresetPtrOutput{})
 	pulumi.RegisterOutputType(TransformOutputBuiltinPresetOutput{})
 	pulumi.RegisterOutputType(TransformOutputBuiltinPresetPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputBuiltinPresetPresetConfigurationOutput{})
+	pulumi.RegisterOutputType(TransformOutputBuiltinPresetPresetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecArrayOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecAacAudioOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecAacAudioPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecCopyAudioOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecCopyAudioPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecCopyVideoOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecCopyVideoPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecDdAudioOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecDdAudioPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecH264VideoOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecH264VideoPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecH264VideoLayerOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecH264VideoLayerArrayOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecH265VideoOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecH265VideoPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecH265VideoLayerOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetCodecH265VideoLayerArrayOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterCropRectangleOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterCropRectanglePtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterDeinterlaceOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterDeinterlacePtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterFadeInOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterFadeInPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterFadeOutOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterFadeOutPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterOverlayOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterOverlayArrayOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterOverlayAudioOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterOverlayAudioPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterOverlayVideoOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterOverlayVideoPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterOverlayVideoPositionOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatArrayOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatMp4Output{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatMp4PtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatMp4OutputFileOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatMp4OutputFileArrayOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatTransportStreamOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatTransportStreamPtrOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatTransportStreamOutputFileOutput{})
+	pulumi.RegisterOutputType(TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputFaceDetectorPresetOutput{})
 	pulumi.RegisterOutputType(TransformOutputFaceDetectorPresetPtrOutput{})
 	pulumi.RegisterOutputType(TransformOutputVideoAnalyzerPresetOutput{})

@@ -218,14 +218,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The Static IP of the Environment.
+     * The Static IP address of the Environment.
      * 
      */
     @Export(name="staticIpAddress", refs={String.class}, tree="[0]")
     private Output<String> staticIpAddress;
 
     /**
-     * @return The Static IP of the Environment.
+     * @return The Static IP address of the Environment.
      * 
      */
     public Output<String> staticIpAddress() {

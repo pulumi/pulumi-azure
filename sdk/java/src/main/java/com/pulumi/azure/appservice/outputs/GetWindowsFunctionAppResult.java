@@ -97,6 +97,11 @@ public final class GetWindowsFunctionAppResult {
      */
     private String functionsExtensionVersion;
     /**
+     * @return The ID of the App Service Environment used by Function App.
+     * 
+     */
+    private String hostingEnvironmentId;
+    /**
      * @return Is the Function App only accessible via HTTPS?
      * 
      */
@@ -305,6 +310,13 @@ public final class GetWindowsFunctionAppResult {
         return this.functionsExtensionVersion;
     }
     /**
+     * @return The ID of the App Service Environment used by Function App.
+     * 
+     */
+    public String hostingEnvironmentId() {
+        return this.hostingEnvironmentId;
+    }
+    /**
      * @return Is the Function App only accessible via HTTPS?
      * 
      */
@@ -472,6 +484,7 @@ public final class GetWindowsFunctionAppResult {
         private String defaultHostname;
         private Boolean enabled;
         private String functionsExtensionVersion;
+        private String hostingEnvironmentId;
         private Boolean httpsOnly;
         private String id;
         private List<GetWindowsFunctionAppIdentity> identities;
@@ -511,6 +524,7 @@ public final class GetWindowsFunctionAppResult {
     	      this.defaultHostname = defaults.defaultHostname;
     	      this.enabled = defaults.enabled;
     	      this.functionsExtensionVersion = defaults.functionsExtensionVersion;
+    	      this.hostingEnvironmentId = defaults.hostingEnvironmentId;
     	      this.httpsOnly = defaults.httpsOnly;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
@@ -619,6 +633,11 @@ public final class GetWindowsFunctionAppResult {
         @CustomType.Setter
         public Builder functionsExtensionVersion(String functionsExtensionVersion) {
             this.functionsExtensionVersion = Objects.requireNonNull(functionsExtensionVersion);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hostingEnvironmentId(String hostingEnvironmentId) {
+            this.hostingEnvironmentId = Objects.requireNonNull(hostingEnvironmentId);
             return this;
         }
         @CustomType.Setter
@@ -761,6 +780,7 @@ public final class GetWindowsFunctionAppResult {
             o.defaultHostname = defaultHostname;
             o.enabled = enabled;
             o.functionsExtensionVersion = functionsExtensionVersion;
+            o.hostingEnvironmentId = hostingEnvironmentId;
             o.httpsOnly = httpsOnly;
             o.id = id;
             o.identities = identities;
