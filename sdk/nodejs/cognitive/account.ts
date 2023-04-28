@@ -217,7 +217,7 @@ export class Account extends pulumi.CustomResource {
                 throw new Error("Missing required property 'skuName'");
             }
             resourceInputs["customQuestionAnsweringSearchServiceId"] = args ? args.customQuestionAnsweringSearchServiceId : undefined;
-            resourceInputs["customQuestionAnsweringSearchServiceKey"] = args ? args.customQuestionAnsweringSearchServiceKey : undefined;
+            resourceInputs["customQuestionAnsweringSearchServiceKey"] = args?.customQuestionAnsweringSearchServiceKey ? pulumi.secret(args.customQuestionAnsweringSearchServiceKey) : undefined;
             resourceInputs["customSubdomainName"] = args ? args.customSubdomainName : undefined;
             resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
             resourceInputs["dynamicThrottlingEnabled"] = args ? args.dynamicThrottlingEnabled : undefined;
@@ -244,7 +244,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["secondaryAccessKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["primaryAccessKey", "secondaryAccessKey"] };
+        const secretOpts = { additionalSecretOutputs: ["customQuestionAnsweringSearchServiceKey", "primaryAccessKey", "secondaryAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }

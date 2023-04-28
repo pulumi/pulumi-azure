@@ -14,7 +14,7 @@ namespace Pulumi.Azure.SignalR.Outputs
     public sealed class ServiceSku
     {
         /// <summary>
-        /// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+        /// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90` and `100`.
         /// </summary>
         public readonly int Capacity;
         /// <summary>

@@ -5,6 +5,7 @@ package com.pulumi.azure.media.inputs;
 
 import com.pulumi.azure.media.inputs.TransformOutputAudioAnalyzerPresetArgs;
 import com.pulumi.azure.media.inputs.TransformOutputBuiltinPresetArgs;
+import com.pulumi.azure.media.inputs.TransformOutputCustomPresetArgs;
 import com.pulumi.azure.media.inputs.TransformOutputFaceDetectorPresetArgs;
 import com.pulumi.azure.media.inputs.TransformOutputVideoAnalyzerPresetArgs;
 import com.pulumi.core.Output;
@@ -20,14 +21,14 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
     public static final TransformOutputArgs Empty = new TransformOutputArgs();
 
     /**
-     * A `audio_analyzer_preset` block as defined below.
+     * An `audio_analyzer_preset` block as defined above.
      * 
      */
     @Import(name="audioAnalyzerPreset")
     private @Nullable Output<TransformOutputAudioAnalyzerPresetArgs> audioAnalyzerPreset;
 
     /**
-     * @return A `audio_analyzer_preset` block as defined below.
+     * @return An `audio_analyzer_preset` block as defined above.
      * 
      */
     public Optional<Output<TransformOutputAudioAnalyzerPresetArgs>> audioAnalyzerPreset() {
@@ -35,14 +36,14 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `builtin_preset` block as defined below.
+     * A `builtin_preset` block as defined above.
      * 
      */
     @Import(name="builtinPreset")
     private @Nullable Output<TransformOutputBuiltinPresetArgs> builtinPreset;
 
     /**
-     * @return A `builtin_preset` block as defined below.
+     * @return A `builtin_preset` block as defined above.
      * 
      */
     public Optional<Output<TransformOutputBuiltinPresetArgs>> builtinPreset() {
@@ -50,14 +51,29 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A `face_detector_preset` block as defined below.
+     * A `custom_preset` block as defined above.
+     * 
+     */
+    @Import(name="customPreset")
+    private @Nullable Output<TransformOutputCustomPresetArgs> customPreset;
+
+    /**
+     * @return A `custom_preset` block as defined above.
+     * 
+     */
+    public Optional<Output<TransformOutputCustomPresetArgs>> customPreset() {
+        return Optional.ofNullable(this.customPreset);
+    }
+
+    /**
+     * A `face_detector_preset` block as defined above.
      * 
      */
     @Import(name="faceDetectorPreset")
     private @Nullable Output<TransformOutputFaceDetectorPresetArgs> faceDetectorPreset;
 
     /**
-     * @return A `face_detector_preset` block as defined below.
+     * @return A `face_detector_preset` block as defined above.
      * 
      */
     public Optional<Output<TransformOutputFaceDetectorPresetArgs>> faceDetectorPreset() {
@@ -65,14 +81,14 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+     * A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
      * 
      */
     @Import(name="onErrorAction")
     private @Nullable Output<String> onErrorAction;
 
     /**
-     * @return A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+     * @return A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
      * 
      */
     public Optional<Output<String>> onErrorAction() {
@@ -80,14 +96,14 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+     * Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
      * 
      */
     @Import(name="relativePriority")
     private @Nullable Output<String> relativePriority;
 
     /**
-     * @return Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+     * @return Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
      * 
      */
     public Optional<Output<String>> relativePriority() {
@@ -114,6 +130,7 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
     private TransformOutputArgs(TransformOutputArgs $) {
         this.audioAnalyzerPreset = $.audioAnalyzerPreset;
         this.builtinPreset = $.builtinPreset;
+        this.customPreset = $.customPreset;
         this.faceDetectorPreset = $.faceDetectorPreset;
         this.onErrorAction = $.onErrorAction;
         this.relativePriority = $.relativePriority;
@@ -139,7 +156,7 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param audioAnalyzerPreset A `audio_analyzer_preset` block as defined below.
+         * @param audioAnalyzerPreset An `audio_analyzer_preset` block as defined above.
          * 
          * @return builder
          * 
@@ -150,7 +167,7 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param audioAnalyzerPreset A `audio_analyzer_preset` block as defined below.
+         * @param audioAnalyzerPreset An `audio_analyzer_preset` block as defined above.
          * 
          * @return builder
          * 
@@ -160,7 +177,7 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param builtinPreset A `builtin_preset` block as defined below.
+         * @param builtinPreset A `builtin_preset` block as defined above.
          * 
          * @return builder
          * 
@@ -171,7 +188,7 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param builtinPreset A `builtin_preset` block as defined below.
+         * @param builtinPreset A `builtin_preset` block as defined above.
          * 
          * @return builder
          * 
@@ -181,7 +198,28 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param faceDetectorPreset A `face_detector_preset` block as defined below.
+         * @param customPreset A `custom_preset` block as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customPreset(@Nullable Output<TransformOutputCustomPresetArgs> customPreset) {
+            $.customPreset = customPreset;
+            return this;
+        }
+
+        /**
+         * @param customPreset A `custom_preset` block as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customPreset(TransformOutputCustomPresetArgs customPreset) {
+            return customPreset(Output.of(customPreset));
+        }
+
+        /**
+         * @param faceDetectorPreset A `face_detector_preset` block as defined above.
          * 
          * @return builder
          * 
@@ -192,7 +230,7 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param faceDetectorPreset A `face_detector_preset` block as defined below.
+         * @param faceDetectorPreset A `face_detector_preset` block as defined above.
          * 
          * @return builder
          * 
@@ -202,7 +240,7 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param onErrorAction A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+         * @param onErrorAction A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
          * 
          * @return builder
          * 
@@ -213,7 +251,7 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param onErrorAction A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+         * @param onErrorAction A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
          * 
          * @return builder
          * 
@@ -223,7 +261,7 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param relativePriority Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+         * @param relativePriority Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
          * 
          * @return builder
          * 
@@ -234,7 +272,7 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param relativePriority Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+         * @param relativePriority Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
          * 
          * @return builder
          * 

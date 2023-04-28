@@ -26,9 +26,12 @@ import * as utilities from "../utilities";
  *         frequency: "Daily",
  *         time: "23:00",
  *     },
+ *     retentionDaily: {
+ *         count: 10,
+ *     },
  * });
  * const exampleVirtualMachine = azure.compute.getVirtualMachineOutput({
- *     name: "production",
+ *     name: "example-vm",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const vm1 = new azure.backup.ProtectedVM("vm1", {

@@ -102,6 +102,10 @@ export interface GetLinuxWebAppResult {
      */
     readonly enabled: boolean;
     /**
+     * The ID of the App Service Environment used by App Service.
+     */
+    readonly hostingEnvironmentId: string;
+    /**
      * Should the Linux Web App require HTTPS connections.
      */
     readonly httpsOnly: boolean;

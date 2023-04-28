@@ -168,14 +168,14 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Static IP of the Environment.
+     * The Static IP address of the Environment.
      * 
      */
     @Import(name="staticIpAddress")
     private @Nullable Output<String> staticIpAddress;
 
     /**
-     * @return The Static IP of the Environment.
+     * @return The Static IP address of the Environment.
      * 
      */
     public Optional<Output<String>> staticIpAddress() {
@@ -443,7 +443,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param staticIpAddress The Static IP of the Environment.
+         * @param staticIpAddress The Static IP address of the Environment.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param staticIpAddress The Static IP of the Environment.
+         * @param staticIpAddress The Static IP address of the Environment.
          * 
          * @return builder
          * 

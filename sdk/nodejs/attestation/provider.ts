@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,6 +73,10 @@ export class Provider extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * One or more `policy` blocks as defined below.
+     */
+    public readonly policies!: pulumi.Output<outputs.attestation.ProviderPolicy[] | undefined>;
+    /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      */
     public readonly policySigningCertificateData!: pulumi.Output<string | undefined>;
@@ -103,6 +109,7 @@ export class Provider extends pulumi.CustomResource {
             resourceInputs["attestationUri"] = state ? state.attestationUri : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policies"] = state ? state.policies : undefined;
             resourceInputs["policySigningCertificateData"] = state ? state.policySigningCertificateData : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -114,6 +121,7 @@ export class Provider extends pulumi.CustomResource {
             }
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policies"] = args ? args.policies : undefined;
             resourceInputs["policySigningCertificateData"] = args ? args.policySigningCertificateData : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -141,6 +149,10 @@ export interface ProviderState {
      * The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * One or more `policy` blocks as defined below.
+     */
+    policies?: pulumi.Input<pulumi.Input<inputs.attestation.ProviderPolicy>[]>;
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      */
@@ -171,6 +183,10 @@ export interface ProviderArgs {
      * The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * One or more `policy` blocks as defined below.
+     */
+    policies?: pulumi.Input<pulumi.Input<inputs.attestation.ProviderPolicy>[]>;
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      */

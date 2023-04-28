@@ -790,8 +790,9 @@ func (o FhirServiceCorsPtrOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
 }
 
 type FhirServiceIdentity struct {
-	PrincipalId *string `pulumi:"principalId"`
-	TenantId    *string `pulumi:"tenantId"`
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
 	// The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
@@ -808,8 +809,9 @@ type FhirServiceIdentityInput interface {
 }
 
 type FhirServiceIdentityArgs struct {
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
 	// The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -891,6 +893,10 @@ func (o FhirServiceIdentityOutput) ToFhirServiceIdentityPtrOutputWithContext(ctx
 	}).(FhirServiceIdentityPtrOutput)
 }
 
+func (o FhirServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FhirServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 func (o FhirServiceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FhirServiceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -926,6 +932,15 @@ func (o FhirServiceIdentityPtrOutput) Elem() FhirServiceIdentityOutput {
 		var ret FhirServiceIdentity
 		return ret
 	}).(FhirServiceIdentityOutput)
+}
+
+func (o FhirServiceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FhirServiceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o FhirServiceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
@@ -1072,6 +1087,7 @@ func (o FhirServiceOciArtifactArrayOutput) Index(i pulumi.IntInput) FhirServiceO
 }
 
 type MedtechServiceIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this System Assigned Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this System Assigned Managed Service Identity.
@@ -1092,6 +1108,7 @@ type MedtechServiceIdentityInput interface {
 }
 
 type MedtechServiceIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this System Assigned Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this System Assigned Managed Service Identity.
@@ -1177,6 +1194,10 @@ func (o MedtechServiceIdentityOutput) ToMedtechServiceIdentityPtrOutputWithConte
 	}).(MedtechServiceIdentityPtrOutput)
 }
 
+func (o MedtechServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MedtechServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID associated with this System Assigned Managed Service Identity.
 func (o MedtechServiceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MedtechServiceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -1214,6 +1235,15 @@ func (o MedtechServiceIdentityPtrOutput) Elem() MedtechServiceIdentityOutput {
 		var ret MedtechServiceIdentity
 		return ret
 	}).(MedtechServiceIdentityOutput)
+}
+
+func (o MedtechServiceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MedtechServiceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The Principal ID associated with this System Assigned Managed Service Identity.

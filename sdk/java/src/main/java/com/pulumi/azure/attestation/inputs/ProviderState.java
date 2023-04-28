@@ -3,9 +3,11 @@
 
 package com.pulumi.azure.attestation.inputs;
 
+import com.pulumi.azure.attestation.inputs.ProviderPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,6 +61,21 @@ public final class ProviderState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * One or more `policy` blocks as defined below.
+     * 
+     */
+    @Import(name="policies")
+    private @Nullable Output<List<ProviderPolicyArgs>> policies;
+
+    /**
+     * @return One or more `policy` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<ProviderPolicyArgs>>> policies() {
+        return Optional.ofNullable(this.policies);
     }
 
     /**
@@ -127,6 +144,7 @@ public final class ProviderState extends com.pulumi.resources.ResourceArgs {
         this.attestationUri = $.attestationUri;
         this.location = $.location;
         this.name = $.name;
+        this.policies = $.policies;
         this.policySigningCertificateData = $.policySigningCertificateData;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
@@ -212,6 +230,37 @@ public final class ProviderState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param policies One or more `policy` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policies(@Nullable Output<List<ProviderPolicyArgs>> policies) {
+            $.policies = policies;
+            return this;
+        }
+
+        /**
+         * @param policies One or more `policy` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policies(List<ProviderPolicyArgs> policies) {
+            return policies(Output.of(policies));
+        }
+
+        /**
+         * @param policies One or more `policy` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policies(ProviderPolicyArgs... policies) {
+            return policies(List.of(policies));
         }
 
         /**

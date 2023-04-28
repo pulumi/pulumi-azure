@@ -6360,7 +6360,7 @@ func (o FrontdoorOriginGroupHealthProbePtrOutput) RequestType() pulumi.StringPtr
 }
 
 type FrontdoorOriginGroupLoadBalancing struct {
-	// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+	// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` milliseconds (inclusive). Defaults to `50`.
 	AdditionalLatencyInMilliseconds *int `pulumi:"additionalLatencyInMilliseconds"`
 	// Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
 	SampleSize *int `pulumi:"sampleSize"`
@@ -6380,7 +6380,7 @@ type FrontdoorOriginGroupLoadBalancingInput interface {
 }
 
 type FrontdoorOriginGroupLoadBalancingArgs struct {
-	// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+	// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` milliseconds (inclusive). Defaults to `50`.
 	AdditionalLatencyInMilliseconds pulumi.IntPtrInput `pulumi:"additionalLatencyInMilliseconds"`
 	// Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
 	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
@@ -6465,7 +6465,7 @@ func (o FrontdoorOriginGroupLoadBalancingOutput) ToFrontdoorOriginGroupLoadBalan
 	}).(FrontdoorOriginGroupLoadBalancingPtrOutput)
 }
 
-// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` milliseconds (inclusive). Defaults to `50`.
 func (o FrontdoorOriginGroupLoadBalancingOutput) AdditionalLatencyInMilliseconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FrontdoorOriginGroupLoadBalancing) *int { return v.AdditionalLatencyInMilliseconds }).(pulumi.IntPtrOutput)
 }
@@ -6504,7 +6504,7 @@ func (o FrontdoorOriginGroupLoadBalancingPtrOutput) Elem() FrontdoorOriginGroupL
 	}).(FrontdoorOriginGroupLoadBalancingOutput)
 }
 
-// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` milliseconds (inclusive). Defaults to `50`.
 func (o FrontdoorOriginGroupLoadBalancingPtrOutput) AdditionalLatencyInMilliseconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FrontdoorOriginGroupLoadBalancing) *int {
 		if v == nil {

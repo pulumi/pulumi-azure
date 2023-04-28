@@ -84,6 +84,9 @@ export interface GetEnvironmentResult {
      */
     readonly platformReservedDnsIpAddress: string;
     readonly resourceGroupName: string;
+    /**
+     * The Static IP address of the Environment.
+     */
     readonly staticIpAddress: string;
     /**
      * A mapping of tags assigned to the resource.

@@ -971,7 +971,7 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["custom_question_answering_search_service_id"] = custom_question_answering_search_service_id
-            __props__.__dict__["custom_question_answering_search_service_key"] = custom_question_answering_search_service_key
+            __props__.__dict__["custom_question_answering_search_service_key"] = None if custom_question_answering_search_service_key is None else pulumi.Output.secret(custom_question_answering_search_service_key)
             __props__.__dict__["custom_subdomain_name"] = custom_subdomain_name
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["dynamic_throttling_enabled"] = dynamic_throttling_enabled
@@ -1002,7 +1002,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["primary_access_key"] = None
             __props__.__dict__["secondary_access_key"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryAccessKey", "secondaryAccessKey"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customQuestionAnsweringSearchServiceKey", "primaryAccessKey", "secondaryAccessKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Account, __self__).__init__(
             'azure:cognitive/account:Account',

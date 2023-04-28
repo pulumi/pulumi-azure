@@ -51,12 +51,15 @@ import (
 //					Frequency: pulumi.String("Daily"),
 //					Time:      pulumi.String("23:00"),
 //				},
+//				RetentionDaily: &backup.PolicyVMRetentionDailyArgs{
+//					Count: pulumi.Int(10),
+//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleVirtualMachine := compute.LookupVirtualMachineOutput(ctx, compute.GetVirtualMachineOutputArgs{
-//				Name:              pulumi.String("production"),
+//				Name:              pulumi.String("example-vm"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
 //			_, err = backup.NewProtectedVM(ctx, "vm1", &backup.ProtectedVMArgs{

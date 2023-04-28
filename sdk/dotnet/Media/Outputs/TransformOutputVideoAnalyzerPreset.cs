@@ -14,15 +14,19 @@ namespace Pulumi.Azure.Media.Outputs
     public sealed class TransformOutputVideoAnalyzerPreset
     {
         /// <summary>
-        /// Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+        /// Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
         /// </summary>
         public readonly string? AudioAnalysisMode;
         /// <summary>
-        /// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: &lt;https://go.microsoft.com/fwlink/?linkid=2109463&gt;. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+        /// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: &lt;https://go.microsoft.com/fwlink/?linkid=2109463&gt;.
         /// </summary>
         public readonly string? AudioLanguage;
         /// <summary>
-        /// Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+        /// Dictionary containing key value pairs for parameters not exposed in the preset itself.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ExperimentalOptions;
+        /// <summary>
+        /// Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly, if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out. Default to `AllInsights`.
         /// </summary>
         public readonly string? InsightsType;
 
@@ -32,10 +36,13 @@ namespace Pulumi.Azure.Media.Outputs
 
             string? audioLanguage,
 
+            ImmutableDictionary<string, string>? experimentalOptions,
+
             string? insightsType)
         {
             AudioAnalysisMode = audioAnalysisMode;
             AudioLanguage = audioLanguage;
+            ExperimentalOptions = experimentalOptions;
             InsightsType = insightsType;
         }
     }

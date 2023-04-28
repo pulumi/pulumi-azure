@@ -759,7 +759,7 @@ func (o ServiceNetworkAclPublicNetworkPtrOutput) DeniedRequestTypes() pulumi.Str
 }
 
 type ServiceSku struct {
-	// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+	// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90` and `100`.
 	Capacity int `pulumi:"capacity"`
 	// Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1` and `Premium_P1`.
 	Name string `pulumi:"name"`
@@ -777,7 +777,7 @@ type ServiceSkuInput interface {
 }
 
 type ServiceSkuArgs struct {
-	// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+	// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90` and `100`.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1` and `Premium_P1`.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -860,7 +860,7 @@ func (o ServiceSkuOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) 
 	}).(ServiceSkuPtrOutput)
 }
 
-// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90` and `100`.
 func (o ServiceSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
@@ -894,7 +894,7 @@ func (o ServiceSkuPtrOutput) Elem() ServiceSkuOutput {
 	}).(ServiceSkuOutput)
 }
 
-// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90` and `100`.
 func (o ServiceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceSku) *int {
 		if v == nil {

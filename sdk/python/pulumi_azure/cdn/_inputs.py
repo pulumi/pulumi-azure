@@ -3126,7 +3126,7 @@ class FrontdoorOriginGroupLoadBalancingArgs:
                  sample_size: Optional[pulumi.Input[int]] = None,
                  successful_samples_required: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] additional_latency_in_milliseconds: Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+        :param pulumi.Input[int] additional_latency_in_milliseconds: Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` milliseconds (inclusive). Defaults to `50`.
         :param pulumi.Input[int] sample_size: Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
         :param pulumi.Input[int] successful_samples_required: Specifies the number of samples within the sample period that must succeed. Possible values are between `0` and `255` (inclusive). Defaults to `3`.
         """
@@ -3141,7 +3141,7 @@ class FrontdoorOriginGroupLoadBalancingArgs:
     @pulumi.getter(name="additionalLatencyInMilliseconds")
     def additional_latency_in_milliseconds(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+        Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` milliseconds (inclusive). Defaults to `50`.
         """
         return pulumi.get(self, "additional_latency_in_milliseconds")
 

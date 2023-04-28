@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class ServiceSku {
     /**
-     * @return Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+     * @return Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90` and `100`.
      * 
      */
     private Integer capacity;
@@ -23,7 +23,7 @@ public final class ServiceSku {
 
     private ServiceSku() {}
     /**
-     * @return Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+     * @return Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90` and `100`.
      * 
      */
     public Integer capacity() {

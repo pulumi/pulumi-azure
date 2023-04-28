@@ -314,7 +314,7 @@ class ServiceSku(dict):
                  capacity: int,
                  name: str):
         """
-        :param int capacity: Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+        :param int capacity: Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90` and `100`.
         :param str name: Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1` and `Premium_P1`.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -324,7 +324,7 @@ class ServiceSku(dict):
     @pulumi.getter
     def capacity(self) -> int:
         """
-        Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+        Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90` and `100`.
         """
         return pulumi.get(self, "capacity")
 

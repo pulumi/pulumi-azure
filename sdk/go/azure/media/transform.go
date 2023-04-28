@@ -133,6 +133,16 @@ import (
 //						OnErrorAction:    pulumi.String("ContinueJob"),
 //						BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{
 //							PresetName: pulumi.String("AACGoodQualityAudio"),
+//							PresetConfiguration: &media.TransformOutputBuiltinPresetPresetConfigurationArgs{
+//								Complexity:                pulumi.String("Balanced"),
+//								InterleaveOutput:          pulumi.String("NonInterleavedOutput"),
+//								KeyFrameIntervalInSeconds: pulumi.Float64(123122.5),
+//								MaxBitrateBps:             pulumi.Int(300000),
+//								MaxHeight:                 pulumi.Int(480),
+//								MaxLayers:                 pulumi.Int(14),
+//								MinBitrateBps:             pulumi.Int(200000),
+//								MinHeight:                 pulumi.Int(360),
+//							},
 //						},
 //					},
 //					&media.TransformOutputTypeArgs{
@@ -141,6 +151,9 @@ import (
 //						AudioAnalyzerPreset: &media.TransformOutputAudioAnalyzerPresetArgs{
 //							AudioLanguage:     pulumi.String("en-US"),
 //							AudioAnalysisMode: pulumi.String("Basic"),
+//							ExperimentalOptions: pulumi.StringMap{
+//								"env": pulumi.String("test"),
+//							},
 //						},
 //					},
 //					&media.TransformOutputTypeArgs{
@@ -148,6 +161,204 @@ import (
 //						OnErrorAction:    pulumi.String("StopProcessingJob"),
 //						FaceDetectorPreset: &media.TransformOutputFaceDetectorPresetArgs{
 //							AnalysisResolution: pulumi.String("StandardDefinition"),
+//							BlurType:           pulumi.String("Med"),
+//							FaceRedactorMode:   pulumi.String("Combined"),
+//							ExperimentalOptions: pulumi.StringMap{
+//								"env": pulumi.String("test"),
+//							},
+//						},
+//					},
+//					&media.TransformOutputTypeArgs{
+//						RelativePriority: pulumi.String("Normal"),
+//						OnErrorAction:    pulumi.String("StopProcessingJob"),
+//						VideoAnalyzerPreset: &media.TransformOutputVideoAnalyzerPresetArgs{
+//							AudioLanguage:     pulumi.String("en-US"),
+//							AudioAnalysisMode: pulumi.String("Basic"),
+//							InsightsType:      pulumi.String("AllInsights"),
+//							ExperimentalOptions: pulumi.StringMap{
+//								"env": pulumi.String("test"),
+//							},
+//						},
+//					},
+//					&media.TransformOutputTypeArgs{
+//						RelativePriority: pulumi.String("Low"),
+//						OnErrorAction:    pulumi.String("ContinueJob"),
+//						CustomPreset: &media.TransformOutputCustomPresetArgs{
+//							Codecs: media.TransformOutputCustomPresetCodecArray{
+//								&media.TransformOutputCustomPresetCodecArgs{
+//									AacAudio: &media.TransformOutputCustomPresetCodecAacAudioArgs{
+//										Bitrate:      pulumi.Int(128000),
+//										Channels:     pulumi.Int(2),
+//										SamplingRate: pulumi.Int(48000),
+//										Profile:      pulumi.String("AacLc"),
+//									},
+//								},
+//								&media.TransformOutputCustomPresetCodecArgs{
+//									CopyAudio: &media.TransformOutputCustomPresetCodecCopyAudioArgs{
+//										Label: pulumi.String("test"),
+//									},
+//								},
+//								&media.TransformOutputCustomPresetCodecArgs{
+//									CopyVideo: &media.TransformOutputCustomPresetCodecCopyVideoArgs{
+//										Label: pulumi.String("test"),
+//									},
+//								},
+//								&media.TransformOutputCustomPresetCodecArgs{
+//									H264Video: &media.TransformOutputCustomPresetCodecH264VideoArgs{
+//										KeyFrameInterval:            pulumi.String("PT1S"),
+//										StretchMode:                 pulumi.String("AutoSize"),
+//										SyncMode:                    pulumi.String("Auto"),
+//										SceneChangeDetectionEnabled: pulumi.Bool(false),
+//										RateControlMode:             pulumi.String("ABR"),
+//										Complexity:                  pulumi.String("Quality"),
+//										Layers: media.TransformOutputCustomPresetCodecH264VideoLayerArray{
+//											&media.TransformOutputCustomPresetCodecH264VideoLayerArgs{
+//												Width:                 pulumi.String("64"),
+//												Height:                pulumi.String("64"),
+//												Bitrate:               pulumi.Int(1045000),
+//												MaxBitrate:            pulumi.Int(1045000),
+//												BFrames:               pulumi.Int(3),
+//												Slices:                pulumi.Int(0),
+//												AdaptiveBFrameEnabled: pulumi.Bool(true),
+//												Profile:               pulumi.String("Auto"),
+//												Level:                 pulumi.String("auto"),
+//												BufferWindow:          pulumi.String("PT5S"),
+//												ReferenceFrames:       pulumi.Int(4),
+//												Crf:                   pulumi.Float64(23),
+//												EntropyMode:           pulumi.String("Cabac"),
+//											},
+//											&media.TransformOutputCustomPresetCodecH264VideoLayerArgs{
+//												Width:                 pulumi.String("64"),
+//												Height:                pulumi.String("64"),
+//												Bitrate:               pulumi.Int(1000),
+//												MaxBitrate:            pulumi.Int(1000),
+//												BFrames:               pulumi.Int(3),
+//												FrameRate:             pulumi.String("32"),
+//												Slices:                pulumi.Int(1),
+//												AdaptiveBFrameEnabled: pulumi.Bool(true),
+//												Profile:               pulumi.String("High444"),
+//												Level:                 pulumi.String("auto"),
+//												BufferWindow:          pulumi.String("PT5S"),
+//												ReferenceFrames:       pulumi.Int(4),
+//												Crf:                   pulumi.Float64(23),
+//												EntropyMode:           pulumi.String("Cavlc"),
+//											},
+//										},
+//									},
+//								},
+//								&media.TransformOutputCustomPresetCodecArgs{
+//									H265Video: &media.TransformOutputCustomPresetCodecH265VideoArgs{
+//										KeyFrameInterval:            pulumi.String("PT2S"),
+//										StretchMode:                 pulumi.String("AutoSize"),
+//										SyncMode:                    pulumi.String("Auto"),
+//										SceneChangeDetectionEnabled: pulumi.Bool(false),
+//										Complexity:                  pulumi.String("Speed"),
+//										Layers: media.TransformOutputCustomPresetCodecH265VideoLayerArray{
+//											&media.TransformOutputCustomPresetCodecH265VideoLayerArgs{
+//												Width:                 pulumi.String("64"),
+//												Height:                pulumi.String("64"),
+//												Bitrate:               pulumi.Int(1045000),
+//												MaxBitrate:            pulumi.Int(1045000),
+//												BFrames:               pulumi.Int(3),
+//												Slices:                pulumi.Int(5),
+//												AdaptiveBFrameEnabled: pulumi.Bool(true),
+//												Profile:               pulumi.String("Auto"),
+//												Label:                 pulumi.String("test"),
+//												Level:                 pulumi.String("auto"),
+//												BufferWindow:          pulumi.String("PT5S"),
+//												FrameRate:             pulumi.String("32"),
+//												ReferenceFrames:       pulumi.Int(4),
+//												Crf:                   pulumi.Float64(23),
+//											},
+//										},
+//									},
+//								},
+//							},
+//							Formats: media.TransformOutputCustomPresetFormatArray{
+//								&media.TransformOutputCustomPresetFormatArgs{
+//									Mp4: &media.TransformOutputCustomPresetFormatMp4Args{
+//										FilenamePattern: pulumi.String("test{Bitrate}"),
+//										OutputFiles: media.TransformOutputCustomPresetFormatMp4OutputFileArray{
+//											&media.TransformOutputCustomPresetFormatMp4OutputFileArgs{
+//												Labels: pulumi.StringArray{
+//													pulumi.String("test"),
+//													pulumi.String("ppe"),
+//												},
+//											},
+//										},
+//									},
+//								},
+//								&media.TransformOutputCustomPresetFormatArgs{
+//									TransportStream: &media.TransformOutputCustomPresetFormatTransportStreamArgs{
+//										FilenamePattern: pulumi.String("test{Bitrate}"),
+//										OutputFiles: media.TransformOutputCustomPresetFormatTransportStreamOutputFileArray{
+//											&media.TransformOutputCustomPresetFormatTransportStreamOutputFileArgs{
+//												Labels: pulumi.StringArray{
+//													pulumi.String("prod"),
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//							Filter: &media.TransformOutputCustomPresetFilterArgs{
+//								CropRectangle: &media.TransformOutputCustomPresetFilterCropRectangleArgs{
+//									Height: pulumi.String("240"),
+//									Left:   pulumi.String("30"),
+//									Top:    pulumi.String("360"),
+//									Width:  pulumi.String("70"),
+//								},
+//								Deinterlace: &media.TransformOutputCustomPresetFilterDeinterlaceArgs{
+//									Parity: pulumi.String("TopFieldFirst"),
+//									Mode:   pulumi.String("AutoPixelAdaptive"),
+//								},
+//								FadeIn: &media.TransformOutputCustomPresetFilterFadeInArgs{
+//									Duration:  pulumi.String("PT5S"),
+//									FadeColor: pulumi.String("0xFF0000"),
+//									Start:     pulumi.String("10"),
+//								},
+//								FadeOut: &media.TransformOutputCustomPresetFilterFadeOutArgs{
+//									Duration:  pulumi.String("90%%"),
+//									FadeColor: pulumi.String("#FF0C7B"),
+//									Start:     pulumi.String("10%%"),
+//								},
+//								Rotation: pulumi.String("Auto"),
+//								Overlays: media.TransformOutputCustomPresetFilterOverlayArray{
+//									&media.TransformOutputCustomPresetFilterOverlayArgs{
+//										Audio: &media.TransformOutputCustomPresetFilterOverlayAudioArgs{
+//											InputLabel:      pulumi.String("label.jpg"),
+//											Start:           pulumi.String("PT5S"),
+//											End:             pulumi.String("PT30S"),
+//											FadeInDuration:  pulumi.String("PT1S"),
+//											FadeOutDuration: pulumi.String("PT2S"),
+//											AudioGainLevel:  pulumi.Float64(1),
+//										},
+//									},
+//									&media.TransformOutputCustomPresetFilterOverlayArgs{
+//										Video: &media.TransformOutputCustomPresetFilterOverlayVideoArgs{
+//											InputLabel:      pulumi.String("label.jpg"),
+//											Start:           pulumi.String("PT5S"),
+//											End:             pulumi.String("PT30S"),
+//											FadeInDuration:  pulumi.String("PT1S"),
+//											FadeOutDuration: pulumi.String("PT2S"),
+//											AudioGainLevel:  pulumi.Float64(1),
+//											Opacity:         pulumi.Float64(1),
+//											Position: &media.TransformOutputCustomPresetFilterOverlayVideoPositionArgs{
+//												Height: pulumi.String("180"),
+//												Left:   pulumi.String("20"),
+//												Top:    pulumi.String("240"),
+//												Width:  pulumi.String("140"),
+//											},
+//											CropRectangle: &media.TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs{
+//												Height: pulumi.String("240"),
+//												Left:   pulumi.String("30"),
+//												Top:    pulumi.String("360"),
+//												Width:  pulumi.String("70"),
+//											},
+//										},
+//									},
+//								},
+//							},
 //						},
 //					},
 //				},

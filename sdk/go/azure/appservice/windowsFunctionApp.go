@@ -112,6 +112,8 @@ type WindowsFunctionApp struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The runtime version associated with the Function App. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrOutput `pulumi:"functionsExtensionVersion"`
+	// The ID of the App Service Environment used by Function App.
+	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolOutput `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
@@ -237,6 +239,8 @@ type windowsFunctionAppState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The runtime version associated with the Function App. Defaults to `~4`.
 	FunctionsExtensionVersion *string `pulumi:"functionsExtensionVersion"`
+	// The ID of the App Service Environment used by Function App.
+	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
@@ -316,6 +320,8 @@ type WindowsFunctionAppState struct {
 	Enabled pulumi.BoolPtrInput
 	// The runtime version associated with the Function App. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrInput
+	// The ID of the App Service Environment used by Function App.
+	HostingEnvironmentId pulumi.StringPtrInput
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// A `identity` block as defined below.
@@ -655,6 +661,11 @@ func (o WindowsFunctionAppOutput) Enabled() pulumi.BoolPtrOutput {
 // The runtime version associated with the Function App. Defaults to `~4`.
 func (o WindowsFunctionAppOutput) FunctionsExtensionVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionApp) pulumi.StringPtrOutput { return v.FunctionsExtensionVersion }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the App Service Environment used by Function App.
+func (o WindowsFunctionAppOutput) HostingEnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WindowsFunctionApp) pulumi.StringOutput { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
 // Can the Function App only be accessed via HTTPS? Defaults to `false`.

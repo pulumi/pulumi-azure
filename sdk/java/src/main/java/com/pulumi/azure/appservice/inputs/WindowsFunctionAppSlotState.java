@@ -268,6 +268,21 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The ID of the App Service Environment used by Function App Slot.
+     * 
+     */
+    @Import(name="hostingEnvironmentId")
+    private @Nullable Output<String> hostingEnvironmentId;
+
+    /**
+     * @return The ID of the App Service Environment used by Function App Slot.
+     * 
+     */
+    public Optional<Output<String>> hostingEnvironmentId() {
+        return Optional.ofNullable(this.hostingEnvironmentId);
+    }
+
+    /**
      * Can the Function App Slot only be accessed via HTTPS?
      * 
      */
@@ -571,6 +586,7 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
         this.enabled = $.enabled;
         this.functionAppId = $.functionAppId;
         this.functionsExtensionVersion = $.functionsExtensionVersion;
+        this.hostingEnvironmentId = $.hostingEnvironmentId;
         this.httpsOnly = $.httpsOnly;
         this.identity = $.identity;
         this.keyVaultReferenceIdentityId = $.keyVaultReferenceIdentityId;
@@ -954,6 +970,27 @@ public final class WindowsFunctionAppSlotState extends com.pulumi.resources.Reso
          */
         public Builder functionsExtensionVersion(String functionsExtensionVersion) {
             return functionsExtensionVersion(Output.of(functionsExtensionVersion));
+        }
+
+        /**
+         * @param hostingEnvironmentId The ID of the App Service Environment used by Function App Slot.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostingEnvironmentId(@Nullable Output<String> hostingEnvironmentId) {
+            $.hostingEnvironmentId = hostingEnvironmentId;
+            return this;
+        }
+
+        /**
+         * @param hostingEnvironmentId The ID of the App Service Environment used by Function App Slot.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostingEnvironmentId(String hostingEnvironmentId) {
+            return hostingEnvironmentId(Output.of(hostingEnvironmentId));
         }
 
         /**

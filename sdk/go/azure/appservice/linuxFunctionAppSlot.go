@@ -121,6 +121,8 @@ type LinuxFunctionAppSlot struct {
 	FunctionAppId pulumi.StringOutput `pulumi:"functionAppId"`
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrOutput `pulumi:"functionsExtensionVersion"`
+	// The ID of the App Service Environment used by Function App Slot.
+	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
 	// Can the Function App Slot only be accessed via HTTPS?
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as detailed below.
@@ -237,6 +239,8 @@ type linuxFunctionAppSlotState struct {
 	FunctionAppId *string `pulumi:"functionAppId"`
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion *string `pulumi:"functionsExtensionVersion"`
+	// The ID of the App Service Environment used by Function App Slot.
+	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
 	// Can the Function App Slot only be accessed via HTTPS?
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as detailed below.
@@ -310,6 +314,8 @@ type LinuxFunctionAppSlotState struct {
 	FunctionAppId pulumi.StringPtrInput
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrInput
+	// The ID of the App Service Environment used by Function App Slot.
+	HostingEnvironmentId pulumi.StringPtrInput
 	// Can the Function App Slot only be accessed via HTTPS?
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as detailed below.
@@ -636,6 +642,11 @@ func (o LinuxFunctionAppSlotOutput) FunctionAppId() pulumi.StringOutput {
 // The runtime version associated with the Function App Slot. Defaults to `~4`.
 func (o LinuxFunctionAppSlotOutput) FunctionsExtensionVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringPtrOutput { return v.FunctionsExtensionVersion }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the App Service Environment used by Function App Slot.
+func (o LinuxFunctionAppSlotOutput) HostingEnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringOutput { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
 // Can the Function App Slot only be accessed via HTTPS?

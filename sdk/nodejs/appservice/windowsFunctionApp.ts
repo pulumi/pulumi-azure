@@ -135,6 +135,10 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
      */
     public readonly functionsExtensionVersion!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the App Service Environment used by Function App.
+     */
+    public /*out*/ readonly hostingEnvironmentId!: pulumi.Output<string>;
+    /**
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      */
     public readonly httpsOnly!: pulumi.Output<boolean>;
@@ -255,6 +259,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["defaultHostname"] = state ? state.defaultHostname : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["functionsExtensionVersion"] = state ? state.functionsExtensionVersion : undefined;
+            resourceInputs["hostingEnvironmentId"] = state ? state.hostingEnvironmentId : undefined;
             resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["keyVaultReferenceIdentityId"] = state ? state.keyVaultReferenceIdentityId : undefined;
@@ -321,6 +326,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
+            resourceInputs["hostingEnvironmentId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["outboundIpAddressLists"] = undefined /*out*/;
             resourceInputs["outboundIpAddresses"] = undefined /*out*/;
@@ -399,6 +405,10 @@ export interface WindowsFunctionAppState {
      * The runtime version associated with the Function App. Defaults to `~4`.
      */
     functionsExtensionVersion?: pulumi.Input<string>;
+    /**
+     * The ID of the App Service Environment used by Function App.
+     */
+    hostingEnvironmentId?: pulumi.Input<string>;
     /**
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      */

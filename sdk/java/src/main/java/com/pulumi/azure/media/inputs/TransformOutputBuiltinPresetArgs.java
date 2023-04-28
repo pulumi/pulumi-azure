@@ -3,10 +3,13 @@
 
 package com.pulumi.azure.media.inputs;
 
+import com.pulumi.azure.media.inputs.TransformOutputBuiltinPresetPresetConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class TransformOutputBuiltinPresetArgs extends com.pulumi.resources.ResourceArgs {
@@ -14,14 +17,29 @@ public final class TransformOutputBuiltinPresetArgs extends com.pulumi.resources
     public static final TransformOutputBuiltinPresetArgs Empty = new TransformOutputBuiltinPresetArgs();
 
     /**
-     * The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+     * A `present_configuration` block as defined below.
+     * 
+     */
+    @Import(name="presetConfiguration")
+    private @Nullable Output<TransformOutputBuiltinPresetPresetConfigurationArgs> presetConfiguration;
+
+    /**
+     * @return A `present_configuration` block as defined below.
+     * 
+     */
+    public Optional<Output<TransformOutputBuiltinPresetPresetConfigurationArgs>> presetConfiguration() {
+        return Optional.ofNullable(this.presetConfiguration);
+    }
+
+    /**
+     * The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
      * 
      */
     @Import(name="presetName", required=true)
     private Output<String> presetName;
 
     /**
-     * @return The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+     * @return The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
      * 
      */
     public Output<String> presetName() {
@@ -31,6 +49,7 @@ public final class TransformOutputBuiltinPresetArgs extends com.pulumi.resources
     private TransformOutputBuiltinPresetArgs() {}
 
     private TransformOutputBuiltinPresetArgs(TransformOutputBuiltinPresetArgs $) {
+        this.presetConfiguration = $.presetConfiguration;
         this.presetName = $.presetName;
     }
 
@@ -53,7 +72,28 @@ public final class TransformOutputBuiltinPresetArgs extends com.pulumi.resources
         }
 
         /**
-         * @param presetName The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+         * @param presetConfiguration A `present_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder presetConfiguration(@Nullable Output<TransformOutputBuiltinPresetPresetConfigurationArgs> presetConfiguration) {
+            $.presetConfiguration = presetConfiguration;
+            return this;
+        }
+
+        /**
+         * @param presetConfiguration A `present_configuration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder presetConfiguration(TransformOutputBuiltinPresetPresetConfigurationArgs presetConfiguration) {
+            return presetConfiguration(Output.of(presetConfiguration));
+        }
+
+        /**
+         * @param presetName The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
          * 
          * @return builder
          * 
@@ -64,7 +104,7 @@ public final class TransformOutputBuiltinPresetArgs extends com.pulumi.resources
         }
 
         /**
-         * @param presetName The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+         * @param presetName The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
          * 
          * @return builder
          * 

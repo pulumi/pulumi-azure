@@ -2824,6 +2824,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "costmanagement/scheduledAction",
+  "fqn": "pulumi_azure.costmanagement",
+  "classes": {
+   "azure:costmanagement/scheduledAction:ScheduledAction": "ScheduledAction"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "dashboard/dashboard",
   "fqn": "pulumi_azure.dashboard",
   "classes": {
@@ -7684,6 +7692,30 @@ _utilities.register(
   "fqn": "pulumi_azure.storage",
   "classes": {
    "azure:storage/mover:Mover": "Mover"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/moverAgent",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/moverAgent:MoverAgent": "MoverAgent"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/moverSourceEndpoint",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/moverSourceEndpoint:MoverSourceEndpoint": "MoverSourceEndpoint"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/moverTargetEndpoint",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/moverTargetEndpoint:MoverTargetEndpoint": "MoverTargetEndpoint"
   }
  },
  {

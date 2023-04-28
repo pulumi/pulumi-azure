@@ -103,6 +103,8 @@ type WindowsWebAppSlot struct {
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Should the Windows Web App Slot be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The ID of the App Service Environment used by App Service Slot.
+	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
 	// Should the Windows Web App Slot require HTTPS connections.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
@@ -205,6 +207,8 @@ type windowsWebAppSlotState struct {
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Should the Windows Web App Slot be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The ID of the App Service Environment used by App Service Slot.
+	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
 	// Should the Windows Web App Slot require HTTPS connections.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
@@ -268,6 +272,8 @@ type WindowsWebAppSlotState struct {
 	DefaultHostname pulumi.StringPtrInput
 	// Should the Windows Web App Slot be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The ID of the App Service Environment used by App Service Slot.
+	HostingEnvironmentId pulumi.StringPtrInput
 	// Should the Windows Web App Slot require HTTPS connections.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
@@ -553,6 +559,11 @@ func (o WindowsWebAppSlotOutput) DefaultHostname() pulumi.StringOutput {
 // Should the Windows Web App Slot be enabled? Defaults to `true`.
 func (o WindowsWebAppSlotOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the App Service Environment used by App Service Slot.
+func (o WindowsWebAppSlotOutput) HostingEnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringOutput { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
 // Should the Windows Web App Slot require HTTPS connections.

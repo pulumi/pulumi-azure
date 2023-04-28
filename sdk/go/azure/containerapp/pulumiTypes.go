@@ -3954,7 +3954,7 @@ type GetAppTemplateContainer struct {
 	Image string `pulumi:"image"`
 	// A `livenessProbe` block as detailed below.
 	LivenessProbes []GetAppTemplateContainerLivenessProbe `pulumi:"livenessProbes"`
-	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
 	Memory string `pulumi:"memory"`
 	// The name of the Container App.
 	Name string `pulumi:"name"`
@@ -3992,7 +3992,7 @@ type GetAppTemplateContainerArgs struct {
 	Image pulumi.StringInput `pulumi:"image"`
 	// A `livenessProbe` block as detailed below.
 	LivenessProbes GetAppTemplateContainerLivenessProbeArrayInput `pulumi:"livenessProbes"`
-	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
 	Memory pulumi.StringInput `pulumi:"memory"`
 	// The name of the Container App.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -4090,7 +4090,7 @@ func (o GetAppTemplateContainerOutput) LivenessProbes() GetAppTemplateContainerL
 	return o.ApplyT(func(v GetAppTemplateContainer) []GetAppTemplateContainerLivenessProbe { return v.LivenessProbes }).(GetAppTemplateContainerLivenessProbeArrayOutput)
 }
 
-// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
 func (o GetAppTemplateContainerOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppTemplateContainer) string { return v.Memory }).(pulumi.StringOutput)
 }

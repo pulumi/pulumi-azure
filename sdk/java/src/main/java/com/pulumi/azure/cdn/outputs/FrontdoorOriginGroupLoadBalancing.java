@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorOriginGroupLoadBalancing {
     /**
-     * @return Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+     * @return Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` milliseconds (inclusive). Defaults to `50`.
      * 
      */
     private @Nullable Integer additionalLatencyInMilliseconds;
@@ -29,7 +29,7 @@ public final class FrontdoorOriginGroupLoadBalancing {
 
     private FrontdoorOriginGroupLoadBalancing() {}
     /**
-     * @return Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+     * @return Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` milliseconds (inclusive). Defaults to `50`.
      * 
      */
     public Optional<Integer> additionalLatencyInMilliseconds() {

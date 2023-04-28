@@ -1104,7 +1104,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_gallery_application_version": {Tok: azureResource(azureCompute, "GalleryApplicationVersion")},
 
 			// Cost (resource provider Microsoft.CostManagement, not Microsoft.Billing)
-			"azurerm_cost_anomaly_alert": {Tok: azureResource(azureCostManagement, "AnomalyAlert")},
+			"azurerm_cost_anomaly_alert":               {Tok: azureResource(azureCostManagement, "AnomalyAlert")},
+			"azurerm_cost_management_scheduled_action": {Tok: azureResource(azureCostManagement, "ScheduledAction")},
 
 			// DataBricks
 			"azurerm_databricks_access_connector": {Tok: azureResource(azureDataBricks, "AccessConnector")},
@@ -2116,8 +2117,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_object_replication": {
 				Tok: azureResource(azureStorage, "ObjectReplication"),
 			},
-			"azurerm_storage_account_local_user": {Tok: azureResource(azureStorage, "LocalUser")},
-			"azurerm_storage_mover":              {Tok: azureResource(azureStorage, "Mover")},
+			"azurerm_storage_account_local_user":    {Tok: azureResource(azureStorage, "LocalUser")},
+			"azurerm_storage_mover":                 {Tok: azureResource(azureStorage, "Mover")},
+			"azurerm_storage_mover_agent":           {Tok: azureResource(azureStorage, "MoverAgent")},
+			"azurerm_storage_mover_source_endpoint": {Tok: azureResource(azureStorage, "MoverSourceEndpoint")},
+			"azurerm_storage_mover_target_endpoint": {Tok: azureResource(azureStorage, "MoverTargetEndpoint")},
 
 			//StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {

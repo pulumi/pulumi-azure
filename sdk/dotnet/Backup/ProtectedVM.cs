@@ -42,11 +42,15 @@ namespace Pulumi.Azure.Backup
     ///             Frequency = "Daily",
     ///             Time = "23:00",
     ///         },
+    ///         RetentionDaily = new Azure.Backup.Inputs.PolicyVMRetentionDailyArgs
+    ///         {
+    ///             Count = 10,
+    ///         },
     ///     });
     /// 
     ///     var exampleVirtualMachine = Azure.Compute.GetVirtualMachine.Invoke(new()
     ///     {
-    ///         Name = "production",
+    ///         Name = "example-vm",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 

@@ -110,6 +110,10 @@ export interface GetWindowsFunctionAppResult {
      */
     readonly functionsExtensionVersion: string;
     /**
+     * The ID of the App Service Environment used by Function App.
+     */
+    readonly hostingEnvironmentId: string;
+    /**
      * Is the Function App only accessible via HTTPS?
      */
     readonly httpsOnly: boolean;

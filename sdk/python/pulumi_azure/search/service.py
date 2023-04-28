@@ -529,6 +529,8 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["primary_key"] = None
             __props__.__dict__["query_keys"] = None
             __props__.__dict__["secondary_key"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["primaryKey", "secondaryKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Service, __self__).__init__(
             'azure:search/service:Service',
             resource_name,

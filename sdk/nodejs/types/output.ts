@@ -11909,7 +11909,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
+         * The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
          */
         phpVersion?: string;
         /**
@@ -12967,7 +12967,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PHP to run. Possible values are `7.4`, `8.0` and `8.1`.
+         * The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
          */
         phpVersion?: string;
         /**
@@ -18084,6 +18084,20 @@ export namespace arckubernetes {
 
 }
 
+export namespace attestation {
+    export interface ProviderPolicy {
+        /**
+         * Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
+         */
+        data: string;
+        /**
+         * Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
+         */
+        environmentType: string;
+    }
+
+}
+
 export namespace authorization {
     export interface GetRoleDefinitionPermission {
         /**
@@ -20956,7 +20970,7 @@ export namespace cdn {
 
     export interface FrontdoorOriginGroupLoadBalancing {
         /**
-         * Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
+         * Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` milliseconds (inclusive). Defaults to `50`.
          */
         additionalLatencyInMilliseconds?: number;
         /**
@@ -26546,7 +26560,7 @@ export namespace containerapp {
          */
         livenessProbes: outputs.containerapp.GetAppTemplateContainerLivenessProbe[];
         /**
-         * The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+         * The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
          */
         memory: string;
         /**
@@ -38185,6 +38199,7 @@ export namespace healthcare {
     }
 
     export interface FhirServiceIdentity {
+        identityIds?: string[];
         principalId: string;
         tenantId: string;
         /**
@@ -38335,6 +38350,7 @@ export namespace healthcare {
     }
 
     export interface MedtechServiceIdentity {
+        identityIds?: string[];
         /**
          * The Principal ID associated with this System Assigned Managed Service Identity.
          */
@@ -42758,23 +42774,27 @@ export namespace media {
 
     export interface TransformOutput {
         /**
-         * A `audioAnalyzerPreset` block as defined below.
+         * An `audioAnalyzerPreset` block as defined above.
          */
         audioAnalyzerPreset?: outputs.media.TransformOutputAudioAnalyzerPreset;
         /**
-         * A `builtinPreset` block as defined below.
+         * A `builtinPreset` block as defined above.
          */
         builtinPreset?: outputs.media.TransformOutputBuiltinPreset;
         /**
-         * A `faceDetectorPreset` block as defined below.
+         * A `customPreset` block as defined above.
+         */
+        customPreset?: outputs.media.TransformOutputCustomPreset;
+        /**
+         * A `faceDetectorPreset` block as defined above.
          */
         faceDetectorPreset?: outputs.media.TransformOutputFaceDetectorPreset;
         /**
-         * A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+         * A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
          */
         onErrorAction?: string;
         /**
-         * Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+         * Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
          */
         relativePriority?: string;
         /**
@@ -42785,40 +42805,634 @@ export namespace media {
 
     export interface TransformOutputAudioAnalyzerPreset {
         /**
-         * Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+         * Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
          */
         audioAnalysisMode?: string;
         /**
-         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
          */
         audioLanguage?: string;
+        /**
+         * Dictionary containing key value pairs for parameters not exposed in the preset itself.
+         */
+        experimentalOptions?: {[key: string]: string};
     }
 
     export interface TransformOutputBuiltinPreset {
         /**
-         * The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+         * A `presentConfiguration` block as defined below.
+         */
+        presetConfiguration?: outputs.media.TransformOutputBuiltinPresetPresetConfiguration;
+        /**
+         * The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
          */
         presetName: string;
     }
 
+    export interface TransformOutputBuiltinPresetPresetConfiguration {
+        /**
+         * The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`.
+         */
+        complexity?: string;
+        /**
+         * Specifies the interleave mode of the output to control how audio are stored in the container format. Possible values are `InterleavedOutput` and `NonInterleavedOutput`.
+         */
+        interleaveOutput?: string;
+        /**
+         * The key frame interval in seconds. Possible value is a positive float. For example, set as `2.0` to reduce the playback buffering for some players.
+         */
+        keyFrameIntervalInSeconds?: number;
+        /**
+         * The maximum bitrate in bits per second (threshold for the top video layer). For example, set as `6000000` to avoid producing very high bitrate outputs for contents with high complexity.
+         */
+        maxBitrateBps?: number;
+        /**
+         * The maximum height of output video layers. For example, set as `720` to produce output layers up to 720P even if the input is 4K.
+         */
+        maxHeight?: number;
+        /**
+         * The maximum number of output video layers. For example, set as `4` to make sure at most 4 output layers are produced to control the overall cost of the encoding job.
+         */
+        maxLayers?: number;
+        /**
+         * The minimum bitrate in bits per second (threshold for the bottom video layer). For example, set as `200000` to have a bottom layer that covers users with low network bandwidth.
+         */
+        minBitrateBps?: number;
+        /**
+         * The minimum height of output video layers. For example, set as `360` to avoid output layers of smaller resolutions like 180P.
+         */
+        minHeight?: number;
+    }
+
+    export interface TransformOutputCustomPreset {
+        /**
+         * One or more `codec` blocks as defined above.
+         */
+        codecs: outputs.media.TransformOutputCustomPresetCodec[];
+        /**
+         * A `filter` block as defined below.
+         */
+        filter?: outputs.media.TransformOutputCustomPresetFilter;
+        /**
+         * One or more `format` blocks as defined below.
+         */
+        formats: outputs.media.TransformOutputCustomPresetFormat[];
+    }
+
+    export interface TransformOutputCustomPresetCodec {
+        /**
+         * A `aacAudio` block as defined above.
+         */
+        aacAudio?: outputs.media.TransformOutputCustomPresetCodecAacAudio;
+        /**
+         * A `copyAudio` block as defined below.
+         */
+        copyAudio?: outputs.media.TransformOutputCustomPresetCodecCopyAudio;
+        /**
+         * A `copyVideo` block as defined below.
+         */
+        copyVideo?: outputs.media.TransformOutputCustomPresetCodecCopyVideo;
+        /**
+         * A `ddAudio` block as defined below.
+         */
+        ddAudio?: outputs.media.TransformOutputCustomPresetCodecDdAudio;
+        /**
+         * A `h264Video` block as defined below.
+         */
+        h264Video?: outputs.media.TransformOutputCustomPresetCodecH264Video;
+        /**
+         * A `h265Video` block as defined below.
+         */
+        h265Video?: outputs.media.TransformOutputCustomPresetCodecH265Video;
+    }
+
+    export interface TransformOutputCustomPresetCodecAacAudio {
+        /**
+         * The bitrate of the audio in bits per second. Default to `128000`.
+         */
+        bitrate?: number;
+        /**
+         * The number of audio channels. Default to `2`.
+         */
+        channels?: number;
+        /**
+         * Specifies the label for the codec. The label can be used to control muxing behavior.
+         */
+        label?: string;
+        /**
+         * The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
+         */
+        profile?: string;
+        /**
+         * The sampling rate to use for encoding in Hertz. Default to `48000`.
+         */
+        samplingRate?: number;
+    }
+
+    export interface TransformOutputCustomPresetCodecCopyAudio {
+        /**
+         * Specifies the label for the codec. The label can be used to control muxing behavior.
+         */
+        label?: string;
+    }
+
+    export interface TransformOutputCustomPresetCodecCopyVideo {
+        /**
+         * Specifies the label for the codec. The label can be used to control muxing behavior.
+         */
+        label?: string;
+    }
+
+    export interface TransformOutputCustomPresetCodecDdAudio {
+        /**
+         * The bitrate of the audio in bits per second. Default to `192000`.
+         */
+        bitrate?: number;
+        /**
+         * The number of audio channels. Default to `2`.
+         */
+        channels?: number;
+        /**
+         * Specifies the label for the codec. The label can be used to control muxing behavior.
+         */
+        label?: string;
+        /**
+         * The sampling rate to use for encoding in Hertz. Default to `48000`.
+         */
+        samplingRate?: number;
+    }
+
+    export interface TransformOutputCustomPresetCodecH264Video {
+        /**
+         * The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+         */
+        complexity?: string;
+        /**
+         * The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+         */
+        keyFrameInterval?: string;
+        /**
+         * Specifies the label for the codec. The label can be used to control muxing behavior.
+         */
+        label?: string;
+        /**
+         * One or more `layer` blocks as defined below.
+         */
+        layers?: outputs.media.TransformOutputCustomPresetCodecH264VideoLayer[];
+        /**
+         * The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
+         */
+        rateControlMode?: string;
+        /**
+         * Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+         */
+        sceneChangeDetectionEnabled?: boolean;
+        /**
+         * Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+         */
+        stretchMode?: string;
+        /**
+         * Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+         */
+        syncMode?: string;
+    }
+
+    export interface TransformOutputCustomPresetCodecH264VideoLayer {
+        /**
+         * Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+         */
+        adaptiveBFrameEnabled?: boolean;
+        /**
+         * The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+         */
+        bFrames: number;
+        /**
+         * The average bitrate in bits per second at which to encode the input video when generating this layer.
+         */
+        bitrate: number;
+        /**
+         * Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+         */
+        bufferWindow?: string;
+        /**
+         * The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+         */
+        crf?: number;
+        /**
+         * The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+         */
+        entropyMode: string;
+        /**
+         * The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+         */
+        frameRate?: string;
+        /**
+         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+         */
+        height: string;
+        /**
+         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+         */
+        label?: string;
+        /**
+         * The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+         */
+        level?: string;
+        /**
+         * The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+         */
+        maxBitrate: number;
+        /**
+         * The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+         */
+        profile?: string;
+        /**
+         * The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+         */
+        referenceFrames: number;
+        /**
+         * The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+         */
+        slices: number;
+        /**
+         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+         */
+        width: string;
+    }
+
+    export interface TransformOutputCustomPresetCodecH265Video {
+        /**
+         * The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+         */
+        complexity?: string;
+        /**
+         * The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+         */
+        keyFrameInterval?: string;
+        /**
+         * Specifies the label for the codec. The label can be used to control muxing behavior.
+         */
+        label?: string;
+        /**
+         * One or more `layer` blocks as defined below.
+         */
+        layers?: outputs.media.TransformOutputCustomPresetCodecH265VideoLayer[];
+        /**
+         * Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+         */
+        sceneChangeDetectionEnabled?: boolean;
+        /**
+         * Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+         */
+        stretchMode?: string;
+        /**
+         * Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+         */
+        syncMode?: string;
+    }
+
+    export interface TransformOutputCustomPresetCodecH265VideoLayer {
+        /**
+         * Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+         */
+        adaptiveBFrameEnabled?: boolean;
+        /**
+         * The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+         */
+        bFrames: number;
+        /**
+         * The average bitrate in bits per second at which to encode the input video when generating this layer.
+         */
+        bitrate: number;
+        /**
+         * Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+         */
+        bufferWindow?: string;
+        /**
+         * The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+         */
+        crf?: number;
+        /**
+         * The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+         */
+        frameRate?: string;
+        /**
+         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+         */
+        height: string;
+        /**
+         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+         */
+        label?: string;
+        /**
+         * The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+         */
+        level?: string;
+        /**
+         * The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+         */
+        maxBitrate: number;
+        /**
+         * The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+         */
+        profile?: string;
+        /**
+         * The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+         */
+        referenceFrames: number;
+        /**
+         * The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+         */
+        slices: number;
+        /**
+         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+         */
+        width: string;
+    }
+
+    export interface TransformOutputCustomPresetFilter {
+        /**
+         * A `cropRectangle` block as defined above.
+         */
+        cropRectangle?: outputs.media.TransformOutputCustomPresetFilterCropRectangle;
+        /**
+         * A `deinterlace` block as defined below.
+         */
+        deinterlace?: outputs.media.TransformOutputCustomPresetFilterDeinterlace;
+        /**
+         * A `fadeIn` block as defined above.
+         */
+        fadeIn?: outputs.media.TransformOutputCustomPresetFilterFadeIn;
+        /**
+         * A `fadeOut` block as defined above.
+         */
+        fadeOut?: outputs.media.TransformOutputCustomPresetFilterFadeOut;
+        /**
+         * One or more `overlay` blocks as defined below.
+         */
+        overlays?: outputs.media.TransformOutputCustomPresetFilterOverlay[];
+        /**
+         * The rotation to be applied to the input video before it is encoded. Possible values are `Auto`, `None`, `Rotate90`, `Rotate180`, `Rotate270`,or `Rotate0`. Default to `Auto`.
+         */
+        rotation?: string;
+    }
+
+    export interface TransformOutputCustomPresetFilterCropRectangle {
+        /**
+         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+         */
+        height?: string;
+        /**
+         * The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+         */
+        left?: string;
+        /**
+         * The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+         */
+        top?: string;
+        /**
+         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
+         */
+        width?: string;
+    }
+
+    export interface TransformOutputCustomPresetFilterDeinterlace {
+        /**
+         * The deinterlacing mode. Possible values are `AutoPixelAdaptive` or `Off`. Default to `AutoPixelAdaptive`.
+         */
+        mode?: string;
+        /**
+         * The field parity to use for deinterlacing. Possible values are `Auto`, `TopFieldFirst` or `BottomFieldFirst`. Default to `Auto`.
+         */
+        parity?: string;
+    }
+
+    export interface TransformOutputCustomPresetFilterFadeIn {
+        /**
+         * The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+         */
+        duration: string;
+        /**
+         * The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+         */
+        fadeColor: string;
+        /**
+         * The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+         */
+        start?: string;
+    }
+
+    export interface TransformOutputCustomPresetFilterFadeOut {
+        /**
+         * The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+         */
+        duration: string;
+        /**
+         * The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+         */
+        fadeColor: string;
+        /**
+         * The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+         */
+        start?: string;
+    }
+
+    export interface TransformOutputCustomPresetFilterOverlay {
+        /**
+         * An `audio` block as defined above.
+         */
+        audio?: outputs.media.TransformOutputCustomPresetFilterOverlayAudio;
+        /**
+         * A `video` block as defined below.
+         */
+        video?: outputs.media.TransformOutputCustomPresetFilterOverlayVideo;
+    }
+
+    export interface TransformOutputCustomPresetFilterOverlayAudio {
+        /**
+         * The gain level of audio in the overlay. The value should be in the range `0` to `1.0`. The default is `1.0`.
+         */
+        audioGainLevel?: number;
+        /**
+         * The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+         */
+        end?: string;
+        /**
+         * The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+         */
+        fadeInDuration?: string;
+        /**
+         * The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+         */
+        fadeOutDuration?: string;
+        /**
+         * The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+         */
+        inputLabel: string;
+        /**
+         * The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+         */
+        start?: string;
+    }
+
+    export interface TransformOutputCustomPresetFilterOverlayVideo {
+        /**
+         * The gain level of audio in the overlay. The value should be in range between `0` to `1.0`. The default is `1.0`.
+         */
+        audioGainLevel?: number;
+        /**
+         * A `cropRectangle` block as defined above.
+         */
+        cropRectangle?: outputs.media.TransformOutputCustomPresetFilterOverlayVideoCropRectangle;
+        /**
+         * The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+         */
+        end?: string;
+        /**
+         * The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+         */
+        fadeInDuration?: string;
+        /**
+         * The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+         */
+        fadeOutDuration?: string;
+        /**
+         * The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+         */
+        inputLabel: string;
+        /**
+         * The opacity of the overlay. The value should be in the range between `0` to `1.0`. Default to `1.0`, which means the overlay is opaque.
+         */
+        opacity?: number;
+        /**
+         * A `position` block as defined above.
+         */
+        position?: outputs.media.TransformOutputCustomPresetFilterOverlayVideoPosition;
+        /**
+         * The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+         */
+        start?: string;
+    }
+
+    export interface TransformOutputCustomPresetFilterOverlayVideoCropRectangle {
+        /**
+         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+         */
+        height?: string;
+        /**
+         * The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+         */
+        left?: string;
+        /**
+         * The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+         */
+        top?: string;
+        /**
+         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
+         */
+        width?: string;
+    }
+
+    export interface TransformOutputCustomPresetFilterOverlayVideoPosition {
+        /**
+         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+         */
+        height?: string;
+        /**
+         * The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+         */
+        left?: string;
+        /**
+         * The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+         */
+        top?: string;
+        /**
+         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
+         */
+        width?: string;
+    }
+
+    export interface TransformOutputCustomPresetFormat {
+        /**
+         * A `mp4` block as defined below.
+         */
+        mp4?: outputs.media.TransformOutputCustomPresetFormatMp4;
+        /**
+         * A `transportStream` block as defined below.
+         */
+        transportStream?: outputs.media.TransformOutputCustomPresetFormatTransportStream;
+    }
+
+    export interface TransformOutputCustomPresetFormatMp4 {
+        /**
+         * The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+         */
+        filenamePattern: string;
+        /**
+         * One or more `outputFile` blocks as defined below.
+         */
+        outputFiles?: outputs.media.TransformOutputCustomPresetFormatMp4OutputFile[];
+    }
+
+    export interface TransformOutputCustomPresetFormatMp4OutputFile {
+        /**
+         * The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
+         */
+        labels: string[];
+    }
+
+    export interface TransformOutputCustomPresetFormatTransportStream {
+        /**
+         * The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+         */
+        filenamePattern: string;
+        /**
+         * One or more `outputFile` blocks as defined above.
+         */
+        outputFiles?: outputs.media.TransformOutputCustomPresetFormatTransportStreamOutputFile[];
+    }
+
+    export interface TransformOutputCustomPresetFormatTransportStreamOutputFile {
+        /**
+         * The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
+         */
+        labels: string[];
+    }
+
     export interface TransformOutputFaceDetectorPreset {
         /**
-         * Possibles value are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. The default behavior is `SourceResolution` which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected.
+         * Possible values are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected. Default to `SourceResolution`.
          */
         analysisResolution?: string;
+        /**
+         * Specifies the type of blur to apply to faces in the output video. Possible values are `Black`, `Box`, `High`, `Low`,and `Med`.
+         */
+        blurType?: string;
+        /**
+         * Dictionary containing key value pairs for parameters not exposed in the preset itself.
+         */
+        experimentalOptions?: {[key: string]: string};
+        /**
+         * This mode provides the ability to choose between the following settings: 1) `Analyze` - For detection only. This mode generates a metadata JSON file marking appearances of faces throughout the video. Where possible, appearances of the same person are assigned the same ID. 2) `Combined` - Additionally redacts(blurs) detected faces. 3) `Redact` - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces. It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction. Default to `Analyze`.
+         */
+        faceRedactorMode?: string;
     }
 
     export interface TransformOutputVideoAnalyzerPreset {
         /**
-         * Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
+         * Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
          */
         audioAnalysisMode?: string;
         /**
-         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>. Possible values are `ar-EG`, `ar-SY`, `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `ru-RU` and `zh-CN`.
+         * The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
          */
         audioLanguage?: string;
         /**
-         * Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+         * Dictionary containing key value pairs for parameters not exposed in the preset itself.
+         */
+        experimentalOptions?: {[key: string]: string};
+        /**
+         * Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly, if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out. Default to `AllInsights`.
          */
         insightsType?: string;
     }
@@ -54099,7 +54713,7 @@ export namespace signalr {
 
     export interface ServiceSku {
         /**
-         * Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
+         * Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90` and `100`.
          */
         capacity: number;
         /**

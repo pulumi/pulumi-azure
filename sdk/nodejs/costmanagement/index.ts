@@ -10,6 +10,11 @@ export type AnomalyAlert = import("./anomalyAlert").AnomalyAlert;
 export const AnomalyAlert: typeof import("./anomalyAlert").AnomalyAlert = null as any;
 utilities.lazyLoad(exports, ["AnomalyAlert"], () => require("./anomalyAlert"));
 
+export { ScheduledActionArgs, ScheduledActionState } from "./scheduledAction";
+export type ScheduledAction = import("./scheduledAction").ScheduledAction;
+export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
+utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "azure:costmanagement/anomalyAlert:AnomalyAlert":
                 return new AnomalyAlert(name, <any>undefined, { urn })
+            case "azure:costmanagement/scheduledAction:ScheduledAction":
+                return new ScheduledAction(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "costmanagement/anomalyAlert", _module)
+pulumi.runtime.registerResourceModule("azure", "costmanagement/scheduledAction", _module)

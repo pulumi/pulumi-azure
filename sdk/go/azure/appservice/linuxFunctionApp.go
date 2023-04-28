@@ -112,6 +112,8 @@ type LinuxFunctionApp struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The runtime version associated with the Function App. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrOutput `pulumi:"functionsExtensionVersion"`
+	// The ID of the App Service Environment used by Function App.
+	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
@@ -237,6 +239,8 @@ type linuxFunctionAppState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The runtime version associated with the Function App. Defaults to `~4`.
 	FunctionsExtensionVersion *string `pulumi:"functionsExtensionVersion"`
+	// The ID of the App Service Environment used by Function App.
+	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
@@ -316,6 +320,8 @@ type LinuxFunctionAppState struct {
 	Enabled pulumi.BoolPtrInput
 	// The runtime version associated with the Function App. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrInput
+	// The ID of the App Service Environment used by Function App.
+	HostingEnvironmentId pulumi.StringPtrInput
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// A `identity` block as defined below.
@@ -655,6 +661,11 @@ func (o LinuxFunctionAppOutput) Enabled() pulumi.BoolPtrOutput {
 // The runtime version associated with the Function App. Defaults to `~4`.
 func (o LinuxFunctionAppOutput) FunctionsExtensionVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringPtrOutput { return v.FunctionsExtensionVersion }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the App Service Environment used by Function App.
+func (o LinuxFunctionAppOutput) HostingEnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringOutput { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
 // Can the Function App only be accessed via HTTPS? Defaults to `false`.

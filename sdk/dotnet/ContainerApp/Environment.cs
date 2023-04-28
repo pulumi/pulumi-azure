@@ -116,7 +116,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The Static IP of the Environment.
+        /// The Static IP address of the Environment.
         /// </summary>
         [Output("staticIpAddress")]
         public Output<string> StaticIpAddress { get; private set; } = null!;
@@ -290,7 +290,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The Static IP of the Environment.
+        /// The Static IP address of the Environment.
         /// </summary>
         [Input("staticIpAddress")]
         public Input<string>? StaticIpAddress { get; set; }

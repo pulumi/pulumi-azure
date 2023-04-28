@@ -174,6 +174,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
+        /// The ID of the App Service Environment used by App Service.
+        /// </summary>
+        public readonly string HostingEnvironmentId;
+        /// <summary>
         /// Should the Linux Web App require HTTPS connections.
         /// </summary>
         public readonly bool HttpsOnly;
@@ -276,6 +280,8 @@ namespace Pulumi.Azure.AppService
 
             bool enabled,
 
+            string hostingEnvironmentId,
+
             bool httpsOnly,
 
             string id,
@@ -329,6 +335,7 @@ namespace Pulumi.Azure.AppService
             CustomDomainVerificationId = customDomainVerificationId;
             DefaultHostname = defaultHostname;
             Enabled = enabled;
+            HostingEnvironmentId = hostingEnvironmentId;
             HttpsOnly = httpsOnly;
             Id = id;
             Identities = identities;

@@ -105,6 +105,8 @@ type LinuxWebAppSlot struct {
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Should the Linux Web App be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The ID of the App Service Environment used by App Service Slot.
+	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
 	// Should the Linux Web App require HTTPS connections.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
@@ -209,6 +211,8 @@ type linuxWebAppSlotState struct {
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Should the Linux Web App be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// The ID of the App Service Environment used by App Service Slot.
+	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
 	// Should the Linux Web App require HTTPS connections.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
@@ -274,6 +278,8 @@ type LinuxWebAppSlotState struct {
 	DefaultHostname pulumi.StringPtrInput
 	// Should the Linux Web App be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// The ID of the App Service Environment used by App Service Slot.
+	HostingEnvironmentId pulumi.StringPtrInput
 	// Should the Linux Web App require HTTPS connections.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
@@ -564,6 +570,11 @@ func (o LinuxWebAppSlotOutput) DefaultHostname() pulumi.StringOutput {
 // Should the Linux Web App be enabled? Defaults to `true`.
 func (o LinuxWebAppSlotOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the App Service Environment used by App Service Slot.
+func (o LinuxWebAppSlotOutput) HostingEnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
 // Should the Linux Web App require HTTPS connections.

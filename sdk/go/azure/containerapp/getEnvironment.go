@@ -77,7 +77,8 @@ type LookupEnvironmentResult struct {
 	// The IP address from the IP range defined by `platformReservedCidr` that is reserved for the internal DNS server.
 	PlatformReservedDnsIpAddress string `pulumi:"platformReservedDnsIpAddress"`
 	ResourceGroupName            string `pulumi:"resourceGroupName"`
-	StaticIpAddress              string `pulumi:"staticIpAddress"`
+	// The Static IP address of the Environment.
+	StaticIpAddress string `pulumi:"staticIpAddress"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -175,6 +176,7 @@ func (o LookupEnvironmentResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// The Static IP address of the Environment.
 func (o LookupEnvironmentResultOutput) StaticIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) string { return v.StaticIpAddress }).(pulumi.StringOutput)
 }

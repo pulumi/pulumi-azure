@@ -110,6 +110,10 @@ export interface GetLinuxFunctionAppResult {
      */
     readonly functionsExtensionVersion: string;
     /**
+     * The ID of the App Service Environment used by Function App.
+     */
+    readonly hostingEnvironmentId: string;
+    /**
      * Can the Function App only be accessed via HTTPS?
      */
     readonly httpsOnly: boolean;

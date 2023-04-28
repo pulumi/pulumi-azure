@@ -182,6 +182,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string FunctionsExtensionVersion;
         /// <summary>
+        /// The ID of the App Service Environment used by Function App.
+        /// </summary>
+        public readonly string HostingEnvironmentId;
+        /// <summary>
         /// Is the Function App only accessible via HTTPS?
         /// </summary>
         public readonly bool HttpsOnly;
@@ -295,6 +299,8 @@ namespace Pulumi.Azure.AppService
 
             string functionsExtensionVersion,
 
+            string hostingEnvironmentId,
+
             bool httpsOnly,
 
             string id,
@@ -352,6 +358,7 @@ namespace Pulumi.Azure.AppService
             DefaultHostname = defaultHostname;
             Enabled = enabled;
             FunctionsExtensionVersion = functionsExtensionVersion;
+            HostingEnvironmentId = hostingEnvironmentId;
             HttpsOnly = httpsOnly;
             Id = id;
             Identities = identities;

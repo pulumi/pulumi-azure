@@ -90,7 +90,7 @@ type Environment struct {
 	PlatformReservedDnsIpAddress pulumi.StringOutput `pulumi:"platformReservedDnsIpAddress"`
 	// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The Static IP of the Environment.
+	// The Static IP address of the Environment.
 	StaticIpAddress pulumi.StringOutput `pulumi:"staticIpAddress"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -151,7 +151,7 @@ type environmentState struct {
 	PlatformReservedDnsIpAddress *string `pulumi:"platformReservedDnsIpAddress"`
 	// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The Static IP of the Environment.
+	// The Static IP address of the Environment.
 	StaticIpAddress *string `pulumi:"staticIpAddress"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -178,7 +178,7 @@ type EnvironmentState struct {
 	PlatformReservedDnsIpAddress pulumi.StringPtrInput
 	// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The Static IP of the Environment.
+	// The Static IP address of the Environment.
 	StaticIpAddress pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -360,7 +360,7 @@ func (o EnvironmentOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The Static IP of the Environment.
+// The Static IP address of the Environment.
 func (o EnvironmentOutput) StaticIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.StaticIpAddress }).(pulumi.StringOutput)
 }

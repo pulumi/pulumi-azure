@@ -76,6 +76,8 @@ type Provider struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// One or more `policy` blocks as defined below.
+	Policies ProviderPolicyArrayOutput `pulumi:"policies"`
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	PolicySigningCertificateData pulumi.StringPtrOutput `pulumi:"policySigningCertificateData"`
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
@@ -124,6 +126,8 @@ type providerState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// One or more `policy` blocks as defined below.
+	Policies []ProviderPolicy `pulumi:"policies"`
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	PolicySigningCertificateData *string `pulumi:"policySigningCertificateData"`
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
@@ -141,6 +145,8 @@ type ProviderState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// One or more `policy` blocks as defined below.
+	Policies ProviderPolicyArrayInput
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	PolicySigningCertificateData pulumi.StringPtrInput
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
@@ -160,6 +166,8 @@ type providerArgs struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// One or more `policy` blocks as defined below.
+	Policies []ProviderPolicy `pulumi:"policies"`
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	PolicySigningCertificateData *string `pulumi:"policySigningCertificateData"`
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
@@ -174,6 +182,8 @@ type ProviderArgs struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// One or more `policy` blocks as defined below.
+	Policies ProviderPolicyArrayInput
 	// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
 	PolicySigningCertificateData pulumi.StringPtrInput
 	// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
@@ -282,6 +292,11 @@ func (o ProviderOutput) Location() pulumi.StringOutput {
 // The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
 func (o ProviderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// One or more `policy` blocks as defined below.
+func (o ProviderOutput) Policies() ProviderPolicyArrayOutput {
+	return o.ApplyT(func(v *Provider) ProviderPolicyArrayOutput { return v.Policies }).(ProviderPolicyArrayOutput)
 }
 
 // A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.

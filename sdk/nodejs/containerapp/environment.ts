@@ -104,7 +104,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The Static IP of the Environment.
+     * The Static IP address of the Environment.
      */
     public /*out*/ readonly staticIpAddress!: pulumi.Output<string>;
     /**
@@ -208,7 +208,7 @@ export interface EnvironmentState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The Static IP of the Environment.
+     * The Static IP address of the Environment.
      */
     staticIpAddress?: pulumi.Input<string>;
     /**

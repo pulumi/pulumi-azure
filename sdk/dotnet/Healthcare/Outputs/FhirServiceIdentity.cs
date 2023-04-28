@@ -13,6 +13,7 @@ namespace Pulumi.Azure.Healthcare.Outputs
     [OutputType]
     public sealed class FhirServiceIdentity
     {
+        public readonly ImmutableArray<string> IdentityIds;
         public readonly string? PrincipalId;
         public readonly string? TenantId;
         /// <summary>
@@ -22,12 +23,15 @@ namespace Pulumi.Azure.Healthcare.Outputs
 
         [OutputConstructor]
         private FhirServiceIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

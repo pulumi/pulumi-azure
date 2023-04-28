@@ -115,6 +115,10 @@ export class WindowsWebApp extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The ID of the App Service Environment used by App Service.
+     */
+    public /*out*/ readonly hostingEnvironmentId!: pulumi.Output<string>;
+    /**
      * Should the Windows Web App require HTTPS connections.
      */
     public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
@@ -220,6 +224,7 @@ export class WindowsWebApp extends pulumi.CustomResource {
             resourceInputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
             resourceInputs["defaultHostname"] = state ? state.defaultHostname : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["hostingEnvironmentId"] = state ? state.hostingEnvironmentId : undefined;
             resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["keyVaultReferenceIdentityId"] = state ? state.keyVaultReferenceIdentityId : undefined;
@@ -277,6 +282,7 @@ export class WindowsWebApp extends pulumi.CustomResource {
             resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
+            resourceInputs["hostingEnvironmentId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["outboundIpAddressLists"] = undefined /*out*/;
             resourceInputs["outboundIpAddresses"] = undefined /*out*/;
@@ -343,6 +349,10 @@ export interface WindowsWebAppState {
      * Should the Windows Web App be enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The ID of the App Service Environment used by App Service.
+     */
+    hostingEnvironmentId?: pulumi.Input<string>;
     /**
      * Should the Windows Web App require HTTPS connections.
      */

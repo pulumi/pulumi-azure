@@ -5,6 +5,7 @@ package com.pulumi.azure.media.outputs;
 
 import com.pulumi.azure.media.outputs.TransformOutputAudioAnalyzerPreset;
 import com.pulumi.azure.media.outputs.TransformOutputBuiltinPreset;
+import com.pulumi.azure.media.outputs.TransformOutputCustomPreset;
 import com.pulumi.azure.media.outputs.TransformOutputFaceDetectorPreset;
 import com.pulumi.azure.media.outputs.TransformOutputVideoAnalyzerPreset;
 import com.pulumi.core.annotations.CustomType;
@@ -16,27 +17,32 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TransformOutput {
     /**
-     * @return A `audio_analyzer_preset` block as defined below.
+     * @return An `audio_analyzer_preset` block as defined above.
      * 
      */
     private @Nullable TransformOutputAudioAnalyzerPreset audioAnalyzerPreset;
     /**
-     * @return A `builtin_preset` block as defined below.
+     * @return A `builtin_preset` block as defined above.
      * 
      */
     private @Nullable TransformOutputBuiltinPreset builtinPreset;
     /**
-     * @return A `face_detector_preset` block as defined below.
+     * @return A `custom_preset` block as defined above.
+     * 
+     */
+    private @Nullable TransformOutputCustomPreset customPreset;
+    /**
+     * @return A `face_detector_preset` block as defined above.
      * 
      */
     private @Nullable TransformOutputFaceDetectorPreset faceDetectorPreset;
     /**
-     * @return A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+     * @return A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
      * 
      */
     private @Nullable String onErrorAction;
     /**
-     * @return Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+     * @return Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
      * 
      */
     private @Nullable String relativePriority;
@@ -48,35 +54,42 @@ public final class TransformOutput {
 
     private TransformOutput() {}
     /**
-     * @return A `audio_analyzer_preset` block as defined below.
+     * @return An `audio_analyzer_preset` block as defined above.
      * 
      */
     public Optional<TransformOutputAudioAnalyzerPreset> audioAnalyzerPreset() {
         return Optional.ofNullable(this.audioAnalyzerPreset);
     }
     /**
-     * @return A `builtin_preset` block as defined below.
+     * @return A `builtin_preset` block as defined above.
      * 
      */
     public Optional<TransformOutputBuiltinPreset> builtinPreset() {
         return Optional.ofNullable(this.builtinPreset);
     }
     /**
-     * @return A `face_detector_preset` block as defined below.
+     * @return A `custom_preset` block as defined above.
+     * 
+     */
+    public Optional<TransformOutputCustomPreset> customPreset() {
+        return Optional.ofNullable(this.customPreset);
+    }
+    /**
+     * @return A `face_detector_preset` block as defined above.
      * 
      */
     public Optional<TransformOutputFaceDetectorPreset> faceDetectorPreset() {
         return Optional.ofNullable(this.faceDetectorPreset);
     }
     /**
-     * @return A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
+     * @return A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
      * 
      */
     public Optional<String> onErrorAction() {
         return Optional.ofNullable(this.onErrorAction);
     }
     /**
-     * @return Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
+     * @return Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
      * 
      */
     public Optional<String> relativePriority() {
@@ -101,6 +114,7 @@ public final class TransformOutput {
     public static final class Builder {
         private @Nullable TransformOutputAudioAnalyzerPreset audioAnalyzerPreset;
         private @Nullable TransformOutputBuiltinPreset builtinPreset;
+        private @Nullable TransformOutputCustomPreset customPreset;
         private @Nullable TransformOutputFaceDetectorPreset faceDetectorPreset;
         private @Nullable String onErrorAction;
         private @Nullable String relativePriority;
@@ -110,6 +124,7 @@ public final class TransformOutput {
     	      Objects.requireNonNull(defaults);
     	      this.audioAnalyzerPreset = defaults.audioAnalyzerPreset;
     	      this.builtinPreset = defaults.builtinPreset;
+    	      this.customPreset = defaults.customPreset;
     	      this.faceDetectorPreset = defaults.faceDetectorPreset;
     	      this.onErrorAction = defaults.onErrorAction;
     	      this.relativePriority = defaults.relativePriority;
@@ -124,6 +139,11 @@ public final class TransformOutput {
         @CustomType.Setter
         public Builder builtinPreset(@Nullable TransformOutputBuiltinPreset builtinPreset) {
             this.builtinPreset = builtinPreset;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customPreset(@Nullable TransformOutputCustomPreset customPreset) {
+            this.customPreset = customPreset;
             return this;
         }
         @CustomType.Setter
@@ -150,6 +170,7 @@ public final class TransformOutput {
             final var o = new TransformOutput();
             o.audioAnalyzerPreset = audioAnalyzerPreset;
             o.builtinPreset = builtinPreset;
+            o.customPreset = customPreset;
             o.faceDetectorPreset = faceDetectorPreset;
             o.onErrorAction = onErrorAction;
             o.relativePriority = relativePriority;
