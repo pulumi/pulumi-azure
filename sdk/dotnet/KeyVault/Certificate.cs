@@ -21,11 +21,12 @@ namespace Pulumi.Azure.KeyVault
     /// using System;
     /// using System.Collections.Generic;
     /// using System.IO;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
     /// 	private static string ReadFileBase64(string path) {
-    /// 		return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)))
+    /// 		return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)));
     /// 	}
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
@@ -114,6 +115,7 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 

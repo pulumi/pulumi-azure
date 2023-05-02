@@ -18,6 +18,7 @@ namespace Pulumi.Azure.Automation
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
