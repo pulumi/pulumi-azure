@@ -17,6 +17,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
@@ -101,6 +102,7 @@ namespace Pulumi.Azure.AppService
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
+    /// using System.Linq;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;

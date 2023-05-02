@@ -22,6 +22,7 @@ namespace Pulumi.Azure.Core
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 

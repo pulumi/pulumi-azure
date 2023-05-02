@@ -16,6 +16,7 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;

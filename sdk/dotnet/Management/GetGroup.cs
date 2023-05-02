@@ -20,6 +20,7 @@ namespace Pulumi.Azure.Management
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
@@ -51,6 +52,7 @@ namespace Pulumi.Azure.Management
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 

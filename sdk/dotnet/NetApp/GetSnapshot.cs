@@ -18,6 +18,7 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
@@ -49,6 +50,7 @@ namespace Pulumi.Azure.NetApp
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 

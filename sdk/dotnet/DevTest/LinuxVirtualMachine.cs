@@ -17,6 +17,7 @@ namespace Pulumi.Azure.DevTest
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 

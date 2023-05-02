@@ -16,6 +16,7 @@ namespace Pulumi.Azure.WebPubSub
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
