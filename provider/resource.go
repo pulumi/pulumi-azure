@@ -32,6 +32,7 @@ import (
 	"github.com/hashicorp/terraform-provider-azurerm/shim"
 	"github.com/pulumi/pulumi-azure/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	tfshim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -174,7 +175,7 @@ var moduleMap = map[string]string{
 	"aadb2c":               aadb2c,
 	"advisor":              advisor,
 	"analysis_services":    azureAnalysisServices,
-	"api":                  azureAPIManagement,
+	"api_management":       azureAPIManagement,
 	"app":                  azureAppConfiguration,
 	"application_insights": azureAppInsights,
 	// Ignored: azureAppPlatform. Resources and datasources with this prefix are mapped into
@@ -566,11 +567,6 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
-			// Azure Active Directory Business to Consumer
-			"azurerm_aadb2c_directory": {
-				Tok: azureResource(aadb2c, "Directory"),
-			},
-
 			// ActiveDirectoryDomainService
 			"azurerm_active_directory_domain_service": {
 				Tok: azureResource(azureDomainServices, "Service"),
@@ -617,9 +613,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_authorization_server":            {Tok: azureResource(azureAPIManagement, "AuthorizationServer")},
 			"azurerm_api_management_backend":                         {Tok: azureResource(azureAPIManagement, "Backend")},
 			"azurerm_api_management_certificate":                     {Tok: azureResource(azureAPIManagement, "Certificate")},
-			"azurerm_api_management_group":                           {Tok: azureResource(azureAPIManagement, "Group")},
-			"azurerm_api_management_group_user":                      {Tok: azureResource(azureAPIManagement, "GroupUser")},
-			"azurerm_api_management_logger":                          {Tok: azureResource(azureAPIManagement, "Logger")},
 			"azurerm_api_management_openid_connect_provider":         {Tok: azureResource(azureAPIManagement, "OpenIdConnectProvider")},
 			"azurerm_api_management_product":                         {Tok: azureResource(azureAPIManagement, "Product")},
 			"azurerm_api_management_product_api":                     {Tok: azureResource(azureAPIManagement, "ProductApi")},
@@ -658,9 +651,6 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_api_management_api_tag_description": {Tok: azureResource(azureAPIManagement, "ApiTagDescription")},
-
-			// Analysis Services
-			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
 
 			// AppInsights
 			"azurerm_application_insights": {
@@ -722,7 +712,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"azurerm_app_service_custom_hostname_binding": {Tok: azureResource(azureAppService, "CustomHostnameBinding")},
 			"azurerm_app_service_plan": {
 				Tok: azureResource(azureAppService, "Plan"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2700,7 +2689,6 @@ func Provider() tfbridge.ProviderInfo {
 
 			// VMWare
 			"azurerm_vmware_private_cloud": {Tok: azureResource(azureAvs, "PrivateCloud")},
-			"azurerm_vmware_cluster":       {Tok: azureResource(azureAvs, "Cluster")},
 			"azurerm_vmware_express_route_authorization": {
 				Tok: azureResource(azureAvs, "ExpressRouteAuthorization"),
 			},
@@ -2968,11 +2956,6 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_key_vault_access_policy":      {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
-			"azurerm_key_vault_key":                {Tok: azureDataSource(azureKeyVault, "getKey")},
-			"azurerm_key_vault_secret":             {Tok: azureDataSource(azureKeyVault, "getSecret")},
-			"azurerm_key_vault_certificate":        {Tok: azureDataSource(azureKeyVault, "getCertificate")},
-			"azurerm_key_vault_certificates":       {Tok: azureDataSource(azureKeyVault, "getCertificates")},
 			"azurerm_key_vault_certificate_issuer": {Tok: azureDataSource(azureKeyVault, "getCertificateIssuer")},
 			"azurerm_key_vault_certificate_data":   {Tok: azureDataSource(azureKeyVault, "getCertificateData")},
 			"azurerm_key_vault_managed_hardware_security_module": {
@@ -3186,7 +3169,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sentinel_alert_rule_template":         {Tok: azureDataSource(azureSentinel, "getAlertRuleTemplate")},
 			"azurerm_maintenance_configuration":            {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
 			"azurerm_public_maintenance_configurations":    {Tok: azureDataSource(azureMaintenance, "getPublicConfigurations")},
-			"azurerm_advisor_recommendations":              {Tok: azureDataSource(advisor, "getRecommendations")},
 			"azurerm_active_directory_domain_service":      {Tok: azureDataSource(azureDomainServices, "getService")},
 			"azurerm_blueprint_definition":                 {Tok: azureDataSource(azureBlueprint, "getDefinition")},
 			"azurerm_blueprint_published_version":          {Tok: azureDataSource(azureBlueprint, "getPublishedVersion")},
@@ -3210,7 +3192,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cognitive_account":                 {Tok: azureDataSource(azureCognitive, "getAccount")},
 			"azurerm_digital_twins_instance":            {Tok: azureDataSource(azureDigitalTwins, "getInstance")},
 			"azurerm_search_service":                    {Tok: azureDataSource(azureSearch, "getService")},
-			"azurerm_vmware_private_cloud":              {Tok: azureDataSource(azureAvs, "getPrivateCloud")},
 			"azurerm_billing_enrollment_account_scope":  {Tok: azureDataSource(azureBilling, "getEnrollmentAccountScope")},
 			"azurerm_billing_mca_account_scope":         {Tok: azureDataSource(azureBilling, "getMcaAccountScope")},
 			"azurerm_billing_mpa_account_scope":         {Tok: azureDataSource(azureBilling, "getMpaAccountScope")},
@@ -3578,6 +3559,12 @@ func Provider() tfbridge.ProviderInfo {
 			}),
 		},
 	}
+
+	err := x.ComputeDefaults(&prov, x.TokensMappedModules("azurerm_", "",
+		moduleMap, func(mod, name string) (string, error) {
+			return azureResource(mod, name).String(), nil
+		}))
+	contract.AssertNoErrorf(err, "failed to compute default tokens")
 
 	prov.SetAutonaming(24, "")
 
