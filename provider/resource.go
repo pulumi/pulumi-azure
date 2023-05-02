@@ -170,6 +170,149 @@ const (
 	azureLegacyTrafficManager   = "TrafficManager"     // Traffic Manager (Legacy)
 )
 
+var moduleMap = map[string]string{
+	"aadb2c":               aadb2c,
+	"advisor":              advisor,
+	"analysis_services":    azureAnalysisServices,
+	"api":                  azureAPIManagement,
+	"app":                  azureAppConfiguration,
+	"application_insights": azureAppInsights,
+	// Ignored: azureAppPlatform. Resources and datasources with this prefix are mapped into
+	// azurerm_spring_${rest} to ${pkg}:AppPlatform:camel(spring_${rest}).
+	"app_service":    azureAppService,
+	"arc_kubernetes": azureArcKubernetes,
+	//Ignored: armMsi. Only used for the token "azurerm_federated_identity_credential".
+	"attestation": azureAttestation,
+	"automation":  azureAutomation,
+	// Ignored: azureAuthorization. Only used with RenameResourceWithAlias
+	"vmware":        azureAvs,
+	"backup":        azureBackup,
+	"batch":         azureBatch,
+	"billing":       azureBilling,
+	"blueprint":     azureBlueprint,
+	"bot":           azureBot,
+	"cdn":           azureCDN,
+	"cognitive":     azureCognitive,
+	"communication": azureCommunication,
+	// Ignored: azureCompute. No clear token pattern. Tokens that map to azureCompute include:
+	//
+	// "azurerm_disk_encryption_set
+	// "azurerm_dedicated_host"
+	// "azurerm_image"
+	// and many more
+
+	// Ignored: azureConfidentialLedger.
+	// The only token is "azurerm_confidential_ledger".
+
+	// Ignored: azureConnections.  The only token is "azurerm_api_connection" and
+	// "azurerm_managed_api". Note that `_api` is involved in many modules.
+
+	"consumption":   azureConsumption,
+	"container_app": azureContainerApp,
+	"container":     azureContainerService,
+
+	// Ignored: azureCore.  Includes tokens such as "azurerm_resource_group" and
+	// "azurerm_template_deployment". While every entry that starts with
+	// resource_group is azureCore, they still include ResourceGroup in Pulumi name.
+	"cosmosdb": azureCosmosDB,
+
+	// cost_management is truncated as if it didn't exit.
+	"cost_management": azureCostManagement,
+	"cost":            azureCostManagement,
+
+	"dashboard":               azureDashboard,
+	"database_migration":      azureDatabaseMigration,
+	"databox_edge":            azureDataboxEdge,
+	"datadog":                 azureDatadog,
+	"data_factory":            azureDataFactory,
+	"data_protection":         azureDataProtection,
+	"data_share":              azureDataShare,
+	"databricks":              azureDataBricks,
+	"virtual_desktop":         azureDesktopVirtualization,
+	"dev_test":                azureDevTest,
+	"digital_twins":           azureDigitalTwins,
+	"dns":                     azureDNS,
+	"active_directory_domain": azureDomainServices,
+	"elastic_cloud":           azureElasticCloud,
+	"fluid_relay":             azureFluidRelay,
+	"frontdoor":               azureFrontdoor,
+	"hdinsight":               azureHdInsight,
+	"healthcare":              azureHealthcare,
+	"hpc":                     azureHpc,
+	// Ignored: azureHsm. The only token is "azurerm_dedicated_hardware_security_module".
+	"hybrid":      azureHybrid,
+	"iothub":      azureIot,
+	"iotcentral":  azureIotCentral,
+	"key_vault":   azureKeyVault,
+	"kusto":       azureKusto,
+	"lab_service": azureLab,
+	"lighthouse":  azureLighthouse,
+	// Ignored: azureLogAnalytics. The token prefix log_ maps into either
+	// azureOperationalInsights or azureLogInsights. Its not clear which from the
+	// token.
+	"logic_app": azureLogicApps,
+	"lb":        azureLB,
+	// Ignored: azureLoadTest. The only token is "azurerm_load_test".
+	"mariadb":             azureMariaDB,
+	"eventgrid":           azureEventGrid,
+	"eventhub":            azureEventHub,
+	"machine_learning":    azureMachineLearning,
+	"maintenance":         azureMaintenance,
+	"managed_application": azureManagedApplication,
+	"management":          azureManagement,
+	"maps":                azureMaps,
+	"marketplace":         azureMarketPlace,
+	"media_services":      azureMediaServices,
+	"media":               azureMedia,
+	// Ignored: azureMixedReality. The only token is "azurerm_spatial_anchors_account".
+	"monitor": azureMonitoring,
+	"mobile":  azureMobile,
+	"mssql":   azureMSSQL,
+	"mysql":   azureMySQL,
+	"netapp":  azureNetapp,
+	// Ignored: azureNetwork. Tokens don't loose there prefix here, so we can't use
+	// this automapper.
+	"nginx":            azureNginx,
+	"notification_hub": azureNotificationHub,
+	// Ignored: azureOperationalInsights. The token prefix log_ maps into either
+	// azureOperationalInsights or azureLogInsights. Its not clear which from the
+	// token.
+	"orbital":    azureOrbital,
+	"postgresql": azurePostgresql,
+	"policy":     azurePolicy,
+	// Ignored: azurePortal. The token prefix is included in the output.
+	"powerbi":     azurePowerBi,
+	"proximity":   azureProximity,
+	"private_dns": azurePrivateDNS,
+
+	// Both map to private link
+	"private_link":     azurePrivateLink,
+	"private_endpoint": azurePrivateLink,
+
+	"purview":                  azurePurview,
+	"recovery_services":        azureRecoveryServices,
+	"redis":                    azureRedis,
+	"relay":                    azureRelay,
+	"security_center":          azureSecurityCenter,
+	"sentinel":                 azureSentinel,
+	"servicebus":               azureServiceBus,
+	"service_fabric":           azureServiceFabric,
+	"search":                   azureSearch,
+	"signalr":                  azureSignalr,
+	"site_recovery":            azureSiteRecovery,
+	"sql":                      azureSQL,
+	"stack":                    azureStack,
+	"storage":                  azureStorage,
+	"stream_analytics":         azureStreamAnalytics,
+	"synapse":                  azureSynapse,
+	"video_analyzer":           azureVideoAnalyzer,
+	"voice":                    azureVoice,
+	"web_application_firewall": azureWaf,
+	"web_pubsub":               azureWebPubSub,
+
+	// We don't apply mappings to legacy roles, so they are omitted here.
+}
+
 var namespaceMap = map[string]string{
 	"azure": "Azure",
 }
