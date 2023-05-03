@@ -178,8 +178,11 @@ var moduleMap = map[string]string{
 	"api_management":       azureAPIManagement,
 	"app":                  azureAppConfiguration,
 	"application_insights": azureAppInsights,
-	// Ignored: azureAppPlatform. Resources and datasources with this prefix are mapped into
+
+	// Resources and datasources with this prefix are mapped from
 	// azurerm_spring_${rest} to ${pkg}:AppPlatform:camel(spring_${rest}).
+	"spring": azureAppPlatform + "~Spring",
+
 	"app_service":    azureAppService,
 	"arc_kubernetes": azureArcKubernetes,
 	//Ignored: armMsi. Only used for the token "azurerm_federated_identity_credential".
@@ -903,36 +906,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_source_control_token":                     {Tok: azureResource(azureAppService, "SourceControlToken")},
 
 			// AppPlatform
-			"azurerm_spring_cloud_service":                  {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
-			"azurerm_spring_cloud_app":                      {Tok: azureResource(azureAppPlatform, "SpringCloudApp")},
-			"azurerm_spring_cloud_certificate":              {Tok: azureResource(azureAppPlatform, "SpringCloudCertificate")},
-			"azurerm_spring_cloud_active_deployment":        {Tok: azureResource(azureAppPlatform, "SpringCloudActiveDeployment")},
-			"azurerm_spring_cloud_java_deployment":          {Tok: azureResource(azureAppPlatform, "SpringCloudJavaDeployment")},
-			"azurerm_spring_cloud_custom_domain":            {Tok: azureResource(azureAppPlatform, "SpringCloudCustomDomain")},
-			"azurerm_spring_cloud_app_redis_association":    {Tok: azureResource(azureAppPlatform, "SpringCloudAppRedisAssociation")},
-			"azurerm_spring_cloud_app_mysql_association":    {Tok: azureResource(azureAppPlatform, "SpringCloudAppMysqlAssociation")},
 			"azurerm_spring_cloud_app_cosmosdb_association": {Tok: azureResource(azureAppPlatform, "SpringCloudAppCosmosDBAssociation")},
-			"azurerm_spring_cloud_storage":                  {Tok: azureResource(azureAppPlatform, "SpringCloudStorage")},
-			"azurerm_spring_cloud_container_deployment":     {Tok: azureResource(azureAppPlatform, "SpringCloudContainerDeployment")},
-			"azurerm_spring_cloud_build_pack_binding":       {Tok: azureResource(azureAppPlatform, "SpringCloudBuildPackBinding")},
-			"azurerm_spring_cloud_builder":                  {Tok: azureResource(azureAppPlatform, "SpringCloudBuilder")},
-			"azurerm_spring_cloud_configuration_service":    {Tok: azureResource(azureAppPlatform, "SpringCloudConfigurationService")},
-			"azurerm_spring_cloud_gateway":                  {Tok: azureResource(azureAppPlatform, "SpringCloudGateway")},
-			"azurerm_spring_cloud_gateway_custom_domain":    {Tok: azureResource(azureAppPlatform, "SpringCloudGatewayCustomDomain")},
-			"azurerm_spring_cloud_api_portal":               {Tok: azureResource(azureAppPlatform, "SpringCloudApiPortal")},
-			"azurerm_spring_cloud_build_deployment":         {Tok: azureResource(azureAppPlatform, "SpringCloudBuildDeployment")},
-			"azurerm_spring_cloud_gateway_route_config":     {Tok: azureResource(azureAppPlatform, "SpringCloudGatewayRouteConfig")},
-			"azurerm_spring_cloud_api_portal_custom_domain": {Tok: azureResource(azureAppPlatform, "SpringCloudApiPortalCustomDomain")},
-			"azurerm_spring_cloud_application_live_view":    {Tok: azureResource(azureAppPlatform, "SpringCloudApplicationLiveView")},
 			"azurerm_spring_cloud_connection": {
 				Tok: azureResource(azureAppPlatform, "SpringCloudConnection"),
 				Docs: &tfbridge.DocInfo{
 					Source: "service_connector_spring_cloud.html.markdown",
 				},
 			},
-			"azurerm_spring_cloud_accelerator":            {Tok: azureResource(azureAppPlatform, "SpringCloudAccelerator")},
-			"azurerm_spring_cloud_dev_tool_portal":        {Tok: azureResource(azureAppPlatform, "SpringCloudDevToolPortal")},
-			"azurerm_spring_cloud_customized_accelerator": {Tok: azureResource(azureAppPlatform, "SpringCloudCustomizedAccelerator")},
 
 			// Automation
 			"azurerm_automation_account":                {Tok: azureResource(azureAutomation, "Account")},
@@ -3163,17 +3143,16 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_machine_learning_workspace":           {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
 			"azurerm_managed_application_definition":       {Tok: azureDataSource(azureManagedApplication, "getDefinition")},
 			"azurerm_management_group_template_deployment": {Tok: azureDataSource(azureManagement, "getGroupTemplateDeployment")},
-			"azurerm_spring_cloud_service":                 {Tok: azureDataSource(azureAppPlatform, "getSpringCloudService")},
-			"azurerm_spring_cloud_app":                     {Tok: azureDataSource(azureAppPlatform, "getSpringCloudApp")},
-			"azurerm_sentinel_alert_rule":                  {Tok: azureDataSource(azureSentinel, "getAlertRule")},
-			"azurerm_sentinel_alert_rule_template":         {Tok: azureDataSource(azureSentinel, "getAlertRuleTemplate")},
-			"azurerm_maintenance_configuration":            {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
-			"azurerm_public_maintenance_configurations":    {Tok: azureDataSource(azureMaintenance, "getPublicConfigurations")},
-			"azurerm_active_directory_domain_service":      {Tok: azureDataSource(azureDomainServices, "getService")},
-			"azurerm_blueprint_definition":                 {Tok: azureDataSource(azureBlueprint, "getDefinition")},
-			"azurerm_blueprint_published_version":          {Tok: azureDataSource(azureBlueprint, "getPublishedVersion")},
-			"azurerm_web_application_firewall_policy":      {Tok: azureDataSource(azureWaf, "getFirewallPolicy")},
-			"azurerm_synapse_workspace":                    {Tok: azureDataSource(azureSynapse, "getWorkspace")},
+
+			"azurerm_sentinel_alert_rule":               {Tok: azureDataSource(azureSentinel, "getAlertRule")},
+			"azurerm_sentinel_alert_rule_template":      {Tok: azureDataSource(azureSentinel, "getAlertRuleTemplate")},
+			"azurerm_maintenance_configuration":         {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
+			"azurerm_public_maintenance_configurations": {Tok: azureDataSource(azureMaintenance, "getPublicConfigurations")},
+			"azurerm_active_directory_domain_service":   {Tok: azureDataSource(azureDomainServices, "getService")},
+			"azurerm_blueprint_definition":              {Tok: azureDataSource(azureBlueprint, "getDefinition")},
+			"azurerm_blueprint_published_version":       {Tok: azureDataSource(azureBlueprint, "getPublishedVersion")},
+			"azurerm_web_application_firewall_policy":   {Tok: azureDataSource(azureWaf, "getFirewallPolicy")},
+			"azurerm_synapse_workspace":                 {Tok: azureDataSource(azureSynapse, "getWorkspace")},
 			"azurerm_attestation_provider": {
 				Tok: azureDataSource(azureAttestation, "getProvider"),
 				Docs: &tfbridge.DocInfo{
@@ -3560,10 +3539,28 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
+	// Some mappings do not split cleanly. We use "~" as a separator for a module and
+	// the mandatory prefix for each token.
+	//
+	// For example, the `moduleMap` has this mapping:
+	//
+	//     "spring": azureAppPlatform + "~Spring",
+	//
+	// This allows us to map tokens such as `"azurerm_spring_cloud_app"` into
+	// `azureResource(azureAppPlatform, "SpringCloudApp")`.
+	makeToken := func(mod, name string) (string, error) {
+		if m, e, ok := strings.Cut(mod, "~"); ok {
+			mod = m
+			if strings.HasPrefix(name, "get") {
+				name = "get" + e + name[3:]
+			} else {
+				name = e + name
+			}
+		}
+		return azureResource(mod, name).String(), nil
+	}
 	err := x.ComputeDefaults(&prov, x.TokensMappedModules("azurerm_", "",
-		moduleMap, func(mod, name string) (string, error) {
-			return azureResource(mod, name).String(), nil
-		}))
+		moduleMap, makeToken))
 	contract.AssertNoErrorf(err, "failed to compute default tokens")
 
 	prov.SetAutonaming(24, "")
