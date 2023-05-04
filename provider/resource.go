@@ -32,6 +32,7 @@ import (
 	"github.com/hashicorp/terraform-provider-azurerm/shim"
 	"github.com/pulumi/pulumi-azure/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	tfshim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -169,6 +170,152 @@ const (
 	azureLegacyMgmtResource     = "ManagementResource" // Management Resource (Legacy)
 	azureLegacyTrafficManager   = "TrafficManager"     // Traffic Manager (Legacy)
 )
+
+var moduleMap = map[string]string{
+	"aadb2c":               aadb2c,
+	"advisor":              advisor,
+	"analysis_services":    azureAnalysisServices,
+	"api_management":       azureAPIManagement,
+	"app":                  azureAppConfiguration,
+	"application_insights": azureAppInsights,
+
+	// Resources and datasources with this prefix are mapped from
+	// azurerm_spring_${rest} to ${pkg}:AppPlatform:camel(spring_${rest}).
+	"spring": azureAppPlatform + "~Spring",
+
+	"app_service":    azureAppService,
+	"arc_kubernetes": azureArcKubernetes,
+	//Ignored: armMsi. Only used for the token "azurerm_federated_identity_credential".
+	"attestation": azureAttestation,
+	"automation":  azureAutomation,
+	// Ignored: azureAuthorization. Only used with RenameResourceWithAlias
+	"vmware":        azureAvs,
+	"backup":        azureBackup,
+	"batch":         azureBatch,
+	"billing":       azureBilling,
+	"blueprint":     azureBlueprint,
+	"bot":           azureBot,
+	"cdn":           azureCDN,
+	"cognitive":     azureCognitive,
+	"communication": azureCommunication,
+	// Ignored: azureCompute. No clear token pattern. Tokens that map to azureCompute include:
+	//
+	// "azurerm_disk_encryption_set
+	// "azurerm_dedicated_host"
+	// "azurerm_image"
+	// and many more
+
+	// Ignored: azureConfidentialLedger.
+	// The only token is "azurerm_confidential_ledger".
+
+	// Ignored: azureConnections.  The only token is "azurerm_api_connection" and
+	// "azurerm_managed_api". Note that `_api` is involved in many modules.
+
+	"consumption":   azureConsumption,
+	"container_app": azureContainerApp,
+	"container":     azureContainerService,
+
+	// Ignored: azureCore.  Includes tokens such as "azurerm_resource_group" and
+	// "azurerm_template_deployment". While every entry that starts with
+	// resource_group is azureCore, they still include ResourceGroup in Pulumi name.
+	"cosmosdb": azureCosmosDB,
+
+	// cost_management is truncated as if it didn't exit.
+	"cost_management": azureCostManagement,
+	"cost":            azureCostManagement,
+
+	"dashboard":               azureDashboard,
+	"database_migration":      azureDatabaseMigration,
+	"databox_edge":            azureDataboxEdge,
+	"datadog":                 azureDatadog,
+	"data_factory":            azureDataFactory,
+	"data_protection":         azureDataProtection,
+	"data_share":              azureDataShare,
+	"databricks":              azureDataBricks,
+	"virtual_desktop":         azureDesktopVirtualization,
+	"dev_test":                azureDevTest,
+	"digital_twins":           azureDigitalTwins,
+	"dns":                     azureDNS,
+	"active_directory_domain": azureDomainServices,
+	"elastic_cloud":           azureElasticCloud,
+	"fluid_relay":             azureFluidRelay,
+	"frontdoor":               azureFrontdoor,
+	"hdinsight":               azureHdInsight,
+	"healthcare":              azureHealthcare,
+	"hpc":                     azureHpc,
+	// Ignored: azureHsm. The only token is "azurerm_dedicated_hardware_security_module".
+	"hybrid":      azureHybrid,
+	"iothub":      azureIot,
+	"iotcentral":  azureIotCentral,
+	"key_vault":   azureKeyVault,
+	"kusto":       azureKusto,
+	"lab_service": azureLab,
+	"lighthouse":  azureLighthouse,
+	// Ignored: azureLogAnalytics. The token prefix log_ maps into either
+	// azureOperationalInsights or azureLogInsights. Its not clear which from the
+	// token.
+	"logic_app": azureLogicApps,
+	"lb":        azureLB,
+	// Ignored: azureLoadTest. The only token is "azurerm_load_test".
+	"mariadb":             azureMariaDB,
+	"eventgrid":           azureEventGrid,
+	"eventhub":            azureEventHub,
+	"machine_learning":    azureMachineLearning,
+	"maintenance":         azureMaintenance,
+	"managed_application": azureManagedApplication,
+	"management":          azureManagement,
+	"maps":                azureMaps,
+	"marketplace":         azureMarketPlace,
+	"media_services":      azureMediaServices,
+	"media":               azureMedia,
+	// Ignored: azureMixedReality. The only token is "azurerm_spatial_anchors_account".
+	"monitor": azureMonitoring,
+	"mobile":  azureMobile,
+	"mssql":   azureMSSQL,
+	"mysql":   azureMySQL,
+	"netapp":  azureNetapp,
+	// Ignored: azureNetwork. Tokens don't loose there prefix here, so we can't use
+	// this automapper.
+	"nginx":            azureNginx,
+	"notification_hub": azureNotificationHub,
+	// Ignored: azureOperationalInsights. The token prefix log_ maps into either
+	// azureOperationalInsights or azureLogInsights. Its not clear which from the
+	// token.
+	"orbital":    azureOrbital,
+	"postgresql": azurePostgresql,
+	"policy":     azurePolicy,
+	// Ignored: azurePortal. The token prefix is included in the output.
+	"powerbi":     azurePowerBi,
+	"proximity":   azureProximity,
+	"private_dns": azurePrivateDNS,
+
+	// Both map to private link
+	"private_link":     azurePrivateLink,
+	"private_endpoint": azurePrivateLink,
+
+	"purview":                  azurePurview,
+	"recovery_services":        azureRecoveryServices,
+	"redis":                    azureRedis,
+	"relay":                    azureRelay,
+	"security_center":          azureSecurityCenter,
+	"sentinel":                 azureSentinel,
+	"servicebus":               azureServiceBus,
+	"service_fabric":           azureServiceFabric,
+	"search":                   azureSearch,
+	"signalr":                  azureSignalr,
+	"site_recovery":            azureSiteRecovery,
+	"sql":                      azureSQL,
+	"stack":                    azureStack,
+	"storage":                  azureStorage,
+	"stream_analytics":         azureStreamAnalytics,
+	"synapse":                  azureSynapse,
+	"video_analyzer":           azureVideoAnalyzer,
+	"voice":                    azureVoice,
+	"web_application_firewall": azureWaf,
+	"web_pubsub":               azureWebPubSub,
+
+	// We don't apply mappings to legacy roles, so they are omitted here.
+}
 
 var namespaceMap = map[string]string{
 	"azure": "Azure",
@@ -423,11 +570,6 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
-			// Azure Active Directory Business to Consumer
-			"azurerm_aadb2c_directory": {
-				Tok: azureResource(aadb2c, "Directory"),
-			},
-
 			// ActiveDirectoryDomainService
 			"azurerm_active_directory_domain_service": {
 				Tok: azureResource(azureDomainServices, "Service"),
@@ -474,9 +616,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_authorization_server":            {Tok: azureResource(azureAPIManagement, "AuthorizationServer")},
 			"azurerm_api_management_backend":                         {Tok: azureResource(azureAPIManagement, "Backend")},
 			"azurerm_api_management_certificate":                     {Tok: azureResource(azureAPIManagement, "Certificate")},
-			"azurerm_api_management_group":                           {Tok: azureResource(azureAPIManagement, "Group")},
-			"azurerm_api_management_group_user":                      {Tok: azureResource(azureAPIManagement, "GroupUser")},
-			"azurerm_api_management_logger":                          {Tok: azureResource(azureAPIManagement, "Logger")},
 			"azurerm_api_management_openid_connect_provider":         {Tok: azureResource(azureAPIManagement, "OpenIdConnectProvider")},
 			"azurerm_api_management_product":                         {Tok: azureResource(azureAPIManagement, "Product")},
 			"azurerm_api_management_product_api":                     {Tok: azureResource(azureAPIManagement, "ProductApi")},
@@ -515,9 +654,6 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_api_management_api_tag_description": {Tok: azureResource(azureAPIManagement, "ApiTagDescription")},
-
-			// Analysis Services
-			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
 
 			// AppInsights
 			"azurerm_application_insights": {
@@ -579,7 +715,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"azurerm_app_service_custom_hostname_binding": {Tok: azureResource(azureAppService, "CustomHostnameBinding")},
 			"azurerm_app_service_plan": {
 				Tok: azureResource(azureAppService, "Plan"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -771,36 +906,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_source_control_token":                     {Tok: azureResource(azureAppService, "SourceControlToken")},
 
 			// AppPlatform
-			"azurerm_spring_cloud_service":                  {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
-			"azurerm_spring_cloud_app":                      {Tok: azureResource(azureAppPlatform, "SpringCloudApp")},
-			"azurerm_spring_cloud_certificate":              {Tok: azureResource(azureAppPlatform, "SpringCloudCertificate")},
-			"azurerm_spring_cloud_active_deployment":        {Tok: azureResource(azureAppPlatform, "SpringCloudActiveDeployment")},
-			"azurerm_spring_cloud_java_deployment":          {Tok: azureResource(azureAppPlatform, "SpringCloudJavaDeployment")},
-			"azurerm_spring_cloud_custom_domain":            {Tok: azureResource(azureAppPlatform, "SpringCloudCustomDomain")},
-			"azurerm_spring_cloud_app_redis_association":    {Tok: azureResource(azureAppPlatform, "SpringCloudAppRedisAssociation")},
-			"azurerm_spring_cloud_app_mysql_association":    {Tok: azureResource(azureAppPlatform, "SpringCloudAppMysqlAssociation")},
 			"azurerm_spring_cloud_app_cosmosdb_association": {Tok: azureResource(azureAppPlatform, "SpringCloudAppCosmosDBAssociation")},
-			"azurerm_spring_cloud_storage":                  {Tok: azureResource(azureAppPlatform, "SpringCloudStorage")},
-			"azurerm_spring_cloud_container_deployment":     {Tok: azureResource(azureAppPlatform, "SpringCloudContainerDeployment")},
-			"azurerm_spring_cloud_build_pack_binding":       {Tok: azureResource(azureAppPlatform, "SpringCloudBuildPackBinding")},
-			"azurerm_spring_cloud_builder":                  {Tok: azureResource(azureAppPlatform, "SpringCloudBuilder")},
-			"azurerm_spring_cloud_configuration_service":    {Tok: azureResource(azureAppPlatform, "SpringCloudConfigurationService")},
-			"azurerm_spring_cloud_gateway":                  {Tok: azureResource(azureAppPlatform, "SpringCloudGateway")},
-			"azurerm_spring_cloud_gateway_custom_domain":    {Tok: azureResource(azureAppPlatform, "SpringCloudGatewayCustomDomain")},
-			"azurerm_spring_cloud_api_portal":               {Tok: azureResource(azureAppPlatform, "SpringCloudApiPortal")},
-			"azurerm_spring_cloud_build_deployment":         {Tok: azureResource(azureAppPlatform, "SpringCloudBuildDeployment")},
-			"azurerm_spring_cloud_gateway_route_config":     {Tok: azureResource(azureAppPlatform, "SpringCloudGatewayRouteConfig")},
-			"azurerm_spring_cloud_api_portal_custom_domain": {Tok: azureResource(azureAppPlatform, "SpringCloudApiPortalCustomDomain")},
-			"azurerm_spring_cloud_application_live_view":    {Tok: azureResource(azureAppPlatform, "SpringCloudApplicationLiveView")},
 			"azurerm_spring_cloud_connection": {
 				Tok: azureResource(azureAppPlatform, "SpringCloudConnection"),
 				Docs: &tfbridge.DocInfo{
 					Source: "service_connector_spring_cloud.html.markdown",
 				},
 			},
-			"azurerm_spring_cloud_accelerator":            {Tok: azureResource(azureAppPlatform, "SpringCloudAccelerator")},
-			"azurerm_spring_cloud_dev_tool_portal":        {Tok: azureResource(azureAppPlatform, "SpringCloudDevToolPortal")},
-			"azurerm_spring_cloud_customized_accelerator": {Tok: azureResource(azureAppPlatform, "SpringCloudCustomizedAccelerator")},
 
 			// Automation
 			"azurerm_automation_account":                {Tok: azureResource(azureAutomation, "Account")},
@@ -2557,7 +2669,6 @@ func Provider() tfbridge.ProviderInfo {
 
 			// VMWare
 			"azurerm_vmware_private_cloud": {Tok: azureResource(azureAvs, "PrivateCloud")},
-			"azurerm_vmware_cluster":       {Tok: azureResource(azureAvs, "Cluster")},
 			"azurerm_vmware_express_route_authorization": {
 				Tok: azureResource(azureAvs, "ExpressRouteAuthorization"),
 			},
@@ -2825,11 +2936,6 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_key_vault_access_policy":      {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
-			"azurerm_key_vault_key":                {Tok: azureDataSource(azureKeyVault, "getKey")},
-			"azurerm_key_vault_secret":             {Tok: azureDataSource(azureKeyVault, "getSecret")},
-			"azurerm_key_vault_certificate":        {Tok: azureDataSource(azureKeyVault, "getCertificate")},
-			"azurerm_key_vault_certificates":       {Tok: azureDataSource(azureKeyVault, "getCertificates")},
 			"azurerm_key_vault_certificate_issuer": {Tok: azureDataSource(azureKeyVault, "getCertificateIssuer")},
 			"azurerm_key_vault_certificate_data":   {Tok: azureDataSource(azureKeyVault, "getCertificateData")},
 			"azurerm_key_vault_managed_hardware_security_module": {
@@ -3037,18 +3143,16 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_machine_learning_workspace":           {Tok: azureDataSource(azureMachineLearning, "getWorkspace")},
 			"azurerm_managed_application_definition":       {Tok: azureDataSource(azureManagedApplication, "getDefinition")},
 			"azurerm_management_group_template_deployment": {Tok: azureDataSource(azureManagement, "getGroupTemplateDeployment")},
-			"azurerm_spring_cloud_service":                 {Tok: azureDataSource(azureAppPlatform, "getSpringCloudService")},
-			"azurerm_spring_cloud_app":                     {Tok: azureDataSource(azureAppPlatform, "getSpringCloudApp")},
-			"azurerm_sentinel_alert_rule":                  {Tok: azureDataSource(azureSentinel, "getAlertRule")},
-			"azurerm_sentinel_alert_rule_template":         {Tok: azureDataSource(azureSentinel, "getAlertRuleTemplate")},
-			"azurerm_maintenance_configuration":            {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
-			"azurerm_public_maintenance_configurations":    {Tok: azureDataSource(azureMaintenance, "getPublicConfigurations")},
-			"azurerm_advisor_recommendations":              {Tok: azureDataSource(advisor, "getRecommendations")},
-			"azurerm_active_directory_domain_service":      {Tok: azureDataSource(azureDomainServices, "getService")},
-			"azurerm_blueprint_definition":                 {Tok: azureDataSource(azureBlueprint, "getDefinition")},
-			"azurerm_blueprint_published_version":          {Tok: azureDataSource(azureBlueprint, "getPublishedVersion")},
-			"azurerm_web_application_firewall_policy":      {Tok: azureDataSource(azureWaf, "getFirewallPolicy")},
-			"azurerm_synapse_workspace":                    {Tok: azureDataSource(azureSynapse, "getWorkspace")},
+
+			"azurerm_sentinel_alert_rule":               {Tok: azureDataSource(azureSentinel, "getAlertRule")},
+			"azurerm_sentinel_alert_rule_template":      {Tok: azureDataSource(azureSentinel, "getAlertRuleTemplate")},
+			"azurerm_maintenance_configuration":         {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
+			"azurerm_public_maintenance_configurations": {Tok: azureDataSource(azureMaintenance, "getPublicConfigurations")},
+			"azurerm_active_directory_domain_service":   {Tok: azureDataSource(azureDomainServices, "getService")},
+			"azurerm_blueprint_definition":              {Tok: azureDataSource(azureBlueprint, "getDefinition")},
+			"azurerm_blueprint_published_version":       {Tok: azureDataSource(azureBlueprint, "getPublishedVersion")},
+			"azurerm_web_application_firewall_policy":   {Tok: azureDataSource(azureWaf, "getFirewallPolicy")},
+			"azurerm_synapse_workspace":                 {Tok: azureDataSource(azureSynapse, "getWorkspace")},
 			"azurerm_attestation_provider": {
 				Tok: azureDataSource(azureAttestation, "getProvider"),
 				Docs: &tfbridge.DocInfo{
@@ -3067,7 +3171,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cognitive_account":                 {Tok: azureDataSource(azureCognitive, "getAccount")},
 			"azurerm_digital_twins_instance":            {Tok: azureDataSource(azureDigitalTwins, "getInstance")},
 			"azurerm_search_service":                    {Tok: azureDataSource(azureSearch, "getService")},
-			"azurerm_vmware_private_cloud":              {Tok: azureDataSource(azureAvs, "getPrivateCloud")},
 			"azurerm_billing_enrollment_account_scope":  {Tok: azureDataSource(azureBilling, "getEnrollmentAccountScope")},
 			"azurerm_billing_mca_account_scope":         {Tok: azureDataSource(azureBilling, "getMcaAccountScope")},
 			"azurerm_billing_mpa_account_scope":         {Tok: azureDataSource(azureBilling, "getMpaAccountScope")},
@@ -3435,6 +3538,30 @@ func Provider() tfbridge.ProviderInfo {
 			}),
 		},
 	}
+
+	// Some mappings do not split cleanly. We use "~" as a separator for a module and
+	// the mandatory prefix for each token.
+	//
+	// For example, the `moduleMap` has this mapping:
+	//
+	//     "spring": azureAppPlatform + "~Spring",
+	//
+	// This allows us to map tokens such as `"azurerm_spring_cloud_app"` into
+	// `azureResource(azureAppPlatform, "SpringCloudApp")`.
+	makeToken := func(mod, name string) (string, error) {
+		if m, e, ok := strings.Cut(mod, "~"); ok {
+			mod = m
+			if strings.HasPrefix(name, "get") {
+				name = "get" + e + name[3:]
+			} else {
+				name = e + name
+			}
+		}
+		return azureResource(mod, name).String(), nil
+	}
+	err := x.ComputeDefaults(&prov, x.TokensMappedModules("azurerm_", "",
+		moduleMap, makeToken))
+	contract.AssertNoErrorf(err, "failed to compute default tokens")
 
 	prov.SetAutonaming(24, "")
 
