@@ -118,7 +118,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * Specifies a reference to backendAddressPool resource.
      * 
      */
-    @Export(name="backendAddressPoolId", refs={String.class}, tree="[0]")
+    @Export(name="backendAddressPoolId", type=String.class, parameters={})
     private Output</* @Nullable */ String> backendAddressPoolId;
 
     /**
@@ -128,7 +128,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> backendAddressPoolId() {
         return Codegen.optional(this.backendAddressPoolId);
     }
-    @Export(name="backendIpConfigurationId", refs={String.class}, tree="[0]")
+    @Export(name="backendIpConfigurationId", type=String.class, parameters={})
     private Output<String> backendIpConfigurationId;
 
     public Output<String> backendIpConfigurationId() {
@@ -138,7 +138,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
      * 
      */
-    @Export(name="backendPort", refs={Integer.class}, tree="[0]")
+    @Export(name="backendPort", type=Integer.class, parameters={})
     private Output<Integer> backendPort;
 
     /**
@@ -152,7 +152,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      * 
      */
-    @Export(name="enableFloatingIp", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableFloatingIp", type=Boolean.class, parameters={})
     private Output<Boolean> enableFloatingIp;
 
     /**
@@ -166,7 +166,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * Is TCP Reset enabled for this Load Balancer Rule?
      * 
      */
-    @Export(name="enableTcpReset", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableTcpReset", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableTcpReset;
 
     /**
@@ -176,7 +176,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> enableTcpReset() {
         return Codegen.optional(this.enableTcpReset);
     }
-    @Export(name="frontendIpConfigurationId", refs={String.class}, tree="[0]")
+    @Export(name="frontendIpConfigurationId", type=String.class, parameters={})
     private Output<String> frontendIpConfigurationId;
 
     public Output<String> frontendIpConfigurationId() {
@@ -186,7 +186,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * The name of the frontend IP configuration exposing this rule.
      * 
      */
-    @Export(name="frontendIpConfigurationName", refs={String.class}, tree="[0]")
+    @Export(name="frontendIpConfigurationName", type=String.class, parameters={})
     private Output<String> frontendIpConfigurationName;
 
     /**
@@ -200,7 +200,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
      * 
      */
-    @Export(name="frontendPort", refs={Integer.class}, tree="[0]")
+    @Export(name="frontendPort", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> frontendPort;
 
     /**
@@ -214,7 +214,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
      * 
      */
-    @Export(name="frontendPortEnd", refs={Integer.class}, tree="[0]")
+    @Export(name="frontendPortEnd", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> frontendPortEnd;
 
     /**
@@ -228,7 +228,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
      * 
      */
-    @Export(name="frontendPortStart", refs={Integer.class}, tree="[0]")
+    @Export(name="frontendPortStart", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> frontendPortStart;
 
     /**
@@ -242,7 +242,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
      * 
      */
-    @Export(name="idleTimeoutInMinutes", refs={Integer.class}, tree="[0]")
+    @Export(name="idleTimeoutInMinutes", type=Integer.class, parameters={})
     private Output<Integer> idleTimeoutInMinutes;
 
     /**
@@ -256,7 +256,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="loadbalancerId", refs={String.class}, tree="[0]")
+    @Export(name="loadbalancerId", type=String.class, parameters={})
     private Output<String> loadbalancerId;
 
     /**
@@ -270,7 +270,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -284,7 +284,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      * 
      */
-    @Export(name="protocol", refs={String.class}, tree="[0]")
+    @Export(name="protocol", type=String.class, parameters={})
     private Output<String> protocol;
 
     /**
@@ -298,7 +298,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

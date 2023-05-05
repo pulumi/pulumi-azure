@@ -228,7 +228,7 @@ public class DataFlow extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Data Factory Data Flow.
      * 
      */
-    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="annotations", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -242,7 +242,7 @@ public class DataFlow extends com.pulumi.resources.CustomResource {
      * The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
+    @Export(name="dataFactoryId", type=String.class, parameters={})
     private Output<String> dataFactoryId;
 
     /**
@@ -256,7 +256,7 @@ public class DataFlow extends com.pulumi.resources.CustomResource {
      * The description for the Data Factory Data Flow.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -270,7 +270,7 @@ public class DataFlow extends com.pulumi.resources.CustomResource {
      * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
      * 
      */
-    @Export(name="folder", refs={String.class}, tree="[0]")
+    @Export(name="folder", type=String.class, parameters={})
     private Output</* @Nullable */ String> folder;
 
     /**
@@ -284,7 +284,7 @@ public class DataFlow extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -298,7 +298,7 @@ public class DataFlow extends com.pulumi.resources.CustomResource {
      * The script for the Data Factory Data Flow.
      * 
      */
-    @Export(name="script", refs={String.class}, tree="[0]")
+    @Export(name="script", type=String.class, parameters={})
     private Output</* @Nullable */ String> script;
 
     /**
@@ -312,7 +312,7 @@ public class DataFlow extends com.pulumi.resources.CustomResource {
      * The script lines for the Data Factory Data Flow.
      * 
      */
-    @Export(name="scriptLines", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="scriptLines", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> scriptLines;
 
     /**
@@ -326,7 +326,7 @@ public class DataFlow extends com.pulumi.resources.CustomResource {
      * One or more `sink` blocks as defined below.
      * 
      */
-    @Export(name="sinks", refs={List.class,DataFlowSink.class}, tree="[0,1]")
+    @Export(name="sinks", type=List.class, parameters={DataFlowSink.class})
     private Output<List<DataFlowSink>> sinks;
 
     /**
@@ -340,7 +340,7 @@ public class DataFlow extends com.pulumi.resources.CustomResource {
      * One or more `source` blocks as defined below.
      * 
      */
-    @Export(name="sources", refs={List.class,DataFlowSource.class}, tree="[0,1]")
+    @Export(name="sources", type=List.class, parameters={DataFlowSource.class})
     private Output<List<DataFlowSource>> sources;
 
     /**
@@ -354,7 +354,7 @@ public class DataFlow extends com.pulumi.resources.CustomResource {
      * One or more `transformation` blocks as defined below.
      * 
      */
-    @Export(name="transformations", refs={List.class,DataFlowTransformation.class}, tree="[0,1]")
+    @Export(name="transformations", type=List.class, parameters={DataFlowTransformation.class})
     private Output</* @Nullable */ List<DataFlowTransformation>> transformations;
 
     /**

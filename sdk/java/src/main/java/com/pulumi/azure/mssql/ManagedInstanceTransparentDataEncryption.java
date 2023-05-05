@@ -254,7 +254,7 @@ public class ManagedInstanceTransparentDataEncryption extends com.pulumi.resourc
      * When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
      * 
      */
-    @Export(name="autoRotationEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="autoRotationEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoRotationEnabled;
 
     /**
@@ -268,7 +268,7 @@ public class ManagedInstanceTransparentDataEncryption extends com.pulumi.resourc
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      * 
      */
-    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultKeyId", type=String.class, parameters={})
     private Output</* @Nullable */ String> keyVaultKeyId;
 
     /**
@@ -282,7 +282,7 @@ public class ManagedInstanceTransparentDataEncryption extends com.pulumi.resourc
      * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managedInstanceId", refs={String.class}, tree="[0]")
+    @Export(name="managedInstanceId", type=String.class, parameters={})
     private Output<String> managedInstanceId;
 
     /**

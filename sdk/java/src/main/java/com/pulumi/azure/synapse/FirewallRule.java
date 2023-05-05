@@ -100,7 +100,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The ending IP address to allow through the firewall for this rule.
      * 
      */
-    @Export(name="endIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="endIpAddress", type=String.class, parameters={})
     private Output<String> endIpAddress;
 
     /**
@@ -114,7 +114,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The Name of the firewall rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The starting IP address to allow through the firewall for this rule.
      * 
      */
-    @Export(name="startIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="startIpAddress", type=String.class, parameters={})
     private Output<String> startIpAddress;
 
     /**
@@ -142,7 +142,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="synapseWorkspaceId", type=String.class, parameters={})
     private Output<String> synapseWorkspaceId;
 
     /**

@@ -88,7 +88,7 @@ public class SqlTrigger extends com.pulumi.resources.CustomResource {
      * Body of the Trigger.
      * 
      */
-    @Export(name="body", refs={String.class}, tree="[0]")
+    @Export(name="body", type=String.class, parameters={})
     private Output<String> body;
 
     /**
@@ -102,7 +102,7 @@ public class SqlTrigger extends com.pulumi.resources.CustomResource {
      * The id of the Cosmos DB SQL Container to create the SQL Trigger within. Changing this forces a new SQL Trigger to be created.
      * 
      */
-    @Export(name="containerId", refs={String.class}, tree="[0]")
+    @Export(name="containerId", type=String.class, parameters={})
     private Output<String> containerId;
 
     /**
@@ -116,7 +116,7 @@ public class SqlTrigger extends com.pulumi.resources.CustomResource {
      * The name which should be used for this SQL Trigger. Changing this forces a new SQL Trigger to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -130,7 +130,7 @@ public class SqlTrigger extends com.pulumi.resources.CustomResource {
      * The operation the trigger is associated with. Possible values are `All`, `Create`, `Update`, `Delete` and `Replace`.
      * 
      */
-    @Export(name="operation", refs={String.class}, tree="[0]")
+    @Export(name="operation", type=String.class, parameters={})
     private Output<String> operation;
 
     /**
@@ -144,7 +144,7 @@ public class SqlTrigger extends com.pulumi.resources.CustomResource {
      * Type of the Trigger. Possible values are `Pre` and `Post`.
      * 
      */
-    @Export(name="type", refs={String.class}, tree="[0]")
+    @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**

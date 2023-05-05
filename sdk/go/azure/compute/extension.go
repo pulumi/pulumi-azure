@@ -25,15 +25,22 @@ import (
 //
 // import (
 //
-//	"fmt"
+//	"os"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := os.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
@@ -77,65 +84,36 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("staging"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-//				StorageAccountName:  exampleAccount.Name,
-//				ContainerAccessType: pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
-//				Location:          exampleResourceGroup.Location,
+//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &compute.LinuxVirtualMachineArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Size:              pulumi.String("Standard_F2"),
+//				AdminUsername:     pulumi.String("adminuser"),
 //				NetworkInterfaceIds: pulumi.StringArray{
 //					exampleNetworkInterface.ID(),
 //				},
-//				VmSize: pulumi.String("Standard_F2"),
-//				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
+//				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
+//					&compute.LinuxVirtualMachineAdminSshKeyArgs{
+//						Username:  pulumi.String("adminuser"),
+//						PublicKey: readFileOrPanic("~/.ssh/id_rsa.pub"),
+//					},
+//				},
+//				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
+//					Caching:            pulumi.String("ReadWrite"),
+//					StorageAccountType: pulumi.String("Standard_LRS"),
+//				},
+//				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
 //					Offer:     pulumi.String("UbuntuServer"),
 //					Sku:       pulumi.String("16.04-LTS"),
 //					Version:   pulumi.String("latest"),
-//				},
-//				StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
-//					Name: pulumi.String("myosdisk1"),
-//					VhdUri: pulumi.All(exampleAccount.PrimaryBlobEndpoint, exampleContainer.Name).ApplyT(func(_args []interface{}) (string, error) {
-//						primaryBlobEndpoint := _args[0].(string)
-//						name := _args[1].(string)
-//						return fmt.Sprintf("%v%v/myosdisk1.vhd", primaryBlobEndpoint, name), nil
-//					}).(pulumi.StringOutput),
-//					Caching:      pulumi.String("ReadWrite"),
-//					CreateOption: pulumi.String("FromImage"),
-//				},
-//				OsProfile: &compute.VirtualMachineOsProfileArgs{
-//					ComputerName:  pulumi.String("hostname"),
-//					AdminUsername: pulumi.String("testadmin"),
-//					AdminPassword: pulumi.String("Password1234!"),
-//				},
-//				OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
-//					DisablePasswordAuthentication: pulumi.Bool(false),
-//				},
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("staging"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = compute.NewExtension(ctx, "exampleExtension", &compute.ExtensionArgs{
-//				VirtualMachineId:   exampleVirtualMachine.ID(),
+//				VirtualMachineId:   exampleLinuxVirtualMachine.ID(),
 //				Publisher:          pulumi.String("Microsoft.Azure.Extensions"),
 //				Type:               pulumi.String("CustomScript"),
 //				TypeHandlerVersion: pulumi.String("2.0"),

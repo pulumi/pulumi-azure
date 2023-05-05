@@ -82,7 +82,7 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      * Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created.
      * 
      */
-    @Export(name="accumulated", refs={Boolean.class}, tree="[0]")
+    @Export(name="accumulated", type=Boolean.class, parameters={})
     private Output<Boolean> accumulated;
 
     /**
@@ -96,7 +96,7 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      * Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
      * 
      */
-    @Export(name="chartType", refs={String.class}, tree="[0]")
+    @Export(name="chartType", type=String.class, parameters={})
     private Output<String> chartType;
 
     /**
@@ -110,7 +110,7 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      * A `dataset` block as defined below.
      * 
      */
-    @Export(name="dataset", refs={SubscriptionCostManagementViewDataset.class}, tree="[0]")
+    @Export(name="dataset", type=SubscriptionCostManagementViewDataset.class, parameters={})
     private Output<SubscriptionCostManagementViewDataset> dataset;
 
     /**
@@ -124,7 +124,7 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      * User visible input name of the Cost Management View.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -138,7 +138,7 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      * One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
      * 
      */
-    @Export(name="kpis", refs={List.class,SubscriptionCostManagementViewKpi.class}, tree="[0,1]")
+    @Export(name="kpis", type=List.class, parameters={SubscriptionCostManagementViewKpi.class})
     private Output</* @Nullable */ List<SubscriptionCostManagementViewKpi>> kpis;
 
     /**
@@ -152,7 +152,7 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      * The name which should be used for this Cost Management View for a Subscription. Changing this forces a new Cost Management View for a Subscription to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -166,7 +166,7 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      * One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
      * 
      */
-    @Export(name="pivots", refs={List.class,SubscriptionCostManagementViewPivot.class}, tree="[0,1]")
+    @Export(name="pivots", type=List.class, parameters={SubscriptionCostManagementViewPivot.class})
     private Output</* @Nullable */ List<SubscriptionCostManagementViewPivot>> pivots;
 
     /**
@@ -180,7 +180,7 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      * The type of the report. The only possible value is `Usage`.
      * 
      */
-    @Export(name="reportType", refs={String.class}, tree="[0]")
+    @Export(name="reportType", type=String.class, parameters={})
     private Output<String> reportType;
 
     /**
@@ -194,7 +194,7 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      * The ID of the Subscription this View is scoped to. Changing this forces a new Cost Management View for a Subscription to be created.
      * 
      */
-    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
+    @Export(name="subscriptionId", type=String.class, parameters={})
     private Output<String> subscriptionId;
 
     /**
@@ -208,7 +208,7 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      * The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`.
      * 
      */
-    @Export(name="timeframe", refs={String.class}, tree="[0]")
+    @Export(name="timeframe", type=String.class, parameters={})
     private Output<String> timeframe;
 
     /**

@@ -420,7 +420,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="applicationInsightsId", refs={String.class}, tree="[0]")
+    @Export(name="applicationInsightsId", type=String.class, parameters={})
     private Output<String> applicationInsightsId;
 
     /**
@@ -434,7 +434,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="containerRegistryId", refs={String.class}, tree="[0]")
+    @Export(name="containerRegistryId", type=String.class, parameters={})
     private Output</* @Nullable */ String> containerRegistryId;
 
     /**
@@ -448,7 +448,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The description of this Machine Learning Workspace.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -462,7 +462,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The url for the discovery service to identify regional endpoints for machine learning experimentation services.
      * 
      */
-    @Export(name="discoveryUrl", refs={String.class}, tree="[0]")
+    @Export(name="discoveryUrl", type=String.class, parameters={})
     private Output<String> discoveryUrl;
 
     /**
@@ -476,7 +476,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * An `encryption` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="encryption", refs={WorkspaceEncryption.class}, tree="[0]")
+    @Export(name="encryption", type=WorkspaceEncryption.class, parameters={})
     private Output</* @Nullable */ WorkspaceEncryption> encryption;
 
     /**
@@ -490,7 +490,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Display name for this Machine Learning Workspace.
      * 
      */
-    @Export(name="friendlyName", refs={String.class}, tree="[0]")
+    @Export(name="friendlyName", type=String.class, parameters={})
     private Output</* @Nullable */ String> friendlyName;
 
     /**
@@ -504,7 +504,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
      * 
      */
-    @Export(name="highBusinessImpact", refs={Boolean.class}, tree="[0]")
+    @Export(name="highBusinessImpact", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> highBusinessImpact;
 
     /**
@@ -518,7 +518,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={WorkspaceIdentity.class}, tree="[0]")
+    @Export(name="identity", type=WorkspaceIdentity.class, parameters={})
     private Output<WorkspaceIdentity> identity;
 
     /**
@@ -532,7 +532,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The compute name for image build of the Machine Learning Workspace.
      * 
      */
-    @Export(name="imageBuildComputeName", refs={String.class}, tree="[0]")
+    @Export(name="imageBuildComputeName", type=String.class, parameters={})
     private Output</* @Nullable */ String> imageBuildComputeName;
 
     /**
@@ -546,7 +546,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultId", type=String.class, parameters={})
     private Output<String> keyVaultId;
 
     /**
@@ -560,7 +560,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -574,7 +574,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -588,7 +588,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The user assigned identity id that represents the workspace identity.
      * 
      */
-    @Export(name="primaryUserAssignedIdentity", refs={String.class}, tree="[0]")
+    @Export(name="primaryUserAssignedIdentity", type=String.class, parameters={})
     private Output</* @Nullable */ String> primaryUserAssignedIdentity;
 
     /**
@@ -606,7 +606,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider. */
-    @Export(name="publicAccessBehindVirtualNetworkEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicAccessBehindVirtualNetworkEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicAccessBehindVirtualNetworkEnabled;
 
     /**
@@ -620,7 +620,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Enable public access when this Machine Learning Workspace is behind VNet.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -634,7 +634,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -648,7 +648,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output</* @Nullable */ String> skuName;
 
     /**
@@ -662,7 +662,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**
@@ -676,7 +676,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -690,7 +690,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
      * 
      */
-    @Export(name="v1LegacyModeEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="v1LegacyModeEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> v1LegacyModeEnabled;
 
     /**

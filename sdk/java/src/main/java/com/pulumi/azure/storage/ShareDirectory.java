@@ -86,7 +86,7 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
      * A mapping of metadata to assign to this Directory.
      * 
      */
-    @Export(name="metadata", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="metadata", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> metadata;
 
     /**
@@ -100,7 +100,7 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
      * The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -114,7 +114,7 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
      * The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="shareName", refs={String.class}, tree="[0]")
+    @Export(name="shareName", type=String.class, parameters={})
     private Output<String> shareName;
 
     /**
@@ -128,7 +128,7 @@ public class ShareDirectory extends com.pulumi.resources.CustomResource {
      * The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**

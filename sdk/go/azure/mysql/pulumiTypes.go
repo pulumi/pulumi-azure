@@ -361,11 +361,9 @@ func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulum
 }
 
 type FlexibleServerIdentity struct {
-	// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+	// A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server.
 	IdentityIds []string `pulumi:"identityIds"`
-	PrincipalId *string  `pulumi:"principalId"`
-	TenantId    *string  `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -381,11 +379,9 @@ type FlexibleServerIdentityInput interface {
 }
 
 type FlexibleServerIdentityArgs struct {
-	// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+	// A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -466,20 +462,12 @@ func (o FlexibleServerIdentityOutput) ToFlexibleServerIdentityPtrOutputWithConte
 	}).(FlexibleServerIdentityPtrOutput)
 }
 
-// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+// A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server.
 func (o FlexibleServerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlexibleServerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-func (o FlexibleServerIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlexibleServerIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
-func (o FlexibleServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlexibleServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is `UserAssigned`.
 func (o FlexibleServerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FlexibleServerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -508,7 +496,7 @@ func (o FlexibleServerIdentityPtrOutput) Elem() FlexibleServerIdentityOutput {
 	}).(FlexibleServerIdentityOutput)
 }
 
-// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+// A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server.
 func (o FlexibleServerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlexibleServerIdentity) []string {
 		if v == nil {
@@ -518,25 +506,7 @@ func (o FlexibleServerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o FlexibleServerIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlexibleServerIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o FlexibleServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlexibleServerIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is `UserAssigned`.
 func (o FlexibleServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerIdentity) *string {
 		if v == nil {

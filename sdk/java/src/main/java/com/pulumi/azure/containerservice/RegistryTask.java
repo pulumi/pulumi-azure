@@ -101,7 +101,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
      * 
      */
-    @Export(name="agentPoolName", refs={String.class}, tree="[0]")
+    @Export(name="agentPoolName", type=String.class, parameters={})
     private Output</* @Nullable */ String> agentPoolName;
 
     /**
@@ -115,7 +115,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * A `agent_setting` block as defined below.
      * 
      */
-    @Export(name="agentSetting", refs={RegistryTaskAgentSetting.class}, tree="[0]")
+    @Export(name="agentSetting", type=RegistryTaskAgentSetting.class, parameters={})
     private Output</* @Nullable */ RegistryTaskAgentSetting> agentSetting;
 
     /**
@@ -129,7 +129,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * A `base_image_trigger` block as defined below.
      * 
      */
-    @Export(name="baseImageTrigger", refs={RegistryTaskBaseImageTrigger.class}, tree="[0]")
+    @Export(name="baseImageTrigger", type=RegistryTaskBaseImageTrigger.class, parameters={})
     private Output</* @Nullable */ RegistryTaskBaseImageTrigger> baseImageTrigger;
 
     /**
@@ -143,7 +143,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
      * 
      */
-    @Export(name="containerRegistryId", refs={String.class}, tree="[0]")
+    @Export(name="containerRegistryId", type=String.class, parameters={})
     private Output<String> containerRegistryId;
 
     /**
@@ -157,7 +157,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * A `docker_step` block as defined below.
      * 
      */
-    @Export(name="dockerStep", refs={RegistryTaskDockerStep.class}, tree="[0]")
+    @Export(name="dockerStep", type=RegistryTaskDockerStep.class, parameters={})
     private Output</* @Nullable */ RegistryTaskDockerStep> dockerStep;
 
     /**
@@ -171,7 +171,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * Should this Container Registry Task be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -185,7 +185,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * A `encoded_step` block as defined below.
      * 
      */
-    @Export(name="encodedStep", refs={RegistryTaskEncodedStep.class}, tree="[0]")
+    @Export(name="encodedStep", type=RegistryTaskEncodedStep.class, parameters={})
     private Output</* @Nullable */ RegistryTaskEncodedStep> encodedStep;
 
     /**
@@ -199,7 +199,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * A `file_step` block as defined below.
      * 
      */
-    @Export(name="fileStep", refs={RegistryTaskFileStep.class}, tree="[0]")
+    @Export(name="fileStep", type=RegistryTaskFileStep.class, parameters={})
     private Output</* @Nullable */ RegistryTaskFileStep> fileStep;
 
     /**
@@ -213,7 +213,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={RegistryTaskIdentity.class}, tree="[0]")
+    @Export(name="identity", type=RegistryTaskIdentity.class, parameters={})
     private Output</* @Nullable */ RegistryTaskIdentity> identity;
 
     /**
@@ -227,7 +227,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
      * 
      */
-    @Export(name="isSystemTask", refs={Boolean.class}, tree="[0]")
+    @Export(name="isSystemTask", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> isSystemTask;
 
     /**
@@ -241,7 +241,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * The template that describes the run log artifact.
      * 
      */
-    @Export(name="logTemplate", refs={String.class}, tree="[0]")
+    @Export(name="logTemplate", type=String.class, parameters={})
     private Output</* @Nullable */ String> logTemplate;
 
     /**
@@ -255,7 +255,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -269,7 +269,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * A `platform` block as defined below.
      * 
      */
-    @Export(name="platform", refs={RegistryTaskPlatform.class}, tree="[0]")
+    @Export(name="platform", type=RegistryTaskPlatform.class, parameters={})
     private Output</* @Nullable */ RegistryTaskPlatform> platform;
 
     /**
@@ -283,7 +283,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * One `registry_credential` block as defined below.
      * 
      */
-    @Export(name="registryCredential", refs={RegistryTaskRegistryCredential.class}, tree="[0]")
+    @Export(name="registryCredential", type=RegistryTaskRegistryCredential.class, parameters={})
     private Output</* @Nullable */ RegistryTaskRegistryCredential> registryCredential;
 
     /**
@@ -297,7 +297,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * One or more `source_trigger` blocks as defined below.
      * 
      */
-    @Export(name="sourceTriggers", refs={List.class,RegistryTaskSourceTrigger.class}, tree="[0,1]")
+    @Export(name="sourceTriggers", type=List.class, parameters={RegistryTaskSourceTrigger.class})
     private Output</* @Nullable */ List<RegistryTaskSourceTrigger>> sourceTriggers;
 
     /**
@@ -311,7 +311,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Container Registry Task.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -325,7 +325,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`.
      * 
      */
-    @Export(name="timeoutInSeconds", refs={Integer.class}, tree="[0]")
+    @Export(name="timeoutInSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> timeoutInSeconds;
 
     /**
@@ -339,7 +339,7 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * One or more `timer_trigger` blocks as defined below.
      * 
      */
-    @Export(name="timerTriggers", refs={List.class,RegistryTaskTimerTrigger.class}, tree="[0,1]")
+    @Export(name="timerTriggers", type=List.class, parameters={RegistryTaskTimerTrigger.class})
     private Output</* @Nullable */ List<RegistryTaskTimerTrigger>> timerTriggers;
 
     /**

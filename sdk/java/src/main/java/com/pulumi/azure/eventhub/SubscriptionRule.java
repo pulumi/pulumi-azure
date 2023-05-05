@@ -165,7 +165,7 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
      * Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
      * 
      */
-    @Export(name="action", refs={String.class}, tree="[0]")
+    @Export(name="action", type=String.class, parameters={})
     private Output</* @Nullable */ String> action;
 
     /**
@@ -179,7 +179,7 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
      * A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
      * 
      */
-    @Export(name="correlationFilter", refs={SubscriptionRuleCorrelationFilter.class}, tree="[0]")
+    @Export(name="correlationFilter", type=SubscriptionRuleCorrelationFilter.class, parameters={})
     private Output</* @Nullable */ SubscriptionRuleCorrelationFilter> correlationFilter;
 
     /**
@@ -193,7 +193,7 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
      * Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
      * 
      */
-    @Export(name="filterType", refs={String.class}, tree="[0]")
+    @Export(name="filterType", type=String.class, parameters={})
     private Output<String> filterType;
 
     /**
@@ -207,7 +207,7 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
      * Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -221,7 +221,7 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
      * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
      * 
      */
-    @Export(name="sqlFilter", refs={String.class}, tree="[0]")
+    @Export(name="sqlFilter", type=String.class, parameters={})
     private Output</* @Nullable */ String> sqlFilter;
 
     /**
@@ -231,7 +231,7 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> sqlFilter() {
         return Codegen.optional(this.sqlFilter);
     }
-    @Export(name="sqlFilterCompatibilityLevel", refs={Integer.class}, tree="[0]")
+    @Export(name="sqlFilterCompatibilityLevel", type=Integer.class, parameters={})
     private Output<Integer> sqlFilterCompatibilityLevel;
 
     public Output<Integer> sqlFilterCompatibilityLevel() {
@@ -241,7 +241,7 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
      * The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
+    @Export(name="subscriptionId", type=String.class, parameters={})
     private Output<String> subscriptionId;
 
     /**

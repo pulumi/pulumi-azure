@@ -86,7 +86,7 @@ public class SqlFunction extends com.pulumi.resources.CustomResource {
      * Body of the User Defined Function.
      * 
      */
-    @Export(name="body", refs={String.class}, tree="[0]")
+    @Export(name="body", type=String.class, parameters={})
     private Output<String> body;
 
     /**
@@ -100,7 +100,7 @@ public class SqlFunction extends com.pulumi.resources.CustomResource {
      * The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
      * 
      */
-    @Export(name="containerId", refs={String.class}, tree="[0]")
+    @Export(name="containerId", type=String.class, parameters={})
     private Output<String> containerId;
 
     /**
@@ -114,7 +114,7 @@ public class SqlFunction extends com.pulumi.resources.CustomResource {
      * The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**

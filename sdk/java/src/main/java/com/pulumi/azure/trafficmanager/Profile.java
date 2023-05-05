@@ -100,7 +100,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * This block specifies the DNS configuration of the Profile, it supports the fields documented below.
      * 
      */
-    @Export(name="dnsConfig", refs={ProfileDnsConfig.class}, tree="[0]")
+    @Export(name="dnsConfig", type=ProfileDnsConfig.class, parameters={})
     private Output<ProfileDnsConfig> dnsConfig;
 
     /**
@@ -114,7 +114,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * The FQDN of the created Profile.
      * 
      */
-    @Export(name="fqdn", refs={String.class}, tree="[0]")
+    @Export(name="fqdn", type=String.class, parameters={})
     private Output<String> fqdn;
 
     /**
@@ -128,7 +128,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      * 
      */
-    @Export(name="maxReturn", refs={Integer.class}, tree="[0]")
+    @Export(name="maxReturn", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maxReturn;
 
     /**
@@ -142,7 +142,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
      * 
      */
-    @Export(name="monitorConfig", refs={ProfileMonitorConfig.class}, tree="[0]")
+    @Export(name="monitorConfig", type=ProfileMonitorConfig.class, parameters={})
     private Output<ProfileMonitorConfig> monitorConfig;
 
     /**
@@ -156,7 +156,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * The name of the Traffic Manager profile. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -170,7 +170,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
      * 
      */
-    @Export(name="profileStatus", refs={String.class}, tree="[0]")
+    @Export(name="profileStatus", type=String.class, parameters={})
     private Output<String> profileStatus;
 
     /**
@@ -184,7 +184,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -198,7 +198,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -212,7 +212,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
      * 
      */
-    @Export(name="trafficRoutingMethod", refs={String.class}, tree="[0]")
+    @Export(name="trafficRoutingMethod", type=String.class, parameters={})
     private Output<String> trafficRoutingMethod;
 
     /**
@@ -226,7 +226,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * Indicates whether Traffic View is enabled for the Traffic Manager profile.
      * 
      */
-    @Export(name="trafficViewEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="trafficViewEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> trafficViewEnabled;
 
     /**

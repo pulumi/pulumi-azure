@@ -85,7 +85,7 @@ public class DpsSharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
      * 
      */
-    @Export(name="enrollmentRead", refs={Boolean.class}, tree="[0]")
+    @Export(name="enrollmentRead", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enrollmentRead;
 
     /**
@@ -99,7 +99,7 @@ public class DpsSharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
      * 
      */
-    @Export(name="enrollmentWrite", refs={Boolean.class}, tree="[0]")
+    @Export(name="enrollmentWrite", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enrollmentWrite;
 
     /**
@@ -113,7 +113,7 @@ public class DpsSharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iothubDpsName", refs={String.class}, tree="[0]")
+    @Export(name="iothubDpsName", type=String.class, parameters={})
     private Output<String> iothubDpsName;
 
     /**
@@ -127,7 +127,7 @@ public class DpsSharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -141,7 +141,7 @@ public class DpsSharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * The primary connection string of the Shared Access Policy.
      * 
      */
-    @Export(name="primaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="primaryConnectionString", type=String.class, parameters={})
     private Output<String> primaryConnectionString;
 
     /**
@@ -155,7 +155,7 @@ public class DpsSharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * The primary key used to create the authentication token.
      * 
      */
-    @Export(name="primaryKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryKey", type=String.class, parameters={})
     private Output<String> primaryKey;
 
     /**
@@ -169,7 +169,7 @@ public class DpsSharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations.
      * 
      */
-    @Export(name="registrationRead", refs={Boolean.class}, tree="[0]")
+    @Export(name="registrationRead", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> registrationRead;
 
     /**
@@ -183,7 +183,7 @@ public class DpsSharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
      * 
      */
-    @Export(name="registrationWrite", refs={Boolean.class}, tree="[0]")
+    @Export(name="registrationWrite", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> registrationWrite;
 
     /**
@@ -197,7 +197,7 @@ public class DpsSharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -211,7 +211,7 @@ public class DpsSharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * The secondary connection string of the Shared Access Policy.
      * 
      */
-    @Export(name="secondaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="secondaryConnectionString", type=String.class, parameters={})
     private Output<String> secondaryConnectionString;
 
     /**
@@ -225,7 +225,7 @@ public class DpsSharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * The secondary key used to create the authentication token.
      * 
      */
-    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryKey", type=String.class, parameters={})
     private Output<String> secondaryKey;
 
     /**
@@ -239,7 +239,7 @@ public class DpsSharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
      * 
      */
-    @Export(name="serviceConfig", refs={Boolean.class}, tree="[0]")
+    @Export(name="serviceConfig", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> serviceConfig;
 
     /**

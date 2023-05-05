@@ -80,6 +80,16 @@ export type NotebookWorkspace = import("./notebookWorkspace").NotebookWorkspace;
 export const NotebookWorkspace: typeof import("./notebookWorkspace").NotebookWorkspace = null as any;
 utilities.lazyLoad(exports, ["NotebookWorkspace"], () => require("./notebookWorkspace"));
 
+export { PostgresqlClusterArgs, PostgresqlClusterState } from "./postgresqlCluster";
+export type PostgresqlCluster = import("./postgresqlCluster").PostgresqlCluster;
+export const PostgresqlCluster: typeof import("./postgresqlCluster").PostgresqlCluster = null as any;
+utilities.lazyLoad(exports, ["PostgresqlCluster"], () => require("./postgresqlCluster"));
+
+export { PostgresqlFirewallRuleArgs, PostgresqlFirewallRuleState } from "./postgresqlFirewallRule";
+export type PostgresqlFirewallRule = import("./postgresqlFirewallRule").PostgresqlFirewallRule;
+export const PostgresqlFirewallRule: typeof import("./postgresqlFirewallRule").PostgresqlFirewallRule = null as any;
+utilities.lazyLoad(exports, ["PostgresqlFirewallRule"], () => require("./postgresqlFirewallRule"));
+
 export { SqlContainerArgs, SqlContainerState } from "./sqlContainer";
 export type SqlContainer = import("./sqlContainer").SqlContainer;
 export const SqlContainer: typeof import("./sqlContainer").SqlContainer = null as any;
@@ -151,6 +161,10 @@ const _module = {
                 return new MongoDatabase(name, <any>undefined, { urn })
             case "azure:cosmosdb/notebookWorkspace:NotebookWorkspace":
                 return new NotebookWorkspace(name, <any>undefined, { urn })
+            case "azure:cosmosdb/postgresqlCluster:PostgresqlCluster":
+                return new PostgresqlCluster(name, <any>undefined, { urn })
+            case "azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule":
+                return new PostgresqlFirewallRule(name, <any>undefined, { urn })
             case "azure:cosmosdb/sqlContainer:SqlContainer":
                 return new SqlContainer(name, <any>undefined, { urn })
             case "azure:cosmosdb/sqlDatabase:SqlDatabase":
@@ -184,6 +198,8 @@ pulumi.runtime.registerResourceModule("azure", "cosmosdb/gremlinGraph", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoCollection", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/notebookWorkspace", _module)
+pulumi.runtime.registerResourceModule("azure", "cosmosdb/postgresqlCluster", _module)
+pulumi.runtime.registerResourceModule("azure", "cosmosdb/postgresqlFirewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlContainer", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlDedicatedGateway", _module)

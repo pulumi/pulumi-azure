@@ -85,7 +85,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
      * Should the alerts be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="alertsEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="alertsEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> alertsEnabled;
 
     /**
@@ -99,7 +99,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
      * Should the Discovery Logs be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="discoveryLogsEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="discoveryLogsEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> discoveryLogsEnabled;
 
     /**
@@ -113,7 +113,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
      * The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -127,7 +127,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
      * The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -141,7 +141,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      * 
      */
-    @Export(name="tenantId", refs={String.class}, tree="[0]")
+    @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     /**

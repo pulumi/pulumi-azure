@@ -83,7 +83,7 @@ public class ActiveDirectoryAdministrator extends com.pulumi.resources.CustomRes
      * Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
      * 
      */
-    @Export(name="azureadAuthenticationOnly", refs={Boolean.class}, tree="[0]")
+    @Export(name="azureadAuthenticationOnly", type=Boolean.class, parameters={})
     private Output<Boolean> azureadAuthenticationOnly;
 
     /**
@@ -97,7 +97,7 @@ public class ActiveDirectoryAdministrator extends com.pulumi.resources.CustomRes
      * The login name of the principal to set as the server administrator
      * 
      */
-    @Export(name="login", refs={String.class}, tree="[0]")
+    @Export(name="login", type=String.class, parameters={})
     private Output<String> login;
 
     /**
@@ -111,7 +111,7 @@ public class ActiveDirectoryAdministrator extends com.pulumi.resources.CustomRes
      * The ID of the principal to set as the server administrator
      * 
      */
-    @Export(name="objectId", refs={String.class}, tree="[0]")
+    @Export(name="objectId", type=String.class, parameters={})
     private Output<String> objectId;
 
     /**
@@ -125,7 +125,7 @@ public class ActiveDirectoryAdministrator extends com.pulumi.resources.CustomRes
      * The name of the resource group for the SQL server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -139,7 +139,7 @@ public class ActiveDirectoryAdministrator extends com.pulumi.resources.CustomRes
      * The name of the SQL Server on which to set the administrator. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", refs={String.class}, tree="[0]")
+    @Export(name="serverName", type=String.class, parameters={})
     private Output<String> serverName;
 
     /**
@@ -153,7 +153,7 @@ public class ActiveDirectoryAdministrator extends com.pulumi.resources.CustomRes
      * The Azure Tenant ID
      * 
      */
-    @Export(name="tenantId", refs={String.class}, tree="[0]")
+    @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     /**

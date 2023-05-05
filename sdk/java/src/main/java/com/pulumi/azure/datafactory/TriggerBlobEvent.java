@@ -115,7 +115,7 @@ public class TriggerBlobEvent extends com.pulumi.resources.CustomResource {
      * Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
      * 
      */
-    @Export(name="activated", refs={Boolean.class}, tree="[0]")
+    @Export(name="activated", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> activated;
 
     /**
@@ -129,7 +129,7 @@ public class TriggerBlobEvent extends com.pulumi.resources.CustomResource {
      * A map of additional properties to associate with the Data Factory Blob Event Trigger.
      * 
      */
-    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -143,7 +143,7 @@ public class TriggerBlobEvent extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Data Factory Blob Event Trigger.
      * 
      */
-    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="annotations", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -157,7 +157,7 @@ public class TriggerBlobEvent extends com.pulumi.resources.CustomResource {
      * The pattern that blob path starts with for trigger to fire.
      * 
      */
-    @Export(name="blobPathBeginsWith", refs={String.class}, tree="[0]")
+    @Export(name="blobPathBeginsWith", type=String.class, parameters={})
     private Output</* @Nullable */ String> blobPathBeginsWith;
 
     /**
@@ -171,7 +171,7 @@ public class TriggerBlobEvent extends com.pulumi.resources.CustomResource {
      * The pattern that blob path ends with for trigger to fire.
      * 
      */
-    @Export(name="blobPathEndsWith", refs={String.class}, tree="[0]")
+    @Export(name="blobPathEndsWith", type=String.class, parameters={})
     private Output</* @Nullable */ String> blobPathEndsWith;
 
     /**
@@ -185,7 +185,7 @@ public class TriggerBlobEvent extends com.pulumi.resources.CustomResource {
      * The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
+    @Export(name="dataFactoryId", type=String.class, parameters={})
     private Output<String> dataFactoryId;
 
     /**
@@ -199,7 +199,7 @@ public class TriggerBlobEvent extends com.pulumi.resources.CustomResource {
      * The description for the Data Factory Blob Event Trigger.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -213,7 +213,7 @@ public class TriggerBlobEvent extends com.pulumi.resources.CustomResource {
      * List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
      * 
      */
-    @Export(name="events", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="events", type=List.class, parameters={String.class})
     private Output<List<String>> events;
 
     /**
@@ -227,7 +227,7 @@ public class TriggerBlobEvent extends com.pulumi.resources.CustomResource {
      * are blobs with zero bytes ignored?
      * 
      */
-    @Export(name="ignoreEmptyBlobs", refs={Boolean.class}, tree="[0]")
+    @Export(name="ignoreEmptyBlobs", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> ignoreEmptyBlobs;
 
     /**
@@ -241,7 +241,7 @@ public class TriggerBlobEvent extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory Blob Event Trigger. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -255,7 +255,7 @@ public class TriggerBlobEvent extends com.pulumi.resources.CustomResource {
      * One or more `pipeline` blocks as defined below.
      * 
      */
-    @Export(name="pipelines", refs={List.class,TriggerBlobEventPipeline.class}, tree="[0,1]")
+    @Export(name="pipelines", type=List.class, parameters={TriggerBlobEventPipeline.class})
     private Output<List<TriggerBlobEventPipeline>> pipelines;
 
     /**
@@ -269,7 +269,7 @@ public class TriggerBlobEvent extends com.pulumi.resources.CustomResource {
      * The ID of Storage Account in which blob event will be listened. Changing this forces a new resource.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**

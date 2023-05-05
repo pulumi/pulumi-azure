@@ -76,7 +76,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      * 
      */
-    @Export(name="allocationMethod", refs={String.class}, tree="[0]")
+    @Export(name="allocationMethod", type=String.class, parameters={})
     private Output<String> allocationMethod;
 
     /**
@@ -90,7 +90,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
      * 
      */
-    @Export(name="ddosProtectionMode", refs={String.class}, tree="[0]")
+    @Export(name="ddosProtectionMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> ddosProtectionMode;
 
     /**
@@ -104,7 +104,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * The ID of DDoS protection plan associated with the public IP.
      * 
      */
-    @Export(name="ddosProtectionPlanId", refs={String.class}, tree="[0]")
+    @Export(name="ddosProtectionPlanId", type=String.class, parameters={})
     private Output</* @Nullable */ String> ddosProtectionPlanId;
 
     /**
@@ -118,7 +118,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      * 
      */
-    @Export(name="domainNameLabel", refs={String.class}, tree="[0]")
+    @Export(name="domainNameLabel", type=String.class, parameters={})
     private Output</* @Nullable */ String> domainNameLabel;
 
     /**
@@ -132,7 +132,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
      * 
      */
-    @Export(name="edgeZone", refs={String.class}, tree="[0]")
+    @Export(name="edgeZone", type=String.class, parameters={})
     private Output</* @Nullable */ String> edgeZone;
 
     /**
@@ -146,7 +146,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
      * 
      */
-    @Export(name="fqdn", refs={String.class}, tree="[0]")
+    @Export(name="fqdn", type=String.class, parameters={})
     private Output<String> fqdn;
 
     /**
@@ -160,7 +160,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
      * 
      */
-    @Export(name="idleTimeoutInMinutes", refs={Integer.class}, tree="[0]")
+    @Export(name="idleTimeoutInMinutes", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> idleTimeoutInMinutes;
 
     /**
@@ -174,7 +174,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * The IP address value that was allocated.
      * 
      */
-    @Export(name="ipAddress", refs={String.class}, tree="[0]")
+    @Export(name="ipAddress", type=String.class, parameters={})
     private Output<String> ipAddress;
 
     /**
@@ -188,7 +188,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="ipTags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="ipTags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> ipTags;
 
     /**
@@ -202,7 +202,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="ipVersion", refs={String.class}, tree="[0]")
+    @Export(name="ipVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> ipVersion;
 
     /**
@@ -216,7 +216,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -230,7 +230,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -244,7 +244,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="publicIpPrefixId", refs={String.class}, tree="[0]")
+    @Export(name="publicIpPrefixId", type=String.class, parameters={})
     private Output</* @Nullable */ String> publicIpPrefixId;
 
     /**
@@ -258,7 +258,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -272,7 +272,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
      * 
      */
-    @Export(name="reverseFqdn", refs={String.class}, tree="[0]")
+    @Export(name="reverseFqdn", type=String.class, parameters={})
     private Output</* @Nullable */ String> reverseFqdn;
 
     /**
@@ -286,7 +286,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output</* @Nullable */ String> sku;
 
     /**
@@ -300,7 +300,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="skuTier", refs={String.class}, tree="[0]")
+    @Export(name="skuTier", type=String.class, parameters={})
     private Output</* @Nullable */ String> skuTier;
 
     /**
@@ -314,7 +314,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -328,7 +328,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="zones", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> zones;
 
     /**

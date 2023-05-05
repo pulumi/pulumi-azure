@@ -81,7 +81,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
      * 
      */
-    @Export(name="capacity", refs={Integer.class}, tree="[0]")
+    @Export(name="capacity", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> capacity;
 
     /**
@@ -95,7 +95,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * An `customer_managed_key` block as defined below.
      * 
      */
-    @Export(name="customerManagedKey", refs={NamespaceCustomerManagedKey.class}, tree="[0]")
+    @Export(name="customerManagedKey", type=NamespaceCustomerManagedKey.class, parameters={})
     private Output</* @Nullable */ NamespaceCustomerManagedKey> customerManagedKey;
 
     /**
@@ -109,7 +109,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="defaultPrimaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="defaultPrimaryConnectionString", type=String.class, parameters={})
     private Output<String> defaultPrimaryConnectionString;
 
     /**
@@ -123,7 +123,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="defaultPrimaryKey", refs={String.class}, tree="[0]")
+    @Export(name="defaultPrimaryKey", type=String.class, parameters={})
     private Output<String> defaultPrimaryKey;
 
     /**
@@ -137,7 +137,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="defaultSecondaryConnectionString", refs={String.class}, tree="[0]")
+    @Export(name="defaultSecondaryConnectionString", type=String.class, parameters={})
     private Output<String> defaultSecondaryConnectionString;
 
     /**
@@ -151,7 +151,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="defaultSecondaryKey", refs={String.class}, tree="[0]")
+    @Export(name="defaultSecondaryKey", type=String.class, parameters={})
     private Output<String> defaultSecondaryKey;
 
     /**
@@ -165,7 +165,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The URL to access the ServiceBus Namespace.
      * 
      */
-    @Export(name="endpoint", refs={String.class}, tree="[0]")
+    @Export(name="endpoint", type=String.class, parameters={})
     private Output<String> endpoint;
 
     /**
@@ -179,7 +179,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={NamespaceIdentity.class}, tree="[0]")
+    @Export(name="identity", type=NamespaceIdentity.class, parameters={})
     private Output</* @Nullable */ NamespaceIdentity> identity;
 
     /**
@@ -193,7 +193,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
      * 
      */
-    @Export(name="localAuthEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="localAuthEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAuthEnabled;
 
     /**
@@ -207,7 +207,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -221,7 +221,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
      * 
      */
-    @Export(name="minimumTlsVersion", refs={String.class}, tree="[0]")
+    @Export(name="minimumTlsVersion", type=String.class, parameters={})
     private Output<String> minimumTlsVersion;
 
     /**
@@ -235,7 +235,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -249,7 +249,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -264,7 +264,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * create the namespace.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -279,7 +279,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
@@ -293,7 +293,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -307,7 +307,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zoneRedundant", refs={Boolean.class}, tree="[0]")
+    @Export(name="zoneRedundant", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneRedundant;
 
     /**

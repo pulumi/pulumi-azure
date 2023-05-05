@@ -13,11 +13,14 @@ import com.pulumi.azure.netapp.inputs.GetSnapshotPlainArgs;
 import com.pulumi.azure.netapp.inputs.GetSnapshotPolicyArgs;
 import com.pulumi.azure.netapp.inputs.GetSnapshotPolicyPlainArgs;
 import com.pulumi.azure.netapp.inputs.GetVolumeArgs;
+import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaArgs;
+import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaPlainArgs;
 import com.pulumi.azure.netapp.inputs.GetVolumePlainArgs;
 import com.pulumi.azure.netapp.outputs.GetAccountResult;
 import com.pulumi.azure.netapp.outputs.GetPoolResult;
 import com.pulumi.azure.netapp.outputs.GetSnapshotPolicyResult;
 import com.pulumi.azure.netapp.outputs.GetSnapshotResult;
+import com.pulumi.azure.netapp.outputs.GetVolumeGroupSapHanaResult;
 import com.pulumi.azure.netapp.outputs.GetVolumeResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -857,5 +860,165 @@ public final class NetappFunctions {
      */
     public static CompletableFuture<GetVolumeResult> getVolumePlain(GetVolumePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:netapp/getVolume:getVolume", TypeShape.of(GetVolumeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Application Volume Group for SAP HANA application.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs.builder()
+     *             .name(&#34;existing application volume group name&#34;)
+     *             .resourceGroupName(&#34;resource group name where the account and volume group belong to&#34;)
+     *             .accountName(&#34;existing account where the application volume group belong to&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeGroupSapHanaResult -&gt; getVolumeGroupSapHanaResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVolumeGroupSapHanaResult> getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs args) {
+        return getVolumeGroupSapHana(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Application Volume Group for SAP HANA application.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs.builder()
+     *             .name(&#34;existing application volume group name&#34;)
+     *             .resourceGroupName(&#34;resource group name where the account and volume group belong to&#34;)
+     *             .accountName(&#34;existing account where the application volume group belong to&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeGroupSapHanaResult -&gt; getVolumeGroupSapHanaResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVolumeGroupSapHanaResult> getVolumeGroupSapHanaPlain(GetVolumeGroupSapHanaPlainArgs args) {
+        return getVolumeGroupSapHanaPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Application Volume Group for SAP HANA application.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs.builder()
+     *             .name(&#34;existing application volume group name&#34;)
+     *             .resourceGroupName(&#34;resource group name where the account and volume group belong to&#34;)
+     *             .accountName(&#34;existing account where the application volume group belong to&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeGroupSapHanaResult -&gt; getVolumeGroupSapHanaResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVolumeGroupSapHanaResult> getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", TypeShape.of(GetVolumeGroupSapHanaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Application Volume Group for SAP HANA application.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs.builder()
+     *             .name(&#34;existing application volume group name&#34;)
+     *             .resourceGroupName(&#34;resource group name where the account and volume group belong to&#34;)
+     *             .accountName(&#34;existing account where the application volume group belong to&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getVolumeGroupSapHanaResult -&gt; getVolumeGroupSapHanaResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVolumeGroupSapHanaResult> getVolumeGroupSapHanaPlain(GetVolumeGroupSapHanaPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana", TypeShape.of(GetVolumeGroupSapHanaResult.class), args, Utilities.withVersion(options));
     }
 }

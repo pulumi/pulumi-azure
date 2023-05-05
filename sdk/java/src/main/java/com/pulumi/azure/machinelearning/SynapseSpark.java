@@ -151,7 +151,7 @@ public class SynapseSpark extends com.pulumi.resources.CustomResource {
      * The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -165,7 +165,7 @@ public class SynapseSpark extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
      * 
      */
-    @Export(name="identity", refs={SynapseSparkIdentity.class}, tree="[0]")
+    @Export(name="identity", type=SynapseSparkIdentity.class, parameters={})
     private Output</* @Nullable */ SynapseSparkIdentity> identity;
 
     /**
@@ -179,7 +179,7 @@ public class SynapseSpark extends com.pulumi.resources.CustomResource {
      * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
      * 
      */
-    @Export(name="localAuthEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="localAuthEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAuthEnabled;
 
     /**
@@ -193,7 +193,7 @@ public class SynapseSpark extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -207,7 +207,7 @@ public class SynapseSpark extends com.pulumi.resources.CustomResource {
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.
      * 
      */
-    @Export(name="machineLearningWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="machineLearningWorkspaceId", type=String.class, parameters={})
     private Output<String> machineLearningWorkspaceId;
 
     /**
@@ -221,7 +221,7 @@ public class SynapseSpark extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -235,7 +235,7 @@ public class SynapseSpark extends com.pulumi.resources.CustomResource {
      * The ID of the linked Synapse Spark Pool. Changing this forces a new Machine Learning Synapse Spark to be created.
      * 
      */
-    @Export(name="synapseSparkPoolId", refs={String.class}, tree="[0]")
+    @Export(name="synapseSparkPoolId", type=String.class, parameters={})
     private Output<String> synapseSparkPoolId;
 
     /**
@@ -249,7 +249,7 @@ public class SynapseSpark extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

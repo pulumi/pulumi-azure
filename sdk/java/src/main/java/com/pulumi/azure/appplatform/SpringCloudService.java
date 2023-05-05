@@ -99,7 +99,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * Specifies the size for this Spring Cloud Service&#39;s default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
-    @Export(name="buildAgentPoolSize", refs={String.class}, tree="[0]")
+    @Export(name="buildAgentPoolSize", type=String.class, parameters={})
     private Output</* @Nullable */ String> buildAgentPoolSize;
 
     /**
@@ -113,7 +113,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      * 
      */
-    @Export(name="configServerGitSetting", refs={SpringCloudServiceConfigServerGitSetting.class}, tree="[0]")
+    @Export(name="configServerGitSetting", type=SpringCloudServiceConfigServerGitSetting.class, parameters={})
     private Output</* @Nullable */ SpringCloudServiceConfigServerGitSetting> configServerGitSetting;
 
     /**
@@ -127,7 +127,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -141,7 +141,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * Should the log stream in vnet injection instance could be accessed from Internet?
      * 
      */
-    @Export(name="logStreamPublicEndpointEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="logStreamPublicEndpointEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> logStreamPublicEndpointEnabled;
 
     /**
@@ -155,7 +155,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -169,7 +169,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * A `network` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="network", refs={SpringCloudServiceNetwork.class}, tree="[0]")
+    @Export(name="network", type=SpringCloudServiceNetwork.class, parameters={})
     private Output</* @Nullable */ SpringCloudServiceNetwork> network;
 
     /**
@@ -183,7 +183,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * A list of the outbound Public IP Addresses used by this Spring Cloud Service.
      * 
      */
-    @Export(name="outboundPublicIpAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="outboundPublicIpAddresses", type=List.class, parameters={String.class})
     private Output<List<String>> outboundPublicIpAddresses;
 
     /**
@@ -197,7 +197,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * A list of `required_network_traffic_rules` blocks as defined below.
      * 
      */
-    @Export(name="requiredNetworkTrafficRules", refs={List.class,SpringCloudServiceRequiredNetworkTrafficRule.class}, tree="[0,1]")
+    @Export(name="requiredNetworkTrafficRules", type=List.class, parameters={SpringCloudServiceRequiredNetworkTrafficRule.class})
     private Output<List<SpringCloudServiceRequiredNetworkTrafficRule>> requiredNetworkTrafficRules;
 
     /**
@@ -211,7 +211,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -225,7 +225,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
-    @Export(name="serviceRegistryEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="serviceRegistryEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> serviceRegistryEnabled;
 
     /**
@@ -239,7 +239,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * The ID of the Spring Cloud Service Registry.
      * 
      */
-    @Export(name="serviceRegistryId", refs={String.class}, tree="[0]")
+    @Export(name="serviceRegistryId", type=String.class, parameters={})
     private Output<String> serviceRegistryId;
 
     /**
@@ -253,7 +253,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output</* @Nullable */ String> skuName;
 
     /**
@@ -267,7 +267,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -281,7 +281,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * A `trace` block as defined below.
      * 
      */
-    @Export(name="trace", refs={SpringCloudServiceTrace.class}, tree="[0]")
+    @Export(name="trace", type=SpringCloudServiceTrace.class, parameters={})
     private Output</* @Nullable */ SpringCloudServiceTrace> trace;
 
     /**
@@ -295,7 +295,7 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
      * 
      */
-    @Export(name="zoneRedundant", refs={Boolean.class}, tree="[0]")
+    @Export(name="zoneRedundant", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneRedundant;
 
     /**

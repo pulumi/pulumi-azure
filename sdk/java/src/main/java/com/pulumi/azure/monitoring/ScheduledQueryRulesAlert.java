@@ -38,7 +38,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * An `action` block as defined below.
      * 
      */
-    @Export(name="action", refs={ScheduledQueryRulesAlertAction.class}, tree="[0]")
+    @Export(name="action", type=ScheduledQueryRulesAlertAction.class, parameters={})
     private Output<ScheduledQueryRulesAlertAction> action;
 
     /**
@@ -52,7 +52,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * List of Resource IDs referred into query.
      * 
      */
-    @Export(name="authorizedResourceIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="authorizedResourceIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> authorizedResourceIds;
 
     /**
@@ -67,7 +67,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * &gt; **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
      * 
      */
-    @Export(name="autoMitigationEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="autoMitigationEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoMitigationEnabled;
 
     /**
@@ -82,7 +82,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * The resource URI over which log search query is to be run.
      * 
      */
-    @Export(name="dataSourceId", refs={String.class}, tree="[0]")
+    @Export(name="dataSourceId", type=String.class, parameters={})
     private Output<String> dataSourceId;
 
     /**
@@ -96,7 +96,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * The description of the scheduled query rule.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -110,7 +110,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * Whether this scheduled query rule is enabled. Default is `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -124,7 +124,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
      * 
      */
-    @Export(name="frequency", refs={Integer.class}, tree="[0]")
+    @Export(name="frequency", type=Integer.class, parameters={})
     private Output<Integer> frequency;
 
     /**
@@ -138,7 +138,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -152,7 +152,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -166,7 +166,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * Log search query.
      * 
      */
-    @Export(name="query", refs={String.class}, tree="[0]")
+    @Export(name="query", type=String.class, parameters={})
     private Output<String> query;
 
     /**
@@ -180,7 +180,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
      * 
      */
-    @Export(name="queryType", refs={String.class}, tree="[0]")
+    @Export(name="queryType", type=String.class, parameters={})
     private Output</* @Nullable */ String> queryType;
 
     /**
@@ -194,7 +194,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -208,7 +208,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
      * 
      */
-    @Export(name="severity", refs={Integer.class}, tree="[0]")
+    @Export(name="severity", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> severity;
 
     /**
@@ -222,7 +222,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -236,7 +236,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
      * 
      */
-    @Export(name="throttling", refs={Integer.class}, tree="[0]")
+    @Export(name="throttling", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> throttling;
 
     /**
@@ -250,7 +250,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
      * 
      */
-    @Export(name="timeWindow", refs={Integer.class}, tree="[0]")
+    @Export(name="timeWindow", type=Integer.class, parameters={})
     private Output<Integer> timeWindow;
 
     /**
@@ -264,7 +264,7 @@ public class ScheduledQueryRulesAlert extends com.pulumi.resources.CustomResourc
      * A `trigger` block as defined below.
      * 
      */
-    @Export(name="trigger", refs={ScheduledQueryRulesAlertTrigger.class}, tree="[0]")
+    @Export(name="trigger", type=ScheduledQueryRulesAlertTrigger.class, parameters={})
     private Output<ScheduledQueryRulesAlertTrigger> trigger;
 
     /**

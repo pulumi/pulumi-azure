@@ -85,7 +85,7 @@ public class NatGatewayPublicIpAssociation extends com.pulumi.resources.CustomRe
      * The ID of the NAT Gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="natGatewayId", refs={String.class}, tree="[0]")
+    @Export(name="natGatewayId", type=String.class, parameters={})
     private Output<String> natGatewayId;
 
     /**
@@ -99,7 +99,7 @@ public class NatGatewayPublicIpAssociation extends com.pulumi.resources.CustomRe
      * The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="publicIpAddressId", refs={String.class}, tree="[0]")
+    @Export(name="publicIpAddressId", type=String.class, parameters={})
     private Output<String> publicIpAddressId;
 
     /**

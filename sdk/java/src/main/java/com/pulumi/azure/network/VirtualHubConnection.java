@@ -95,7 +95,7 @@ public class VirtualHubConnection extends com.pulumi.resources.CustomResource {
      * Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
      * 
      */
-    @Export(name="internetSecurityEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="internetSecurityEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> internetSecurityEnabled;
 
     /**
@@ -109,7 +109,7 @@ public class VirtualHubConnection extends com.pulumi.resources.CustomResource {
      * The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -123,7 +123,7 @@ public class VirtualHubConnection extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="remoteVirtualNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="remoteVirtualNetworkId", type=String.class, parameters={})
     private Output<String> remoteVirtualNetworkId;
 
     /**
@@ -137,7 +137,7 @@ public class VirtualHubConnection extends com.pulumi.resources.CustomResource {
      * A `routing` block as defined below.
      * 
      */
-    @Export(name="routing", refs={VirtualHubConnectionRouting.class}, tree="[0]")
+    @Export(name="routing", type=VirtualHubConnectionRouting.class, parameters={})
     private Output<VirtualHubConnectionRouting> routing;
 
     /**
@@ -151,7 +151,7 @@ public class VirtualHubConnection extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualHubId", refs={String.class}, tree="[0]")
+    @Export(name="virtualHubId", type=String.class, parameters={})
     private Output<String> virtualHubId;
 
     /**

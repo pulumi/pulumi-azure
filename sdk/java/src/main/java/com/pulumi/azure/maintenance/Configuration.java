@@ -74,7 +74,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
      * 
      */
-    @Export(name="inGuestUserPatchMode", refs={String.class}, tree="[0]")
+    @Export(name="inGuestUserPatchMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> inGuestUserPatchMode;
 
     /**
@@ -88,7 +88,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * An `install_patches` block as defined below.
      * 
      */
-    @Export(name="installPatches", refs={ConfigurationInstallPatches.class}, tree="[0]")
+    @Export(name="installPatches", type=ConfigurationInstallPatches.class, parameters={})
     private Output</* @Nullable */ ConfigurationInstallPatches> installPatches;
 
     /**
@@ -102,7 +102,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -116,7 +116,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -130,7 +130,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * A mapping of properties to assign to the resource.
      * 
      */
-    @Export(name="properties", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="properties", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> properties;
 
     /**
@@ -144,7 +144,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -158,7 +158,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
      * 
      */
-    @Export(name="scope", refs={String.class}, tree="[0]")
+    @Export(name="scope", type=String.class, parameters={})
     private Output<String> scope;
 
     /**
@@ -172,7 +172,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource. The key could not contain upper case letter.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -186,7 +186,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
      * 
      */
-    @Export(name="visibility", refs={String.class}, tree="[0]")
+    @Export(name="visibility", type=String.class, parameters={})
     private Output</* @Nullable */ String> visibility;
 
     /**
@@ -200,7 +200,7 @@ public class Configuration extends com.pulumi.resources.CustomResource {
      * A `window` block as defined below.
      * 
      */
-    @Export(name="window", refs={ConfigurationWindow.class}, tree="[0]")
+    @Export(name="window", type=ConfigurationWindow.class, parameters={})
     private Output</* @Nullable */ ConfigurationWindow> window;
 
     /**

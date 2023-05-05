@@ -112,7 +112,7 @@ public class TriggerCustomEvent extends com.pulumi.resources.CustomResource {
      * Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
      * 
      */
-    @Export(name="activated", refs={Boolean.class}, tree="[0]")
+    @Export(name="activated", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> activated;
 
     /**
@@ -126,7 +126,7 @@ public class TriggerCustomEvent extends com.pulumi.resources.CustomResource {
      * A map of additional properties to associate with the Data Factory Custom Event Trigger.
      * 
      */
-    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -140,7 +140,7 @@ public class TriggerCustomEvent extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Data Factory Custom Event Trigger.
      * 
      */
-    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="annotations", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -154,7 +154,7 @@ public class TriggerCustomEvent extends com.pulumi.resources.CustomResource {
      * The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
+    @Export(name="dataFactoryId", type=String.class, parameters={})
     private Output<String> dataFactoryId;
 
     /**
@@ -168,7 +168,7 @@ public class TriggerCustomEvent extends com.pulumi.resources.CustomResource {
      * The description for the Data Factory Custom Event Trigger.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -182,7 +182,7 @@ public class TriggerCustomEvent extends com.pulumi.resources.CustomResource {
      * The ID of Event Grid Topic in which event will be listened. Changing this forces a new resource.
      * 
      */
-    @Export(name="eventgridTopicId", refs={String.class}, tree="[0]")
+    @Export(name="eventgridTopicId", type=String.class, parameters={})
     private Output<String> eventgridTopicId;
 
     /**
@@ -196,7 +196,7 @@ public class TriggerCustomEvent extends com.pulumi.resources.CustomResource {
      * List of events that will fire this trigger. At least one event must be specified.
      * 
      */
-    @Export(name="events", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="events", type=List.class, parameters={String.class})
     private Output<List<String>> events;
 
     /**
@@ -210,7 +210,7 @@ public class TriggerCustomEvent extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory Custom Event Trigger. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -224,7 +224,7 @@ public class TriggerCustomEvent extends com.pulumi.resources.CustomResource {
      * One or more `pipeline` blocks as defined below.
      * 
      */
-    @Export(name="pipelines", refs={List.class,TriggerCustomEventPipeline.class}, tree="[0,1]")
+    @Export(name="pipelines", type=List.class, parameters={TriggerCustomEventPipeline.class})
     private Output<List<TriggerCustomEventPipeline>> pipelines;
 
     /**
@@ -238,7 +238,7 @@ public class TriggerCustomEvent extends com.pulumi.resources.CustomResource {
      * The pattern that event subject starts with for trigger to fire.
      * 
      */
-    @Export(name="subjectBeginsWith", refs={String.class}, tree="[0]")
+    @Export(name="subjectBeginsWith", type=String.class, parameters={})
     private Output</* @Nullable */ String> subjectBeginsWith;
 
     /**
@@ -252,7 +252,7 @@ public class TriggerCustomEvent extends com.pulumi.resources.CustomResource {
      * The pattern that event subject ends with for trigger to fire.
      * 
      */
-    @Export(name="subjectEndsWith", refs={String.class}, tree="[0]")
+    @Export(name="subjectEndsWith", type=String.class, parameters={})
     private Output</* @Nullable */ String> subjectEndsWith;
 
     /**

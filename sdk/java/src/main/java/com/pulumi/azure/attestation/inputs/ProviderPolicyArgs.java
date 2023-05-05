@@ -7,40 +7,26 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ProviderPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProviderPolicyArgs Empty = new ProviderPolicyArgs();
 
-    /**
-     * Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-     * 
-     */
-    @Import(name="data", required=true)
-    private Output<String> data;
+    @Import(name="data")
+    private @Nullable Output<String> data;
 
-    /**
-     * @return Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-     * 
-     */
-    public Output<String> data() {
-        return this.data;
+    public Optional<Output<String>> data() {
+        return Optional.ofNullable(this.data);
     }
 
-    /**
-     * Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-     * 
-     */
-    @Import(name="environmentType", required=true)
-    private Output<String> environmentType;
+    @Import(name="environmentType")
+    private @Nullable Output<String> environmentType;
 
-    /**
-     * @return Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-     * 
-     */
-    public Output<String> environmentType() {
-        return this.environmentType;
+    public Optional<Output<String>> environmentType() {
+        return Optional.ofNullable(this.environmentType);
     }
 
     private ProviderPolicyArgs() {}
@@ -68,51 +54,25 @@ public final class ProviderPolicyArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ProviderPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param data Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder data(Output<String> data) {
+        public Builder data(@Nullable Output<String> data) {
             $.data = data;
             return this;
         }
 
-        /**
-         * @param data Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-         * 
-         * @return builder
-         * 
-         */
         public Builder data(String data) {
             return data(Output.of(data));
         }
 
-        /**
-         * @param environmentType Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder environmentType(Output<String> environmentType) {
+        public Builder environmentType(@Nullable Output<String> environmentType) {
             $.environmentType = environmentType;
             return this;
         }
 
-        /**
-         * @param environmentType Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder environmentType(String environmentType) {
             return environmentType(Output.of(environmentType));
         }
 
         public ProviderPolicyArgs build() {
-            $.data = Objects.requireNonNull($.data, "expected parameter 'data' to be non-null");
-            $.environmentType = Objects.requireNonNull($.environmentType, "expected parameter 'environmentType' to be non-null");
             return $;
         }
     }

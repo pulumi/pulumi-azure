@@ -134,7 +134,7 @@ public class ServiceCustomCertificate extends com.pulumi.resources.CustomResourc
      * The certificate version of the SignalR Custom Certificate service.
      * 
      */
-    @Export(name="certificateVersion", refs={String.class}, tree="[0]")
+    @Export(name="certificateVersion", type=String.class, parameters={})
     private Output<String> certificateVersion;
 
     /**
@@ -148,7 +148,7 @@ public class ServiceCustomCertificate extends com.pulumi.resources.CustomResourc
      * The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="customCertificateId", refs={String.class}, tree="[0]")
+    @Export(name="customCertificateId", type=String.class, parameters={})
     private Output<String> customCertificateId;
 
     /**
@@ -162,7 +162,7 @@ public class ServiceCustomCertificate extends com.pulumi.resources.CustomResourc
      * The name of the SignalR Custom Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -176,7 +176,7 @@ public class ServiceCustomCertificate extends com.pulumi.resources.CustomResourc
      * The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="signalrServiceId", refs={String.class}, tree="[0]")
+    @Export(name="signalrServiceId", type=String.class, parameters={})
     private Output<String> signalrServiceId;
 
     /**

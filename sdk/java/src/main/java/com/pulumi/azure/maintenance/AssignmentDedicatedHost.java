@@ -94,7 +94,7 @@ public class AssignmentDedicatedHost extends com.pulumi.resources.CustomResource
      * Specifies the Dedicated Host ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="dedicatedHostId", refs={String.class}, tree="[0]")
+    @Export(name="dedicatedHostId", type=String.class, parameters={})
     private Output<String> dedicatedHostId;
 
     /**
@@ -108,7 +108,7 @@ public class AssignmentDedicatedHost extends com.pulumi.resources.CustomResource
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -122,7 +122,7 @@ public class AssignmentDedicatedHost extends com.pulumi.resources.CustomResource
      * Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="maintenanceConfigurationId", refs={String.class}, tree="[0]")
+    @Export(name="maintenanceConfigurationId", type=String.class, parameters={})
     private Output<String> maintenanceConfigurationId;
 
     /**

@@ -125,7 +125,7 @@ public class BudgetSubscription extends com.pulumi.resources.CustomResource {
      * The total amount of cost to track with the budget.
      * 
      */
-    @Export(name="amount", refs={Double.class}, tree="[0]")
+    @Export(name="amount", type=Double.class, parameters={})
     private Output<Double> amount;
 
     /**
@@ -139,7 +139,7 @@ public class BudgetSubscription extends com.pulumi.resources.CustomResource {
      * (Optional) The ETag of the Subscription Consumption Budget.
      * 
      */
-    @Export(name="etag", refs={String.class}, tree="[0]")
+    @Export(name="etag", type=String.class, parameters={})
     private Output<String> etag;
 
     /**
@@ -153,7 +153,7 @@ public class BudgetSubscription extends com.pulumi.resources.CustomResource {
      * A `filter` block as defined below.
      * 
      */
-    @Export(name="filter", refs={BudgetSubscriptionFilter.class}, tree="[0]")
+    @Export(name="filter", type=BudgetSubscriptionFilter.class, parameters={})
     private Output</* @Nullable */ BudgetSubscriptionFilter> filter;
 
     /**
@@ -167,7 +167,7 @@ public class BudgetSubscription extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -181,7 +181,7 @@ public class BudgetSubscription extends com.pulumi.resources.CustomResource {
      * One or more `notification` blocks as defined below.
      * 
      */
-    @Export(name="notifications", refs={List.class,BudgetSubscriptionNotification.class}, tree="[0,1]")
+    @Export(name="notifications", type=List.class, parameters={BudgetSubscriptionNotification.class})
     private Output<List<BudgetSubscriptionNotification>> notifications;
 
     /**
@@ -195,7 +195,7 @@ public class BudgetSubscription extends com.pulumi.resources.CustomResource {
      * The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
+    @Export(name="subscriptionId", type=String.class, parameters={})
     private Output<String> subscriptionId;
 
     /**
@@ -209,7 +209,7 @@ public class BudgetSubscription extends com.pulumi.resources.CustomResource {
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="timeGrain", refs={String.class}, tree="[0]")
+    @Export(name="timeGrain", type=String.class, parameters={})
     private Output</* @Nullable */ String> timeGrain;
 
     /**
@@ -223,7 +223,7 @@ public class BudgetSubscription extends com.pulumi.resources.CustomResource {
      * A `time_period` block as defined below.
      * 
      */
-    @Export(name="timePeriod", refs={BudgetSubscriptionTimePeriod.class}, tree="[0]")
+    @Export(name="timePeriod", type=BudgetSubscriptionTimePeriod.class, parameters={})
     private Output<BudgetSubscriptionTimePeriod> timePeriod;
 
     /**

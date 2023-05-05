@@ -69,22 +69,13 @@ import (
 //				ObjectId: exampleAccount.Identity.ApplyT(func(identity storage.AccountIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput),
-//				KeyPermissions: pulumi.StringArray{
-//					pulumi.String("Get"),
-//					pulumi.String("Create"),
-//					pulumi.String("List"),
-//					pulumi.String("Restore"),
-//					pulumi.String("Recover"),
-//					pulumi.String("UnwrapKey"),
-//					pulumi.String("WrapKey"),
-//					pulumi.String("Purge"),
-//					pulumi.String("Encrypt"),
-//					pulumi.String("Decrypt"),
-//					pulumi.String("Sign"),
-//					pulumi.String("Verify"),
-//				},
 //				SecretPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
+//				},
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//					pulumi.String("UnwrapKey"),
+//					pulumi.String("WrapKey"),
 //				},
 //			})
 //			if err != nil {
@@ -94,6 +85,9 @@ import (
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   *pulumi.String(current.TenantId),
 //				ObjectId:   *pulumi.String(current.ObjectId),
+//				SecretPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//				},
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //					pulumi.String("Create"),
@@ -109,9 +103,7 @@ import (
 //					pulumi.String("Sign"),
 //					pulumi.String("Verify"),
 //					pulumi.String("GetRotationPolicy"),
-//				},
-//				SecretPermissions: pulumi.StringArray{
-//					pulumi.String("Get"),
+//					pulumi.String("SetRotationPolicy"),
 //				},
 //			})
 //			if err != nil {

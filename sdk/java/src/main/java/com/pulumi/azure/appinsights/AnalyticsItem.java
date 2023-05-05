@@ -81,7 +81,7 @@ public class AnalyticsItem extends com.pulumi.resources.CustomResource {
      * The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="applicationInsightsId", refs={String.class}, tree="[0]")
+    @Export(name="applicationInsightsId", type=String.class, parameters={})
     private Output<String> applicationInsightsId;
 
     /**
@@ -95,7 +95,7 @@ public class AnalyticsItem extends com.pulumi.resources.CustomResource {
      * The content for the Analytics Item, for example the query text if `type` is `query`.
      * 
      */
-    @Export(name="content", refs={String.class}, tree="[0]")
+    @Export(name="content", type=String.class, parameters={})
     private Output<String> content;
 
     /**
@@ -109,7 +109,7 @@ public class AnalyticsItem extends com.pulumi.resources.CustomResource {
      * The alias to use for the function. Required when `type` is `function`.
      * 
      */
-    @Export(name="functionAlias", refs={String.class}, tree="[0]")
+    @Export(name="functionAlias", type=String.class, parameters={})
     private Output</* @Nullable */ String> functionAlias;
 
     /**
@@ -123,7 +123,7 @@ public class AnalyticsItem extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -137,7 +137,7 @@ public class AnalyticsItem extends com.pulumi.resources.CustomResource {
      * The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
      * 
      */
-    @Export(name="scope", refs={String.class}, tree="[0]")
+    @Export(name="scope", type=String.class, parameters={})
     private Output<String> scope;
 
     /**
@@ -151,7 +151,7 @@ public class AnalyticsItem extends com.pulumi.resources.CustomResource {
      * A string containing the time the Analytics Item was created.
      * 
      */
-    @Export(name="timeCreated", refs={String.class}, tree="[0]")
+    @Export(name="timeCreated", type=String.class, parameters={})
     private Output<String> timeCreated;
 
     /**
@@ -165,7 +165,7 @@ public class AnalyticsItem extends com.pulumi.resources.CustomResource {
      * A string containing the time the Analytics Item was last modified.
      * 
      */
-    @Export(name="timeModified", refs={String.class}, tree="[0]")
+    @Export(name="timeModified", type=String.class, parameters={})
     private Output<String> timeModified;
 
     /**
@@ -179,7 +179,7 @@ public class AnalyticsItem extends com.pulumi.resources.CustomResource {
      * The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="type", refs={String.class}, tree="[0]")
+    @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
@@ -193,7 +193,7 @@ public class AnalyticsItem extends com.pulumi.resources.CustomResource {
      * A string indicating the version of the query format
      * 
      */
-    @Export(name="version", refs={String.class}, tree="[0]")
+    @Export(name="version", type=String.class, parameters={})
     private Output<String> version;
 
     /**

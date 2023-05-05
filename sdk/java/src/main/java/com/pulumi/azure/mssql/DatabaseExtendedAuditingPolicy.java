@@ -100,7 +100,7 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
      * The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="databaseId", refs={String.class}, tree="[0]")
+    @Export(name="databaseId", type=String.class, parameters={})
     private Output<String> databaseId;
 
     /**
@@ -114,7 +114,7 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -128,7 +128,7 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
      * Enable audit events to Azure Monitor? Defaults to `true`.
      * 
      */
-    @Export(name="logMonitoringEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="logMonitoringEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> logMonitoringEnabled;
 
     /**
@@ -142,7 +142,7 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
      * The number of days to retain logs for in the storage account. Defaults to `0`.
      * 
      */
-    @Export(name="retentionInDays", refs={Integer.class}, tree="[0]")
+    @Export(name="retentionInDays", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> retentionInDays;
 
     /**
@@ -156,7 +156,7 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
      * The access key to use for the auditing storage account.
      * 
      */
-    @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountAccessKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountAccessKey;
 
     /**
@@ -170,7 +170,7 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
      * Is `storage_account_access_key` value the storage&#39;s secondary key?
      * 
      */
-    @Export(name="storageAccountAccessKeyIsSecondary", refs={Boolean.class}, tree="[0]")
+    @Export(name="storageAccountAccessKeyIsSecondary", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> storageAccountAccessKeyIsSecondary;
 
     /**
@@ -184,7 +184,7 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
      * The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
      * 
      */
-    @Export(name="storageEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="storageEndpoint", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageEndpoint;
 
     /**

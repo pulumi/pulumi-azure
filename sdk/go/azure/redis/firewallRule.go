@@ -13,68 +13,6 @@ import (
 
 // Manages a Firewall Rule associated with a Redis Cache.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-//				Keepers: pulumi.AnyMap{
-//					"azi_id": pulumi.Any(1),
-//				},
-//				ByteLength: pulumi.Int(8),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleCache, err := redis.NewCache(ctx, "exampleCache", &redis.CacheArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Capacity:          pulumi.Int(1),
-//				Family:            pulumi.String("P"),
-//				SkuName:           pulumi.String("Premium"),
-//				EnableNonSslPort:  pulumi.Bool(false),
-//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
-//					MaxmemoryReserved: pulumi.Int(2),
-//					MaxmemoryDelta:    pulumi.Int(2),
-//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redis.NewFirewallRule(ctx, "exampleFirewallRule", &redis.FirewallRuleArgs{
-//				RedisCacheName:    exampleCache.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				StartIp:           pulumi.String("1.2.3.4"),
-//				EndIp:             pulumi.String("2.3.4.5"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Redis Firewall Rules can be imported using the `resource id`, e.g.

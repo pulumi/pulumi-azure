@@ -209,6 +209,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly scaleDownMode!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+     */
+    public readonly snapshotId!: pulumi.Output<string | undefined>;
+    /**
      * The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      */
     public readonly spotMaxPrice!: pulumi.Output<number | undefined>;
@@ -290,6 +294,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             resourceInputs["scaleDownMode"] = state ? state.scaleDownMode : undefined;
+            resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
             resourceInputs["spotMaxPrice"] = state ? state.spotMaxPrice : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["ultraSsdEnabled"] = state ? state.ultraSsdEnabled : undefined;
@@ -339,6 +344,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             resourceInputs["scaleDownMode"] = args ? args.scaleDownMode : undefined;
+            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
             resourceInputs["spotMaxPrice"] = args ? args.spotMaxPrice : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["ultraSsdEnabled"] = args ? args.ultraSsdEnabled : undefined;
@@ -486,6 +492,10 @@ export interface KubernetesClusterNodePoolState {
      * Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
      */
     scaleDownMode?: pulumi.Input<string>;
+    /**
+     * The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+     */
+    snapshotId?: pulumi.Input<string>;
     /**
      * The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      */
@@ -656,6 +666,10 @@ export interface KubernetesClusterNodePoolArgs {
      * Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
      */
     scaleDownMode?: pulumi.Input<string>;
+    /**
+     * The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+     */
+    snapshotId?: pulumi.Input<string>;
     /**
      * The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      */

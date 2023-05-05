@@ -301,7 +301,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * The ID of the App Service Plan within which to create this Function App.
      * 
      */
-    @Export(name="appServicePlanId", refs={String.class}, tree="[0]")
+    @Export(name="appServicePlanId", type=String.class, parameters={})
     private Output<String> appServicePlanId;
 
     /**
@@ -315,7 +315,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
      */
-    @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="appSettings", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> appSettings;
 
     /**
@@ -329,7 +329,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * A `auth_settings` block as defined below.
      * 
      */
-    @Export(name="authSettings", refs={FunctionAppAuthSettings.class}, tree="[0]")
+    @Export(name="authSettings", type=FunctionAppAuthSettings.class, parameters={})
     private Output<FunctionAppAuthSettings> authSettings;
 
     /**
@@ -343,7 +343,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * The mode of the Function App&#39;s client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
      * 
      */
-    @Export(name="clientCertMode", refs={String.class}, tree="[0]")
+    @Export(name="clientCertMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> clientCertMode;
 
     /**
@@ -357,7 +357,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * An `connection_string` block as defined below.
      * 
      */
-    @Export(name="connectionStrings", refs={List.class,FunctionAppConnectionString.class}, tree="[0,1]")
+    @Export(name="connectionStrings", type=List.class, parameters={FunctionAppConnectionString.class})
     private Output<List<FunctionAppConnectionString>> connectionStrings;
 
     /**
@@ -371,7 +371,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * An identifier used by App Service to perform domain ownership verification via DNS TXT record.
      * 
      */
-    @Export(name="customDomainVerificationId", refs={String.class}, tree="[0]")
+    @Export(name="customDomainVerificationId", type=String.class, parameters={})
     private Output<String> customDomainVerificationId;
 
     /**
@@ -385,7 +385,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
      * 
      */
-    @Export(name="dailyMemoryTimeQuota", refs={Integer.class}, tree="[0]")
+    @Export(name="dailyMemoryTimeQuota", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> dailyMemoryTimeQuota;
 
     /**
@@ -399,7 +399,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
      * 
      */
-    @Export(name="defaultHostname", refs={String.class}, tree="[0]")
+    @Export(name="defaultHostname", type=String.class, parameters={})
     private Output<String> defaultHostname;
 
     /**
@@ -413,7 +413,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * Should the built-in logging of this Function App be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enableBuiltinLogging", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableBuiltinLogging", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableBuiltinLogging;
 
     /**
@@ -427,7 +427,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * Is the Function App enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -441,7 +441,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      * 
      */
-    @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
+    @Export(name="httpsOnly", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
@@ -455,7 +455,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={FunctionAppIdentity.class}, tree="[0]")
+    @Export(name="identity", type=FunctionAppIdentity.class, parameters={})
     private Output</* @Nullable */ FunctionAppIdentity> identity;
 
     /**
@@ -469,7 +469,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
      * 
      */
-    @Export(name="keyVaultReferenceIdentityId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultReferenceIdentityId", type=String.class, parameters={})
     private Output<String> keyVaultReferenceIdentityId;
 
     /**
@@ -483,7 +483,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * The Function App kind - such as `functionapp,linux,container`
      * 
      */
-    @Export(name="kind", refs={String.class}, tree="[0]")
+    @Export(name="kind", type=String.class, parameters={})
     private Output<String> kind;
 
     /**
@@ -497,7 +497,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -511,7 +511,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -525,7 +525,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
      * 
      */
-    @Export(name="osType", refs={String.class}, tree="[0]")
+    @Export(name="osType", type=String.class, parameters={})
     private Output</* @Nullable */ String> osType;
 
     /**
@@ -539,7 +539,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      * 
      */
-    @Export(name="outboundIpAddresses", refs={String.class}, tree="[0]")
+    @Export(name="outboundIpAddresses", type=String.class, parameters={})
     private Output<String> outboundIpAddresses;
 
     /**
@@ -553,7 +553,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
-    @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
+    @Export(name="possibleOutboundIpAddresses", type=String.class, parameters={})
     private Output<String> possibleOutboundIpAddresses;
 
     /**
@@ -567,7 +567,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -581,7 +581,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * A `site_config` object as defined below.
      * 
      */
-    @Export(name="siteConfig", refs={FunctionAppSiteConfig.class}, tree="[0]")
+    @Export(name="siteConfig", type=FunctionAppSiteConfig.class, parameters={})
     private Output<FunctionAppSiteConfig> siteConfig;
 
     /**
@@ -595,7 +595,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      * 
      */
-    @Export(name="siteCredentials", refs={List.class,FunctionAppSiteCredential.class}, tree="[0,1]")
+    @Export(name="siteCredentials", type=List.class, parameters={FunctionAppSiteCredential.class})
     private Output<List<FunctionAppSiteCredential>> siteCredentials;
 
     /**
@@ -609,7 +609,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * A `source_control` block, as defined below.
      * 
      */
-    @Export(name="sourceControl", refs={FunctionAppSourceControl.class}, tree="[0]")
+    @Export(name="sourceControl", type=FunctionAppSourceControl.class, parameters={})
     private Output<FunctionAppSourceControl> sourceControl;
 
     /**
@@ -623,7 +623,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * The access key which will be used to access the backend storage account for the Function App.
      * 
      */
-    @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountAccessKey", type=String.class, parameters={})
     private Output<String> storageAccountAccessKey;
 
     /**
@@ -637,7 +637,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**
@@ -651,7 +651,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -665,7 +665,7 @@ public class FunctionApp extends com.pulumi.resources.CustomResource {
      * The runtime version associated with the Function App. Defaults to `~1`.
      * 
      */
-    @Export(name="version", refs={String.class}, tree="[0]")
+    @Export(name="version", type=String.class, parameters={})
     private Output</* @Nullable */ String> version;
 
     /**

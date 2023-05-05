@@ -84,7 +84,7 @@ public class ExpressRouteAuthorization extends com.pulumi.resources.CustomResour
      * The ID of the Express Route Circuit Authorization.
      * 
      */
-    @Export(name="expressRouteAuthorizationId", refs={String.class}, tree="[0]")
+    @Export(name="expressRouteAuthorizationId", type=String.class, parameters={})
     private Output<String> expressRouteAuthorizationId;
 
     /**
@@ -98,7 +98,7 @@ public class ExpressRouteAuthorization extends com.pulumi.resources.CustomResour
      * The key of the Express Route Circuit Authorization.
      * 
      */
-    @Export(name="expressRouteAuthorizationKey", refs={String.class}, tree="[0]")
+    @Export(name="expressRouteAuthorizationKey", type=String.class, parameters={})
     private Output<String> expressRouteAuthorizationKey;
 
     /**
@@ -112,7 +112,7 @@ public class ExpressRouteAuthorization extends com.pulumi.resources.CustomResour
      * The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class ExpressRouteAuthorization extends com.pulumi.resources.CustomResour
      * The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
      * 
      */
-    @Export(name="privateCloudId", refs={String.class}, tree="[0]")
+    @Export(name="privateCloudId", type=String.class, parameters={})
     private Output<String> privateCloudId;
 
     /**

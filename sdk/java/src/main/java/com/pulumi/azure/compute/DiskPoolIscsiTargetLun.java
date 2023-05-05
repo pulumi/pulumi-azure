@@ -160,7 +160,7 @@ public class DiskPoolIscsiTargetLun extends com.pulumi.resources.CustomResource 
      * The ID of the `azure.compute.DiskPoolManagedDiskAttachment`. Changing this forces a new iSCSI Target LUN to be created.
      * 
      */
-    @Export(name="diskPoolManagedDiskAttachmentId", refs={String.class}, tree="[0]")
+    @Export(name="diskPoolManagedDiskAttachmentId", type=String.class, parameters={})
     private Output<String> diskPoolManagedDiskAttachmentId;
 
     /**
@@ -174,7 +174,7 @@ public class DiskPoolIscsiTargetLun extends com.pulumi.resources.CustomResource 
      * The ID of the iSCSI Target. Changing this forces a new iSCSI Target LUN to be created.
      * 
      */
-    @Export(name="iscsiTargetId", refs={String.class}, tree="[0]")
+    @Export(name="iscsiTargetId", type=String.class, parameters={})
     private Output<String> iscsiTargetId;
 
     /**
@@ -188,7 +188,7 @@ public class DiskPoolIscsiTargetLun extends com.pulumi.resources.CustomResource 
      * The Logical Unit Number of the iSCSI Target LUN.
      * 
      */
-    @Export(name="lun", refs={Integer.class}, tree="[0]")
+    @Export(name="lun", type=Integer.class, parameters={})
     private Output<Integer> lun;
 
     /**
@@ -202,7 +202,7 @@ public class DiskPoolIscsiTargetLun extends com.pulumi.resources.CustomResource 
      * User defined name for iSCSI LUN. Supported characters include uppercase letters, lowercase letters, numbers, periods, underscores or hyphens. Name should end with an alphanumeric character. The length must be between `1` and `90`. Changing this forces a new iSCSI Target LUN to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**

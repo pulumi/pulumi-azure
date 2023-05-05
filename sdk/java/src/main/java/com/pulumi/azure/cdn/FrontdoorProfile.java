@@ -72,7 +72,7 @@ public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -86,7 +86,7 @@ public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -100,7 +100,7 @@ public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
      * The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
      * 
      */
-    @Export(name="resourceGuid", refs={String.class}, tree="[0]")
+    @Export(name="resourceGuid", type=String.class, parameters={})
     private Output<String> resourceGuid;
 
     /**
@@ -114,7 +114,7 @@ public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
      * Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
      * 
      */
-    @Export(name="responseTimeoutSeconds", refs={Integer.class}, tree="[0]")
+    @Export(name="responseTimeoutSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> responseTimeoutSeconds;
 
     /**
@@ -128,7 +128,7 @@ public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
      * Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -142,7 +142,7 @@ public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
      * Specifies a mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

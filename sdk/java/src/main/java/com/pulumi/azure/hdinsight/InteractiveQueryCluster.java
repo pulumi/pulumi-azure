@@ -139,7 +139,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterVersion", refs={String.class}, tree="[0]")
+    @Export(name="clusterVersion", type=String.class, parameters={})
     private Output<String> clusterVersion;
 
     /**
@@ -153,7 +153,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * A `component_version` block as defined below.
      * 
      */
-    @Export(name="componentVersion", refs={InteractiveQueryClusterComponentVersion.class}, tree="[0]")
+    @Export(name="componentVersion", type=InteractiveQueryClusterComponentVersion.class, parameters={})
     private Output<InteractiveQueryClusterComponentVersion> componentVersion;
 
     /**
@@ -167,7 +167,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * A `compute_isolation` block as defined below.
      * 
      */
-    @Export(name="computeIsolation", refs={InteractiveQueryClusterComputeIsolation.class}, tree="[0]")
+    @Export(name="computeIsolation", type=InteractiveQueryClusterComputeIsolation.class, parameters={})
     private Output</* @Nullable */ InteractiveQueryClusterComputeIsolation> computeIsolation;
 
     /**
@@ -181,7 +181,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * A `disk_encryption` block as defined below.
      * 
      */
-    @Export(name="diskEncryptions", refs={List.class,InteractiveQueryClusterDiskEncryption.class}, tree="[0,1]")
+    @Export(name="diskEncryptions", type=List.class, parameters={InteractiveQueryClusterDiskEncryption.class})
     private Output</* @Nullable */ List<InteractiveQueryClusterDiskEncryption>> diskEncryptions;
 
     /**
@@ -195,7 +195,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="encryptionInTransitEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="encryptionInTransitEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> encryptionInTransitEnabled;
 
     /**
@@ -209,7 +209,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * An `extension` block as defined below.
      * 
      */
-    @Export(name="extension", refs={InteractiveQueryClusterExtension.class}, tree="[0]")
+    @Export(name="extension", type=InteractiveQueryClusterExtension.class, parameters={})
     private Output</* @Nullable */ InteractiveQueryClusterExtension> extension;
 
     /**
@@ -223,7 +223,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * A `gateway` block as defined below.
      * 
      */
-    @Export(name="gateway", refs={InteractiveQueryClusterGateway.class}, tree="[0]")
+    @Export(name="gateway", type=InteractiveQueryClusterGateway.class, parameters={})
     private Output<InteractiveQueryClusterGateway> gateway;
 
     /**
@@ -237,7 +237,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
      * 
      */
-    @Export(name="httpsEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="httpsEndpoint", type=String.class, parameters={})
     private Output<String> httpsEndpoint;
 
     /**
@@ -251,7 +251,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -265,7 +265,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * A `metastores` block as defined below.
      * 
      */
-    @Export(name="metastores", refs={InteractiveQueryClusterMetastores.class}, tree="[0]")
+    @Export(name="metastores", type=InteractiveQueryClusterMetastores.class, parameters={})
     private Output</* @Nullable */ InteractiveQueryClusterMetastores> metastores;
 
     /**
@@ -279,7 +279,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * A `monitor` block as defined below.
      * 
      */
-    @Export(name="monitor", refs={InteractiveQueryClusterMonitor.class}, tree="[0]")
+    @Export(name="monitor", type=InteractiveQueryClusterMonitor.class, parameters={})
     private Output</* @Nullable */ InteractiveQueryClusterMonitor> monitor;
 
     /**
@@ -293,7 +293,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -307,7 +307,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * A `network` block as defined below.
      * 
      */
-    @Export(name="network", refs={InteractiveQueryClusterNetwork.class}, tree="[0]")
+    @Export(name="network", type=InteractiveQueryClusterNetwork.class, parameters={})
     private Output</* @Nullable */ InteractiveQueryClusterNetwork> network;
 
     /**
@@ -321,7 +321,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -335,7 +335,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * A `roles` block as defined below.
      * 
      */
-    @Export(name="roles", refs={InteractiveQueryClusterRoles.class}, tree="[0]")
+    @Export(name="roles", type=InteractiveQueryClusterRoles.class, parameters={})
     private Output<InteractiveQueryClusterRoles> roles;
 
     /**
@@ -349,7 +349,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * A `security_profile` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="securityProfile", refs={InteractiveQueryClusterSecurityProfile.class}, tree="[0]")
+    @Export(name="securityProfile", type=InteractiveQueryClusterSecurityProfile.class, parameters={})
     private Output</* @Nullable */ InteractiveQueryClusterSecurityProfile> securityProfile;
 
     /**
@@ -363,7 +363,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
      * 
      */
-    @Export(name="sshEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="sshEndpoint", type=String.class, parameters={})
     private Output<String> sshEndpoint;
 
     /**
@@ -377,7 +377,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * A `storage_account_gen2` block as defined below.
      * 
      */
-    @Export(name="storageAccountGen2", refs={InteractiveQueryClusterStorageAccountGen2.class}, tree="[0]")
+    @Export(name="storageAccountGen2", type=InteractiveQueryClusterStorageAccountGen2.class, parameters={})
     private Output</* @Nullable */ InteractiveQueryClusterStorageAccountGen2> storageAccountGen2;
 
     /**
@@ -391,7 +391,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * One or more `storage_account` block as defined below.
      * 
      */
-    @Export(name="storageAccounts", refs={List.class,InteractiveQueryClusterStorageAccount.class}, tree="[0,1]")
+    @Export(name="storageAccounts", type=List.class, parameters={InteractiveQueryClusterStorageAccount.class})
     private Output</* @Nullable */ List<InteractiveQueryClusterStorageAccount>> storageAccounts;
 
     /**
@@ -405,7 +405,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -419,7 +419,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tier", refs={String.class}, tree="[0]")
+    @Export(name="tier", type=String.class, parameters={})
     private Output<String> tier;
 
     /**
@@ -433,7 +433,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tlsMinVersion", refs={String.class}, tree="[0]")
+    @Export(name="tlsMinVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> tlsMinVersion;
 
     /**

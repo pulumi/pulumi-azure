@@ -92,7 +92,7 @@ public class NotebookWorkspace extends com.pulumi.resources.CustomResource {
      * The name of the Cosmos DB Account to create the SQL Notebook Workspace within. Changing this forces a new SQL Notebook Workspace to be created.
      * 
      */
-    @Export(name="accountName", refs={String.class}, tree="[0]")
+    @Export(name="accountName", type=String.class, parameters={})
     private Output<String> accountName;
 
     /**
@@ -106,7 +106,7 @@ public class NotebookWorkspace extends com.pulumi.resources.CustomResource {
      * The name which should be used for this SQL Notebook Workspace. Possible value is `default`. Changing this forces a new SQL Notebook Workspace to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -120,7 +120,7 @@ public class NotebookWorkspace extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the SQL Notebook Workspace should exist. Changing this forces a new SQL Notebook Workspace to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -134,7 +134,7 @@ public class NotebookWorkspace extends com.pulumi.resources.CustomResource {
      * Specifies the endpoint of Notebook server.
      * 
      */
-    @Export(name="serverEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="serverEndpoint", type=String.class, parameters={})
     private Output<String> serverEndpoint;
 
     /**

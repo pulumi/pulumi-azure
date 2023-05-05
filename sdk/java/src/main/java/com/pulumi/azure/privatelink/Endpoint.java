@@ -190,6 +190,95 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.privatedns.Zone;
+ * import com.pulumi.azure.privatedns.ZoneArgs;
+ * import com.pulumi.azure.privatelink.Endpoint;
+ * import com.pulumi.azure.privatelink.EndpointArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateDnsZoneGroupArgs;
+ * import com.pulumi.azure.privatedns.ZoneVirtualNetworkLink;
+ * import com.pulumi.azure.privatedns.ZoneVirtualNetworkLinkArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .build());
+ * 
+ *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .subnetId(exampleSubnet.id())
+ *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
+ *                 .name(&#34;example-privateserviceconnection&#34;)
+ *                 .privateConnectionResourceId(exampleAccount.id())
+ *                 .subresourceNames(&#34;blob&#34;)
+ *                 .isManualConnection(false)
+ *                 .build())
+ *             .privateDnsZoneGroup(EndpointPrivateDnsZoneGroupArgs.builder()
+ *                 .name(&#34;example-dns-zone-group&#34;)
+ *                 .privateDnsZoneIds(exampleZone.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink(&#34;exampleZoneVirtualNetworkLink&#34;, ZoneVirtualNetworkLinkArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .privateDnsZoneName(exampleZone.name())
+ *             .virtualNetworkId(exampleVirtualNetwork.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Private Endpoints can be imported using the `resource id`, e.g.
@@ -205,7 +294,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A `custom_dns_configs` block as defined below.
      * 
      */
-    @Export(name="customDnsConfigs", refs={List.class,EndpointCustomDnsConfig.class}, tree="[0,1]")
+    @Export(name="customDnsConfigs", type=List.class, parameters={EndpointCustomDnsConfig.class})
     private Output<List<EndpointCustomDnsConfig>> customDnsConfigs;
 
     /**
@@ -219,7 +308,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="customNetworkInterfaceName", refs={String.class}, tree="[0]")
+    @Export(name="customNetworkInterfaceName", type=String.class, parameters={})
     private Output</* @Nullable */ String> customNetworkInterfaceName;
 
     /**
@@ -233,7 +322,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      * 
      */
-    @Export(name="ipConfigurations", refs={List.class,EndpointIpConfiguration.class}, tree="[0,1]")
+    @Export(name="ipConfigurations", type=List.class, parameters={EndpointIpConfiguration.class})
     private Output</* @Nullable */ List<EndpointIpConfiguration>> ipConfigurations;
 
     /**
@@ -247,7 +336,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -261,7 +350,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -275,7 +364,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A `network_interface` block as defined below.
      * 
      */
-    @Export(name="networkInterfaces", refs={List.class,EndpointNetworkInterface.class}, tree="[0,1]")
+    @Export(name="networkInterfaces", type=List.class, parameters={EndpointNetworkInterface.class})
     private Output<List<EndpointNetworkInterface>> networkInterfaces;
 
     /**
@@ -289,7 +378,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A `private_dns_zone_configs` block as defined below.
      * 
      */
-    @Export(name="privateDnsZoneConfigs", refs={List.class,EndpointPrivateDnsZoneConfig.class}, tree="[0,1]")
+    @Export(name="privateDnsZoneConfigs", type=List.class, parameters={EndpointPrivateDnsZoneConfig.class})
     private Output<List<EndpointPrivateDnsZoneConfig>> privateDnsZoneConfigs;
 
     /**
@@ -303,7 +392,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A `private_dns_zone_group` block as defined below.
      * 
      */
-    @Export(name="privateDnsZoneGroup", refs={EndpointPrivateDnsZoneGroup.class}, tree="[0]")
+    @Export(name="privateDnsZoneGroup", type=EndpointPrivateDnsZoneGroup.class, parameters={})
     private Output</* @Nullable */ EndpointPrivateDnsZoneGroup> privateDnsZoneGroup;
 
     /**
@@ -317,7 +406,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A `private_service_connection` block as defined below.
      * 
      */
-    @Export(name="privateServiceConnection", refs={EndpointPrivateServiceConnection.class}, tree="[0]")
+    @Export(name="privateServiceConnection", type=EndpointPrivateServiceConnection.class, parameters={})
     private Output<EndpointPrivateServiceConnection> privateServiceConnection;
 
     /**
@@ -331,7 +420,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -345,7 +434,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**
@@ -359,7 +448,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

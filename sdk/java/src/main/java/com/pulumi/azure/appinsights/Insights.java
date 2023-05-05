@@ -126,7 +126,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * The App ID associated with this Application Insights component.
      * 
      */
-    @Export(name="appId", refs={String.class}, tree="[0]")
+    @Export(name="appId", type=String.class, parameters={})
     private Output<String> appId;
 
     /**
@@ -140,7 +140,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="applicationType", refs={String.class}, tree="[0]")
+    @Export(name="applicationType", type=String.class, parameters={})
     private Output<String> applicationType;
 
     /**
@@ -154,7 +154,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * The Connection String for this Application Insights component. (Sensitive)
      * 
      */
-    @Export(name="connectionString", refs={String.class}, tree="[0]")
+    @Export(name="connectionString", type=String.class, parameters={})
     private Output<String> connectionString;
 
     /**
@@ -168,7 +168,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * Specifies the Application Insights component daily data volume cap in GB.
      * 
      */
-    @Export(name="dailyDataCapInGb", refs={Double.class}, tree="[0]")
+    @Export(name="dailyDataCapInGb", type=Double.class, parameters={})
     private Output<Double> dailyDataCapInGb;
 
     /**
@@ -182,7 +182,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * Specifies if a notification email will be send when the daily data volume cap is met.
      * 
      */
-    @Export(name="dailyDataCapNotificationsDisabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="dailyDataCapNotificationsDisabled", type=Boolean.class, parameters={})
     private Output<Boolean> dailyDataCapNotificationsDisabled;
 
     /**
@@ -196,7 +196,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
      * 
      */
-    @Export(name="disableIpMasking", refs={Boolean.class}, tree="[0]")
+    @Export(name="disableIpMasking", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> disableIpMasking;
 
     /**
@@ -210,7 +210,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
      * 
      */
-    @Export(name="forceCustomerStorageForProfiler", refs={Boolean.class}, tree="[0]")
+    @Export(name="forceCustomerStorageForProfiler", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> forceCustomerStorageForProfiler;
 
     /**
@@ -224,7 +224,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * The Instrumentation Key for this Application Insights component. (Sensitive)
      * 
      */
-    @Export(name="instrumentationKey", refs={String.class}, tree="[0]")
+    @Export(name="instrumentationKey", type=String.class, parameters={})
     private Output<String> instrumentationKey;
 
     /**
@@ -238,7 +238,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
      * 
      */
-    @Export(name="internetIngestionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="internetIngestionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> internetIngestionEnabled;
 
     /**
@@ -252,7 +252,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
      * 
      */
-    @Export(name="internetQueryEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="internetQueryEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> internetQueryEnabled;
 
     /**
@@ -266,7 +266,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * Disable Non-Azure AD based Auth. Defaults to `false`.
      * 
      */
-    @Export(name="localAuthenticationDisabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="localAuthenticationDisabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAuthenticationDisabled;
 
     /**
@@ -280,7 +280,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -294,7 +294,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -308,7 +308,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -322,7 +322,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
      * 
      */
-    @Export(name="retentionInDays", refs={Integer.class}, tree="[0]")
+    @Export(name="retentionInDays", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> retentionInDays;
 
     /**
@@ -336,7 +336,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
      * 
      */
-    @Export(name="samplingPercentage", refs={Double.class}, tree="[0]")
+    @Export(name="samplingPercentage", type=Double.class, parameters={})
     private Output</* @Nullable */ Double> samplingPercentage;
 
     /**
@@ -350,7 +350,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -364,7 +364,7 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * Specifies the id of a log analytics workspace resource.
      * 
      */
-    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    @Export(name="workspaceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> workspaceId;
 
     /**

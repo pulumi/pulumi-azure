@@ -790,10 +790,11 @@ func (o FhirServiceCorsPtrOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
 }
 
 type FhirServiceIdentity struct {
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
-	// The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+	// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
 	Type string `pulumi:"type"`
 }
 
@@ -809,10 +810,11 @@ type FhirServiceIdentityInput interface {
 }
 
 type FhirServiceIdentityArgs struct {
+	// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	// The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+	// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -893,6 +895,7 @@ func (o FhirServiceIdentityOutput) ToFhirServiceIdentityPtrOutputWithContext(ctx
 	}).(FhirServiceIdentityPtrOutput)
 }
 
+// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
 func (o FhirServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FhirServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -905,7 +908,7 @@ func (o FhirServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FhirServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
 func (o FhirServiceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FhirServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -934,6 +937,7 @@ func (o FhirServiceIdentityPtrOutput) Elem() FhirServiceIdentityOutput {
 	}).(FhirServiceIdentityOutput)
 }
 
+// A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
 func (o FhirServiceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FhirServiceIdentity) []string {
 		if v == nil {
@@ -961,7 +965,7 @@ func (o FhirServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
 func (o FhirServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FhirServiceIdentity) *string {
 		if v == nil {
@@ -2338,6 +2342,7 @@ func (o GetFhirServiceCorArrayOutput) Index(i pulumi.IntInput) GetFhirServiceCor
 }
 
 type GetFhirServiceIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this System Assigned Managed Service Identity.
 	PrincipalId string `pulumi:"principalId"`
 	// The Tenant ID associated with this System Assigned Managed Service Identity.
@@ -2358,6 +2363,7 @@ type GetFhirServiceIdentityInput interface {
 }
 
 type GetFhirServiceIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this System Assigned Managed Service Identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The Tenant ID associated with this System Assigned Managed Service Identity.
@@ -2417,6 +2423,10 @@ func (o GetFhirServiceIdentityOutput) ToGetFhirServiceIdentityOutputWithContext(
 	return o
 }
 
+func (o GetFhirServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFhirServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID associated with this System Assigned Managed Service Identity.
 func (o GetFhirServiceIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFhirServiceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
@@ -2453,6 +2463,7 @@ func (o GetFhirServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetFhirServi
 }
 
 type GetMedtechServiceIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
 	PrincipalId string `pulumi:"principalId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
@@ -2473,6 +2484,7 @@ type GetMedtechServiceIdentityInput interface {
 }
 
 type GetMedtechServiceIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
@@ -2530,6 +2542,10 @@ func (o GetMedtechServiceIdentityOutput) ToGetMedtechServiceIdentityOutput() Get
 
 func (o GetMedtechServiceIdentityOutput) ToGetMedtechServiceIdentityOutputWithContext(ctx context.Context) GetMedtechServiceIdentityOutput {
 	return o
+}
+
+func (o GetMedtechServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetMedtechServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The Principal ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.

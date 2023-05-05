@@ -100,7 +100,7 @@ public class NetworkSimGroup extends com.pulumi.resources.CustomResource {
      * A key to encrypt the SIM data that belongs to this SIM group.
      * 
      */
-    @Export(name="encryptionKeyUrl", refs={String.class}, tree="[0]")
+    @Export(name="encryptionKeyUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> encryptionKeyUrl;
 
     /**
@@ -114,7 +114,7 @@ public class NetworkSimGroup extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={NetworkSimGroupIdentity.class}, tree="[0]")
+    @Export(name="identity", type=NetworkSimGroupIdentity.class, parameters={})
     private Output</* @Nullable */ NetworkSimGroupIdentity> identity;
 
     /**
@@ -128,7 +128,7 @@ public class NetworkSimGroup extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -142,7 +142,7 @@ public class NetworkSimGroup extends com.pulumi.resources.CustomResource {
      * The ID of Mobile Network which the Mobile Network Sim Group belongs to. Changing this forces a new Mobile Network Slice to be created.
      * 
      */
-    @Export(name="mobileNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="mobileNetworkId", type=String.class, parameters={})
     private Output<String> mobileNetworkId;
 
     /**
@@ -156,7 +156,7 @@ public class NetworkSimGroup extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Mobile Network Sim Groups. Changing this forces a new Mobile Network Sim Group to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -170,7 +170,7 @@ public class NetworkSimGroup extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Mobile Network Sim Groups.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

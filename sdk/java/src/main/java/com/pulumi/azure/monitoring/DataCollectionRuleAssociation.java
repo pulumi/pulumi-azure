@@ -155,7 +155,7 @@ public class DataCollectionRuleAssociation extends com.pulumi.resources.CustomRe
      * The ID of the Data Collection Endpoint which will be associated to the target resource.
      * 
      */
-    @Export(name="dataCollectionEndpointId", refs={String.class}, tree="[0]")
+    @Export(name="dataCollectionEndpointId", type=String.class, parameters={})
     private Output</* @Nullable */ String> dataCollectionEndpointId;
 
     /**
@@ -169,7 +169,7 @@ public class DataCollectionRuleAssociation extends com.pulumi.resources.CustomRe
      * The ID of the Data Collection Rule which will be associated to the target resource.
      * 
      */
-    @Export(name="dataCollectionRuleId", refs={String.class}, tree="[0]")
+    @Export(name="dataCollectionRuleId", type=String.class, parameters={})
     private Output</* @Nullable */ String> dataCollectionRuleId;
 
     /**
@@ -183,7 +183,7 @@ public class DataCollectionRuleAssociation extends com.pulumi.resources.CustomRe
      * The description of the Data Collection Rule Association.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -197,7 +197,7 @@ public class DataCollectionRuleAssociation extends com.pulumi.resources.CustomRe
      * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -211,7 +211,7 @@ public class DataCollectionRuleAssociation extends com.pulumi.resources.CustomRe
      * The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
+    @Export(name="targetResourceId", type=String.class, parameters={})
     private Output<String> targetResourceId;
 
     /**

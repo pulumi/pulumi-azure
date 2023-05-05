@@ -111,7 +111,7 @@ public class ResolverInboundEndpoint extends com.pulumi.resources.CustomResource
      * Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
      * 
      */
-    @Export(name="ipConfigurations", refs={List.class,ResolverInboundEndpointIpConfiguration.class}, tree="[0,1]")
+    @Export(name="ipConfigurations", type=List.class, parameters={ResolverInboundEndpointIpConfiguration.class})
     private Output<List<ResolverInboundEndpointIpConfiguration>> ipConfigurations;
 
     /**
@@ -125,7 +125,7 @@ public class ResolverInboundEndpoint extends com.pulumi.resources.CustomResource
      * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -139,7 +139,7 @@ public class ResolverInboundEndpoint extends com.pulumi.resources.CustomResource
      * Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -153,7 +153,7 @@ public class ResolverInboundEndpoint extends com.pulumi.resources.CustomResource
      * Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      * 
      */
-    @Export(name="privateDnsResolverId", refs={String.class}, tree="[0]")
+    @Export(name="privateDnsResolverId", type=String.class, parameters={})
     private Output<String> privateDnsResolverId;
 
     /**
@@ -167,7 +167,7 @@ public class ResolverInboundEndpoint extends com.pulumi.resources.CustomResource
      * A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

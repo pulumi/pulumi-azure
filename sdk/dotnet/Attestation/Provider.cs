@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Attestation
 {
     /// <summary>
-    /// Manages a Attestation Provider.
+    /// Manages an Attestation Provider.
     /// 
     /// ## Example Usage
     /// 
@@ -68,8 +68,11 @@ namespace Pulumi.Azure.Attestation
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `policy` blocks as defined below.
+        /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
         /// </summary>
+        [Output("openEnclavePolicyBase64")]
+        public Output<string?> OpenEnclavePolicyBase64 { get; private set; } = null!;
+
         [Output("policies")]
         public Output<ImmutableArray<Outputs.ProviderPolicy>> Policies { get; private set; } = null!;
 
@@ -86,10 +89,22 @@ namespace Pulumi.Azure.Attestation
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        /// </summary>
+        [Output("sgxEnclavePolicyBase64")]
+        public Output<string?> SgxEnclavePolicyBase64 { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags which should be assigned to the Attestation Provider.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        /// </summary>
+        [Output("tpmPolicyBase64")]
+        public Output<string?> TpmPolicyBase64 { get; private set; } = null!;
 
         /// <summary>
         /// Trust model used for the Attestation Service.
@@ -155,12 +170,15 @@ namespace Pulumi.Azure.Attestation
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        /// </summary>
+        [Input("openEnclavePolicyBase64")]
+        public Input<string>? OpenEnclavePolicyBase64 { get; set; }
+
         [Input("policies")]
         private InputList<Inputs.ProviderPolicyArgs>? _policies;
-
-        /// <summary>
-        /// One or more `policy` blocks as defined below.
-        /// </summary>
+        [Obsolete(@"This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.")]
         public InputList<Inputs.ProviderPolicyArgs> Policies
         {
             get => _policies ?? (_policies = new InputList<Inputs.ProviderPolicyArgs>());
@@ -179,6 +197,12 @@ namespace Pulumi.Azure.Attestation
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        /// </summary>
+        [Input("sgxEnclavePolicyBase64")]
+        public Input<string>? SgxEnclavePolicyBase64 { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -190,6 +214,12 @@ namespace Pulumi.Azure.Attestation
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        /// </summary>
+        [Input("tpmPolicyBase64")]
+        public Input<string>? TpmPolicyBase64 { get; set; }
 
         public ProviderArgs()
         {
@@ -217,12 +247,15 @@ namespace Pulumi.Azure.Attestation
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        /// </summary>
+        [Input("openEnclavePolicyBase64")]
+        public Input<string>? OpenEnclavePolicyBase64 { get; set; }
+
         [Input("policies")]
         private InputList<Inputs.ProviderPolicyGetArgs>? _policies;
-
-        /// <summary>
-        /// One or more `policy` blocks as defined below.
-        /// </summary>
+        [Obsolete(@"This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.")]
         public InputList<Inputs.ProviderPolicyGetArgs> Policies
         {
             get => _policies ?? (_policies = new InputList<Inputs.ProviderPolicyGetArgs>());
@@ -241,6 +274,12 @@ namespace Pulumi.Azure.Attestation
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        /// </summary>
+        [Input("sgxEnclavePolicyBase64")]
+        public Input<string>? SgxEnclavePolicyBase64 { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -252,6 +291,12 @@ namespace Pulumi.Azure.Attestation
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+        /// </summary>
+        [Input("tpmPolicyBase64")]
+        public Input<string>? TpmPolicyBase64 { get; set; }
 
         /// <summary>
         /// Trust model used for the Attestation Service.

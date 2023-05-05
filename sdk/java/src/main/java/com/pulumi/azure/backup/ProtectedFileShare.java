@@ -121,7 +121,7 @@ public class ProtectedFileShare extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
      * 
      */
-    @Export(name="backupPolicyId", refs={String.class}, tree="[0]")
+    @Export(name="backupPolicyId", type=String.class, parameters={})
     private Output<String> backupPolicyId;
 
     /**
@@ -135,7 +135,7 @@ public class ProtectedFileShare extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultName", refs={String.class}, tree="[0]")
+    @Export(name="recoveryVaultName", type=String.class, parameters={})
     private Output<String> recoveryVaultName;
 
     /**
@@ -149,7 +149,7 @@ public class ProtectedFileShare extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -163,7 +163,7 @@ public class ProtectedFileShare extends com.pulumi.resources.CustomResource {
      * Specifies the name of the file share to backup. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceFileShareName", refs={String.class}, tree="[0]")
+    @Export(name="sourceFileShareName", type=String.class, parameters={})
     private Output<String> sourceFileShareName;
 
     /**
@@ -177,7 +177,7 @@ public class ProtectedFileShare extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sourceStorageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="sourceStorageAccountId", type=String.class, parameters={})
     private Output<String> sourceStorageAccountId;
 
     /**

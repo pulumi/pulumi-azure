@@ -111,7 +111,7 @@ public class DscNodeConfiguration extends com.pulumi.resources.CustomResource {
      * The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
+    @Export(name="automationAccountName", type=String.class, parameters={})
     private Output<String> automationAccountName;
 
     /**
@@ -121,7 +121,7 @@ public class DscNodeConfiguration extends com.pulumi.resources.CustomResource {
     public Output<String> automationAccountName() {
         return this.automationAccountName;
     }
-    @Export(name="configurationName", refs={String.class}, tree="[0]")
+    @Export(name="configurationName", type=String.class, parameters={})
     private Output<String> configurationName;
 
     public Output<String> configurationName() {
@@ -131,7 +131,7 @@ public class DscNodeConfiguration extends com.pulumi.resources.CustomResource {
      * The PowerShell DSC Node Configuration (mof content).
      * 
      */
-    @Export(name="contentEmbedded", refs={String.class}, tree="[0]")
+    @Export(name="contentEmbedded", type=String.class, parameters={})
     private Output<String> contentEmbedded;
 
     /**
@@ -145,7 +145,7 @@ public class DscNodeConfiguration extends com.pulumi.resources.CustomResource {
      * Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -159,7 +159,7 @@ public class DscNodeConfiguration extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

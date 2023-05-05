@@ -79,7 +79,7 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
      * Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
      * 
      */
-    @Export(name="audience", refs={String.class}, tree="[0]")
+    @Export(name="audience", type=String.class, parameters={})
     private Output<String> audience;
 
     /**
@@ -93,7 +93,7 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
      * Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
      * 
      */
-    @Export(name="issuer", refs={String.class}, tree="[0]")
+    @Export(name="issuer", type=String.class, parameters={})
     private Output<String> issuer;
 
     /**
@@ -107,7 +107,7 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
      * Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -121,7 +121,7 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
      * Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
      * 
      */
-    @Export(name="parentId", refs={String.class}, tree="[0]")
+    @Export(name="parentId", type=String.class, parameters={})
     private Output<String> parentId;
 
     /**
@@ -135,7 +135,7 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
      * Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -149,7 +149,7 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
      * Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
      * 
      */
-    @Export(name="subject", refs={String.class}, tree="[0]")
+    @Export(name="subject", type=String.class, parameters={})
     private Output<String> subject;
 
     /**

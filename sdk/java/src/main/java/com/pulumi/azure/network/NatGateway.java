@@ -94,7 +94,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * The idle timeout which should be used in minutes. Defaults to `4`.
      * 
      */
-    @Export(name="idleTimeoutInMinutes", refs={Integer.class}, tree="[0]")
+    @Export(name="idleTimeoutInMinutes", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> idleTimeoutInMinutes;
 
     /**
@@ -108,7 +108,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -122,7 +122,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -136,7 +136,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -150,7 +150,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * The resource GUID property of the NAT Gateway.
      * 
      */
-    @Export(name="resourceGuid", refs={String.class}, tree="[0]")
+    @Export(name="resourceGuid", type=String.class, parameters={})
     private Output<String> resourceGuid;
 
     /**
@@ -164,7 +164,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output</* @Nullable */ String> skuName;
 
     /**
@@ -178,7 +178,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -192,7 +192,7 @@ public class NatGateway extends com.pulumi.resources.CustomResource {
      * Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
      * 
      */
-    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="zones", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> zones;
 
     /**

@@ -132,7 +132,7 @@ public class VirtualHubRouteTable extends com.pulumi.resources.CustomResource {
      * List of labels associated with this route table.
      * 
      */
-    @Export(name="labels", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="labels", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> labels;
 
     /**
@@ -146,7 +146,7 @@ public class VirtualHubRouteTable extends com.pulumi.resources.CustomResource {
      * The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -160,7 +160,7 @@ public class VirtualHubRouteTable extends com.pulumi.resources.CustomResource {
      * A `route` block as defined below.
      * 
      */
-    @Export(name="routes", refs={List.class,VirtualHubRouteTableRoute.class}, tree="[0,1]")
+    @Export(name="routes", type=List.class, parameters={VirtualHubRouteTableRoute.class})
     private Output<List<VirtualHubRouteTableRoute>> routes;
 
     /**
@@ -174,7 +174,7 @@ public class VirtualHubRouteTable extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualHubId", refs={String.class}, tree="[0]")
+    @Export(name="virtualHubId", type=String.class, parameters={})
     private Output<String> virtualHubId;
 
     /**

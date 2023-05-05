@@ -96,7 +96,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -110,7 +110,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
      * 
      */
-    @Export(name="apiType", refs={String.class}, tree="[0]")
+    @Export(name="apiType", type=String.class, parameters={})
     private Output<String> apiType;
 
     /**
@@ -124,7 +124,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * A `contact` block as documented below.
      * 
      */
-    @Export(name="contact", refs={ApiContact.class}, tree="[0]")
+    @Export(name="contact", type=ApiContact.class, parameters={})
     private Output</* @Nullable */ ApiContact> contact;
 
     /**
@@ -138,7 +138,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * A description of the API Management API, which may include HTML formatting tags.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -152,7 +152,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * The display name of the API.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -166,7 +166,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * A `import` block as documented below.
      * 
      */
-    @Export(name="import", refs={ApiImport.class}, tree="[0]")
+    @Export(name="import", type=ApiImport.class, parameters={})
     private Output</* @Nullable */ ApiImport> import_;
 
     /**
@@ -180,7 +180,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Is this the current API Revision?
      * 
      */
-    @Export(name="isCurrent", refs={Boolean.class}, tree="[0]")
+    @Export(name="isCurrent", type=Boolean.class, parameters={})
     private Output<Boolean> isCurrent;
 
     /**
@@ -194,7 +194,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Is this API Revision online/accessible via the Gateway?
      * 
      */
-    @Export(name="isOnline", refs={Boolean.class}, tree="[0]")
+    @Export(name="isOnline", type=Boolean.class, parameters={})
     private Output<Boolean> isOnline;
 
     /**
@@ -208,7 +208,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * A `license` block as documented below.
      * 
      */
-    @Export(name="license", refs={ApiLicense.class}, tree="[0]")
+    @Export(name="license", type=ApiLicense.class, parameters={})
     private Output</* @Nullable */ ApiLicense> license;
 
     /**
@@ -222,7 +222,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * The name of the API Management API. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -236,7 +236,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * An `oauth2_authorization` block as documented below.
      * 
      */
-    @Export(name="oauth2Authorization", refs={ApiOauth2Authorization.class}, tree="[0]")
+    @Export(name="oauth2Authorization", type=ApiOauth2Authorization.class, parameters={})
     private Output</* @Nullable */ ApiOauth2Authorization> oauth2Authorization;
 
     /**
@@ -250,7 +250,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * An `openid_authentication` block as documented below.
      * 
      */
-    @Export(name="openidAuthentication", refs={ApiOpenidAuthentication.class}, tree="[0]")
+    @Export(name="openidAuthentication", type=ApiOpenidAuthentication.class, parameters={})
     private Output</* @Nullable */ ApiOpenidAuthentication> openidAuthentication;
 
     /**
@@ -264,7 +264,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
      * 
      */
-    @Export(name="path", refs={String.class}, tree="[0]")
+    @Export(name="path", type=String.class, parameters={})
     private Output<String> path;
 
     /**
@@ -278,7 +278,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
      */
-    @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="protocols", type=List.class, parameters={String.class})
     private Output<List<String>> protocols;
 
     /**
@@ -292,7 +292,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -306,7 +306,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * The Revision which used for this API. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="revision", refs={String.class}, tree="[0]")
+    @Export(name="revision", type=String.class, parameters={})
     private Output<String> revision;
 
     /**
@@ -320,7 +320,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * The description of the API Revision of the API Management API.
      * 
      */
-    @Export(name="revisionDescription", refs={String.class}, tree="[0]")
+    @Export(name="revisionDescription", type=String.class, parameters={})
     private Output</* @Nullable */ String> revisionDescription;
 
     /**
@@ -334,7 +334,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Absolute URL of the backend service implementing this API.
      * 
      */
-    @Export(name="serviceUrl", refs={String.class}, tree="[0]")
+    @Export(name="serviceUrl", type=String.class, parameters={})
     private Output<String> serviceUrl;
 
     /**
@@ -352,7 +352,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider */
-    @Export(name="soapPassThrough", refs={Boolean.class}, tree="[0]")
+    @Export(name="soapPassThrough", type=Boolean.class, parameters={})
     private Output<Boolean> soapPassThrough;
 
     /**
@@ -366,7 +366,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
      * 
      */
-    @Export(name="sourceApiId", refs={String.class}, tree="[0]")
+    @Export(name="sourceApiId", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceApiId;
 
     /**
@@ -380,7 +380,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * A `subscription_key_parameter_names` block as documented below.
      * 
      */
-    @Export(name="subscriptionKeyParameterNames", refs={ApiSubscriptionKeyParameterNames.class}, tree="[0]")
+    @Export(name="subscriptionKeyParameterNames", type=ApiSubscriptionKeyParameterNames.class, parameters={})
     private Output<ApiSubscriptionKeyParameterNames> subscriptionKeyParameterNames;
 
     /**
@@ -394,7 +394,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Should this API require a subscription key? Defaults to `true`.
      * 
      */
-    @Export(name="subscriptionRequired", refs={Boolean.class}, tree="[0]")
+    @Export(name="subscriptionRequired", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> subscriptionRequired;
 
     /**
@@ -408,7 +408,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * Absolute URL of the Terms of Service for the API.
      * 
      */
-    @Export(name="termsOfServiceUrl", refs={String.class}, tree="[0]")
+    @Export(name="termsOfServiceUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> termsOfServiceUrl;
 
     /**
@@ -422,7 +422,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * The Version number of this API, if this API is versioned.
      * 
      */
-    @Export(name="version", refs={String.class}, tree="[0]")
+    @Export(name="version", type=String.class, parameters={})
     private Output<String> version;
 
     /**
@@ -436,7 +436,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * The description of the API Version of the API Management API.
      * 
      */
-    @Export(name="versionDescription", refs={String.class}, tree="[0]")
+    @Export(name="versionDescription", type=String.class, parameters={})
     private Output</* @Nullable */ String> versionDescription;
 
     /**
@@ -450,7 +450,7 @@ public class Api extends com.pulumi.resources.CustomResource {
      * The ID of the Version Set which this API is associated with.
      * 
      */
-    @Export(name="versionSetId", refs={String.class}, tree="[0]")
+    @Export(name="versionSetId", type=String.class, parameters={})
     private Output<String> versionSetId;
 
     /**

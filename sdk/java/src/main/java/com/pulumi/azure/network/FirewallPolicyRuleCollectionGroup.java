@@ -140,7 +140,7 @@ public class FirewallPolicyRuleCollectionGroup extends com.pulumi.resources.Cust
      * One or more `application_rule_collection` blocks as defined below.
      * 
      */
-    @Export(name="applicationRuleCollections", refs={List.class,FirewallPolicyRuleCollectionGroupApplicationRuleCollection.class}, tree="[0,1]")
+    @Export(name="applicationRuleCollections", type=List.class, parameters={FirewallPolicyRuleCollectionGroupApplicationRuleCollection.class})
     private Output</* @Nullable */ List<FirewallPolicyRuleCollectionGroupApplicationRuleCollection>> applicationRuleCollections;
 
     /**
@@ -154,7 +154,7 @@ public class FirewallPolicyRuleCollectionGroup extends com.pulumi.resources.Cust
      * The ID of the Firewall Policy where the Firewall Policy Rule Collection Group should exist. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      * 
      */
-    @Export(name="firewallPolicyId", refs={String.class}, tree="[0]")
+    @Export(name="firewallPolicyId", type=String.class, parameters={})
     private Output<String> firewallPolicyId;
 
     /**
@@ -168,7 +168,7 @@ public class FirewallPolicyRuleCollectionGroup extends com.pulumi.resources.Cust
      * The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -182,7 +182,7 @@ public class FirewallPolicyRuleCollectionGroup extends com.pulumi.resources.Cust
      * One or more `nat_rule_collection` blocks as defined below.
      * 
      */
-    @Export(name="natRuleCollections", refs={List.class,FirewallPolicyRuleCollectionGroupNatRuleCollection.class}, tree="[0,1]")
+    @Export(name="natRuleCollections", type=List.class, parameters={FirewallPolicyRuleCollectionGroupNatRuleCollection.class})
     private Output</* @Nullable */ List<FirewallPolicyRuleCollectionGroupNatRuleCollection>> natRuleCollections;
 
     /**
@@ -196,7 +196,7 @@ public class FirewallPolicyRuleCollectionGroup extends com.pulumi.resources.Cust
      * One or more `network_rule_collection` blocks as defined below.
      * 
      */
-    @Export(name="networkRuleCollections", refs={List.class,FirewallPolicyRuleCollectionGroupNetworkRuleCollection.class}, tree="[0,1]")
+    @Export(name="networkRuleCollections", type=List.class, parameters={FirewallPolicyRuleCollectionGroupNetworkRuleCollection.class})
     private Output</* @Nullable */ List<FirewallPolicyRuleCollectionGroupNetworkRuleCollection>> networkRuleCollections;
 
     /**
@@ -210,7 +210,7 @@ public class FirewallPolicyRuleCollectionGroup extends com.pulumi.resources.Cust
      * The priority of the Firewall Policy Rule Collection Group. The range is 100-65000.
      * 
      */
-    @Export(name="priority", refs={Integer.class}, tree="[0]")
+    @Export(name="priority", type=Integer.class, parameters={})
     private Output<Integer> priority;
 
     /**

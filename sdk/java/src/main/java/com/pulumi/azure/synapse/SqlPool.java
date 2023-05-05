@@ -103,7 +103,7 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
      * The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="collation", refs={String.class}, tree="[0]")
+    @Export(name="collation", type=String.class, parameters={})
     private Output<String> collation;
 
     /**
@@ -117,7 +117,7 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
      * Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="createMode", refs={String.class}, tree="[0]")
+    @Export(name="createMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> createMode;
 
     /**
@@ -131,7 +131,7 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
      * Is transparent data encryption enabled?
      * 
      */
-    @Export(name="dataEncrypted", refs={Boolean.class}, tree="[0]")
+    @Export(name="dataEncrypted", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> dataEncrypted;
 
     /**
@@ -145,7 +145,7 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
      * Is geo-backup policy enabled? Defaults to `true`.
      * 
      */
-    @Export(name="geoBackupPolicyEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="geoBackupPolicyEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> geoBackupPolicyEnabled;
 
     /**
@@ -159,7 +159,7 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Synapse SQL Pool. Changing this forces a new synapse SQL Pool to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -173,7 +173,7 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
      * The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
-    @Export(name="recoveryDatabaseId", refs={String.class}, tree="[0]")
+    @Export(name="recoveryDatabaseId", type=String.class, parameters={})
     private Output</* @Nullable */ String> recoveryDatabaseId;
 
     /**
@@ -187,7 +187,7 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
      * A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="restore", refs={SqlPoolRestore.class}, tree="[0]")
+    @Export(name="restore", type=SqlPoolRestore.class, parameters={})
     private Output</* @Nullable */ SqlPoolRestore> restore;
 
     /**
@@ -201,7 +201,7 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
      * Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -215,7 +215,7 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
      * The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
-    @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="synapseWorkspaceId", type=String.class, parameters={})
     private Output<String> synapseWorkspaceId;
 
     /**
@@ -229,7 +229,7 @@ public class SqlPool extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Synapse SQL Pool.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

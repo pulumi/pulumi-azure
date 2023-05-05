@@ -42,6 +42,8 @@ __all__ = [
     'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs',
     'KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs',
     'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs',
+    'KubernetesClusterExtensionAksAssignedIdentityArgs',
+    'KubernetesClusterExtensionPlanArgs',
     'KubernetesClusterHttpProxyConfigArgs',
     'KubernetesClusterIdentityArgs',
     'KubernetesClusterIngressApplicationGatewayArgs',
@@ -70,6 +72,7 @@ __all__ = [
     'KubernetesClusterNodePoolWindowsProfileArgs',
     'KubernetesClusterOmsAgentArgs',
     'KubernetesClusterOmsAgentOmsAgentIdentityArgs',
+    'KubernetesClusterServiceMeshProfileArgs',
     'KubernetesClusterServicePrincipalArgs',
     'KubernetesClusterStorageProfileArgs',
     'KubernetesClusterWebAppRoutingArgs',
@@ -3662,6 +3665,145 @@ class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs:
 
 
 @pulumi.input_type
+class KubernetesClusterExtensionAksAssignedIdentityArgs:
+    def __init__(__self__, *,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] principal_id: The principal ID of resource identity.
+        :param pulumi.Input[str] tenant_id: The tenant ID of resource.
+        :param pulumi.Input[str] type: The identity type.
+        """
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class KubernetesClusterExtensionPlanArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 product: pulumi.Input[str],
+                 publisher: pulumi.Input[str],
+                 promotion_code: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[str] product: Specifies the product of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[str] publisher: Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[str] promotion_code: Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[str] version: Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def product(self) -> pulumi.Input[str]:
+        """
+        Specifies the product of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+        """
+        return pulumi.get(self, "product")
+
+    @product.setter
+    def product(self, value: pulumi.Input[str]):
+        pulumi.set(self, "product", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[str]:
+        """
+        Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+        """
+        return pulumi.get(self, "promotion_code")
+
+    @promotion_code.setter
+    def promotion_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "promotion_code", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
 class KubernetesClusterHttpProxyConfigArgs:
     def __init__(__self__, *,
                  http_proxy: Optional[pulumi.Input[str]] = None,
@@ -5925,6 +6067,28 @@ class KubernetesClusterOmsAgentOmsAgentIdentityArgs:
     @user_assigned_identity_id.setter
     def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
+
+
+@pulumi.input_type
+class KubernetesClusterServiceMeshProfileArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] mode: The mode of the service mesh. Possible value is `Istio`.
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The mode of the service mesh. Possible value is `Istio`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
 
 
 @pulumi.input_type

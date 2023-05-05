@@ -5,10 +5,12 @@ package com.pulumi.azure.healthcare.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetFhirServiceIdentity {
+    private List<String> identityIds;
     /**
      * @return The Principal ID associated with this System Assigned Managed Service Identity.
      * 
@@ -26,6 +28,9 @@ public final class GetFhirServiceIdentity {
     private String type;
 
     private GetFhirServiceIdentity() {}
+    public List<String> identityIds() {
+        return this.identityIds;
+    }
     /**
      * @return The Principal ID associated with this System Assigned Managed Service Identity.
      * 
@@ -57,17 +62,27 @@ public final class GetFhirServiceIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<String> identityIds;
         private String principalId;
         private String tenantId;
         private String type;
         public Builder() {}
         public Builder(GetFhirServiceIdentity defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identityIds = defaults.identityIds;
     	      this.principalId = defaults.principalId;
     	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder identityIds(List<String> identityIds) {
+            this.identityIds = Objects.requireNonNull(identityIds);
+            return this;
+        }
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
+        }
         @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
@@ -85,6 +100,7 @@ public final class GetFhirServiceIdentity {
         }
         public GetFhirServiceIdentity build() {
             final var o = new GetFhirServiceIdentity();
+            o.identityIds = identityIds;
             o.principalId = principalId;
             o.tenantId = tenantId;
             o.type = type;

@@ -57,24 +57,15 @@ namespace Pulumi.Azure.Storage
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         ObjectId = exampleAccount.Identity.Apply(identity =&gt; identity?.PrincipalId),
-    ///         KeyPermissions = new[]
-    ///         {
-    ///             "Get",
-    ///             "Create",
-    ///             "List",
-    ///             "Restore",
-    ///             "Recover",
-    ///             "UnwrapKey",
-    ///             "WrapKey",
-    ///             "Purge",
-    ///             "Encrypt",
-    ///             "Decrypt",
-    ///             "Sign",
-    ///             "Verify",
-    ///         },
     ///         SecretPermissions = new[]
     ///         {
     ///             "Get",
+    ///         },
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "UnwrapKey",
+    ///             "WrapKey",
     ///         },
     ///     });
     /// 
@@ -83,6 +74,10 @@ namespace Pulumi.Azure.Storage
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         SecretPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///         },
     ///         KeyPermissions = new[]
     ///         {
     ///             "Get",
@@ -99,10 +94,7 @@ namespace Pulumi.Azure.Storage
     ///             "Sign",
     ///             "Verify",
     ///             "GetRotationPolicy",
-    ///         },
-    ///         SecretPermissions = new[]
-    ///         {
-    ///             "Get",
+    ///             "SetRotationPolicy",
     ///         },
     ///     });
     /// 

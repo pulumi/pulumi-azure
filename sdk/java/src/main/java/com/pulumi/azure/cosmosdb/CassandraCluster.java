@@ -133,7 +133,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
      * 
      */
-    @Export(name="authenticationMethod", refs={String.class}, tree="[0]")
+    @Export(name="authenticationMethod", type=String.class, parameters={})
     private Output</* @Nullable */ String> authenticationMethod;
 
     /**
@@ -147,7 +147,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
      * 
      */
-    @Export(name="clientCertificatePems", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="clientCertificatePems", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> clientCertificatePems;
 
     /**
@@ -161,7 +161,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="defaultAdminPassword", refs={String.class}, tree="[0]")
+    @Export(name="defaultAdminPassword", type=String.class, parameters={})
     private Output<String> defaultAdminPassword;
 
     /**
@@ -175,7 +175,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
      * 
      */
-    @Export(name="delegatedManagementSubnetId", refs={String.class}, tree="[0]")
+    @Export(name="delegatedManagementSubnetId", type=String.class, parameters={})
     private Output<String> delegatedManagementSubnetId;
 
     /**
@@ -189,7 +189,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
      * 
      */
-    @Export(name="externalGossipCertificatePems", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="externalGossipCertificatePems", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> externalGossipCertificatePems;
 
     /**
@@ -203,7 +203,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
      * 
      */
-    @Export(name="externalSeedNodeIpAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="externalSeedNodeIpAddresses", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> externalSeedNodeIpAddresses;
 
     /**
@@ -217,7 +217,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
      * 
      */
-    @Export(name="hoursBetweenBackups", refs={Integer.class}, tree="[0]")
+    @Export(name="hoursBetweenBackups", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> hoursBetweenBackups;
 
     /**
@@ -231,7 +231,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={CassandraClusterIdentity.class}, tree="[0]")
+    @Export(name="identity", type=CassandraClusterIdentity.class, parameters={})
     private Output</* @Nullable */ CassandraClusterIdentity> identity;
 
     /**
@@ -245,7 +245,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -259,7 +259,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -273,7 +273,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
      * 
      */
-    @Export(name="repairEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="repairEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> repairEnabled;
 
     /**
@@ -287,7 +287,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -301,7 +301,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * A mapping of tags assigned to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -315,7 +315,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
      * 
      */
-    @Export(name="version", refs={String.class}, tree="[0]")
+    @Export(name="version", type=String.class, parameters={})
     private Output</* @Nullable */ String> version;
 
     /**

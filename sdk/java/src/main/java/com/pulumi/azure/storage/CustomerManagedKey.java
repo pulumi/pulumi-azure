@@ -82,26 +82,18 @@ import javax.annotation.Nullable;
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .objectId(exampleAccount.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .secretPermissions(&#34;Get&#34;)
  *             .keyPermissions(            
  *                 &#34;Get&#34;,
- *                 &#34;Create&#34;,
- *                 &#34;List&#34;,
- *                 &#34;Restore&#34;,
- *                 &#34;Recover&#34;,
  *                 &#34;UnwrapKey&#34;,
- *                 &#34;WrapKey&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;Encrypt&#34;,
- *                 &#34;Decrypt&#34;,
- *                 &#34;Sign&#34;,
- *                 &#34;Verify&#34;)
- *             .secretPermissions(&#34;Get&#34;)
+ *                 &#34;WrapKey&#34;)
  *             .build());
  * 
  *         var client = new AccessPolicy(&#34;client&#34;, AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .secretPermissions(&#34;Get&#34;)
  *             .keyPermissions(            
  *                 &#34;Get&#34;,
  *                 &#34;Create&#34;,
@@ -116,8 +108,8 @@ import javax.annotation.Nullable;
  *                 &#34;Decrypt&#34;,
  *                 &#34;Sign&#34;,
  *                 &#34;Verify&#34;,
- *                 &#34;GetRotationPolicy&#34;)
- *             .secretPermissions(&#34;Get&#34;)
+ *                 &#34;GetRotationPolicy&#34;,
+ *                 &#34;SetRotationPolicy&#34;)
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
@@ -162,7 +154,7 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
      * The name of Key Vault Key.
      * 
      */
-    @Export(name="keyName", refs={String.class}, tree="[0]")
+    @Export(name="keyName", type=String.class, parameters={})
     private Output<String> keyName;
 
     /**
@@ -176,7 +168,7 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
      * The ID of the Key Vault.
      * 
      */
-    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultId", type=String.class, parameters={})
     private Output<String> keyVaultId;
 
     /**
@@ -190,7 +182,7 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
      * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      * 
      */
-    @Export(name="keyVersion", refs={String.class}, tree="[0]")
+    @Export(name="keyVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> keyVersion;
 
     /**
@@ -204,7 +196,7 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**
@@ -218,7 +210,7 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
      * The ID of a user assigned identity.
      * 
      */
-    @Export(name="userAssignedIdentityId", refs={String.class}, tree="[0]")
+    @Export(name="userAssignedIdentityId", type=String.class, parameters={})
     private Output</* @Nullable */ String> userAssignedIdentityId;
 
     /**

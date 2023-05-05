@@ -62,7 +62,7 @@ public class SourceCodeToken extends com.pulumi.resources.CustomResource {
      * The OAuth access token.
      * 
      */
-    @Export(name="token", refs={String.class}, tree="[0]")
+    @Export(name="token", type=String.class, parameters={})
     private Output<String> token;
 
     /**
@@ -76,7 +76,7 @@ public class SourceCodeToken extends com.pulumi.resources.CustomResource {
      * The OAuth access token secret.
      * 
      */
-    @Export(name="tokenSecret", refs={String.class}, tree="[0]")
+    @Export(name="tokenSecret", type=String.class, parameters={})
     private Output</* @Nullable */ String> tokenSecret;
 
     /**
@@ -90,7 +90,7 @@ public class SourceCodeToken extends com.pulumi.resources.CustomResource {
      * The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`.
      * 
      */
-    @Export(name="type", refs={String.class}, tree="[0]")
+    @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**

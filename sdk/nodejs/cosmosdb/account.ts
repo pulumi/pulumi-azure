@@ -9,56 +9,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a CosmosDB (formally DocumentDB) Account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- *
- * const rg = new azure.core.ResourceGroup("rg", {location: "westus"});
- * const ri = new random.RandomInteger("ri", {
- *     min: 10000,
- *     max: 99999,
- * });
- * const db = new azure.cosmosdb.Account("db", {
- *     location: azurerm_resource_group.example.location,
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     offerType: "Standard",
- *     kind: "MongoDB",
- *     enableAutomaticFailover: true,
- *     capabilities: [
- *         {
- *             name: "EnableAggregationPipeline",
- *         },
- *         {
- *             name: "mongoEnableDocLevelTTL",
- *         },
- *         {
- *             name: "MongoDBv3.4",
- *         },
- *         {
- *             name: "EnableMongo",
- *         },
- *     ],
- *     consistencyPolicy: {
- *         consistencyLevel: "BoundedStaleness",
- *         maxIntervalInSeconds: 300,
- *         maxStalenessPrefix: 100000,
- *     },
- *     geoLocations: [
- *         {
- *             location: "eastus",
- *             failoverPriority: 1,
- *         },
- *         {
- *             location: "westus",
- *             failoverPriority: 0,
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * CosmosDB Accounts can be imported using the `resource id`, e.g.
@@ -136,7 +86,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly createMode!: pulumi.Output<string>;
     /**
-     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
      */
     public readonly defaultIdentityType!: pulumi.Output<string>;
     /**
@@ -422,7 +372,7 @@ export interface AccountState {
      */
     createMode?: pulumi.Input<string>;
     /**
-     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
      */
     defaultIdentityType?: pulumi.Input<string>;
     /**
@@ -584,7 +534,7 @@ export interface AccountArgs {
      */
     createMode?: pulumi.Input<string>;
     /**
-     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
      */
     defaultIdentityType?: pulumi.Input<string>;
     /**

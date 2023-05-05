@@ -29,6 +29,8 @@ from .local_user import *
 from .management_policy import *
 from .mover import *
 from .mover_agent import *
+from .mover_job_definition import *
+from .mover_project import *
 from .mover_source_endpoint import *
 from .mover_target_endpoint import *
 from .object_replication import *

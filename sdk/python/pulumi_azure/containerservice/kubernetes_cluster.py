@@ -59,6 +59,7 @@ class KubernetesClusterArgs:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
+                 service_mesh_profile: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']] = None,
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']] = None,
@@ -110,6 +111,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
+        :param pulumi.Input['KubernetesClusterServiceMeshProfileArgs'] service_mesh_profile: A `service_mesh_profile` block as defined below.
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input['KubernetesClusterStorageProfileArgs'] storage_profile: A `storage_profile` block as defined below.
@@ -209,6 +211,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "role_based_access_control_enabled", role_based_access_control_enabled)
         if run_command_enabled is not None:
             pulumi.set(__self__, "run_command_enabled", run_command_enabled)
+        if service_mesh_profile is not None:
+            pulumi.set(__self__, "service_mesh_profile", service_mesh_profile)
         if service_principal is not None:
             pulumi.set(__self__, "service_principal", service_principal)
         if sku_tier is not None:
@@ -737,6 +741,18 @@ class KubernetesClusterArgs:
         pulumi.set(self, "run_command_enabled", value)
 
     @property
+    @pulumi.getter(name="serviceMeshProfile")
+    def service_mesh_profile(self) -> Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']]:
+        """
+        A `service_mesh_profile` block as defined below.
+        """
+        return pulumi.get(self, "service_mesh_profile")
+
+    @service_mesh_profile.setter
+    def service_mesh_profile(self, value: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']]):
+        pulumi.set(self, "service_mesh_profile", value)
+
+    @property
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']]:
         """
@@ -889,6 +905,7 @@ class _KubernetesClusterState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
+                 service_mesh_profile: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']] = None,
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']] = None,
@@ -950,6 +967,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
+        :param pulumi.Input['KubernetesClusterServiceMeshProfileArgs'] service_mesh_profile: A `service_mesh_profile` block as defined below.
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input['KubernetesClusterStorageProfileArgs'] storage_profile: A `storage_profile` block as defined below.
@@ -1071,6 +1089,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "role_based_access_control_enabled", role_based_access_control_enabled)
         if run_command_enabled is not None:
             pulumi.set(__self__, "run_command_enabled", run_command_enabled)
+        if service_mesh_profile is not None:
+            pulumi.set(__self__, "service_mesh_profile", service_mesh_profile)
         if service_principal is not None:
             pulumi.set(__self__, "service_principal", service_principal)
         if sku_tier is not None:
@@ -1719,6 +1739,18 @@ class _KubernetesClusterState:
         pulumi.set(self, "run_command_enabled", value)
 
     @property
+    @pulumi.getter(name="serviceMeshProfile")
+    def service_mesh_profile(self) -> Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']]:
+        """
+        A `service_mesh_profile` block as defined below.
+        """
+        return pulumi.get(self, "service_mesh_profile")
+
+    @service_mesh_profile.setter
+    def service_mesh_profile(self, value: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']]):
+        pulumi.set(self, "service_mesh_profile", value)
+
+    @property
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']]:
         """
@@ -1863,6 +1895,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
+                 service_mesh_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArgs']]] = None,
                  service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']]] = None,
@@ -1954,6 +1987,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArgs']] service_mesh_profile: A `service_mesh_profile` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']] storage_profile: A `storage_profile` block as defined below.
@@ -2066,6 +2100,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
                  run_command_enabled: Optional[pulumi.Input[bool]] = None,
+                 service_mesh_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArgs']]] = None,
                  service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']]] = None,
@@ -2136,6 +2171,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["role_based_access_control_enabled"] = role_based_access_control_enabled
             __props__.__dict__["run_command_enabled"] = run_command_enabled
+            __props__.__dict__["service_mesh_profile"] = service_mesh_profile
             __props__.__dict__["service_principal"] = service_principal
             __props__.__dict__["sku_tier"] = sku_tier
             __props__.__dict__["storage_profile"] = storage_profile
@@ -2219,6 +2255,7 @@ class KubernetesCluster(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
             run_command_enabled: Optional[pulumi.Input[bool]] = None,
+            service_mesh_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArgs']]] = None,
             service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
             sku_tier: Optional[pulumi.Input[str]] = None,
             storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']]] = None,
@@ -2285,6 +2322,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] run_command_enabled: Whether to enable run command for the cluster or not. Defaults to `true`.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterServiceMeshProfileArgs']] service_mesh_profile: A `service_mesh_profile` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']] storage_profile: A `storage_profile` block as defined below.
@@ -2351,6 +2389,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["role_based_access_control_enabled"] = role_based_access_control_enabled
         __props__.__dict__["run_command_enabled"] = run_command_enabled
+        __props__.__dict__["service_mesh_profile"] = service_mesh_profile
         __props__.__dict__["service_principal"] = service_principal
         __props__.__dict__["sku_tier"] = sku_tier
         __props__.__dict__["storage_profile"] = storage_profile
@@ -2778,6 +2817,14 @@ class KubernetesCluster(pulumi.CustomResource):
         Whether to enable run command for the cluster or not. Defaults to `true`.
         """
         return pulumi.get(self, "run_command_enabled")
+
+    @property
+    @pulumi.getter(name="serviceMeshProfile")
+    def service_mesh_profile(self) -> pulumi.Output[Optional['outputs.KubernetesClusterServiceMeshProfile']]:
+        """
+        A `service_mesh_profile` block as defined below.
+        """
+        return pulumi.get(self, "service_mesh_profile")
 
     @property
     @pulumi.getter(name="servicePrincipal")

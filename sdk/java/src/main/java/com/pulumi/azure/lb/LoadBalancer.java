@@ -85,7 +85,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
      * 
      */
-    @Export(name="edgeZone", refs={String.class}, tree="[0]")
+    @Export(name="edgeZone", type=String.class, parameters={})
     private Output</* @Nullable */ String> edgeZone;
 
     /**
@@ -99,7 +99,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * One or multiple `frontend_ip_configuration` blocks as documented below.
      * 
      */
-    @Export(name="frontendIpConfigurations", refs={List.class,LoadBalancerFrontendIpConfiguration.class}, tree="[0,1]")
+    @Export(name="frontendIpConfigurations", type=List.class, parameters={LoadBalancerFrontendIpConfiguration.class})
     private Output</* @Nullable */ List<LoadBalancerFrontendIpConfiguration>> frontendIpConfigurations;
 
     /**
@@ -113,7 +113,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -127,7 +127,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -141,7 +141,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
      * 
      */
-    @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="privateIpAddress", type=String.class, parameters={})
     private Output<String> privateIpAddress;
 
     /**
@@ -155,7 +155,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
      * 
      */
-    @Export(name="privateIpAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="privateIpAddresses", type=List.class, parameters={String.class})
     private Output<List<String>> privateIpAddresses;
 
     /**
@@ -169,7 +169,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -183,7 +183,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output</* @Nullable */ String> sku;
 
     /**
@@ -197,7 +197,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * `sku_tier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="skuTier", refs={String.class}, tree="[0]")
+    @Export(name="skuTier", type=String.class, parameters={})
     private Output</* @Nullable */ String> skuTier;
 
     /**
@@ -211,7 +211,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -78,7 +78,7 @@ public class FrontdoorEndpoint extends com.pulumi.resources.CustomResource {
      * The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
      * 
      */
-    @Export(name="cdnFrontdoorProfileId", refs={String.class}, tree="[0]")
+    @Export(name="cdnFrontdoorProfileId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorProfileId;
 
     /**
@@ -92,7 +92,7 @@ public class FrontdoorEndpoint extends com.pulumi.resources.CustomResource {
      * Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -106,7 +106,7 @@ public class FrontdoorEndpoint extends com.pulumi.resources.CustomResource {
      * The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
      * 
      */
-    @Export(name="hostName", refs={String.class}, tree="[0]")
+    @Export(name="hostName", type=String.class, parameters={})
     private Output<String> hostName;
 
     /**
@@ -120,7 +120,7 @@ public class FrontdoorEndpoint extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -134,7 +134,7 @@ public class FrontdoorEndpoint extends com.pulumi.resources.CustomResource {
      * Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

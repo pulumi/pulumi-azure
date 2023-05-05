@@ -84,7 +84,7 @@ public class AlertRuleMachineLearningBehaviorAnalytics extends com.pulumi.resour
      * The GUID of the alert rule template which is used for this Sentinel Machine Learning Behavior Analytics Alert Rule. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
      * 
      */
-    @Export(name="alertRuleTemplateGuid", refs={String.class}, tree="[0]")
+    @Export(name="alertRuleTemplateGuid", type=String.class, parameters={})
     private Output<String> alertRuleTemplateGuid;
 
     /**
@@ -98,7 +98,7 @@ public class AlertRuleMachineLearningBehaviorAnalytics extends com.pulumi.resour
      * Should this Sentinel Machine Learning Behavior Analytics Alert Rule be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -112,7 +112,7 @@ public class AlertRuleMachineLearningBehaviorAnalytics extends com.pulumi.resour
      * The ID of the Log Analytics Workspace this SentinelMachine Learning Behavior Analytics Alert Rule belongs to. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -126,7 +126,7 @@ public class AlertRuleMachineLearningBehaviorAnalytics extends com.pulumi.resour
      * The name which should be used for this SentinelMachine Learning Behavior Analytics Alert Rule. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**

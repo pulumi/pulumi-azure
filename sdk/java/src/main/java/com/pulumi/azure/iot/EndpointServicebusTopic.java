@@ -109,7 +109,7 @@ public class EndpointServicebusTopic extends com.pulumi.resources.CustomResource
      * Type used to authenticate against the Service Bus Topic endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
      * 
      */
-    @Export(name="authenticationType", refs={String.class}, tree="[0]")
+    @Export(name="authenticationType", type=String.class, parameters={})
     private Output</* @Nullable */ String> authenticationType;
 
     /**
@@ -123,7 +123,7 @@ public class EndpointServicebusTopic extends com.pulumi.resources.CustomResource
      * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
      * 
      */
-    @Export(name="connectionString", refs={String.class}, tree="[0]")
+    @Export(name="connectionString", type=String.class, parameters={})
     private Output</* @Nullable */ String> connectionString;
 
     /**
@@ -137,7 +137,7 @@ public class EndpointServicebusTopic extends com.pulumi.resources.CustomResource
      * URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
      * 
      */
-    @Export(name="endpointUri", refs={String.class}, tree="[0]")
+    @Export(name="endpointUri", type=String.class, parameters={})
     private Output</* @Nullable */ String> endpointUri;
 
     /**
@@ -151,7 +151,7 @@ public class EndpointServicebusTopic extends com.pulumi.resources.CustomResource
      * Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
      * 
      */
-    @Export(name="entityPath", refs={String.class}, tree="[0]")
+    @Export(name="entityPath", type=String.class, parameters={})
     private Output</* @Nullable */ String> entityPath;
 
     /**
@@ -165,7 +165,7 @@ public class EndpointServicebusTopic extends com.pulumi.resources.CustomResource
      * ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
      * 
      */
-    @Export(name="identityId", refs={String.class}, tree="[0]")
+    @Export(name="identityId", type=String.class, parameters={})
     private Output</* @Nullable */ String> identityId;
 
     /**
@@ -179,7 +179,7 @@ public class EndpointServicebusTopic extends com.pulumi.resources.CustomResource
      * The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iothubId", refs={String.class}, tree="[0]")
+    @Export(name="iothubId", type=String.class, parameters={})
     private Output<String> iothubId;
 
     /**
@@ -193,7 +193,7 @@ public class EndpointServicebusTopic extends com.pulumi.resources.CustomResource
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -207,7 +207,7 @@ public class EndpointServicebusTopic extends com.pulumi.resources.CustomResource
      * The name of the resource group under which the Service Bus Topic has been created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

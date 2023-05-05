@@ -113,7 +113,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -127,7 +127,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * Three or more `recovery_group` block.
      * 
      */
-    @Export(name="recoveryGroups", refs={List.class,ReplicationRecoveryPlanRecoveryGroup.class}, tree="[0,1]")
+    @Export(name="recoveryGroups", type=List.class, parameters={ReplicationRecoveryPlanRecoveryGroup.class})
     private Output</* @Nullable */ List<ReplicationRecoveryPlanRecoveryGroup>> recoveryGroups;
 
     /**
@@ -141,7 +141,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * The ID of the vault that should be updated. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="recoveryVaultId", refs={String.class}, tree="[0]")
+    @Export(name="recoveryVaultId", type=String.class, parameters={})
     private Output<String> recoveryVaultId;
 
     /**
@@ -155,7 +155,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
      * 
      */
-    @Export(name="sourceRecoveryFabricId", refs={String.class}, tree="[0]")
+    @Export(name="sourceRecoveryFabricId", type=String.class, parameters={})
     private Output<String> sourceRecoveryFabricId;
 
     /**
@@ -169,7 +169,7 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
      * 
      */
-    @Export(name="targetRecoveryFabricId", refs={String.class}, tree="[0]")
+    @Export(name="targetRecoveryFabricId", type=String.class, parameters={})
     private Output<String> targetRecoveryFabricId;
 
     /**

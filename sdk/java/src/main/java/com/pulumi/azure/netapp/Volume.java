@@ -40,7 +40,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", refs={String.class}, tree="[0]")
+    @Export(name="accountName", type=String.class, parameters={})
     private Output<String> accountName;
 
     /**
@@ -54,7 +54,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="azureVmwareDataStoreEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="azureVmwareDataStoreEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> azureVmwareDataStoreEnabled;
 
     /**
@@ -68,7 +68,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="createFromSnapshotResourceId", refs={String.class}, tree="[0]")
+    @Export(name="createFromSnapshotResourceId", type=String.class, parameters={})
     private Output<String> createFromSnapshotResourceId;
 
     /**
@@ -82,7 +82,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="dataProtectionReplication", refs={VolumeDataProtectionReplication.class}, tree="[0]")
+    @Export(name="dataProtectionReplication", type=VolumeDataProtectionReplication.class, parameters={})
     private Output</* @Nullable */ VolumeDataProtectionReplication> dataProtectionReplication;
 
     /**
@@ -96,7 +96,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * A `data_protection_snapshot_policy` block as defined below.
      * 
      */
-    @Export(name="dataProtectionSnapshotPolicy", refs={VolumeDataProtectionSnapshotPolicy.class}, tree="[0]")
+    @Export(name="dataProtectionSnapshotPolicy", type=VolumeDataProtectionSnapshotPolicy.class, parameters={})
     private Output</* @Nullable */ VolumeDataProtectionSnapshotPolicy> dataProtectionSnapshotPolicy;
 
     /**
@@ -110,7 +110,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * One or more `export_policy_rule` block defined below.
      * 
      */
-    @Export(name="exportPolicyRules", refs={List.class,VolumeExportPolicyRule.class}, tree="[0,1]")
+    @Export(name="exportPolicyRules", type=List.class, parameters={VolumeExportPolicyRule.class})
     private Output</* @Nullable */ List<VolumeExportPolicyRule>> exportPolicyRules;
 
     /**
@@ -124,7 +124,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -138,7 +138,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * A list of IPv4 Addresses which should be used to mount the volume.
      * 
      */
-    @Export(name="mountIpAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="mountIpAddresses", type=List.class, parameters={String.class})
     private Output<List<String>> mountIpAddresses;
 
     /**
@@ -152,7 +152,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * The name of the NetApp Volume. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -166,7 +166,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkFeatures", refs={String.class}, tree="[0]")
+    @Export(name="networkFeatures", type=String.class, parameters={})
     private Output<String> networkFeatures;
 
     /**
@@ -180,7 +180,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="poolName", refs={String.class}, tree="[0]")
+    @Export(name="poolName", type=String.class, parameters={})
     private Output<String> poolName;
 
     /**
@@ -194,7 +194,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
      * 
      */
-    @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="protocols", type=List.class, parameters={String.class})
     private Output<List<String>> protocols;
 
     /**
@@ -208,7 +208,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -222,7 +222,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="securityStyle", refs={String.class}, tree="[0]")
+    @Export(name="securityStyle", type=String.class, parameters={})
     private Output<String> securityStyle;
 
     /**
@@ -236,7 +236,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serviceLevel", refs={String.class}, tree="[0]")
+    @Export(name="serviceLevel", type=String.class, parameters={})
     private Output<String> serviceLevel;
 
     /**
@@ -250,7 +250,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
      * 
      */
-    @Export(name="snapshotDirectoryVisible", refs={Boolean.class}, tree="[0]")
+    @Export(name="snapshotDirectoryVisible", type=Boolean.class, parameters={})
     private Output<Boolean> snapshotDirectoryVisible;
 
     /**
@@ -264,7 +264,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * The maximum Storage Quota allowed for a file system in Gigabytes.
      * 
      */
-    @Export(name="storageQuotaInGb", refs={Integer.class}, tree="[0]")
+    @Export(name="storageQuotaInGb", type=Integer.class, parameters={})
     private Output<Integer> storageQuotaInGb;
 
     /**
@@ -278,7 +278,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**
@@ -292,7 +292,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -306,7 +306,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * Throughput of this volume in Mibps.
      * 
      */
-    @Export(name="throughputInMibps", refs={Double.class}, tree="[0]")
+    @Export(name="throughputInMibps", type=Double.class, parameters={})
     private Output<Double> throughputInMibps;
 
     /**
@@ -320,7 +320,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="volumePath", refs={String.class}, tree="[0]")
+    @Export(name="volumePath", type=String.class, parameters={})
     private Output<String> volumePath;
 
     /**
@@ -334,7 +334,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
      * 
      */
-    @Export(name="zone", refs={String.class}, tree="[0]")
+    @Export(name="zone", type=String.class, parameters={})
     private Output</* @Nullable */ String> zone;
 
     /**

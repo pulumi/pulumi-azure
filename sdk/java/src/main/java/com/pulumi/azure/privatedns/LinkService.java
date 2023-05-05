@@ -133,7 +133,7 @@ public class LinkService extends com.pulumi.resources.CustomResource {
      * A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
      * 
      */
-    @Export(name="alias", refs={String.class}, tree="[0]")
+    @Export(name="alias", type=String.class, parameters={})
     private Output<String> alias;
 
     /**
@@ -147,7 +147,7 @@ public class LinkService extends com.pulumi.resources.CustomResource {
      * A list of Subscription UUID/GUID&#39;s that will be automatically be able to use this Private Link Service.
      * 
      */
-    @Export(name="autoApprovalSubscriptionIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="autoApprovalSubscriptionIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> autoApprovalSubscriptionIds;
 
     /**
@@ -161,7 +161,7 @@ public class LinkService extends com.pulumi.resources.CustomResource {
      * Should the Private Link Service support the Proxy Protocol?
      * 
      */
-    @Export(name="enableProxyProtocol", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableProxyProtocol", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableProxyProtocol;
 
     /**
@@ -175,7 +175,7 @@ public class LinkService extends com.pulumi.resources.CustomResource {
      * List of FQDNs allowed for the Private Link Service.
      * 
      */
-    @Export(name="fqdns", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="fqdns", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> fqdns;
 
     /**
@@ -189,7 +189,7 @@ public class LinkService extends com.pulumi.resources.CustomResource {
      * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="loadBalancerFrontendIpConfigurationIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="loadBalancerFrontendIpConfigurationIds", type=List.class, parameters={String.class})
     private Output<List<String>> loadBalancerFrontendIpConfigurationIds;
 
     /**
@@ -203,7 +203,7 @@ public class LinkService extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -217,7 +217,7 @@ public class LinkService extends com.pulumi.resources.CustomResource {
      * Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -231,7 +231,7 @@ public class LinkService extends com.pulumi.resources.CustomResource {
      * One or more (up to 8) `nat_ip_configuration` block as defined below.
      * 
      */
-    @Export(name="natIpConfigurations", refs={List.class,LinkServiceNatIpConfiguration.class}, tree="[0,1]")
+    @Export(name="natIpConfigurations", type=List.class, parameters={LinkServiceNatIpConfiguration.class})
     private Output<List<LinkServiceNatIpConfiguration>> natIpConfigurations;
 
     /**
@@ -245,7 +245,7 @@ public class LinkService extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -259,7 +259,7 @@ public class LinkService extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -273,7 +273,7 @@ public class LinkService extends com.pulumi.resources.CustomResource {
      * A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
      * 
      */
-    @Export(name="visibilitySubscriptionIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="visibilitySubscriptionIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> visibilitySubscriptionIds;
 
     /**

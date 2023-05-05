@@ -107,7 +107,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
      * 
      */
-    @Export(name="bypasses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="bypasses", type=List.class, parameters={String.class})
     private Output<List<String>> bypasses;
 
     /**
@@ -121,7 +121,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
      * 
      */
-    @Export(name="defaultAction", refs={String.class}, tree="[0]")
+    @Export(name="defaultAction", type=String.class, parameters={})
     private Output<String> defaultAction;
 
     /**
@@ -135,7 +135,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
      * 
      */
-    @Export(name="ipRules", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="ipRules", type=List.class, parameters={String.class})
     private Output<List<String>> ipRules;
 
     /**
@@ -149,7 +149,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * One or More `private_link_access` block as defined below.
      * 
      */
-    @Export(name="privateLinkAccessRules", refs={List.class,AccountNetworkRulesPrivateLinkAccessRule.class}, tree="[0,1]")
+    @Export(name="privateLinkAccessRules", type=List.class, parameters={AccountNetworkRulesPrivateLinkAccessRule.class})
     private Output</* @Nullable */ List<AccountNetworkRulesPrivateLinkAccessRule>> privateLinkAccessRules;
 
     /**
@@ -163,7 +163,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the storage account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**
@@ -177,7 +177,7 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * A list of virtual network subnet ids to secure the storage account.
      * 
      */
-    @Export(name="virtualNetworkSubnetIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="virtualNetworkSubnetIds", type=List.class, parameters={String.class})
     private Output<List<String>> virtualNetworkSubnetIds;
 
     /**

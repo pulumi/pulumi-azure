@@ -85,7 +85,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * One or more `additional_location` blocks as defined below.
      * 
      */
-    @Export(name="additionalLocations", refs={List.class,ServiceAdditionalLocation.class}, tree="[0,1]")
+    @Export(name="additionalLocations", type=List.class, parameters={ServiceAdditionalLocation.class})
     private Output</* @Nullable */ List<ServiceAdditionalLocation>> additionalLocations;
 
     /**
@@ -99,7 +99,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * One or more (up to 10) `certificate` blocks as defined below.
      * 
      */
-    @Export(name="certificates", refs={List.class,ServiceCertificate.class}, tree="[0,1]")
+    @Export(name="certificates", type=List.class, parameters={ServiceCertificate.class})
     private Output</* @Nullable */ List<ServiceCertificate>> certificates;
 
     /**
@@ -113,7 +113,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
      * 
      */
-    @Export(name="clientCertificateEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="clientCertificateEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> clientCertificateEnabled;
 
     /**
@@ -127,7 +127,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `delegation` block as defined below.
      * 
      */
-    @Export(name="delegation", refs={ServiceDelegation.class}, tree="[0]")
+    @Export(name="delegation", type=ServiceDelegation.class, parameters={})
     private Output<ServiceDelegation> delegation;
 
     /**
@@ -141,7 +141,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The URL for the Developer Portal associated with this API Management service.
      * 
      */
-    @Export(name="developerPortalUrl", refs={String.class}, tree="[0]")
+    @Export(name="developerPortalUrl", type=String.class, parameters={})
     private Output<String> developerPortalUrl;
 
     /**
@@ -155,7 +155,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Disable the gateway in main region? This is only supported when `additional_location` is set.
      * 
      */
-    @Export(name="gatewayDisabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="gatewayDisabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> gatewayDisabled;
 
     /**
@@ -169,7 +169,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The URL of the Regional Gateway for the API Management Service in the specified region.
      * 
      */
-    @Export(name="gatewayRegionalUrl", refs={String.class}, tree="[0]")
+    @Export(name="gatewayRegionalUrl", type=String.class, parameters={})
     private Output<String> gatewayRegionalUrl;
 
     /**
@@ -183,7 +183,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The URL of the Gateway for the API Management Service.
      * 
      */
-    @Export(name="gatewayUrl", refs={String.class}, tree="[0]")
+    @Export(name="gatewayUrl", type=String.class, parameters={})
     private Output<String> gatewayUrl;
 
     /**
@@ -197,7 +197,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `hostname_configuration` block as defined below.
      * 
      */
-    @Export(name="hostnameConfiguration", refs={ServiceHostnameConfiguration.class}, tree="[0]")
+    @Export(name="hostnameConfiguration", type=ServiceHostnameConfiguration.class, parameters={})
     private Output<ServiceHostnameConfiguration> hostnameConfiguration;
 
     /**
@@ -211,7 +211,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={ServiceIdentity.class}, tree="[0]")
+    @Export(name="identity", type=ServiceIdentity.class, parameters={})
     private Output</* @Nullable */ ServiceIdentity> identity;
 
     /**
@@ -225,7 +225,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -239,7 +239,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The URL for the Management API associated with this API Management service.
      * 
      */
-    @Export(name="managementApiUrl", refs={String.class}, tree="[0]")
+    @Export(name="managementApiUrl", type=String.class, parameters={})
     private Output<String> managementApiUrl;
 
     /**
@@ -253,7 +253,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The version which the control plane API calls to API Management service are limited with version equal to or newer than.
      * 
      */
-    @Export(name="minApiVersion", refs={String.class}, tree="[0]")
+    @Export(name="minApiVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> minApiVersion;
 
     /**
@@ -267,7 +267,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -281,7 +281,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Email address from which the notification will be sent.
      * 
      */
-    @Export(name="notificationSenderEmail", refs={String.class}, tree="[0]")
+    @Export(name="notificationSenderEmail", type=String.class, parameters={})
     private Output<String> notificationSenderEmail;
 
     /**
@@ -295,7 +295,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `policy` block as defined below.
      * 
      */
-    @Export(name="policy", refs={ServicePolicy.class}, tree="[0]")
+    @Export(name="policy", type=ServicePolicy.class, parameters={})
     private Output<ServicePolicy> policy;
 
     /**
@@ -309,7 +309,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The URL for the Publisher Portal associated with this API Management service.
      * 
      */
-    @Export(name="portalUrl", refs={String.class}, tree="[0]")
+    @Export(name="portalUrl", type=String.class, parameters={})
     private Output<String> portalUrl;
 
     /**
@@ -323,7 +323,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
      * 
      */
-    @Export(name="privateIpAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="privateIpAddresses", type=List.class, parameters={String.class})
     private Output<List<String>> privateIpAddresses;
 
     /**
@@ -337,7 +337,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `protocols` block as defined below.
      * 
      */
-    @Export(name="protocols", refs={ServiceProtocols.class}, tree="[0]")
+    @Export(name="protocols", type=ServiceProtocols.class, parameters={})
     private Output<ServiceProtocols> protocols;
 
     /**
@@ -351,7 +351,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * ID of a standard SKU IPv4 Public IP.
      * 
      */
-    @Export(name="publicIpAddressId", refs={String.class}, tree="[0]")
+    @Export(name="publicIpAddressId", type=String.class, parameters={})
     private Output</* @Nullable */ String> publicIpAddressId;
 
     /**
@@ -365,7 +365,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      * 
      */
-    @Export(name="publicIpAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="publicIpAddresses", type=List.class, parameters={String.class})
     private Output<List<String>> publicIpAddresses;
 
     /**
@@ -379,7 +379,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Is public access to the service allowed?. Defaults to `true`
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -393,7 +393,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The email of publisher/company.
      * 
      */
-    @Export(name="publisherEmail", refs={String.class}, tree="[0]")
+    @Export(name="publisherEmail", type=String.class, parameters={})
     private Output<String> publisherEmail;
 
     /**
@@ -407,7 +407,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of publisher/company.
      * 
      */
-    @Export(name="publisherName", refs={String.class}, tree="[0]")
+    @Export(name="publisherName", type=String.class, parameters={})
     private Output<String> publisherName;
 
     /**
@@ -421,7 +421,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -435,7 +435,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
      * 
      */
-    @Export(name="scmUrl", refs={String.class}, tree="[0]")
+    @Export(name="scmUrl", type=String.class, parameters={})
     private Output<String> scmUrl;
 
     /**
@@ -449,7 +449,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `security` block as defined below.
      * 
      */
-    @Export(name="security", refs={ServiceSecurity.class}, tree="[0]")
+    @Export(name="security", type=ServiceSecurity.class, parameters={})
     private Output<ServiceSecurity> security;
 
     /**
@@ -463,7 +463,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `sign_in` block as defined below.
      * 
      */
-    @Export(name="signIn", refs={ServiceSignIn.class}, tree="[0]")
+    @Export(name="signIn", type=ServiceSignIn.class, parameters={})
     private Output<ServiceSignIn> signIn;
 
     /**
@@ -477,7 +477,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `sign_up` block as defined below.
      * 
      */
-    @Export(name="signUp", refs={ServiceSignUp.class}, tree="[0]")
+    @Export(name="signUp", type=ServiceSignUp.class, parameters={})
     private Output<ServiceSignUp> signUp;
 
     /**
@@ -491,7 +491,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -505,7 +505,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A mapping of tags assigned to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -519,7 +519,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `tenant_access` block as defined below.
      * 
      */
-    @Export(name="tenantAccess", refs={ServiceTenantAccess.class}, tree="[0]")
+    @Export(name="tenantAccess", type=ServiceTenantAccess.class, parameters={})
     private Output<ServiceTenantAccess> tenantAccess;
 
     /**
@@ -533,7 +533,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
      * 
      */
-    @Export(name="virtualNetworkConfiguration", refs={ServiceVirtualNetworkConfiguration.class}, tree="[0]")
+    @Export(name="virtualNetworkConfiguration", type=ServiceVirtualNetworkConfiguration.class, parameters={})
     private Output</* @Nullable */ ServiceVirtualNetworkConfiguration> virtualNetworkConfiguration;
 
     /**
@@ -547,7 +547,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
      * 
      */
-    @Export(name="virtualNetworkType", refs={String.class}, tree="[0]")
+    @Export(name="virtualNetworkType", type=String.class, parameters={})
     private Output</* @Nullable */ String> virtualNetworkType;
 
     /**
@@ -561,7 +561,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
      * 
      */
-    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="zones", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> zones;
 
     /**

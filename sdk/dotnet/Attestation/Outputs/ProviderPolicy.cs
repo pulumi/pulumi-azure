@@ -13,20 +13,14 @@ namespace Pulumi.Azure.Attestation.Outputs
     [OutputType]
     public sealed class ProviderPolicy
     {
-        /// <summary>
-        /// Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-        /// </summary>
-        public readonly string Data;
-        /// <summary>
-        /// Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-        /// </summary>
-        public readonly string EnvironmentType;
+        public readonly string? Data;
+        public readonly string? EnvironmentType;
 
         [OutputConstructor]
         private ProviderPolicy(
-            string data,
+            string? data,
 
-            string environmentType)
+            string? environmentType)
         {
             Data = data;
             EnvironmentType = environmentType;

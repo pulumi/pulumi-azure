@@ -300,7 +300,8 @@ class FhirServiceIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+        :param pulumi.Input[str] type: The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -314,7 +315,7 @@ class FhirServiceIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+        The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
         """
         return pulumi.get(self, "type")
 
@@ -325,6 +326,9 @@ class FhirServiceIdentityArgs:
     @property
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+        """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter

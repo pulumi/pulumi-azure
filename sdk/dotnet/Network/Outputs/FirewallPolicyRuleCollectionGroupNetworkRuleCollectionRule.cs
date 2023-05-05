@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule
     {
         /// <summary>
-        /// Specifies a list of destination IP addresses (including CIDR and `*`).
+        /// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
         /// </summary>
         public readonly ImmutableArray<string> DestinationAddresses;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Protocols;
         /// <summary>
-        /// Specifies a list of source IP addresses (including CIDR and `*`).
+        /// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         /// </summary>
         public readonly ImmutableArray<string> SourceAddresses;
         /// <summary>

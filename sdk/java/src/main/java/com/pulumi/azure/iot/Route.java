@@ -119,7 +119,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: &lt;https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language&gt;.
      * 
      */
-    @Export(name="condition", refs={String.class}, tree="[0]")
+    @Export(name="condition", type=String.class, parameters={})
     private Output</* @Nullable */ String> condition;
 
     /**
@@ -133,7 +133,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * Specifies whether a route is enabled.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output<Boolean> enabled;
 
     /**
@@ -147,7 +147,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
      * 
      */
-    @Export(name="endpointNames", refs={String.class}, tree="[0]")
+    @Export(name="endpointNames", type=String.class, parameters={})
     private Output<String> endpointNames;
 
     /**
@@ -161,7 +161,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iothubName", refs={String.class}, tree="[0]")
+    @Export(name="iothubName", type=String.class, parameters={})
     private Output<String> iothubName;
 
     /**
@@ -175,7 +175,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The name of the route. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -189,7 +189,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -203,7 +203,7 @@ public class Route extends com.pulumi.resources.CustomResource {
      * The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
      * 
      */
-    @Export(name="source", refs={String.class}, tree="[0]")
+    @Export(name="source", type=String.class, parameters={})
     private Output<String> source;
 
     /**

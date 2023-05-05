@@ -148,7 +148,7 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
      * The ID of default slice to use if the UE does not explicitly specify it. This slice must exist in the `slice` block.
      * 
      */
-    @Export(name="defaultSliceId", refs={String.class}, tree="[0]")
+    @Export(name="defaultSliceId", type=String.class, parameters={})
     private Output<String> defaultSliceId;
 
     /**
@@ -162,7 +162,7 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Mobile Network Sim Policy should exist. Changing this forces a new Mobile Network Sim Policies to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -176,7 +176,7 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
      * The ID of the Mobile Network which the Sim Policy belongs to. Changing this forces a new Mobile Network Sim Policies to be created.
      * 
      */
-    @Export(name="mobileNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="mobileNetworkId", type=String.class, parameters={})
     private Output<String> mobileNetworkId;
 
     /**
@@ -190,7 +190,7 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Mobile Network Sim Policies. Changing this forces a new Mobile Network Sim Policies to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -204,7 +204,7 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
      * RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.
      * 
      */
-    @Export(name="ratFrequencySelectionPriorityIndex", refs={Integer.class}, tree="[0]")
+    @Export(name="ratFrequencySelectionPriorityIndex", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> ratFrequencySelectionPriorityIndex;
 
     /**
@@ -218,7 +218,7 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
      * Interval for the user equipment periodic registration update procedure. Defaults to `3240`.
      * 
      */
-    @Export(name="registrationTimerInSeconds", refs={Integer.class}, tree="[0]")
+    @Export(name="registrationTimerInSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> registrationTimerInSeconds;
 
     /**
@@ -232,7 +232,7 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
      * An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
      * 
      */
-    @Export(name="slices", refs={List.class,NetworkSimPolicySlice.class}, tree="[0,1]")
+    @Export(name="slices", type=List.class, parameters={NetworkSimPolicySlice.class})
     private Output<List<NetworkSimPolicySlice>> slices;
 
     /**
@@ -246,7 +246,7 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Mobile Network Sim Policies.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -260,7 +260,7 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
      * A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
      * 
      */
-    @Export(name="userEquipmentAggregateMaximumBitRate", refs={NetworkSimPolicyUserEquipmentAggregateMaximumBitRate.class}, tree="[0]")
+    @Export(name="userEquipmentAggregateMaximumBitRate", type=NetworkSimPolicyUserEquipmentAggregateMaximumBitRate.class, parameters={})
     private Output<NetworkSimPolicyUserEquipmentAggregateMaximumBitRate> userEquipmentAggregateMaximumBitRate;
 
     /**

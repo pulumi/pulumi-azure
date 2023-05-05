@@ -97,7 +97,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The ID of the Batch Pool. Changing this forces a new Batch Job to be created.
      * 
      */
-    @Export(name="batchPoolId", refs={String.class}, tree="[0]")
+    @Export(name="batchPoolId", type=String.class, parameters={})
     private Output<String> batchPoolId;
 
     /**
@@ -111,7 +111,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * Specifies a map of common environment settings applied to this Batch Job. Changing this forces a new Batch Job to be created.
      * 
      */
-    @Export(name="commonEnvironmentProperties", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="commonEnvironmentProperties", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> commonEnvironmentProperties;
 
     /**
@@ -125,7 +125,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The display name of this Batch Job. Changing this forces a new Batch Job to be created.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -139,7 +139,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Batch Job. Changing this forces a new Batch Job to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -153,7 +153,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
      * 
      */
-    @Export(name="priority", refs={Integer.class}, tree="[0]")
+    @Export(name="priority", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> priority;
 
     /**
@@ -167,7 +167,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
      * 
      */
-    @Export(name="taskRetryMaximum", refs={Integer.class}, tree="[0]")
+    @Export(name="taskRetryMaximum", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> taskRetryMaximum;
 
     /**

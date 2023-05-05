@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { EmailServiceArgs, EmailServiceState } from "./emailService";
+export type EmailService = import("./emailService").EmailService;
+export const EmailService: typeof import("./emailService").EmailService = null as any;
+utilities.lazyLoad(exports, ["EmailService"], () => require("./emailService"));
+
 export { ServiceArgs, ServiceState } from "./service";
 export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;
@@ -15,6 +20,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:communication/emailService:EmailService":
+                return new EmailService(name, <any>undefined, { urn })
             case "azure:communication/service:Service":
                 return new Service(name, <any>undefined, { urn })
             default:
@@ -22,4 +29,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "communication/emailService", _module)
 pulumi.runtime.registerResourceModule("azure", "communication/service", _module)

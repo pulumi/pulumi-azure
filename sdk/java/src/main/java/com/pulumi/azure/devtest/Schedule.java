@@ -94,7 +94,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
      * 
      */
-    @Export(name="dailyRecurrence", refs={ScheduleDailyRecurrence.class}, tree="[0]")
+    @Export(name="dailyRecurrence", type=ScheduleDailyRecurrence.class, parameters={})
     private Output</* @Nullable */ ScheduleDailyRecurrence> dailyRecurrence;
 
     /**
@@ -108,7 +108,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
      * 
      */
-    @Export(name="hourlyRecurrence", refs={ScheduleHourlyRecurrence.class}, tree="[0]")
+    @Export(name="hourlyRecurrence", type=ScheduleHourlyRecurrence.class, parameters={})
     private Output</* @Nullable */ ScheduleHourlyRecurrence> hourlyRecurrence;
 
     /**
@@ -122,7 +122,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The name of the dev test lab. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="labName", refs={String.class}, tree="[0]")
+    @Export(name="labName", type=String.class, parameters={})
     private Output<String> labName;
 
     /**
@@ -136,7 +136,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The location where the schedule is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -150,7 +150,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -164,7 +164,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The notification setting of a schedule. A `notification_settings` as defined below.
      * 
      */
-    @Export(name="notificationSettings", refs={ScheduleNotificationSettings.class}, tree="[0]")
+    @Export(name="notificationSettings", type=ScheduleNotificationSettings.class, parameters={})
     private Output<ScheduleNotificationSettings> notificationSettings;
 
     /**
@@ -178,7 +178,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -192,7 +192,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
      * 
      */
-    @Export(name="status", refs={String.class}, tree="[0]")
+    @Export(name="status", type=String.class, parameters={})
     private Output</* @Nullable */ String> status;
 
     /**
@@ -206,7 +206,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -220,7 +220,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
      * 
      */
-    @Export(name="taskType", refs={String.class}, tree="[0]")
+    @Export(name="taskType", type=String.class, parameters={})
     private Output<String> taskType;
 
     /**
@@ -234,7 +234,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The time zone ID (e.g. Pacific Standard time).
      * 
      */
-    @Export(name="timeZoneId", refs={String.class}, tree="[0]")
+    @Export(name="timeZoneId", type=String.class, parameters={})
     private Output<String> timeZoneId;
 
     /**
@@ -248,7 +248,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
      * 
      */
-    @Export(name="weeklyRecurrence", refs={ScheduleWeeklyRecurrence.class}, tree="[0]")
+    @Export(name="weeklyRecurrence", type=ScheduleWeeklyRecurrence.class, parameters={})
     private Output</* @Nullable */ ScheduleWeeklyRecurrence> weeklyRecurrence;
 
     /**

@@ -107,7 +107,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * The description of the policy definition.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -121,7 +121,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * The display name of the policy definition.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -135,7 +135,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managementGroupId", refs={String.class}, tree="[0]")
+    @Export(name="managementGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> managementGroupId;
 
     /**
@@ -149,7 +149,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
      * 
      */
-    @Export(name="metadata", refs={String.class}, tree="[0]")
+    @Export(name="metadata", type=String.class, parameters={})
     private Output<String> metadata;
 
     /**
@@ -163,7 +163,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
      * 
      */
-    @Export(name="mode", refs={String.class}, tree="[0]")
+    @Export(name="mode", type=String.class, parameters={})
     private Output<String> mode;
 
     /**
@@ -177,7 +177,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * The name of the policy definition. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -191,7 +191,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
      * 
      */
-    @Export(name="parameters", refs={String.class}, tree="[0]")
+    @Export(name="parameters", type=String.class, parameters={})
     private Output</* @Nullable */ String> parameters;
 
     /**
@@ -205,7 +205,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
      * 
      */
-    @Export(name="policyRule", refs={String.class}, tree="[0]")
+    @Export(name="policyRule", type=String.class, parameters={})
     private Output</* @Nullable */ String> policyRule;
 
     /**
@@ -219,7 +219,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="policyType", refs={String.class}, tree="[0]")
+    @Export(name="policyType", type=String.class, parameters={})
     private Output<String> policyType;
 
     /**
@@ -233,7 +233,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
      * A list of role definition id extracted from `policy_rule` required for remediation.
      * 
      */
-    @Export(name="roleDefinitionIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="roleDefinitionIds", type=List.class, parameters={String.class})
     private Output<List<String>> roleDefinitionIds;
 
     /**

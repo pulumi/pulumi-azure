@@ -125,6 +125,16 @@ export type MoverAgent = import("./moverAgent").MoverAgent;
 export const MoverAgent: typeof import("./moverAgent").MoverAgent = null as any;
 utilities.lazyLoad(exports, ["MoverAgent"], () => require("./moverAgent"));
 
+export { MoverJobDefinitionArgs, MoverJobDefinitionState } from "./moverJobDefinition";
+export type MoverJobDefinition = import("./moverJobDefinition").MoverJobDefinition;
+export const MoverJobDefinition: typeof import("./moverJobDefinition").MoverJobDefinition = null as any;
+utilities.lazyLoad(exports, ["MoverJobDefinition"], () => require("./moverJobDefinition"));
+
+export { MoverProjectArgs, MoverProjectState } from "./moverProject";
+export type MoverProject = import("./moverProject").MoverProject;
+export const MoverProject: typeof import("./moverProject").MoverProject = null as any;
+utilities.lazyLoad(exports, ["MoverProject"], () => require("./moverProject"));
+
 export { MoverSourceEndpointArgs, MoverSourceEndpointState } from "./moverSourceEndpoint";
 export type MoverSourceEndpoint = import("./moverSourceEndpoint").MoverSourceEndpoint;
 export const MoverSourceEndpoint: typeof import("./moverSourceEndpoint").MoverSourceEndpoint = null as any;
@@ -222,6 +232,10 @@ const _module = {
                 return new Mover(name, <any>undefined, { urn })
             case "azure:storage/moverAgent:MoverAgent":
                 return new MoverAgent(name, <any>undefined, { urn })
+            case "azure:storage/moverJobDefinition:MoverJobDefinition":
+                return new MoverJobDefinition(name, <any>undefined, { urn })
+            case "azure:storage/moverProject:MoverProject":
+                return new MoverProject(name, <any>undefined, { urn })
             case "azure:storage/moverSourceEndpoint:MoverSourceEndpoint":
                 return new MoverSourceEndpoint(name, <any>undefined, { urn })
             case "azure:storage/moverTargetEndpoint:MoverTargetEndpoint":
@@ -266,6 +280,8 @@ pulumi.runtime.registerResourceModule("azure", "storage/localUser", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/managementPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/mover", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/moverAgent", _module)
+pulumi.runtime.registerResourceModule("azure", "storage/moverJobDefinition", _module)
+pulumi.runtime.registerResourceModule("azure", "storage/moverProject", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/moverSourceEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/moverTargetEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/objectReplication", _module)

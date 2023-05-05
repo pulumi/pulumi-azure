@@ -67,7 +67,7 @@ public class Setting extends com.pulumi.resources.CustomResource {
      * Boolean flag to enable/disable data access.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output<Boolean> enabled;
 
     /**
@@ -81,7 +81,7 @@ public class Setting extends com.pulumi.resources.CustomResource {
      * The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="settingName", refs={String.class}, tree="[0]")
+    @Export(name="settingName", type=String.class, parameters={})
     private Output<String> settingName;
 
     /**

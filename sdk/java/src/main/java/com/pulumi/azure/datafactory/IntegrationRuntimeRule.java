@@ -78,7 +78,7 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
      * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Default is `true`.
      * 
      */
-    @Export(name="cleanupEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="cleanupEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> cleanupEnabled;
 
     /**
@@ -92,7 +92,7 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
      * 
      */
-    @Export(name="computeType", refs={String.class}, tree="[0]")
+    @Export(name="computeType", type=String.class, parameters={})
     private Output</* @Nullable */ String> computeType;
 
     /**
@@ -106,7 +106,7 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
      * Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
      * 
      */
-    @Export(name="coreCount", refs={Integer.class}, tree="[0]")
+    @Export(name="coreCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> coreCount;
 
     /**
@@ -120,7 +120,7 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
+    @Export(name="dataFactoryId", type=String.class, parameters={})
     private Output<String> dataFactoryId;
 
     /**
@@ -134,7 +134,7 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
      * Integration runtime description.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -148,7 +148,7 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
      * Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -162,7 +162,7 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
      * Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -176,7 +176,7 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      * 
      */
-    @Export(name="timeToLiveMin", refs={Integer.class}, tree="[0]")
+    @Export(name="timeToLiveMin", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> timeToLiveMin;
 
     /**
@@ -190,7 +190,7 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
      * Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualNetworkEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="virtualNetworkEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> virtualNetworkEnabled;
 
     /**

@@ -203,7 +203,7 @@ public class NetworkConnectionMonitor extends com.pulumi.resources.CustomResourc
      * A `endpoint` block as defined below.
      * 
      */
-    @Export(name="endpoints", refs={List.class,NetworkConnectionMonitorEndpoint.class}, tree="[0,1]")
+    @Export(name="endpoints", type=List.class, parameters={NetworkConnectionMonitorEndpoint.class})
     private Output<List<NetworkConnectionMonitorEndpoint>> endpoints;
 
     /**
@@ -217,7 +217,7 @@ public class NetworkConnectionMonitor extends com.pulumi.resources.CustomResourc
      * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -231,7 +231,7 @@ public class NetworkConnectionMonitor extends com.pulumi.resources.CustomResourc
      * The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -245,7 +245,7 @@ public class NetworkConnectionMonitor extends com.pulumi.resources.CustomResourc
      * The ID of the Network Watcher. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkWatcherId", refs={String.class}, tree="[0]")
+    @Export(name="networkWatcherId", type=String.class, parameters={})
     private Output<String> networkWatcherId;
 
     /**
@@ -259,7 +259,7 @@ public class NetworkConnectionMonitor extends com.pulumi.resources.CustomResourc
      * The description of the Network Connection Monitor.
      * 
      */
-    @Export(name="notes", refs={String.class}, tree="[0]")
+    @Export(name="notes", type=String.class, parameters={})
     private Output</* @Nullable */ String> notes;
 
     /**
@@ -273,7 +273,7 @@ public class NetworkConnectionMonitor extends com.pulumi.resources.CustomResourc
      * A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
      * 
      */
-    @Export(name="outputWorkspaceResourceIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="outputWorkspaceResourceIds", type=List.class, parameters={String.class})
     private Output<List<String>> outputWorkspaceResourceIds;
 
     /**
@@ -287,7 +287,7 @@ public class NetworkConnectionMonitor extends com.pulumi.resources.CustomResourc
      * A mapping of tags which should be assigned to the Network Connection Monitor.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -301,7 +301,7 @@ public class NetworkConnectionMonitor extends com.pulumi.resources.CustomResourc
      * A `test_configuration` block as defined below.
      * 
      */
-    @Export(name="testConfigurations", refs={List.class,NetworkConnectionMonitorTestConfiguration.class}, tree="[0,1]")
+    @Export(name="testConfigurations", type=List.class, parameters={NetworkConnectionMonitorTestConfiguration.class})
     private Output<List<NetworkConnectionMonitorTestConfiguration>> testConfigurations;
 
     /**
@@ -315,7 +315,7 @@ public class NetworkConnectionMonitor extends com.pulumi.resources.CustomResourc
      * A `test_group` block as defined below.
      * 
      */
-    @Export(name="testGroups", refs={List.class,NetworkConnectionMonitorTestGroup.class}, tree="[0,1]")
+    @Export(name="testGroups", type=List.class, parameters={NetworkConnectionMonitorTestGroup.class})
     private Output<List<NetworkConnectionMonitorTestGroup>> testGroups;
 
     /**

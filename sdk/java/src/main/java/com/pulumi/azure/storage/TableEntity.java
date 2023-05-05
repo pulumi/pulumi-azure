@@ -87,7 +87,7 @@ public class TableEntity extends com.pulumi.resources.CustomResource {
      * A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
      * 
      */
-    @Export(name="entity", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="entity", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> entity;
 
     /**
@@ -101,7 +101,7 @@ public class TableEntity extends com.pulumi.resources.CustomResource {
      * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
      * 
      */
-    @Export(name="partitionKey", refs={String.class}, tree="[0]")
+    @Export(name="partitionKey", type=String.class, parameters={})
     private Output<String> partitionKey;
 
     /**
@@ -115,7 +115,7 @@ public class TableEntity extends com.pulumi.resources.CustomResource {
      * The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
      * 
      */
-    @Export(name="rowKey", refs={String.class}, tree="[0]")
+    @Export(name="rowKey", type=String.class, parameters={})
     private Output<String> rowKey;
 
     /**
@@ -129,7 +129,7 @@ public class TableEntity extends com.pulumi.resources.CustomResource {
      * Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountName", type=String.class, parameters={})
     private Output<String> storageAccountName;
 
     /**
@@ -143,7 +143,7 @@ public class TableEntity extends com.pulumi.resources.CustomResource {
      * The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tableName", refs={String.class}, tree="[0]")
+    @Export(name="tableName", type=String.class, parameters={})
     private Output<String> tableName;
 
     /**

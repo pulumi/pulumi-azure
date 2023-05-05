@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CacheRedisConfiguration {
     /**
-     * @return Enable or disable AOF persistence for this Redis Cache.
+     * @return Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
      */
     private @Nullable Boolean aofBackupEnabled;
@@ -64,7 +64,7 @@ public final class CacheRedisConfiguration {
      */
     private @Nullable String notifyKeyspaceEvents;
     /**
-     * @return Is Backup Enabled? Only supported on Premium SKUs.
+     * @return Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
      * 
      */
     private @Nullable Boolean rdbBackupEnabled;
@@ -86,7 +86,7 @@ public final class CacheRedisConfiguration {
 
     private CacheRedisConfiguration() {}
     /**
-     * @return Enable or disable AOF persistence for this Redis Cache.
+     * @return Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
      */
     public Optional<Boolean> aofBackupEnabled() {
@@ -156,7 +156,7 @@ public final class CacheRedisConfiguration {
         return Optional.ofNullable(this.notifyKeyspaceEvents);
     }
     /**
-     * @return Is Backup Enabled? Only supported on Premium SKUs.
+     * @return Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
      * 
      */
     public Optional<Boolean> rdbBackupEnabled() {

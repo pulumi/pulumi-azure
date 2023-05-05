@@ -111,7 +111,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * A `advanced_filter` block as defined below.
      * 
      */
-    @Export(name="advancedFilter", refs={SystemTopicEventSubscriptionAdvancedFilter.class}, tree="[0]")
+    @Export(name="advancedFilter", type=SystemTopicEventSubscriptionAdvancedFilter.class, parameters={})
     private Output</* @Nullable */ SystemTopicEventSubscriptionAdvancedFilter> advancedFilter;
 
     /**
@@ -125,7 +125,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
      * 
      */
-    @Export(name="advancedFilteringOnArraysEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="advancedFilteringOnArraysEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> advancedFilteringOnArraysEnabled;
 
     /**
@@ -139,7 +139,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * An `azure_function_endpoint` block as defined below.
      * 
      */
-    @Export(name="azureFunctionEndpoint", refs={SystemTopicEventSubscriptionAzureFunctionEndpoint.class}, tree="[0]")
+    @Export(name="azureFunctionEndpoint", type=SystemTopicEventSubscriptionAzureFunctionEndpoint.class, parameters={})
     private Output</* @Nullable */ SystemTopicEventSubscriptionAzureFunctionEndpoint> azureFunctionEndpoint;
 
     /**
@@ -153,7 +153,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * A `dead_letter_identity` block as defined below.
      * 
      */
-    @Export(name="deadLetterIdentity", refs={SystemTopicEventSubscriptionDeadLetterIdentity.class}, tree="[0]")
+    @Export(name="deadLetterIdentity", type=SystemTopicEventSubscriptionDeadLetterIdentity.class, parameters={})
     private Output</* @Nullable */ SystemTopicEventSubscriptionDeadLetterIdentity> deadLetterIdentity;
 
     /**
@@ -167,7 +167,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * A `delivery_identity` block as defined below.
      * 
      */
-    @Export(name="deliveryIdentity", refs={SystemTopicEventSubscriptionDeliveryIdentity.class}, tree="[0]")
+    @Export(name="deliveryIdentity", type=SystemTopicEventSubscriptionDeliveryIdentity.class, parameters={})
     private Output</* @Nullable */ SystemTopicEventSubscriptionDeliveryIdentity> deliveryIdentity;
 
     /**
@@ -181,7 +181,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * One or more `delivery_property` blocks as defined below.
      * 
      */
-    @Export(name="deliveryProperties", refs={List.class,SystemTopicEventSubscriptionDeliveryProperty.class}, tree="[0,1]")
+    @Export(name="deliveryProperties", type=List.class, parameters={SystemTopicEventSubscriptionDeliveryProperty.class})
     private Output</* @Nullable */ List<SystemTopicEventSubscriptionDeliveryProperty>> deliveryProperties;
 
     /**
@@ -195,7 +195,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventDeliverySchema", refs={String.class}, tree="[0]")
+    @Export(name="eventDeliverySchema", type=String.class, parameters={})
     private Output</* @Nullable */ String> eventDeliverySchema;
 
     /**
@@ -209,7 +209,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * Specifies the id where the Event Hub is located.
      * 
      */
-    @Export(name="eventhubEndpointId", refs={String.class}, tree="[0]")
+    @Export(name="eventhubEndpointId", type=String.class, parameters={})
     private Output<String> eventhubEndpointId;
 
     /**
@@ -223,7 +223,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
      * 
      */
-    @Export(name="expirationTimeUtc", refs={String.class}, tree="[0]")
+    @Export(name="expirationTimeUtc", type=String.class, parameters={})
     private Output</* @Nullable */ String> expirationTimeUtc;
 
     /**
@@ -237,7 +237,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * Specifies the id where the Hybrid Connection is located.
      * 
      */
-    @Export(name="hybridConnectionEndpointId", refs={String.class}, tree="[0]")
+    @Export(name="hybridConnectionEndpointId", type=String.class, parameters={})
     private Output<String> hybridConnectionEndpointId;
 
     /**
@@ -251,7 +251,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * A list of applicable event types that need to be part of the event subscription.
      * 
      */
-    @Export(name="includedEventTypes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="includedEventTypes", type=List.class, parameters={String.class})
     private Output<List<String>> includedEventTypes;
 
     /**
@@ -265,7 +265,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * A list of labels to assign to the event subscription.
      * 
      */
-    @Export(name="labels", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="labels", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> labels;
 
     /**
@@ -279,7 +279,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * The name which should be used for this Event Subscription. Changing this forces a new Event Subscription to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -293,7 +293,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * The name of the Resource Group where the System Topic exists. Changing this forces a new Event Subscription to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -307,7 +307,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * A `retry_policy` block as defined below.
      * 
      */
-    @Export(name="retryPolicy", refs={SystemTopicEventSubscriptionRetryPolicy.class}, tree="[0]")
+    @Export(name="retryPolicy", type=SystemTopicEventSubscriptionRetryPolicy.class, parameters={})
     private Output<SystemTopicEventSubscriptionRetryPolicy> retryPolicy;
 
     /**
@@ -321,7 +321,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * Specifies the id where the Service Bus Queue is located.
      * 
      */
-    @Export(name="serviceBusQueueEndpointId", refs={String.class}, tree="[0]")
+    @Export(name="serviceBusQueueEndpointId", type=String.class, parameters={})
     private Output</* @Nullable */ String> serviceBusQueueEndpointId;
 
     /**
@@ -335,7 +335,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * Specifies the id where the Service Bus Topic is located.
      * 
      */
-    @Export(name="serviceBusTopicEndpointId", refs={String.class}, tree="[0]")
+    @Export(name="serviceBusTopicEndpointId", type=String.class, parameters={})
     private Output</* @Nullable */ String> serviceBusTopicEndpointId;
 
     /**
@@ -349,7 +349,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * A `storage_blob_dead_letter_destination` block as defined below.
      * 
      */
-    @Export(name="storageBlobDeadLetterDestination", refs={SystemTopicEventSubscriptionStorageBlobDeadLetterDestination.class}, tree="[0]")
+    @Export(name="storageBlobDeadLetterDestination", type=SystemTopicEventSubscriptionStorageBlobDeadLetterDestination.class, parameters={})
     private Output</* @Nullable */ SystemTopicEventSubscriptionStorageBlobDeadLetterDestination> storageBlobDeadLetterDestination;
 
     /**
@@ -363,7 +363,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * A `storage_queue_endpoint` block as defined below.
      * 
      */
-    @Export(name="storageQueueEndpoint", refs={SystemTopicEventSubscriptionStorageQueueEndpoint.class}, tree="[0]")
+    @Export(name="storageQueueEndpoint", type=SystemTopicEventSubscriptionStorageQueueEndpoint.class, parameters={})
     private Output</* @Nullable */ SystemTopicEventSubscriptionStorageQueueEndpoint> storageQueueEndpoint;
 
     /**
@@ -377,7 +377,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * A `subject_filter` block as defined below.
      * 
      */
-    @Export(name="subjectFilter", refs={SystemTopicEventSubscriptionSubjectFilter.class}, tree="[0]")
+    @Export(name="subjectFilter", type=SystemTopicEventSubscriptionSubjectFilter.class, parameters={})
     private Output</* @Nullable */ SystemTopicEventSubscriptionSubjectFilter> subjectFilter;
 
     /**
@@ -391,7 +391,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * The System Topic where the Event Subscription should be created in. Changing this forces a new Event Subscription to be created.
      * 
      */
-    @Export(name="systemTopic", refs={String.class}, tree="[0]")
+    @Export(name="systemTopic", type=String.class, parameters={})
     private Output<String> systemTopic;
 
     /**
@@ -405,7 +405,7 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * A `webhook_endpoint` block as defined below.
      * 
      */
-    @Export(name="webhookEndpoint", refs={SystemTopicEventSubscriptionWebhookEndpoint.class}, tree="[0]")
+    @Export(name="webhookEndpoint", type=SystemTopicEventSubscriptionWebhookEndpoint.class, parameters={})
     private Output</* @Nullable */ SystemTopicEventSubscriptionWebhookEndpoint> webhookEndpoint;
 
     /**

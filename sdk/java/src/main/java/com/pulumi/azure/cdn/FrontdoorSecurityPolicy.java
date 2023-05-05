@@ -119,7 +119,7 @@ public class FrontdoorSecurityPolicy extends com.pulumi.resources.CustomResource
      * The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
-    @Export(name="cdnFrontdoorProfileId", refs={String.class}, tree="[0]")
+    @Export(name="cdnFrontdoorProfileId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorProfileId;
 
     /**
@@ -133,7 +133,7 @@ public class FrontdoorSecurityPolicy extends com.pulumi.resources.CustomResource
      * The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -147,7 +147,7 @@ public class FrontdoorSecurityPolicy extends com.pulumi.resources.CustomResource
      * An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
      * 
      */
-    @Export(name="securityPolicies", refs={FrontdoorSecurityPolicySecurityPolicies.class}, tree="[0]")
+    @Export(name="securityPolicies", type=FrontdoorSecurityPolicySecurityPolicies.class, parameters={})
     private Output<FrontdoorSecurityPolicySecurityPolicies> securityPolicies;
 
     /**

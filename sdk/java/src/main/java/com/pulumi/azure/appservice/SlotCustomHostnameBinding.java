@@ -97,7 +97,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
      * The ID of the App Service Slot. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="appServiceSlotId", refs={String.class}, tree="[0]")
+    @Export(name="appServiceSlotId", type=String.class, parameters={})
     private Output<String> appServiceSlotId;
 
     /**
@@ -111,7 +111,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
      * Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="hostname", refs={String.class}, tree="[0]")
+    @Export(name="hostname", type=String.class, parameters={})
     private Output<String> hostname;
 
     /**
@@ -125,7 +125,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
      * The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sslState", refs={String.class}, tree="[0]")
+    @Export(name="sslState", type=String.class, parameters={})
     private Output<String> sslState;
 
     /**
@@ -139,7 +139,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
      * The SSL certificate thumbprint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="thumbprint", refs={String.class}, tree="[0]")
+    @Export(name="thumbprint", type=String.class, parameters={})
     private Output<String> thumbprint;
 
     /**
@@ -153,7 +153,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
      * The virtual IP address assigned to the hostname if IP based SSL is enabled.
      * 
      */
-    @Export(name="virtualIp", refs={String.class}, tree="[0]")
+    @Export(name="virtualIp", type=String.class, parameters={})
     private Output<String> virtualIp;
 
     /**

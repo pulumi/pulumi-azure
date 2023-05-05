@@ -181,7 +181,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * A `access_control` block as defined below.
      * 
      */
-    @Export(name="accessControl", refs={StreamingEndpointAccessControl.class}, tree="[0]")
+    @Export(name="accessControl", type=StreamingEndpointAccessControl.class, parameters={})
     private Output</* @Nullable */ StreamingEndpointAccessControl> accessControl;
 
     /**
@@ -195,7 +195,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * The flag indicates if the resource should be automatically started on creation.
      * 
      */
-    @Export(name="autoStartEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="autoStartEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> autoStartEnabled;
 
     /**
@@ -209,7 +209,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * The CDN enabled flag.
      * 
      */
-    @Export(name="cdnEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="cdnEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> cdnEnabled;
 
     /**
@@ -223,7 +223,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * The CDN profile name.
      * 
      */
-    @Export(name="cdnProfile", refs={String.class}, tree="[0]")
+    @Export(name="cdnProfile", type=String.class, parameters={})
     private Output<String> cdnProfile;
 
     /**
@@ -237,7 +237,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * The CDN provider name. Supported value are `StandardVerizon`,`PremiumVerizon` and `StandardAkamai`
      * 
      */
-    @Export(name="cdnProvider", refs={String.class}, tree="[0]")
+    @Export(name="cdnProvider", type=String.class, parameters={})
     private Output<String> cdnProvider;
 
     /**
@@ -251,7 +251,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * A `cross_site_access_policy` block as defined below.
      * 
      */
-    @Export(name="crossSiteAccessPolicy", refs={StreamingEndpointCrossSiteAccessPolicy.class}, tree="[0]")
+    @Export(name="crossSiteAccessPolicy", type=StreamingEndpointCrossSiteAccessPolicy.class, parameters={})
     private Output</* @Nullable */ StreamingEndpointCrossSiteAccessPolicy> crossSiteAccessPolicy;
 
     /**
@@ -265,7 +265,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * The custom host names of the streaming endpoint.
      * 
      */
-    @Export(name="customHostNames", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="customHostNames", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> customHostNames;
 
     /**
@@ -279,7 +279,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * The streaming endpoint description.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -293,7 +293,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * The host name of the Streaming Endpoint.
      * 
      */
-    @Export(name="hostName", refs={String.class}, tree="[0]")
+    @Export(name="hostName", type=String.class, parameters={})
     private Output<String> hostName;
 
     /**
@@ -307,7 +307,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -321,7 +321,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * Max cache age in seconds.
      * 
      */
-    @Export(name="maxCacheAgeSeconds", refs={Integer.class}, tree="[0]")
+    @Export(name="maxCacheAgeSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maxCacheAgeSeconds;
 
     /**
@@ -335,7 +335,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
      * 
      */
-    @Export(name="mediaServicesAccountName", refs={String.class}, tree="[0]")
+    @Export(name="mediaServicesAccountName", type=String.class, parameters={})
     private Output<String> mediaServicesAccountName;
 
     /**
@@ -349,7 +349,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -363,7 +363,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -377,7 +377,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`.
      * 
      */
-    @Export(name="scaleUnits", refs={Integer.class}, tree="[0]")
+    @Export(name="scaleUnits", type=Integer.class, parameters={})
     private Output<Integer> scaleUnits;
 
     /**
@@ -391,7 +391,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * A `sku` block defined as below.
      * 
      */
-    @Export(name="skus", refs={List.class,StreamingEndpointSkus.class}, tree="[0,1]")
+    @Export(name="skus", type=List.class, parameters={StreamingEndpointSkus.class})
     private Output<List<StreamingEndpointSkus>> skus;
 
     /**
@@ -405,7 +405,7 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Streaming Endpoint.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

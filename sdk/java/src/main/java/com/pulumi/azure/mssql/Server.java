@@ -84,7 +84,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="administratorLogin", refs={String.class}, tree="[0]")
+    @Export(name="administratorLogin", type=String.class, parameters={})
     private Output<String> administratorLogin;
 
     /**
@@ -98,7 +98,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
      * 
      */
-    @Export(name="administratorLoginPassword", refs={String.class}, tree="[0]")
+    @Export(name="administratorLoginPassword", type=String.class, parameters={})
     private Output</* @Nullable */ String> administratorLoginPassword;
 
     /**
@@ -112,7 +112,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * An `azuread_administrator` block as defined below.
      * 
      */
-    @Export(name="azureadAdministrator", refs={ServerAzureadAdministrator.class}, tree="[0]")
+    @Export(name="azureadAdministrator", type=ServerAzureadAdministrator.class, parameters={})
     private Output</* @Nullable */ ServerAzureadAdministrator> azureadAdministrator;
 
     /**
@@ -126,7 +126,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
      * 
      */
-    @Export(name="connectionPolicy", refs={String.class}, tree="[0]")
+    @Export(name="connectionPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> connectionPolicy;
 
     /**
@@ -140,7 +140,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
      * 
      */
-    @Export(name="fullyQualifiedDomainName", refs={String.class}, tree="[0]")
+    @Export(name="fullyQualifiedDomainName", type=String.class, parameters={})
     private Output<String> fullyQualifiedDomainName;
 
     /**
@@ -154,7 +154,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={ServerIdentity.class}, tree="[0]")
+    @Export(name="identity", type=ServerIdentity.class, parameters={})
     private Output</* @Nullable */ ServerIdentity> identity;
 
     /**
@@ -168,7 +168,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -182,7 +182,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
      * 
      */
-    @Export(name="minimumTlsVersion", refs={String.class}, tree="[0]")
+    @Export(name="minimumTlsVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> minimumTlsVersion;
 
     /**
@@ -196,7 +196,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -210,7 +210,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Whether outbound network traffic is restricted for this server. Defaults to `false`.
      * 
      */
-    @Export(name="outboundNetworkRestrictionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="outboundNetworkRestrictionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> outboundNetworkRestrictionEnabled;
 
     /**
@@ -224,7 +224,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
      * 
      */
-    @Export(name="primaryUserAssignedIdentityId", refs={String.class}, tree="[0]")
+    @Export(name="primaryUserAssignedIdentityId", type=String.class, parameters={})
     private Output<String> primaryUserAssignedIdentityId;
 
     /**
@@ -238,7 +238,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Whether public network access is allowed for this server. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -252,7 +252,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -266,7 +266,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * A list of dropped restorable database IDs on the server.
      * 
      */
-    @Export(name="restorableDroppedDatabaseIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="restorableDroppedDatabaseIds", type=List.class, parameters={String.class})
     private Output<List<String>> restorableDroppedDatabaseIds;
 
     /**
@@ -280,7 +280,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -294,7 +294,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="version", refs={String.class}, tree="[0]")
+    @Export(name="version", type=String.class, parameters={})
     private Output<String> version;
 
     /**

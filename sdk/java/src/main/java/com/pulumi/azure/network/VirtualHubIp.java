@@ -107,7 +107,7 @@ public class VirtualHubIp extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Virtual Hub IP. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -121,7 +121,7 @@ public class VirtualHubIp extends com.pulumi.resources.CustomResource {
      * The private IP address of the IP configuration.
      * 
      */
-    @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="privateIpAddress", type=String.class, parameters={})
     private Output</* @Nullable */ String> privateIpAddress;
 
     /**
@@ -135,7 +135,7 @@ public class VirtualHubIp extends com.pulumi.resources.CustomResource {
      * The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
      * 
      */
-    @Export(name="privateIpAllocationMethod", refs={String.class}, tree="[0]")
+    @Export(name="privateIpAllocationMethod", type=String.class, parameters={})
     private Output</* @Nullable */ String> privateIpAllocationMethod;
 
     /**
@@ -149,7 +149,7 @@ public class VirtualHubIp extends com.pulumi.resources.CustomResource {
      * The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="publicIpAddressId", refs={String.class}, tree="[0]")
+    @Export(name="publicIpAddressId", type=String.class, parameters={})
     private Output<String> publicIpAddressId;
 
     /**
@@ -163,7 +163,7 @@ public class VirtualHubIp extends com.pulumi.resources.CustomResource {
      * The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
+    @Export(name="subnetId", type=String.class, parameters={})
     private Output<String> subnetId;
 
     /**
@@ -177,7 +177,7 @@ public class VirtualHubIp extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualHubId", refs={String.class}, tree="[0]")
+    @Export(name="virtualHubId", type=String.class, parameters={})
     private Output<String> virtualHubId;
 
     /**

@@ -164,7 +164,7 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
      * The ID of the Digital Twins. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="digitalTwinsId", refs={String.class}, tree="[0]")
+    @Export(name="digitalTwinsId", type=String.class, parameters={})
     private Output<String> digitalTwinsId;
 
     /**
@@ -178,7 +178,7 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
      * Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
      * 
      */
-    @Export(name="eventhubConsumerGroupName", refs={String.class}, tree="[0]")
+    @Export(name="eventhubConsumerGroupName", type=String.class, parameters={})
     private Output</* @Nullable */ String> eventhubConsumerGroupName;
 
     /**
@@ -192,7 +192,7 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
      * Name of the Event Hub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventhubName", refs={String.class}, tree="[0]")
+    @Export(name="eventhubName", type=String.class, parameters={})
     private Output<String> eventhubName;
 
     /**
@@ -206,7 +206,7 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
      * URI of the Event Hub Namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventhubNamespaceEndpointUri", refs={String.class}, tree="[0]")
+    @Export(name="eventhubNamespaceEndpointUri", type=String.class, parameters={})
     private Output<String> eventhubNamespaceEndpointUri;
 
     /**
@@ -220,7 +220,7 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
      * The ID of the Event Hub Namespace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventhubNamespaceId", refs={String.class}, tree="[0]")
+    @Export(name="eventhubNamespaceId", type=String.class, parameters={})
     private Output<String> eventhubNamespaceId;
 
     /**
@@ -234,7 +234,7 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
      * The ID of the Kusto Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="kustoClusterId", refs={String.class}, tree="[0]")
+    @Export(name="kustoClusterId", type=String.class, parameters={})
     private Output<String> kustoClusterId;
 
     /**
@@ -248,7 +248,7 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
      * URI of the Kusto Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="kustoClusterUri", refs={String.class}, tree="[0]")
+    @Export(name="kustoClusterUri", type=String.class, parameters={})
     private Output<String> kustoClusterUri;
 
     /**
@@ -262,7 +262,7 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
      * Name of the Kusto Database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="kustoDatabaseName", refs={String.class}, tree="[0]")
+    @Export(name="kustoDatabaseName", type=String.class, parameters={})
     private Output<String> kustoDatabaseName;
 
     /**
@@ -276,7 +276,7 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
      * Name of the Kusto Table. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="kustoTableName", refs={String.class}, tree="[0]")
+    @Export(name="kustoTableName", type=String.class, parameters={})
     private Output<String> kustoTableName;
 
     /**
@@ -290,7 +290,7 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
      * The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**

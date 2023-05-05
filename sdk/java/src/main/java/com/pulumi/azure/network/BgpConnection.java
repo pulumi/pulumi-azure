@@ -117,7 +117,7 @@ public class BgpConnection extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -131,7 +131,7 @@ public class BgpConnection extends com.pulumi.resources.CustomResource {
      * The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="peerAsn", refs={Integer.class}, tree="[0]")
+    @Export(name="peerAsn", type=Integer.class, parameters={})
     private Output<Integer> peerAsn;
 
     /**
@@ -145,7 +145,7 @@ public class BgpConnection extends com.pulumi.resources.CustomResource {
      * The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="peerIp", refs={String.class}, tree="[0]")
+    @Export(name="peerIp", type=String.class, parameters={})
     private Output<String> peerIp;
 
     /**
@@ -159,7 +159,7 @@ public class BgpConnection extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualHubId", refs={String.class}, tree="[0]")
+    @Export(name="virtualHubId", type=String.class, parameters={})
     private Output<String> virtualHubId;
 
     /**
@@ -173,7 +173,7 @@ public class BgpConnection extends com.pulumi.resources.CustomResource {
      * The ID of virtual network connection.
      * 
      */
-    @Export(name="virtualNetworkConnectionId", refs={String.class}, tree="[0]")
+    @Export(name="virtualNetworkConnectionId", type=String.class, parameters={})
     private Output</* @Nullable */ String> virtualNetworkConnectionId;
 
     /**

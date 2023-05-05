@@ -90,7 +90,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
      * 
      */
-    @Export(name="access", refs={String.class}, tree="[0]")
+    @Export(name="access", type=String.class, parameters={})
     private Output<String> access;
 
     /**
@@ -104,7 +104,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * A description for this rule. Restricted to 140 characters.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -118,7 +118,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
      * 
      */
-    @Export(name="destinationAddressPrefix", refs={String.class}, tree="[0]")
+    @Export(name="destinationAddressPrefix", type=String.class, parameters={})
     private Output</* @Nullable */ String> destinationAddressPrefix;
 
     /**
@@ -132,7 +132,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
      * 
      */
-    @Export(name="destinationAddressPrefixes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="destinationAddressPrefixes", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> destinationAddressPrefixes;
 
     /**
@@ -146,7 +146,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * A List of destination Application Security Group IDs
      * 
      */
-    @Export(name="destinationApplicationSecurityGroupIds", refs={String.class}, tree="[0]")
+    @Export(name="destinationApplicationSecurityGroupIds", type=String.class, parameters={})
     private Output</* @Nullable */ String> destinationApplicationSecurityGroupIds;
 
     /**
@@ -160,7 +160,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
      * 
      */
-    @Export(name="destinationPortRange", refs={String.class}, tree="[0]")
+    @Export(name="destinationPortRange", type=String.class, parameters={})
     private Output</* @Nullable */ String> destinationPortRange;
 
     /**
@@ -174,7 +174,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
      * 
      */
-    @Export(name="destinationPortRanges", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="destinationPortRanges", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> destinationPortRanges;
 
     /**
@@ -188,7 +188,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
      * 
      */
-    @Export(name="direction", refs={String.class}, tree="[0]")
+    @Export(name="direction", type=String.class, parameters={})
     private Output<String> direction;
 
     /**
@@ -202,7 +202,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -216,7 +216,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkSecurityGroupName", refs={String.class}, tree="[0]")
+    @Export(name="networkSecurityGroupName", type=String.class, parameters={})
     private Output<String> networkSecurityGroupName;
 
     /**
@@ -230,7 +230,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      * 
      */
-    @Export(name="priority", refs={Integer.class}, tree="[0]")
+    @Export(name="priority", type=Integer.class, parameters={})
     private Output<Integer> priority;
 
     /**
@@ -244,7 +244,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
      * 
      */
-    @Export(name="protocol", refs={String.class}, tree="[0]")
+    @Export(name="protocol", type=String.class, parameters={})
     private Output<String> protocol;
 
     /**
@@ -258,7 +258,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -272,7 +272,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
      * 
      */
-    @Export(name="sourceAddressPrefix", refs={String.class}, tree="[0]")
+    @Export(name="sourceAddressPrefix", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceAddressPrefix;
 
     /**
@@ -286,7 +286,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
      * 
      */
-    @Export(name="sourceAddressPrefixes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="sourceAddressPrefixes", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> sourceAddressPrefixes;
 
     /**
@@ -300,7 +300,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * A List of source Application Security Group IDs
      * 
      */
-    @Export(name="sourceApplicationSecurityGroupIds", refs={String.class}, tree="[0]")
+    @Export(name="sourceApplicationSecurityGroupIds", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceApplicationSecurityGroupIds;
 
     /**
@@ -314,7 +314,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
      * 
      */
-    @Export(name="sourcePortRange", refs={String.class}, tree="[0]")
+    @Export(name="sourcePortRange", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourcePortRange;
 
     /**
@@ -328,7 +328,7 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
      * List of source ports or port ranges. This is required if `source_port_range` is not specified.
      * 
      */
-    @Export(name="sourcePortRanges", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="sourcePortRanges", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> sourcePortRanges;
 
     /**

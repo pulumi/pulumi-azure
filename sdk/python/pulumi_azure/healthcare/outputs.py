@@ -329,7 +329,8 @@ class FhirServiceIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+        :param str type: The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+        :param Sequence[str] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -343,13 +344,16 @@ class FhirServiceIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+        The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
         """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+        """
         return pulumi.get(self, "identity_ids")
 
     @property
@@ -864,6 +868,7 @@ class GetFhirServiceCorResult(dict):
 @pulumi.output_type
 class GetFhirServiceIdentityResult(dict):
     def __init__(__self__, *,
+                 identity_ids: Sequence[str],
                  principal_id: str,
                  tenant_id: str,
                  type: str):
@@ -872,9 +877,15 @@ class GetFhirServiceIdentityResult(dict):
         :param str tenant_id: The Tenant ID associated with this System Assigned Managed Service Identity.
         :param str type: The type of identity used for the Healthcare FHIR service.
         """
+        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")
@@ -904,6 +915,7 @@ class GetFhirServiceIdentityResult(dict):
 @pulumi.output_type
 class GetMedtechServiceIdentityResult(dict):
     def __init__(__self__, *,
+                 identity_ids: Sequence[str],
                  principal_id: str,
                  tenant_id: str,
                  type: str):
@@ -912,9 +924,15 @@ class GetMedtechServiceIdentityResult(dict):
         :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
         :param str type: The type of identity used for the Healthcare Med Tech Service. Possible values are `SystemAssigned`.
         """
+        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")

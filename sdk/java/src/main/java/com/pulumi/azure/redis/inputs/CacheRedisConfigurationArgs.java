@@ -18,14 +18,14 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     public static final CacheRedisConfigurationArgs Empty = new CacheRedisConfigurationArgs();
 
     /**
-     * Enable or disable AOF persistence for this Redis Cache.
+     * Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
      */
     @Import(name="aofBackupEnabled")
     private @Nullable Output<Boolean> aofBackupEnabled;
 
     /**
-     * @return Enable or disable AOF persistence for this Redis Cache.
+     * @return Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> aofBackupEnabled() {
@@ -168,14 +168,14 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Is Backup Enabled? Only supported on Premium SKUs.
+     * Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
      * 
      */
     @Import(name="rdbBackupEnabled")
     private @Nullable Output<Boolean> rdbBackupEnabled;
 
     /**
-     * @return Is Backup Enabled? Only supported on Premium SKUs.
+     * @return Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> rdbBackupEnabled() {
@@ -265,7 +265,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param aofBackupEnabled Enable or disable AOF persistence for this Redis Cache.
+         * @param aofBackupEnabled Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param aofBackupEnabled Enable or disable AOF persistence for this Redis Cache.
+         * @param aofBackupEnabled Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -475,7 +475,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param rdbBackupEnabled Is Backup Enabled? Only supported on Premium SKUs.
+         * @param rdbBackupEnabled Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -486,7 +486,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param rdbBackupEnabled Is Backup Enabled? Only supported on Premium SKUs.
+         * @param rdbBackupEnabled Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
          * 
          * @return builder
          * 

@@ -163,7 +163,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
      * 
      */
-    @Export(name="customBlockResponseBody", refs={String.class}, tree="[0]")
+    @Export(name="customBlockResponseBody", type=String.class, parameters={})
     private Output</* @Nullable */ String> customBlockResponseBody;
 
     /**
@@ -177,7 +177,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * If a `custom_rule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      * 
      */
-    @Export(name="customBlockResponseStatusCode", refs={Integer.class}, tree="[0]")
+    @Export(name="customBlockResponseStatusCode", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> customBlockResponseStatusCode;
 
     /**
@@ -191,7 +191,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * One or more `custom_rule` blocks as defined below.
      * 
      */
-    @Export(name="customRules", refs={List.class,FirewallPolicyCustomRule.class}, tree="[0,1]")
+    @Export(name="customRules", type=List.class, parameters={FirewallPolicyCustomRule.class})
     private Output</* @Nullable */ List<FirewallPolicyCustomRule>> customRules;
 
     /**
@@ -205,7 +205,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * Is the policy a enabled state or disabled state. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -219,7 +219,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
      * 
      */
-    @Export(name="frontendEndpointIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="frontendEndpointIds", type=List.class, parameters={String.class})
     private Output<List<String>> frontendEndpointIds;
 
     /**
@@ -233,7 +233,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * The Azure Region where this Front Door Firewall Policy exists.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -247,7 +247,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * One or more `managed_rule` blocks as defined below.
      * 
      */
-    @Export(name="managedRules", refs={List.class,FirewallPolicyManagedRule.class}, tree="[0,1]")
+    @Export(name="managedRules", type=List.class, parameters={FirewallPolicyManagedRule.class})
     private Output</* @Nullable */ List<FirewallPolicyManagedRule>> managedRules;
 
     /**
@@ -261,7 +261,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
      * 
      */
-    @Export(name="mode", refs={String.class}, tree="[0]")
+    @Export(name="mode", type=String.class, parameters={})
     private Output</* @Nullable */ String> mode;
 
     /**
@@ -275,7 +275,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * The name of the policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -289,7 +289,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * If action type is redirect, this field represents redirect URL for the client.
      * 
      */
-    @Export(name="redirectUrl", refs={String.class}, tree="[0]")
+    @Export(name="redirectUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> redirectUrl;
 
     /**
@@ -303,7 +303,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * The name of the resource group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -317,7 +317,7 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Web Application Firewall Policy.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

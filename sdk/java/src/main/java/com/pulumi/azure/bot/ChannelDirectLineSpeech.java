@@ -94,7 +94,7 @@ public class ChannelDirectLineSpeech extends com.pulumi.resources.CustomResource
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="botName", refs={String.class}, tree="[0]")
+    @Export(name="botName", type=String.class, parameters={})
     private Output<String> botName;
 
     /**
@@ -108,7 +108,7 @@ public class ChannelDirectLineSpeech extends com.pulumi.resources.CustomResource
      * The access key to access the Cognitive Service.
      * 
      */
-    @Export(name="cognitiveServiceAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="cognitiveServiceAccessKey", type=String.class, parameters={})
     private Output<String> cognitiveServiceAccessKey;
 
     /**
@@ -122,7 +122,7 @@ public class ChannelDirectLineSpeech extends com.pulumi.resources.CustomResource
      * Specifies the supported Azure location where the Cognitive Service resource exists.
      * 
      */
-    @Export(name="cognitiveServiceLocation", refs={String.class}, tree="[0]")
+    @Export(name="cognitiveServiceLocation", type=String.class, parameters={})
     private Output<String> cognitiveServiceLocation;
 
     /**
@@ -136,7 +136,7 @@ public class ChannelDirectLineSpeech extends com.pulumi.resources.CustomResource
      * The custom speech model id for the Direct Line Speech Channel.
      * 
      */
-    @Export(name="customSpeechModelId", refs={String.class}, tree="[0]")
+    @Export(name="customSpeechModelId", type=String.class, parameters={})
     private Output</* @Nullable */ String> customSpeechModelId;
 
     /**
@@ -150,7 +150,7 @@ public class ChannelDirectLineSpeech extends com.pulumi.resources.CustomResource
      * The custom voice deployment id for the Direct Line Speech Channel.
      * 
      */
-    @Export(name="customVoiceDeploymentId", refs={String.class}, tree="[0]")
+    @Export(name="customVoiceDeploymentId", type=String.class, parameters={})
     private Output</* @Nullable */ String> customVoiceDeploymentId;
 
     /**
@@ -164,7 +164,7 @@ public class ChannelDirectLineSpeech extends com.pulumi.resources.CustomResource
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -178,7 +178,7 @@ public class ChannelDirectLineSpeech extends com.pulumi.resources.CustomResource
      * The name of the resource group where the Direct Line Speech Channel should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

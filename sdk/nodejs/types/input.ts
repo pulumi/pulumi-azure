@@ -13145,6 +13145,21 @@ export namespace appservice {
 }
 
 export namespace arckubernetes {
+    export interface ClusterExtensionIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface ClusterIdentity {
         /**
          * The Principal ID associated with this Managed Service Identity.
@@ -13163,14 +13178,8 @@ export namespace arckubernetes {
 
 export namespace attestation {
     export interface ProviderPolicy {
-        /**
-         * Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-         */
-        data: pulumi.Input<string>;
-        /**
-         * Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-         */
-        environmentType: pulumi.Input<string>;
+        data?: pulumi.Input<string>;
+        environmentType?: pulumi.Input<string>;
     }
 }
 
@@ -14508,7 +14517,7 @@ export namespace batch {
 export namespace billing {
     export interface AccountCostManagementExportExportDataOptions {
         /**
-         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
          */
         timeFrame: pulumi.Input<string>;
         /**
@@ -20779,6 +20788,44 @@ export namespace containerservice {
         maxSurge: pulumi.Input<string>;
     }
 
+    export interface KubernetesClusterExtensionAksAssignedIdentity {
+        /**
+         * The principal ID of resource identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The tenant ID of resource.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The identity type.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterExtensionPlan {
+        /**
+         * Specifies the name of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the product of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+         */
+        product: pulumi.Input<string>;
+        /**
+         * Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+         */
+        promotionCode?: pulumi.Input<string>;
+        /**
+         * Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+         */
+        publisher: pulumi.Input<string>;
+        /**
+         * Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+         */
+        version?: pulumi.Input<string>;
+    }
+
     export interface KubernetesClusterHttpProxyConfig {
         /**
          * The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
@@ -21383,6 +21430,13 @@ export namespace containerservice {
          * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          */
         userAssignedIdentityId?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterServiceMeshProfile {
+        /**
+         * The mode of the service mesh. Possible value is `Istio`.
+         */
+        mode: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterServicePrincipal {
@@ -21999,7 +22053,7 @@ export namespace core {
 
     export interface ResourceGroupCostManagementExportExportDataOptions {
         /**
-         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
          */
         timeFrame: pulumi.Input<string>;
         /**
@@ -22266,7 +22320,7 @@ export namespace core {
 
     export interface SubscriptionCostManagementExportExportDataOptions {
         /**
-         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
          */
         timeFrame: pulumi.Input<string>;
         /**
@@ -22783,6 +22837,21 @@ export namespace cosmosdb {
          * The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput?: pulumi.Input<number>;
+    }
+
+    export interface PostgresqlClusterMaintenanceWindow {
+        /**
+         * The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
+         */
+        dayOfWeek?: pulumi.Input<number>;
+        /**
+         * The start hour for maintenance window. Defaults to `0`.
+         */
+        startHour?: pulumi.Input<number>;
+        /**
+         * The start minute for maintenance window. Defaults to `0`.
+         */
+        startMinute?: pulumi.Input<number>;
     }
 
     export interface SqlContainerAutoscaleSettings {
@@ -30192,11 +30261,14 @@ export namespace healthcare {
     }
 
     export interface FhirServiceIdentity {
+        /**
+         * A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+         */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         principalId?: pulumi.Input<string>;
         tenantId?: pulumi.Input<string>;
         /**
-         * The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+         * The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
          */
         type: pulumi.Input<string>;
     }
@@ -37744,13 +37816,11 @@ export namespace mysql {
 
     export interface FlexibleServerIdentity {
         /**
-         * A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+         * A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server.
          */
-        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
-        principalId?: pulumi.Input<string>;
-        tenantId?: pulumi.Input<string>;
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -37973,6 +38043,135 @@ export namespace netapp {
         unixReadOnly?: pulumi.Input<boolean>;
         /**
          * Is the file system on unix read and write?
+         */
+        unixReadWrite?: pulumi.Input<boolean>;
+    }
+
+    export interface VolumeGroupSapHanaVolume {
+        /**
+         * The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        capacityPoolId: pulumi.Input<string>;
+        /**
+         * A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        dataProtectionReplication?: pulumi.Input<inputs.netapp.VolumeGroupSapHanaVolumeDataProtectionReplication>;
+        /**
+         * A `dataProtectionSnapshotPolicy` block as defined below.
+         */
+        dataProtectionSnapshotPolicy?: pulumi.Input<inputs.netapp.VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy>;
+        /**
+         * One or more `exportPolicyRule` blocks as defined below.
+         */
+        exportPolicyRules: pulumi.Input<pulumi.Input<inputs.netapp.VolumeGroupSapHanaVolumeExportPolicyRule>[]>;
+        /**
+         * The ID of the Application Volume Group.
+         */
+        id?: pulumi.Input<string>;
+        mountIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`, multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+         */
+        protocols: pulumi.Input<string>;
+        /**
+         * The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+         */
+        proximityPlacementGroupId?: pulumi.Input<string>;
+        /**
+         * Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        securityStyle: pulumi.Input<string>;
+        /**
+         * Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        serviceLevel: pulumi.Input<string>;
+        /**
+         * Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        snapshotDirectoryVisible: pulumi.Input<boolean>;
+        /**
+         * The maximum Storage Quota allowed for a file system in Gigabytes.
+         */
+        storageQuotaInGb: pulumi.Input<number>;
+        /**
+         * The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        subnetId: pulumi.Input<string>;
+        /**
+         * A mapping of tags which should be assigned to the Application Volume Group.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Throughput of this volume in Mibps.
+         */
+        throughputInMibps: pulumi.Input<number>;
+        /**
+         * A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        volumePath: pulumi.Input<string>;
+        /**
+         * Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        volumeSpecName: pulumi.Input<string>;
+    }
+
+    export interface VolumeGroupSapHanaVolumeDataProtectionReplication {
+        /**
+         * The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+         */
+        endpointType?: pulumi.Input<string>;
+        /**
+         * Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        remoteVolumeLocation: pulumi.Input<string>;
+        /**
+         * Resource ID of the primary volume.
+         */
+        remoteVolumeResourceId: pulumi.Input<string>;
+        /**
+         * eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+         */
+        replicationFrequency: pulumi.Input<string>;
+    }
+
+    export interface VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy {
+        /**
+         * Resource ID of the snapshot policy to apply to the volume.
+         */
+        snapshotPolicyId: pulumi.Input<string>;
+    }
+
+    export interface VolumeGroupSapHanaVolumeExportPolicyRule {
+        /**
+         * A comma-sperated list of allowed client IPv4 addresses.
+         */
+        allowedClients: pulumi.Input<string>;
+        /**
+         * Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+         */
+        nfsv3Enabled: pulumi.Input<boolean>;
+        /**
+         * Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+         */
+        nfsv41Enabled: pulumi.Input<boolean>;
+        /**
+         * Is root access permitted to this volume? Defaults to `true`.
+         */
+        rootAccessEnabled?: pulumi.Input<boolean>;
+        /**
+         * The index number of the rule, must start at 1 and maximum 5.
+         */
+        ruleIndex: pulumi.Input<number>;
+        /**
+         * Is the file system on unix read only? Defaults to `false.
+         */
+        unixReadOnly?: pulumi.Input<boolean>;
+        /**
+         * Is the file system on unix read and write? Defaults to `true`.
          */
         unixReadWrite?: pulumi.Input<boolean>;
     }
@@ -39436,7 +39635,7 @@ export namespace network {
          */
         description?: pulumi.Input<string>;
         /**
-         * Specifies a list of destination IP addresses (including CIDR and `*`).
+         * Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
          */
         destinationAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -39460,7 +39659,7 @@ export namespace network {
          */
         protocols?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol>[]>;
         /**
-         * Specifies a list of source IP addresses (including CIDR and `*`).
+         * Specifies a list of source IP addresses (including CIDR, IP range and `*`).
          */
         sourceAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -39525,7 +39724,7 @@ export namespace network {
          */
         protocols: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies a list of source IP addresses (including CIDR and `*`).
+         * Specifies a list of source IP addresses (including CIDR, IP range and `*`).
          */
         sourceAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -39567,7 +39766,7 @@ export namespace network {
 
     export interface FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         /**
-         * Specifies a list of destination IP addresses (including CIDR and `*`).
+         * Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
          */
         destinationAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -39591,7 +39790,7 @@ export namespace network {
          */
         protocols: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies a list of source IP addresses (including CIDR and `*`).
+         * Specifies a list of source IP addresses (including CIDR, IP range and `*`).
          */
         sourceAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -41980,7 +42179,7 @@ export namespace redis {
 
     export interface CacheRedisConfiguration {
         /**
-         * Enable or disable AOF persistence for this Redis Cache.
+         * Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
          */
         aofBackupEnabled?: pulumi.Input<boolean>;
         /**
@@ -42020,7 +42219,7 @@ export namespace redis {
          */
         notifyKeyspaceEvents?: pulumi.Input<string>;
         /**
-         * Is Backup Enabled? Only supported on Premium SKUs.
+         * Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
          */
         rdbBackupEnabled?: pulumi.Input<boolean>;
         /**

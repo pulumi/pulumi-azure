@@ -94,7 +94,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Batch account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", refs={String.class}, tree="[0]")
+    @Export(name="accountName", type=String.class, parameters={})
     private Output<String> accountName;
 
     /**
@@ -108,7 +108,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The base64-encoded contents of the certificate.
      * 
      */
-    @Export(name="certificate", refs={String.class}, tree="[0]")
+    @Export(name="certificate", type=String.class, parameters={})
     private Output<String> certificate;
 
     /**
@@ -122,7 +122,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The format of the certificate. Possible values are `Cer` or `Pfx`.
      * 
      */
-    @Export(name="format", refs={String.class}, tree="[0]")
+    @Export(name="format", type=String.class, parameters={})
     private Output<String> format;
 
     /**
@@ -136,7 +136,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The generated name of the certificate.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -150,7 +150,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The password to access the certificate&#39;s private key. This can only be specified when `format` is `Pfx`.
      * 
      */
-    @Export(name="password", refs={String.class}, tree="[0]")
+    @Export(name="password", type=String.class, parameters={})
     private Output</* @Nullable */ String> password;
 
     /**
@@ -164,7 +164,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The public key of the certificate.
      * 
      */
-    @Export(name="publicData", refs={String.class}, tree="[0]")
+    @Export(name="publicData", type=String.class, parameters={})
     private Output<String> publicData;
 
     /**
@@ -178,7 +178,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -192,7 +192,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The thumbprint of the certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="thumbprint", refs={String.class}, tree="[0]")
+    @Export(name="thumbprint", type=String.class, parameters={})
     private Output<String> thumbprint;
 
     /**
@@ -206,7 +206,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="thumbprintAlgorithm", refs={String.class}, tree="[0]")
+    @Export(name="thumbprintAlgorithm", type=String.class, parameters={})
     private Output<String> thumbprintAlgorithm;
 
     /**

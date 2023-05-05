@@ -107,7 +107,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", refs={String.class}, tree="[0]")
+    @Export(name="accountName", type=String.class, parameters={})
     private Output<String> accountName;
 
     /**
@@ -121,7 +121,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      * 
      */
-    @Export(name="analyticalStorageTtl", refs={Integer.class}, tree="[0]")
+    @Export(name="analyticalStorageTtl", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> analyticalStorageTtl;
 
     /**
@@ -135,7 +135,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
      * 
      */
-    @Export(name="autoscaleSettings", refs={SqlContainerAutoscaleSettings.class}, tree="[0]")
+    @Export(name="autoscaleSettings", type=SqlContainerAutoscaleSettings.class, parameters={})
     private Output</* @Nullable */ SqlContainerAutoscaleSettings> autoscaleSettings;
 
     /**
@@ -149,7 +149,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="conflictResolutionPolicy", refs={SqlContainerConflictResolutionPolicy.class}, tree="[0]")
+    @Export(name="conflictResolutionPolicy", type=SqlContainerConflictResolutionPolicy.class, parameters={})
     private Output<SqlContainerConflictResolutionPolicy> conflictResolutionPolicy;
 
     /**
@@ -163,7 +163,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="databaseName", refs={String.class}, tree="[0]")
+    @Export(name="databaseName", type=String.class, parameters={})
     private Output<String> databaseName;
 
     /**
@@ -177,7 +177,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      * 
      */
-    @Export(name="defaultTtl", refs={Integer.class}, tree="[0]")
+    @Export(name="defaultTtl", type=Integer.class, parameters={})
     private Output<Integer> defaultTtl;
 
     /**
@@ -191,7 +191,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * An `indexing_policy` block as defined below.
      * 
      */
-    @Export(name="indexingPolicy", refs={SqlContainerIndexingPolicy.class}, tree="[0]")
+    @Export(name="indexingPolicy", type=SqlContainerIndexingPolicy.class, parameters={})
     private Output<SqlContainerIndexingPolicy> indexingPolicy;
 
     /**
@@ -205,7 +205,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -219,7 +219,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * Define a partition key. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="partitionKeyPath", refs={String.class}, tree="[0]")
+    @Export(name="partitionKeyPath", type=String.class, parameters={})
     private Output<String> partitionKeyPath;
 
     /**
@@ -233,7 +233,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      * 
      */
-    @Export(name="partitionKeyVersion", refs={Integer.class}, tree="[0]")
+    @Export(name="partitionKeyVersion", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> partitionKeyVersion;
 
     /**
@@ -247,7 +247,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -261,7 +261,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
      * 
      */
-    @Export(name="throughput", refs={Integer.class}, tree="[0]")
+    @Export(name="throughput", type=Integer.class, parameters={})
     private Output<Integer> throughput;
 
     /**
@@ -275,7 +275,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="uniqueKeys", refs={List.class,SqlContainerUniqueKey.class}, tree="[0,1]")
+    @Export(name="uniqueKeys", type=List.class, parameters={SqlContainerUniqueKey.class})
     private Output</* @Nullable */ List<SqlContainerUniqueKey>> uniqueKeys;
 
     /**

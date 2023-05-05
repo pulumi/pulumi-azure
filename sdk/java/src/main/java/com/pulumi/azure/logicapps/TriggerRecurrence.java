@@ -79,7 +79,7 @@ public class TriggerRecurrence extends com.pulumi.resources.CustomResource {
      * Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
      * 
      */
-    @Export(name="frequency", refs={String.class}, tree="[0]")
+    @Export(name="frequency", type=String.class, parameters={})
     private Output<String> frequency;
 
     /**
@@ -93,7 +93,7 @@ public class TriggerRecurrence extends com.pulumi.resources.CustomResource {
      * Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
      * 
      */
-    @Export(name="interval", refs={Integer.class}, tree="[0]")
+    @Export(name="interval", type=Integer.class, parameters={})
     private Output<Integer> interval;
 
     /**
@@ -107,7 +107,7 @@ public class TriggerRecurrence extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="logicAppId", refs={String.class}, tree="[0]")
+    @Export(name="logicAppId", type=String.class, parameters={})
     private Output<String> logicAppId;
 
     /**
@@ -121,7 +121,7 @@ public class TriggerRecurrence extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -135,7 +135,7 @@ public class TriggerRecurrence extends com.pulumi.resources.CustomResource {
      * A `schedule` block as specified below.
      * 
      */
-    @Export(name="schedule", refs={TriggerRecurrenceSchedule.class}, tree="[0]")
+    @Export(name="schedule", type=TriggerRecurrenceSchedule.class, parameters={})
     private Output</* @Nullable */ TriggerRecurrenceSchedule> schedule;
 
     /**
@@ -149,7 +149,7 @@ public class TriggerRecurrence extends com.pulumi.resources.CustomResource {
      * Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
      * 
      */
-    @Export(name="startTime", refs={String.class}, tree="[0]")
+    @Export(name="startTime", type=String.class, parameters={})
     private Output</* @Nullable */ String> startTime;
 
     /**
@@ -163,7 +163,7 @@ public class TriggerRecurrence extends com.pulumi.resources.CustomResource {
      * Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
      * 
      */
-    @Export(name="timeZone", refs={String.class}, tree="[0]")
+    @Export(name="timeZone", type=String.class, parameters={})
     private Output<String> timeZone;
 
     /**

@@ -115,7 +115,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
      * The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="principalId", refs={String.class}, tree="[0]")
+    @Export(name="principalId", type=String.class, parameters={})
     private Output<String> principalId;
 
     /**
@@ -129,7 +129,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
      * The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="roleName", refs={String.class}, tree="[0]")
+    @Export(name="roleName", type=String.class, parameters={})
     private Output<String> roleName;
 
     /**
@@ -143,7 +143,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
      * The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="synapseSparkPoolId", refs={String.class}, tree="[0]")
+    @Export(name="synapseSparkPoolId", type=String.class, parameters={})
     private Output</* @Nullable */ String> synapseSparkPoolId;
 
     /**
@@ -157,7 +157,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
      * The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="synapseWorkspaceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> synapseWorkspaceId;
 
     /**

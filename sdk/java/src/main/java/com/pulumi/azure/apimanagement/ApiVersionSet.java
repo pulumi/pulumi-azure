@@ -81,7 +81,7 @@ public class ApiVersionSet extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -95,7 +95,7 @@ public class ApiVersionSet extends com.pulumi.resources.CustomResource {
      * The description of API Version Set.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -109,7 +109,7 @@ public class ApiVersionSet extends com.pulumi.resources.CustomResource {
      * The display name of this API Version Set.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -123,7 +123,7 @@ public class ApiVersionSet extends com.pulumi.resources.CustomResource {
      * The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -137,7 +137,7 @@ public class ApiVersionSet extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -151,7 +151,7 @@ public class ApiVersionSet extends com.pulumi.resources.CustomResource {
      * The name of the Header which should be read from Inbound Requests which defines the API Version.
      * 
      */
-    @Export(name="versionHeaderName", refs={String.class}, tree="[0]")
+    @Export(name="versionHeaderName", type=String.class, parameters={})
     private Output</* @Nullable */ String> versionHeaderName;
 
     /**
@@ -165,7 +165,7 @@ public class ApiVersionSet extends com.pulumi.resources.CustomResource {
      * The name of the Query String which should be read from Inbound Requests which defines the API Version.
      * 
      */
-    @Export(name="versionQueryName", refs={String.class}, tree="[0]")
+    @Export(name="versionQueryName", type=String.class, parameters={})
     private Output</* @Nullable */ String> versionQueryName;
 
     /**
@@ -179,7 +179,7 @@ public class ApiVersionSet extends com.pulumi.resources.CustomResource {
      * Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
      * 
      */
-    @Export(name="versioningScheme", refs={String.class}, tree="[0]")
+    @Export(name="versioningScheme", type=String.class, parameters={})
     private Output<String> versioningScheme;
 
     /**

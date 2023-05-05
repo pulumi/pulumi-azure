@@ -11,10 +11,8 @@ import (
 )
 
 type ProviderPolicy struct {
-	// Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-	Data string `pulumi:"data"`
-	// Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-	EnvironmentType string `pulumi:"environmentType"`
+	Data            *string `pulumi:"data"`
+	EnvironmentType *string `pulumi:"environmentType"`
 }
 
 // ProviderPolicyInput is an input type that accepts ProviderPolicyArgs and ProviderPolicyOutput values.
@@ -29,10 +27,8 @@ type ProviderPolicyInput interface {
 }
 
 type ProviderPolicyArgs struct {
-	// Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-	Data pulumi.StringInput `pulumi:"data"`
-	// Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-	EnvironmentType pulumi.StringInput `pulumi:"environmentType"`
+	Data            pulumi.StringPtrInput `pulumi:"data"`
+	EnvironmentType pulumi.StringPtrInput `pulumi:"environmentType"`
 }
 
 func (ProviderPolicyArgs) ElementType() reflect.Type {
@@ -86,14 +82,12 @@ func (o ProviderPolicyOutput) ToProviderPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-func (o ProviderPolicyOutput) Data() pulumi.StringOutput {
-	return o.ApplyT(func(v ProviderPolicy) string { return v.Data }).(pulumi.StringOutput)
+func (o ProviderPolicyOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderPolicy) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-func (o ProviderPolicyOutput) EnvironmentType() pulumi.StringOutput {
-	return o.ApplyT(func(v ProviderPolicy) string { return v.EnvironmentType }).(pulumi.StringOutput)
+func (o ProviderPolicyOutput) EnvironmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderPolicy) *string { return v.EnvironmentType }).(pulumi.StringPtrOutput)
 }
 
 type ProviderPolicyArrayOutput struct{ *pulumi.OutputState }

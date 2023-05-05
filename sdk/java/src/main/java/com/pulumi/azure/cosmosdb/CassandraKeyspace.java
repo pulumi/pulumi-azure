@@ -93,7 +93,7 @@ public class CassandraKeyspace extends com.pulumi.resources.CustomResource {
      * The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", refs={String.class}, tree="[0]")
+    @Export(name="accountName", type=String.class, parameters={})
     private Output<String> accountName;
 
     /**
@@ -107,7 +107,7 @@ public class CassandraKeyspace extends com.pulumi.resources.CustomResource {
      * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
      */
-    @Export(name="autoscaleSettings", refs={CassandraKeyspaceAutoscaleSettings.class}, tree="[0]")
+    @Export(name="autoscaleSettings", type=CassandraKeyspaceAutoscaleSettings.class, parameters={})
     private Output</* @Nullable */ CassandraKeyspaceAutoscaleSettings> autoscaleSettings;
 
     /**
@@ -121,7 +121,7 @@ public class CassandraKeyspace extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -135,7 +135,7 @@ public class CassandraKeyspace extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -149,7 +149,7 @@ public class CassandraKeyspace extends com.pulumi.resources.CustomResource {
      * The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
      * 
      */
-    @Export(name="throughput", refs={Integer.class}, tree="[0]")
+    @Export(name="throughput", type=Integer.class, parameters={})
     private Output<Integer> throughput;
 
     /**

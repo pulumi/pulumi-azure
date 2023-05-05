@@ -88,7 +88,7 @@ public class LinkedStorageAccount extends com.pulumi.resources.CustomResource {
      * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
-    @Export(name="dataSourceType", refs={String.class}, tree="[0]")
+    @Export(name="dataSourceType", type=String.class, parameters={})
     private Output<String> dataSourceType;
 
     /**
@@ -102,7 +102,7 @@ public class LinkedStorageAccount extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -116,7 +116,7 @@ public class LinkedStorageAccount extends com.pulumi.resources.CustomResource {
      * The storage account resource ids to be linked.
      * 
      */
-    @Export(name="storageAccountIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="storageAccountIds", type=List.class, parameters={String.class})
     private Output<List<String>> storageAccountIds;
 
     /**
@@ -130,7 +130,7 @@ public class LinkedStorageAccount extends com.pulumi.resources.CustomResource {
      * The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
-    @Export(name="workspaceResourceId", refs={String.class}, tree="[0]")
+    @Export(name="workspaceResourceId", type=String.class, parameters={})
     private Output<String> workspaceResourceId;
 
     /**

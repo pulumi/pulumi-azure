@@ -86,7 +86,7 @@ public class NetworkSlice extends com.pulumi.resources.CustomResource {
      * A description for this Mobile Network Slice.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -100,7 +100,7 @@ public class NetworkSlice extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Mobile Network Slice should exist. Changing this forces a new Mobile Network Slice to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -114,7 +114,7 @@ public class NetworkSlice extends com.pulumi.resources.CustomResource {
      * The ID of Mobile Network which the Mobile Network Slice belongs to. Changing this forces a new Mobile Network Slice to be created.
      * 
      */
-    @Export(name="mobileNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="mobileNetworkId", type=String.class, parameters={})
     private Output<String> mobileNetworkId;
 
     /**
@@ -128,7 +128,7 @@ public class NetworkSlice extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Mobile Network Slice. Changing this forces a new Mobile Network Slice to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -142,7 +142,7 @@ public class NetworkSlice extends com.pulumi.resources.CustomResource {
      * A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
      * 
      */
-    @Export(name="singleNetworkSliceSelectionAssistanceInformation", refs={NetworkSliceSingleNetworkSliceSelectionAssistanceInformation.class}, tree="[0]")
+    @Export(name="singleNetworkSliceSelectionAssistanceInformation", type=NetworkSliceSingleNetworkSliceSelectionAssistanceInformation.class, parameters={})
     private Output<NetworkSliceSingleNetworkSliceSelectionAssistanceInformation> singleNetworkSliceSelectionAssistanceInformation;
 
     /**
@@ -156,7 +156,7 @@ public class NetworkSlice extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Mobile Network Slice.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

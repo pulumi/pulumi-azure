@@ -24,6 +24,7 @@ import javax.annotation.Nullable;
  * Manages a Search Service.
  * 
  * ## Example Usage
+ * ### Supporting API Keys)
  * ```java
  * package generated_program;
  * 
@@ -60,6 +61,83 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Using Both AzureAD And API Keys)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.search.Service;
+ * import com.pulumi.azure.search.ServiceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .sku(&#34;standard&#34;)
+ *             .localAuthenticationEnabled(true)
+ *             .authenticationFailureMode(&#34;http403&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Supporting Only AzureAD Authentication)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.search.Service;
+ * import com.pulumi.azure.search.ServiceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .sku(&#34;standard&#34;)
+ *             .localAuthenticationEnabled(false)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -73,24 +151,66 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:search/service:Service")
 public class Service extends com.pulumi.resources.CustomResource {
     /**
-     * A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+     * Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
      * 
      */
-    @Export(name="allowedIps", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="allowedIps", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> allowedIps;
 
     /**
-     * @return A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+     * @return Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
      * 
      */
     public Output<Optional<List<String>>> allowedIps() {
         return Codegen.optional(this.allowedIps);
     }
     /**
+     * Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+     * 
+     */
+    @Export(name="authenticationFailureMode", type=String.class, parameters={})
+    private Output</* @Nullable */ String> authenticationFailureMode;
+
+    /**
+     * @return Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+     * 
+     */
+    public Output<Optional<String>> authenticationFailureMode() {
+        return Codegen.optional(this.authenticationFailureMode);
+    }
+    /**
+     * Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+     * 
+     */
+    @Export(name="customerManagedKeyEnforcementEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> customerManagedKeyEnforcementEnabled;
+
+    /**
+     * @return Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> customerManagedKeyEnforcementEnabled() {
+        return Codegen.optional(this.customerManagedKeyEnforcementEnabled);
+    }
+    /**
+     * Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+     * 
+     */
+    @Export(name="hostingMode", type=String.class, parameters={})
+    private Output</* @Nullable */ String> hostingMode;
+
+    /**
+     * @return Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+     * 
+     */
+    public Output<Optional<String>> hostingMode() {
+        return Codegen.optional(this.hostingMode);
+    }
+    /**
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={ServiceIdentity.class}, tree="[0]")
+    @Export(name="identity", type=ServiceIdentity.class, parameters={})
     private Output</* @Nullable */ ServiceIdentity> identity;
 
     /**
@@ -101,10 +221,24 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
+     * Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+     * 
+     */
+    @Export(name="localAuthenticationEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
+
+    /**
+     * @return Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> localAuthenticationEnabled() {
+        return Codegen.optional(this.localAuthenticationEnabled);
+    }
+    /**
      * The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -118,7 +252,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -129,24 +263,24 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The number of partitions which should be created.
+     * Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
      * 
      */
-    @Export(name="partitionCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> partitionCount;
+    @Export(name="partitionCount", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> partitionCount;
 
     /**
-     * @return The number of partitions which should be created.
+     * @return Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
      * 
      */
-    public Output<Integer> partitionCount() {
-        return this.partitionCount;
+    public Output<Optional<Integer>> partitionCount() {
+        return Codegen.optional(this.partitionCount);
     }
     /**
      * The Primary Key used for Search Service Administration.
      * 
      */
-    @Export(name="primaryKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryKey", type=String.class, parameters={})
     private Output<String> primaryKey;
 
     /**
@@ -157,14 +291,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.primaryKey;
     }
     /**
-     * Whether or not public network access is allowed for this resource. Defaults to `true`.
+     * Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether or not public network access is allowed for this resource. Defaults to `true`.
+     * @return Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
@@ -174,7 +308,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `query_keys` block as defined below.
      * 
      */
-    @Export(name="queryKeys", refs={List.class,ServiceQueryKey.class}, tree="[0,1]")
+    @Export(name="queryKeys", type=List.class, parameters={ServiceQueryKey.class})
     private Output<List<ServiceQueryKey>> queryKeys;
 
     /**
@@ -185,24 +319,24 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.queryKeys;
     }
     /**
-     * The number of replica&#39;s which should be created.
+     * Specifies the number of Replica&#39;s which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
      * 
      */
-    @Export(name="replicaCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> replicaCount;
+    @Export(name="replicaCount", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> replicaCount;
 
     /**
-     * @return The number of replica&#39;s which should be created.
+     * @return Specifies the number of Replica&#39;s which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
      * 
      */
-    public Output<Integer> replicaCount() {
-        return this.replicaCount;
+    public Output<Optional<Integer>> replicaCount() {
+        return Codegen.optional(this.replicaCount);
     }
     /**
      * The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -216,7 +350,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The Secondary Key used for Search Service Administration.
      * 
      */
-    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryKey", type=String.class, parameters={})
     private Output<String> secondaryKey;
 
     /**
@@ -227,28 +361,28 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.secondaryKey;
     }
     /**
-     * The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+     * The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
-     * @return The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+     * @return The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
      * 
      */
     public Output<String> sku() {
         return this.sku;
     }
     /**
-     * A mapping of tags which should be assigned to the Search Service.
+     * Specifies a mapping of tags which should be assigned to this Search Service.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Search Service.
+     * @return Specifies a mapping of tags which should be assigned to this Search Service.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

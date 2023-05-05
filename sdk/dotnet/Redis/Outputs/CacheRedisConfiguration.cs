@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Redis.Outputs
     public sealed class CacheRedisConfiguration
     {
         /// <summary>
-        /// Enable or disable AOF persistence for this Redis Cache.
+        /// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
         /// </summary>
         public readonly bool? AofBackupEnabled;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Redis.Outputs
         /// </summary>
         public readonly string? NotifyKeyspaceEvents;
         /// <summary>
-        /// Is Backup Enabled? Only supported on Premium SKUs.
+        /// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
         /// </summary>
         public readonly bool? RdbBackupEnabled;
         /// <summary>

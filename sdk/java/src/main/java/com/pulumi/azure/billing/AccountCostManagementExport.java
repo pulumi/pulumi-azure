@@ -99,7 +99,7 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
      * Is the cost management export active? Default is `true`.
      * 
      */
-    @Export(name="active", refs={Boolean.class}, tree="[0]")
+    @Export(name="active", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> active;
 
     /**
@@ -113,7 +113,7 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
      * The id of the billing account on which to create an export. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="billingAccountId", refs={String.class}, tree="[0]")
+    @Export(name="billingAccountId", type=String.class, parameters={})
     private Output<String> billingAccountId;
 
     /**
@@ -127,7 +127,7 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
      * A `export_data_options` block as defined below.
      * 
      */
-    @Export(name="exportDataOptions", refs={AccountCostManagementExportExportDataOptions.class}, tree="[0]")
+    @Export(name="exportDataOptions", type=AccountCostManagementExportExportDataOptions.class, parameters={})
     private Output<AccountCostManagementExportExportDataOptions> exportDataOptions;
 
     /**
@@ -141,7 +141,7 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
      * A `export_data_storage_location` block as defined below.
      * 
      */
-    @Export(name="exportDataStorageLocation", refs={AccountCostManagementExportExportDataStorageLocation.class}, tree="[0]")
+    @Export(name="exportDataStorageLocation", type=AccountCostManagementExportExportDataStorageLocation.class, parameters={})
     private Output<AccountCostManagementExportExportDataStorageLocation> exportDataStorageLocation;
 
     /**
@@ -155,7 +155,7 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -169,7 +169,7 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
      * The date the export will stop capturing information.
      * 
      */
-    @Export(name="recurrencePeriodEndDate", refs={String.class}, tree="[0]")
+    @Export(name="recurrencePeriodEndDate", type=String.class, parameters={})
     private Output<String> recurrencePeriodEndDate;
 
     /**
@@ -183,7 +183,7 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
      * The date the export will start capturing information.
      * 
      */
-    @Export(name="recurrencePeriodStartDate", refs={String.class}, tree="[0]")
+    @Export(name="recurrencePeriodStartDate", type=String.class, parameters={})
     private Output<String> recurrencePeriodStartDate;
 
     /**
@@ -197,7 +197,7 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
      * How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
      * 
      */
-    @Export(name="recurrenceType", refs={String.class}, tree="[0]")
+    @Export(name="recurrenceType", type=String.class, parameters={})
     private Output<String> recurrenceType;
 
     /**

@@ -184,7 +184,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -198,7 +198,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The base-64 encoded certificate data, which must be a PFX file.
      * 
      */
-    @Export(name="data", refs={String.class}, tree="[0]")
+    @Export(name="data", type=String.class, parameters={})
     private Output</* @Nullable */ String> data;
 
     /**
@@ -212,7 +212,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The Expiration Date of this Certificate, formatted as an RFC3339 string.
      * 
      */
-    @Export(name="expiration", refs={String.class}, tree="[0]")
+    @Export(name="expiration", type=String.class, parameters={})
     private Output<String> expiration;
 
     /**
@@ -226,7 +226,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
      * 
      */
-    @Export(name="keyVaultIdentityClientId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultIdentityClientId", type=String.class, parameters={})
     private Output</* @Nullable */ String> keyVaultIdentityClientId;
 
     /**
@@ -240,7 +240,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
      * 
      */
-    @Export(name="keyVaultSecretId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultSecretId", type=String.class, parameters={})
     private Output</* @Nullable */ String> keyVaultSecretId;
 
     /**
@@ -254,7 +254,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The name of the API Management Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -268,7 +268,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The password used for this certificate.
      * 
      */
-    @Export(name="password", refs={String.class}, tree="[0]")
+    @Export(name="password", type=String.class, parameters={})
     private Output</* @Nullable */ String> password;
 
     /**
@@ -282,7 +282,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -296,7 +296,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The Subject of this Certificate.
      * 
      */
-    @Export(name="subject", refs={String.class}, tree="[0]")
+    @Export(name="subject", type=String.class, parameters={})
     private Output<String> subject;
 
     /**
@@ -310,7 +310,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The Thumbprint of this Certificate.
      * 
      */
-    @Export(name="thumbprint", refs={String.class}, tree="[0]")
+    @Export(name="thumbprint", type=String.class, parameters={})
     private Output<String> thumbprint;
 
     /**

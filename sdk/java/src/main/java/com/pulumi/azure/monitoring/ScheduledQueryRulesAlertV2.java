@@ -38,7 +38,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * An `action` block as defined below.
      * 
      */
-    @Export(name="action", refs={ScheduledQueryRulesAlertV2Action.class}, tree="[0]")
+    @Export(name="action", type=ScheduledQueryRulesAlertV2Action.class, parameters={})
     private Output</* @Nullable */ ScheduledQueryRulesAlertV2Action> action;
 
     /**
@@ -52,7 +52,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
      * 
      */
-    @Export(name="autoMitigationEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="autoMitigationEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoMitigationEnabled;
 
     /**
@@ -66,7 +66,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * The api-version used when creating this alert rule.
      * 
      */
-    @Export(name="createdWithApiVersion", refs={String.class}, tree="[0]")
+    @Export(name="createdWithApiVersion", type=String.class, parameters={})
     private Output<String> createdWithApiVersion;
 
     /**
@@ -80,7 +80,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * A `criteria` block as defined below.
      * 
      */
-    @Export(name="criterias", refs={List.class,ScheduledQueryRulesAlertV2Criteria.class}, tree="[0,1]")
+    @Export(name="criterias", type=List.class, parameters={ScheduledQueryRulesAlertV2Criteria.class})
     private Output<List<ScheduledQueryRulesAlertV2Criteria>> criterias;
 
     /**
@@ -94,7 +94,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * Specifies the description of the scheduled query rule.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -108,7 +108,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * Specifies the display name of the alert rule.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -122,7 +122,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -136,7 +136,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
      * 
      */
-    @Export(name="evaluationFrequency", refs={String.class}, tree="[0]")
+    @Export(name="evaluationFrequency", type=String.class, parameters={})
     private Output</* @Nullable */ String> evaluationFrequency;
 
     /**
@@ -150,7 +150,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * True if this alert rule is a legacy Log Analytic Rule.
      * 
      */
-    @Export(name="isALegacyLogAnalyticsRule", refs={Boolean.class}, tree="[0]")
+    @Export(name="isALegacyLogAnalyticsRule", type=Boolean.class, parameters={})
     private Output<Boolean> isALegacyLogAnalyticsRule;
 
     /**
@@ -164,7 +164,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * The flag indicates whether this Scheduled Query Rule has been configured to be stored in the customer&#39;s storage.
      * 
      */
-    @Export(name="isWorkspaceAlertsStorageConfigured", refs={Boolean.class}, tree="[0]")
+    @Export(name="isWorkspaceAlertsStorageConfigured", type=Boolean.class, parameters={})
     private Output<Boolean> isWorkspaceAlertsStorageConfigured;
 
     /**
@@ -178,7 +178,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -192,7 +192,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      * 
      */
-    @Export(name="muteActionsAfterAlertDuration", refs={String.class}, tree="[0]")
+    @Export(name="muteActionsAfterAlertDuration", type=String.class, parameters={})
     private Output</* @Nullable */ String> muteActionsAfterAlertDuration;
 
     /**
@@ -206,7 +206,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -220,7 +220,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * Set this if the alert evaluation period is different from the query time range. If not specified, the value is `window_duration`*`number_of_evaluation_periods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      * 
      */
-    @Export(name="queryTimeRangeOverride", refs={String.class}, tree="[0]")
+    @Export(name="queryTimeRangeOverride", type=String.class, parameters={})
     private Output</* @Nullable */ String> queryTimeRangeOverride;
 
     /**
@@ -234,7 +234,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -248,7 +248,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
      * 
      */
-    @Export(name="scopes", refs={String.class}, tree="[0]")
+    @Export(name="scopes", type=String.class, parameters={})
     private Output<String> scopes;
 
     /**
@@ -262,7 +262,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
      * 
      */
-    @Export(name="severity", refs={Integer.class}, tree="[0]")
+    @Export(name="severity", type=Integer.class, parameters={})
     private Output<Integer> severity;
 
     /**
@@ -276,7 +276,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * Specifies the flag which indicates whether the provided query should be validated or not. The default is false.
      * 
      */
-    @Export(name="skipQueryValidation", refs={Boolean.class}, tree="[0]")
+    @Export(name="skipQueryValidation", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> skipQueryValidation;
 
     /**
@@ -290,7 +290,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * A mapping of tags which should be assigned to the Monitor Scheduled Query Rule.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -304,7 +304,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
      * 
      */
-    @Export(name="targetResourceTypes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="targetResourceTypes", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> targetResourceTypes;
 
     /**
@@ -318,7 +318,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
      * 
      */
-    @Export(name="windowDuration", refs={String.class}, tree="[0]")
+    @Export(name="windowDuration", type=String.class, parameters={})
     private Output<String> windowDuration;
 
     /**
@@ -332,7 +332,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
      * 
      */
-    @Export(name="workspaceAlertsStorageEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="workspaceAlertsStorageEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> workspaceAlertsStorageEnabled;
 
     /**

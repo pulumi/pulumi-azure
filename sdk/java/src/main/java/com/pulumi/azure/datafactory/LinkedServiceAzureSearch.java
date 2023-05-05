@@ -34,7 +34,7 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -48,7 +48,7 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      * List of tags that can be used for describing the Data Factory Linked Service.
      * 
      */
-    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="annotations", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -62,7 +62,7 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
+    @Export(name="dataFactoryId", type=String.class, parameters={})
     private Output<String> dataFactoryId;
 
     /**
@@ -76,7 +76,7 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      * The description for the Data Factory Linked Service.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -90,7 +90,7 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      * The encrypted credential to connect to Azure Search Service.
      * 
      */
-    @Export(name="encryptedCredential", refs={String.class}, tree="[0]")
+    @Export(name="encryptedCredential", type=String.class, parameters={})
     private Output<String> encryptedCredential;
 
     /**
@@ -104,7 +104,7 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      * The integration runtime reference to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="integrationRuntimeName", refs={String.class}, tree="[0]")
+    @Export(name="integrationRuntimeName", type=String.class, parameters={})
     private Output</* @Nullable */ String> integrationRuntimeName;
 
     /**
@@ -118,7 +118,7 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -132,7 +132,7 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      * A map of parameters to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -146,7 +146,7 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      * The key of the Azure Search Service.
      * 
      */
-    @Export(name="searchServiceKey", refs={String.class}, tree="[0]")
+    @Export(name="searchServiceKey", type=String.class, parameters={})
     private Output<String> searchServiceKey;
 
     /**
@@ -160,7 +160,7 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      * The URL of the Search Service endpoint (e.g. &lt;https://{searchServiceName}.search.windows.net&gt;).
      * 
      */
-    @Export(name="url", refs={String.class}, tree="[0]")
+    @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
     /**

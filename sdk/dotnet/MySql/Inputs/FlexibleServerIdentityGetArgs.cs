@@ -12,11 +12,11 @@ namespace Pulumi.Azure.MySql.Inputs
 
     public sealed class FlexibleServerIdentityGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("identityIds")]
+        [Input("identityIds", required: true)]
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
+        /// A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -24,14 +24,8 @@ namespace Pulumi.Azure.MySql.Inputs
             set => _identityIds = value;
         }
 
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
-
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

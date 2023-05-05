@@ -115,7 +115,7 @@ public class IntegrationRuntimeAzure extends com.pulumi.resources.CustomResource
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
      * 
      */
-    @Export(name="computeType", refs={String.class}, tree="[0]")
+    @Export(name="computeType", type=String.class, parameters={})
     private Output</* @Nullable */ String> computeType;
 
     /**
@@ -129,7 +129,7 @@ public class IntegrationRuntimeAzure extends com.pulumi.resources.CustomResource
      * Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
      * 
      */
-    @Export(name="coreCount", refs={Integer.class}, tree="[0]")
+    @Export(name="coreCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> coreCount;
 
     /**
@@ -143,7 +143,7 @@ public class IntegrationRuntimeAzure extends com.pulumi.resources.CustomResource
      * Integration runtime description.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -157,7 +157,7 @@ public class IntegrationRuntimeAzure extends com.pulumi.resources.CustomResource
      * The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -171,7 +171,7 @@ public class IntegrationRuntimeAzure extends com.pulumi.resources.CustomResource
      * The name which should be used for this Synapse Azure Integration Runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -185,7 +185,7 @@ public class IntegrationRuntimeAzure extends com.pulumi.resources.CustomResource
      * The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Azure Integration Runtime to be created.
      * 
      */
-    @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="synapseWorkspaceId", type=String.class, parameters={})
     private Output<String> synapseWorkspaceId;
 
     /**
@@ -199,7 +199,7 @@ public class IntegrationRuntimeAzure extends com.pulumi.resources.CustomResource
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      * 
      */
-    @Export(name="timeToLiveMin", refs={Integer.class}, tree="[0]")
+    @Export(name="timeToLiveMin", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> timeToLiveMin;
 
     /**

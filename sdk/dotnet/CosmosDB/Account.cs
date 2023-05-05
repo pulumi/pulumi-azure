@@ -12,78 +12,6 @@ namespace Pulumi.Azure.CosmosDB
     /// <summary>
     /// Manages a CosmosDB (formally DocumentDB) Account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Random = Pulumi.Random;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var rg = new Azure.Core.ResourceGroup("rg", new()
-    ///     {
-    ///         Location = "westus",
-    ///     });
-    /// 
-    ///     var ri = new Random.RandomInteger("ri", new()
-    ///     {
-    ///         Min = 10000,
-    ///         Max = 99999,
-    ///     });
-    /// 
-    ///     var db = new Azure.CosmosDB.Account("db", new()
-    ///     {
-    ///         Location = azurerm_resource_group.Example.Location,
-    ///         ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///         OfferType = "Standard",
-    ///         Kind = "MongoDB",
-    ///         EnableAutomaticFailover = true,
-    ///         Capabilities = new[]
-    ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
-    ///             {
-    ///                 Name = "EnableAggregationPipeline",
-    ///             },
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
-    ///             {
-    ///                 Name = "mongoEnableDocLevelTTL",
-    ///             },
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
-    ///             {
-    ///                 Name = "MongoDBv3.4",
-    ///             },
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
-    ///             {
-    ///                 Name = "EnableMongo",
-    ///             },
-    ///         },
-    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///         {
-    ///             ConsistencyLevel = "BoundedStaleness",
-    ///             MaxIntervalInSeconds = 300,
-    ///             MaxStalenessPrefix = 100000,
-    ///         },
-    ///         GeoLocations = new[]
-    ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
-    ///             {
-    ///                 Location = "eastus",
-    ///                 FailoverPriority = 1,
-    ///             },
-    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
-    ///             {
-    ///                 Location = "westus",
-    ///                 FailoverPriority = 0,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// CosmosDB Accounts can be imported using the `resource id`, e.g.
@@ -156,7 +84,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> CreateMode { get; private set; } = null!;
 
         /// <summary>
-        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
         /// </summary>
         [Output("defaultIdentityType")]
         public Output<string> DefaultIdentityType { get; private set; } = null!;
@@ -460,7 +388,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
-        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
         /// </summary>
         [Input("defaultIdentityType")]
         public Input<string>? DefaultIdentityType { get; set; }
@@ -700,7 +628,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
-        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
         /// </summary>
         [Input("defaultIdentityType")]
         public Input<string>? DefaultIdentityType { get; set; }

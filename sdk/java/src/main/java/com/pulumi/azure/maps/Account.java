@@ -72,7 +72,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name of the Azure Maps Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -86,7 +86,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The primary key used to authenticate and authorize access to the Maps REST APIs.
      * 
      */
-    @Export(name="primaryAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="primaryAccessKey", type=String.class, parameters={})
     private Output<String> primaryAccessKey;
 
     /**
@@ -100,7 +100,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -114,7 +114,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The secondary key used to authenticate and authorize access to the Maps REST APIs.
      * 
      */
-    @Export(name="secondaryAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="secondaryAccessKey", type=String.class, parameters={})
     private Output<String> secondaryAccessKey;
 
     /**
@@ -128,7 +128,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -142,7 +142,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Azure Maps Account.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -156,7 +156,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A unique identifier for the Maps Account.
      * 
      */
-    @Export(name="xMsClientId", refs={String.class}, tree="[0]")
+    @Export(name="xMsClientId", type=String.class, parameters={})
     private Output<String> xMsClientId;
 
     /**

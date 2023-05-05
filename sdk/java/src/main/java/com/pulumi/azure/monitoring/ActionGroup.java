@@ -174,7 +174,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * One or more `arm_role_receiver` blocks as defined below.
      * 
      */
-    @Export(name="armRoleReceivers", refs={List.class,ActionGroupArmRoleReceiver.class}, tree="[0,1]")
+    @Export(name="armRoleReceivers", type=List.class, parameters={ActionGroupArmRoleReceiver.class})
     private Output</* @Nullable */ List<ActionGroupArmRoleReceiver>> armRoleReceivers;
 
     /**
@@ -188,7 +188,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * One or more `automation_runbook_receiver` blocks as defined below.
      * 
      */
-    @Export(name="automationRunbookReceivers", refs={List.class,ActionGroupAutomationRunbookReceiver.class}, tree="[0,1]")
+    @Export(name="automationRunbookReceivers", type=List.class, parameters={ActionGroupAutomationRunbookReceiver.class})
     private Output</* @Nullable */ List<ActionGroupAutomationRunbookReceiver>> automationRunbookReceivers;
 
     /**
@@ -202,7 +202,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * One or more `azure_app_push_receiver` blocks as defined below.
      * 
      */
-    @Export(name="azureAppPushReceivers", refs={List.class,ActionGroupAzureAppPushReceiver.class}, tree="[0,1]")
+    @Export(name="azureAppPushReceivers", type=List.class, parameters={ActionGroupAzureAppPushReceiver.class})
     private Output</* @Nullable */ List<ActionGroupAzureAppPushReceiver>> azureAppPushReceivers;
 
     /**
@@ -216,7 +216,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * One or more `azure_function_receiver` blocks as defined below.
      * 
      */
-    @Export(name="azureFunctionReceivers", refs={List.class,ActionGroupAzureFunctionReceiver.class}, tree="[0,1]")
+    @Export(name="azureFunctionReceivers", type=List.class, parameters={ActionGroupAzureFunctionReceiver.class})
     private Output</* @Nullable */ List<ActionGroupAzureFunctionReceiver>> azureFunctionReceivers;
 
     /**
@@ -230,7 +230,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * One or more `email_receiver` blocks as defined below.
      * 
      */
-    @Export(name="emailReceivers", refs={List.class,ActionGroupEmailReceiver.class}, tree="[0,1]")
+    @Export(name="emailReceivers", type=List.class, parameters={ActionGroupEmailReceiver.class})
     private Output</* @Nullable */ List<ActionGroupEmailReceiver>> emailReceivers;
 
     /**
@@ -244,7 +244,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -258,7 +258,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * One or more `event_hub_receiver` blocks as defined below.
      * 
      */
-    @Export(name="eventHubReceivers", refs={List.class,ActionGroupEventHubReceiver.class}, tree="[0,1]")
+    @Export(name="eventHubReceivers", type=List.class, parameters={ActionGroupEventHubReceiver.class})
     private Output</* @Nullable */ List<ActionGroupEventHubReceiver>> eventHubReceivers;
 
     /**
@@ -272,7 +272,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * One or more `itsm_receiver` blocks as defined below.
      * 
      */
-    @Export(name="itsmReceivers", refs={List.class,ActionGroupItsmReceiver.class}, tree="[0,1]")
+    @Export(name="itsmReceivers", type=List.class, parameters={ActionGroupItsmReceiver.class})
     private Output</* @Nullable */ List<ActionGroupItsmReceiver>> itsmReceivers;
 
     /**
@@ -286,7 +286,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -300,7 +300,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * One or more `logic_app_receiver` blocks as defined below.
      * 
      */
-    @Export(name="logicAppReceivers", refs={List.class,ActionGroupLogicAppReceiver.class}, tree="[0,1]")
+    @Export(name="logicAppReceivers", type=List.class, parameters={ActionGroupLogicAppReceiver.class})
     private Output</* @Nullable */ List<ActionGroupLogicAppReceiver>> logicAppReceivers;
 
     /**
@@ -314,7 +314,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * The name of the Action Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -328,7 +328,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -342,7 +342,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * The short name of the action group. This will be used in SMS messages.
      * 
      */
-    @Export(name="shortName", refs={String.class}, tree="[0]")
+    @Export(name="shortName", type=String.class, parameters={})
     private Output<String> shortName;
 
     /**
@@ -356,7 +356,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * One or more `sms_receiver` blocks as defined below.
      * 
      */
-    @Export(name="smsReceivers", refs={List.class,ActionGroupSmsReceiver.class}, tree="[0,1]")
+    @Export(name="smsReceivers", type=List.class, parameters={ActionGroupSmsReceiver.class})
     private Output</* @Nullable */ List<ActionGroupSmsReceiver>> smsReceivers;
 
     /**
@@ -370,7 +370,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -384,7 +384,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * One or more `voice_receiver` blocks as defined below.
      * 
      */
-    @Export(name="voiceReceivers", refs={List.class,ActionGroupVoiceReceiver.class}, tree="[0,1]")
+    @Export(name="voiceReceivers", type=List.class, parameters={ActionGroupVoiceReceiver.class})
     private Output</* @Nullable */ List<ActionGroupVoiceReceiver>> voiceReceivers;
 
     /**
@@ -398,7 +398,7 @@ public class ActionGroup extends com.pulumi.resources.CustomResource {
      * One or more `webhook_receiver` blocks as defined below.
      * 
      */
-    @Export(name="webhookReceivers", refs={List.class,ActionGroupWebhookReceiver.class}, tree="[0,1]")
+    @Export(name="webhookReceivers", type=List.class, parameters={ActionGroupWebhookReceiver.class})
     private Output</* @Nullable */ List<ActionGroupWebhookReceiver>> webhookReceivers;
 
     /**

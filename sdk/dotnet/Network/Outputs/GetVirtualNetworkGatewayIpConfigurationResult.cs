@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The Private IP Address associated with the Virtual Network Gateway.
+        /// </summary>
+        public readonly string PrivateIpAddress;
+        /// <summary>
         /// Defines how the private IP address
         /// of the gateways virtual interface is assigned.
         /// </summary>
@@ -45,6 +49,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             string name,
 
+            string privateIpAddress,
+
             string privateIpAddressAllocation,
 
             string publicIpAddressId,
@@ -53,6 +59,7 @@ namespace Pulumi.Azure.Network.Outputs
         {
             Id = id;
             Name = name;
+            PrivateIpAddress = privateIpAddress;
             PrivateIpAddressAllocation = privateIpAddressAllocation;
             PublicIpAddressId = publicIpAddressId;
             SubnetId = subnetId;

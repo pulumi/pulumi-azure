@@ -81,7 +81,7 @@ public class HciCluster extends com.pulumi.resources.CustomResource {
      * The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clientId", refs={String.class}, tree="[0]")
+    @Export(name="clientId", type=String.class, parameters={})
     private Output<String> clientId;
 
     /**
@@ -95,7 +95,7 @@ public class HciCluster extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -109,7 +109,7 @@ public class HciCluster extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -123,7 +123,7 @@ public class HciCluster extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -137,7 +137,7 @@ public class HciCluster extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -151,7 +151,7 @@ public class HciCluster extends com.pulumi.resources.CustomResource {
      * The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tenantId", refs={String.class}, tree="[0]")
+    @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     /**

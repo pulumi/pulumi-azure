@@ -82,7 +82,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * A `apns_credential` block as defined below.
      * 
      */
-    @Export(name="apnsCredential", refs={HubApnsCredential.class}, tree="[0]")
+    @Export(name="apnsCredential", type=HubApnsCredential.class, parameters={})
     private Output</* @Nullable */ HubApnsCredential> apnsCredential;
 
     /**
@@ -96,7 +96,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * A `gcm_credential` block as defined below.
      * 
      */
-    @Export(name="gcmCredential", refs={HubGcmCredential.class}, tree="[0]")
+    @Export(name="gcmCredential", type=HubGcmCredential.class, parameters={})
     private Output</* @Nullable */ HubGcmCredential> gcmCredential;
 
     /**
@@ -110,7 +110,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -124,7 +124,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * The name to use for this Notification Hub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -138,7 +138,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="namespaceName", refs={String.class}, tree="[0]")
+    @Export(name="namespaceName", type=String.class, parameters={})
     private Output<String> namespaceName;
 
     /**
@@ -152,7 +152,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -166,7 +166,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

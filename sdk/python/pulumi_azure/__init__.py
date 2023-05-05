@@ -1360,6 +1360,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "arckubernetes/clusterExtension",
+  "fqn": "pulumi_azure.arckubernetes",
+  "classes": {
+   "azure:arckubernetes/clusterExtension:ClusterExtension": "ClusterExtension"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "armmsi/federatedIdentityCredential",
   "fqn": "pulumi_azure.armmsi",
   "classes": {
@@ -2000,6 +2008,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "communication/emailService",
+  "fqn": "pulumi_azure.communication",
+  "classes": {
+   "azure:communication/emailService:EmailService": "EmailService"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "communication/service",
   "fqn": "pulumi_azure.communication",
   "classes": {
@@ -2384,6 +2400,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "containerservice/kubernetesClusterExtension",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension": "KubernetesClusterExtension"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "containerservice/kubernetesClusterNodePool",
   "fqn": "pulumi_azure.containerservice",
   "classes": {
@@ -2740,6 +2764,22 @@ _utilities.register(
   "fqn": "pulumi_azure.cosmosdb",
   "classes": {
    "azure:cosmosdb/notebookWorkspace:NotebookWorkspace": "NotebookWorkspace"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cosmosdb/postgresqlCluster",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/postgresqlCluster:PostgresqlCluster": "PostgresqlCluster"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cosmosdb/postgresqlFirewallRule",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule": "PostgresqlFirewallRule"
   }
  },
  {
@@ -5752,6 +5792,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "netapp/volumeGroupSapHana",
+  "fqn": "pulumi_azure.netapp",
+  "classes": {
+   "azure:netapp/volumeGroupSapHana:VolumeGroupSapHana": "VolumeGroupSapHana"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/applicationGateway",
   "fqn": "pulumi_azure.network",
   "classes": {
@@ -7700,6 +7748,22 @@ _utilities.register(
   "fqn": "pulumi_azure.storage",
   "classes": {
    "azure:storage/moverAgent:MoverAgent": "MoverAgent"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/moverJobDefinition",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/moverJobDefinition:MoverJobDefinition": "MoverJobDefinition"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/moverProject",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/moverProject:MoverProject": "MoverProject"
   }
  },
  {

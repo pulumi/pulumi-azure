@@ -39,7 +39,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * An `auto_pause` block as defined below.
      * 
      */
-    @Export(name="autoPause", refs={SparkPoolAutoPause.class}, tree="[0]")
+    @Export(name="autoPause", type=SparkPoolAutoPause.class, parameters={})
     private Output</* @Nullable */ SparkPoolAutoPause> autoPause;
 
     /**
@@ -53,7 +53,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
      * 
      */
-    @Export(name="autoScale", refs={SparkPoolAutoScale.class}, tree="[0]")
+    @Export(name="autoScale", type=SparkPoolAutoScale.class, parameters={})
     private Output</* @Nullable */ SparkPoolAutoScale> autoScale;
 
     /**
@@ -67,7 +67,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * The cache size in the Spark Pool.
      * 
      */
-    @Export(name="cacheSize", refs={Integer.class}, tree="[0]")
+    @Export(name="cacheSize", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> cacheSize;
 
     /**
@@ -81,7 +81,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * Indicates whether compute isolation is enabled or not. Defaults to `false`.
      * 
      */
-    @Export(name="computeIsolationEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="computeIsolationEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> computeIsolationEnabled;
 
     /**
@@ -95,7 +95,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`.
      * 
      */
-    @Export(name="dynamicExecutorAllocationEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="dynamicExecutorAllocationEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> dynamicExecutorAllocationEnabled;
 
     /**
@@ -109,7 +109,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * A `library_requirement` block as defined below.
      * 
      */
-    @Export(name="libraryRequirement", refs={SparkPoolLibraryRequirement.class}, tree="[0]")
+    @Export(name="libraryRequirement", type=SparkPoolLibraryRequirement.class, parameters={})
     private Output</* @Nullable */ SparkPoolLibraryRequirement> libraryRequirement;
 
     /**
@@ -123,7 +123,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
      * 
      */
-    @Export(name="maxExecutors", refs={Integer.class}, tree="[0]")
+    @Export(name="maxExecutors", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maxExecutors;
 
     /**
@@ -137,7 +137,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`.
      * 
      */
-    @Export(name="minExecutors", refs={Integer.class}, tree="[0]")
+    @Export(name="minExecutors", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> minExecutors;
 
     /**
@@ -151,7 +151,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -165,7 +165,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
      * 
      */
-    @Export(name="nodeCount", refs={Integer.class}, tree="[0]")
+    @Export(name="nodeCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> nodeCount;
 
     /**
@@ -179,7 +179,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`.
      * 
      */
-    @Export(name="nodeSize", refs={String.class}, tree="[0]")
+    @Export(name="nodeSize", type=String.class, parameters={})
     private Output<String> nodeSize;
 
     /**
@@ -193,7 +193,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * The kind of nodes that the Spark Pool provides. Possible values are `MemoryOptimized` and `None`.
      * 
      */
-    @Export(name="nodeSizeFamily", refs={String.class}, tree="[0]")
+    @Export(name="nodeSizeFamily", type=String.class, parameters={})
     private Output<String> nodeSizeFamily;
 
     /**
@@ -207,7 +207,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * Indicates whether session level packages are enabled or not. Defaults to `false`.
      * 
      */
-    @Export(name="sessionLevelPackagesEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="sessionLevelPackagesEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> sessionLevelPackagesEnabled;
 
     /**
@@ -221,7 +221,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * A `spark_config` block as defined below.
      * 
      */
-    @Export(name="sparkConfig", refs={SparkPoolSparkConfig.class}, tree="[0]")
+    @Export(name="sparkConfig", type=SparkPoolSparkConfig.class, parameters={})
     private Output</* @Nullable */ SparkPoolSparkConfig> sparkConfig;
 
     /**
@@ -235,7 +235,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * The Spark events folder. Defaults to `/events`.
      * 
      */
-    @Export(name="sparkEventsFolder", refs={String.class}, tree="[0]")
+    @Export(name="sparkEventsFolder", type=String.class, parameters={})
     private Output</* @Nullable */ String> sparkEventsFolder;
 
     /**
@@ -249,7 +249,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * The default folder where Spark logs will be written. Defaults to `/logs`.
      * 
      */
-    @Export(name="sparkLogFolder", refs={String.class}, tree="[0]")
+    @Export(name="sparkLogFolder", type=String.class, parameters={})
     private Output</* @Nullable */ String> sparkLogFolder;
 
     /**
@@ -263,7 +263,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
      * 
      */
-    @Export(name="sparkVersion", refs={String.class}, tree="[0]")
+    @Export(name="sparkVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> sparkVersion;
 
     /**
@@ -277,7 +277,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
      * 
      */
-    @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="synapseWorkspaceId", type=String.class, parameters={})
     private Output<String> synapseWorkspaceId;
 
     /**
@@ -291,7 +291,7 @@ public class SparkPool extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Synapse Spark Pool.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

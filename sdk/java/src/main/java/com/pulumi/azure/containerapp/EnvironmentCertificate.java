@@ -90,7 +90,7 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
      * The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="certificateBlobBase64", refs={String.class}, tree="[0]")
+    @Export(name="certificateBlobBase64", type=String.class, parameters={})
     private Output<String> certificateBlobBase64;
 
     /**
@@ -104,7 +104,7 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
      * The password for the Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="certificatePassword", refs={String.class}, tree="[0]")
+    @Export(name="certificatePassword", type=String.class, parameters={})
     private Output<String> certificatePassword;
 
     /**
@@ -118,7 +118,7 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
      * The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="containerAppEnvironmentId", refs={String.class}, tree="[0]")
+    @Export(name="containerAppEnvironmentId", type=String.class, parameters={})
     private Output<String> containerAppEnvironmentId;
 
     /**
@@ -132,7 +132,7 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
      * The expiration date for the Certificate.
      * 
      */
-    @Export(name="expirationDate", refs={String.class}, tree="[0]")
+    @Export(name="expirationDate", type=String.class, parameters={})
     private Output<String> expirationDate;
 
     /**
@@ -146,7 +146,7 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
      * The date of issue for the Certificate.
      * 
      */
-    @Export(name="issueDate", refs={String.class}, tree="[0]")
+    @Export(name="issueDate", type=String.class, parameters={})
     private Output<String> issueDate;
 
     /**
@@ -160,7 +160,7 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
      * The Certificate Issuer.
      * 
      */
-    @Export(name="issuer", refs={String.class}, tree="[0]")
+    @Export(name="issuer", type=String.class, parameters={})
     private Output<String> issuer;
 
     /**
@@ -174,7 +174,7 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
      * The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -188,7 +188,7 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
      * The Subject Name for the Certificate.
      * 
      */
-    @Export(name="subjectName", refs={String.class}, tree="[0]")
+    @Export(name="subjectName", type=String.class, parameters={})
     private Output<String> subjectName;
 
     /**
@@ -202,7 +202,7 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -216,7 +216,7 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
      * The Thumbprint of the Certificate.
      * 
      */
-    @Export(name="thumbprint", refs={String.class}, tree="[0]")
+    @Export(name="thumbprint", type=String.class, parameters={})
     private Output<String> thumbprint;
 
     /**

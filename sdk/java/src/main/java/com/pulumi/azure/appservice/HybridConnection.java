@@ -111,7 +111,7 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="appServiceName", refs={String.class}, tree="[0]")
+    @Export(name="appServiceName", type=String.class, parameters={})
     private Output<String> appServiceName;
 
     /**
@@ -125,7 +125,7 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
      * The hostname of the endpoint.
      * 
      */
-    @Export(name="hostname", refs={String.class}, tree="[0]")
+    @Export(name="hostname", type=String.class, parameters={})
     private Output<String> hostname;
 
     /**
@@ -139,7 +139,7 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
      * The name of the Relay Namespace.
      * 
      */
-    @Export(name="namespaceName", refs={String.class}, tree="[0]")
+    @Export(name="namespaceName", type=String.class, parameters={})
     private Output<String> namespaceName;
 
     /**
@@ -153,7 +153,7 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
      * The port of the endpoint.
      * 
      */
-    @Export(name="port", refs={Integer.class}, tree="[0]")
+    @Export(name="port", type=Integer.class, parameters={})
     private Output<Integer> port;
 
     /**
@@ -167,7 +167,7 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
      * The ID of the Service Bus Relay. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="relayId", refs={String.class}, tree="[0]")
+    @Export(name="relayId", type=String.class, parameters={})
     private Output<String> relayId;
 
     /**
@@ -177,7 +177,7 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
     public Output<String> relayId() {
         return this.relayId;
     }
-    @Export(name="relayName", refs={String.class}, tree="[0]")
+    @Export(name="relayName", type=String.class, parameters={})
     private Output<String> relayName;
 
     public Output<String> relayName() {
@@ -187,7 +187,7 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -201,7 +201,7 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
      * The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="sendKeyName", refs={String.class}, tree="[0]")
+    @Export(name="sendKeyName", type=String.class, parameters={})
     private Output</* @Nullable */ String> sendKeyName;
 
     /**
@@ -215,7 +215,7 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
      * The value of the Service Bus Primary Access key.
      * 
      */
-    @Export(name="sendKeyValue", refs={String.class}, tree="[0]")
+    @Export(name="sendKeyValue", type=String.class, parameters={})
     private Output<String> sendKeyValue;
 
     /**
@@ -229,7 +229,7 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
      * The name of the Service Bus namespace.
      * 
      */
-    @Export(name="serviceBusNamespace", refs={String.class}, tree="[0]")
+    @Export(name="serviceBusNamespace", type=String.class, parameters={})
     private Output<String> serviceBusNamespace;
 
     /**
@@ -243,7 +243,7 @@ public class HybridConnection extends com.pulumi.resources.CustomResource {
      * The suffix for the service bus endpoint.
      * 
      */
-    @Export(name="serviceBusSuffix", refs={String.class}, tree="[0]")
+    @Export(name="serviceBusSuffix", type=String.class, parameters={})
     private Output<String> serviceBusSuffix;
 
     /**

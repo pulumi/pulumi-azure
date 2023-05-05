@@ -91,7 +91,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * An `encryption` block as defined below.
      * 
      */
-    @Export(name="encryption", refs={ServiceAccountEncryption.class}, tree="[0]")
+    @Export(name="encryption", type=ServiceAccountEncryption.class, parameters={})
     private Output<ServiceAccountEncryption> encryption;
 
     /**
@@ -105,7 +105,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={ServiceAccountIdentity.class}, tree="[0]")
+    @Export(name="identity", type=ServiceAccountIdentity.class, parameters={})
     private Output</* @Nullable */ ServiceAccountIdentity> identity;
 
     /**
@@ -119,7 +119,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * A `key_delivery_access_control` block as defined below.
      * 
      */
-    @Export(name="keyDeliveryAccessControl", refs={ServiceAccountKeyDeliveryAccessControl.class}, tree="[0]")
+    @Export(name="keyDeliveryAccessControl", type=ServiceAccountKeyDeliveryAccessControl.class, parameters={})
     private Output<ServiceAccountKeyDeliveryAccessControl> keyDeliveryAccessControl;
 
     /**
@@ -133,7 +133,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -147,7 +147,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -161,7 +161,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * Whether public network access is allowed for this server. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -175,7 +175,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -189,7 +189,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * One or more `storage_account` blocks as defined below.
      * 
      */
-    @Export(name="storageAccounts", refs={List.class,ServiceAccountStorageAccount.class}, tree="[0,1]")
+    @Export(name="storageAccounts", type=List.class, parameters={ServiceAccountStorageAccount.class})
     private Output<List<ServiceAccountStorageAccount>> storageAccounts;
 
     /**
@@ -203,7 +203,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
      * 
      */
-    @Export(name="storageAuthenticationType", refs={String.class}, tree="[0]")
+    @Export(name="storageAuthenticationType", type=String.class, parameters={})
     private Output<String> storageAuthenticationType;
 
     /**
@@ -217,7 +217,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * A mapping of tags assigned to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

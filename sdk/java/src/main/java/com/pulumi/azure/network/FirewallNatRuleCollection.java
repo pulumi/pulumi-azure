@@ -125,7 +125,7 @@ public class FirewallNatRuleCollection extends com.pulumi.resources.CustomResour
      * Specifies the action the rule will apply to matching traffic. Possible values are `Dnat` and `Snat`.
      * 
      */
-    @Export(name="action", refs={String.class}, tree="[0]")
+    @Export(name="action", type=String.class, parameters={})
     private Output<String> action;
 
     /**
@@ -139,7 +139,7 @@ public class FirewallNatRuleCollection extends com.pulumi.resources.CustomResour
      * Specifies the name of the Firewall in which the NAT Rule Collection should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="azureFirewallName", refs={String.class}, tree="[0]")
+    @Export(name="azureFirewallName", type=String.class, parameters={})
     private Output<String> azureFirewallName;
 
     /**
@@ -153,7 +153,7 @@ public class FirewallNatRuleCollection extends com.pulumi.resources.CustomResour
      * Specifies the name of the NAT Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -167,7 +167,7 @@ public class FirewallNatRuleCollection extends com.pulumi.resources.CustomResour
      * Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
      * 
      */
-    @Export(name="priority", refs={Integer.class}, tree="[0]")
+    @Export(name="priority", type=Integer.class, parameters={})
     private Output<Integer> priority;
 
     /**
@@ -181,7 +181,7 @@ public class FirewallNatRuleCollection extends com.pulumi.resources.CustomResour
      * Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -195,7 +195,7 @@ public class FirewallNatRuleCollection extends com.pulumi.resources.CustomResour
      * One or more `rule` blocks as defined below.
      * 
      */
-    @Export(name="rules", refs={List.class,FirewallNatRuleCollectionRule.class}, tree="[0,1]")
+    @Export(name="rules", type=List.class, parameters={FirewallNatRuleCollectionRule.class})
     private Output<List<FirewallNatRuleCollectionRule>> rules;
 
     /**

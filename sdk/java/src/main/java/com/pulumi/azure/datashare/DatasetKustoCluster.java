@@ -109,7 +109,7 @@ public class DatasetKustoCluster extends com.pulumi.resources.CustomResource {
      * The name of the Data Share Dataset.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -123,7 +123,7 @@ public class DatasetKustoCluster extends com.pulumi.resources.CustomResource {
      * The resource ID of the Kusto Cluster to be shared with the receiver. Changing this forces a new Data Share Kusto Cluster Dataset to be created.
      * 
      */
-    @Export(name="kustoClusterId", refs={String.class}, tree="[0]")
+    @Export(name="kustoClusterId", type=String.class, parameters={})
     private Output<String> kustoClusterId;
 
     /**
@@ -137,7 +137,7 @@ public class DatasetKustoCluster extends com.pulumi.resources.CustomResource {
      * The location of the Kusto Cluster.
      * 
      */
-    @Export(name="kustoClusterLocation", refs={String.class}, tree="[0]")
+    @Export(name="kustoClusterLocation", type=String.class, parameters={})
     private Output<String> kustoClusterLocation;
 
     /**
@@ -151,7 +151,7 @@ public class DatasetKustoCluster extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Data Share Kusto Cluster Dataset. Changing this forces a new Data Share Kusto Cluster Dataset to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -165,7 +165,7 @@ public class DatasetKustoCluster extends com.pulumi.resources.CustomResource {
      * The resource ID of the Data Share where this Data Share Kusto Cluster Dataset should be created. Changing this forces a new Data Share Kusto Cluster Dataset to be created.
      * 
      */
-    @Export(name="shareId", refs={String.class}, tree="[0]")
+    @Export(name="shareId", type=String.class, parameters={})
     private Output<String> shareId;
 
     /**

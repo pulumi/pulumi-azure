@@ -16,9 +16,17 @@ public final class FhirServiceIdentityArgs extends com.pulumi.resources.Resource
 
     public static final FhirServiceIdentityArgs Empty = new FhirServiceIdentityArgs();
 
+    /**
+     * A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+     * 
+     */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
+    /**
+     * @return A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+     * 
+     */
     public Optional<Output<List<String>>> identityIds() {
         return Optional.ofNullable(this.identityIds);
     }
@@ -38,14 +46,14 @@ public final class FhirServiceIdentityArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+     * The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
      * 
      */
     public Output<String> type() {
@@ -79,15 +87,33 @@ public final class FhirServiceIdentityArgs extends com.pulumi.resources.Resource
             $ = new FhirServiceIdentityArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param identityIds A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(@Nullable Output<List<String>> identityIds) {
             $.identityIds = identityIds;
             return this;
         }
 
+        /**
+         * @param identityIds A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(List<String> identityIds) {
             return identityIds(Output.of(identityIds));
         }
 
+        /**
+         * @param identityIds A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
@@ -111,7 +137,7 @@ public final class FhirServiceIdentityArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+         * @param type The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
          * 
          * @return builder
          * 
@@ -122,7 +148,7 @@ public final class FhirServiceIdentityArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+         * @param type The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
          * 
          * @return builder
          * 

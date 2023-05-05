@@ -76,7 +76,7 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
      * 
      */
-    @Export(name="customerManagedKeyId", refs={String.class}, tree="[0]")
+    @Export(name="customerManagedKeyId", type=String.class, parameters={})
     private Output</* @Nullable */ String> customerManagedKeyId;
 
     /**
@@ -90,7 +90,7 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
      * 
      */
-    @Export(name="customerManagedKeyIdentityId", refs={String.class}, tree="[0]")
+    @Export(name="customerManagedKeyIdentityId", type=String.class, parameters={})
     private Output</* @Nullable */ String> customerManagedKeyIdentityId;
 
     /**
@@ -104,7 +104,7 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * A `github_configuration` block as defined below.
      * 
      */
-    @Export(name="githubConfiguration", refs={FactoryGithubConfiguration.class}, tree="[0]")
+    @Export(name="githubConfiguration", type=FactoryGithubConfiguration.class, parameters={})
     private Output</* @Nullable */ FactoryGithubConfiguration> githubConfiguration;
 
     /**
@@ -118,7 +118,7 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * A list of `global_parameter` blocks as defined above.
      * 
      */
-    @Export(name="globalParameters", refs={List.class,FactoryGlobalParameter.class}, tree="[0,1]")
+    @Export(name="globalParameters", type=List.class, parameters={FactoryGlobalParameter.class})
     private Output</* @Nullable */ List<FactoryGlobalParameter>> globalParameters;
 
     /**
@@ -132,7 +132,7 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={FactoryIdentity.class}, tree="[0]")
+    @Export(name="identity", type=FactoryIdentity.class, parameters={})
     private Output</* @Nullable */ FactoryIdentity> identity;
 
     /**
@@ -146,7 +146,7 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -160,7 +160,7 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * Is Managed Virtual Network enabled?
      * 
      */
-    @Export(name="managedVirtualNetworkEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="managedVirtualNetworkEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> managedVirtualNetworkEnabled;
 
     /**
@@ -174,7 +174,7 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -188,7 +188,7 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * Is the Data Factory visible to the public network? Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkEnabled;
 
     /**
@@ -202,7 +202,7 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the purview account resource associated with the Data Factory.
      * 
      */
-    @Export(name="purviewId", refs={String.class}, tree="[0]")
+    @Export(name="purviewId", type=String.class, parameters={})
     private Output</* @Nullable */ String> purviewId;
 
     /**
@@ -216,7 +216,7 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -230,7 +230,7 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -244,7 +244,7 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * A `vsts_configuration` block as defined below.
      * 
      */
-    @Export(name="vstsConfiguration", refs={FactoryVstsConfiguration.class}, tree="[0]")
+    @Export(name="vstsConfiguration", type=FactoryVstsConfiguration.class, parameters={})
     private Output</* @Nullable */ FactoryVstsConfiguration> vstsConfiguration;
 
     /**

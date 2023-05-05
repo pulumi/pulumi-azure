@@ -146,7 +146,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * An `additional_capabilities` block as defined below.
      * 
      */
-    @Export(name="additionalCapabilities", refs={WindowsVirtualMachineScaleSetAdditionalCapabilities.class}, tree="[0]")
+    @Export(name="additionalCapabilities", type=WindowsVirtualMachineScaleSetAdditionalCapabilities.class, parameters={})
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetAdditionalCapabilities> additionalCapabilities;
 
     /**
@@ -160,7 +160,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="additionalUnattendContents", refs={List.class,WindowsVirtualMachineScaleSetAdditionalUnattendContent.class}, tree="[0,1]")
+    @Export(name="additionalUnattendContents", type=List.class, parameters={WindowsVirtualMachineScaleSetAdditionalUnattendContent.class})
     private Output</* @Nullable */ List<WindowsVirtualMachineScaleSetAdditionalUnattendContent>> additionalUnattendContents;
 
     /**
@@ -174,7 +174,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="adminPassword", refs={String.class}, tree="[0]")
+    @Export(name="adminPassword", type=String.class, parameters={})
     private Output<String> adminPassword;
 
     /**
@@ -188,7 +188,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="adminUsername", refs={String.class}, tree="[0]")
+    @Export(name="adminUsername", type=String.class, parameters={})
     private Output<String> adminUsername;
 
     /**
@@ -202,7 +202,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
      */
-    @Export(name="automaticInstanceRepair", refs={WindowsVirtualMachineScaleSetAutomaticInstanceRepair.class}, tree="[0]")
+    @Export(name="automaticInstanceRepair", type=WindowsVirtualMachineScaleSetAutomaticInstanceRepair.class, parameters={})
     private Output<WindowsVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair;
 
     /**
@@ -216,7 +216,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
      * 
      */
-    @Export(name="automaticOsUpgradePolicy", refs={WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy.class}, tree="[0]")
+    @Export(name="automaticOsUpgradePolicy", type=WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy.class, parameters={})
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy> automaticOsUpgradePolicy;
 
     /**
@@ -230,7 +230,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * A `boot_diagnostics` block as defined below.
      * 
      */
-    @Export(name="bootDiagnostics", refs={WindowsVirtualMachineScaleSetBootDiagnostics.class}, tree="[0]")
+    @Export(name="bootDiagnostics", type=WindowsVirtualMachineScaleSetBootDiagnostics.class, parameters={})
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetBootDiagnostics> bootDiagnostics;
 
     /**
@@ -244,7 +244,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="capacityReservationGroupId", refs={String.class}, tree="[0]")
+    @Export(name="capacityReservationGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> capacityReservationGroupId;
 
     /**
@@ -258,7 +258,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="computerNamePrefix", refs={String.class}, tree="[0]")
+    @Export(name="computerNamePrefix", type=String.class, parameters={})
     private Output<String> computerNamePrefix;
 
     /**
@@ -272,7 +272,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
      * 
      */
-    @Export(name="customData", refs={String.class}, tree="[0]")
+    @Export(name="customData", type=String.class, parameters={})
     private Output</* @Nullable */ String> customData;
 
     /**
@@ -286,7 +286,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * One or more `data_disk` blocks as defined below.
      * 
      */
-    @Export(name="dataDisks", refs={List.class,WindowsVirtualMachineScaleSetDataDisk.class}, tree="[0,1]")
+    @Export(name="dataDisks", type=List.class, parameters={WindowsVirtualMachineScaleSetDataDisk.class})
     private Output</* @Nullable */ List<WindowsVirtualMachineScaleSetDataDisk>> dataDisks;
 
     /**
@@ -300,7 +300,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
      * 
      */
-    @Export(name="doNotRunExtensionsOnOverprovisionedMachines", refs={Boolean.class}, tree="[0]")
+    @Export(name="doNotRunExtensionsOnOverprovisionedMachines", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> doNotRunExtensionsOnOverprovisionedMachines;
 
     /**
@@ -314,7 +314,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      * 
      */
-    @Export(name="edgeZone", refs={String.class}, tree="[0]")
+    @Export(name="edgeZone", type=String.class, parameters={})
     private Output</* @Nullable */ String> edgeZone;
 
     /**
@@ -328,7 +328,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
      * 
      */
-    @Export(name="enableAutomaticUpdates", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableAutomaticUpdates", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableAutomaticUpdates;
 
     /**
@@ -342,7 +342,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      * 
      */
-    @Export(name="encryptionAtHostEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="encryptionAtHostEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> encryptionAtHostEnabled;
 
     /**
@@ -356,7 +356,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="evictionPolicy", refs={String.class}, tree="[0]")
+    @Export(name="evictionPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> evictionPolicy;
 
     /**
@@ -370,7 +370,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      * 
      */
-    @Export(name="extensionOperationsEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="extensionOperationsEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> extensionOperationsEnabled;
 
     /**
@@ -384,7 +384,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * One or more `extension` blocks as defined below
      * 
      */
-    @Export(name="extensions", refs={List.class,WindowsVirtualMachineScaleSetExtension.class}, tree="[0,1]")
+    @Export(name="extensions", type=List.class, parameters={WindowsVirtualMachineScaleSetExtension.class})
     private Output<List<WindowsVirtualMachineScaleSetExtension>> extensions;
 
     /**
@@ -398,7 +398,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
      * 
      */
-    @Export(name="extensionsTimeBudget", refs={String.class}, tree="[0]")
+    @Export(name="extensionsTimeBudget", type=String.class, parameters={})
     private Output</* @Nullable */ String> extensionsTimeBudget;
 
     /**
@@ -412,7 +412,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * One or more `gallery_application` blocks as defined below.
      * 
      */
-    @Export(name="galleryApplication", refs={List.class,WindowsVirtualMachineScaleSetGalleryApplication.class}, tree="[0,1]")
+    @Export(name="galleryApplication", type=List.class, parameters={WindowsVirtualMachineScaleSetGalleryApplication.class})
     private Output<List<WindowsVirtualMachineScaleSetGalleryApplication>> galleryApplication;
 
     /**
@@ -428,7 +428,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * 
      */
     @Deprecated /* `gallery_applications` has been renamed to `gallery_application` and will be deprecated in 4.0 */
-    @Export(name="galleryApplications", refs={List.class,WindowsVirtualMachineScaleSetGalleryApplication.class}, tree="[0,1]")
+    @Export(name="galleryApplications", type=List.class, parameters={WindowsVirtualMachineScaleSetGalleryApplication.class})
     private Output<List<WindowsVirtualMachineScaleSetGalleryApplication>> galleryApplications;
 
     public Output<List<WindowsVirtualMachineScaleSetGalleryApplication>> galleryApplications() {
@@ -438,7 +438,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
      * 
      */
-    @Export(name="healthProbeId", refs={String.class}, tree="[0]")
+    @Export(name="healthProbeId", type=String.class, parameters={})
     private Output</* @Nullable */ String> healthProbeId;
 
     /**
@@ -452,7 +452,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="hostGroupId", refs={String.class}, tree="[0]")
+    @Export(name="hostGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> hostGroupId;
 
     /**
@@ -466,7 +466,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={WindowsVirtualMachineScaleSetIdentity.class}, tree="[0]")
+    @Export(name="identity", type=WindowsVirtualMachineScaleSetIdentity.class, parameters={})
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetIdentity> identity;
 
     /**
@@ -480,7 +480,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The number of Virtual Machines in the Scale Set.
      * 
      */
-    @Export(name="instances", refs={Integer.class}, tree="[0]")
+    @Export(name="instances", type=Integer.class, parameters={})
     private Output<Integer> instances;
 
     /**
@@ -494,7 +494,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      * 
      */
-    @Export(name="licenseType", refs={String.class}, tree="[0]")
+    @Export(name="licenseType", type=String.class, parameters={})
     private Output</* @Nullable */ String> licenseType;
 
     /**
@@ -508,7 +508,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The Azure location where the Windows Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -522,7 +522,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
      * 
      */
-    @Export(name="maxBidPrice", refs={Double.class}, tree="[0]")
+    @Export(name="maxBidPrice", type=Double.class, parameters={})
     private Output</* @Nullable */ Double> maxBidPrice;
 
     /**
@@ -536,7 +536,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -550,7 +550,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * One or more `network_interface` blocks as defined below.
      * 
      */
-    @Export(name="networkInterfaces", refs={List.class,WindowsVirtualMachineScaleSetNetworkInterface.class}, tree="[0,1]")
+    @Export(name="networkInterfaces", type=List.class, parameters={WindowsVirtualMachineScaleSetNetworkInterface.class})
     private Output<List<WindowsVirtualMachineScaleSetNetworkInterface>> networkInterfaces;
 
     /**
@@ -564,7 +564,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * An `os_disk` block as defined below.
      * 
      */
-    @Export(name="osDisk", refs={WindowsVirtualMachineScaleSetOsDisk.class}, tree="[0]")
+    @Export(name="osDisk", type=WindowsVirtualMachineScaleSetOsDisk.class, parameters={})
     private Output<WindowsVirtualMachineScaleSetOsDisk> osDisk;
 
     /**
@@ -578,7 +578,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You&#39;re not billed for these over-provisioned VM&#39;s and they don&#39;t count towards the Subscription Quota. Defaults to `true`.
      * 
      */
-    @Export(name="overprovision", refs={Boolean.class}, tree="[0]")
+    @Export(name="overprovision", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> overprovision;
 
     /**
@@ -592,7 +592,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="plan", refs={WindowsVirtualMachineScaleSetPlan.class}, tree="[0]")
+    @Export(name="plan", type=WindowsVirtualMachineScaleSetPlan.class, parameters={})
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetPlan> plan;
 
     /**
@@ -606,7 +606,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="platformFaultDomainCount", refs={Integer.class}, tree="[0]")
+    @Export(name="platformFaultDomainCount", type=Integer.class, parameters={})
     private Output<Integer> platformFaultDomainCount;
 
     /**
@@ -620,7 +620,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      * 
      */
-    @Export(name="priority", refs={String.class}, tree="[0]")
+    @Export(name="priority", type=String.class, parameters={})
     private Output</* @Nullable */ String> priority;
 
     /**
@@ -634,7 +634,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
      * 
      */
-    @Export(name="provisionVmAgent", refs={Boolean.class}, tree="[0]")
+    @Export(name="provisionVmAgent", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> provisionVmAgent;
 
     /**
@@ -648,7 +648,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="proximityPlacementGroupId", refs={String.class}, tree="[0]")
+    @Export(name="proximityPlacementGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> proximityPlacementGroupId;
 
     /**
@@ -662,7 +662,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -676,7 +676,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="rollingUpgradePolicy", refs={WindowsVirtualMachineScaleSetRollingUpgradePolicy.class}, tree="[0]")
+    @Export(name="rollingUpgradePolicy", type=WindowsVirtualMachineScaleSetRollingUpgradePolicy.class, parameters={})
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetRollingUpgradePolicy> rollingUpgradePolicy;
 
     /**
@@ -690,7 +690,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * A `scale_in` block as defined below.
      * 
      */
-    @Export(name="scaleIn", refs={WindowsVirtualMachineScaleSetScaleIn.class}, tree="[0]")
+    @Export(name="scaleIn", type=WindowsVirtualMachineScaleSetScaleIn.class, parameters={})
     private Output<WindowsVirtualMachineScaleSetScaleIn> scaleIn;
 
     /**
@@ -706,7 +706,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * 
      */
     @Deprecated /* `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider. */
-    @Export(name="scaleInPolicy", refs={String.class}, tree="[0]")
+    @Export(name="scaleInPolicy", type=String.class, parameters={})
     private Output<String> scaleInPolicy;
 
     public Output<String> scaleInPolicy() {
@@ -716,7 +716,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * One or more `secret` blocks as defined below.
      * 
      */
-    @Export(name="secrets", refs={List.class,WindowsVirtualMachineScaleSetSecret.class}, tree="[0,1]")
+    @Export(name="secrets", type=List.class, parameters={WindowsVirtualMachineScaleSetSecret.class})
     private Output</* @Nullable */ List<WindowsVirtualMachineScaleSetSecret>> secrets;
 
     /**
@@ -730,7 +730,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="secureBootEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="secureBootEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> secureBootEnabled;
 
     /**
@@ -744,7 +744,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
      * 
      */
-    @Export(name="singlePlacementGroup", refs={Boolean.class}, tree="[0]")
+    @Export(name="singlePlacementGroup", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> singlePlacementGroup;
 
     /**
@@ -758,7 +758,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
@@ -772,7 +772,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
      */
-    @Export(name="sourceImageId", refs={String.class}, tree="[0]")
+    @Export(name="sourceImageId", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceImageId;
 
     /**
@@ -786,7 +786,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * A `source_image_reference` block as defined below.
      * 
      */
-    @Export(name="sourceImageReference", refs={WindowsVirtualMachineScaleSetSourceImageReference.class}, tree="[0]")
+    @Export(name="sourceImageReference", type=WindowsVirtualMachineScaleSetSourceImageReference.class, parameters={})
     private Output</* @Nullable */ WindowsVirtualMachineScaleSetSourceImageReference> sourceImageReference;
 
     /**
@@ -800,7 +800,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * A `spot_restore` block as defined below.
      * 
      */
-    @Export(name="spotRestore", refs={WindowsVirtualMachineScaleSetSpotRestore.class}, tree="[0]")
+    @Export(name="spotRestore", type=WindowsVirtualMachineScaleSetSpotRestore.class, parameters={})
     private Output<WindowsVirtualMachineScaleSetSpotRestore> spotRestore;
 
     /**
@@ -814,7 +814,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -832,7 +832,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * 
      */
     @Deprecated /* `terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0. */
-    @Export(name="terminateNotification", refs={WindowsVirtualMachineScaleSetTerminateNotification.class}, tree="[0]")
+    @Export(name="terminateNotification", type=WindowsVirtualMachineScaleSetTerminateNotification.class, parameters={})
     private Output<WindowsVirtualMachineScaleSetTerminateNotification> terminateNotification;
 
     /**
@@ -846,7 +846,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * A `termination_notification` block as defined below.
      * 
      */
-    @Export(name="terminationNotification", refs={WindowsVirtualMachineScaleSetTerminationNotification.class}, tree="[0]")
+    @Export(name="terminationNotification", type=WindowsVirtualMachineScaleSetTerminationNotification.class, parameters={})
     private Output<WindowsVirtualMachineScaleSetTerminationNotification> terminationNotification;
 
     /**
@@ -860,7 +860,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      * 
      */
-    @Export(name="timezone", refs={String.class}, tree="[0]")
+    @Export(name="timezone", type=String.class, parameters={})
     private Output</* @Nullable */ String> timezone;
 
     /**
@@ -874,7 +874,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The Unique ID for this Windows Virtual Machine Scale Set.
      * 
      */
-    @Export(name="uniqueId", refs={String.class}, tree="[0]")
+    @Export(name="uniqueId", type=String.class, parameters={})
     private Output<String> uniqueId;
 
     /**
@@ -888,7 +888,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="upgradeMode", refs={String.class}, tree="[0]")
+    @Export(name="upgradeMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> upgradeMode;
 
     /**
@@ -902,7 +902,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
      * 
      */
-    @Export(name="userData", refs={String.class}, tree="[0]")
+    @Export(name="userData", type=String.class, parameters={})
     private Output</* @Nullable */ String> userData;
 
     /**
@@ -916,7 +916,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="vtpmEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="vtpmEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> vtpmEnabled;
 
     /**
@@ -930,7 +930,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="winrmListeners", refs={List.class,WindowsVirtualMachineScaleSetWinrmListener.class}, tree="[0,1]")
+    @Export(name="winrmListeners", type=List.class, parameters={WindowsVirtualMachineScaleSetWinrmListener.class})
     private Output</* @Nullable */ List<WindowsVirtualMachineScaleSetWinrmListener>> winrmListeners;
 
     /**
@@ -944,7 +944,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zoneBalance", refs={Boolean.class}, tree="[0]")
+    @Export(name="zoneBalance", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneBalance;
 
     /**
@@ -958,7 +958,7 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      * 
      */
-    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="zones", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> zones;
 
     /**

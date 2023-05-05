@@ -89,7 +89,7 @@ public class TimeSeriesInsightsGen2Environment extends com.pulumi.resources.Cust
      * The FQDN used to access the environment data.
      * 
      */
-    @Export(name="dataAccessFqdn", refs={String.class}, tree="[0]")
+    @Export(name="dataAccessFqdn", type=String.class, parameters={})
     private Output<String> dataAccessFqdn;
 
     /**
@@ -103,7 +103,7 @@ public class TimeSeriesInsightsGen2Environment extends com.pulumi.resources.Cust
      * A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="idProperties", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="idProperties", type=List.class, parameters={String.class})
     private Output<List<String>> idProperties;
 
     /**
@@ -117,7 +117,7 @@ public class TimeSeriesInsightsGen2Environment extends com.pulumi.resources.Cust
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -131,7 +131,7 @@ public class TimeSeriesInsightsGen2Environment extends com.pulumi.resources.Cust
      * Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -145,7 +145,7 @@ public class TimeSeriesInsightsGen2Environment extends com.pulumi.resources.Cust
      * The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -159,7 +159,7 @@ public class TimeSeriesInsightsGen2Environment extends com.pulumi.resources.Cust
      * Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -173,7 +173,7 @@ public class TimeSeriesInsightsGen2Environment extends com.pulumi.resources.Cust
      * A `storage` block as defined below.
      * 
      */
-    @Export(name="storage", refs={TimeSeriesInsightsGen2EnvironmentStorage.class}, tree="[0]")
+    @Export(name="storage", type=TimeSeriesInsightsGen2EnvironmentStorage.class, parameters={})
     private Output<TimeSeriesInsightsGen2EnvironmentStorage> storage;
 
     /**
@@ -187,7 +187,7 @@ public class TimeSeriesInsightsGen2Environment extends com.pulumi.resources.Cust
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -201,7 +201,7 @@ public class TimeSeriesInsightsGen2Environment extends com.pulumi.resources.Cust
      * Specifies the ISO8601 timespan specifying the minimum number of days the environment&#39;s events will be available for query.
      * 
      */
-    @Export(name="warmStoreDataRetentionTime", refs={String.class}, tree="[0]")
+    @Export(name="warmStoreDataRetentionTime", type=String.class, parameters={})
     private Output</* @Nullable */ String> warmStoreDataRetentionTime;
 
     /**

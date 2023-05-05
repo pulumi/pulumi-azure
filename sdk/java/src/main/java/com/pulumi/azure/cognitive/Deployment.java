@@ -89,7 +89,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="cognitiveAccountId", refs={String.class}, tree="[0]")
+    @Export(name="cognitiveAccountId", type=String.class, parameters={})
     private Output<String> cognitiveAccountId;
 
     /**
@@ -103,7 +103,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * A `model` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="model", refs={DeploymentModel.class}, tree="[0]")
+    @Export(name="model", type=DeploymentModel.class, parameters={})
     private Output<DeploymentModel> model;
 
     /**
@@ -117,7 +117,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -131,7 +131,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * The name of RAI policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="raiPolicyName", refs={String.class}, tree="[0]")
+    @Export(name="raiPolicyName", type=String.class, parameters={})
     private Output</* @Nullable */ String> raiPolicyName;
 
     /**
@@ -145,7 +145,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      * A `scale` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="scale", refs={DeploymentScale.class}, tree="[0]")
+    @Export(name="scale", type=DeploymentScale.class, parameters={})
     private Output<DeploymentScale> scale;
 
     /**

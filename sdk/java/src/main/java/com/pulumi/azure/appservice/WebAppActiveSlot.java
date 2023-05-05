@@ -162,7 +162,7 @@ public class WebAppActiveSlot extends com.pulumi.resources.CustomResource {
      * The timestamp of the last successful swap with `Production`.
      * 
      */
-    @Export(name="lastSuccessfulSwap", refs={String.class}, tree="[0]")
+    @Export(name="lastSuccessfulSwap", type=String.class, parameters={})
     private Output<String> lastSuccessfulSwap;
 
     /**
@@ -176,7 +176,7 @@ public class WebAppActiveSlot extends com.pulumi.resources.CustomResource {
      * The swap action should overwrite the Production slot&#39;s network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="overwriteNetworkConfig", refs={Boolean.class}, tree="[0]")
+    @Export(name="overwriteNetworkConfig", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> overwriteNetworkConfig;
 
     /**
@@ -190,7 +190,7 @@ public class WebAppActiveSlot extends com.pulumi.resources.CustomResource {
      * The ID of the Slot to swap with `Production`.
      * 
      */
-    @Export(name="slotId", refs={String.class}, tree="[0]")
+    @Export(name="slotId", type=String.class, parameters={})
     private Output<String> slotId;
 
     /**

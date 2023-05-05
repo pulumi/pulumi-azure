@@ -160,7 +160,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
      * 
      */
-    @Export(name="alwaysLogErrors", refs={Boolean.class}, tree="[0]")
+    @Export(name="alwaysLogErrors", type=Boolean.class, parameters={})
     private Output<Boolean> alwaysLogErrors;
 
     /**
@@ -174,7 +174,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * The ID (name) of the Diagnostics Logger.
      * 
      */
-    @Export(name="apiManagementLoggerId", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementLoggerId", type=String.class, parameters={})
     private Output<String> apiManagementLoggerId;
 
     /**
@@ -188,7 +188,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service instance. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -202,7 +202,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * The name of the API on which to configure the Diagnostics Logs. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      * 
      */
-    @Export(name="apiName", refs={String.class}, tree="[0]")
+    @Export(name="apiName", type=String.class, parameters={})
     private Output<String> apiName;
 
     /**
@@ -216,7 +216,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * A `backend_request` block as defined below.
      * 
      */
-    @Export(name="backendRequest", refs={ApiDiagnosticBackendRequest.class}, tree="[0]")
+    @Export(name="backendRequest", type=ApiDiagnosticBackendRequest.class, parameters={})
     private Output<ApiDiagnosticBackendRequest> backendRequest;
 
     /**
@@ -230,7 +230,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * A `backend_response` block as defined below.
      * 
      */
-    @Export(name="backendResponse", refs={ApiDiagnosticBackendResponse.class}, tree="[0]")
+    @Export(name="backendResponse", type=ApiDiagnosticBackendResponse.class, parameters={})
     private Output<ApiDiagnosticBackendResponse> backendResponse;
 
     /**
@@ -244,7 +244,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * A `frontend_request` block as defined below.
      * 
      */
-    @Export(name="frontendRequest", refs={ApiDiagnosticFrontendRequest.class}, tree="[0]")
+    @Export(name="frontendRequest", type=ApiDiagnosticFrontendRequest.class, parameters={})
     private Output<ApiDiagnosticFrontendRequest> frontendRequest;
 
     /**
@@ -258,7 +258,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * A `frontend_response` block as defined below.
      * 
      */
-    @Export(name="frontendResponse", refs={ApiDiagnosticFrontendResponse.class}, tree="[0]")
+    @Export(name="frontendResponse", type=ApiDiagnosticFrontendResponse.class, parameters={})
     private Output<ApiDiagnosticFrontendResponse> frontendResponse;
 
     /**
@@ -272,7 +272,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
      * 
      */
-    @Export(name="httpCorrelationProtocol", refs={String.class}, tree="[0]")
+    @Export(name="httpCorrelationProtocol", type=String.class, parameters={})
     private Output<String> httpCorrelationProtocol;
 
     /**
@@ -286,7 +286,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      * 
      */
-    @Export(name="identifier", refs={String.class}, tree="[0]")
+    @Export(name="identifier", type=String.class, parameters={})
     private Output<String> identifier;
 
     /**
@@ -300,7 +300,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * Log client IP address.
      * 
      */
-    @Export(name="logClientIp", refs={Boolean.class}, tree="[0]")
+    @Export(name="logClientIp", type=Boolean.class, parameters={})
     private Output<Boolean> logClientIp;
 
     /**
@@ -314,7 +314,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
      * 
      */
-    @Export(name="operationNameFormat", refs={String.class}, tree="[0]")
+    @Export(name="operationNameFormat", type=String.class, parameters={})
     private Output</* @Nullable */ String> operationNameFormat;
 
     /**
@@ -328,7 +328,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -342,7 +342,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
      * 
      */
-    @Export(name="samplingPercentage", refs={Double.class}, tree="[0]")
+    @Export(name="samplingPercentage", type=Double.class, parameters={})
     private Output<Double> samplingPercentage;
 
     /**
@@ -356,7 +356,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * Logging verbosity. Possible values are `verbose`, `information` or `error`.
      * 
      */
-    @Export(name="verbosity", refs={String.class}, tree="[0]")
+    @Export(name="verbosity", type=String.class, parameters={})
     private Output<String> verbosity;
 
     /**

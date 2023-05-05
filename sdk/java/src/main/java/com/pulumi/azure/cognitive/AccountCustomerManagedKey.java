@@ -181,7 +181,7 @@ public class AccountCustomerManagedKey extends com.pulumi.resources.CustomResour
      * The ID of the Cognitive Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="cognitiveAccountId", refs={String.class}, tree="[0]")
+    @Export(name="cognitiveAccountId", type=String.class, parameters={})
     private Output<String> cognitiveAccountId;
 
     /**
@@ -195,7 +195,7 @@ public class AccountCustomerManagedKey extends com.pulumi.resources.CustomResour
      * The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there&#39;re multiple identities attached to the Cognitive Account.
      * 
      */
-    @Export(name="identityClientId", refs={String.class}, tree="[0]")
+    @Export(name="identityClientId", type=String.class, parameters={})
     private Output</* @Nullable */ String> identityClientId;
 
     /**
@@ -209,7 +209,7 @@ public class AccountCustomerManagedKey extends com.pulumi.resources.CustomResour
      * The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
      * 
      */
-    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultKeyId", type=String.class, parameters={})
     private Output<String> keyVaultKeyId;
 
     /**

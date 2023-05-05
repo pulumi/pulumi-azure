@@ -123,7 +123,7 @@ public class WorkspaceSecurityAlertPolicy extends com.pulumi.resources.CustomRes
      * Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
      * 
      */
-    @Export(name="disabledAlerts", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="disabledAlerts", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> disabledAlerts;
 
     /**
@@ -137,7 +137,7 @@ public class WorkspaceSecurityAlertPolicy extends com.pulumi.resources.CustomRes
      * Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
      * 
      */
-    @Export(name="emailAccountAdminsEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="emailAccountAdminsEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> emailAccountAdminsEnabled;
 
     /**
@@ -151,7 +151,7 @@ public class WorkspaceSecurityAlertPolicy extends com.pulumi.resources.CustomRes
      * Specifies an array of email addresses to which the alert is sent.
      * 
      */
-    @Export(name="emailAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="emailAddresses", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> emailAddresses;
 
     /**
@@ -165,7 +165,7 @@ public class WorkspaceSecurityAlertPolicy extends com.pulumi.resources.CustomRes
      * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
      * 
      */
-    @Export(name="policyState", refs={String.class}, tree="[0]")
+    @Export(name="policyState", type=String.class, parameters={})
     private Output<String> policyState;
 
     /**
@@ -179,7 +179,7 @@ public class WorkspaceSecurityAlertPolicy extends com.pulumi.resources.CustomRes
      * Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
      * 
      */
-    @Export(name="retentionDays", refs={Integer.class}, tree="[0]")
+    @Export(name="retentionDays", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> retentionDays;
 
     /**
@@ -193,7 +193,7 @@ public class WorkspaceSecurityAlertPolicy extends com.pulumi.resources.CustomRes
      * Specifies the identifier key of the Threat Detection audit storage account.
      * 
      */
-    @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountAccessKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountAccessKey;
 
     /**
@@ -207,7 +207,7 @@ public class WorkspaceSecurityAlertPolicy extends com.pulumi.resources.CustomRes
      * Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
      * 
      */
-    @Export(name="storageEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="storageEndpoint", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageEndpoint;
 
     /**
@@ -221,7 +221,7 @@ public class WorkspaceSecurityAlertPolicy extends com.pulumi.resources.CustomRes
      * Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="synapseWorkspaceId", type=String.class, parameters={})
     private Output<String> synapseWorkspaceId;
 
     /**

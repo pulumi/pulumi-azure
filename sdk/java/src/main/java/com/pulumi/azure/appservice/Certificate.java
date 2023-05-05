@@ -75,7 +75,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="appServicePlanId", refs={String.class}, tree="[0]")
+    @Export(name="appServicePlanId", type=String.class, parameters={})
     private Output</* @Nullable */ String> appServicePlanId;
 
     /**
@@ -89,7 +89,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The expiration date for the certificate.
      * 
      */
-    @Export(name="expirationDate", refs={String.class}, tree="[0]")
+    @Export(name="expirationDate", type=String.class, parameters={})
     private Output<String> expirationDate;
 
     /**
@@ -103,7 +103,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The friendly name of the certificate.
      * 
      */
-    @Export(name="friendlyName", refs={String.class}, tree="[0]")
+    @Export(name="friendlyName", type=String.class, parameters={})
     private Output<String> friendlyName;
 
     /**
@@ -117,7 +117,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * List of host names the certificate applies to.
      * 
      */
-    @Export(name="hostNames", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="hostNames", type=List.class, parameters={String.class})
     private Output<List<String>> hostNames;
 
     /**
@@ -131,7 +131,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The ID of the App Service Environment where the certificate is in use.
      * 
      */
-    @Export(name="hostingEnvironmentProfileId", refs={String.class}, tree="[0]")
+    @Export(name="hostingEnvironmentProfileId", type=String.class, parameters={})
     private Output<String> hostingEnvironmentProfileId;
 
     /**
@@ -145,7 +145,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The issue date for the certificate.
      * 
      */
-    @Export(name="issueDate", refs={String.class}, tree="[0]")
+    @Export(name="issueDate", type=String.class, parameters={})
     private Output<String> issueDate;
 
     /**
@@ -159,7 +159,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The name of the certificate issuer.
      * 
      */
-    @Export(name="issuer", refs={String.class}, tree="[0]")
+    @Export(name="issuer", type=String.class, parameters={})
     private Output<String> issuer;
 
     /**
@@ -173,7 +173,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keyVaultSecretId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultSecretId", type=String.class, parameters={})
     private Output</* @Nullable */ String> keyVaultSecretId;
 
     /**
@@ -187,7 +187,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -201,7 +201,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Specifies the name of the certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -215,7 +215,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The password to access the certificate&#39;s private key. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="password", refs={String.class}, tree="[0]")
+    @Export(name="password", type=String.class, parameters={})
     private Output</* @Nullable */ String> password;
 
     /**
@@ -229,7 +229,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="pfxBlob", refs={String.class}, tree="[0]")
+    @Export(name="pfxBlob", type=String.class, parameters={})
     private Output</* @Nullable */ String> pfxBlob;
 
     /**
@@ -243,7 +243,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -257,7 +257,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The subject name of the certificate.
      * 
      */
-    @Export(name="subjectName", refs={String.class}, tree="[0]")
+    @Export(name="subjectName", type=String.class, parameters={})
     private Output<String> subjectName;
 
     /**
@@ -271,7 +271,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -285,7 +285,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The thumbprint for the certificate.
      * 
      */
-    @Export(name="thumbprint", refs={String.class}, tree="[0]")
+    @Export(name="thumbprint", type=String.class, parameters={})
     private Output<String> thumbprint;
 
     /**

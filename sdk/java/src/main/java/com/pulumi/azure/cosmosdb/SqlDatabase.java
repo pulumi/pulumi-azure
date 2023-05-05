@@ -73,7 +73,7 @@ public class SqlDatabase extends com.pulumi.resources.CustomResource {
      * The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", refs={String.class}, tree="[0]")
+    @Export(name="accountName", type=String.class, parameters={})
     private Output<String> accountName;
 
     /**
@@ -87,7 +87,7 @@ public class SqlDatabase extends com.pulumi.resources.CustomResource {
      * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
      */
-    @Export(name="autoscaleSettings", refs={SqlDatabaseAutoscaleSettings.class}, tree="[0]")
+    @Export(name="autoscaleSettings", type=SqlDatabaseAutoscaleSettings.class, parameters={})
     private Output</* @Nullable */ SqlDatabaseAutoscaleSettings> autoscaleSettings;
 
     /**
@@ -101,7 +101,7 @@ public class SqlDatabase extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -115,7 +115,7 @@ public class SqlDatabase extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -125,7 +125,7 @@ public class SqlDatabase extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    @Export(name="throughput", refs={Integer.class}, tree="[0]")
+    @Export(name="throughput", type=Integer.class, parameters={})
     private Output<Integer> throughput;
 
     public Output<Integer> throughput() {

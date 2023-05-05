@@ -107,7 +107,7 @@ public class SyncCloudEndpoint extends com.pulumi.resources.CustomResource {
      * The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      * 
      */
-    @Export(name="fileShareName", refs={String.class}, tree="[0]")
+    @Export(name="fileShareName", type=String.class, parameters={})
     private Output<String> fileShareName;
 
     /**
@@ -121,7 +121,7 @@ public class SyncCloudEndpoint extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -135,7 +135,7 @@ public class SyncCloudEndpoint extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**
@@ -149,7 +149,7 @@ public class SyncCloudEndpoint extends com.pulumi.resources.CustomResource {
      * The Tenant ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created. Defaults to the current tenant id.
      * 
      */
-    @Export(name="storageAccountTenantId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountTenantId", type=String.class, parameters={})
     private Output<String> storageAccountTenantId;
 
     /**
@@ -163,7 +163,7 @@ public class SyncCloudEndpoint extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Sync Group where this Cloud Endpoint should be created. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      * 
      */
-    @Export(name="storageSyncGroupId", refs={String.class}, tree="[0]")
+    @Export(name="storageSyncGroupId", type=String.class, parameters={})
     private Output<String> storageSyncGroupId;
 
     /**

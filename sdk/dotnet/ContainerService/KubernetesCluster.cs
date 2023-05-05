@@ -382,6 +382,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> RunCommandEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// A `service_mesh_profile` block as defined below.
+        /// </summary>
+        [Output("serviceMeshProfile")]
+        public Output<Outputs.KubernetesClusterServiceMeshProfile?> ServiceMeshProfile { get; private set; } = null!;
+
+        /// <summary>
         /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         /// </summary>
         [Output("servicePrincipal")]
@@ -739,6 +745,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("runCommandEnabled")]
         public Input<bool>? RunCommandEnabled { get; set; }
+
+        /// <summary>
+        /// A `service_mesh_profile` block as defined below.
+        /// </summary>
+        [Input("serviceMeshProfile")]
+        public Input<Inputs.KubernetesClusterServiceMeshProfileArgs>? ServiceMeshProfile { get; set; }
 
         /// <summary>
         /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
@@ -1159,6 +1171,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("runCommandEnabled")]
         public Input<bool>? RunCommandEnabled { get; set; }
+
+        /// <summary>
+        /// A `service_mesh_profile` block as defined below.
+        /// </summary>
+        [Input("serviceMeshProfile")]
+        public Input<Inputs.KubernetesClusterServiceMeshProfileGetArgs>? ServiceMeshProfile { get; set; }
 
         /// <summary>
         /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.

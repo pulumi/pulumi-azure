@@ -65,7 +65,7 @@ public class FrontdoorCustomDomainAssociation extends com.pulumi.resources.Custo
      * The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
      * 
      */
-    @Export(name="cdnFrontdoorCustomDomainId", refs={String.class}, tree="[0]")
+    @Export(name="cdnFrontdoorCustomDomainId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorCustomDomainId;
 
     /**
@@ -79,7 +79,7 @@ public class FrontdoorCustomDomainAssociation extends com.pulumi.resources.Custo
      * One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
      * 
      */
-    @Export(name="cdnFrontdoorRouteIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="cdnFrontdoorRouteIds", type=List.class, parameters={String.class})
     private Output<List<String>> cdnFrontdoorRouteIds;
 
     /**

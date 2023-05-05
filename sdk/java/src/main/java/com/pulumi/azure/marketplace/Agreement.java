@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:marketplace/agreement:Agreement")
 public class Agreement extends com.pulumi.resources.CustomResource {
-    @Export(name="licenseTextLink", refs={String.class}, tree="[0]")
+    @Export(name="licenseTextLink", type=String.class, parameters={})
     private Output<String> licenseTextLink;
 
     public Output<String> licenseTextLink() {
@@ -69,7 +69,7 @@ public class Agreement extends com.pulumi.resources.CustomResource {
      * The Offer of the Marketplace Image. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="offer", refs={String.class}, tree="[0]")
+    @Export(name="offer", type=String.class, parameters={})
     private Output<String> offer;
 
     /**
@@ -83,7 +83,7 @@ public class Agreement extends com.pulumi.resources.CustomResource {
      * The Plan of the Marketplace Image. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="plan", refs={String.class}, tree="[0]")
+    @Export(name="plan", type=String.class, parameters={})
     private Output<String> plan;
 
     /**
@@ -93,7 +93,7 @@ public class Agreement extends com.pulumi.resources.CustomResource {
     public Output<String> plan() {
         return this.plan;
     }
-    @Export(name="privacyPolicyLink", refs={String.class}, tree="[0]")
+    @Export(name="privacyPolicyLink", type=String.class, parameters={})
     private Output<String> privacyPolicyLink;
 
     public Output<String> privacyPolicyLink() {
@@ -103,7 +103,7 @@ public class Agreement extends com.pulumi.resources.CustomResource {
      * The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="publisher", refs={String.class}, tree="[0]")
+    @Export(name="publisher", type=String.class, parameters={})
     private Output<String> publisher;
 
     /**

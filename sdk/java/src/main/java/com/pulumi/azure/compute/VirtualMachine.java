@@ -150,7 +150,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * An `additional_capabilities` block as defined below.
      * 
      */
-    @Export(name="additionalCapabilities", refs={VirtualMachineAdditionalCapabilities.class}, tree="[0]")
+    @Export(name="additionalCapabilities", type=VirtualMachineAdditionalCapabilities.class, parameters={})
     private Output</* @Nullable */ VirtualMachineAdditionalCapabilities> additionalCapabilities;
 
     /**
@@ -164,7 +164,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="availabilitySetId", refs={String.class}, tree="[0]")
+    @Export(name="availabilitySetId", type=String.class, parameters={})
     private Output<String> availabilitySetId;
 
     /**
@@ -178,7 +178,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * A `boot_diagnostics` block as defined below.
      * 
      */
-    @Export(name="bootDiagnostics", refs={VirtualMachineBootDiagnostics.class}, tree="[0]")
+    @Export(name="bootDiagnostics", type=VirtualMachineBootDiagnostics.class, parameters={})
     private Output</* @Nullable */ VirtualMachineBootDiagnostics> bootDiagnostics;
 
     /**
@@ -192,7 +192,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      * 
      */
-    @Export(name="deleteDataDisksOnTermination", refs={Boolean.class}, tree="[0]")
+    @Export(name="deleteDataDisksOnTermination", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> deleteDataDisksOnTermination;
 
     /**
@@ -206,7 +206,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      * 
      */
-    @Export(name="deleteOsDiskOnTermination", refs={Boolean.class}, tree="[0]")
+    @Export(name="deleteOsDiskOnTermination", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> deleteOsDiskOnTermination;
 
     /**
@@ -220,7 +220,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={VirtualMachineIdentity.class}, tree="[0]")
+    @Export(name="identity", type=VirtualMachineIdentity.class, parameters={})
     private Output<VirtualMachineIdentity> identity;
 
     /**
@@ -234,7 +234,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
      * 
      */
-    @Export(name="licenseType", refs={String.class}, tree="[0]")
+    @Export(name="licenseType", type=String.class, parameters={})
     private Output<String> licenseType;
 
     /**
@@ -248,7 +248,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -262,7 +262,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -276,7 +276,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * A list of Network Interface IDs which should be associated with the Virtual Machine.
      * 
      */
-    @Export(name="networkInterfaceIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="networkInterfaceIds", type=List.class, parameters={String.class})
     private Output<List<String>> networkInterfaceIds;
 
     /**
@@ -290,7 +290,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
      * 
      */
-    @Export(name="osProfile", refs={VirtualMachineOsProfile.class}, tree="[0]")
+    @Export(name="osProfile", type=VirtualMachineOsProfile.class, parameters={})
     private Output</* @Nullable */ VirtualMachineOsProfile> osProfile;
 
     /**
@@ -304,7 +304,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
      * 
      */
-    @Export(name="osProfileLinuxConfig", refs={VirtualMachineOsProfileLinuxConfig.class}, tree="[0]")
+    @Export(name="osProfileLinuxConfig", type=VirtualMachineOsProfileLinuxConfig.class, parameters={})
     private Output</* @Nullable */ VirtualMachineOsProfileLinuxConfig> osProfileLinuxConfig;
 
     /**
@@ -318,7 +318,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * One or more `os_profile_secrets` blocks as defined below.
      * 
      */
-    @Export(name="osProfileSecrets", refs={List.class,VirtualMachineOsProfileSecret.class}, tree="[0,1]")
+    @Export(name="osProfileSecrets", type=List.class, parameters={VirtualMachineOsProfileSecret.class})
     private Output</* @Nullable */ List<VirtualMachineOsProfileSecret>> osProfileSecrets;
 
     /**
@@ -332,7 +332,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
      * 
      */
-    @Export(name="osProfileWindowsConfig", refs={VirtualMachineOsProfileWindowsConfig.class}, tree="[0]")
+    @Export(name="osProfileWindowsConfig", type=VirtualMachineOsProfileWindowsConfig.class, parameters={})
     private Output</* @Nullable */ VirtualMachineOsProfileWindowsConfig> osProfileWindowsConfig;
 
     /**
@@ -346,7 +346,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * A `plan` block as defined below.
      * 
      */
-    @Export(name="plan", refs={VirtualMachinePlan.class}, tree="[0]")
+    @Export(name="plan", type=VirtualMachinePlan.class, parameters={})
     private Output</* @Nullable */ VirtualMachinePlan> plan;
 
     /**
@@ -360,7 +360,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
      * 
      */
-    @Export(name="primaryNetworkInterfaceId", refs={String.class}, tree="[0]")
+    @Export(name="primaryNetworkInterfaceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> primaryNetworkInterfaceId;
 
     /**
@@ -374,7 +374,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
      * 
      */
-    @Export(name="proximityPlacementGroupId", refs={String.class}, tree="[0]")
+    @Export(name="proximityPlacementGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> proximityPlacementGroupId;
 
     /**
@@ -388,7 +388,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -402,7 +402,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * One or more `storage_data_disk` blocks as defined below.
      * 
      */
-    @Export(name="storageDataDisks", refs={List.class,VirtualMachineStorageDataDisk.class}, tree="[0,1]")
+    @Export(name="storageDataDisks", type=List.class, parameters={VirtualMachineStorageDataDisk.class})
     private Output<List<VirtualMachineStorageDataDisk>> storageDataDisks;
 
     /**
@@ -416,7 +416,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageImageReference", refs={VirtualMachineStorageImageReference.class}, tree="[0]")
+    @Export(name="storageImageReference", type=VirtualMachineStorageImageReference.class, parameters={})
     private Output<VirtualMachineStorageImageReference> storageImageReference;
 
     /**
@@ -430,7 +430,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * A `storage_os_disk` block as defined below.
      * 
      */
-    @Export(name="storageOsDisk", refs={VirtualMachineStorageOsDisk.class}, tree="[0]")
+    @Export(name="storageOsDisk", type=VirtualMachineStorageOsDisk.class, parameters={})
     private Output<VirtualMachineStorageOsDisk> storageOsDisk;
 
     /**
@@ -444,7 +444,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Virtual Machine.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -458,7 +458,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
      * 
      */
-    @Export(name="vmSize", refs={String.class}, tree="[0]")
+    @Export(name="vmSize", type=String.class, parameters={})
     private Output<String> vmSize;
 
     /**
@@ -472,7 +472,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
      * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zones", refs={String.class}, tree="[0]")
+    @Export(name="zones", type=String.class, parameters={})
     private Output</* @Nullable */ String> zones;
 
     /**

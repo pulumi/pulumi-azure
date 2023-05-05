@@ -262,7 +262,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
      * 
      */
-    @Export(name="authorizationKey", refs={String.class}, tree="[0]")
+    @Export(name="authorizationKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> authorizationKey;
 
     /**
@@ -276,7 +276,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
      * 
      */
-    @Export(name="connectionMode", refs={String.class}, tree="[0]")
+    @Export(name="connectionMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> connectionMode;
 
     /**
@@ -291,7 +291,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * &gt; **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
      * 
      */
-    @Export(name="connectionProtocol", refs={String.class}, tree="[0]")
+    @Export(name="connectionProtocol", type=String.class, parameters={})
     private Output<String> connectionProtocol;
 
     /**
@@ -308,7 +308,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      * 
      */
-    @Export(name="customBgpAddresses", refs={VirtualNetworkGatewayConnectionCustomBgpAddresses.class}, tree="[0]")
+    @Export(name="customBgpAddresses", type=VirtualNetworkGatewayConnectionCustomBgpAddresses.class, parameters={})
     private Output</* @Nullable */ VirtualNetworkGatewayConnectionCustomBgpAddresses> customBgpAddresses;
 
     /**
@@ -324,7 +324,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="dpdTimeoutSeconds", refs={Integer.class}, tree="[0]")
+    @Export(name="dpdTimeoutSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> dpdTimeoutSeconds;
 
     /**
@@ -338,7 +338,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * A list of the egress NAT Rule Ids.
      * 
      */
-    @Export(name="egressNatRuleIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="egressNatRuleIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> egressNatRuleIds;
 
     /**
@@ -352,7 +352,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
      * 
      */
-    @Export(name="enableBgp", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableBgp", type=Boolean.class, parameters={})
     private Output<Boolean> enableBgp;
 
     /**
@@ -366,7 +366,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="expressRouteCircuitId", refs={String.class}, tree="[0]")
+    @Export(name="expressRouteCircuitId", type=String.class, parameters={})
     private Output</* @Nullable */ String> expressRouteCircuitId;
 
     /**
@@ -380,7 +380,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
      * 
      */
-    @Export(name="expressRouteGatewayBypass", refs={Boolean.class}, tree="[0]")
+    @Export(name="expressRouteGatewayBypass", type=Boolean.class, parameters={})
     private Output<Boolean> expressRouteGatewayBypass;
 
     /**
@@ -394,7 +394,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * A list of the ingress NAT Rule Ids.
      * 
      */
-    @Export(name="ingressNatRuleIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="ingressNatRuleIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> ingressNatRuleIds;
 
     /**
@@ -410,7 +410,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      * 
      */
-    @Export(name="ipsecPolicy", refs={VirtualNetworkGatewayConnectionIpsecPolicy.class}, tree="[0]")
+    @Export(name="ipsecPolicy", type=VirtualNetworkGatewayConnectionIpsecPolicy.class, parameters={})
     private Output</* @Nullable */ VirtualNetworkGatewayConnectionIpsecPolicy> ipsecPolicy;
 
     /**
@@ -426,7 +426,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * Use private local Azure IP for the connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="localAzureIpAddressEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="localAzureIpAddressEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAzureIpAddressEnabled;
 
     /**
@@ -440,7 +440,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
      * 
      */
-    @Export(name="localNetworkGatewayId", refs={String.class}, tree="[0]")
+    @Export(name="localNetworkGatewayId", type=String.class, parameters={})
     private Output</* @Nullable */ String> localNetworkGatewayId;
 
     /**
@@ -454,7 +454,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * The location/region where the connection is located. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -468,7 +468,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * The name of the connection. Changing the name forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -482,7 +482,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="peerVirtualNetworkGatewayId", refs={String.class}, tree="[0]")
+    @Export(name="peerVirtualNetworkGatewayId", type=String.class, parameters={})
     private Output</* @Nullable */ String> peerVirtualNetworkGatewayId;
 
     /**
@@ -496,7 +496,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * The name of the resource group in which to create the connection Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -510,7 +510,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * The routing weight. Defaults to `10`.
      * 
      */
-    @Export(name="routingWeight", refs={Integer.class}, tree="[0]")
+    @Export(name="routingWeight", type=Integer.class, parameters={})
     private Output<Integer> routingWeight;
 
     /**
@@ -524,7 +524,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      * 
      */
-    @Export(name="sharedKey", refs={String.class}, tree="[0]")
+    @Export(name="sharedKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> sharedKey;
 
     /**
@@ -538,7 +538,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -554,7 +554,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
      * 
      */
-    @Export(name="trafficSelectorPolicy", refs={VirtualNetworkGatewayConnectionTrafficSelectorPolicy.class}, tree="[0]")
+    @Export(name="trafficSelectorPolicy", type=VirtualNetworkGatewayConnectionTrafficSelectorPolicy.class, parameters={})
     private Output</* @Nullable */ VirtualNetworkGatewayConnectionTrafficSelectorPolicy> trafficSelectorPolicy;
 
     /**
@@ -570,7 +570,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="type", refs={String.class}, tree="[0]")
+    @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
@@ -584,7 +584,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
      * 
      */
-    @Export(name="usePolicyBasedTrafficSelectors", refs={Boolean.class}, tree="[0]")
+    @Export(name="usePolicyBasedTrafficSelectors", type=Boolean.class, parameters={})
     private Output<Boolean> usePolicyBasedTrafficSelectors;
 
     /**
@@ -598,7 +598,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
      * The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualNetworkGatewayId", refs={String.class}, tree="[0]")
+    @Export(name="virtualNetworkGatewayId", type=String.class, parameters={})
     private Output<String> virtualNetworkGatewayId;
 
     /**

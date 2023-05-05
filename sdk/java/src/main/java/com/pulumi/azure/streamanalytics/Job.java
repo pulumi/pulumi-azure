@@ -87,7 +87,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
      * 
      */
-    @Export(name="compatibilityLevel", refs={String.class}, tree="[0]")
+    @Export(name="compatibilityLevel", type=String.class, parameters={})
     private Output<String> compatibilityLevel;
 
     /**
@@ -101,7 +101,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
      * 
      */
-    @Export(name="contentStoragePolicy", refs={String.class}, tree="[0]")
+    @Export(name="contentStoragePolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> contentStoragePolicy;
 
     /**
@@ -115,7 +115,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](&lt;https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx&gt;).
      * 
      */
-    @Export(name="dataLocale", refs={String.class}, tree="[0]")
+    @Export(name="dataLocale", type=String.class, parameters={})
     private Output<String> dataLocale;
 
     /**
@@ -129,7 +129,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
      * 
      */
-    @Export(name="eventsLateArrivalMaxDelayInSeconds", refs={Integer.class}, tree="[0]")
+    @Export(name="eventsLateArrivalMaxDelayInSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> eventsLateArrivalMaxDelayInSeconds;
 
     /**
@@ -143,7 +143,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
      * 
      */
-    @Export(name="eventsOutOfOrderMaxDelayInSeconds", refs={Integer.class}, tree="[0]")
+    @Export(name="eventsOutOfOrderMaxDelayInSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> eventsOutOfOrderMaxDelayInSeconds;
 
     /**
@@ -157,7 +157,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
      * 
      */
-    @Export(name="eventsOutOfOrderPolicy", refs={String.class}, tree="[0]")
+    @Export(name="eventsOutOfOrderPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> eventsOutOfOrderPolicy;
 
     /**
@@ -171,7 +171,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={JobIdentity.class}, tree="[0]")
+    @Export(name="identity", type=JobIdentity.class, parameters={})
     private Output</* @Nullable */ JobIdentity> identity;
 
     /**
@@ -185,7 +185,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The Job ID assigned by the Stream Analytics Job.
      * 
      */
-    @Export(name="jobId", refs={String.class}, tree="[0]")
+    @Export(name="jobId", type=String.class, parameters={})
     private Output<String> jobId;
 
     /**
@@ -199,7 +199,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The details of the job storage account. A `job_storage_account` block as defined below.
      * 
      */
-    @Export(name="jobStorageAccounts", refs={List.class,JobJobStorageAccount.class}, tree="[0,1]")
+    @Export(name="jobStorageAccounts", type=List.class, parameters={JobJobStorageAccount.class})
     private Output</* @Nullable */ List<JobJobStorageAccount>> jobStorageAccounts;
 
     /**
@@ -213,7 +213,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -227,7 +227,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -241,7 +241,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
      * 
      */
-    @Export(name="outputErrorPolicy", refs={String.class}, tree="[0]")
+    @Export(name="outputErrorPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> outputErrorPolicy;
 
     /**
@@ -255,7 +255,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -269,7 +269,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
      * 
      */
-    @Export(name="streamAnalyticsClusterId", refs={String.class}, tree="[0]")
+    @Export(name="streamAnalyticsClusterId", type=String.class, parameters={})
     private Output</* @Nullable */ String> streamAnalyticsClusterId;
 
     /**
@@ -283,7 +283,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      * 
      */
-    @Export(name="streamingUnits", refs={Integer.class}, tree="[0]")
+    @Export(name="streamingUnits", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> streamingUnits;
 
     /**
@@ -297,7 +297,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * A mapping of tags assigned to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -311,7 +311,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
      * 
      */
-    @Export(name="transformationQuery", refs={String.class}, tree="[0]")
+    @Export(name="transformationQuery", type=String.class, parameters={})
     private Output<String> transformationQuery;
 
     /**
@@ -325,7 +325,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="type", refs={String.class}, tree="[0]")
+    @Export(name="type", type=String.class, parameters={})
     private Output</* @Nullable */ String> type;
 
     /**

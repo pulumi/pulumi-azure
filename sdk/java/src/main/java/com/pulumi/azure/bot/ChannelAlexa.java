@@ -84,7 +84,7 @@ public class ChannelAlexa extends com.pulumi.resources.CustomResource {
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="botName", refs={String.class}, tree="[0]")
+    @Export(name="botName", type=String.class, parameters={})
     private Output<String> botName;
 
     /**
@@ -98,7 +98,7 @@ public class ChannelAlexa extends com.pulumi.resources.CustomResource {
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -112,7 +112,7 @@ public class ChannelAlexa extends com.pulumi.resources.CustomResource {
      * The name of the resource group where the Alexa Channel should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -126,7 +126,7 @@ public class ChannelAlexa extends com.pulumi.resources.CustomResource {
      * The Alexa skill ID for the Alexa Channel.
      * 
      */
-    @Export(name="skillId", refs={String.class}, tree="[0]")
+    @Export(name="skillId", type=String.class, parameters={})
     private Output<String> skillId;
 
     /**

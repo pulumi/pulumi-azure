@@ -122,7 +122,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * One or more `custom_header` blocks as defined below.
      * 
      */
-    @Export(name="customHeaders", refs={List.class,TrafficManagerNestedEndpointCustomHeader.class}, tree="[0,1]")
+    @Export(name="customHeaders", type=List.class, parameters={TrafficManagerNestedEndpointCustomHeader.class})
     private Output</* @Nullable */ List<TrafficManagerNestedEndpointCustomHeader>> customHeaders;
 
     /**
@@ -136,7 +136,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * Is the endpoint enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -150,7 +150,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      * 
      */
-    @Export(name="endpointLocation", refs={String.class}, tree="[0]")
+    @Export(name="endpointLocation", type=String.class, parameters={})
     private Output<String> endpointLocation;
 
     /**
@@ -164,7 +164,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can&#39;t be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
      * 
      */
-    @Export(name="geoMappings", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="geoMappings", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> geoMappings;
 
     /**
@@ -178,7 +178,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      * 
      */
-    @Export(name="minimumChildEndpoints", refs={Integer.class}, tree="[0]")
+    @Export(name="minimumChildEndpoints", type=Integer.class, parameters={})
     private Output<Integer> minimumChildEndpoints;
 
     /**
@@ -192,7 +192,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
      * 
      */
-    @Export(name="minimumRequiredChildEndpointsIpv4", refs={Integer.class}, tree="[0]")
+    @Export(name="minimumRequiredChildEndpointsIpv4", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> minimumRequiredChildEndpointsIpv4;
 
     /**
@@ -206,7 +206,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
      * 
      */
-    @Export(name="minimumRequiredChildEndpointsIpv6", refs={Integer.class}, tree="[0]")
+    @Export(name="minimumRequiredChildEndpointsIpv6", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> minimumRequiredChildEndpointsIpv6;
 
     /**
@@ -220,7 +220,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * The name of the External Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -234,7 +234,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      * 
      */
-    @Export(name="priority", refs={Integer.class}, tree="[0]")
+    @Export(name="priority", type=Integer.class, parameters={})
     private Output<Integer> priority;
 
     /**
@@ -248,7 +248,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="profileId", refs={String.class}, tree="[0]")
+    @Export(name="profileId", type=String.class, parameters={})
     private Output<String> profileId;
 
     /**
@@ -262,7 +262,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnets", refs={List.class,TrafficManagerNestedEndpointSubnet.class}, tree="[0,1]")
+    @Export(name="subnets", type=List.class, parameters={TrafficManagerNestedEndpointSubnet.class})
     private Output</* @Nullable */ List<TrafficManagerNestedEndpointSubnet>> subnets;
 
     /**
@@ -276,7 +276,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * The resource id of an Azure resource to target.
      * 
      */
-    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
+    @Export(name="targetResourceId", type=String.class, parameters={})
     private Output<String> targetResourceId;
 
     /**
@@ -290,7 +290,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
      * 
      */
-    @Export(name="weight", refs={Integer.class}, tree="[0]")
+    @Export(name="weight", type=Integer.class, parameters={})
     private Output<Integer> weight;
 
     /**

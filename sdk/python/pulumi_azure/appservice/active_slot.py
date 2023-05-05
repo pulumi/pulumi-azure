@@ -130,29 +130,7 @@ class ActiveSlot(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        server = random.RandomId("server")
-        # ...
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup")
-        # ...
-        example_plan = azure.appservice.Plan("examplePlan")
-        # ...
-        example_app_service = azure.appservice.AppService("exampleAppService")
-        # ...
-        example_slot = azure.appservice.Slot("exampleSlot")
-        # ...
-        example_active_slot = azure.appservice.ActiveSlot("exampleActiveSlot",
-            resource_group_name=example_resource_group.name,
-            app_service_name=example_app_service.name,
-            app_service_slot_name=example_slot.name)
-        ```
-
+        Create a ActiveSlot resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_name: The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
@@ -166,29 +144,7 @@ class ActiveSlot(pulumi.CustomResource):
                  args: ActiveSlotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        server = random.RandomId("server")
-        # ...
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup")
-        # ...
-        example_plan = azure.appservice.Plan("examplePlan")
-        # ...
-        example_app_service = azure.appservice.AppService("exampleAppService")
-        # ...
-        example_slot = azure.appservice.Slot("exampleSlot")
-        # ...
-        example_active_slot = azure.appservice.ActiveSlot("exampleActiveSlot",
-            resource_group_name=example_resource_group.name,
-            app_service_name=example_app_service.name,
-            app_service_slot_name=example_slot.name)
-        ```
-
+        Create a ActiveSlot resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ActiveSlotArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

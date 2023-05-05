@@ -37,7 +37,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * The version of the Anomaly Security ML Analytics Settings.
      * 
      */
-    @Export(name="anomalySettingsVersion", refs={Integer.class}, tree="[0]")
+    @Export(name="anomalySettingsVersion", type=Integer.class, parameters={})
     private Output<Integer> anomalySettingsVersion;
 
     /**
@@ -51,7 +51,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * The anomaly version of the Anomaly Alert Rule.
      * 
      */
-    @Export(name="anomalyVersion", refs={String.class}, tree="[0]")
+    @Export(name="anomalyVersion", type=String.class, parameters={})
     private Output<String> anomalyVersion;
 
     /**
@@ -65,7 +65,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * The description of the threshold observation.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output<String> description;
 
     /**
@@ -79,7 +79,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -93,7 +93,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * Should the Built-in Anomaly Alert Rule be enabled?
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output<Boolean> enabled;
 
     /**
@@ -107,7 +107,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * The frequency the Anomaly Alert Rule will be run.
      * 
      */
-    @Export(name="frequency", refs={String.class}, tree="[0]")
+    @Export(name="frequency", type=String.class, parameters={})
     private Output<String> frequency;
 
     /**
@@ -121,7 +121,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * The ID of the Log Analytics Workspace. Changing this forces a new Built-in Anomaly Alert Rule to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -135,7 +135,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
      * 
      */
-    @Export(name="mode", refs={String.class}, tree="[0]")
+    @Export(name="mode", type=String.class, parameters={})
     private Output<String> mode;
 
     /**
@@ -149,7 +149,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * A list of `multi_select_observation` blocks as defined below.
      * 
      */
-    @Export(name="multiSelectObservations", refs={List.class,AlertRuleAnomalyBuiltInMultiSelectObservation.class}, tree="[0,1]")
+    @Export(name="multiSelectObservations", type=List.class, parameters={AlertRuleAnomalyBuiltInMultiSelectObservation.class})
     private Output<List<AlertRuleAnomalyBuiltInMultiSelectObservation>> multiSelectObservations;
 
     /**
@@ -163,7 +163,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -177,7 +177,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * A list of `prioritized_exclude_observation` blocks as defined below.
      * 
      */
-    @Export(name="prioritizedExcludeObservations", refs={List.class,AlertRuleAnomalyBuiltInPrioritizedExcludeObservation.class}, tree="[0,1]")
+    @Export(name="prioritizedExcludeObservations", type=List.class, parameters={AlertRuleAnomalyBuiltInPrioritizedExcludeObservation.class})
     private Output<List<AlertRuleAnomalyBuiltInPrioritizedExcludeObservation>> prioritizedExcludeObservations;
 
     /**
@@ -191,7 +191,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * A `required_data_connector` block as defined below.
      * 
      */
-    @Export(name="requiredDataConnectors", refs={List.class,AlertRuleAnomalyBuiltInRequiredDataConnector.class}, tree="[0,1]")
+    @Export(name="requiredDataConnectors", type=List.class, parameters={AlertRuleAnomalyBuiltInRequiredDataConnector.class})
     private Output<List<AlertRuleAnomalyBuiltInRequiredDataConnector>> requiredDataConnectors;
 
     /**
@@ -205,7 +205,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * The ID of the anomaly settings definition Id.
      * 
      */
-    @Export(name="settingsDefinitionId", refs={String.class}, tree="[0]")
+    @Export(name="settingsDefinitionId", type=String.class, parameters={})
     private Output<String> settingsDefinitionId;
 
     /**
@@ -219,7 +219,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * A list of `single_select_observation` blocks as defined below.
      * 
      */
-    @Export(name="singleSelectObservations", refs={List.class,AlertRuleAnomalyBuiltInSingleSelectObservation.class}, tree="[0,1]")
+    @Export(name="singleSelectObservations", type=List.class, parameters={AlertRuleAnomalyBuiltInSingleSelectObservation.class})
     private Output<List<AlertRuleAnomalyBuiltInSingleSelectObservation>> singleSelectObservations;
 
     /**
@@ -233,7 +233,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * A list of categories of attacks by which to classify the rule.
      * 
      */
-    @Export(name="tactics", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="tactics", type=List.class, parameters={String.class})
     private Output<List<String>> tactics;
 
     /**
@@ -247,7 +247,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * A list of techniques of attacks by which to classify the rule.
      * 
      */
-    @Export(name="techniques", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="techniques", type=List.class, parameters={String.class})
     private Output<List<String>> techniques;
 
     /**
@@ -261,7 +261,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * A list of `threshold_observation` blocks as defined below.
      * 
      */
-    @Export(name="thresholdObservations", refs={List.class,AlertRuleAnomalyBuiltInThresholdObservation.class}, tree="[0,1]")
+    @Export(name="thresholdObservations", type=List.class, parameters={AlertRuleAnomalyBuiltInThresholdObservation.class})
     private Output<List<AlertRuleAnomalyBuiltInThresholdObservation>> thresholdObservations;
 
     /**

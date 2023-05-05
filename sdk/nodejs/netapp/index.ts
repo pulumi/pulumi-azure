@@ -35,6 +35,11 @@ export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
 utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
 
+export { GetVolumeGroupSapHanaArgs, GetVolumeGroupSapHanaResult, GetVolumeGroupSapHanaOutputArgs } from "./getVolumeGroupSapHana";
+export const getVolumeGroupSapHana: typeof import("./getVolumeGroupSapHana").getVolumeGroupSapHana = null as any;
+export const getVolumeGroupSapHanaOutput: typeof import("./getVolumeGroupSapHana").getVolumeGroupSapHanaOutput = null as any;
+utilities.lazyLoad(exports, ["getVolumeGroupSapHana","getVolumeGroupSapHanaOutput"], () => require("./getVolumeGroupSapHana"));
+
 export { PoolArgs, PoolState } from "./pool";
 export type Pool = import("./pool").Pool;
 export const Pool: typeof import("./pool").Pool = null as any;
@@ -55,6 +60,11 @@ export type Volume = import("./volume").Volume;
 export const Volume: typeof import("./volume").Volume = null as any;
 utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
 
+export { VolumeGroupSapHanaArgs, VolumeGroupSapHanaState } from "./volumeGroupSapHana";
+export type VolumeGroupSapHana = import("./volumeGroupSapHana").VolumeGroupSapHana;
+export const VolumeGroupSapHana: typeof import("./volumeGroupSapHana").VolumeGroupSapHana = null as any;
+utilities.lazyLoad(exports, ["VolumeGroupSapHana"], () => require("./volumeGroupSapHana"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -70,6 +80,8 @@ const _module = {
                 return new SnapshotPolicy(name, <any>undefined, { urn })
             case "azure:netapp/volume:Volume":
                 return new Volume(name, <any>undefined, { urn })
+            case "azure:netapp/volumeGroupSapHana:VolumeGroupSapHana":
+                return new VolumeGroupSapHana(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -80,3 +92,4 @@ pulumi.runtime.registerResourceModule("azure", "netapp/pool", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/snapshot", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/snapshotPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/volume", _module)
+pulumi.runtime.registerResourceModule("azure", "netapp/volumeGroupSapHana", _module)

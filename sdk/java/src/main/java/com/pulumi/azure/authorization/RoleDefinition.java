@@ -76,7 +76,7 @@ public class RoleDefinition extends com.pulumi.resources.CustomResource {
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      * 
      */
-    @Export(name="assignableScopes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="assignableScopes", type=List.class, parameters={String.class})
     private Output<List<String>> assignableScopes;
 
     /**
@@ -90,7 +90,7 @@ public class RoleDefinition extends com.pulumi.resources.CustomResource {
      * A description of the Role Definition.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -104,7 +104,7 @@ public class RoleDefinition extends com.pulumi.resources.CustomResource {
      * The name of the Role Definition.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -118,7 +118,7 @@ public class RoleDefinition extends com.pulumi.resources.CustomResource {
      * A `permissions` block as defined below.
      * 
      */
-    @Export(name="permissions", refs={List.class,RoleDefinitionPermission.class}, tree="[0,1]")
+    @Export(name="permissions", type=List.class, parameters={RoleDefinitionPermission.class})
     private Output</* @Nullable */ List<RoleDefinitionPermission>> permissions;
 
     /**
@@ -132,7 +132,7 @@ public class RoleDefinition extends com.pulumi.resources.CustomResource {
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="roleDefinitionId", refs={String.class}, tree="[0]")
+    @Export(name="roleDefinitionId", type=String.class, parameters={})
     private Output<String> roleDefinitionId;
 
     /**
@@ -146,7 +146,7 @@ public class RoleDefinition extends com.pulumi.resources.CustomResource {
      * The Azure Resource Manager ID for the resource.
      * 
      */
-    @Export(name="roleDefinitionResourceId", refs={String.class}, tree="[0]")
+    @Export(name="roleDefinitionResourceId", type=String.class, parameters={})
     private Output<String> roleDefinitionResourceId;
 
     /**
@@ -160,7 +160,7 @@ public class RoleDefinition extends com.pulumi.resources.CustomResource {
      * The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="scope", refs={String.class}, tree="[0]")
+    @Export(name="scope", type=String.class, parameters={})
     private Output<String> scope;
 
     /**

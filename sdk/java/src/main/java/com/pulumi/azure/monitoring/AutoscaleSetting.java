@@ -502,7 +502,7 @@ public class AutoscaleSetting extends com.pulumi.resources.CustomResource {
      * Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -516,7 +516,7 @@ public class AutoscaleSetting extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -530,7 +530,7 @@ public class AutoscaleSetting extends com.pulumi.resources.CustomResource {
      * The name of the AutoScale Setting. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -544,7 +544,7 @@ public class AutoscaleSetting extends com.pulumi.resources.CustomResource {
      * Specifies a `notification` block as defined below.
      * 
      */
-    @Export(name="notification", refs={AutoscaleSettingNotification.class}, tree="[0]")
+    @Export(name="notification", type=AutoscaleSettingNotification.class, parameters={})
     private Output</* @Nullable */ AutoscaleSettingNotification> notification;
 
     /**
@@ -558,7 +558,7 @@ public class AutoscaleSetting extends com.pulumi.resources.CustomResource {
      * Specifies one or more (up to 20) `profile` blocks as defined below.
      * 
      */
-    @Export(name="profiles", refs={List.class,AutoscaleSettingProfile.class}, tree="[0,1]")
+    @Export(name="profiles", type=List.class, parameters={AutoscaleSettingProfile.class})
     private Output<List<AutoscaleSettingProfile>> profiles;
 
     /**
@@ -572,7 +572,7 @@ public class AutoscaleSetting extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -586,7 +586,7 @@ public class AutoscaleSetting extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -600,7 +600,7 @@ public class AutoscaleSetting extends com.pulumi.resources.CustomResource {
      * Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
+    @Export(name="targetResourceId", type=String.class, parameters={})
     private Output<String> targetResourceId;
 
     /**

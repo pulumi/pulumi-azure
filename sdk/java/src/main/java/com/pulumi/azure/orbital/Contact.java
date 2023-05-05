@@ -148,7 +148,7 @@ public class Contact extends com.pulumi.resources.CustomResource {
      * ID of the orbital contact profile. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="contactProfileId", refs={String.class}, tree="[0]")
+    @Export(name="contactProfileId", type=String.class, parameters={})
     private Output<String> contactProfileId;
 
     /**
@@ -162,7 +162,7 @@ public class Contact extends com.pulumi.resources.CustomResource {
      * Name of the Azure ground station. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="groundStationName", refs={String.class}, tree="[0]")
+    @Export(name="groundStationName", type=String.class, parameters={})
     private Output<String> groundStationName;
 
     /**
@@ -176,7 +176,7 @@ public class Contact extends com.pulumi.resources.CustomResource {
      * The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -190,7 +190,7 @@ public class Contact extends com.pulumi.resources.CustomResource {
      * Reservation end time of the Contact. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="reservationEndTime", refs={String.class}, tree="[0]")
+    @Export(name="reservationEndTime", type=String.class, parameters={})
     private Output<String> reservationEndTime;
 
     /**
@@ -204,7 +204,7 @@ public class Contact extends com.pulumi.resources.CustomResource {
      * Reservation start time of the Contact. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="reservationStartTime", refs={String.class}, tree="[0]")
+    @Export(name="reservationStartTime", type=String.class, parameters={})
     private Output<String> reservationStartTime;
 
     /**
@@ -218,7 +218,7 @@ public class Contact extends com.pulumi.resources.CustomResource {
      * The ID of the spacecraft which the contact will be made to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="spacecraftId", refs={String.class}, tree="[0]")
+    @Export(name="spacecraftId", type=String.class, parameters={})
     private Output<String> spacecraftId;
 
     /**

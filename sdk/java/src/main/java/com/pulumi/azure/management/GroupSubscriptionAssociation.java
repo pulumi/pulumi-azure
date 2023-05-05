@@ -76,7 +76,7 @@ public class GroupSubscriptionAssociation extends com.pulumi.resources.CustomRes
      * The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
      * 
      */
-    @Export(name="managementGroupId", refs={String.class}, tree="[0]")
+    @Export(name="managementGroupId", type=String.class, parameters={})
     private Output<String> managementGroupId;
 
     /**
@@ -90,7 +90,7 @@ public class GroupSubscriptionAssociation extends com.pulumi.resources.CustomRes
      * The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
      * 
      */
-    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
+    @Export(name="subscriptionId", type=String.class, parameters={})
     private Output<String> subscriptionId;
 
     /**

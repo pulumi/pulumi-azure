@@ -145,7 +145,7 @@ public class ClusterCustomerManagedKey extends com.pulumi.resources.CustomResour
      * The ID of the Kusto Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="clusterId", refs={String.class}, tree="[0]")
+    @Export(name="clusterId", type=String.class, parameters={})
     private Output<String> clusterId;
 
     /**
@@ -159,7 +159,7 @@ public class ClusterCustomerManagedKey extends com.pulumi.resources.CustomResour
      * The name of Key Vault Key.
      * 
      */
-    @Export(name="keyName", refs={String.class}, tree="[0]")
+    @Export(name="keyName", type=String.class, parameters={})
     private Output<String> keyName;
 
     /**
@@ -173,7 +173,7 @@ public class ClusterCustomerManagedKey extends com.pulumi.resources.CustomResour
      * The ID of the Key Vault.
      * 
      */
-    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultId", type=String.class, parameters={})
     private Output<String> keyVaultId;
 
     /**
@@ -187,7 +187,7 @@ public class ClusterCustomerManagedKey extends com.pulumi.resources.CustomResour
      * The version of Key Vault Key.
      * 
      */
-    @Export(name="keyVersion", refs={String.class}, tree="[0]")
+    @Export(name="keyVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> keyVersion;
 
     /**
@@ -201,7 +201,7 @@ public class ClusterCustomerManagedKey extends com.pulumi.resources.CustomResour
      * The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
      * 
      */
-    @Export(name="userIdentity", refs={String.class}, tree="[0]")
+    @Export(name="userIdentity", type=String.class, parameters={})
     private Output</* @Nullable */ String> userIdentity;
 
     /**

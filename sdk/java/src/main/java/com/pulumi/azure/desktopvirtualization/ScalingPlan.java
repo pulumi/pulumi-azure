@@ -169,7 +169,7 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * A description of the Scaling Plan.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -183,7 +183,7 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * The name of the tag associated with the VMs you want to exclude from autoscaling.
      * 
      */
-    @Export(name="exclusionTag", refs={String.class}, tree="[0]")
+    @Export(name="exclusionTag", type=String.class, parameters={})
     private Output</* @Nullable */ String> exclusionTag;
 
     /**
@@ -197,7 +197,7 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * Friendly name of the Scaling Plan.
      * 
      */
-    @Export(name="friendlyName", refs={String.class}, tree="[0]")
+    @Export(name="friendlyName", type=String.class, parameters={})
     private Output</* @Nullable */ String> friendlyName;
 
     /**
@@ -211,7 +211,7 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * One or more `host_pool` blocks as defined below.
      * 
      */
-    @Export(name="hostPools", refs={List.class,ScalingPlanHostPool.class}, tree="[0,1]")
+    @Export(name="hostPools", type=List.class, parameters={ScalingPlanHostPool.class})
     private Output</* @Nullable */ List<ScalingPlanHostPool>> hostPools;
 
     /**
@@ -225,7 +225,7 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -239,7 +239,7 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -253,7 +253,7 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -267,7 +267,7 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * One or more `schedule` blocks as defined below.
      * 
      */
-    @Export(name="schedules", refs={List.class,ScalingPlanSchedule.class}, tree="[0,1]")
+    @Export(name="schedules", type=List.class, parameters={ScalingPlanSchedule.class})
     private Output<List<ScalingPlanSchedule>> schedules;
 
     /**
@@ -281,7 +281,7 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan .
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -295,7 +295,7 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * Specifies the Time Zone which should be used by the Scaling Plan for time based events, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      * 
      */
-    @Export(name="timeZone", refs={String.class}, tree="[0]")
+    @Export(name="timeZone", type=String.class, parameters={})
     private Output<String> timeZone;
 
     /**

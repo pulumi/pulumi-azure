@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:arckubernetes/cluster:Cluster":
 		r = &Cluster{}
+	case "azure:arckubernetes/clusterExtension:ClusterExtension":
+		r = &ClusterExtension{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"arckubernetes/cluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"arckubernetes/clusterExtension",
 		&module{version},
 	)
 }

@@ -102,7 +102,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A `advanced_filter` block as defined below.
      * 
      */
-    @Export(name="advancedFilter", refs={EventSubscriptionAdvancedFilter.class}, tree="[0]")
+    @Export(name="advancedFilter", type=EventSubscriptionAdvancedFilter.class, parameters={})
     private Output</* @Nullable */ EventSubscriptionAdvancedFilter> advancedFilter;
 
     /**
@@ -116,7 +116,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
      * 
      */
-    @Export(name="advancedFilteringOnArraysEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="advancedFilteringOnArraysEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> advancedFilteringOnArraysEnabled;
 
     /**
@@ -130,7 +130,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * An `azure_function_endpoint` block as defined below.
      * 
      */
-    @Export(name="azureFunctionEndpoint", refs={EventSubscriptionAzureFunctionEndpoint.class}, tree="[0]")
+    @Export(name="azureFunctionEndpoint", type=EventSubscriptionAzureFunctionEndpoint.class, parameters={})
     private Output</* @Nullable */ EventSubscriptionAzureFunctionEndpoint> azureFunctionEndpoint;
 
     /**
@@ -144,7 +144,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A `dead_letter_identity` block as defined below.
      * 
      */
-    @Export(name="deadLetterIdentity", refs={EventSubscriptionDeadLetterIdentity.class}, tree="[0]")
+    @Export(name="deadLetterIdentity", type=EventSubscriptionDeadLetterIdentity.class, parameters={})
     private Output</* @Nullable */ EventSubscriptionDeadLetterIdentity> deadLetterIdentity;
 
     /**
@@ -158,7 +158,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A `delivery_identity` block as defined below.
      * 
      */
-    @Export(name="deliveryIdentity", refs={EventSubscriptionDeliveryIdentity.class}, tree="[0]")
+    @Export(name="deliveryIdentity", type=EventSubscriptionDeliveryIdentity.class, parameters={})
     private Output</* @Nullable */ EventSubscriptionDeliveryIdentity> deliveryIdentity;
 
     /**
@@ -172,7 +172,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * One or more `delivery_property` blocks as defined below.
      * 
      */
-    @Export(name="deliveryProperties", refs={List.class,EventSubscriptionDeliveryProperty.class}, tree="[0,1]")
+    @Export(name="deliveryProperties", type=List.class, parameters={EventSubscriptionDeliveryProperty.class})
     private Output</* @Nullable */ List<EventSubscriptionDeliveryProperty>> deliveryProperties;
 
     /**
@@ -186,7 +186,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventDeliverySchema", refs={String.class}, tree="[0]")
+    @Export(name="eventDeliverySchema", type=String.class, parameters={})
     private Output</* @Nullable */ String> eventDeliverySchema;
 
     /**
@@ -200,7 +200,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * Specifies the id where the Event Hub is located.
      * 
      */
-    @Export(name="eventhubEndpointId", refs={String.class}, tree="[0]")
+    @Export(name="eventhubEndpointId", type=String.class, parameters={})
     private Output<String> eventhubEndpointId;
 
     /**
@@ -214,7 +214,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
      * 
      */
-    @Export(name="expirationTimeUtc", refs={String.class}, tree="[0]")
+    @Export(name="expirationTimeUtc", type=String.class, parameters={})
     private Output</* @Nullable */ String> expirationTimeUtc;
 
     /**
@@ -228,7 +228,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * Specifies the id where the Hybrid Connection is located.
      * 
      */
-    @Export(name="hybridConnectionEndpointId", refs={String.class}, tree="[0]")
+    @Export(name="hybridConnectionEndpointId", type=String.class, parameters={})
     private Output<String> hybridConnectionEndpointId;
 
     /**
@@ -242,7 +242,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A list of applicable event types that need to be part of the event subscription.
      * 
      */
-    @Export(name="includedEventTypes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="includedEventTypes", type=List.class, parameters={String.class})
     private Output<List<String>> includedEventTypes;
 
     /**
@@ -256,7 +256,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A list of labels to assign to the event subscription.
      * 
      */
-    @Export(name="labels", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="labels", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> labels;
 
     /**
@@ -270,7 +270,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -284,7 +284,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A `retry_policy` block as defined below.
      * 
      */
-    @Export(name="retryPolicy", refs={EventSubscriptionRetryPolicy.class}, tree="[0]")
+    @Export(name="retryPolicy", type=EventSubscriptionRetryPolicy.class, parameters={})
     private Output<EventSubscriptionRetryPolicy> retryPolicy;
 
     /**
@@ -298,7 +298,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="scope", refs={String.class}, tree="[0]")
+    @Export(name="scope", type=String.class, parameters={})
     private Output<String> scope;
 
     /**
@@ -312,7 +312,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * Specifies the id where the Service Bus Queue is located.
      * 
      */
-    @Export(name="serviceBusQueueEndpointId", refs={String.class}, tree="[0]")
+    @Export(name="serviceBusQueueEndpointId", type=String.class, parameters={})
     private Output</* @Nullable */ String> serviceBusQueueEndpointId;
 
     /**
@@ -326,7 +326,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * Specifies the id where the Service Bus Topic is located.
      * 
      */
-    @Export(name="serviceBusTopicEndpointId", refs={String.class}, tree="[0]")
+    @Export(name="serviceBusTopicEndpointId", type=String.class, parameters={})
     private Output</* @Nullable */ String> serviceBusTopicEndpointId;
 
     /**
@@ -340,7 +340,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A `storage_blob_dead_letter_destination` block as defined below.
      * 
      */
-    @Export(name="storageBlobDeadLetterDestination", refs={EventSubscriptionStorageBlobDeadLetterDestination.class}, tree="[0]")
+    @Export(name="storageBlobDeadLetterDestination", type=EventSubscriptionStorageBlobDeadLetterDestination.class, parameters={})
     private Output</* @Nullable */ EventSubscriptionStorageBlobDeadLetterDestination> storageBlobDeadLetterDestination;
 
     /**
@@ -354,7 +354,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A `storage_queue_endpoint` block as defined below.
      * 
      */
-    @Export(name="storageQueueEndpoint", refs={EventSubscriptionStorageQueueEndpoint.class}, tree="[0]")
+    @Export(name="storageQueueEndpoint", type=EventSubscriptionStorageQueueEndpoint.class, parameters={})
     private Output</* @Nullable */ EventSubscriptionStorageQueueEndpoint> storageQueueEndpoint;
 
     /**
@@ -368,7 +368,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A `subject_filter` block as defined below.
      * 
      */
-    @Export(name="subjectFilter", refs={EventSubscriptionSubjectFilter.class}, tree="[0]")
+    @Export(name="subjectFilter", type=EventSubscriptionSubjectFilter.class, parameters={})
     private Output</* @Nullable */ EventSubscriptionSubjectFilter> subjectFilter;
 
     /**
@@ -382,7 +382,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * A `webhook_endpoint` block as defined below.
      * 
      */
-    @Export(name="webhookEndpoint", refs={EventSubscriptionWebhookEndpoint.class}, tree="[0]")
+    @Export(name="webhookEndpoint", type=EventSubscriptionWebhookEndpoint.class, parameters={})
     private Output</* @Nullable */ EventSubscriptionWebhookEndpoint> webhookEndpoint;
 
     /**

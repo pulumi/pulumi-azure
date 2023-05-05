@@ -71,7 +71,7 @@ public class Sync extends com.pulumi.resources.CustomResource {
      * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
      * 
      */
-    @Export(name="incomingTrafficPolicy", refs={String.class}, tree="[0]")
+    @Export(name="incomingTrafficPolicy", type=String.class, parameters={})
     private Output</* @Nullable */ String> incomingTrafficPolicy;
 
     /**
@@ -85,7 +85,7 @@ public class Sync extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -99,7 +99,7 @@ public class Sync extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -113,7 +113,7 @@ public class Sync extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -127,7 +127,7 @@ public class Sync extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Storage Sync.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

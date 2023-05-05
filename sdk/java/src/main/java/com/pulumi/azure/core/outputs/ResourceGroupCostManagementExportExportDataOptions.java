@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class ResourceGroupCostManagementExportExportDataOptions {
     /**
-     * @return The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+     * @return The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
      * 
      */
     private String timeFrame;
@@ -22,7 +22,7 @@ public final class ResourceGroupCostManagementExportExportDataOptions {
 
     private ResourceGroupCostManagementExportExportDataOptions() {}
     /**
-     * @return The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+     * @return The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
      * 
      */
     public String timeFrame() {

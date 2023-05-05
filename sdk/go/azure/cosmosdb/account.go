@@ -13,80 +13,6 @@ import (
 
 // Manages a CosmosDB (formally DocumentDB) Account.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
-//				Location: pulumi.String("westus"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = random.NewRandomInteger(ctx, "ri", &random.RandomIntegerArgs{
-//				Min: pulumi.Int(10000),
-//				Max: pulumi.Int(99999),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cosmosdb.NewAccount(ctx, "db", &cosmosdb.AccountArgs{
-//				Location:                pulumi.Any(azurerm_resource_group.Example.Location),
-//				ResourceGroupName:       pulumi.Any(azurerm_resource_group.Example.Name),
-//				OfferType:               pulumi.String("Standard"),
-//				Kind:                    pulumi.String("MongoDB"),
-//				EnableAutomaticFailover: pulumi.Bool(true),
-//				Capabilities: cosmosdb.AccountCapabilityArray{
-//					&cosmosdb.AccountCapabilityArgs{
-//						Name: pulumi.String("EnableAggregationPipeline"),
-//					},
-//					&cosmosdb.AccountCapabilityArgs{
-//						Name: pulumi.String("mongoEnableDocLevelTTL"),
-//					},
-//					&cosmosdb.AccountCapabilityArgs{
-//						Name: pulumi.String("MongoDBv3.4"),
-//					},
-//					&cosmosdb.AccountCapabilityArgs{
-//						Name: pulumi.String("EnableMongo"),
-//					},
-//				},
-//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
-//					ConsistencyLevel:     pulumi.String("BoundedStaleness"),
-//					MaxIntervalInSeconds: pulumi.Int(300),
-//					MaxStalenessPrefix:   pulumi.Int(100000),
-//				},
-//				GeoLocations: cosmosdb.AccountGeoLocationArray{
-//					&cosmosdb.AccountGeoLocationArgs{
-//						Location:         pulumi.String("eastus"),
-//						FailoverPriority: pulumi.Int(1),
-//					},
-//					&cosmosdb.AccountGeoLocationArgs{
-//						Location:         pulumi.String("westus"),
-//						FailoverPriority: pulumi.Int(0),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // CosmosDB Accounts can be imported using the `resource id`, e.g.
@@ -119,7 +45,7 @@ type Account struct {
 	CorsRule AccountCorsRulePtrOutput `pulumi:"corsRule"`
 	// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringOutput `pulumi:"createMode"`
-	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
 	DefaultIdentityType pulumi.StringOutput `pulumi:"defaultIdentityType"`
 	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrOutput `pulumi:"enableAutomaticFailover"`
@@ -256,7 +182,7 @@ type accountState struct {
 	CorsRule *AccountCorsRule `pulumi:"corsRule"`
 	// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
 	CreateMode *string `pulumi:"createMode"`
-	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
 	DefaultIdentityType *string `pulumi:"defaultIdentityType"`
 	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
@@ -341,7 +267,7 @@ type AccountState struct {
 	CorsRule AccountCorsRulePtrInput
 	// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringPtrInput
-	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
 	DefaultIdentityType pulumi.StringPtrInput
 	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrInput
@@ -428,7 +354,7 @@ type accountArgs struct {
 	CorsRule *AccountCorsRule `pulumi:"corsRule"`
 	// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
 	CreateMode *string `pulumi:"createMode"`
-	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
 	DefaultIdentityType *string `pulumi:"defaultIdentityType"`
 	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
@@ -494,7 +420,7 @@ type AccountArgs struct {
 	CorsRule AccountCorsRulePtrInput
 	// The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
 	CreateMode pulumi.StringPtrInput
-	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
 	DefaultIdentityType pulumi.StringPtrInput
 	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrInput
@@ -677,7 +603,7 @@ func (o AccountOutput) CreateMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.CreateMode }).(pulumi.StringOutput)
 }
 
-// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
 func (o AccountOutput) DefaultIdentityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.DefaultIdentityType }).(pulumi.StringOutput)
 }

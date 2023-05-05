@@ -98,7 +98,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * An `alert_details_override` block as defined below.
      * 
      */
-    @Export(name="alertDetailsOverrides", refs={List.class,AlertRuleNrtAlertDetailsOverride.class}, tree="[0,1]")
+    @Export(name="alertDetailsOverrides", type=List.class, parameters={AlertRuleNrtAlertDetailsOverride.class})
     private Output</* @Nullable */ List<AlertRuleNrtAlertDetailsOverride>> alertDetailsOverrides;
 
     /**
@@ -112,7 +112,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * The GUID of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
      * 
      */
-    @Export(name="alertRuleTemplateGuid", refs={String.class}, tree="[0]")
+    @Export(name="alertRuleTemplateGuid", type=String.class, parameters={})
     private Output</* @Nullable */ String> alertRuleTemplateGuid;
 
     /**
@@ -126,7 +126,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * The version of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
      * 
      */
-    @Export(name="alertRuleTemplateVersion", refs={String.class}, tree="[0]")
+    @Export(name="alertRuleTemplateVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> alertRuleTemplateVersion;
 
     /**
@@ -140,7 +140,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * A map of string key-value pairs of columns to be attached to this Sentinel NRT Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
      * 
      */
-    @Export(name="customDetails", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="customDetails", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> customDetails;
 
     /**
@@ -154,7 +154,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * The description of this Sentinel NRT Alert Rule.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -168,7 +168,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * The friendly name of this Sentinel NRT Alert Rule.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -182,7 +182,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -196,7 +196,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * A list of `entity_mapping` blocks as defined below.
      * 
      */
-    @Export(name="entityMappings", refs={List.class,AlertRuleNrtEntityMapping.class}, tree="[0,1]")
+    @Export(name="entityMappings", type=List.class, parameters={AlertRuleNrtEntityMapping.class})
     private Output</* @Nullable */ List<AlertRuleNrtEntityMapping>> entityMappings;
 
     /**
@@ -210,7 +210,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * A `event_grouping` block as defined below.
      * 
      */
-    @Export(name="eventGrouping", refs={AlertRuleNrtEventGrouping.class}, tree="[0]")
+    @Export(name="eventGrouping", type=AlertRuleNrtEventGrouping.class, parameters={})
     private Output<AlertRuleNrtEventGrouping> eventGrouping;
 
     /**
@@ -224,7 +224,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * A `incident` block as defined below.
      * 
      */
-    @Export(name="incident", refs={AlertRuleNrtIncident.class}, tree="[0]")
+    @Export(name="incident", type=AlertRuleNrtIncident.class, parameters={})
     private Output<AlertRuleNrtIncident> incident;
 
     /**
@@ -238,7 +238,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -252,7 +252,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -266,7 +266,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * The query of this Sentinel NRT Alert Rule.
      * 
      */
-    @Export(name="query", refs={String.class}, tree="[0]")
+    @Export(name="query", type=String.class, parameters={})
     private Output<String> query;
 
     /**
@@ -280,7 +280,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * A list of `sentinel_entity_mapping` blocks as defined below.
      * 
      */
-    @Export(name="sentinelEntityMappings", refs={List.class,AlertRuleNrtSentinelEntityMapping.class}, tree="[0,1]")
+    @Export(name="sentinelEntityMappings", type=List.class, parameters={AlertRuleNrtSentinelEntityMapping.class})
     private Output</* @Nullable */ List<AlertRuleNrtSentinelEntityMapping>> sentinelEntityMappings;
 
     /**
@@ -294,7 +294,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
      * 
      */
-    @Export(name="severity", refs={String.class}, tree="[0]")
+    @Export(name="severity", type=String.class, parameters={})
     private Output<String> severity;
 
     /**
@@ -308,7 +308,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      * 
      */
-    @Export(name="suppressionDuration", refs={String.class}, tree="[0]")
+    @Export(name="suppressionDuration", type=String.class, parameters={})
     private Output</* @Nullable */ String> suppressionDuration;
 
     /**
@@ -322,7 +322,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
      * 
      */
-    @Export(name="suppressionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="suppressionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> suppressionEnabled;
 
     /**
@@ -336,7 +336,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
      * 
      */
-    @Export(name="tactics", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="tactics", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> tactics;
 
     /**
@@ -350,7 +350,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * A list of techniques of attacks by which to classify the rule.
      * 
      */
-    @Export(name="techniques", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="techniques", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> techniques;
 
     /**

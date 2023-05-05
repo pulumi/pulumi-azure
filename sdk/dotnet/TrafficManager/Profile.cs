@@ -12,58 +12,6 @@ namespace Pulumi.Azure.TrafficManager
     /// <summary>
     /// Manages a Traffic Manager Profile to which multiple endpoints can be attached.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// using Random = Pulumi.Random;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var server = new Random.RandomId("server", new()
-    ///     {
-    ///         Keepers = 
-    ///         {
-    ///             { "azi_id", 1 },
-    ///         },
-    ///         ByteLength = 8,
-    ///     });
-    /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("exampleTrafficManagerProfile", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         TrafficRoutingMethod = "Weighted",
-    ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
-    ///         {
-    ///             RelativeName = server.Hex,
-    ///             Ttl = 100,
-    ///         },
-    ///         MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
-    ///         {
-    ///             Protocol = "HTTP",
-    ///             Port = 80,
-    ///             Path = "/",
-    ///             IntervalInSeconds = 30,
-    ///             TimeoutInSeconds = 9,
-    ///             ToleratedNumberOfFailures = 3,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Traffic Manager Profiles can be imported using the `resource id`, e.g.

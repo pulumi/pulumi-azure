@@ -6,34 +6,20 @@ package com.pulumi.azure.attestation.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ProviderPolicy {
-    /**
-     * @return Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-     * 
-     */
-    private String data;
-    /**
-     * @return Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-     * 
-     */
-    private String environmentType;
+    private @Nullable String data;
+    private @Nullable String environmentType;
 
     private ProviderPolicy() {}
-    /**
-     * @return Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-     * 
-     */
-    public String data() {
-        return this.data;
+    public Optional<String> data() {
+        return Optional.ofNullable(this.data);
     }
-    /**
-     * @return Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-     * 
-     */
-    public String environmentType() {
-        return this.environmentType;
+    public Optional<String> environmentType() {
+        return Optional.ofNullable(this.environmentType);
     }
 
     public static Builder builder() {
@@ -45,8 +31,8 @@ public final class ProviderPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String data;
-        private String environmentType;
+        private @Nullable String data;
+        private @Nullable String environmentType;
         public Builder() {}
         public Builder(ProviderPolicy defaults) {
     	      Objects.requireNonNull(defaults);
@@ -55,13 +41,13 @@ public final class ProviderPolicy {
         }
 
         @CustomType.Setter
-        public Builder data(String data) {
-            this.data = Objects.requireNonNull(data);
+        public Builder data(@Nullable String data) {
+            this.data = data;
             return this;
         }
         @CustomType.Setter
-        public Builder environmentType(String environmentType) {
-            this.environmentType = Objects.requireNonNull(environmentType);
+        public Builder environmentType(@Nullable String environmentType) {
+            this.environmentType = environmentType;
             return this;
         }
         public ProviderPolicy build() {

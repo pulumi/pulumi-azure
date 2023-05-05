@@ -99,7 +99,7 @@ public class SpringCloudBuildDeployment extends com.pulumi.resources.CustomResou
      * A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
      * 
      */
-    @Export(name="addonJson", refs={String.class}, tree="[0]")
+    @Export(name="addonJson", type=String.class, parameters={})
     private Output<String> addonJson;
 
     /**
@@ -113,7 +113,7 @@ public class SpringCloudBuildDeployment extends com.pulumi.resources.CustomResou
      * The ID of the Spring Cloud Build Result.
      * 
      */
-    @Export(name="buildResultId", refs={String.class}, tree="[0]")
+    @Export(name="buildResultId", type=String.class, parameters={})
     private Output<String> buildResultId;
 
     /**
@@ -127,7 +127,7 @@ public class SpringCloudBuildDeployment extends com.pulumi.resources.CustomResou
      * Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
      * 
      */
-    @Export(name="environmentVariables", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="environmentVariables", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> environmentVariables;
 
     /**
@@ -141,7 +141,7 @@ public class SpringCloudBuildDeployment extends com.pulumi.resources.CustomResou
      * Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      * 
      */
-    @Export(name="instanceCount", refs={Integer.class}, tree="[0]")
+    @Export(name="instanceCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> instanceCount;
 
     /**
@@ -155,7 +155,7 @@ public class SpringCloudBuildDeployment extends com.pulumi.resources.CustomResou
      * The name which should be used for this Spring Cloud Build Deployment. Changing this forces a new Spring Cloud Build Deployment to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -169,7 +169,7 @@ public class SpringCloudBuildDeployment extends com.pulumi.resources.CustomResou
      * A `quota` block as defined below.
      * 
      */
-    @Export(name="quota", refs={SpringCloudBuildDeploymentQuota.class}, tree="[0]")
+    @Export(name="quota", type=SpringCloudBuildDeploymentQuota.class, parameters={})
     private Output<SpringCloudBuildDeploymentQuota> quota;
 
     /**
@@ -183,7 +183,7 @@ public class SpringCloudBuildDeployment extends com.pulumi.resources.CustomResou
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Build Deployment to be created.
      * 
      */
-    @Export(name="springCloudAppId", refs={String.class}, tree="[0]")
+    @Export(name="springCloudAppId", type=String.class, parameters={})
     private Output<String> springCloudAppId;
 
     /**

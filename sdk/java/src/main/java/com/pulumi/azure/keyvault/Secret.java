@@ -98,7 +98,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * Specifies the content type for the Key Vault Secret.
      * 
      */
-    @Export(name="contentType", refs={String.class}, tree="[0]")
+    @Export(name="contentType", type=String.class, parameters={})
     private Output</* @Nullable */ String> contentType;
 
     /**
@@ -112,7 +112,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
      */
-    @Export(name="expirationDate", refs={String.class}, tree="[0]")
+    @Export(name="expirationDate", type=String.class, parameters={})
     private Output</* @Nullable */ String> expirationDate;
 
     /**
@@ -126,7 +126,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultId", type=String.class, parameters={})
     private Output<String> keyVaultId;
 
     /**
@@ -140,7 +140,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -154,7 +154,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * Key not usable before the provided UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
      */
-    @Export(name="notBeforeDate", refs={String.class}, tree="[0]")
+    @Export(name="notBeforeDate", type=String.class, parameters={})
     private Output</* @Nullable */ String> notBeforeDate;
 
     /**
@@ -168,7 +168,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won&#39;t auto-rotate values if used in other Azure Services.
      * 
      */
-    @Export(name="resourceId", refs={String.class}, tree="[0]")
+    @Export(name="resourceId", type=String.class, parameters={})
     private Output<String> resourceId;
 
     /**
@@ -182,7 +182,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
      * 
      */
-    @Export(name="resourceVersionlessId", refs={String.class}, tree="[0]")
+    @Export(name="resourceVersionlessId", type=String.class, parameters={})
     private Output<String> resourceVersionlessId;
 
     /**
@@ -196,7 +196,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -210,7 +210,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * Specifies the value of the Key Vault Secret.
      * 
      */
-    @Export(name="value", refs={String.class}, tree="[0]")
+    @Export(name="value", type=String.class, parameters={})
     private Output<String> value;
 
     /**
@@ -224,7 +224,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * The current version of the Key Vault Secret.
      * 
      */
-    @Export(name="version", refs={String.class}, tree="[0]")
+    @Export(name="version", type=String.class, parameters={})
     private Output<String> version;
 
     /**
@@ -238,7 +238,7 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * The Base ID of the Key Vault Secret.
      * 
      */
-    @Export(name="versionlessId", refs={String.class}, tree="[0]")
+    @Export(name="versionlessId", type=String.class, parameters={})
     private Output<String> versionlessId;
 
     /**

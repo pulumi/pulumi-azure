@@ -95,7 +95,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A List of one or more features which should be enabled, such as `DnsService`.
      * 
      */
-    @Export(name="addOnFeatures", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="addOnFeatures", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> addOnFeatures;
 
     /**
@@ -109,7 +109,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * An `azure_active_directory` block as defined below.
      * 
      */
-    @Export(name="azureActiveDirectory", refs={ClusterAzureActiveDirectory.class}, tree="[0]")
+    @Export(name="azureActiveDirectory", type=ClusterAzureActiveDirectory.class, parameters={})
     private Output</* @Nullable */ ClusterAzureActiveDirectory> azureActiveDirectory;
 
     /**
@@ -123,7 +123,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A `certificate` block as defined below. Conflicts with `certificate_common_names`.
      * 
      */
-    @Export(name="certificate", refs={ClusterCertificate.class}, tree="[0]")
+    @Export(name="certificate", type=ClusterCertificate.class, parameters={})
     private Output</* @Nullable */ ClusterCertificate> certificate;
 
     /**
@@ -137,7 +137,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A `certificate_common_names` block as defined below. Conflicts with `certificate`.
      * 
      */
-    @Export(name="certificateCommonNames", refs={ClusterCertificateCommonNames.class}, tree="[0]")
+    @Export(name="certificateCommonNames", type=ClusterCertificateCommonNames.class, parameters={})
     private Output</* @Nullable */ ClusterCertificateCommonNames> certificateCommonNames;
 
     /**
@@ -151,7 +151,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A `client_certificate_common_name` block as defined below.
      * 
      */
-    @Export(name="clientCertificateCommonNames", refs={List.class,ClusterClientCertificateCommonName.class}, tree="[0,1]")
+    @Export(name="clientCertificateCommonNames", type=List.class, parameters={ClusterClientCertificateCommonName.class})
     private Output</* @Nullable */ List<ClusterClientCertificateCommonName>> clientCertificateCommonNames;
 
     /**
@@ -165,7 +165,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * One or more `client_certificate_thumbprint` blocks as defined below.
      * 
      */
-    @Export(name="clientCertificateThumbprints", refs={List.class,ClusterClientCertificateThumbprint.class}, tree="[0,1]")
+    @Export(name="clientCertificateThumbprints", type=List.class, parameters={ClusterClientCertificateThumbprint.class})
     private Output</* @Nullable */ List<ClusterClientCertificateThumbprint>> clientCertificateThumbprints;
 
     /**
@@ -179,7 +179,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
      * 
      */
-    @Export(name="clusterCodeVersion", refs={String.class}, tree="[0]")
+    @Export(name="clusterCodeVersion", type=String.class, parameters={})
     private Output<String> clusterCodeVersion;
 
     /**
@@ -193,7 +193,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The Cluster Endpoint for this Service Fabric Cluster.
      * 
      */
-    @Export(name="clusterEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="clusterEndpoint", type=String.class, parameters={})
     private Output<String> clusterEndpoint;
 
     /**
@@ -207,7 +207,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A `diagnostics_config` block as defined below.
      * 
      */
-    @Export(name="diagnosticsConfig", refs={ClusterDiagnosticsConfig.class}, tree="[0]")
+    @Export(name="diagnosticsConfig", type=ClusterDiagnosticsConfig.class, parameters={})
     private Output</* @Nullable */ ClusterDiagnosticsConfig> diagnosticsConfig;
 
     /**
@@ -221,7 +221,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * One or more `fabric_settings` blocks as defined below.
      * 
      */
-    @Export(name="fabricSettings", refs={List.class,ClusterFabricSetting.class}, tree="[0,1]")
+    @Export(name="fabricSettings", type=List.class, parameters={ClusterFabricSetting.class})
     private Output</* @Nullable */ List<ClusterFabricSetting>> fabricSettings;
 
     /**
@@ -235,7 +235,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -249,7 +249,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managementEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="managementEndpoint", type=String.class, parameters={})
     private Output<String> managementEndpoint;
 
     /**
@@ -263,7 +263,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -277,7 +277,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * One or more `node_type` blocks as defined below.
      * 
      */
-    @Export(name="nodeTypes", refs={List.class,ClusterNodeType.class}, tree="[0,1]")
+    @Export(name="nodeTypes", type=List.class, parameters={ClusterNodeType.class})
     private Output<List<ClusterNodeType>> nodeTypes;
 
     /**
@@ -291,7 +291,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      * 
      */
-    @Export(name="reliabilityLevel", refs={String.class}, tree="[0]")
+    @Export(name="reliabilityLevel", type=String.class, parameters={})
     private Output<String> reliabilityLevel;
 
     /**
@@ -305,7 +305,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -319,7 +319,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A `reverse_proxy_certificate` block as defined below. Conflicts with `reverse_proxy_certificate_common_names`.
      * 
      */
-    @Export(name="reverseProxyCertificate", refs={ClusterReverseProxyCertificate.class}, tree="[0]")
+    @Export(name="reverseProxyCertificate", type=ClusterReverseProxyCertificate.class, parameters={})
     private Output</* @Nullable */ ClusterReverseProxyCertificate> reverseProxyCertificate;
 
     /**
@@ -333,7 +333,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A `reverse_proxy_certificate_common_names` block as defined below. Conflicts with `reverse_proxy_certificate`.
      * 
      */
-    @Export(name="reverseProxyCertificateCommonNames", refs={ClusterReverseProxyCertificateCommonNames.class}, tree="[0]")
+    @Export(name="reverseProxyCertificateCommonNames", type=ClusterReverseProxyCertificateCommonNames.class, parameters={})
     private Output</* @Nullable */ ClusterReverseProxyCertificateCommonNames> reverseProxyCertificateCommonNames;
 
     /**
@@ -347,7 +347,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
      * 
      */
-    @Export(name="serviceFabricZonalUpgradeMode", refs={String.class}, tree="[0]")
+    @Export(name="serviceFabricZonalUpgradeMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> serviceFabricZonalUpgradeMode;
 
     /**
@@ -361,7 +361,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -375,7 +375,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
      * 
      */
-    @Export(name="upgradeMode", refs={String.class}, tree="[0]")
+    @Export(name="upgradeMode", type=String.class, parameters={})
     private Output<String> upgradeMode;
 
     /**
@@ -389,7 +389,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A `upgrade_policy` block as defined below.
      * 
      */
-    @Export(name="upgradePolicy", refs={ClusterUpgradePolicy.class}, tree="[0]")
+    @Export(name="upgradePolicy", type=ClusterUpgradePolicy.class, parameters={})
     private Output</* @Nullable */ ClusterUpgradePolicy> upgradePolicy;
 
     /**
@@ -403,7 +403,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="vmImage", refs={String.class}, tree="[0]")
+    @Export(name="vmImage", type=String.class, parameters={})
     private Output<String> vmImage;
 
     /**
@@ -417,7 +417,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
      * 
      */
-    @Export(name="vmssZonalUpgradeMode", refs={String.class}, tree="[0]")
+    @Export(name="vmssZonalUpgradeMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> vmssZonalUpgradeMode;
 
     /**

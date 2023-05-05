@@ -107,7 +107,7 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
      * One or more `action` blocks as defined below.
      * 
      */
-    @Export(name="actions", refs={List.class,ActivityLogAlertAction.class}, tree="[0,1]")
+    @Export(name="actions", type=List.class, parameters={ActivityLogAlertAction.class})
     private Output</* @Nullable */ List<ActivityLogAlertAction>> actions;
 
     /**
@@ -121,7 +121,7 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
      * A `criteria` block as defined below.
      * 
      */
-    @Export(name="criteria", refs={ActivityLogAlertCriteria.class}, tree="[0]")
+    @Export(name="criteria", type=ActivityLogAlertCriteria.class, parameters={})
     private Output<ActivityLogAlertCriteria> criteria;
 
     /**
@@ -135,7 +135,7 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
      * The description of this activity log alert.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -149,7 +149,7 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
      * Should this Activity Log Alert be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -163,7 +163,7 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
      * The name of the activity log alert. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -177,7 +177,7 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -191,7 +191,7 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
      * The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
      * 
      */
-    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="scopes", type=List.class, parameters={String.class})
     private Output<List<String>> scopes;
 
     /**
@@ -205,7 +205,7 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

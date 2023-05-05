@@ -135,7 +135,7 @@ public class PointToPointVpnGateway extends com.pulumi.resources.CustomResource 
      * A `connection_configuration` block as defined below.
      * 
      */
-    @Export(name="connectionConfiguration", refs={PointToPointVpnGatewayConnectionConfiguration.class}, tree="[0]")
+    @Export(name="connectionConfiguration", type=PointToPointVpnGatewayConnectionConfiguration.class, parameters={})
     private Output<PointToPointVpnGatewayConnectionConfiguration> connectionConfiguration;
 
     /**
@@ -149,7 +149,7 @@ public class PointToPointVpnGateway extends com.pulumi.resources.CustomResource 
      * A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
      * 
      */
-    @Export(name="dnsServers", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="dnsServers", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> dnsServers;
 
     /**
@@ -163,7 +163,7 @@ public class PointToPointVpnGateway extends com.pulumi.resources.CustomResource 
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -177,7 +177,7 @@ public class PointToPointVpnGateway extends com.pulumi.resources.CustomResource 
      * Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -191,7 +191,7 @@ public class PointToPointVpnGateway extends com.pulumi.resources.CustomResource 
      * The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -205,7 +205,7 @@ public class PointToPointVpnGateway extends com.pulumi.resources.CustomResource 
      * Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="routingPreferenceInternetEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="routingPreferenceInternetEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> routingPreferenceInternetEnabled;
 
     /**
@@ -219,7 +219,7 @@ public class PointToPointVpnGateway extends com.pulumi.resources.CustomResource 
      * The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
      * 
      */
-    @Export(name="scaleUnit", refs={Integer.class}, tree="[0]")
+    @Export(name="scaleUnit", type=Integer.class, parameters={})
     private Output<Integer> scaleUnit;
 
     /**
@@ -233,7 +233,7 @@ public class PointToPointVpnGateway extends com.pulumi.resources.CustomResource 
      * A mapping of tags to assign to the Point-to-Site VPN Gateway.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -247,7 +247,7 @@ public class PointToPointVpnGateway extends com.pulumi.resources.CustomResource 
      * The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="virtualHubId", refs={String.class}, tree="[0]")
+    @Export(name="virtualHubId", type=String.class, parameters={})
     private Output<String> virtualHubId;
 
     /**
@@ -261,7 +261,7 @@ public class PointToPointVpnGateway extends com.pulumi.resources.CustomResource 
      * The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="vpnServerConfigurationId", refs={String.class}, tree="[0]")
+    @Export(name="vpnServerConfigurationId", type=String.class, parameters={})
     private Output<String> vpnServerConfigurationId;
 
     /**

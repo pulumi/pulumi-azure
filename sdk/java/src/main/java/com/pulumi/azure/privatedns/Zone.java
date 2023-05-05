@@ -71,7 +71,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * The maximum number of record sets that can be created in this Private DNS zone.
      * 
      */
-    @Export(name="maxNumberOfRecordSets", refs={Integer.class}, tree="[0]")
+    @Export(name="maxNumberOfRecordSets", type=Integer.class, parameters={})
     private Output<Integer> maxNumberOfRecordSets;
 
     /**
@@ -85,7 +85,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * The maximum number of virtual networks that can be linked to this Private DNS zone.
      * 
      */
-    @Export(name="maxNumberOfVirtualNetworkLinks", refs={Integer.class}, tree="[0]")
+    @Export(name="maxNumberOfVirtualNetworkLinks", type=Integer.class, parameters={})
     private Output<Integer> maxNumberOfVirtualNetworkLinks;
 
     /**
@@ -99,7 +99,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
      * 
      */
-    @Export(name="maxNumberOfVirtualNetworkLinksWithRegistration", refs={Integer.class}, tree="[0]")
+    @Export(name="maxNumberOfVirtualNetworkLinksWithRegistration", type=Integer.class, parameters={})
     private Output<Integer> maxNumberOfVirtualNetworkLinksWithRegistration;
 
     /**
@@ -113,7 +113,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -127,7 +127,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * The current number of record sets in this Private DNS zone.
      * 
      */
-    @Export(name="numberOfRecordSets", refs={Integer.class}, tree="[0]")
+    @Export(name="numberOfRecordSets", type=Integer.class, parameters={})
     private Output<Integer> numberOfRecordSets;
 
     /**
@@ -141,7 +141,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -155,7 +155,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * An `soa_record` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="soaRecord", refs={ZoneSoaRecord.class}, tree="[0]")
+    @Export(name="soaRecord", type=ZoneSoaRecord.class, parameters={})
     private Output<ZoneSoaRecord> soaRecord;
 
     /**
@@ -169,7 +169,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

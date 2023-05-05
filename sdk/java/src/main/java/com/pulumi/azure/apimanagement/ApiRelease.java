@@ -94,7 +94,7 @@ public class ApiRelease extends com.pulumi.resources.CustomResource {
      * The ID of the API Management API. Changing this forces a new API Management API Release to be created.
      * 
      */
-    @Export(name="apiId", refs={String.class}, tree="[0]")
+    @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
@@ -108,7 +108,7 @@ public class ApiRelease extends com.pulumi.resources.CustomResource {
      * The name which should be used for this API Management API Release. Changing this forces a new API Management API Release to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -122,7 +122,7 @@ public class ApiRelease extends com.pulumi.resources.CustomResource {
      * The Release Notes.
      * 
      */
-    @Export(name="notes", refs={String.class}, tree="[0]")
+    @Export(name="notes", type=String.class, parameters={})
     private Output</* @Nullable */ String> notes;
 
     /**

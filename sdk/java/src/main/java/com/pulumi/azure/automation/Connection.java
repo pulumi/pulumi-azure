@@ -88,7 +88,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
+    @Export(name="automationAccountName", type=String.class, parameters={})
     private Output<String> automationAccountName;
 
     /**
@@ -102,7 +102,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * A description for this Connection.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -116,7 +116,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -130,7 +130,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -144,7 +144,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The type of the Connection - can be either builtin type such as `Azure`, `AzureClassicCertificate`, and `AzureServicePrincipal`, or a user defined types. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="type", refs={String.class}, tree="[0]")
+    @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
@@ -158,7 +158,7 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below:
      * 
      */
-    @Export(name="values", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="values", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> values;
 
     /**

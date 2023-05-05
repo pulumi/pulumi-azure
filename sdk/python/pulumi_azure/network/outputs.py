@@ -5577,12 +5577,12 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
         """
         :param str name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param str description: The description which should be used for this rule.
-        :param Sequence[str] destination_addresses: Specifies a list of destination IP addresses (including CIDR and `*`).
+        :param Sequence[str] destination_addresses: Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
         :param Sequence[str] destination_fqdn_tags: Specifies a list of destination FQDN tags.
         :param Sequence[str] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         :param Sequence[str] destination_urls: Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
         :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs'] protocols: One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
-        :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
+        :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         :param Sequence[str] source_ip_groups: Specifies a list of source IP groups.
         :param bool terminate_tls: Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
         :param Sequence[str] web_categories: Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
@@ -5629,7 +5629,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of destination IP addresses (including CIDR and `*`).
+        Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
         """
         return pulumi.get(self, "destination_addresses")
 
@@ -5669,7 +5669,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
     @pulumi.getter(name="sourceAddresses")
     def source_addresses(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of source IP addresses (including CIDR and `*`).
+        Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         """
         return pulumi.get(self, "source_addresses")
 
@@ -5825,7 +5825,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
         :param int translated_port: Specifies the translated port.
         :param str destination_address: The destination IP address (including CIDR).
         :param str destination_ports: Specifies a list of destination ports.
-        :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
+        :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         :param Sequence[str] source_ip_groups: Specifies a list of source IP groups.
         :param str translated_address: Specifies the translated address.
         :param str translated_fqdn: Specifies the translated FQDN.
@@ -5890,7 +5890,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
     @pulumi.getter(name="sourceAddresses")
     def source_addresses(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of source IP addresses (including CIDR and `*`).
+        Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         """
         return pulumi.get(self, "source_addresses")
 
@@ -6012,10 +6012,10 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
         :param Sequence[str] destination_ports: Specifies a list of destination ports.
         :param str name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param Sequence[str] protocols: One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
-        :param Sequence[str] destination_addresses: Specifies a list of destination IP addresses (including CIDR and `*`).
+        :param Sequence[str] destination_addresses: Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
         :param Sequence[str] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         :param Sequence[str] destination_ip_groups: Specifies a list of destination IP groups.
-        :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
+        :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         :param Sequence[str] source_ip_groups: Specifies a list of source IP groups.
         """
         pulumi.set(__self__, "destination_ports", destination_ports)
@@ -6060,7 +6060,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of destination IP addresses (including CIDR and `*`).
+        Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
         """
         return pulumi.get(self, "destination_addresses")
 
@@ -6084,7 +6084,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
     @pulumi.getter(name="sourceAddresses")
     def source_addresses(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of source IP addresses (including CIDR and `*`).
+        Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         """
         return pulumi.get(self, "source_addresses")
 
@@ -13404,12 +13404,14 @@ class GetVirtualNetworkGatewayIpConfigurationResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
+                 private_ip_address: str,
                  private_ip_address_allocation: str,
                  public_ip_address_id: str,
                  subnet_id: str):
         """
         :param str id: The resource ID of the IP configuration.
         :param str name: Specifies the name of the Virtual Network Gateway.
+        :param str private_ip_address: The Private IP Address associated with the Virtual Network Gateway.
         :param str private_ip_address_allocation: Defines how the private IP address
                of the gateways virtual interface is assigned.
         :param str public_ip_address_id: The ID of the Public IP Address associated
@@ -13421,6 +13423,7 @@ class GetVirtualNetworkGatewayIpConfigurationResult(dict):
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
         pulumi.set(__self__, "private_ip_address_allocation", private_ip_address_allocation)
         pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -13440,6 +13443,14 @@ class GetVirtualNetworkGatewayIpConfigurationResult(dict):
         Specifies the name of the Virtual Network Gateway.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> str:
+        """
+        The Private IP Address associated with the Virtual Network Gateway.
+        """
+        return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="privateIpAddressAllocation")

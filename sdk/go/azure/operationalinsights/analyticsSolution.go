@@ -13,65 +13,6 @@ import (
 
 // Manages a Log Analytics (formally Operational Insights) Solution.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-//				Location: pulumi.String("West Europe"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = random.NewRandomId(ctx, "workspace", &random.RandomIdArgs{
-//				Keepers: pulumi.AnyMap{
-//					"group_name": exampleResourceGroup.Name,
-//				},
-//				ByteLength: pulumi.Int(8),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Sku:               pulumi.String("PerGB2018"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
-//				SolutionName:        pulumi.String("ContainerInsights"),
-//				Location:            exampleResourceGroup.Location,
-//				ResourceGroupName:   exampleResourceGroup.Name,
-//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
-//				WorkspaceName:       exampleAnalyticsWorkspace.Name,
-//				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
-//					Publisher: pulumi.String("Microsoft"),
-//					Product:   pulumi.String("OMSGallery/ContainerInsights"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Log Analytics Solutions can be imported using the `resource id`, e.g.

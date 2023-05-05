@@ -10,6 +10,8 @@ import com.pulumi.azure.containerservice.inputs.GetGroupArgs;
 import com.pulumi.azure.containerservice.inputs.GetGroupPlainArgs;
 import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterArgs;
 import com.pulumi.azure.containerservice.inputs.GetKubernetesClusterPlainArgs;
+import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
+import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotPlainArgs;
 import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsArgs;
 import com.pulumi.azure.containerservice.inputs.GetKubernetesServiceVersionsPlainArgs;
 import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
@@ -21,6 +23,7 @@ import com.pulumi.azure.containerservice.inputs.GetRegistryTokenPlainArgs;
 import com.pulumi.azure.containerservice.outputs.GetClusterNodePoolResult;
 import com.pulumi.azure.containerservice.outputs.GetGroupResult;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterResult;
+import com.pulumi.azure.containerservice.outputs.GetKubernetesNodePoolSnapshotResult;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesServiceVersionsResult;
 import com.pulumi.azure.containerservice.outputs.GetRegistryResult;
 import com.pulumi.azure.containerservice.outputs.GetRegistryScopeMapResult;
@@ -507,6 +510,158 @@ public final class ContainerserviceFunctions {
      */
     public static CompletableFuture<GetKubernetesClusterResult> getKubernetesClusterPlain(GetKubernetesClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:containerservice/getKubernetesCluster:getKubernetesCluster", TypeShape.of(GetKubernetesClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args) {
+        return getKubernetesNodePoolSnapshot(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args) {
+        return getKubernetesNodePoolSnapshotPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", TypeShape.of(GetKubernetesNodePoolSnapshotResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Kubernetes Node Pool Snapshot.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
+     * import com.pulumi.azure.containerservice.inputs.GetKubernetesNodePoolSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ContainerserviceFunctions.getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .resourceGroupName(&#34;example-resources&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", TypeShape.of(GetKubernetesNodePoolSnapshotResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.

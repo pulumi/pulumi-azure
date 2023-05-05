@@ -5589,12 +5589,12 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
         """
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param pulumi.Input[str] description: The description which should be used for this rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: Specifies a list of destination IP addresses (including CIDR and `*`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdn_tags: Specifies a list of destination FQDN tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_urls: Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]] protocols: One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups.
         :param pulumi.Input[bool] terminate_tls: Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] web_categories: Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
@@ -5649,7 +5649,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of destination IP addresses (including CIDR and `*`).
+        Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
         """
         return pulumi.get(self, "destination_addresses")
 
@@ -5709,7 +5709,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs:
     @pulumi.getter(name="sourceAddresses")
     def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of source IP addresses (including CIDR and `*`).
+        Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         """
         return pulumi.get(self, "source_addresses")
 
@@ -5876,7 +5876,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
         :param pulumi.Input[int] translated_port: Specifies the translated port.
         :param pulumi.Input[str] destination_address: The destination IP address (including CIDR).
         :param pulumi.Input[str] destination_ports: Specifies a list of destination ports.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups.
         :param pulumi.Input[str] translated_address: Specifies the translated address.
         :param pulumi.Input[str] translated_fqdn: Specifies the translated FQDN.
@@ -5961,7 +5961,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs:
     @pulumi.getter(name="sourceAddresses")
     def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of source IP addresses (including CIDR and `*`).
+        Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         """
         return pulumi.get(self, "source_addresses")
 
@@ -6088,10 +6088,10 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ports: Specifies a list of destination ports.
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: One or more `protocols` blocks as defined below. Not required when specifying `destination_fqdn_tags`, but required when specifying `destination_fqdns`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: Specifies a list of destination IP addresses (including CIDR and `*`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_addresses: Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_ip_groups: Specifies a list of destination IP groups.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR and `*`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_addresses: Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_ip_groups: Specifies a list of source IP groups.
         """
         pulumi.set(__self__, "destination_ports", destination_ports)
@@ -6148,7 +6148,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @pulumi.getter(name="destinationAddresses")
     def destination_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of destination IP addresses (including CIDR and `*`).
+        Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
         """
         return pulumi.get(self, "destination_addresses")
 
@@ -6184,7 +6184,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs:
     @pulumi.getter(name="sourceAddresses")
     def source_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of source IP addresses (including CIDR and `*`).
+        Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         """
         return pulumi.get(self, "source_addresses")
 

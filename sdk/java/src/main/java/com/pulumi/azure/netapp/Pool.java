@@ -81,7 +81,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", refs={String.class}, tree="[0]")
+    @Export(name="accountName", type=String.class, parameters={})
     private Output<String> accountName;
 
     /**
@@ -95,7 +95,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -109,7 +109,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * The name of the NetApp Pool. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -123,7 +123,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * QoS Type of the pool. Valid values include `Auto` or `Manual`.
      * 
      */
-    @Export(name="qosType", refs={String.class}, tree="[0]")
+    @Export(name="qosType", type=String.class, parameters={})
     private Output<String> qosType;
 
     /**
@@ -137,7 +137,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -151,7 +151,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serviceLevel", refs={String.class}, tree="[0]")
+    @Export(name="serviceLevel", type=String.class, parameters={})
     private Output<String> serviceLevel;
 
     /**
@@ -165,7 +165,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Provisioned size of the pool in TB. Value must be between `4` and `500`.
      * 
      */
-    @Export(name="sizeInTb", refs={Integer.class}, tree="[0]")
+    @Export(name="sizeInTb", type=Integer.class, parameters={})
     private Output<Integer> sizeInTb;
 
     /**
@@ -179,7 +179,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

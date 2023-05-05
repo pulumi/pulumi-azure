@@ -94,7 +94,7 @@ public class WatchlistItem extends com.pulumi.resources.CustomResource {
      * The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -108,7 +108,7 @@ public class WatchlistItem extends com.pulumi.resources.CustomResource {
      * The key value pairs of the Sentinel Watchlist Item.
      * 
      */
-    @Export(name="properties", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="properties", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> properties;
 
     /**
@@ -122,7 +122,7 @@ public class WatchlistItem extends com.pulumi.resources.CustomResource {
      * The ID of the Sentinel Watchlist that this Item resides in. Changing this forces a new Sentinel Watchlist Item to be created.
      * 
      */
-    @Export(name="watchlistId", refs={String.class}, tree="[0]")
+    @Export(name="watchlistId", type=String.class, parameters={})
     private Output<String> watchlistId;
 
     /**

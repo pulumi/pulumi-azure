@@ -82,7 +82,7 @@ public class ConsumerGroup extends com.pulumi.resources.CustomResource {
      * The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="eventhubEndpointName", refs={String.class}, tree="[0]")
+    @Export(name="eventhubEndpointName", type=String.class, parameters={})
     private Output<String> eventhubEndpointName;
 
     /**
@@ -96,7 +96,7 @@ public class ConsumerGroup extends com.pulumi.resources.CustomResource {
      * The name of the IoT Hub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iothubName", refs={String.class}, tree="[0]")
+    @Export(name="iothubName", type=String.class, parameters={})
     private Output<String> iothubName;
 
     /**
@@ -110,7 +110,7 @@ public class ConsumerGroup extends com.pulumi.resources.CustomResource {
      * The name of this Consumer Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -124,7 +124,7 @@ public class ConsumerGroup extends com.pulumi.resources.CustomResource {
      * The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

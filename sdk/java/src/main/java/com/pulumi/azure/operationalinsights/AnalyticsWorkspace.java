@@ -76,7 +76,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
      * 
      */
-    @Export(name="allowResourceOnlyPermissions", refs={Boolean.class}, tree="[0]")
+    @Export(name="allowResourceOnlyPermissions", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> allowResourceOnlyPermissions;
 
     /**
@@ -90,7 +90,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * Is Customer Managed Storage mandatory for query management?
      * 
      */
-    @Export(name="cmkForQueryForced", refs={Boolean.class}, tree="[0]")
+    @Export(name="cmkForQueryForced", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> cmkForQueryForced;
 
     /**
@@ -104,7 +104,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
      * 
      */
-    @Export(name="dailyQuotaGb", refs={Double.class}, tree="[0]")
+    @Export(name="dailyQuotaGb", type=Double.class, parameters={})
     private Output</* @Nullable */ Double> dailyQuotaGb;
 
     /**
@@ -118,7 +118,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      * 
      */
-    @Export(name="internetIngestionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="internetIngestionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> internetIngestionEnabled;
 
     /**
@@ -132,7 +132,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
      * 
      */
-    @Export(name="internetQueryEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="internetQueryEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> internetQueryEnabled;
 
     /**
@@ -146,7 +146,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
      * 
      */
-    @Export(name="localAuthenticationDisabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="localAuthenticationDisabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAuthenticationDisabled;
 
     /**
@@ -160,7 +160,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -174,7 +174,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or &#39;-&#39;. The &#39;-&#39; shouldn&#39;t be the first or the last symbol. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -188,7 +188,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * The Primary shared key for the Log Analytics Workspace.
      * 
      */
-    @Export(name="primarySharedKey", refs={String.class}, tree="[0]")
+    @Export(name="primarySharedKey", type=String.class, parameters={})
     private Output<String> primarySharedKey;
 
     /**
@@ -202,7 +202,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
      * 
      */
-    @Export(name="reservationCapacityInGbPerDay", refs={Integer.class}, tree="[0]")
+    @Export(name="reservationCapacityInGbPerDay", type=Integer.class, parameters={})
     private Output<Integer> reservationCapacityInGbPerDay;
 
     /**
@@ -216,7 +216,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -230,7 +230,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
      * 
      */
-    @Export(name="retentionInDays", refs={Integer.class}, tree="[0]")
+    @Export(name="retentionInDays", type=Integer.class, parameters={})
     private Output<Integer> retentionInDays;
 
     /**
@@ -244,7 +244,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * The Secondary shared key for the Log Analytics Workspace.
      * 
      */
-    @Export(name="secondarySharedKey", refs={String.class}, tree="[0]")
+    @Export(name="secondarySharedKey", type=String.class, parameters={})
     private Output<String> secondarySharedKey;
 
     /**
@@ -258,7 +258,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
@@ -272,7 +272,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -286,7 +286,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * The Workspace (or Customer) ID for the Log Analytics Workspace.
      * 
      */
-    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**

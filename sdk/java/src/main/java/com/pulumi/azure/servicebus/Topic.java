@@ -84,7 +84,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
      * 
      */
-    @Export(name="autoDeleteOnIdle", refs={String.class}, tree="[0]")
+    @Export(name="autoDeleteOnIdle", type=String.class, parameters={})
     private Output<String> autoDeleteOnIdle;
 
     /**
@@ -98,7 +98,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      * 
      */
-    @Export(name="defaultMessageTtl", refs={String.class}, tree="[0]")
+    @Export(name="defaultMessageTtl", type=String.class, parameters={})
     private Output<String> defaultMessageTtl;
 
     /**
@@ -112,7 +112,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
      * 
      */
-    @Export(name="duplicateDetectionHistoryTimeWindow", refs={String.class}, tree="[0]")
+    @Export(name="duplicateDetectionHistoryTimeWindow", type=String.class, parameters={})
     private Output<String> duplicateDetectionHistoryTimeWindow;
 
     /**
@@ -126,7 +126,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Boolean flag which controls if server-side batched operations are enabled.
      * 
      */
-    @Export(name="enableBatchedOperations", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableBatchedOperations", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableBatchedOperations;
 
     /**
@@ -140,7 +140,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      * 
      */
-    @Export(name="enableExpress", refs={Boolean.class}, tree="[0]")
+    @Export(name="enableExpress", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableExpress;
 
     /**
@@ -156,7 +156,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="enablePartitioning", refs={Boolean.class}, tree="[0]")
+    @Export(name="enablePartitioning", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enablePartitioning;
 
     /**
@@ -172,7 +172,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      * 
      */
-    @Export(name="maxMessageSizeInKilobytes", refs={Integer.class}, tree="[0]")
+    @Export(name="maxMessageSizeInKilobytes", type=Integer.class, parameters={})
     private Output<Integer> maxMessageSizeInKilobytes;
 
     /**
@@ -186,7 +186,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Integer value which controls the size of memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      * 
      */
-    @Export(name="maxSizeInMegabytes", refs={Integer.class}, tree="[0]")
+    @Export(name="maxSizeInMegabytes", type=Integer.class, parameters={})
     private Output<Integer> maxSizeInMegabytes;
 
     /**
@@ -200,7 +200,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -215,7 +215,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * this topic in. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="namespaceId", refs={String.class}, tree="[0]")
+    @Export(name="namespaceId", type=String.class, parameters={})
     private Output<String> namespaceId;
 
     /**
@@ -226,7 +226,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
     public Output<String> namespaceId() {
         return this.namespaceId;
     }
-    @Export(name="namespaceName", refs={String.class}, tree="[0]")
+    @Export(name="namespaceName", type=String.class, parameters={})
     private Output<String> namespaceName;
 
     public Output<String> namespaceName() {
@@ -238,7 +238,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * a new resource to be created.
      * 
      */
-    @Export(name="requiresDuplicateDetection", refs={Boolean.class}, tree="[0]")
+    @Export(name="requiresDuplicateDetection", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> requiresDuplicateDetection;
 
     /**
@@ -250,7 +250,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> requiresDuplicateDetection() {
         return Codegen.optional(this.requiresDuplicateDetection);
     }
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     public Output<String> resourceGroupName() {
@@ -260,7 +260,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
      * 
      */
-    @Export(name="status", refs={String.class}, tree="[0]")
+    @Export(name="status", type=String.class, parameters={})
     private Output</* @Nullable */ String> status;
 
     /**
@@ -274,7 +274,7 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * Boolean flag which controls whether the Topic supports ordering.
      * 
      */
-    @Export(name="supportOrdering", refs={Boolean.class}, tree="[0]")
+    @Export(name="supportOrdering", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> supportOrdering;
 
     /**

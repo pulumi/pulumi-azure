@@ -37,26 +37,18 @@ import * as utilities from "../utilities";
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: exampleAccount.identity.apply(identity => identity?.principalId),
+ *     secretPermissions: ["Get"],
  *     keyPermissions: [
  *         "Get",
- *         "Create",
- *         "List",
- *         "Restore",
- *         "Recover",
  *         "UnwrapKey",
  *         "WrapKey",
- *         "Purge",
- *         "Encrypt",
- *         "Decrypt",
- *         "Sign",
- *         "Verify",
  *     ],
- *     secretPermissions: ["Get"],
  * });
  * const client = new azure.keyvault.AccessPolicy("client", {
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: current.then(current => current.objectId),
+ *     secretPermissions: ["Get"],
  *     keyPermissions: [
  *         "Get",
  *         "Create",
@@ -72,8 +64,8 @@ import * as utilities from "../utilities";
  *         "Sign",
  *         "Verify",
  *         "GetRotationPolicy",
+ *         "SetRotationPolicy",
  *     ],
- *     secretPermissions: ["Get"],
  * });
  * const exampleKey = new azure.keyvault.Key("exampleKey", {
  *     keyVaultId: exampleKeyVault.id,

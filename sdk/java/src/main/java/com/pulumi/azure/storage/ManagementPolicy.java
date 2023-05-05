@@ -137,7 +137,7 @@ public class ManagementPolicy extends com.pulumi.resources.CustomResource {
      * A `rule` block as documented below.
      * 
      */
-    @Export(name="rules", refs={List.class,ManagementPolicyRule.class}, tree="[0,1]")
+    @Export(name="rules", type=List.class, parameters={ManagementPolicyRule.class})
     private Output</* @Nullable */ List<ManagementPolicyRule>> rules;
 
     /**
@@ -151,7 +151,7 @@ public class ManagementPolicy extends com.pulumi.resources.CustomResource {
      * Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**

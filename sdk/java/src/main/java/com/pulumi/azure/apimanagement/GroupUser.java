@@ -72,7 +72,7 @@ public class GroupUser extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -86,7 +86,7 @@ public class GroupUser extends com.pulumi.resources.CustomResource {
      * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="groupName", refs={String.class}, tree="[0]")
+    @Export(name="groupName", type=String.class, parameters={})
     private Output<String> groupName;
 
     /**
@@ -100,7 +100,7 @@ public class GroupUser extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -114,7 +114,7 @@ public class GroupUser extends com.pulumi.resources.CustomResource {
      * The ID of the API Management User which should be assigned to this API Management Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="userId", refs={String.class}, tree="[0]")
+    @Export(name="userId", type=String.class, parameters={})
     private Output<String> userId;
 
     /**

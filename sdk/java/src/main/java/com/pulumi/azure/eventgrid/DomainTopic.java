@@ -76,7 +76,7 @@ public class DomainTopic extends com.pulumi.resources.CustomResource {
      * Specifies the name of the EventGrid Domain. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="domainName", refs={String.class}, tree="[0]")
+    @Export(name="domainName", type=String.class, parameters={})
     private Output<String> domainName;
 
     /**
@@ -90,7 +90,7 @@ public class DomainTopic extends com.pulumi.resources.CustomResource {
      * Specifies the name of the EventGrid Domain Topic resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -104,7 +104,7 @@ public class DomainTopic extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

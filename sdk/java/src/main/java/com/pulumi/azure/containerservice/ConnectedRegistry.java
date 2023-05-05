@@ -106,7 +106,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * Should the log auditing be enabled?
      * 
      */
-    @Export(name="auditLogEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="auditLogEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> auditLogEnabled;
 
     /**
@@ -120,7 +120,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
      * 
      */
-    @Export(name="clientTokenIds", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="clientTokenIds", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> clientTokenIds;
 
     /**
@@ -134,7 +134,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
      * 
      */
-    @Export(name="containerRegistryId", refs={String.class}, tree="[0]")
+    @Export(name="containerRegistryId", type=String.class, parameters={})
     private Output<String> containerRegistryId;
 
     /**
@@ -148,7 +148,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
      * 
      */
-    @Export(name="logLevel", refs={String.class}, tree="[0]")
+    @Export(name="logLevel", type=String.class, parameters={})
     private Output</* @Nullable */ String> logLevel;
 
     /**
@@ -162,7 +162,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
      * 
      */
-    @Export(name="mode", refs={String.class}, tree="[0]")
+    @Export(name="mode", type=String.class, parameters={})
     private Output</* @Nullable */ String> mode;
 
     /**
@@ -176,7 +176,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -190,7 +190,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * One or more `notification` blocks as defined below.
      * 
      */
-    @Export(name="notifications", refs={List.class,ConnectedRegistryNotification.class}, tree="[0,1]")
+    @Export(name="notifications", type=List.class, parameters={ConnectedRegistryNotification.class})
     private Output</* @Nullable */ List<ConnectedRegistryNotification>> notifications;
 
     /**
@@ -204,7 +204,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
      * 
      */
-    @Export(name="parentRegistryId", refs={String.class}, tree="[0]")
+    @Export(name="parentRegistryId", type=String.class, parameters={})
     private Output</* @Nullable */ String> parentRegistryId;
 
     /**
@@ -218,7 +218,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
      * 
      */
-    @Export(name="syncMessageTtl", refs={String.class}, tree="[0]")
+    @Export(name="syncMessageTtl", type=String.class, parameters={})
     private Output</* @Nullable */ String> syncMessageTtl;
 
     /**
@@ -232,7 +232,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
      * 
      */
-    @Export(name="syncSchedule", refs={String.class}, tree="[0]")
+    @Export(name="syncSchedule", type=String.class, parameters={})
     private Output</* @Nullable */ String> syncSchedule;
 
     /**
@@ -246,7 +246,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
      * 
      */
-    @Export(name="syncTokenId", refs={String.class}, tree="[0]")
+    @Export(name="syncTokenId", type=String.class, parameters={})
     private Output<String> syncTokenId;
 
     /**
@@ -260,7 +260,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
      * 
      */
-    @Export(name="syncWindow", refs={String.class}, tree="[0]")
+    @Export(name="syncWindow", type=String.class, parameters={})
     private Output</* @Nullable */ String> syncWindow;
 
     /**

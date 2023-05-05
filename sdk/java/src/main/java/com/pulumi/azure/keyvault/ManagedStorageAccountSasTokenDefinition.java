@@ -155,7 +155,7 @@ public class ManagedStorageAccountSasTokenDefinition extends com.pulumi.resource
      * The ID of the Managed Storage Account.
      * 
      */
-    @Export(name="managedStorageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="managedStorageAccountId", type=String.class, parameters={})
     private Output<String> managedStorageAccountId;
 
     /**
@@ -169,7 +169,7 @@ public class ManagedStorageAccountSasTokenDefinition extends com.pulumi.resource
      * The name which should be used for this SAS Definition.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -183,7 +183,7 @@ public class ManagedStorageAccountSasTokenDefinition extends com.pulumi.resource
      * The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
      * 
      */
-    @Export(name="sasTemplateUri", refs={String.class}, tree="[0]")
+    @Export(name="sasTemplateUri", type=String.class, parameters={})
     private Output<String> sasTemplateUri;
 
     /**
@@ -197,7 +197,7 @@ public class ManagedStorageAccountSasTokenDefinition extends com.pulumi.resource
      * The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
      * 
      */
-    @Export(name="sasType", refs={String.class}, tree="[0]")
+    @Export(name="sasType", type=String.class, parameters={})
     private Output<String> sasType;
 
     /**
@@ -211,7 +211,7 @@ public class ManagedStorageAccountSasTokenDefinition extends com.pulumi.resource
      * The ID of the Secret that is created by Managed Storage Account SAS Definition.
      * 
      */
-    @Export(name="secretId", refs={String.class}, tree="[0]")
+    @Export(name="secretId", type=String.class, parameters={})
     private Output<String> secretId;
 
     /**
@@ -225,7 +225,7 @@ public class ManagedStorageAccountSasTokenDefinition extends com.pulumi.resource
      * A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -239,7 +239,7 @@ public class ManagedStorageAccountSasTokenDefinition extends com.pulumi.resource
      * Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
      * 
      */
-    @Export(name="validityPeriod", refs={String.class}, tree="[0]")
+    @Export(name="validityPeriod", type=String.class, parameters={})
     private Output<String> validityPeriod;
 
     /**

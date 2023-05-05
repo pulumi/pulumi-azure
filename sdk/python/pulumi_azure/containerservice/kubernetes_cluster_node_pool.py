@@ -49,6 +49,7 @@ class KubernetesClusterNodePoolArgs:
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  scale_down_mode: Optional[pulumi.Input[str]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
@@ -92,6 +93,7 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        :param pulumi.Input[str] snapshot_id: The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
@@ -165,6 +167,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if scale_down_mode is not None:
             pulumi.set(__self__, "scale_down_mode", scale_down_mode)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
         if spot_max_price is not None:
             pulumi.set(__self__, "spot_max_price", spot_max_price)
         if tags is not None:
@@ -579,6 +583,18 @@ class KubernetesClusterNodePoolArgs:
         pulumi.set(self, "scale_down_mode", value)
 
     @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @snapshot_id.setter
+    def snapshot_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_id", value)
+
+    @property
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> Optional[pulumi.Input[float]]:
         """
@@ -710,6 +726,7 @@ class _KubernetesClusterNodePoolState:
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  scale_down_mode: Optional[pulumi.Input[str]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
@@ -753,6 +770,7 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        :param pulumi.Input[str] snapshot_id: The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
@@ -827,6 +845,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if scale_down_mode is not None:
             pulumi.set(__self__, "scale_down_mode", scale_down_mode)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
         if spot_max_price is not None:
             pulumi.set(__self__, "spot_max_price", spot_max_price)
         if tags is not None:
@@ -1231,6 +1251,18 @@ class _KubernetesClusterNodePoolState:
         pulumi.set(self, "scale_down_mode", value)
 
     @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @snapshot_id.setter
+    def snapshot_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_id", value)
+
+    @property
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> Optional[pulumi.Input[float]]:
         """
@@ -1376,6 +1408,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  scale_down_mode: Optional[pulumi.Input[str]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1464,6 +1497,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        :param pulumi.Input[str] snapshot_id: The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
@@ -1571,6 +1605,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  scale_down_mode: Optional[pulumi.Input[str]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1623,6 +1658,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["priority"] = priority
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
             __props__.__dict__["scale_down_mode"] = scale_down_mode
+            __props__.__dict__["snapshot_id"] = snapshot_id
             __props__.__dict__["spot_max_price"] = spot_max_price
             __props__.__dict__["tags"] = tags
             __props__.__dict__["ultra_ssd_enabled"] = ultra_ssd_enabled
@@ -1676,6 +1712,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             priority: Optional[pulumi.Input[str]] = None,
             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
             scale_down_mode: Optional[pulumi.Input[str]] = None,
+            snapshot_id: Optional[pulumi.Input[str]] = None,
             spot_max_price: Optional[pulumi.Input[float]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1724,6 +1761,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scale_down_mode: Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
+        :param pulumi.Input[str] snapshot_id: The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
@@ -1770,6 +1808,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["priority"] = priority
         __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
         __props__.__dict__["scale_down_mode"] = scale_down_mode
+        __props__.__dict__["snapshot_id"] = snapshot_id
         __props__.__dict__["spot_max_price"] = spot_max_price
         __props__.__dict__["tags"] = tags
         __props__.__dict__["ultra_ssd_enabled"] = ultra_ssd_enabled
@@ -2036,6 +2075,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         """
         return pulumi.get(self, "scale_down_mode")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "snapshot_id")
 
     @property
     @pulumi.getter(name="spotMaxPrice")

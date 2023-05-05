@@ -86,7 +86,7 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -100,7 +100,7 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
      * List of tags that can be used for describing the Data Factory Linked Service.
      * 
      */
-    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="annotations", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -114,7 +114,7 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
      * The connection string.
      * 
      */
-    @Export(name="connectionString", refs={String.class}, tree="[0]")
+    @Export(name="connectionString", type=String.class, parameters={})
     private Output<String> connectionString;
 
     /**
@@ -128,7 +128,7 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
+    @Export(name="dataFactoryId", type=String.class, parameters={})
     private Output<String> dataFactoryId;
 
     /**
@@ -142,7 +142,7 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
      * The description for the Data Factory Linked Service.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -156,7 +156,7 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
      * The name of the file share.
      * 
      */
-    @Export(name="fileShare", refs={String.class}, tree="[0]")
+    @Export(name="fileShare", type=String.class, parameters={})
     private Output</* @Nullable */ String> fileShare;
 
     /**
@@ -170,7 +170,7 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
      * The Host name of the server.
      * 
      */
-    @Export(name="host", refs={String.class}, tree="[0]")
+    @Export(name="host", type=String.class, parameters={})
     private Output</* @Nullable */ String> host;
 
     /**
@@ -184,7 +184,7 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
      * The integration runtime reference to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="integrationRuntimeName", refs={String.class}, tree="[0]")
+    @Export(name="integrationRuntimeName", type=String.class, parameters={})
     private Output</* @Nullable */ String> integrationRuntimeName;
 
     /**
@@ -198,7 +198,7 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
      * A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      * 
      */
-    @Export(name="keyVaultPassword", refs={LinkedServiceAzureFileStorageKeyVaultPassword.class}, tree="[0]")
+    @Export(name="keyVaultPassword", type=LinkedServiceAzureFileStorageKeyVaultPassword.class, parameters={})
     private Output</* @Nullable */ LinkedServiceAzureFileStorageKeyVaultPassword> keyVaultPassword;
 
     /**
@@ -212,7 +212,7 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -226,7 +226,7 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
      * A map of parameters to associate with the Data Factory Linked Service.
      * 
      */
-    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -240,7 +240,7 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
      * The password to log in the server.
      * 
      */
-    @Export(name="password", refs={String.class}, tree="[0]")
+    @Export(name="password", type=String.class, parameters={})
     private Output</* @Nullable */ String> password;
 
     /**
@@ -254,7 +254,7 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
      * The user ID to log in the server.
      * 
      */
-    @Export(name="userId", refs={String.class}, tree="[0]")
+    @Export(name="userId", type=String.class, parameters={})
     private Output</* @Nullable */ String> userId;
 
     /**

@@ -352,39 +352,6 @@ class Profile(pulumi.CustomResource):
         """
         Manages a Traffic Manager Profile to which multiple endpoints can be attached.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        server = random.RandomId("server",
-            keepers={
-                "azi_id": 1,
-            },
-            byte_length=8)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
-            resource_group_name=example_resource_group.name,
-            traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name=server.hex,
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
-            tags={
-                "environment": "Production",
-            })
-        ```
-
         ## Import
 
         Traffic Manager Profiles can be imported using the `resource id`, e.g.
@@ -413,39 +380,6 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Traffic Manager Profile to which multiple endpoints can be attached.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-        import pulumi_random as random
-
-        server = random.RandomId("server",
-            keepers={
-                "azi_id": 1,
-            },
-            byte_length=8)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
-            resource_group_name=example_resource_group.name,
-            traffic_routing_method="Weighted",
-            dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
-                relative_name=server.hex,
-                ttl=100,
-            ),
-            monitor_config=azure.network.TrafficManagerProfileMonitorConfigArgs(
-                protocol="HTTP",
-                port=80,
-                path="/",
-                interval_in_seconds=30,
-                timeout_in_seconds=9,
-                tolerated_number_of_failures=3,
-            ),
-            tags={
-                "environment": "Production",
-            })
-        ```
 
         ## Import
 

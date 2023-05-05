@@ -87,7 +87,7 @@ public class ChannelSms extends com.pulumi.resources.CustomResource {
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="botName", refs={String.class}, tree="[0]")
+    @Export(name="botName", type=String.class, parameters={})
     private Output<String> botName;
 
     /**
@@ -101,7 +101,7 @@ public class ChannelSms extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -115,7 +115,7 @@ public class ChannelSms extends com.pulumi.resources.CustomResource {
      * The phone number for the SMS Channel.
      * 
      */
-    @Export(name="phoneNumber", refs={String.class}, tree="[0]")
+    @Export(name="phoneNumber", type=String.class, parameters={})
     private Output<String> phoneNumber;
 
     /**
@@ -129,7 +129,7 @@ public class ChannelSms extends com.pulumi.resources.CustomResource {
      * The name of the resource group where the SMS Channel should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -143,7 +143,7 @@ public class ChannelSms extends com.pulumi.resources.CustomResource {
      * The account security identifier (SID) for the SMS Channel.
      * 
      */
-    @Export(name="smsChannelAccountSecurityId", refs={String.class}, tree="[0]")
+    @Export(name="smsChannelAccountSecurityId", type=String.class, parameters={})
     private Output<String> smsChannelAccountSecurityId;
 
     /**
@@ -157,7 +157,7 @@ public class ChannelSms extends com.pulumi.resources.CustomResource {
      * The authorization token for the SMS Channel.
      * 
      */
-    @Export(name="smsChannelAuthToken", refs={String.class}, tree="[0]")
+    @Export(name="smsChannelAuthToken", type=String.class, parameters={})
     private Output<String> smsChannelAuthToken;
 
     /**

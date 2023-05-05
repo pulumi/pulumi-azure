@@ -73,7 +73,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
      * Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="datastoreType", refs={String.class}, tree="[0]")
+    @Export(name="datastoreType", type=String.class, parameters={})
     private Output<String> datastoreType;
 
     /**
@@ -87,7 +87,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={BackupVaultIdentity.class}, tree="[0]")
+    @Export(name="identity", type=BackupVaultIdentity.class, parameters={})
     private Output</* @Nullable */ BackupVaultIdentity> identity;
 
     /**
@@ -101,7 +101,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -115,7 +115,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -129,7 +129,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
      * Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
      * 
      */
-    @Export(name="redundancy", refs={String.class}, tree="[0]")
+    @Export(name="redundancy", type=String.class, parameters={})
     private Output<String> redundancy;
 
     /**
@@ -143,7 +143,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -157,7 +157,7 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Backup Vault.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

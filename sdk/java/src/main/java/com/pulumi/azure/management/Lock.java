@@ -154,7 +154,7 @@ public class Lock extends com.pulumi.resources.CustomResource {
      * Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="lockLevel", refs={String.class}, tree="[0]")
+    @Export(name="lockLevel", type=String.class, parameters={})
     private Output<String> lockLevel;
 
     /**
@@ -168,7 +168,7 @@ public class Lock extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Management Lock. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -182,7 +182,7 @@ public class Lock extends com.pulumi.resources.CustomResource {
      * Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="notes", refs={String.class}, tree="[0]")
+    @Export(name="notes", type=String.class, parameters={})
     private Output</* @Nullable */ String> notes;
 
     /**
@@ -196,7 +196,7 @@ public class Lock extends com.pulumi.resources.CustomResource {
      * Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="scope", refs={String.class}, tree="[0]")
+    @Export(name="scope", type=String.class, parameters={})
     private Output<String> scope;
 
     /**

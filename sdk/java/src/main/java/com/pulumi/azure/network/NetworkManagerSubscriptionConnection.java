@@ -86,7 +86,7 @@ public class NetworkManagerSubscriptionConnection extends com.pulumi.resources.C
      * The Connection state of the Network Manager Subscription Connection.
      * 
      */
-    @Export(name="connectionState", refs={String.class}, tree="[0]")
+    @Export(name="connectionState", type=String.class, parameters={})
     private Output<String> connectionState;
 
     /**
@@ -100,7 +100,7 @@ public class NetworkManagerSubscriptionConnection extends com.pulumi.resources.C
      * A description of the Network Manager Subscription Connection.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -114,7 +114,7 @@ public class NetworkManagerSubscriptionConnection extends com.pulumi.resources.C
      * Specifies the name which should be used for this Network Subscription Network Manager Connection. Changing this forces a new Network Subscription Network Manager Connection to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class NetworkManagerSubscriptionConnection extends com.pulumi.resources.C
      * Specifies the ID of the Network Manager which the Subscription is connected to.
      * 
      */
-    @Export(name="networkManagerId", refs={String.class}, tree="[0]")
+    @Export(name="networkManagerId", type=String.class, parameters={})
     private Output<String> networkManagerId;
 
     /**
@@ -142,7 +142,7 @@ public class NetworkManagerSubscriptionConnection extends com.pulumi.resources.C
      * Specifies the ID of the target Subscription. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
+    @Export(name="subscriptionId", type=String.class, parameters={})
     private Output<String> subscriptionId;
 
     /**

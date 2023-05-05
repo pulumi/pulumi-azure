@@ -99,7 +99,7 @@ public class StreamInputIotHub extends com.pulumi.resources.CustomResource {
      * The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
      * 
      */
-    @Export(name="endpoint", refs={String.class}, tree="[0]")
+    @Export(name="endpoint", type=String.class, parameters={})
     private Output<String> endpoint;
 
     /**
@@ -113,7 +113,7 @@ public class StreamInputIotHub extends com.pulumi.resources.CustomResource {
      * The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
      * 
      */
-    @Export(name="eventhubConsumerGroupName", refs={String.class}, tree="[0]")
+    @Export(name="eventhubConsumerGroupName", type=String.class, parameters={})
     private Output<String> eventhubConsumerGroupName;
 
     /**
@@ -127,7 +127,7 @@ public class StreamInputIotHub extends com.pulumi.resources.CustomResource {
      * The name or the URI of the IoT Hub.
      * 
      */
-    @Export(name="iothubNamespace", refs={String.class}, tree="[0]")
+    @Export(name="iothubNamespace", type=String.class, parameters={})
     private Output<String> iothubNamespace;
 
     /**
@@ -141,7 +141,7 @@ public class StreamInputIotHub extends com.pulumi.resources.CustomResource {
      * The name of the Stream Input IoTHub. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -155,7 +155,7 @@ public class StreamInputIotHub extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -169,7 +169,7 @@ public class StreamInputIotHub extends com.pulumi.resources.CustomResource {
      * A `serialization` block as defined below.
      * 
      */
-    @Export(name="serialization", refs={StreamInputIotHubSerialization.class}, tree="[0]")
+    @Export(name="serialization", type=StreamInputIotHubSerialization.class, parameters={})
     private Output<StreamInputIotHubSerialization> serialization;
 
     /**
@@ -183,7 +183,7 @@ public class StreamInputIotHub extends com.pulumi.resources.CustomResource {
      * The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="sharedAccessPolicyKey", refs={String.class}, tree="[0]")
+    @Export(name="sharedAccessPolicyKey", type=String.class, parameters={})
     private Output<String> sharedAccessPolicyKey;
 
     /**
@@ -197,7 +197,7 @@ public class StreamInputIotHub extends com.pulumi.resources.CustomResource {
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
      * 
      */
-    @Export(name="sharedAccessPolicyName", refs={String.class}, tree="[0]")
+    @Export(name="sharedAccessPolicyName", type=String.class, parameters={})
     private Output<String> sharedAccessPolicyName;
 
     /**
@@ -211,7 +211,7 @@ public class StreamInputIotHub extends com.pulumi.resources.CustomResource {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobName", refs={String.class}, tree="[0]")
+    @Export(name="streamAnalyticsJobName", type=String.class, parameters={})
     private Output<String> streamAnalyticsJobName;
 
     /**

@@ -81,7 +81,7 @@ public class DataConnectorOfficeIrm extends com.pulumi.resources.CustomResource 
      * The ID of the Log Analytics Workspace that this Office IRM Data Connector resides in. Changing this forces a new Office IRM Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -95,7 +95,7 @@ public class DataConnectorOfficeIrm extends com.pulumi.resources.CustomResource 
      * The name which should be used for this Office IRM Data Connector. Changing this forces a new Office IRM Data Connector to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -109,7 +109,7 @@ public class DataConnectorOfficeIrm extends com.pulumi.resources.CustomResource 
      * The ID of the tenant that this Office IRM Data Connector connects to. Changing this forces a new Office IRM Data Connector to be created.
      * 
      */
-    @Export(name="tenantId", refs={String.class}, tree="[0]")
+    @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     /**

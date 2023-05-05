@@ -156,7 +156,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -170,7 +170,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * A `management_network_profile` block as defined below.
      * 
      */
-    @Export(name="managementNetworkProfile", refs={ModuleManagementNetworkProfile.class}, tree="[0]")
+    @Export(name="managementNetworkProfile", type=ModuleManagementNetworkProfile.class, parameters={})
     private Output</* @Nullable */ ModuleManagementNetworkProfile> managementNetworkProfile;
 
     /**
@@ -184,7 +184,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -198,7 +198,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * A `network_profile` block as defined below.
      * 
      */
-    @Export(name="networkProfile", refs={ModuleNetworkProfile.class}, tree="[0]")
+    @Export(name="networkProfile", type=ModuleNetworkProfile.class, parameters={})
     private Output<ModuleNetworkProfile> networkProfile;
 
     /**
@@ -212,7 +212,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -226,7 +226,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output<String> skuName;
 
     /**
@@ -240,7 +240,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
      * 
      */
-    @Export(name="stampId", refs={String.class}, tree="[0]")
+    @Export(name="stampId", type=String.class, parameters={})
     private Output</* @Nullable */ String> stampId;
 
     /**
@@ -254,7 +254,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -268,7 +268,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
      * 
      */
-    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="zones", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> zones;
 
     /**

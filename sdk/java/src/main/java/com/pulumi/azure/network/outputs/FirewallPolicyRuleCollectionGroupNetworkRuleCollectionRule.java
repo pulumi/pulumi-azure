@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
     /**
-     * @return Specifies a list of destination IP addresses (including CIDR and `*`).
+     * @return Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
      * 
      */
     private @Nullable List<String> destinationAddresses;
@@ -42,7 +42,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
      */
     private List<String> protocols;
     /**
-     * @return Specifies a list of source IP addresses (including CIDR and `*`).
+     * @return Specifies a list of source IP addresses (including CIDR, IP range and `*`).
      * 
      */
     private @Nullable List<String> sourceAddresses;
@@ -54,7 +54,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
 
     private FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule() {}
     /**
-     * @return Specifies a list of destination IP addresses (including CIDR and `*`).
+     * @return Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
      * 
      */
     public List<String> destinationAddresses() {
@@ -96,7 +96,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         return this.protocols;
     }
     /**
-     * @return Specifies a list of source IP addresses (including CIDR and `*`).
+     * @return Specifies a list of source IP addresses (including CIDR, IP range and `*`).
      * 
      */
     public List<String> sourceAddresses() {

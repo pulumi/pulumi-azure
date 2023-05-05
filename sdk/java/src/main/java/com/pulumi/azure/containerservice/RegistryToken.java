@@ -96,7 +96,7 @@ public class RegistryToken extends com.pulumi.resources.CustomResource {
      * The name of the Container Registry. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="containerRegistryName", refs={String.class}, tree="[0]")
+    @Export(name="containerRegistryName", type=String.class, parameters={})
     private Output<String> containerRegistryName;
 
     /**
@@ -110,7 +110,7 @@ public class RegistryToken extends com.pulumi.resources.CustomResource {
      * Should the Container Registry token be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -124,7 +124,7 @@ public class RegistryToken extends com.pulumi.resources.CustomResource {
      * Specifies the name of the token. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -138,7 +138,7 @@ public class RegistryToken extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -152,7 +152,7 @@ public class RegistryToken extends com.pulumi.resources.CustomResource {
      * The ID of the Container Registry Scope Map associated with the token.
      * 
      */
-    @Export(name="scopeMapId", refs={String.class}, tree="[0]")
+    @Export(name="scopeMapId", type=String.class, parameters={})
     private Output<String> scopeMapId;
 
     /**

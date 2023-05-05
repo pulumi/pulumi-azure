@@ -136,7 +136,7 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
      * The authentication info. An `authentication` block as defined below.
      * 
      */
-    @Export(name="authentication", refs={SpringCloudConnectionAuthentication.class}, tree="[0]")
+    @Export(name="authentication", type=SpringCloudConnectionAuthentication.class, parameters={})
     private Output<SpringCloudConnectionAuthentication> authentication;
 
     /**
@@ -150,7 +150,7 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
      * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
      * 
      */
-    @Export(name="clientType", refs={String.class}, tree="[0]")
+    @Export(name="clientType", type=String.class, parameters={})
     private Output</* @Nullable */ String> clientType;
 
     /**
@@ -164,7 +164,7 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
      * The name of the service connection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -178,7 +178,7 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
      * An option to store secret value in secure place. An `secret_store` block as defined below.
      * 
      */
-    @Export(name="secretStore", refs={SpringCloudConnectionSecretStore.class}, tree="[0]")
+    @Export(name="secretStore", type=SpringCloudConnectionSecretStore.class, parameters={})
     private Output</* @Nullable */ SpringCloudConnectionSecretStore> secretStore;
 
     /**
@@ -192,7 +192,7 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
      * The ID of the data source spring cloud. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="springCloudId", refs={String.class}, tree="[0]")
+    @Export(name="springCloudId", type=String.class, parameters={})
     private Output<String> springCloudId;
 
     /**
@@ -206,7 +206,7 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
      * The ID of the target resource. Changing this forces a new resource to be created. Possible values are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`.
      * 
      */
-    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
+    @Export(name="targetResourceId", type=String.class, parameters={})
     private Output<String> targetResourceId;
 
     /**
@@ -220,7 +220,7 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
      * The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
      * 
      */
-    @Export(name="vnetSolution", refs={String.class}, tree="[0]")
+    @Export(name="vnetSolution", type=String.class, parameters={})
     private Output</* @Nullable */ String> vnetSolution;
 
     /**

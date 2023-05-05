@@ -139,7 +139,7 @@ public class VirtualHubRouteTableRoute extends com.pulumi.resources.CustomResour
      * A list of destination addresses for this route.
      * 
      */
-    @Export(name="destinations", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="destinations", type=List.class, parameters={String.class})
     private Output<List<String>> destinations;
 
     /**
@@ -153,7 +153,7 @@ public class VirtualHubRouteTableRoute extends com.pulumi.resources.CustomResour
      * The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
      * 
      */
-    @Export(name="destinationsType", refs={String.class}, tree="[0]")
+    @Export(name="destinationsType", type=String.class, parameters={})
     private Output<String> destinationsType;
 
     /**
@@ -167,7 +167,7 @@ public class VirtualHubRouteTableRoute extends com.pulumi.resources.CustomResour
      * The name which should be used for this route. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -181,7 +181,7 @@ public class VirtualHubRouteTableRoute extends com.pulumi.resources.CustomResour
      * The next hop&#39;s resource ID.
      * 
      */
-    @Export(name="nextHop", refs={String.class}, tree="[0]")
+    @Export(name="nextHop", type=String.class, parameters={})
     private Output<String> nextHop;
 
     /**
@@ -195,7 +195,7 @@ public class VirtualHubRouteTableRoute extends com.pulumi.resources.CustomResour
      * The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
      * 
      */
-    @Export(name="nextHopType", refs={String.class}, tree="[0]")
+    @Export(name="nextHopType", type=String.class, parameters={})
     private Output</* @Nullable */ String> nextHopType;
 
     /**
@@ -209,7 +209,7 @@ public class VirtualHubRouteTableRoute extends com.pulumi.resources.CustomResour
      * The ID of the Virtual Hub Route Table to link this route to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="routeTableId", refs={String.class}, tree="[0]")
+    @Export(name="routeTableId", type=String.class, parameters={})
     private Output<String> routeTableId;
 
     /**

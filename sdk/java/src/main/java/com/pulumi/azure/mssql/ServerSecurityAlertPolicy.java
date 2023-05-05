@@ -100,7 +100,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
      * Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
      * 
      */
-    @Export(name="disabledAlerts", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="disabledAlerts", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> disabledAlerts;
 
     /**
@@ -114,7 +114,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
      * Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
      * 
      */
-    @Export(name="emailAccountAdmins", refs={Boolean.class}, tree="[0]")
+    @Export(name="emailAccountAdmins", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> emailAccountAdmins;
 
     /**
@@ -128,7 +128,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
      * Specifies an array of email addresses to which the alert is sent.
      * 
      */
-    @Export(name="emailAddresses", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="emailAddresses", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> emailAddresses;
 
     /**
@@ -142,7 +142,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
      * The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -156,7 +156,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
      * Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
      * 
      */
-    @Export(name="retentionDays", refs={Integer.class}, tree="[0]")
+    @Export(name="retentionDays", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> retentionDays;
 
     /**
@@ -170,7 +170,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
      * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", refs={String.class}, tree="[0]")
+    @Export(name="serverName", type=String.class, parameters={})
     private Output<String> serverName;
 
     /**
@@ -184,7 +184,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
      * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`.
      * 
      */
-    @Export(name="state", refs={String.class}, tree="[0]")
+    @Export(name="state", type=String.class, parameters={})
     private Output<String> state;
 
     /**
@@ -198,7 +198,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
      * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
      * 
      */
-    @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountAccessKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageAccountAccessKey;
 
     /**
@@ -212,7 +212,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
      * Specifies the blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all Threat Detection audit logs.
      * 
      */
-    @Export(name="storageEndpoint", refs={String.class}, tree="[0]")
+    @Export(name="storageEndpoint", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageEndpoint;
 
     /**

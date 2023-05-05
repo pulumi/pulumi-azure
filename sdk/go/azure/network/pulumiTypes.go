@@ -10210,7 +10210,7 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput) I
 type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule struct {
 	// The description which should be used for this rule.
 	Description *string `pulumi:"description"`
-	// Specifies a list of destination IP addresses (including CIDR and `*`).
+	// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
 	DestinationAddresses []string `pulumi:"destinationAddresses"`
 	// Specifies a list of destination FQDN tags.
 	DestinationFqdnTags []string `pulumi:"destinationFqdnTags"`
@@ -10222,7 +10222,7 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule struct {
 	Name string `pulumi:"name"`
 	// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 	Protocols []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol `pulumi:"protocols"`
-	// Specifies a list of source IP addresses (including CIDR and `*`).
+	// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
 	SourceAddresses []string `pulumi:"sourceAddresses"`
 	// Specifies a list of source IP groups.
 	SourceIpGroups []string `pulumi:"sourceIpGroups"`
@@ -10246,7 +10246,7 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleInput interfa
 type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs struct {
 	// The description which should be used for this rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies a list of destination IP addresses (including CIDR and `*`).
+	// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
 	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
 	// Specifies a list of destination FQDN tags.
 	DestinationFqdnTags pulumi.StringArrayInput `pulumi:"destinationFqdnTags"`
@@ -10258,7 +10258,7 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 	Protocols FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayInput `pulumi:"protocols"`
-	// Specifies a list of source IP addresses (including CIDR and `*`).
+	// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
 	// Specifies a list of source IP groups.
 	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
@@ -10324,7 +10324,7 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) De
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of destination IP addresses (including CIDR and `*`).
+// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) DestinationAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
 		return v.DestinationAddresses
@@ -10364,7 +10364,7 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) Pr
 	}).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput)
 }
 
-// Specifies a list of source IP addresses (including CIDR and `*`).
+// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) SourceAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
 		return v.SourceAddresses
@@ -10651,7 +10651,7 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionRule struct {
 	Name string `pulumi:"name"`
 	// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 	Protocols []string `pulumi:"protocols"`
-	// Specifies a list of source IP addresses (including CIDR and `*`).
+	// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
 	SourceAddresses []string `pulumi:"sourceAddresses"`
 	// Specifies a list of source IP groups.
 	SourceIpGroups []string `pulumi:"sourceIpGroups"`
@@ -10683,7 +10683,7 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
-	// Specifies a list of source IP addresses (including CIDR and `*`).
+	// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
 	// Specifies a list of source IP groups.
 	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
@@ -10766,7 +10766,7 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) Protocols(
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) []string { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of source IP addresses (including CIDR and `*`).
+// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) SourceAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
 }
@@ -10938,7 +10938,7 @@ func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArrayOutput) Index
 }
 
 type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule struct {
-	// Specifies a list of destination IP addresses (including CIDR and `*`).
+	// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
 	DestinationAddresses []string `pulumi:"destinationAddresses"`
 	// Specifies a list of destination FQDNs. Conflicts with `destinationUrls`.
 	DestinationFqdns []string `pulumi:"destinationFqdns"`
@@ -10950,7 +10950,7 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule struct {
 	Name string `pulumi:"name"`
 	// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 	Protocols []string `pulumi:"protocols"`
-	// Specifies a list of source IP addresses (including CIDR and `*`).
+	// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
 	SourceAddresses []string `pulumi:"sourceAddresses"`
 	// Specifies a list of source IP groups.
 	SourceIpGroups []string `pulumi:"sourceIpGroups"`
@@ -10968,7 +10968,7 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleInput interface {
 }
 
 type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs struct {
-	// Specifies a list of destination IP addresses (including CIDR and `*`).
+	// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
 	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
 	// Specifies a list of destination FQDNs. Conflicts with `destinationUrls`.
 	DestinationFqdns pulumi.StringArrayInput `pulumi:"destinationFqdns"`
@@ -10980,7 +10980,7 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// One or more `protocols` blocks as defined below. Not required when specifying `destinationFqdnTags`, but required when specifying `destinationFqdns`.
 	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
-	// Specifies a list of source IP addresses (including CIDR and `*`).
+	// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
 	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
 	// Specifies a list of source IP groups.
 	SourceIpGroups pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
@@ -11037,7 +11037,7 @@ func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) ToFire
 	return o
 }
 
-// Specifies a list of destination IP addresses (including CIDR and `*`).
+// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
 func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) DestinationAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string {
 		return v.DestinationAddresses
@@ -11071,7 +11071,7 @@ func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) Protoc
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of source IP addresses (including CIDR and `*`).
+// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
 func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) SourceAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string { return v.SourceAddresses }).(pulumi.StringArrayOutput)
 }
@@ -27990,6 +27990,8 @@ type GetVirtualNetworkGatewayIpConfiguration struct {
 	Id string `pulumi:"id"`
 	// Specifies the name of the Virtual Network Gateway.
 	Name string `pulumi:"name"`
+	// The Private IP Address associated with the Virtual Network Gateway.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
 	// Defines how the private IP address
 	// of the gateways virtual interface is assigned.
 	PrivateIpAddressAllocation string `pulumi:"privateIpAddressAllocation"`
@@ -28019,6 +28021,8 @@ type GetVirtualNetworkGatewayIpConfigurationArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// Specifies the name of the Virtual Network Gateway.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The Private IP Address associated with the Virtual Network Gateway.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
 	// Defines how the private IP address
 	// of the gateways virtual interface is assigned.
 	PrivateIpAddressAllocation pulumi.StringInput `pulumi:"privateIpAddressAllocation"`
@@ -28091,6 +28095,11 @@ func (o GetVirtualNetworkGatewayIpConfigurationOutput) Id() pulumi.StringOutput 
 // Specifies the name of the Virtual Network Gateway.
 func (o GetVirtualNetworkGatewayIpConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualNetworkGatewayIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Private IP Address associated with the Virtual Network Gateway.
+func (o GetVirtualNetworkGatewayIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualNetworkGatewayIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
 
 // Defines how the private IP address

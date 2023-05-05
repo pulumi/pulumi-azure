@@ -83,7 +83,7 @@ public class GatewayApi extends com.pulumi.resources.CustomResource {
      * The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
      * 
      */
-    @Export(name="apiId", refs={String.class}, tree="[0]")
+    @Export(name="apiId", type=String.class, parameters={})
     private Output<String> apiId;
 
     /**
@@ -97,7 +97,7 @@ public class GatewayApi extends com.pulumi.resources.CustomResource {
      * The Identifier for the API Management Gateway. Changing this forces a new API Management Gateway API to be created.
      * 
      */
-    @Export(name="gatewayId", refs={String.class}, tree="[0]")
+    @Export(name="gatewayId", type=String.class, parameters={})
     private Output<String> gatewayId;
 
     /**

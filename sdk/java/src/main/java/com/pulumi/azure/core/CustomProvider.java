@@ -79,7 +79,7 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
      * Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
      * 
      */
-    @Export(name="actions", refs={List.class,CustomProviderAction.class}, tree="[0,1]")
+    @Export(name="actions", type=List.class, parameters={CustomProviderAction.class})
     private Output</* @Nullable */ List<CustomProviderAction>> actions;
 
     /**
@@ -93,7 +93,7 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -107,7 +107,7 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -121,7 +121,7 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -135,7 +135,7 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
      * Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
      * 
      */
-    @Export(name="resourceTypes", refs={List.class,CustomProviderResourceType.class}, tree="[0,1]")
+    @Export(name="resourceTypes", type=List.class, parameters={CustomProviderResourceType.class})
     private Output</* @Nullable */ List<CustomProviderResourceType>> resourceTypes;
 
     /**
@@ -149,7 +149,7 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -163,7 +163,7 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
      * Any number of `validation` block as defined below.
      * 
      */
-    @Export(name="validations", refs={List.class,CustomProviderValidation.class}, tree="[0,1]")
+    @Export(name="validations", type=List.class, parameters={CustomProviderValidation.class})
     private Output</* @Nullable */ List<CustomProviderValidation>> validations;
 
     /**

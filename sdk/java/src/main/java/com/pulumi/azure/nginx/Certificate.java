@@ -64,7 +64,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Specify the path to the cert file of this certificate. Changing this forces a new Nginx Certificate to be created.
      * 
      */
-    @Export(name="certificateVirtualPath", refs={String.class}, tree="[0]")
+    @Export(name="certificateVirtualPath", type=String.class, parameters={})
     private Output<String> certificateVirtualPath;
 
     /**
@@ -78,7 +78,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Specify the ID of the Key Vault Secret for this certificate. Changing this forces a new Nginx Certificate to be created.
      * 
      */
-    @Export(name="keyVaultSecretId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultSecretId", type=String.class, parameters={})
     private Output<String> keyVaultSecretId;
 
     /**
@@ -92,7 +92,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Specify the path to the key file of this certificate. Changing this forces a new Nginx Certificate to be created.
      * 
      */
-    @Export(name="keyVirtualPath", refs={String.class}, tree="[0]")
+    @Export(name="keyVirtualPath", type=String.class, parameters={})
     private Output<String> keyVirtualPath;
 
     /**
@@ -106,7 +106,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -120,7 +120,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
      * 
      */
-    @Export(name="nginxDeploymentId", refs={String.class}, tree="[0]")
+    @Export(name="nginxDeploymentId", type=String.class, parameters={})
     private Output<String> nginxDeploymentId;
 
     /**

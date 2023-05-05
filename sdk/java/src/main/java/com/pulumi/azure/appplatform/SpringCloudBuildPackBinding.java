@@ -105,7 +105,7 @@ public class SpringCloudBuildPackBinding extends com.pulumi.resources.CustomReso
      * Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      * 
      */
-    @Export(name="bindingType", refs={String.class}, tree="[0]")
+    @Export(name="bindingType", type=String.class, parameters={})
     private Output</* @Nullable */ String> bindingType;
 
     /**
@@ -119,7 +119,7 @@ public class SpringCloudBuildPackBinding extends com.pulumi.resources.CustomReso
      * A `launch` block as defined below.
      * 
      */
-    @Export(name="launch", refs={SpringCloudBuildPackBindingLaunch.class}, tree="[0]")
+    @Export(name="launch", type=SpringCloudBuildPackBindingLaunch.class, parameters={})
     private Output</* @Nullable */ SpringCloudBuildPackBindingLaunch> launch;
 
     /**
@@ -133,7 +133,7 @@ public class SpringCloudBuildPackBinding extends com.pulumi.resources.CustomReso
      * The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -147,7 +147,7 @@ public class SpringCloudBuildPackBinding extends com.pulumi.resources.CustomReso
      * The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      * 
      */
-    @Export(name="springCloudBuilderId", refs={String.class}, tree="[0]")
+    @Export(name="springCloudBuilderId", type=String.class, parameters={})
     private Output<String> springCloudBuilderId;
 
     /**

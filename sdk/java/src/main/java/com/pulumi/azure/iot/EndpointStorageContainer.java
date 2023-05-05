@@ -107,7 +107,7 @@ public class EndpointStorageContainer extends com.pulumi.resources.CustomResourc
      * Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
      * 
      */
-    @Export(name="authenticationType", refs={String.class}, tree="[0]")
+    @Export(name="authenticationType", type=String.class, parameters={})
     private Output</* @Nullable */ String> authenticationType;
 
     /**
@@ -121,7 +121,7 @@ public class EndpointStorageContainer extends com.pulumi.resources.CustomResourc
      * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
      * 
      */
-    @Export(name="batchFrequencyInSeconds", refs={Integer.class}, tree="[0]")
+    @Export(name="batchFrequencyInSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> batchFrequencyInSeconds;
 
     /**
@@ -135,7 +135,7 @@ public class EndpointStorageContainer extends com.pulumi.resources.CustomResourc
      * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
      * 
      */
-    @Export(name="connectionString", refs={String.class}, tree="[0]")
+    @Export(name="connectionString", type=String.class, parameters={})
     private Output</* @Nullable */ String> connectionString;
 
     /**
@@ -149,7 +149,7 @@ public class EndpointStorageContainer extends com.pulumi.resources.CustomResourc
      * The name of storage container in the storage account.
      * 
      */
-    @Export(name="containerName", refs={String.class}, tree="[0]")
+    @Export(name="containerName", type=String.class, parameters={})
     private Output<String> containerName;
 
     /**
@@ -163,7 +163,7 @@ public class EndpointStorageContainer extends com.pulumi.resources.CustomResourc
      * Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="encoding", refs={String.class}, tree="[0]")
+    @Export(name="encoding", type=String.class, parameters={})
     private Output</* @Nullable */ String> encoding;
 
     /**
@@ -177,7 +177,7 @@ public class EndpointStorageContainer extends com.pulumi.resources.CustomResourc
      * URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
      * 
      */
-    @Export(name="endpointUri", refs={String.class}, tree="[0]")
+    @Export(name="endpointUri", type=String.class, parameters={})
     private Output</* @Nullable */ String> endpointUri;
 
     /**
@@ -191,7 +191,7 @@ public class EndpointStorageContainer extends com.pulumi.resources.CustomResourc
      * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
      * 
      */
-    @Export(name="fileNameFormat", refs={String.class}, tree="[0]")
+    @Export(name="fileNameFormat", type=String.class, parameters={})
     private Output</* @Nullable */ String> fileNameFormat;
 
     /**
@@ -205,7 +205,7 @@ public class EndpointStorageContainer extends com.pulumi.resources.CustomResourc
      * ID of the User Managed Identity used to authenticate against the storage endpoint.
      * 
      */
-    @Export(name="identityId", refs={String.class}, tree="[0]")
+    @Export(name="identityId", type=String.class, parameters={})
     private Output</* @Nullable */ String> identityId;
 
     /**
@@ -219,7 +219,7 @@ public class EndpointStorageContainer extends com.pulumi.resources.CustomResourc
      * The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iothubId", refs={String.class}, tree="[0]")
+    @Export(name="iothubId", type=String.class, parameters={})
     private Output<String> iothubId;
 
     /**
@@ -233,7 +233,7 @@ public class EndpointStorageContainer extends com.pulumi.resources.CustomResourc
      * Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
      * 
      */
-    @Export(name="maxChunkSizeInBytes", refs={Integer.class}, tree="[0]")
+    @Export(name="maxChunkSizeInBytes", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maxChunkSizeInBytes;
 
     /**
@@ -247,7 +247,7 @@ public class EndpointStorageContainer extends com.pulumi.resources.CustomResourc
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -261,7 +261,7 @@ public class EndpointStorageContainer extends com.pulumi.resources.CustomResourc
      * The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

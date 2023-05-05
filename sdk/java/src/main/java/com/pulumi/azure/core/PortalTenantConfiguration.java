@@ -69,7 +69,7 @@ public class PortalTenantConfiguration extends com.pulumi.resources.CustomResour
      * Is the private tile markdown storage which used to display custom dynamic and static content enabled?
      * 
      */
-    @Export(name="privateMarkdownStorageEnforced", refs={Boolean.class}, tree="[0]")
+    @Export(name="privateMarkdownStorageEnforced", type=Boolean.class, parameters={})
     private Output<Boolean> privateMarkdownStorageEnforced;
 
     /**

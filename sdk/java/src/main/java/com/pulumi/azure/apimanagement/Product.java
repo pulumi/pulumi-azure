@@ -86,7 +86,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
+    @Export(name="apiManagementName", type=String.class, parameters={})
     private Output<String> apiManagementName;
 
     /**
@@ -100,7 +100,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Do subscribers need to be approved prior to being able to use the Product?
      * 
      */
-    @Export(name="approvalRequired", refs={Boolean.class}, tree="[0]")
+    @Export(name="approvalRequired", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> approvalRequired;
 
     /**
@@ -114,7 +114,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * A description of this Product, which may include HTML formatting tags.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -128,7 +128,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * The Display Name for this API Management Product.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output<String> displayName;
 
     /**
@@ -142,7 +142,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="productId", refs={String.class}, tree="[0]")
+    @Export(name="productId", type=String.class, parameters={})
     private Output<String> productId;
 
     /**
@@ -156,7 +156,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Is this Product Published?
      * 
      */
-    @Export(name="published", refs={Boolean.class}, tree="[0]")
+    @Export(name="published", type=Boolean.class, parameters={})
     private Output<Boolean> published;
 
     /**
@@ -170,7 +170,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -184,7 +184,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * Is a Subscription required to access API&#39;s included in this Product? Defaults to `true`.
      * 
      */
-    @Export(name="subscriptionRequired", refs={Boolean.class}, tree="[0]")
+    @Export(name="subscriptionRequired", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> subscriptionRequired;
 
     /**
@@ -198,7 +198,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * The number of subscriptions a user can have to this Product at the same time.
      * 
      */
-    @Export(name="subscriptionsLimit", refs={Integer.class}, tree="[0]")
+    @Export(name="subscriptionsLimit", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> subscriptionsLimit;
 
     /**
@@ -212,7 +212,7 @@ public class Product extends com.pulumi.resources.CustomResource {
      * The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
      * 
      */
-    @Export(name="terms", refs={String.class}, tree="[0]")
+    @Export(name="terms", type=String.class, parameters={})
     private Output</* @Nullable */ String> terms;
 
     /**

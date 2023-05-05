@@ -122,7 +122,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="endIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="endIpAddress", type=String.class, parameters={})
     private Output<String> endIpAddress;
 
     /**
@@ -136,7 +136,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * Specifies the name of the PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -150,7 +150,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -164,7 +164,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", refs={String.class}, tree="[0]")
+    @Export(name="serverName", type=String.class, parameters={})
     private Output<String> serverName;
 
     /**
@@ -178,7 +178,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="startIpAddress", refs={String.class}, tree="[0]")
+    @Export(name="startIpAddress", type=String.class, parameters={})
     private Output<String> startIpAddress;
 
     /**

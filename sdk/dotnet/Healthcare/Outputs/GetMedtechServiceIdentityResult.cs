@@ -13,6 +13,7 @@ namespace Pulumi.Azure.Healthcare.Outputs
     [OutputType]
     public sealed class GetMedtechServiceIdentityResult
     {
+        public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The Principal ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
         /// </summary>
@@ -28,12 +29,15 @@ namespace Pulumi.Azure.Healthcare.Outputs
 
         [OutputConstructor]
         private GetMedtechServiceIdentityResult(
+            ImmutableArray<string> identityIds,
+
             string principalId,
 
             string tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

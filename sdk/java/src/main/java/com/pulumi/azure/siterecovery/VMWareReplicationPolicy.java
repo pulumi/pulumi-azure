@@ -80,7 +80,7 @@ public class VMWareReplicationPolicy extends com.pulumi.resources.CustomResource
      * Specifies the frequency at which to create application consistent recovery points. Must between `0` to `720`.
      * 
      */
-    @Export(name="applicationConsistentSnapshotFrequencyInMinutes", refs={Integer.class}, tree="[0]")
+    @Export(name="applicationConsistentSnapshotFrequencyInMinutes", type=Integer.class, parameters={})
     private Output<Integer> applicationConsistentSnapshotFrequencyInMinutes;
 
     /**
@@ -94,7 +94,7 @@ public class VMWareReplicationPolicy extends com.pulumi.resources.CustomResource
      * The name which should be used for this Classic Replication Policy. Changing this forces a new Replication Policy to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -108,7 +108,7 @@ public class VMWareReplicationPolicy extends com.pulumi.resources.CustomResource
      * Specifies the period up to which the recovery points will be retained. Must between `0` to `21600`.
      * 
      */
-    @Export(name="recoveryPointRetentionInMinutes", refs={Integer.class}, tree="[0]")
+    @Export(name="recoveryPointRetentionInMinutes", type=Integer.class, parameters={})
     private Output<Integer> recoveryPointRetentionInMinutes;
 
     /**
@@ -122,7 +122,7 @@ public class VMWareReplicationPolicy extends com.pulumi.resources.CustomResource
      * ID of the Recovery Services Vault. Changing this forces a new Replication Policy to be created.
      * 
      */
-    @Export(name="recoveryVaultId", refs={String.class}, tree="[0]")
+    @Export(name="recoveryVaultId", type=String.class, parameters={})
     private Output<String> recoveryVaultId;
 
     /**

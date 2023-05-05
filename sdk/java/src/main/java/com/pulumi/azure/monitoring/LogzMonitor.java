@@ -86,7 +86,7 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      * Name of the Logz organization. Changing this forces a new logz Monitor to be created.
      * 
      */
-    @Export(name="companyName", refs={String.class}, tree="[0]")
+    @Export(name="companyName", type=String.class, parameters={})
     private Output</* @Nullable */ String> companyName;
 
     /**
@@ -100,7 +100,7 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      * Whether the resource monitoring is enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -114,7 +114,7 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      * The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
      * 
      */
-    @Export(name="enterpriseAppId", refs={String.class}, tree="[0]")
+    @Export(name="enterpriseAppId", type=String.class, parameters={})
     private Output</* @Nullable */ String> enterpriseAppId;
 
     /**
@@ -128,7 +128,7 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      * The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -142,7 +142,7 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      * The ID associated with the logz organization of this logz Monitor.
      * 
      */
-    @Export(name="logzOrganizationId", refs={String.class}, tree="[0]")
+    @Export(name="logzOrganizationId", type=String.class, parameters={})
     private Output<String> logzOrganizationId;
 
     /**
@@ -156,7 +156,7 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      * The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -170,7 +170,7 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="plan", refs={LogzMonitorPlan.class}, tree="[0]")
+    @Export(name="plan", type=LogzMonitorPlan.class, parameters={})
     private Output<LogzMonitorPlan> plan;
 
     /**
@@ -184,7 +184,7 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -198,7 +198,7 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      * The single sign on url associated with the logz organization of this logz Monitor.
      * 
      */
-    @Export(name="singleSignOnUrl", refs={String.class}, tree="[0]")
+    @Export(name="singleSignOnUrl", type=String.class, parameters={})
     private Output<String> singleSignOnUrl;
 
     /**
@@ -212,7 +212,7 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the logz Monitor.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -226,7 +226,7 @@ public class LogzMonitor extends com.pulumi.resources.CustomResource {
      * A `user` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="user", refs={LogzMonitorUser.class}, tree="[0]")
+    @Export(name="user", type=LogzMonitorUser.class, parameters={})
     private Output<LogzMonitorUser> user;
 
     /**

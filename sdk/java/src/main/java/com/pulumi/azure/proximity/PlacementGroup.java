@@ -72,7 +72,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
      * Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
      * 
      */
-    @Export(name="allowedVmSizes", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="allowedVmSizes", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> allowedVmSizes;
 
     /**
@@ -86,7 +86,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -100,7 +100,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
      * Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -114,7 +114,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -128,7 +128,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -142,7 +142,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
      * Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zone", refs={String.class}, tree="[0]")
+    @Export(name="zone", type=String.class, parameters={})
     private Output</* @Nullable */ String> zone;
 
     /**

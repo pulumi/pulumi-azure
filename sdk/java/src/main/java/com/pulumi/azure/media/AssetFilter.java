@@ -144,7 +144,7 @@ public class AssetFilter extends com.pulumi.resources.CustomResource {
      * The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created.
      * 
      */
-    @Export(name="assetId", refs={String.class}, tree="[0]")
+    @Export(name="assetId", type=String.class, parameters={})
     private Output<String> assetId;
 
     /**
@@ -158,7 +158,7 @@ public class AssetFilter extends com.pulumi.resources.CustomResource {
      * The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
      * 
      */
-    @Export(name="firstQualityBitrate", refs={Integer.class}, tree="[0]")
+    @Export(name="firstQualityBitrate", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> firstQualityBitrate;
 
     /**
@@ -172,7 +172,7 @@ public class AssetFilter extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Asset Filter. Changing this forces a new Asset Filter to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -186,7 +186,7 @@ public class AssetFilter extends com.pulumi.resources.CustomResource {
      * A `presentation_time_range` block as defined below.
      * 
      */
-    @Export(name="presentationTimeRange", refs={AssetFilterPresentationTimeRange.class}, tree="[0]")
+    @Export(name="presentationTimeRange", type=AssetFilterPresentationTimeRange.class, parameters={})
     private Output</* @Nullable */ AssetFilterPresentationTimeRange> presentationTimeRange;
 
     /**
@@ -200,7 +200,7 @@ public class AssetFilter extends com.pulumi.resources.CustomResource {
      * One or more `track_selection` blocks as defined below.
      * 
      */
-    @Export(name="trackSelections", refs={List.class,AssetFilterTrackSelection.class}, tree="[0,1]")
+    @Export(name="trackSelections", type=List.class, parameters={AssetFilterTrackSelection.class})
     private Output</* @Nullable */ List<AssetFilterTrackSelection>> trackSelections;
 
     /**

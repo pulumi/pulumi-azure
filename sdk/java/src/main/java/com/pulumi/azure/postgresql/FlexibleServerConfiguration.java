@@ -128,7 +128,7 @@ public class FlexibleServerConfiguration extends com.pulumi.resources.CustomReso
      * Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -142,7 +142,7 @@ public class FlexibleServerConfiguration extends com.pulumi.resources.CustomReso
      * The ID of the PostgreSQL Flexible Server where we want to change configuration. Changing this forces a new PostgreSQL Flexible Server Configuration resource.
      * 
      */
-    @Export(name="serverId", refs={String.class}, tree="[0]")
+    @Export(name="serverId", type=String.class, parameters={})
     private Output<String> serverId;
 
     /**
@@ -156,7 +156,7 @@ public class FlexibleServerConfiguration extends com.pulumi.resources.CustomReso
      * Specifies the value of the PostgreSQL Configuration. See the PostgreSQL documentation for valid values.
      * 
      */
-    @Export(name="value", refs={String.class}, tree="[0]")
+    @Export(name="value", type=String.class, parameters={})
     private Output<String> value;
 
     /**

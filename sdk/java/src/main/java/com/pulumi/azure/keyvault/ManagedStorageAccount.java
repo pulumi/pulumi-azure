@@ -206,7 +206,7 @@ public class ManagedStorageAccount extends com.pulumi.resources.CustomResource {
      * The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
+    @Export(name="keyVaultId", type=String.class, parameters={})
     private Output<String> keyVaultId;
 
     /**
@@ -220,7 +220,7 @@ public class ManagedStorageAccount extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -234,7 +234,7 @@ public class ManagedStorageAccount extends com.pulumi.resources.CustomResource {
      * Should Storage Account access key be regenerated periodically?
      * 
      */
-    @Export(name="regenerateKeyAutomatically", refs={Boolean.class}, tree="[0]")
+    @Export(name="regenerateKeyAutomatically", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> regenerateKeyAutomatically;
 
     /**
@@ -248,7 +248,7 @@ public class ManagedStorageAccount extends com.pulumi.resources.CustomResource {
      * How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
      * 
      */
-    @Export(name="regenerationPeriod", refs={String.class}, tree="[0]")
+    @Export(name="regenerationPeriod", type=String.class, parameters={})
     private Output</* @Nullable */ String> regenerationPeriod;
 
     /**
@@ -262,7 +262,7 @@ public class ManagedStorageAccount extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account.
      * 
      */
-    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountId", type=String.class, parameters={})
     private Output<String> storageAccountId;
 
     /**
@@ -276,7 +276,7 @@ public class ManagedStorageAccount extends com.pulumi.resources.CustomResource {
      * Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
      * 
      */
-    @Export(name="storageAccountKey", refs={String.class}, tree="[0]")
+    @Export(name="storageAccountKey", type=String.class, parameters={})
     private Output<String> storageAccountKey;
 
     /**
@@ -290,7 +290,7 @@ public class ManagedStorageAccount extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

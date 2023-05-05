@@ -73,7 +73,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -87,7 +87,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
      * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managed", refs={Boolean.class}, tree="[0]")
+    @Export(name="managed", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> managed;
 
     /**
@@ -101,7 +101,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
      * Specifies the name of the availability set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -115,7 +115,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
      * Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="platformFaultDomainCount", refs={Integer.class}, tree="[0]")
+    @Export(name="platformFaultDomainCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> platformFaultDomainCount;
 
     /**
@@ -129,7 +129,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
      * Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="platformUpdateDomainCount", refs={Integer.class}, tree="[0]")
+    @Export(name="platformUpdateDomainCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> platformUpdateDomainCount;
 
     /**
@@ -143,7 +143,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
      * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="proximityPlacementGroupId", refs={String.class}, tree="[0]")
+    @Export(name="proximityPlacementGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> proximityPlacementGroupId;
 
     /**
@@ -157,7 +157,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -171,7 +171,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

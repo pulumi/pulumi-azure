@@ -81,7 +81,7 @@ public class DicomService extends com.pulumi.resources.CustomResource {
      * The `authentication` block as defined below.
      * 
      */
-    @Export(name="authentications", refs={List.class,DicomServiceAuthentication.class}, tree="[0,1]")
+    @Export(name="authentications", type=List.class, parameters={DicomServiceAuthentication.class})
     private Output<List<DicomServiceAuthentication>> authentications;
 
     /**
@@ -95,7 +95,7 @@ public class DicomService extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={DicomServiceIdentity.class}, tree="[0]")
+    @Export(name="identity", type=DicomServiceIdentity.class, parameters={})
     private Output</* @Nullable */ DicomServiceIdentity> identity;
 
     /**
@@ -109,7 +109,7 @@ public class DicomService extends com.pulumi.resources.CustomResource {
      * Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -123,7 +123,7 @@ public class DicomService extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -133,7 +133,7 @@ public class DicomService extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
-    @Export(name="privateEndpoints", refs={List.class,DicomServicePrivateEndpoint.class}, tree="[0,1]")
+    @Export(name="privateEndpoints", type=List.class, parameters={DicomServicePrivateEndpoint.class})
     private Output<List<DicomServicePrivateEndpoint>> privateEndpoints;
 
     public Output<List<DicomServicePrivateEndpoint>> privateEndpoints() {
@@ -143,7 +143,7 @@ public class DicomService extends com.pulumi.resources.CustomResource {
      * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -157,7 +157,7 @@ public class DicomService extends com.pulumi.resources.CustomResource {
      * The url of the Healthcare DICOM Services.
      * 
      */
-    @Export(name="serviceUrl", refs={String.class}, tree="[0]")
+    @Export(name="serviceUrl", type=String.class, parameters={})
     private Output<String> serviceUrl;
 
     /**
@@ -171,7 +171,7 @@ public class DicomService extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Healthcare DICOM Service.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -185,7 +185,7 @@ public class DicomService extends com.pulumi.resources.CustomResource {
      * Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
      * 
      */
-    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    @Export(name="workspaceId", type=String.class, parameters={})
     private Output<String> workspaceId;
 
     /**

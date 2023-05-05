@@ -13,6 +13,7 @@ namespace Pulumi.Azure.Healthcare.Outputs
     [OutputType]
     public sealed class GetFhirServiceIdentityResult
     {
+        public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The Principal ID associated with this System Assigned Managed Service Identity.
         /// </summary>
@@ -28,12 +29,15 @@ namespace Pulumi.Azure.Healthcare.Outputs
 
         [OutputConstructor]
         private GetFhirServiceIdentityResult(
+            ImmutableArray<string> identityIds,
+
             string principalId,
 
             string tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

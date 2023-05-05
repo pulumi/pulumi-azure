@@ -109,7 +109,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * Can this Virtual Machine be claimed by users? Defaults to `true`.
      * 
      */
-    @Export(name="allowClaim", refs={Boolean.class}, tree="[0]")
+    @Export(name="allowClaim", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> allowClaim;
 
     /**
@@ -123,7 +123,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="disallowPublicIpAddress", refs={Boolean.class}, tree="[0]")
+    @Export(name="disallowPublicIpAddress", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> disallowPublicIpAddress;
 
     /**
@@ -137,7 +137,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * The FQDN of the Virtual Machine.
      * 
      */
-    @Export(name="fqdn", refs={String.class}, tree="[0]")
+    @Export(name="fqdn", type=String.class, parameters={})
     private Output<String> fqdn;
 
     /**
@@ -151,7 +151,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * A `gallery_image_reference` block as defined below.
      * 
      */
-    @Export(name="galleryImageReference", refs={WindowsVirtualMachineGalleryImageReference.class}, tree="[0]")
+    @Export(name="galleryImageReference", type=WindowsVirtualMachineGalleryImageReference.class, parameters={})
     private Output<WindowsVirtualMachineGalleryImageReference> galleryImageReference;
 
     /**
@@ -165,7 +165,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="inboundNatRules", refs={List.class,WindowsVirtualMachineInboundNatRule.class}, tree="[0,1]")
+    @Export(name="inboundNatRules", type=List.class, parameters={WindowsVirtualMachineInboundNatRule.class})
     private Output</* @Nullable */ List<WindowsVirtualMachineInboundNatRule>> inboundNatRules;
 
     /**
@@ -179,7 +179,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="labName", refs={String.class}, tree="[0]")
+    @Export(name="labName", type=String.class, parameters={})
     private Output<String> labName;
 
     /**
@@ -193,7 +193,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="labSubnetName", refs={String.class}, tree="[0]")
+    @Export(name="labSubnetName", type=String.class, parameters={})
     private Output<String> labSubnetName;
 
     /**
@@ -207,7 +207,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="labVirtualNetworkId", refs={String.class}, tree="[0]")
+    @Export(name="labVirtualNetworkId", type=String.class, parameters={})
     private Output<String> labVirtualNetworkId;
 
     /**
@@ -221,7 +221,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -235,7 +235,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -249,7 +249,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * Any notes about the Virtual Machine.
      * 
      */
-    @Export(name="notes", refs={String.class}, tree="[0]")
+    @Export(name="notes", type=String.class, parameters={})
     private Output</* @Nullable */ String> notes;
 
     /**
@@ -263,7 +263,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="password", refs={String.class}, tree="[0]")
+    @Export(name="password", type=String.class, parameters={})
     private Output<String> password;
 
     /**
@@ -277,7 +277,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -291,7 +291,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="size", refs={String.class}, tree="[0]")
+    @Export(name="size", type=String.class, parameters={})
     private Output<String> size;
 
     /**
@@ -305,7 +305,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
      * 
      */
-    @Export(name="storageType", refs={String.class}, tree="[0]")
+    @Export(name="storageType", type=String.class, parameters={})
     private Output<String> storageType;
 
     /**
@@ -319,7 +319,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -333,7 +333,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * The unique immutable identifier of the Virtual Machine.
      * 
      */
-    @Export(name="uniqueIdentifier", refs={String.class}, tree="[0]")
+    @Export(name="uniqueIdentifier", type=String.class, parameters={})
     private Output<String> uniqueIdentifier;
 
     /**
@@ -347,7 +347,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="username", refs={String.class}, tree="[0]")
+    @Export(name="username", type=String.class, parameters={})
     private Output<String> username;
 
     /**

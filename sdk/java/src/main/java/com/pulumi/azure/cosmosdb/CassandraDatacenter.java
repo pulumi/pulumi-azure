@@ -142,7 +142,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * Determines whether availability zones are enabled. Defaults to `true`.
      * 
      */
-    @Export(name="availabilityZonesEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="availabilityZonesEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> availabilityZonesEnabled;
 
     /**
@@ -156,7 +156,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * The key URI of the customer key to use for the encryption of the backup Storage Account.
      * 
      */
-    @Export(name="backupStorageCustomerKeyUri", refs={String.class}, tree="[0]")
+    @Export(name="backupStorageCustomerKeyUri", type=String.class, parameters={})
     private Output</* @Nullable */ String> backupStorageCustomerKeyUri;
 
     /**
@@ -170,7 +170,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
      * 
      */
-    @Export(name="base64EncodedYamlFragment", refs={String.class}, tree="[0]")
+    @Export(name="base64EncodedYamlFragment", type=String.class, parameters={})
     private Output</* @Nullable */ String> base64EncodedYamlFragment;
 
     /**
@@ -184,7 +184,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
      * 
      */
-    @Export(name="cassandraClusterId", refs={String.class}, tree="[0]")
+    @Export(name="cassandraClusterId", type=String.class, parameters={})
     private Output<String> cassandraClusterId;
 
     /**
@@ -198,7 +198,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
      * 
      */
-    @Export(name="delegatedManagementSubnetId", refs={String.class}, tree="[0]")
+    @Export(name="delegatedManagementSubnetId", type=String.class, parameters={})
     private Output<String> delegatedManagementSubnetId;
 
     /**
@@ -212,7 +212,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * Determines the number of p30 disks that are attached to each node.
      * 
      */
-    @Export(name="diskCount", refs={Integer.class}, tree="[0]")
+    @Export(name="diskCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> diskCount;
 
     /**
@@ -226,7 +226,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
      * 
      */
-    @Export(name="diskSku", refs={String.class}, tree="[0]")
+    @Export(name="diskSku", type=String.class, parameters={})
     private Output</* @Nullable */ String> diskSku;
 
     /**
@@ -240,7 +240,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -254,7 +254,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * The key URI of the customer key to use for the encryption of the Managed Disk.
      * 
      */
-    @Export(name="managedDiskCustomerKeyUri", refs={String.class}, tree="[0]")
+    @Export(name="managedDiskCustomerKeyUri", type=String.class, parameters={})
     private Output</* @Nullable */ String> managedDiskCustomerKeyUri;
 
     /**
@@ -268,7 +268,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -282,7 +282,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
      * 
      */
-    @Export(name="nodeCount", refs={Integer.class}, tree="[0]")
+    @Export(name="nodeCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> nodeCount;
 
     /**
@@ -296,7 +296,7 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * Determines the selected sku.
      * 
      */
-    @Export(name="skuName", refs={String.class}, tree="[0]")
+    @Export(name="skuName", type=String.class, parameters={})
     private Output</* @Nullable */ String> skuName;
 
     /**

@@ -83,7 +83,7 @@ public class ChannelWebChat extends com.pulumi.resources.CustomResource {
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="botName", refs={String.class}, tree="[0]")
+    @Export(name="botName", type=String.class, parameters={})
     private Output<String> botName;
 
     /**
@@ -97,7 +97,7 @@ public class ChannelWebChat extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -111,7 +111,7 @@ public class ChannelWebChat extends com.pulumi.resources.CustomResource {
      * The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -125,7 +125,7 @@ public class ChannelWebChat extends com.pulumi.resources.CustomResource {
      * A list of Web Chat Site names.
      * 
      */
-    @Export(name="siteNames", refs={List.class,String.class}, tree="[0,1]")
+    @Export(name="siteNames", type=List.class, parameters={String.class})
     private Output<List<String>> siteNames;
 
     /**

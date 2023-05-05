@@ -88,7 +88,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The name of the Batch account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", refs={String.class}, tree="[0]")
+    @Export(name="accountName", type=String.class, parameters={})
     private Output<String> accountName;
 
     /**
@@ -102,7 +102,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
      * 
      */
-    @Export(name="allowUpdates", refs={Boolean.class}, tree="[0]")
+    @Export(name="allowUpdates", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> allowUpdates;
 
     /**
@@ -116,7 +116,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
      * 
      */
-    @Export(name="defaultVersion", refs={String.class}, tree="[0]")
+    @Export(name="defaultVersion", type=String.class, parameters={})
     private Output</* @Nullable */ String> defaultVersion;
 
     /**
@@ -130,7 +130,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The display name for the application.
      * 
      */
-    @Export(name="displayName", refs={String.class}, tree="[0]")
+    @Export(name="displayName", type=String.class, parameters={})
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -144,7 +144,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -158,7 +158,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**

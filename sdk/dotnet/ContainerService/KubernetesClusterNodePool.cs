@@ -267,6 +267,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> ScaleDownMode { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("snapshotId")]
+        public Output<string?> SnapshotId { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         /// </summary>
         [Output("spotMaxPrice")]
@@ -571,6 +577,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ScaleDownMode { get; set; }
 
         /// <summary>
+        /// The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("snapshotId")]
+        public Input<string>? SnapshotId { get; set; }
+
+        /// <summary>
         /// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
         /// </summary>
         [Input("spotMaxPrice")]
@@ -847,6 +859,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("scaleDownMode")]
         public Input<string>? ScaleDownMode { get; set; }
+
+        /// <summary>
+        /// The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("snapshotId")]
+        public Input<string>? SnapshotId { get; set; }
 
         /// <summary>
         /// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.

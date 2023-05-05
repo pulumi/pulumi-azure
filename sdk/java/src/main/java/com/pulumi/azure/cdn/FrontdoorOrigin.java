@@ -33,7 +33,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
      * 
      */
-    @Export(name="cdnFrontdoorOriginGroupId", refs={String.class}, tree="[0]")
+    @Export(name="cdnFrontdoorOriginGroupId", type=String.class, parameters={})
     private Output<String> cdnFrontdoorOriginGroupId;
 
     /**
@@ -47,7 +47,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * Specifies whether certificate name checks are enabled for this origin.
      * 
      */
-    @Export(name="certificateNameCheckEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="certificateNameCheckEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> certificateNameCheckEnabled;
 
     /**
@@ -61,7 +61,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="enabled", type=Boolean.class, parameters={})
     private Output<Boolean> enabled;
 
     /**
@@ -77,7 +77,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider. */
-    @Export(name="healthProbesEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="healthProbesEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> healthProbesEnabled;
 
     public Output<Boolean> healthProbesEnabled() {
@@ -87,7 +87,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * The IPv4 address, IPv6 address or Domain name of the Origin.
      * 
      */
-    @Export(name="hostName", refs={String.class}, tree="[0]")
+    @Export(name="hostName", type=String.class, parameters={})
     private Output<String> hostName;
 
     /**
@@ -101,7 +101,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
      * 
      */
-    @Export(name="httpPort", refs={Integer.class}, tree="[0]")
+    @Export(name="httpPort", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> httpPort;
 
     /**
@@ -115,7 +115,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
      * 
      */
-    @Export(name="httpsPort", refs={Integer.class}, tree="[0]")
+    @Export(name="httpsPort", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> httpsPort;
 
     /**
@@ -129,7 +129,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -143,7 +143,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
      * 
      */
-    @Export(name="originHostHeader", refs={String.class}, tree="[0]")
+    @Export(name="originHostHeader", type=String.class, parameters={})
     private Output</* @Nullable */ String> originHostHeader;
 
     /**
@@ -157,7 +157,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
      * 
      */
-    @Export(name="priority", refs={Integer.class}, tree="[0]")
+    @Export(name="priority", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> priority;
 
     /**
@@ -171,7 +171,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * A `private_link` block as defined below.
      * 
      */
-    @Export(name="privateLink", refs={FrontdoorOriginPrivateLink.class}, tree="[0]")
+    @Export(name="privateLink", type=FrontdoorOriginPrivateLink.class, parameters={})
     private Output</* @Nullable */ FrontdoorOriginPrivateLink> privateLink;
 
     /**
@@ -185,7 +185,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
      * 
      */
-    @Export(name="weight", refs={Integer.class}, tree="[0]")
+    @Export(name="weight", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> weight;
 
     /**

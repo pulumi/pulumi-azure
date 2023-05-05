@@ -65,7 +65,7 @@ public class SubscriptionPricing extends com.pulumi.resources.CustomResource {
      * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      * 
      */
-    @Export(name="resourceType", refs={String.class}, tree="[0]")
+    @Export(name="resourceType", type=String.class, parameters={})
     private Output</* @Nullable */ String> resourceType;
 
     /**
@@ -79,7 +79,7 @@ public class SubscriptionPricing extends com.pulumi.resources.CustomResource {
      * Resource type pricing subplan. Contact your MSFT representative for possible values.
      * 
      */
-    @Export(name="subplan", refs={String.class}, tree="[0]")
+    @Export(name="subplan", type=String.class, parameters={})
     private Output</* @Nullable */ String> subplan;
 
     /**
@@ -93,7 +93,7 @@ public class SubscriptionPricing extends com.pulumi.resources.CustomResource {
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      * 
      */
-    @Export(name="tier", refs={String.class}, tree="[0]")
+    @Export(name="tier", type=String.class, parameters={})
     private Output<String> tier;
 
     /**

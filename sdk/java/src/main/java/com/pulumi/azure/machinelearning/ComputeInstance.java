@@ -146,7 +146,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */
-    @Export(name="assignToUser", refs={ComputeInstanceAssignToUser.class}, tree="[0]")
+    @Export(name="assignToUser", type=ComputeInstanceAssignToUser.class, parameters={})
     private Output</* @Nullable */ ComputeInstanceAssignToUser> assignToUser;
 
     /**
@@ -160,7 +160,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */
-    @Export(name="authorizationType", refs={String.class}, tree="[0]")
+    @Export(name="authorizationType", type=String.class, parameters={})
     private Output</* @Nullable */ String> authorizationType;
 
     /**
@@ -174,7 +174,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */
-    @Export(name="description", refs={String.class}, tree="[0]")
+    @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
@@ -188,7 +188,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */
-    @Export(name="identity", refs={ComputeInstanceIdentity.class}, tree="[0]")
+    @Export(name="identity", type=ComputeInstanceIdentity.class, parameters={})
     private Output</* @Nullable */ ComputeInstanceIdentity> identity;
 
     /**
@@ -202,7 +202,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */
-    @Export(name="localAuthEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="localAuthEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> localAuthEnabled;
 
     /**
@@ -216,7 +216,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -230,7 +230,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */
-    @Export(name="machineLearningWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="machineLearningWorkspaceId", type=String.class, parameters={})
     private Output<String> machineLearningWorkspaceId;
 
     /**
@@ -244,7 +244,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -258,7 +258,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */
-    @Export(name="ssh", refs={ComputeInstanceSsh.class}, tree="[0]")
+    @Export(name="ssh", type=ComputeInstanceSsh.class, parameters={})
     private Output</* @Nullable */ ComputeInstanceSsh> ssh;
 
     /**
@@ -272,7 +272,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */
-    @Export(name="subnetResourceId", refs={String.class}, tree="[0]")
+    @Export(name="subnetResourceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> subnetResourceId;
 
     /**
@@ -286,7 +286,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -300,7 +300,7 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
      * The Virtual Machine Size. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
      */
-    @Export(name="virtualMachineSize", refs={String.class}, tree="[0]")
+    @Export(name="virtualMachineSize", type=String.class, parameters={})
     private Output<String> virtualMachineSize;
 
     /**

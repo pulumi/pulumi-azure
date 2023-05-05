@@ -106,7 +106,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`.
      * 
      */
-    @Export(name="copyPasteEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="copyPasteEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> copyPasteEnabled;
 
     /**
@@ -120,7 +120,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * The FQDN for the Bastion Host.
      * 
      */
-    @Export(name="dnsName", refs={String.class}, tree="[0]")
+    @Export(name="dnsName", type=String.class, parameters={})
     private Output<String> dnsName;
 
     /**
@@ -134,7 +134,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
      * 
      */
-    @Export(name="fileCopyEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="fileCopyEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> fileCopyEnabled;
 
     /**
@@ -148,7 +148,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * A `ip_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="ipConfiguration", refs={BastionHostIpConfiguration.class}, tree="[0]")
+    @Export(name="ipConfiguration", type=BastionHostIpConfiguration.class, parameters={})
     private Output</* @Nullable */ BastionHostIpConfiguration> ipConfiguration;
 
     /**
@@ -162,7 +162,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
      * 
      */
-    @Export(name="ipConnectEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="ipConnectEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> ipConnectEnabled;
 
     /**
@@ -176,7 +176,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -190,7 +190,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -204,7 +204,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -218,7 +218,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
      * 
      */
-    @Export(name="scaleUnits", refs={Integer.class}, tree="[0]")
+    @Export(name="scaleUnits", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> scaleUnits;
 
     /**
@@ -232,7 +232,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
      * 
      */
-    @Export(name="shareableLinkEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="shareableLinkEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> shareableLinkEnabled;
 
     /**
@@ -246,7 +246,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output</* @Nullable */ String> sku;
 
     /**
@@ -260,7 +260,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -274,7 +274,7 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
      * 
      */
-    @Export(name="tunnelingEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="tunnelingEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> tunnelingEnabled;
 
     /**

@@ -84,7 +84,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
      * 
      */
-    @Export(name="bingSafetyPhishingUrlLookbackDate", refs={String.class}, tree="[0]")
+    @Export(name="bingSafetyPhishingUrlLookbackDate", type=String.class, parameters={})
     private Output</* @Nullable */ String> bingSafetyPhishingUrlLookbackDate;
 
     /**
@@ -98,7 +98,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
+    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -112,7 +112,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
      * 
      */
-    @Export(name="microsoftEmergingThreatFeedLookbackDate", refs={String.class}, tree="[0]")
+    @Export(name="microsoftEmergingThreatFeedLookbackDate", type=String.class, parameters={})
     private Output</* @Nullable */ String> microsoftEmergingThreatFeedLookbackDate;
 
     /**
@@ -126,7 +126,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -140,7 +140,7 @@ public class DataConnectorMicrosoftThreatIntelligence extends com.pulumi.resourc
      * The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
      * 
      */
-    @Export(name="tenantId", refs={String.class}, tree="[0]")
+    @Export(name="tenantId", type=String.class, parameters={})
     private Output<String> tenantId;
 
     /**

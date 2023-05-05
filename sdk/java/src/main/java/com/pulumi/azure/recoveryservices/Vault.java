@@ -75,7 +75,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="classicVmwareReplicationEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="classicVmwareReplicationEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> classicVmwareReplicationEnabled;
 
     /**
@@ -89,7 +89,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
      * 
      */
-    @Export(name="crossRegionRestoreEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="crossRegionRestoreEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> crossRegionRestoreEnabled;
 
     /**
@@ -103,7 +103,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * An `encryption` block as defined below. Required with `identity`.
      * 
      */
-    @Export(name="encryption", refs={VaultEncryption.class}, tree="[0]")
+    @Export(name="encryption", type=VaultEncryption.class, parameters={})
     private Output</* @Nullable */ VaultEncryption> encryption;
 
     /**
@@ -117,7 +117,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", refs={VaultIdentity.class}, tree="[0]")
+    @Export(name="identity", type=VaultIdentity.class, parameters={})
     private Output</* @Nullable */ VaultIdentity> identity;
 
     /**
@@ -131,7 +131,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
      * 
      */
-    @Export(name="immutability", refs={String.class}, tree="[0]")
+    @Export(name="immutability", type=String.class, parameters={})
     private Output<String> immutability;
 
     /**
@@ -145,7 +145,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", refs={String.class}, tree="[0]")
+    @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
     /**
@@ -159,7 +159,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -173,7 +173,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * Is it enabled to access the vault from public networks. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -187,7 +187,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
+    @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
@@ -201,7 +201,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * Sets the vault&#39;s SKU. Possible values include: `Standard`, `RS0`.
      * 
      */
-    @Export(name="sku", refs={String.class}, tree="[0]")
+    @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
@@ -215,7 +215,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * Is soft delete enable for this Vault? Defaults to `true`.
      * 
      */
-    @Export(name="softDeleteEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="softDeleteEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> softDeleteEnabled;
 
     /**
@@ -229,7 +229,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
      * 
      */
-    @Export(name="storageModeType", refs={String.class}, tree="[0]")
+    @Export(name="storageModeType", type=String.class, parameters={})
     private Output</* @Nullable */ String> storageModeType;
 
     /**
@@ -243,7 +243,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

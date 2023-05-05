@@ -90,7 +90,7 @@ public class StaticSiteCustomDomain extends com.pulumi.resources.CustomResource 
      * The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
      * 
      */
-    @Export(name="domainName", refs={String.class}, tree="[0]")
+    @Export(name="domainName", type=String.class, parameters={})
     private Output<String> domainName;
 
     /**
@@ -104,7 +104,7 @@ public class StaticSiteCustomDomain extends com.pulumi.resources.CustomResource 
      * The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
      * 
      */
-    @Export(name="staticSiteId", refs={String.class}, tree="[0]")
+    @Export(name="staticSiteId", type=String.class, parameters={})
     private Output<String> staticSiteId;
 
     /**
@@ -118,7 +118,7 @@ public class StaticSiteCustomDomain extends com.pulumi.resources.CustomResource 
      * Token to be used with `dns-txt-token` validation.
      * 
      */
-    @Export(name="validationToken", refs={String.class}, tree="[0]")
+    @Export(name="validationToken", type=String.class, parameters={})
     private Output<String> validationToken;
 
     /**
@@ -132,7 +132,7 @@ public class StaticSiteCustomDomain extends com.pulumi.resources.CustomResource 
      * One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
      * 
      */
-    @Export(name="validationType", refs={String.class}, tree="[0]")
+    @Export(name="validationType", type=String.class, parameters={})
     private Output</* @Nullable */ String> validationType;
 
     /**

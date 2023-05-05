@@ -42,16 +42,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.NetworkInterface;
  * import com.pulumi.azure.network.NetworkInterfaceArgs;
  * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
- * import com.pulumi.azure.storage.Account;
- * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.storage.Container;
- * import com.pulumi.azure.storage.ContainerArgs;
- * import com.pulumi.azure.compute.VirtualMachine;
- * import com.pulumi.azure.compute.VirtualMachineArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineStorageImageReferenceArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineStorageOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileArgs;
- * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileLinuxConfigArgs;
+ * import com.pulumi.azure.compute.LinuxVirtualMachine;
+ * import com.pulumi.azure.compute.LinuxVirtualMachineArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineAdminSshKeyArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
  * import com.pulumi.azure.compute.Extension;
  * import com.pulumi.azure.compute.ExtensionArgs;
  * import java.util.List;
@@ -93,53 +88,30 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;LRS&#34;)
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
- *             .build());
- * 
- *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .storageAccountName(exampleAccount.name())
- *             .containerAccessType(&#34;private&#34;)
- *             .build());
- * 
- *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .size(&#34;Standard_F2&#34;)
+ *             .adminUsername(&#34;adminuser&#34;)
  *             .networkInterfaceIds(exampleNetworkInterface.id())
- *             .vmSize(&#34;Standard_F2&#34;)
- *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
+ *             .adminSshKeys(LinuxVirtualMachineAdminSshKeyArgs.builder()
+ *                 .username(&#34;adminuser&#34;)
+ *                 .publicKey(Files.readString(Paths.get(&#34;~/.ssh/id_rsa.pub&#34;)))
+ *                 .build())
+ *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
+ *                 .caching(&#34;ReadWrite&#34;)
+ *                 .storageAccountType(&#34;Standard_LRS&#34;)
+ *                 .build())
+ *             .sourceImageReference(LinuxVirtualMachineSourceImageReferenceArgs.builder()
  *                 .publisher(&#34;Canonical&#34;)
  *                 .offer(&#34;UbuntuServer&#34;)
  *                 .sku(&#34;16.04-LTS&#34;)
  *                 .version(&#34;latest&#34;)
  *                 .build())
- *             .storageOsDisk(VirtualMachineStorageOsDiskArgs.builder()
- *                 .name(&#34;myosdisk1&#34;)
- *                 .vhdUri(Output.tuple(exampleAccount.primaryBlobEndpoint(), exampleContainer.name()).applyValue(values -&gt; {
- *                     var primaryBlobEndpoint = values.t1;
- *                     var name = values.t2;
- *                     return String.format(&#34;%s%s/myosdisk1.vhd&#34;, primaryBlobEndpoint,name);
- *                 }))
- *                 .caching(&#34;ReadWrite&#34;)
- *                 .createOption(&#34;FromImage&#34;)
- *                 .build())
- *             .osProfile(VirtualMachineOsProfileArgs.builder()
- *                 .computerName(&#34;hostname&#34;)
- *                 .adminUsername(&#34;testadmin&#34;)
- *                 .adminPassword(&#34;Password1234!&#34;)
- *                 .build())
- *             .osProfileLinuxConfig(VirtualMachineOsProfileLinuxConfigArgs.builder()
- *                 .disablePasswordAuthentication(false)
- *                 .build())
- *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
  *             .build());
  * 
  *         var exampleExtension = new Extension(&#34;exampleExtension&#34;, ExtensionArgs.builder()        
- *             .virtualMachineId(exampleVirtualMachine.id())
+ *             .virtualMachineId(exampleLinuxVirtualMachine.id())
  *             .publisher(&#34;Microsoft.Azure.Extensions&#34;)
  *             .type(&#34;CustomScript&#34;)
  *             .typeHandlerVersion(&#34;2.0&#34;)
@@ -170,7 +142,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
      * 
      */
-    @Export(name="autoUpgradeMinorVersion", refs={Boolean.class}, tree="[0]")
+    @Export(name="autoUpgradeMinorVersion", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoUpgradeMinorVersion;
 
     /**
@@ -184,7 +156,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      * 
      */
-    @Export(name="automaticUpgradeEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="automaticUpgradeEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> automaticUpgradeEnabled;
 
     /**
@@ -198,7 +170,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      * 
      */
-    @Export(name="failureSuppressionEnabled", refs={Boolean.class}, tree="[0]")
+    @Export(name="failureSuppressionEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> failureSuppressionEnabled;
 
     /**
@@ -212,7 +184,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The name of the virtual machine extension peering. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", refs={String.class}, tree="[0]")
+    @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
@@ -226,7 +198,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
      */
-    @Export(name="protectedSettings", refs={String.class}, tree="[0]")
+    @Export(name="protectedSettings", type=String.class, parameters={})
     private Output</* @Nullable */ String> protectedSettings;
 
     /**
@@ -240,7 +212,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * A `protected_settings_from_key_vault` block as defined below.
      * 
      */
-    @Export(name="protectedSettingsFromKeyVault", refs={ExtensionProtectedSettingsFromKeyVault.class}, tree="[0]")
+    @Export(name="protectedSettingsFromKeyVault", type=ExtensionProtectedSettingsFromKeyVault.class, parameters={})
     private Output</* @Nullable */ ExtensionProtectedSettingsFromKeyVault> protectedSettingsFromKeyVault;
 
     /**
@@ -254,7 +226,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="publisher", refs={String.class}, tree="[0]")
+    @Export(name="publisher", type=String.class, parameters={})
     private Output<String> publisher;
 
     /**
@@ -268,7 +240,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The settings passed to the extension, these are specified as a JSON object in a string.
      * 
      */
-    @Export(name="settings", refs={String.class}, tree="[0]")
+    @Export(name="settings", type=String.class, parameters={})
     private Output</* @Nullable */ String> settings;
 
     /**
@@ -282,7 +254,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -296,7 +268,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The type of extension, available types for a publisher can be found using the Azure CLI.
      * 
      */
-    @Export(name="type", refs={String.class}, tree="[0]")
+    @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
@@ -310,7 +282,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      * 
      */
-    @Export(name="typeHandlerVersion", refs={String.class}, tree="[0]")
+    @Export(name="typeHandlerVersion", type=String.class, parameters={})
     private Output<String> typeHandlerVersion;
 
     /**
@@ -324,7 +296,7 @@ public class Extension extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Machine. Changing this forces a new resource to be created
      * 
      */
-    @Export(name="virtualMachineId", refs={String.class}, tree="[0]")
+    @Export(name="virtualMachineId", type=String.class, parameters={})
     private Output<String> virtualMachineId;
 
     /**
