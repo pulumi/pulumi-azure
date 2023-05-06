@@ -22,18 +22,63 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     public static final ServiceState Empty = new ServiceState();
 
     /**
-     * A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+     * Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
      * 
      */
     @Import(name="allowedIps")
     private @Nullable Output<List<String>> allowedIps;
 
     /**
-     * @return A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+     * @return Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
      * 
      */
     public Optional<Output<List<String>>> allowedIps() {
         return Optional.ofNullable(this.allowedIps);
+    }
+
+    /**
+     * Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+     * 
+     */
+    @Import(name="authenticationFailureMode")
+    private @Nullable Output<String> authenticationFailureMode;
+
+    /**
+     * @return Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+     * 
+     */
+    public Optional<Output<String>> authenticationFailureMode() {
+        return Optional.ofNullable(this.authenticationFailureMode);
+    }
+
+    /**
+     * Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+     * 
+     */
+    @Import(name="customerManagedKeyEnforcementEnabled")
+    private @Nullable Output<Boolean> customerManagedKeyEnforcementEnabled;
+
+    /**
+     * @return Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> customerManagedKeyEnforcementEnabled() {
+        return Optional.ofNullable(this.customerManagedKeyEnforcementEnabled);
+    }
+
+    /**
+     * Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+     * 
+     */
+    @Import(name="hostingMode")
+    private @Nullable Output<String> hostingMode;
+
+    /**
+     * @return Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+     * 
+     */
+    public Optional<Output<String>> hostingMode() {
+        return Optional.ofNullable(this.hostingMode);
     }
 
     /**
@@ -49,6 +94,21 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<ServiceIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+     * 
+     */
+    @Import(name="localAuthenticationEnabled")
+    private @Nullable Output<Boolean> localAuthenticationEnabled;
+
+    /**
+     * @return Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> localAuthenticationEnabled() {
+        return Optional.ofNullable(this.localAuthenticationEnabled);
     }
 
     /**
@@ -82,14 +142,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of partitions which should be created.
+     * Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
      * 
      */
     @Import(name="partitionCount")
     private @Nullable Output<Integer> partitionCount;
 
     /**
-     * @return The number of partitions which should be created.
+     * @return Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> partitionCount() {
@@ -112,14 +172,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether or not public network access is allowed for this resource. Defaults to `true`.
+     * Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether or not public network access is allowed for this resource. Defaults to `true`.
+     * @return Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -142,14 +202,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of replica&#39;s which should be created.
+     * Specifies the number of Replica&#39;s which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
      * 
      */
     @Import(name="replicaCount")
     private @Nullable Output<Integer> replicaCount;
 
     /**
-     * @return The number of replica&#39;s which should be created.
+     * @return Specifies the number of Replica&#39;s which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
      * 
      */
     public Optional<Output<Integer>> replicaCount() {
@@ -187,14 +247,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+     * The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+     * @return The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -202,14 +262,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A mapping of tags which should be assigned to the Search Service.
+     * Specifies a mapping of tags which should be assigned to this Search Service.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Search Service.
+     * @return Specifies a mapping of tags which should be assigned to this Search Service.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -220,7 +280,11 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
 
     private ServiceState(ServiceState $) {
         this.allowedIps = $.allowedIps;
+        this.authenticationFailureMode = $.authenticationFailureMode;
+        this.customerManagedKeyEnforcementEnabled = $.customerManagedKeyEnforcementEnabled;
+        this.hostingMode = $.hostingMode;
         this.identity = $.identity;
+        this.localAuthenticationEnabled = $.localAuthenticationEnabled;
         this.location = $.location;
         this.name = $.name;
         this.partitionCount = $.partitionCount;
@@ -253,7 +317,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedIps A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+         * @param allowedIps Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
          * 
          * @return builder
          * 
@@ -264,7 +328,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedIps A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+         * @param allowedIps Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
          * 
          * @return builder
          * 
@@ -274,13 +338,76 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedIps A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+         * @param allowedIps Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
          * 
          * @return builder
          * 
          */
         public Builder allowedIps(String... allowedIps) {
             return allowedIps(List.of(allowedIps));
+        }
+
+        /**
+         * @param authenticationFailureMode Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationFailureMode(@Nullable Output<String> authenticationFailureMode) {
+            $.authenticationFailureMode = authenticationFailureMode;
+            return this;
+        }
+
+        /**
+         * @param authenticationFailureMode Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationFailureMode(String authenticationFailureMode) {
+            return authenticationFailureMode(Output.of(authenticationFailureMode));
+        }
+
+        /**
+         * @param customerManagedKeyEnforcementEnabled Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerManagedKeyEnforcementEnabled(@Nullable Output<Boolean> customerManagedKeyEnforcementEnabled) {
+            $.customerManagedKeyEnforcementEnabled = customerManagedKeyEnforcementEnabled;
+            return this;
+        }
+
+        /**
+         * @param customerManagedKeyEnforcementEnabled Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerManagedKeyEnforcementEnabled(Boolean customerManagedKeyEnforcementEnabled) {
+            return customerManagedKeyEnforcementEnabled(Output.of(customerManagedKeyEnforcementEnabled));
+        }
+
+        /**
+         * @param hostingMode Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostingMode(@Nullable Output<String> hostingMode) {
+            $.hostingMode = hostingMode;
+            return this;
+        }
+
+        /**
+         * @param hostingMode Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostingMode(String hostingMode) {
+            return hostingMode(Output.of(hostingMode));
         }
 
         /**
@@ -302,6 +429,27 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder identity(ServiceIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param localAuthenticationEnabled Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthenticationEnabled(@Nullable Output<Boolean> localAuthenticationEnabled) {
+            $.localAuthenticationEnabled = localAuthenticationEnabled;
+            return this;
+        }
+
+        /**
+         * @param localAuthenticationEnabled Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthenticationEnabled(Boolean localAuthenticationEnabled) {
+            return localAuthenticationEnabled(Output.of(localAuthenticationEnabled));
         }
 
         /**
@@ -347,7 +495,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionCount The number of partitions which should be created.
+         * @param partitionCount Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -358,7 +506,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionCount The number of partitions which should be created.
+         * @param partitionCount Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -389,7 +537,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether or not public network access is allowed for this resource. Defaults to `true`.
+         * @param publicNetworkAccessEnabled Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -400,7 +548,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether or not public network access is allowed for this resource. Defaults to `true`.
+         * @param publicNetworkAccessEnabled Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -441,7 +589,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicaCount The number of replica&#39;s which should be created.
+         * @param replicaCount Specifies the number of Replica&#39;s which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
          * 
          * @return builder
          * 
@@ -452,7 +600,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicaCount The number of replica&#39;s which should be created.
+         * @param replicaCount Specifies the number of Replica&#39;s which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
          * 
          * @return builder
          * 
@@ -504,7 +652,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+         * @param sku The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
          * 
          * @return builder
          * 
@@ -515,7 +663,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+         * @param sku The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
          * 
          * @return builder
          * 
@@ -525,7 +673,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Search Service.
+         * @param tags Specifies a mapping of tags which should be assigned to this Search Service.
          * 
          * @return builder
          * 
@@ -536,7 +684,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Search Service.
+         * @param tags Specifies a mapping of tags which should be assigned to this Search Service.
          * 
          * @return builder
          * 

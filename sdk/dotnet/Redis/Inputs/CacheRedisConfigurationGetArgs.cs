@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Redis.Inputs
     public sealed class CacheRedisConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable or disable AOF persistence for this Redis Cache.
+        /// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
         /// </summary>
         [Input("aofBackupEnabled")]
         public Input<bool>? AofBackupEnabled { get; set; }
@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Redis.Inputs
         public Input<string>? NotifyKeyspaceEvents { get; set; }
 
         /// <summary>
-        /// Is Backup Enabled? Only supported on Premium SKUs.
+        /// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
         /// </summary>
         [Input("rdbBackupEnabled")]
         public Input<bool>? RdbBackupEnabled { get; set; }

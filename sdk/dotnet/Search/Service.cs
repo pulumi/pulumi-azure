@@ -13,6 +13,7 @@ namespace Pulumi.Azure.Search
     /// Manages a Search Service.
     /// 
     /// ## Example Usage
+    /// ### Supporting API Keys)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -36,6 +37,57 @@ namespace Pulumi.Azure.Search
     /// 
     /// });
     /// ```
+    /// ### Using Both AzureAD And API Keys)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.Search.Service("exampleService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "standard",
+    ///         LocalAuthenticationEnabled = true,
+    ///         AuthenticationFailureMode = "http403",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Supporting Only AzureAD Authentication)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.Search.Service("exampleService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "standard",
+    ///         LocalAuthenticationEnabled = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -49,16 +101,40 @@ namespace Pulumi.Azure.Search
     public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+        /// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
         /// </summary>
         [Output("allowedIps")]
         public Output<ImmutableArray<string>> AllowedIps { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+        /// </summary>
+        [Output("authenticationFailureMode")]
+        public Output<string?> AuthenticationFailureMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+        /// </summary>
+        [Output("customerManagedKeyEnforcementEnabled")]
+        public Output<bool?> CustomerManagedKeyEnforcementEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+        /// </summary>
+        [Output("hostingMode")]
+        public Output<string?> HostingMode { get; private set; } = null!;
 
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ServiceIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+        /// </summary>
+        [Output("localAuthenticationEnabled")]
+        public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
@@ -73,10 +149,10 @@ namespace Pulumi.Azure.Search
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of partitions which should be created.
+        /// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
         /// </summary>
         [Output("partitionCount")]
-        public Output<int> PartitionCount { get; private set; } = null!;
+        public Output<int?> PartitionCount { get; private set; } = null!;
 
         /// <summary>
         /// The Primary Key used for Search Service Administration.
@@ -85,7 +161,7 @@ namespace Pulumi.Azure.Search
         public Output<string> PrimaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not public network access is allowed for this resource. Defaults to `true`.
+        /// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -97,10 +173,10 @@ namespace Pulumi.Azure.Search
         public Output<ImmutableArray<Outputs.ServiceQueryKey>> QueryKeys { get; private set; } = null!;
 
         /// <summary>
-        /// The number of replica's which should be created.
+        /// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         /// </summary>
         [Output("replicaCount")]
-        public Output<int> ReplicaCount { get; private set; } = null!;
+        public Output<int?> ReplicaCount { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
@@ -115,13 +191,13 @@ namespace Pulumi.Azure.Search
         public Output<string> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+        /// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Search Service.
+        /// Specifies a mapping of tags which should be assigned to this Search Service.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -181,7 +257,7 @@ namespace Pulumi.Azure.Search
         private InputList<string>? _allowedIps;
 
         /// <summary>
-        /// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+        /// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
         /// </summary>
         public InputList<string> AllowedIps
         {
@@ -190,10 +266,34 @@ namespace Pulumi.Azure.Search
         }
 
         /// <summary>
+        /// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+        /// </summary>
+        [Input("authenticationFailureMode")]
+        public Input<string>? AuthenticationFailureMode { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+        /// </summary>
+        [Input("customerManagedKeyEnforcementEnabled")]
+        public Input<bool>? CustomerManagedKeyEnforcementEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+        /// </summary>
+        [Input("hostingMode")]
+        public Input<string>? HostingMode { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+        /// </summary>
+        [Input("localAuthenticationEnabled")]
+        public Input<bool>? LocalAuthenticationEnabled { get; set; }
 
         /// <summary>
         /// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
@@ -208,19 +308,19 @@ namespace Pulumi.Azure.Search
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of partitions which should be created.
+        /// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
 
         /// <summary>
-        /// Whether or not public network access is allowed for this resource. Defaults to `true`.
+        /// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// The number of replica's which should be created.
+        /// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         /// </summary>
         [Input("replicaCount")]
         public Input<int>? ReplicaCount { get; set; }
@@ -232,7 +332,7 @@ namespace Pulumi.Azure.Search
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+        /// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -241,7 +341,7 @@ namespace Pulumi.Azure.Search
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Search Service.
+        /// Specifies a mapping of tags which should be assigned to this Search Service.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -261,7 +361,7 @@ namespace Pulumi.Azure.Search
         private InputList<string>? _allowedIps;
 
         /// <summary>
-        /// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+        /// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
         /// </summary>
         public InputList<string> AllowedIps
         {
@@ -270,10 +370,34 @@ namespace Pulumi.Azure.Search
         }
 
         /// <summary>
+        /// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+        /// </summary>
+        [Input("authenticationFailureMode")]
+        public Input<string>? AuthenticationFailureMode { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+        /// </summary>
+        [Input("customerManagedKeyEnforcementEnabled")]
+        public Input<bool>? CustomerManagedKeyEnforcementEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+        /// </summary>
+        [Input("hostingMode")]
+        public Input<string>? HostingMode { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ServiceIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+        /// </summary>
+        [Input("localAuthenticationEnabled")]
+        public Input<bool>? LocalAuthenticationEnabled { get; set; }
 
         /// <summary>
         /// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
@@ -288,7 +412,7 @@ namespace Pulumi.Azure.Search
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of partitions which should be created.
+        /// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
@@ -310,7 +434,7 @@ namespace Pulumi.Azure.Search
         }
 
         /// <summary>
-        /// Whether or not public network access is allowed for this resource. Defaults to `true`.
+        /// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -328,7 +452,7 @@ namespace Pulumi.Azure.Search
         }
 
         /// <summary>
-        /// The number of replica's which should be created.
+        /// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         /// </summary>
         [Input("replicaCount")]
         public Input<int>? ReplicaCount { get; set; }
@@ -356,7 +480,7 @@ namespace Pulumi.Azure.Search
         }
 
         /// <summary>
-        /// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+        /// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -365,7 +489,7 @@ namespace Pulumi.Azure.Search
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Search Service.
+        /// Specifies a mapping of tags which should be assigned to this Search Service.
         /// </summary>
         public InputMap<string> Tags
         {

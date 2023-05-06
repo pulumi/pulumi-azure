@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _destinationAddresses;
 
         /// <summary>
-        /// Specifies a list of destination IP addresses (including CIDR and `*`).
+        /// Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
         /// </summary>
         public InputList<string> DestinationAddresses
         {
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _sourceAddresses;
 
         /// <summary>
-        /// Specifies a list of source IP addresses (including CIDR and `*`).
+        /// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         /// </summary>
         public InputList<string> SourceAddresses
         {

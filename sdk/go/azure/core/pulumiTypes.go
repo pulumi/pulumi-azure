@@ -1457,7 +1457,7 @@ func (o ResourceDeploymentScriptPowerShellStorageAccountPtrOutput) Name() pulumi
 }
 
 type ResourceGroupCostManagementExportExportDataOptions struct {
-	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 	TimeFrame string `pulumi:"timeFrame"`
 	// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
 	Type string `pulumi:"type"`
@@ -1475,7 +1475,7 @@ type ResourceGroupCostManagementExportExportDataOptionsInput interface {
 }
 
 type ResourceGroupCostManagementExportExportDataOptionsArgs struct {
-	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 	TimeFrame pulumi.StringInput `pulumi:"timeFrame"`
 	// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -1558,7 +1558,7 @@ func (o ResourceGroupCostManagementExportExportDataOptionsOutput) ToResourceGrou
 	}).(ResourceGroupCostManagementExportExportDataOptionsPtrOutput)
 }
 
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 func (o ResourceGroupCostManagementExportExportDataOptionsOutput) TimeFrame() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupCostManagementExportExportDataOptions) string { return v.TimeFrame }).(pulumi.StringOutput)
 }
@@ -1592,7 +1592,7 @@ func (o ResourceGroupCostManagementExportExportDataOptionsPtrOutput) Elem() Reso
 	}).(ResourceGroupCostManagementExportExportDataOptionsOutput)
 }
 
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 func (o ResourceGroupCostManagementExportExportDataOptionsPtrOutput) TimeFrame() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceGroupCostManagementExportExportDataOptions) *string {
 		if v == nil {
@@ -4090,7 +4090,7 @@ func (o ResourceProviderRegistrationFeatureArrayOutput) Index(i pulumi.IntInput)
 }
 
 type SubscriptionCostManagementExportExportDataOptions struct {
-	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 	TimeFrame string `pulumi:"timeFrame"`
 	// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
 	Type string `pulumi:"type"`
@@ -4108,7 +4108,7 @@ type SubscriptionCostManagementExportExportDataOptionsInput interface {
 }
 
 type SubscriptionCostManagementExportExportDataOptionsArgs struct {
-	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+	// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 	TimeFrame pulumi.StringInput `pulumi:"timeFrame"`
 	// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -4191,7 +4191,7 @@ func (o SubscriptionCostManagementExportExportDataOptionsOutput) ToSubscriptionC
 	}).(SubscriptionCostManagementExportExportDataOptionsPtrOutput)
 }
 
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 func (o SubscriptionCostManagementExportExportDataOptionsOutput) TimeFrame() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionCostManagementExportExportDataOptions) string { return v.TimeFrame }).(pulumi.StringOutput)
 }
@@ -4225,7 +4225,7 @@ func (o SubscriptionCostManagementExportExportDataOptionsPtrOutput) Elem() Subsc
 	}).(SubscriptionCostManagementExportExportDataOptionsOutput)
 }
 
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 func (o SubscriptionCostManagementExportExportDataOptionsPtrOutput) TimeFrame() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionCostManagementExportExportDataOptions) *string {
 		if v == nil {

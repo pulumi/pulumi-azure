@@ -458,47 +458,28 @@ class Extension(pulumi.CustomResource):
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
             )])
-        example_account = azure.storage.Account("exampleAccount",
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "staging",
-            })
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            size="Standard_F2",
+            admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
-            vm_size="Standard_F2",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
+                username="adminuser",
+                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
+            )],
+            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
+                caching="ReadWrite",
+                storage_account_type="Standard_LRS",
+            ),
+            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
                 publisher="Canonical",
                 offer="UbuntuServer",
                 sku="16.04-LTS",
                 version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="myosdisk1",
-                vhd_uri=pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}/myosdisk1.vhd"),
-                caching="ReadWrite",
-                create_option="FromImage",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name="hostname",
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ),
-            tags={
-                "environment": "staging",
-            })
+            ))
         example_extension = azure.compute.Extension("exampleExtension",
-            virtual_machine_id=example_virtual_machine.id,
+            virtual_machine_id=example_linux_virtual_machine.id,
             publisher="Microsoft.Azure.Extensions",
             type="CustomScript",
             type_handler_version="2.0",
@@ -571,47 +552,28 @@ class Extension(pulumi.CustomResource):
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
             )])
-        example_account = azure.storage.Account("exampleAccount",
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            tags={
-                "environment": "staging",
-            })
-        example_container = azure.storage.Container("exampleContainer",
-            storage_account_name=example_account.name,
-            container_access_type="private")
-        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            size="Standard_F2",
+            admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
-            vm_size="Standard_F2",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
+                username="adminuser",
+                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
+            )],
+            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
+                caching="ReadWrite",
+                storage_account_type="Standard_LRS",
+            ),
+            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
                 publisher="Canonical",
                 offer="UbuntuServer",
                 sku="16.04-LTS",
                 version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="myosdisk1",
-                vhd_uri=pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}/myosdisk1.vhd"),
-                caching="ReadWrite",
-                create_option="FromImage",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name="hostname",
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ),
-            tags={
-                "environment": "staging",
-            })
+            ))
         example_extension = azure.compute.Extension("exampleExtension",
-            virtual_machine_id=example_virtual_machine.id,
+            virtual_machine_id=example_linux_virtual_machine.id,
             publisher="Microsoft.Azure.Extensions",
             type="CustomScript",
             type_handler_version="2.0",

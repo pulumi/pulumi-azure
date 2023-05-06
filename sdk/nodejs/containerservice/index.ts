@@ -25,6 +25,11 @@ export const getKubernetesCluster: typeof import("./getKubernetesCluster").getKu
 export const getKubernetesClusterOutput: typeof import("./getKubernetesCluster").getKubernetesClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getKubernetesCluster","getKubernetesClusterOutput"], () => require("./getKubernetesCluster"));
 
+export { GetKubernetesNodePoolSnapshotArgs, GetKubernetesNodePoolSnapshotResult, GetKubernetesNodePoolSnapshotOutputArgs } from "./getKubernetesNodePoolSnapshot";
+export const getKubernetesNodePoolSnapshot: typeof import("./getKubernetesNodePoolSnapshot").getKubernetesNodePoolSnapshot = null as any;
+export const getKubernetesNodePoolSnapshotOutput: typeof import("./getKubernetesNodePoolSnapshot").getKubernetesNodePoolSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getKubernetesNodePoolSnapshot","getKubernetesNodePoolSnapshotOutput"], () => require("./getKubernetesNodePoolSnapshot"));
+
 export { GetKubernetesServiceVersionsArgs, GetKubernetesServiceVersionsResult, GetKubernetesServiceVersionsOutputArgs } from "./getKubernetesServiceVersions";
 export const getKubernetesServiceVersions: typeof import("./getKubernetesServiceVersions").getKubernetesServiceVersions = null as any;
 export const getKubernetesServiceVersionsOutput: typeof import("./getKubernetesServiceVersions").getKubernetesServiceVersionsOutput = null as any;
@@ -54,6 +59,11 @@ export { KubernetesClusterArgs, KubernetesClusterState } from "./kubernetesClust
 export type KubernetesCluster = import("./kubernetesCluster").KubernetesCluster;
 export const KubernetesCluster: typeof import("./kubernetesCluster").KubernetesCluster = null as any;
 utilities.lazyLoad(exports, ["KubernetesCluster"], () => require("./kubernetesCluster"));
+
+export { KubernetesClusterExtensionArgs, KubernetesClusterExtensionState } from "./kubernetesClusterExtension";
+export type KubernetesClusterExtension = import("./kubernetesClusterExtension").KubernetesClusterExtension;
+export const KubernetesClusterExtension: typeof import("./kubernetesClusterExtension").KubernetesClusterExtension = null as any;
+utilities.lazyLoad(exports, ["KubernetesClusterExtension"], () => require("./kubernetesClusterExtension"));
 
 export { KubernetesClusterNodePoolArgs, KubernetesClusterNodePoolState } from "./kubernetesClusterNodePool";
 export type KubernetesClusterNodePool = import("./kubernetesClusterNodePool").KubernetesClusterNodePool;
@@ -121,6 +131,8 @@ const _module = {
                 return new Group(name, <any>undefined, { urn })
             case "azure:containerservice/kubernetesCluster:KubernetesCluster":
                 return new KubernetesCluster(name, <any>undefined, { urn })
+            case "azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension":
+                return new KubernetesClusterExtension(name, <any>undefined, { urn })
             case "azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool":
                 return new KubernetesClusterNodePool(name, <any>undefined, { urn })
             case "azure:containerservice/kubernetesFleetManager:KubernetesFleetManager":
@@ -151,6 +163,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "containerservice/connectedRegistry", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/group", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesCluster", _module)
+pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesClusterExtension", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesClusterNodePool", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesFleetManager", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registry", _module)

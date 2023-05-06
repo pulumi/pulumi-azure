@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SnapshotPolicy{}
 	case "azure:netapp/volume:Volume":
 		r = &Volume{}
+	case "azure:netapp/volumeGroupSapHana:VolumeGroupSapHana":
+		r = &VolumeGroupSapHana{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -67,6 +69,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"netapp/volume",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"netapp/volumeGroupSapHana",
 		&module{version},
 	)
 }

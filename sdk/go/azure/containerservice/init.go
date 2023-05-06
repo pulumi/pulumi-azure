@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Group{}
 	case "azure:containerservice/kubernetesCluster:KubernetesCluster":
 		r = &KubernetesCluster{}
+	case "azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension":
+		r = &KubernetesClusterExtension{}
 	case "azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool":
 		r = &KubernetesClusterNodePool{}
 	case "azure:containerservice/kubernetesFleetManager:KubernetesFleetManager":
@@ -75,6 +77,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"containerservice/kubernetesCluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"containerservice/kubernetesClusterExtension",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

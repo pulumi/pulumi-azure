@@ -26,6 +26,7 @@ import com.pulumi.azure.containerservice.outputs.KubernetesClusterMicrosoftDefen
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterMonitorMetrics;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNetworkProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterOmsAgent;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterServiceMeshProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterServicePrincipal;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterStorageProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterWebAppRouting;
@@ -847,6 +848,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> runCommandEnabled() {
         return Codegen.optional(this.runCommandEnabled);
+    }
+    /**
+     * A `service_mesh_profile` block as defined below.
+     * 
+     */
+    @Export(name="serviceMeshProfile", refs={KubernetesClusterServiceMeshProfile.class}, tree="[0]")
+    private Output</* @Nullable */ KubernetesClusterServiceMeshProfile> serviceMeshProfile;
+
+    /**
+     * @return A `service_mesh_profile` block as defined below.
+     * 
+     */
+    public Output<Optional<KubernetesClusterServiceMeshProfile>> serviceMeshProfile() {
+        return Codegen.optional(this.serviceMeshProfile);
     }
     /**
      * A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.

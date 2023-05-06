@@ -156,7 +156,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> CreateMode { get; private set; } = null!;
 
         /// <summary>
-        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
         /// </summary>
         [Output("defaultIdentityType")]
         public Output<string> DefaultIdentityType { get; private set; } = null!;
@@ -460,7 +460,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
-        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
         /// </summary>
         [Input("defaultIdentityType")]
         public Input<string>? DefaultIdentityType { get; set; }
@@ -700,7 +700,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? CreateMode { get; set; }
 
         /// <summary>
-        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+        /// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
         /// </summary>
         [Input("defaultIdentityType")]
         public Input<string>? DefaultIdentityType { get; set; }

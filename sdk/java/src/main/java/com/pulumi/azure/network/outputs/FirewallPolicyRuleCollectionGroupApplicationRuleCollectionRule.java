@@ -20,7 +20,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
      */
     private @Nullable String description;
     /**
-     * @return Specifies a list of destination IP addresses (including CIDR and `*`).
+     * @return Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
      * 
      */
     private @Nullable List<String> destinationAddresses;
@@ -50,7 +50,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
      */
     private @Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol> protocols;
     /**
-     * @return Specifies a list of source IP addresses (including CIDR and `*`).
+     * @return Specifies a list of source IP addresses (including CIDR, IP range and `*`).
      * 
      */
     private @Nullable List<String> sourceAddresses;
@@ -79,7 +79,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return Specifies a list of destination IP addresses (including CIDR and `*`).
+     * @return Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
      * 
      */
     public List<String> destinationAddresses() {
@@ -121,7 +121,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         return this.protocols == null ? List.of() : this.protocols;
     }
     /**
-     * @return Specifies a list of source IP addresses (including CIDR and `*`).
+     * @return Specifies a list of source IP addresses (including CIDR, IP range and `*`).
      * 
      */
     public List<String> sourceAddresses() {

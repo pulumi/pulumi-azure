@@ -9,12 +9,14 @@ from .connected_registry import *
 from .get_cluster_node_pool import *
 from .get_group import *
 from .get_kubernetes_cluster import *
+from .get_kubernetes_node_pool_snapshot import *
 from .get_kubernetes_service_versions import *
 from .get_registry import *
 from .get_registry_scope_map import *
 from .get_registry_token import *
 from .group import *
 from .kubernetes_cluster import *
+from .kubernetes_cluster_extension import *
 from .kubernetes_cluster_node_pool import *
 from .kubernetes_fleet_manager import *
 from .registry import *

@@ -14,6 +14,7 @@ import (
 // Manages a Search Service.
 //
 // ## Example Usage
+// ### Supporting API Keys)
 //
 // ```go
 // package main
@@ -47,6 +48,77 @@ import (
 //	}
 //
 // ```
+// ### Using Both AzureAD And API Keys)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/search"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = search.NewService(ctx, "exampleService", &search.ServiceArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Sku:                        pulumi.String("standard"),
+//				LocalAuthenticationEnabled: pulumi.Bool(true),
+//				AuthenticationFailureMode:  pulumi.String("http403"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Supporting Only AzureAD Authentication)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/search"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = search.NewService(ctx, "exampleService", &search.ServiceArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Sku:                        pulumi.String("standard"),
+//				LocalAuthenticationEnabled: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -60,31 +132,39 @@ import (
 type Service struct {
 	pulumi.CustomResourceState
 
-	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+	// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowedIps` it will be blocked by the Search Services firewall.
 	AllowedIps pulumi.StringArrayOutput `pulumi:"allowedIps"`
+	// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+	AuthenticationFailureMode pulumi.StringPtrOutput `pulumi:"authenticationFailureMode"`
+	// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+	CustomerManagedKeyEnforcementEnabled pulumi.BoolPtrOutput `pulumi:"customerManagedKeyEnforcementEnabled"`
+	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+	HostingMode pulumi.StringPtrOutput `pulumi:"hostingMode"`
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrOutput `pulumi:"identity"`
+	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+	LocalAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationEnabled"`
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of partitions which should be created.
-	PartitionCount pulumi.IntOutput `pulumi:"partitionCount"`
+	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+	PartitionCount pulumi.IntPtrOutput `pulumi:"partitionCount"`
 	// The Primary Key used for Search Service Administration.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
-	// Whether or not public network access is allowed for this resource. Defaults to `true`.
+	// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A `queryKeys` block as defined below.
 	QueryKeys ServiceQueryKeyArrayOutput `pulumi:"queryKeys"`
-	// The number of replica's which should be created.
-	ReplicaCount pulumi.IntOutput `pulumi:"replicaCount"`
+	// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
+	ReplicaCount pulumi.IntPtrOutput `pulumi:"replicaCount"`
 	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Key used for Search Service Administration.
 	SecondaryKey pulumi.StringOutput `pulumi:"secondaryKey"`
-	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
+	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	Sku pulumi.StringOutput `pulumi:"sku"`
-	// A mapping of tags which should be assigned to the Search Service.
+	// Specifies a mapping of tags which should be assigned to this Search Service.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -128,60 +208,76 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
-	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+	// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowedIps` it will be blocked by the Search Services firewall.
 	AllowedIps []string `pulumi:"allowedIps"`
+	// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+	AuthenticationFailureMode *string `pulumi:"authenticationFailureMode"`
+	// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+	CustomerManagedKeyEnforcementEnabled *bool `pulumi:"customerManagedKeyEnforcementEnabled"`
+	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+	HostingMode *string `pulumi:"hostingMode"`
 	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
+	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location *string `pulumi:"location"`
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name *string `pulumi:"name"`
-	// The number of partitions which should be created.
+	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 	PartitionCount *int `pulumi:"partitionCount"`
 	// The Primary Key used for Search Service Administration.
 	PrimaryKey *string `pulumi:"primaryKey"`
-	// Whether or not public network access is allowed for this resource. Defaults to `true`.
+	// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A `queryKeys` block as defined below.
 	QueryKeys []ServiceQueryKey `pulumi:"queryKeys"`
-	// The number of replica's which should be created.
+	// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
 	ReplicaCount *int `pulumi:"replicaCount"`
 	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Key used for Search Service Administration.
 	SecondaryKey *string `pulumi:"secondaryKey"`
-	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
+	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	Sku *string `pulumi:"sku"`
-	// A mapping of tags which should be assigned to the Search Service.
+	// Specifies a mapping of tags which should be assigned to this Search Service.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type ServiceState struct {
-	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+	// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowedIps` it will be blocked by the Search Services firewall.
 	AllowedIps pulumi.StringArrayInput
+	// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+	AuthenticationFailureMode pulumi.StringPtrInput
+	// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+	CustomerManagedKeyEnforcementEnabled pulumi.BoolPtrInput
+	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+	HostingMode pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
+	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringPtrInput
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name pulumi.StringPtrInput
-	// The number of partitions which should be created.
+	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 	PartitionCount pulumi.IntPtrInput
 	// The Primary Key used for Search Service Administration.
 	PrimaryKey pulumi.StringPtrInput
-	// Whether or not public network access is allowed for this resource. Defaults to `true`.
+	// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A `queryKeys` block as defined below.
 	QueryKeys ServiceQueryKeyArrayInput
-	// The number of replica's which should be created.
+	// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
 	ReplicaCount pulumi.IntPtrInput
 	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Key used for Search Service Administration.
 	SecondaryKey pulumi.StringPtrInput
-	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
+	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	Sku pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the Search Service.
+	// Specifies a mapping of tags which should be assigned to this Search Service.
 	Tags pulumi.StringMapInput
 }
 
@@ -190,49 +286,65 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+	// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowedIps` it will be blocked by the Search Services firewall.
 	AllowedIps []string `pulumi:"allowedIps"`
+	// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+	AuthenticationFailureMode *string `pulumi:"authenticationFailureMode"`
+	// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+	CustomerManagedKeyEnforcementEnabled *bool `pulumi:"customerManagedKeyEnforcementEnabled"`
+	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+	HostingMode *string `pulumi:"hostingMode"`
 	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
+	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location *string `pulumi:"location"`
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name *string `pulumi:"name"`
-	// The number of partitions which should be created.
+	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 	PartitionCount *int `pulumi:"partitionCount"`
-	// Whether or not public network access is allowed for this resource. Defaults to `true`.
+	// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// The number of replica's which should be created.
+	// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
 	ReplicaCount *int `pulumi:"replicaCount"`
 	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
+	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	Sku string `pulumi:"sku"`
-	// A mapping of tags which should be assigned to the Search Service.
+	// Specifies a mapping of tags which should be assigned to this Search Service.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+	// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowedIps` it will be blocked by the Search Services firewall.
 	AllowedIps pulumi.StringArrayInput
+	// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+	AuthenticationFailureMode pulumi.StringPtrInput
+	// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+	CustomerManagedKeyEnforcementEnabled pulumi.BoolPtrInput
+	// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+	HostingMode pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
+	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringPtrInput
 	// The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
 	Name pulumi.StringPtrInput
-	// The number of partitions which should be created.
+	// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
 	PartitionCount pulumi.IntPtrInput
-	// Whether or not public network access is allowed for this resource. Defaults to `true`.
+	// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// The number of replica's which should be created.
+	// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
 	ReplicaCount pulumi.IntPtrInput
 	// The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
+	// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 	Sku pulumi.StringInput
-	// A mapping of tags which should be assigned to the Search Service.
+	// Specifies a mapping of tags which should be assigned to this Search Service.
 	Tags pulumi.StringMapInput
 }
 
@@ -323,14 +435,34 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
-// A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
+// Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowedIps` it will be blocked by the Search Services firewall.
 func (o ServiceOutput) AllowedIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringArrayOutput { return v.AllowedIps }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+func (o ServiceOutput) AuthenticationFailureMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AuthenticationFailureMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
+func (o ServiceOutput) CustomerManagedKeyEnforcementEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.CustomerManagedKeyEnforcementEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+func (o ServiceOutput) HostingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.HostingMode }).(pulumi.StringPtrOutput)
 }
 
 // An `identity` block as defined below.
 func (o ServiceOutput) Identity() ServiceIdentityPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceIdentityPtrOutput { return v.Identity }).(ServiceIdentityPtrOutput)
+}
+
+// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+func (o ServiceOutput) LocalAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.LocalAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
@@ -343,9 +475,9 @@ func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of partitions which should be created.
-func (o ServiceOutput) PartitionCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *Service) pulumi.IntOutput { return v.PartitionCount }).(pulumi.IntOutput)
+// Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+func (o ServiceOutput) PartitionCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.IntPtrOutput { return v.PartitionCount }).(pulumi.IntPtrOutput)
 }
 
 // The Primary Key used for Search Service Administration.
@@ -353,7 +485,7 @@ func (o ServiceOutput) PrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
-// Whether or not public network access is allowed for this resource. Defaults to `true`.
+// Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
 func (o ServiceOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -363,9 +495,9 @@ func (o ServiceOutput) QueryKeys() ServiceQueryKeyArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceQueryKeyArrayOutput { return v.QueryKeys }).(ServiceQueryKeyArrayOutput)
 }
 
-// The number of replica's which should be created.
-func (o ServiceOutput) ReplicaCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *Service) pulumi.IntOutput { return v.ReplicaCount }).(pulumi.IntOutput)
+// Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
+func (o ServiceOutput) ReplicaCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.IntPtrOutput { return v.ReplicaCount }).(pulumi.IntPtrOutput)
 }
 
 // The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
@@ -378,12 +510,12 @@ func (o ServiceOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.SecondaryKey }).(pulumi.StringOutput)
 }
 
-// The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
+// The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
 func (o ServiceOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }
 
-// A mapping of tags which should be assigned to the Search Service.
+// Specifies a mapping of tags which should be assigned to this Search Service.
 func (o ServiceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

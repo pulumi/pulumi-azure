@@ -12,17 +12,11 @@ namespace Pulumi.Azure.Attestation.Inputs
 
     public sealed class ProviderPolicyArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-        /// </summary>
-        [Input("data", required: true)]
-        public Input<string> Data { get; set; } = null!;
+        [Input("data")]
+        public Input<string>? Data { get; set; }
 
-        /// <summary>
-        /// Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-        /// </summary>
-        [Input("environmentType", required: true)]
-        public Input<string> EnvironmentType { get; set; } = null!;
+        [Input("environmentType")]
+        public Input<string>? EnvironmentType { get; set; }
 
         public ProviderPolicyArgs()
         {

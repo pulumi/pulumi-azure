@@ -103,6 +103,52 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
+ * const exampleEndpoint = new azure.privatelink.Endpoint("exampleEndpoint", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     subnetId: exampleSubnet.id,
+ *     privateServiceConnection: {
+ *         name: "example-privateserviceconnection",
+ *         privateConnectionResourceId: exampleAccount.id,
+ *         subresourceNames: ["blob"],
+ *         isManualConnection: false,
+ *     },
+ *     privateDnsZoneGroup: {
+ *         name: "example-dns-zone-group",
+ *         privateDnsZoneIds: [exampleZone.id],
+ *     },
+ * });
+ * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     privateDnsZoneName: exampleZone.name,
+ *     virtualNetworkId: exampleVirtualNetwork.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Private Endpoints can be imported using the `resource id`, e.g.

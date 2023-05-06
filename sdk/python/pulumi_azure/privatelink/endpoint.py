@@ -460,6 +460,47 @@ class Endpoint(pulumi.CustomResource):
             ))
         ```
 
+        Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            subnet_id=example_subnet.id,
+            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
+                name="example-privateserviceconnection",
+                private_connection_resource_id=example_account.id,
+                subresource_names=["blob"],
+                is_manual_connection=False,
+            ),
+            private_dns_zone_group=azure.privatelink.EndpointPrivateDnsZoneGroupArgs(
+                name="example-dns-zone-group",
+                private_dns_zone_ids=[example_zone.id],
+            ))
+        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
+            resource_group_name=example_resource_group.name,
+            private_dns_zone_name=example_zone.name,
+            virtual_network_id=example_virtual_network.id)
+        ```
+
         ## Import
 
         Private Endpoints can be imported using the `resource id`, e.g.
@@ -567,6 +608,47 @@ class Endpoint(pulumi.CustomResource):
                 is_manual_connection=True,
                 request_message="PL",
             ))
+        ```
+
+        Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            subnet_id=example_subnet.id,
+            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
+                name="example-privateserviceconnection",
+                private_connection_resource_id=example_account.id,
+                subresource_names=["blob"],
+                is_manual_connection=False,
+            ),
+            private_dns_zone_group=azure.privatelink.EndpointPrivateDnsZoneGroupArgs(
+                name="example-dns-zone-group",
+                private_dns_zone_ids=[example_zone.id],
+            ))
+        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
+            resource_group_name=example_resource_group.name,
+            private_dns_zone_name=example_zone.name,
+            virtual_network_id=example_virtual_network.id)
         ```
 
         ## Import

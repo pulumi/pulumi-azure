@@ -34,7 +34,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
      */
     private List<String> protocols;
     /**
-     * @return Specifies a list of source IP addresses (including CIDR and `*`).
+     * @return Specifies a list of source IP addresses (including CIDR, IP range and `*`).
      * 
      */
     private @Nullable List<String> sourceAddresses;
@@ -89,7 +89,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
         return this.protocols;
     }
     /**
-     * @return Specifies a list of source IP addresses (including CIDR and `*`).
+     * @return Specifies a list of source IP addresses (including CIDR, IP range and `*`).
      * 
      */
     public List<String> sourceAddresses() {

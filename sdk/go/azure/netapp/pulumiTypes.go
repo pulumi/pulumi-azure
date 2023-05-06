@@ -1434,6 +1434,741 @@ func (o VolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) VolumeExport
 	}).(VolumeExportPolicyRuleOutput)
 }
 
+type VolumeGroupSapHanaVolume struct {
+	// The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+	CapacityPoolId string `pulumi:"capacityPoolId"`
+	// A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+	DataProtectionReplication *VolumeGroupSapHanaVolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
+	// A `dataProtectionSnapshotPolicy` block as defined below.
+	DataProtectionSnapshotPolicy *VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicy"`
+	// One or more `exportPolicyRule` blocks as defined below.
+	ExportPolicyRules []VolumeGroupSapHanaVolumeExportPolicyRule `pulumi:"exportPolicyRules"`
+	// The ID of the Application Volume Group.
+	Id               *string  `pulumi:"id"`
+	MountIpAddresses []string `pulumi:"mountIpAddresses"`
+	// The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	Name string `pulumi:"name"`
+	// The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`, multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+	Protocols string `pulumi:"protocols"`
+	// The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
+	// Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	SecurityStyle string `pulumi:"securityStyle"`
+	// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	ServiceLevel string `pulumi:"serviceLevel"`
+	// Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+	SnapshotDirectoryVisible bool `pulumi:"snapshotDirectoryVisible"`
+	// The maximum Storage Quota allowed for a file system in Gigabytes.
+	StorageQuotaInGb int `pulumi:"storageQuotaInGb"`
+	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+	SubnetId string `pulumi:"subnetId"`
+	// A mapping of tags which should be assigned to the Application Volume Group.
+	Tags map[string]string `pulumi:"tags"`
+	// Throughput of this volume in Mibps.
+	ThroughputInMibps float64 `pulumi:"throughputInMibps"`
+	// A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	VolumePath string `pulumi:"volumePath"`
+	// Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	VolumeSpecName string `pulumi:"volumeSpecName"`
+}
+
+// VolumeGroupSapHanaVolumeInput is an input type that accepts VolumeGroupSapHanaVolumeArgs and VolumeGroupSapHanaVolumeOutput values.
+// You can construct a concrete instance of `VolumeGroupSapHanaVolumeInput` via:
+//
+//	VolumeGroupSapHanaVolumeArgs{...}
+type VolumeGroupSapHanaVolumeInput interface {
+	pulumi.Input
+
+	ToVolumeGroupSapHanaVolumeOutput() VolumeGroupSapHanaVolumeOutput
+	ToVolumeGroupSapHanaVolumeOutputWithContext(context.Context) VolumeGroupSapHanaVolumeOutput
+}
+
+type VolumeGroupSapHanaVolumeArgs struct {
+	// The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+	CapacityPoolId pulumi.StringInput `pulumi:"capacityPoolId"`
+	// A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+	DataProtectionReplication VolumeGroupSapHanaVolumeDataProtectionReplicationPtrInput `pulumi:"dataProtectionReplication"`
+	// A `dataProtectionSnapshotPolicy` block as defined below.
+	DataProtectionSnapshotPolicy VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrInput `pulumi:"dataProtectionSnapshotPolicy"`
+	// One or more `exportPolicyRule` blocks as defined below.
+	ExportPolicyRules VolumeGroupSapHanaVolumeExportPolicyRuleArrayInput `pulumi:"exportPolicyRules"`
+	// The ID of the Application Volume Group.
+	Id               pulumi.StringPtrInput   `pulumi:"id"`
+	MountIpAddresses pulumi.StringArrayInput `pulumi:"mountIpAddresses"`
+	// The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`, multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+	Protocols pulumi.StringInput `pulumi:"protocols"`
+	// The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
+	// Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	SecurityStyle pulumi.StringInput `pulumi:"securityStyle"`
+	// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	ServiceLevel pulumi.StringInput `pulumi:"serviceLevel"`
+	// Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+	SnapshotDirectoryVisible pulumi.BoolInput `pulumi:"snapshotDirectoryVisible"`
+	// The maximum Storage Quota allowed for a file system in Gigabytes.
+	StorageQuotaInGb pulumi.IntInput `pulumi:"storageQuotaInGb"`
+	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	// A mapping of tags which should be assigned to the Application Volume Group.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Throughput of this volume in Mibps.
+	ThroughputInMibps pulumi.Float64Input `pulumi:"throughputInMibps"`
+	// A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	VolumePath pulumi.StringInput `pulumi:"volumePath"`
+	// Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	VolumeSpecName pulumi.StringInput `pulumi:"volumeSpecName"`
+}
+
+func (VolumeGroupSapHanaVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupSapHanaVolume)(nil)).Elem()
+}
+
+func (i VolumeGroupSapHanaVolumeArgs) ToVolumeGroupSapHanaVolumeOutput() VolumeGroupSapHanaVolumeOutput {
+	return i.ToVolumeGroupSapHanaVolumeOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupSapHanaVolumeArgs) ToVolumeGroupSapHanaVolumeOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeOutput)
+}
+
+// VolumeGroupSapHanaVolumeArrayInput is an input type that accepts VolumeGroupSapHanaVolumeArray and VolumeGroupSapHanaVolumeArrayOutput values.
+// You can construct a concrete instance of `VolumeGroupSapHanaVolumeArrayInput` via:
+//
+//	VolumeGroupSapHanaVolumeArray{ VolumeGroupSapHanaVolumeArgs{...} }
+type VolumeGroupSapHanaVolumeArrayInput interface {
+	pulumi.Input
+
+	ToVolumeGroupSapHanaVolumeArrayOutput() VolumeGroupSapHanaVolumeArrayOutput
+	ToVolumeGroupSapHanaVolumeArrayOutputWithContext(context.Context) VolumeGroupSapHanaVolumeArrayOutput
+}
+
+type VolumeGroupSapHanaVolumeArray []VolumeGroupSapHanaVolumeInput
+
+func (VolumeGroupSapHanaVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeGroupSapHanaVolume)(nil)).Elem()
+}
+
+func (i VolumeGroupSapHanaVolumeArray) ToVolumeGroupSapHanaVolumeArrayOutput() VolumeGroupSapHanaVolumeArrayOutput {
+	return i.ToVolumeGroupSapHanaVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupSapHanaVolumeArray) ToVolumeGroupSapHanaVolumeArrayOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeArrayOutput)
+}
+
+type VolumeGroupSapHanaVolumeOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupSapHanaVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupSapHanaVolume)(nil)).Elem()
+}
+
+func (o VolumeGroupSapHanaVolumeOutput) ToVolumeGroupSapHanaVolumeOutput() VolumeGroupSapHanaVolumeOutput {
+	return o
+}
+
+func (o VolumeGroupSapHanaVolumeOutput) ToVolumeGroupSapHanaVolumeOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeOutput {
+	return o
+}
+
+// The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeOutput) CapacityPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.CapacityPoolId }).(pulumi.StringOutput)
+}
+
+// A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeOutput) DataProtectionReplication() VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) *VolumeGroupSapHanaVolumeDataProtectionReplication {
+		return v.DataProtectionReplication
+	}).(VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput)
+}
+
+// A `dataProtectionSnapshotPolicy` block as defined below.
+func (o VolumeGroupSapHanaVolumeOutput) DataProtectionSnapshotPolicy() VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) *VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy {
+		return v.DataProtectionSnapshotPolicy
+	}).(VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput)
+}
+
+// One or more `exportPolicyRule` blocks as defined below.
+func (o VolumeGroupSapHanaVolumeOutput) ExportPolicyRules() VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) []VolumeGroupSapHanaVolumeExportPolicyRule {
+		return v.ExportPolicyRules
+	}).(VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput)
+}
+
+// The ID of the Application Volume Group.
+func (o VolumeGroupSapHanaVolumeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeGroupSapHanaVolumeOutput) MountIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) []string { return v.MountIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`, multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+func (o VolumeGroupSapHanaVolumeOutput) Protocols() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.Protocols }).(pulumi.StringOutput)
+}
+
+// The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+func (o VolumeGroupSapHanaVolumeOutput) ProximityPlacementGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) *string { return v.ProximityPlacementGroupId }).(pulumi.StringPtrOutput)
+}
+
+// Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeOutput) SecurityStyle() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.SecurityStyle }).(pulumi.StringOutput)
+}
+
+// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeOutput) ServiceLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.ServiceLevel }).(pulumi.StringOutput)
+}
+
+// Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeOutput) SnapshotDirectoryVisible() pulumi.BoolOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) bool { return v.SnapshotDirectoryVisible }).(pulumi.BoolOutput)
+}
+
+// The maximum Storage Quota allowed for a file system in Gigabytes.
+func (o VolumeGroupSapHanaVolumeOutput) StorageQuotaInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) int { return v.StorageQuotaInGb }).(pulumi.IntOutput)
+}
+
+// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// A mapping of tags which should be assigned to the Application Volume Group.
+func (o VolumeGroupSapHanaVolumeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Throughput of this volume in Mibps.
+func (o VolumeGroupSapHanaVolumeOutput) ThroughputInMibps() pulumi.Float64Output {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) float64 { return v.ThroughputInMibps }).(pulumi.Float64Output)
+}
+
+// A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeOutput) VolumePath() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.VolumePath }).(pulumi.StringOutput)
+}
+
+// Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeOutput) VolumeSpecName() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.VolumeSpecName }).(pulumi.StringOutput)
+}
+
+type VolumeGroupSapHanaVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupSapHanaVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeGroupSapHanaVolume)(nil)).Elem()
+}
+
+func (o VolumeGroupSapHanaVolumeArrayOutput) ToVolumeGroupSapHanaVolumeArrayOutput() VolumeGroupSapHanaVolumeArrayOutput {
+	return o
+}
+
+func (o VolumeGroupSapHanaVolumeArrayOutput) ToVolumeGroupSapHanaVolumeArrayOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeArrayOutput {
+	return o
+}
+
+func (o VolumeGroupSapHanaVolumeArrayOutput) Index(i pulumi.IntInput) VolumeGroupSapHanaVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeGroupSapHanaVolume {
+		return vs[0].([]VolumeGroupSapHanaVolume)[vs[1].(int)]
+	}).(VolumeGroupSapHanaVolumeOutput)
+}
+
+type VolumeGroupSapHanaVolumeDataProtectionReplication struct {
+	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+	EndpointType *string `pulumi:"endpointType"`
+	// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
+	// Resource ID of the primary volume.
+	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
+	// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+	ReplicationFrequency string `pulumi:"replicationFrequency"`
+}
+
+// VolumeGroupSapHanaVolumeDataProtectionReplicationInput is an input type that accepts VolumeGroupSapHanaVolumeDataProtectionReplicationArgs and VolumeGroupSapHanaVolumeDataProtectionReplicationOutput values.
+// You can construct a concrete instance of `VolumeGroupSapHanaVolumeDataProtectionReplicationInput` via:
+//
+//	VolumeGroupSapHanaVolumeDataProtectionReplicationArgs{...}
+type VolumeGroupSapHanaVolumeDataProtectionReplicationInput interface {
+	pulumi.Input
+
+	ToVolumeGroupSapHanaVolumeDataProtectionReplicationOutput() VolumeGroupSapHanaVolumeDataProtectionReplicationOutput
+	ToVolumeGroupSapHanaVolumeDataProtectionReplicationOutputWithContext(context.Context) VolumeGroupSapHanaVolumeDataProtectionReplicationOutput
+}
+
+type VolumeGroupSapHanaVolumeDataProtectionReplicationArgs struct {
+	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
+	// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
+	// Resource ID of the primary volume.
+	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
+	// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+	ReplicationFrequency pulumi.StringInput `pulumi:"replicationFrequency"`
+}
+
+func (VolumeGroupSapHanaVolumeDataProtectionReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupSapHanaVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (i VolumeGroupSapHanaVolumeDataProtectionReplicationArgs) ToVolumeGroupSapHanaVolumeDataProtectionReplicationOutput() VolumeGroupSapHanaVolumeDataProtectionReplicationOutput {
+	return i.ToVolumeGroupSapHanaVolumeDataProtectionReplicationOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupSapHanaVolumeDataProtectionReplicationArgs) ToVolumeGroupSapHanaVolumeDataProtectionReplicationOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeDataProtectionReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeDataProtectionReplicationOutput)
+}
+
+func (i VolumeGroupSapHanaVolumeDataProtectionReplicationArgs) ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput() VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput {
+	return i.ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupSapHanaVolumeDataProtectionReplicationArgs) ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeDataProtectionReplicationOutput).ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutputWithContext(ctx)
+}
+
+// VolumeGroupSapHanaVolumeDataProtectionReplicationPtrInput is an input type that accepts VolumeGroupSapHanaVolumeDataProtectionReplicationArgs, VolumeGroupSapHanaVolumeDataProtectionReplicationPtr and VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput values.
+// You can construct a concrete instance of `VolumeGroupSapHanaVolumeDataProtectionReplicationPtrInput` via:
+//
+//	        VolumeGroupSapHanaVolumeDataProtectionReplicationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeGroupSapHanaVolumeDataProtectionReplicationPtrInput interface {
+	pulumi.Input
+
+	ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput() VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput
+	ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutputWithContext(context.Context) VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput
+}
+
+type volumeGroupSapHanaVolumeDataProtectionReplicationPtrType VolumeGroupSapHanaVolumeDataProtectionReplicationArgs
+
+func VolumeGroupSapHanaVolumeDataProtectionReplicationPtr(v *VolumeGroupSapHanaVolumeDataProtectionReplicationArgs) VolumeGroupSapHanaVolumeDataProtectionReplicationPtrInput {
+	return (*volumeGroupSapHanaVolumeDataProtectionReplicationPtrType)(v)
+}
+
+func (*volumeGroupSapHanaVolumeDataProtectionReplicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupSapHanaVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (i *volumeGroupSapHanaVolumeDataProtectionReplicationPtrType) ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput() VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput {
+	return i.ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeGroupSapHanaVolumeDataProtectionReplicationPtrType) ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput)
+}
+
+type VolumeGroupSapHanaVolumeDataProtectionReplicationOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupSapHanaVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ToVolumeGroupSapHanaVolumeDataProtectionReplicationOutput() VolumeGroupSapHanaVolumeDataProtectionReplicationOutput {
+	return o
+}
+
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ToVolumeGroupSapHanaVolumeDataProtectionReplicationOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeDataProtectionReplicationOutput {
+	return o
+}
+
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput() VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput {
+	return o.ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeGroupSapHanaVolumeDataProtectionReplication) *VolumeGroupSapHanaVolumeDataProtectionReplication {
+		return &v
+	}).(VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput)
+}
+
+// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
+}
+
+// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) RemoteVolumeLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.RemoteVolumeLocation }).(pulumi.StringOutput)
+}
+
+// Resource ID of the primary volume.
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) RemoteVolumeResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
+}
+
+// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ReplicationFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.ReplicationFrequency }).(pulumi.StringOutput)
+}
+
+type VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupSapHanaVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput() VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput {
+	return o
+}
+
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput {
+	return o
+}
+
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) Elem() VolumeGroupSapHanaVolumeDataProtectionReplicationOutput {
+	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) VolumeGroupSapHanaVolumeDataProtectionReplication {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeGroupSapHanaVolumeDataProtectionReplication
+		return ret
+	}).(VolumeGroupSapHanaVolumeDataProtectionReplicationOutput)
+}
+
+// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) RemoteVolumeLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RemoteVolumeLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource ID of the primary volume.
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) RemoteVolumeResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RemoteVolumeResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) ReplicationFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReplicationFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy struct {
+	// Resource ID of the snapshot policy to apply to the volume.
+	SnapshotPolicyId string `pulumi:"snapshotPolicyId"`
+}
+
+// VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyInput is an input type that accepts VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs and VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput values.
+// You can construct a concrete instance of `VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyInput` via:
+//
+//	VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs{...}
+type VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyInput interface {
+	pulumi.Input
+
+	ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput() VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput
+	ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutputWithContext(context.Context) VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput
+}
+
+type VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs struct {
+	// Resource ID of the snapshot policy to apply to the volume.
+	SnapshotPolicyId pulumi.StringInput `pulumi:"snapshotPolicyId"`
+}
+
+func (VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (i VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs) ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput() VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput {
+	return i.ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs) ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput)
+}
+
+func (i VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs) ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return i.ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs) ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput).ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx)
+}
+
+// VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrInput is an input type that accepts VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs, VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtr and VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput values.
+// You can construct a concrete instance of `VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrInput` via:
+//
+//	        VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput
+	ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(context.Context) VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput
+}
+
+type volumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrType VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs
+
+func VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtr(v *VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs) VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrInput {
+	return (*volumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrType)(v)
+}
+
+func (*volumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (i *volumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrType) ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return i.ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrType) ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput)
+}
+
+type VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput() VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput {
+	return o
+}
+
+func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput {
+	return o
+}
+
+func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return o.ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy) *VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy {
+		return &v
+	}).(VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput)
+}
+
+// Resource ID of the snapshot policy to apply to the volume.
+func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) SnapshotPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy) string { return v.SnapshotPolicyId }).(pulumi.StringOutput)
+}
+
+type VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput) ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return o
+}
+
+func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput) ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput {
+	return o
+}
+
+func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput) Elem() VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput {
+	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy) VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy
+		return ret
+	}).(VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput)
+}
+
+// Resource ID of the snapshot policy to apply to the volume.
+func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SnapshotPolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeGroupSapHanaVolumeExportPolicyRule struct {
+	// A comma-sperated list of allowed client IPv4 addresses.
+	AllowedClients string `pulumi:"allowedClients"`
+	// Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+	Nfsv3Enabled bool `pulumi:"nfsv3Enabled"`
+	// Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+	Nfsv41Enabled bool `pulumi:"nfsv41Enabled"`
+	// Is root access permitted to this volume? Defaults to `true`.
+	RootAccessEnabled *bool `pulumi:"rootAccessEnabled"`
+	// The index number of the rule, must start at 1 and maximum 5.
+	RuleIndex int `pulumi:"ruleIndex"`
+	// Is the file system on unix read only? Defaults to `false.
+	UnixReadOnly *bool `pulumi:"unixReadOnly"`
+	// Is the file system on unix read and write? Defaults to `true`.
+	UnixReadWrite *bool `pulumi:"unixReadWrite"`
+}
+
+// VolumeGroupSapHanaVolumeExportPolicyRuleInput is an input type that accepts VolumeGroupSapHanaVolumeExportPolicyRuleArgs and VolumeGroupSapHanaVolumeExportPolicyRuleOutput values.
+// You can construct a concrete instance of `VolumeGroupSapHanaVolumeExportPolicyRuleInput` via:
+//
+//	VolumeGroupSapHanaVolumeExportPolicyRuleArgs{...}
+type VolumeGroupSapHanaVolumeExportPolicyRuleInput interface {
+	pulumi.Input
+
+	ToVolumeGroupSapHanaVolumeExportPolicyRuleOutput() VolumeGroupSapHanaVolumeExportPolicyRuleOutput
+	ToVolumeGroupSapHanaVolumeExportPolicyRuleOutputWithContext(context.Context) VolumeGroupSapHanaVolumeExportPolicyRuleOutput
+}
+
+type VolumeGroupSapHanaVolumeExportPolicyRuleArgs struct {
+	// A comma-sperated list of allowed client IPv4 addresses.
+	AllowedClients pulumi.StringInput `pulumi:"allowedClients"`
+	// Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+	Nfsv3Enabled pulumi.BoolInput `pulumi:"nfsv3Enabled"`
+	// Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+	Nfsv41Enabled pulumi.BoolInput `pulumi:"nfsv41Enabled"`
+	// Is root access permitted to this volume? Defaults to `true`.
+	RootAccessEnabled pulumi.BoolPtrInput `pulumi:"rootAccessEnabled"`
+	// The index number of the rule, must start at 1 and maximum 5.
+	RuleIndex pulumi.IntInput `pulumi:"ruleIndex"`
+	// Is the file system on unix read only? Defaults to `false.
+	UnixReadOnly pulumi.BoolPtrInput `pulumi:"unixReadOnly"`
+	// Is the file system on unix read and write? Defaults to `true`.
+	UnixReadWrite pulumi.BoolPtrInput `pulumi:"unixReadWrite"`
+}
+
+func (VolumeGroupSapHanaVolumeExportPolicyRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupSapHanaVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (i VolumeGroupSapHanaVolumeExportPolicyRuleArgs) ToVolumeGroupSapHanaVolumeExportPolicyRuleOutput() VolumeGroupSapHanaVolumeExportPolicyRuleOutput {
+	return i.ToVolumeGroupSapHanaVolumeExportPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupSapHanaVolumeExportPolicyRuleArgs) ToVolumeGroupSapHanaVolumeExportPolicyRuleOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeExportPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeExportPolicyRuleOutput)
+}
+
+// VolumeGroupSapHanaVolumeExportPolicyRuleArrayInput is an input type that accepts VolumeGroupSapHanaVolumeExportPolicyRuleArray and VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput values.
+// You can construct a concrete instance of `VolumeGroupSapHanaVolumeExportPolicyRuleArrayInput` via:
+//
+//	VolumeGroupSapHanaVolumeExportPolicyRuleArray{ VolumeGroupSapHanaVolumeExportPolicyRuleArgs{...} }
+type VolumeGroupSapHanaVolumeExportPolicyRuleArrayInput interface {
+	pulumi.Input
+
+	ToVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput() VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput
+	ToVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutputWithContext(context.Context) VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput
+}
+
+type VolumeGroupSapHanaVolumeExportPolicyRuleArray []VolumeGroupSapHanaVolumeExportPolicyRuleInput
+
+func (VolumeGroupSapHanaVolumeExportPolicyRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeGroupSapHanaVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (i VolumeGroupSapHanaVolumeExportPolicyRuleArray) ToVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput() VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput {
+	return i.ToVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupSapHanaVolumeExportPolicyRuleArray) ToVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput)
+}
+
+type VolumeGroupSapHanaVolumeExportPolicyRuleOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupSapHanaVolumeExportPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupSapHanaVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (o VolumeGroupSapHanaVolumeExportPolicyRuleOutput) ToVolumeGroupSapHanaVolumeExportPolicyRuleOutput() VolumeGroupSapHanaVolumeExportPolicyRuleOutput {
+	return o
+}
+
+func (o VolumeGroupSapHanaVolumeExportPolicyRuleOutput) ToVolumeGroupSapHanaVolumeExportPolicyRuleOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeExportPolicyRuleOutput {
+	return o
+}
+
+// A comma-sperated list of allowed client IPv4 addresses.
+func (o VolumeGroupSapHanaVolumeExportPolicyRuleOutput) AllowedClients() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolumeExportPolicyRule) string { return v.AllowedClients }).(pulumi.StringOutput)
+}
+
+// Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+func (o VolumeGroupSapHanaVolumeExportPolicyRuleOutput) Nfsv3Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolumeExportPolicyRule) bool { return v.Nfsv3Enabled }).(pulumi.BoolOutput)
+}
+
+// Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+func (o VolumeGroupSapHanaVolumeExportPolicyRuleOutput) Nfsv41Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolumeExportPolicyRule) bool { return v.Nfsv41Enabled }).(pulumi.BoolOutput)
+}
+
+// Is root access permitted to this volume? Defaults to `true`.
+func (o VolumeGroupSapHanaVolumeExportPolicyRuleOutput) RootAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolumeExportPolicyRule) *bool { return v.RootAccessEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The index number of the rule, must start at 1 and maximum 5.
+func (o VolumeGroupSapHanaVolumeExportPolicyRuleOutput) RuleIndex() pulumi.IntOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolumeExportPolicyRule) int { return v.RuleIndex }).(pulumi.IntOutput)
+}
+
+// Is the file system on unix read only? Defaults to `false.
+func (o VolumeGroupSapHanaVolumeExportPolicyRuleOutput) UnixReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolumeExportPolicyRule) *bool { return v.UnixReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Is the file system on unix read and write? Defaults to `true`.
+func (o VolumeGroupSapHanaVolumeExportPolicyRuleOutput) UnixReadWrite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupSapHanaVolumeExportPolicyRule) *bool { return v.UnixReadWrite }).(pulumi.BoolPtrOutput)
+}
+
+type VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeGroupSapHanaVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (o VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) ToVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput() VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput {
+	return o
+}
+
+func (o VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) ToVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput {
+	return o
+}
+
+func (o VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) VolumeGroupSapHanaVolumeExportPolicyRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeGroupSapHanaVolumeExportPolicyRule {
+		return vs[0].([]VolumeGroupSapHanaVolumeExportPolicyRule)[vs[1].(int)]
+	}).(VolumeGroupSapHanaVolumeExportPolicyRuleOutput)
+}
+
 type GetSnapshotPolicyDailySchedule struct {
 	// Hour of the day that the snapshots will be created.
 	Hour int `pulumi:"hour"`
@@ -2024,6 +2759,634 @@ func (o GetVolumeDataProtectionReplicationArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetVolumeDataProtectionReplicationOutput)
 }
 
+type GetVolumeGroupSapHanaVolume struct {
+	// The ID of the Capacity Pool.
+	CapacityPoolId string `pulumi:"capacityPoolId"`
+	// A `dataProtectionReplication` block as defined below.
+	DataProtectionReplications []GetVolumeGroupSapHanaVolumeDataProtectionReplication `pulumi:"dataProtectionReplications"`
+	// A `dataProtectionSnapshotPolicy` block as defined below.
+	DataProtectionSnapshotPolicies []GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicies"`
+	// A `exportPolicyRule` block as defined below.
+	ExportPolicyRules []GetVolumeGroupSapHanaVolumeExportPolicyRule `pulumi:"exportPolicyRules"`
+	// Volume ID.
+	Id string `pulumi:"id"`
+	// A `mountIpAddresses` block as defined below.
+	MountIpAddresses []string `pulumi:"mountIpAddresses"`
+	// The name of this Application Volume Group for SAP HANA application.
+	Name string `pulumi:"name"`
+	// A `protocols` block as defined below.
+	Protocols []string `pulumi:"protocols"`
+	// The ID of the proximity placement group.
+	ProximityPlacementGroupId string `pulumi:"proximityPlacementGroupId"`
+	// Volume security style.
+	SecurityStyle string `pulumi:"securityStyle"`
+	// The target performance of the file system.
+	ServiceLevel string `pulumi:"serviceLevel"`
+	// Is the .snapshot (NFS clients) path of a volume visible?
+	SnapshotDirectoryVisible bool `pulumi:"snapshotDirectoryVisible"`
+	// The maximum Storage Quota allowed for a file system in Gigabytes.
+	StorageQuotaInGb int `pulumi:"storageQuotaInGb"`
+	// The ID of the Subnet the NetApp Volume resides in.
+	SubnetId string `pulumi:"subnetId"`
+	// A mapping of tags assigned to the Application Volume Group.
+	Tags map[string]string `pulumi:"tags"`
+	// Throughput of this volume in Mibps.
+	ThroughputInMibps float64 `pulumi:"throughputInMibps"`
+	// A unique file path for the volume.
+	VolumePath string `pulumi:"volumePath"`
+	// Volume spec name.
+	VolumeSpecName string `pulumi:"volumeSpecName"`
+}
+
+// GetVolumeGroupSapHanaVolumeInput is an input type that accepts GetVolumeGroupSapHanaVolumeArgs and GetVolumeGroupSapHanaVolumeOutput values.
+// You can construct a concrete instance of `GetVolumeGroupSapHanaVolumeInput` via:
+//
+//	GetVolumeGroupSapHanaVolumeArgs{...}
+type GetVolumeGroupSapHanaVolumeInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupSapHanaVolumeOutput() GetVolumeGroupSapHanaVolumeOutput
+	ToGetVolumeGroupSapHanaVolumeOutputWithContext(context.Context) GetVolumeGroupSapHanaVolumeOutput
+}
+
+type GetVolumeGroupSapHanaVolumeArgs struct {
+	// The ID of the Capacity Pool.
+	CapacityPoolId pulumi.StringInput `pulumi:"capacityPoolId"`
+	// A `dataProtectionReplication` block as defined below.
+	DataProtectionReplications GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayInput `pulumi:"dataProtectionReplications"`
+	// A `dataProtectionSnapshotPolicy` block as defined below.
+	DataProtectionSnapshotPolicies GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayInput `pulumi:"dataProtectionSnapshotPolicies"`
+	// A `exportPolicyRule` block as defined below.
+	ExportPolicyRules GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayInput `pulumi:"exportPolicyRules"`
+	// Volume ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// A `mountIpAddresses` block as defined below.
+	MountIpAddresses pulumi.StringArrayInput `pulumi:"mountIpAddresses"`
+	// The name of this Application Volume Group for SAP HANA application.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `protocols` block as defined below.
+	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
+	// The ID of the proximity placement group.
+	ProximityPlacementGroupId pulumi.StringInput `pulumi:"proximityPlacementGroupId"`
+	// Volume security style.
+	SecurityStyle pulumi.StringInput `pulumi:"securityStyle"`
+	// The target performance of the file system.
+	ServiceLevel pulumi.StringInput `pulumi:"serviceLevel"`
+	// Is the .snapshot (NFS clients) path of a volume visible?
+	SnapshotDirectoryVisible pulumi.BoolInput `pulumi:"snapshotDirectoryVisible"`
+	// The maximum Storage Quota allowed for a file system in Gigabytes.
+	StorageQuotaInGb pulumi.IntInput `pulumi:"storageQuotaInGb"`
+	// The ID of the Subnet the NetApp Volume resides in.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	// A mapping of tags assigned to the Application Volume Group.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Throughput of this volume in Mibps.
+	ThroughputInMibps pulumi.Float64Input `pulumi:"throughputInMibps"`
+	// A unique file path for the volume.
+	VolumePath pulumi.StringInput `pulumi:"volumePath"`
+	// Volume spec name.
+	VolumeSpecName pulumi.StringInput `pulumi:"volumeSpecName"`
+}
+
+func (GetVolumeGroupSapHanaVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupSapHanaVolume)(nil)).Elem()
+}
+
+func (i GetVolumeGroupSapHanaVolumeArgs) ToGetVolumeGroupSapHanaVolumeOutput() GetVolumeGroupSapHanaVolumeOutput {
+	return i.ToGetVolumeGroupSapHanaVolumeOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupSapHanaVolumeArgs) ToGetVolumeGroupSapHanaVolumeOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeOutput)
+}
+
+// GetVolumeGroupSapHanaVolumeArrayInput is an input type that accepts GetVolumeGroupSapHanaVolumeArray and GetVolumeGroupSapHanaVolumeArrayOutput values.
+// You can construct a concrete instance of `GetVolumeGroupSapHanaVolumeArrayInput` via:
+//
+//	GetVolumeGroupSapHanaVolumeArray{ GetVolumeGroupSapHanaVolumeArgs{...} }
+type GetVolumeGroupSapHanaVolumeArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupSapHanaVolumeArrayOutput() GetVolumeGroupSapHanaVolumeArrayOutput
+	ToGetVolumeGroupSapHanaVolumeArrayOutputWithContext(context.Context) GetVolumeGroupSapHanaVolumeArrayOutput
+}
+
+type GetVolumeGroupSapHanaVolumeArray []GetVolumeGroupSapHanaVolumeInput
+
+func (GetVolumeGroupSapHanaVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupSapHanaVolume)(nil)).Elem()
+}
+
+func (i GetVolumeGroupSapHanaVolumeArray) ToGetVolumeGroupSapHanaVolumeArrayOutput() GetVolumeGroupSapHanaVolumeArrayOutput {
+	return i.ToGetVolumeGroupSapHanaVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupSapHanaVolumeArray) ToGetVolumeGroupSapHanaVolumeArrayOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeArrayOutput)
+}
+
+type GetVolumeGroupSapHanaVolumeOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupSapHanaVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupSapHanaVolume)(nil)).Elem()
+}
+
+func (o GetVolumeGroupSapHanaVolumeOutput) ToGetVolumeGroupSapHanaVolumeOutput() GetVolumeGroupSapHanaVolumeOutput {
+	return o
+}
+
+func (o GetVolumeGroupSapHanaVolumeOutput) ToGetVolumeGroupSapHanaVolumeOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeOutput {
+	return o
+}
+
+// The ID of the Capacity Pool.
+func (o GetVolumeGroupSapHanaVolumeOutput) CapacityPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.CapacityPoolId }).(pulumi.StringOutput)
+}
+
+// A `dataProtectionReplication` block as defined below.
+func (o GetVolumeGroupSapHanaVolumeOutput) DataProtectionReplications() GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) []GetVolumeGroupSapHanaVolumeDataProtectionReplication {
+		return v.DataProtectionReplications
+	}).(GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput)
+}
+
+// A `dataProtectionSnapshotPolicy` block as defined below.
+func (o GetVolumeGroupSapHanaVolumeOutput) DataProtectionSnapshotPolicies() GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) []GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy {
+		return v.DataProtectionSnapshotPolicies
+	}).(GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput)
+}
+
+// A `exportPolicyRule` block as defined below.
+func (o GetVolumeGroupSapHanaVolumeOutput) ExportPolicyRules() GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) []GetVolumeGroupSapHanaVolumeExportPolicyRule {
+		return v.ExportPolicyRules
+	}).(GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput)
+}
+
+// Volume ID.
+func (o GetVolumeGroupSapHanaVolumeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A `mountIpAddresses` block as defined below.
+func (o GetVolumeGroupSapHanaVolumeOutput) MountIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) []string { return v.MountIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The name of this Application Volume Group for SAP HANA application.
+func (o GetVolumeGroupSapHanaVolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `protocols` block as defined below.
+func (o GetVolumeGroupSapHanaVolumeOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) []string { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the proximity placement group.
+func (o GetVolumeGroupSapHanaVolumeOutput) ProximityPlacementGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.ProximityPlacementGroupId }).(pulumi.StringOutput)
+}
+
+// Volume security style.
+func (o GetVolumeGroupSapHanaVolumeOutput) SecurityStyle() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.SecurityStyle }).(pulumi.StringOutput)
+}
+
+// The target performance of the file system.
+func (o GetVolumeGroupSapHanaVolumeOutput) ServiceLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.ServiceLevel }).(pulumi.StringOutput)
+}
+
+// Is the .snapshot (NFS clients) path of a volume visible?
+func (o GetVolumeGroupSapHanaVolumeOutput) SnapshotDirectoryVisible() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) bool { return v.SnapshotDirectoryVisible }).(pulumi.BoolOutput)
+}
+
+// The maximum Storage Quota allowed for a file system in Gigabytes.
+func (o GetVolumeGroupSapHanaVolumeOutput) StorageQuotaInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) int { return v.StorageQuotaInGb }).(pulumi.IntOutput)
+}
+
+// The ID of the Subnet the NetApp Volume resides in.
+func (o GetVolumeGroupSapHanaVolumeOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the Application Volume Group.
+func (o GetVolumeGroupSapHanaVolumeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Throughput of this volume in Mibps.
+func (o GetVolumeGroupSapHanaVolumeOutput) ThroughputInMibps() pulumi.Float64Output {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) float64 { return v.ThroughputInMibps }).(pulumi.Float64Output)
+}
+
+// A unique file path for the volume.
+func (o GetVolumeGroupSapHanaVolumeOutput) VolumePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.VolumePath }).(pulumi.StringOutput)
+}
+
+// Volume spec name.
+func (o GetVolumeGroupSapHanaVolumeOutput) VolumeSpecName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolume) string { return v.VolumeSpecName }).(pulumi.StringOutput)
+}
+
+type GetVolumeGroupSapHanaVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupSapHanaVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupSapHanaVolume)(nil)).Elem()
+}
+
+func (o GetVolumeGroupSapHanaVolumeArrayOutput) ToGetVolumeGroupSapHanaVolumeArrayOutput() GetVolumeGroupSapHanaVolumeArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupSapHanaVolumeArrayOutput) ToGetVolumeGroupSapHanaVolumeArrayOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupSapHanaVolumeArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupSapHanaVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeGroupSapHanaVolume {
+		return vs[0].([]GetVolumeGroupSapHanaVolume)[vs[1].(int)]
+	}).(GetVolumeGroupSapHanaVolumeOutput)
+}
+
+type GetVolumeGroupSapHanaVolumeDataProtectionReplication struct {
+	// The endpoint type.
+	EndpointType string `pulumi:"endpointType"`
+	// Location of the primary volume.
+	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
+	// Resource ID of the primary volume.
+	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
+	// Replication frequency.
+	ReplicationFrequency string `pulumi:"replicationFrequency"`
+}
+
+// GetVolumeGroupSapHanaVolumeDataProtectionReplicationInput is an input type that accepts GetVolumeGroupSapHanaVolumeDataProtectionReplicationArgs and GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput values.
+// You can construct a concrete instance of `GetVolumeGroupSapHanaVolumeDataProtectionReplicationInput` via:
+//
+//	GetVolumeGroupSapHanaVolumeDataProtectionReplicationArgs{...}
+type GetVolumeGroupSapHanaVolumeDataProtectionReplicationInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput() GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput
+	ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationOutputWithContext(context.Context) GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput
+}
+
+type GetVolumeGroupSapHanaVolumeDataProtectionReplicationArgs struct {
+	// The endpoint type.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// Location of the primary volume.
+	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
+	// Resource ID of the primary volume.
+	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
+	// Replication frequency.
+	ReplicationFrequency pulumi.StringInput `pulumi:"replicationFrequency"`
+}
+
+func (GetVolumeGroupSapHanaVolumeDataProtectionReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupSapHanaVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (i GetVolumeGroupSapHanaVolumeDataProtectionReplicationArgs) ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput() GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput {
+	return i.ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupSapHanaVolumeDataProtectionReplicationArgs) ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput)
+}
+
+// GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayInput is an input type that accepts GetVolumeGroupSapHanaVolumeDataProtectionReplicationArray and GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput values.
+// You can construct a concrete instance of `GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayInput` via:
+//
+//	GetVolumeGroupSapHanaVolumeDataProtectionReplicationArray{ GetVolumeGroupSapHanaVolumeDataProtectionReplicationArgs{...} }
+type GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput() GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput
+	ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutputWithContext(context.Context) GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput
+}
+
+type GetVolumeGroupSapHanaVolumeDataProtectionReplicationArray []GetVolumeGroupSapHanaVolumeDataProtectionReplicationInput
+
+func (GetVolumeGroupSapHanaVolumeDataProtectionReplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupSapHanaVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (i GetVolumeGroupSapHanaVolumeDataProtectionReplicationArray) ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput() GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput {
+	return i.ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupSapHanaVolumeDataProtectionReplicationArray) ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput)
+}
+
+type GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupSapHanaVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput() GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput {
+	return o
+}
+
+func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput {
+	return o
+}
+
+// The endpoint type.
+func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// Location of the primary volume.
+func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput) RemoteVolumeLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.RemoteVolumeLocation }).(pulumi.StringOutput)
+}
+
+// Resource ID of the primary volume.
+func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput) RemoteVolumeResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
+}
+
+// Replication frequency.
+func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ReplicationFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.ReplicationFrequency }).(pulumi.StringOutput)
+}
+
+type GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupSapHanaVolumeDataProtectionReplication)(nil)).Elem()
+}
+
+func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput) ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput() GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput) ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeGroupSapHanaVolumeDataProtectionReplication {
+		return vs[0].([]GetVolumeGroupSapHanaVolumeDataProtectionReplication)[vs[1].(int)]
+	}).(GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput)
+}
+
+type GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy struct {
+	// Resource ID of the snapshot policy to apply to the volume.
+	SnapshotPolicyId string `pulumi:"snapshotPolicyId"`
+}
+
+// GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyInput is an input type that accepts GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs and GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput values.
+// You can construct a concrete instance of `GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyInput` via:
+//
+//	GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs{...}
+type GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput() GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput
+	ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutputWithContext(context.Context) GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput
+}
+
+type GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs struct {
+	// Resource ID of the snapshot policy to apply to the volume.
+	SnapshotPolicyId pulumi.StringInput `pulumi:"snapshotPolicyId"`
+}
+
+func (GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (i GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs) ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput() GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput {
+	return i.ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs) ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput)
+}
+
+// GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayInput is an input type that accepts GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArray and GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput values.
+// You can construct a concrete instance of `GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayInput` via:
+//
+//	GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArray{ GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs{...} }
+type GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput() GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput
+	ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutputWithContext(context.Context) GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput
+}
+
+type GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArray []GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyInput
+
+func (GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (i GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArray) ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput() GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput {
+	return i.ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArray) ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput)
+}
+
+type GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (o GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput() GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput {
+	return o
+}
+
+func (o GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput {
+	return o
+}
+
+// Resource ID of the snapshot policy to apply to the volume.
+func (o GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) SnapshotPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy) string { return v.SnapshotPolicyId }).(pulumi.StringOutput)
+}
+
+type GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy)(nil)).Elem()
+}
+
+func (o GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput) ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput() GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput) ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy {
+		return vs[0].([]GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy)[vs[1].(int)]
+	}).(GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput)
+}
+
+type GetVolumeGroupSapHanaVolumeExportPolicyRule struct {
+	// A list of allowed clients IPv4 addresses.
+	AllowedClients string `pulumi:"allowedClients"`
+	// Is the NFSv3 protocol enabled?
+	Nfsv3Enabled bool `pulumi:"nfsv3Enabled"`
+	// Is the NFSv4.1 enabled?
+	Nfsv41Enabled bool `pulumi:"nfsv41Enabled"`
+	// Is root access permitted to this volume?
+	RootAccessEnabled bool `pulumi:"rootAccessEnabled"`
+	// The index number of the rule.
+	RuleIndex int `pulumi:"ruleIndex"`
+	// Is the file system on unix read only?.
+	UnixReadOnly bool `pulumi:"unixReadOnly"`
+	// Is the file system on unix read and write?.
+	UnixReadWrite bool `pulumi:"unixReadWrite"`
+}
+
+// GetVolumeGroupSapHanaVolumeExportPolicyRuleInput is an input type that accepts GetVolumeGroupSapHanaVolumeExportPolicyRuleArgs and GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput values.
+// You can construct a concrete instance of `GetVolumeGroupSapHanaVolumeExportPolicyRuleInput` via:
+//
+//	GetVolumeGroupSapHanaVolumeExportPolicyRuleArgs{...}
+type GetVolumeGroupSapHanaVolumeExportPolicyRuleInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupSapHanaVolumeExportPolicyRuleOutput() GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput
+	ToGetVolumeGroupSapHanaVolumeExportPolicyRuleOutputWithContext(context.Context) GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput
+}
+
+type GetVolumeGroupSapHanaVolumeExportPolicyRuleArgs struct {
+	// A list of allowed clients IPv4 addresses.
+	AllowedClients pulumi.StringInput `pulumi:"allowedClients"`
+	// Is the NFSv3 protocol enabled?
+	Nfsv3Enabled pulumi.BoolInput `pulumi:"nfsv3Enabled"`
+	// Is the NFSv4.1 enabled?
+	Nfsv41Enabled pulumi.BoolInput `pulumi:"nfsv41Enabled"`
+	// Is root access permitted to this volume?
+	RootAccessEnabled pulumi.BoolInput `pulumi:"rootAccessEnabled"`
+	// The index number of the rule.
+	RuleIndex pulumi.IntInput `pulumi:"ruleIndex"`
+	// Is the file system on unix read only?.
+	UnixReadOnly pulumi.BoolInput `pulumi:"unixReadOnly"`
+	// Is the file system on unix read and write?.
+	UnixReadWrite pulumi.BoolInput `pulumi:"unixReadWrite"`
+}
+
+func (GetVolumeGroupSapHanaVolumeExportPolicyRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupSapHanaVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (i GetVolumeGroupSapHanaVolumeExportPolicyRuleArgs) ToGetVolumeGroupSapHanaVolumeExportPolicyRuleOutput() GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput {
+	return i.ToGetVolumeGroupSapHanaVolumeExportPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupSapHanaVolumeExportPolicyRuleArgs) ToGetVolumeGroupSapHanaVolumeExportPolicyRuleOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput)
+}
+
+// GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayInput is an input type that accepts GetVolumeGroupSapHanaVolumeExportPolicyRuleArray and GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput values.
+// You can construct a concrete instance of `GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayInput` via:
+//
+//	GetVolumeGroupSapHanaVolumeExportPolicyRuleArray{ GetVolumeGroupSapHanaVolumeExportPolicyRuleArgs{...} }
+type GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput() GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput
+	ToGetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutputWithContext(context.Context) GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput
+}
+
+type GetVolumeGroupSapHanaVolumeExportPolicyRuleArray []GetVolumeGroupSapHanaVolumeExportPolicyRuleInput
+
+func (GetVolumeGroupSapHanaVolumeExportPolicyRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupSapHanaVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (i GetVolumeGroupSapHanaVolumeExportPolicyRuleArray) ToGetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput() GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput {
+	return i.ToGetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeGroupSapHanaVolumeExportPolicyRuleArray) ToGetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput)
+}
+
+type GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeGroupSapHanaVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput) ToGetVolumeGroupSapHanaVolumeExportPolicyRuleOutput() GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput {
+	return o
+}
+
+func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput) ToGetVolumeGroupSapHanaVolumeExportPolicyRuleOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput {
+	return o
+}
+
+// A list of allowed clients IPv4 addresses.
+func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput) AllowedClients() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolumeExportPolicyRule) string { return v.AllowedClients }).(pulumi.StringOutput)
+}
+
+// Is the NFSv3 protocol enabled?
+func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput) Nfsv3Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolumeExportPolicyRule) bool { return v.Nfsv3Enabled }).(pulumi.BoolOutput)
+}
+
+// Is the NFSv4.1 enabled?
+func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput) Nfsv41Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolumeExportPolicyRule) bool { return v.Nfsv41Enabled }).(pulumi.BoolOutput)
+}
+
+// Is root access permitted to this volume?
+func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput) RootAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolumeExportPolicyRule) bool { return v.RootAccessEnabled }).(pulumi.BoolOutput)
+}
+
+// The index number of the rule.
+func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput) RuleIndex() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolumeExportPolicyRule) int { return v.RuleIndex }).(pulumi.IntOutput)
+}
+
+// Is the file system on unix read only?.
+func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput) UnixReadOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolumeExportPolicyRule) bool { return v.UnixReadOnly }).(pulumi.BoolOutput)
+}
+
+// Is the file system on unix read and write?.
+func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput) UnixReadWrite() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVolumeGroupSapHanaVolumeExportPolicyRule) bool { return v.UnixReadWrite }).(pulumi.BoolOutput)
+}
+
+type GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeGroupSapHanaVolumeExportPolicyRule)(nil)).Elem()
+}
+
+func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) ToGetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput() GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) ToGetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput {
+	return o
+}
+
+func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeGroupSapHanaVolumeExportPolicyRule {
+		return vs[0].([]GetVolumeGroupSapHanaVolumeExportPolicyRule)[vs[1].(int)]
+	}).(GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountActiveDirectoryInput)(nil)).Elem(), AccountActiveDirectoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountActiveDirectoryPtrInput)(nil)).Elem(), AccountActiveDirectoryArgs{})
@@ -2041,6 +3404,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionSnapshotPolicyPtrInput)(nil)).Elem(), VolumeDataProtectionSnapshotPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeExportPolicyRuleInput)(nil)).Elem(), VolumeExportPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeExportPolicyRuleArrayInput)(nil)).Elem(), VolumeExportPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeInput)(nil)).Elem(), VolumeGroupSapHanaVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeArrayInput)(nil)).Elem(), VolumeGroupSapHanaVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeDataProtectionReplicationInput)(nil)).Elem(), VolumeGroupSapHanaVolumeDataProtectionReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeDataProtectionReplicationPtrInput)(nil)).Elem(), VolumeGroupSapHanaVolumeDataProtectionReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyInput)(nil)).Elem(), VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrInput)(nil)).Elem(), VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeExportPolicyRuleInput)(nil)).Elem(), VolumeGroupSapHanaVolumeExportPolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeExportPolicyRuleArrayInput)(nil)).Elem(), VolumeGroupSapHanaVolumeExportPolicyRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyDailyScheduleInput)(nil)).Elem(), GetSnapshotPolicyDailyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyDailyScheduleArrayInput)(nil)).Elem(), GetSnapshotPolicyDailyScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyHourlyScheduleInput)(nil)).Elem(), GetSnapshotPolicyHourlyScheduleArgs{})
@@ -2051,6 +3422,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyWeeklyScheduleArrayInput)(nil)).Elem(), GetSnapshotPolicyWeeklyScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionReplicationInput)(nil)).Elem(), GetVolumeDataProtectionReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionReplicationArrayInput)(nil)).Elem(), GetVolumeDataProtectionReplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeArrayInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeDataProtectionReplicationInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeDataProtectionReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeDataProtectionReplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeExportPolicyRuleInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeExportPolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeExportPolicyRuleArray{})
 	pulumi.RegisterOutputType(AccountActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(AccountActiveDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotPolicyDailyScheduleOutput{})
@@ -2067,6 +3446,14 @@ func init() {
 	pulumi.RegisterOutputType(VolumeDataProtectionSnapshotPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VolumeExportPolicyRuleOutput{})
 	pulumi.RegisterOutputType(VolumeExportPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeOutput{})
+	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeArrayOutput{})
+	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeDataProtectionReplicationOutput{})
+	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput{})
+	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput{})
+	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeExportPolicyRuleOutput{})
+	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetSnapshotPolicyDailyScheduleOutput{})
 	pulumi.RegisterOutputType(GetSnapshotPolicyDailyScheduleArrayOutput{})
 	pulumi.RegisterOutputType(GetSnapshotPolicyHourlyScheduleOutput{})
@@ -2077,4 +3464,12 @@ func init() {
 	pulumi.RegisterOutputType(GetSnapshotPolicyWeeklyScheduleArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumeDataProtectionReplicationOutput{})
 	pulumi.RegisterOutputType(GetVolumeDataProtectionReplicationArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput{})
+	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput{})
 }

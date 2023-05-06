@@ -16,37 +16,29 @@ __all__ = [
 @pulumi.input_type
 class ProviderPolicyArgs:
     def __init__(__self__, *,
-                 data: pulumi.Input[str],
-                 environment_type: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] data: Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-        :param pulumi.Input[str] environment_type: Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-        """
-        pulumi.set(__self__, "data", data)
-        pulumi.set(__self__, "environment_type", environment_type)
+                 data: Optional[pulumi.Input[str]] = None,
+                 environment_type: Optional[pulumi.Input[str]] = None):
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if environment_type is not None:
+            pulumi.set(__self__, "environment_type", environment_type)
 
     @property
     @pulumi.getter
-    def data(self) -> pulumi.Input[str]:
-        """
-        Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-        """
+    def data(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "data")
 
     @data.setter
-    def data(self, value: pulumi.Input[str]):
+    def data(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data", value)
 
     @property
     @pulumi.getter(name="environmentType")
-    def environment_type(self) -> pulumi.Input[str]:
-        """
-        Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-        """
+    def environment_type(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "environment_type")
 
     @environment_type.setter
-    def environment_type(self, value: pulumi.Input[str]):
+    def environment_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "environment_type", value)
 
 

@@ -40,6 +40,7 @@ __all__ = [
     'MongoCollectionIndexArgs',
     'MongoCollectionSystemIndexArgs',
     'MongoDatabaseAutoscaleSettingsArgs',
+    'PostgresqlClusterMaintenanceWindowArgs',
     'SqlContainerAutoscaleSettingsArgs',
     'SqlContainerConflictResolutionPolicyArgs',
     'SqlContainerIndexingPolicyArgs',
@@ -1273,6 +1274,61 @@ class MongoDatabaseAutoscaleSettingsArgs:
     @max_throughput.setter
     def max_throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_throughput", value)
+
+
+@pulumi.input_type
+class PostgresqlClusterMaintenanceWindowArgs:
+    def __init__(__self__, *,
+                 day_of_week: Optional[pulumi.Input[int]] = None,
+                 start_hour: Optional[pulumi.Input[int]] = None,
+                 start_minute: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] day_of_week: The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
+        :param pulumi.Input[int] start_hour: The start hour for maintenance window. Defaults to `0`.
+        :param pulumi.Input[int] start_minute: The start minute for maintenance window. Defaults to `0`.
+        """
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if start_hour is not None:
+            pulumi.set(__self__, "start_hour", start_hour)
+        if start_minute is not None:
+            pulumi.set(__self__, "start_minute", start_minute)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[pulumi.Input[int]]:
+        """
+        The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @day_of_week.setter
+    def day_of_week(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "day_of_week", value)
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> Optional[pulumi.Input[int]]:
+        """
+        The start hour for maintenance window. Defaults to `0`.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @start_hour.setter
+    def start_hour(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "start_hour", value)
+
+    @property
+    @pulumi.getter(name="startMinute")
+    def start_minute(self) -> Optional[pulumi.Input[int]]:
+        """
+        The start minute for maintenance window. Defaults to `0`.
+        """
+        return pulumi.get(self, "start_minute")
+
+    @start_minute.setter
+    def start_minute(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "start_minute", value)
 
 
 @pulumi.input_type

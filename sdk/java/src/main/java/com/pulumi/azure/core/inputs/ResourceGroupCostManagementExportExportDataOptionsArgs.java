@@ -14,14 +14,14 @@ public final class ResourceGroupCostManagementExportExportDataOptionsArgs extend
     public static final ResourceGroupCostManagementExportExportDataOptionsArgs Empty = new ResourceGroupCostManagementExportExportDataOptionsArgs();
 
     /**
-     * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+     * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
      * 
      */
     @Import(name="timeFrame", required=true)
     private Output<String> timeFrame;
 
     /**
-     * @return The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+     * @return The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
      * 
      */
     public Output<String> timeFrame() {
@@ -69,7 +69,7 @@ public final class ResourceGroupCostManagementExportExportDataOptionsArgs extend
         }
 
         /**
-         * @param timeFrame The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+         * @param timeFrame The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class ResourceGroupCostManagementExportExportDataOptionsArgs extend
         }
 
         /**
-         * @param timeFrame The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+         * @param timeFrame The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
          * 
          * @return builder
          * 

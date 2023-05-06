@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:communication/emailService:EmailService":
+		r = &EmailService{}
 	case "azure:communication/service:Service":
 		r = &Service{}
 	default:
@@ -36,6 +38,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"communication/emailService",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"communication/service",

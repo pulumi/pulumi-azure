@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Billing.Inputs
     public sealed class AccountCostManagementExportExportDataOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+        /// The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
         /// </summary>
         [Input("timeFrame", required: true)]
         public Input<string> TimeFrame { get; set; } = null!;

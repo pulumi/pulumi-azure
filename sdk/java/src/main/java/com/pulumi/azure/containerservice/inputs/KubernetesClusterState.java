@@ -23,6 +23,7 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterMicrosoftDefend
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterMonitorMetricsArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNetworkProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterOmsAgentArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterServiceMeshProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterServicePrincipalArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterStorageProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterWebAppRoutingArgs;
@@ -848,6 +849,21 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * A `service_mesh_profile` block as defined below.
+     * 
+     */
+    @Import(name="serviceMeshProfile")
+    private @Nullable Output<KubernetesClusterServiceMeshProfileArgs> serviceMeshProfile;
+
+    /**
+     * @return A `service_mesh_profile` block as defined below.
+     * 
+     */
+    public Optional<Output<KubernetesClusterServiceMeshProfileArgs>> serviceMeshProfile() {
+        return Optional.ofNullable(this.serviceMeshProfile);
+    }
+
+    /**
      * A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
      * 
      */
@@ -1023,6 +1039,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.resourceGroupName = $.resourceGroupName;
         this.roleBasedAccessControlEnabled = $.roleBasedAccessControlEnabled;
         this.runCommandEnabled = $.runCommandEnabled;
+        this.serviceMeshProfile = $.serviceMeshProfile;
         this.servicePrincipal = $.servicePrincipal;
         this.skuTier = $.skuTier;
         this.storageProfile = $.storageProfile;
@@ -2202,6 +2219,27 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder runCommandEnabled(Boolean runCommandEnabled) {
             return runCommandEnabled(Output.of(runCommandEnabled));
+        }
+
+        /**
+         * @param serviceMeshProfile A `service_mesh_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceMeshProfile(@Nullable Output<KubernetesClusterServiceMeshProfileArgs> serviceMeshProfile) {
+            $.serviceMeshProfile = serviceMeshProfile;
+            return this;
+        }
+
+        /**
+         * @param serviceMeshProfile A `service_mesh_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceMeshProfile(KubernetesClusterServiceMeshProfileArgs serviceMeshProfile) {
+            return serviceMeshProfile(Output.of(serviceMeshProfile));
         }
 
         /**

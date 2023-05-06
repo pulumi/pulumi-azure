@@ -6870,6 +6870,334 @@ func (o KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput) MaxSurge() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+type KubernetesClusterExtensionAksAssignedIdentity struct {
+	// The principal ID of resource identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId *string `pulumi:"tenantId"`
+	// The identity type.
+	Type *string `pulumi:"type"`
+}
+
+// KubernetesClusterExtensionAksAssignedIdentityInput is an input type that accepts KubernetesClusterExtensionAksAssignedIdentityArgs and KubernetesClusterExtensionAksAssignedIdentityOutput values.
+// You can construct a concrete instance of `KubernetesClusterExtensionAksAssignedIdentityInput` via:
+//
+//	KubernetesClusterExtensionAksAssignedIdentityArgs{...}
+type KubernetesClusterExtensionAksAssignedIdentityInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterExtensionAksAssignedIdentityOutput() KubernetesClusterExtensionAksAssignedIdentityOutput
+	ToKubernetesClusterExtensionAksAssignedIdentityOutputWithContext(context.Context) KubernetesClusterExtensionAksAssignedIdentityOutput
+}
+
+type KubernetesClusterExtensionAksAssignedIdentityArgs struct {
+	// The principal ID of resource identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The identity type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (KubernetesClusterExtensionAksAssignedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterExtensionAksAssignedIdentity)(nil)).Elem()
+}
+
+func (i KubernetesClusterExtensionAksAssignedIdentityArgs) ToKubernetesClusterExtensionAksAssignedIdentityOutput() KubernetesClusterExtensionAksAssignedIdentityOutput {
+	return i.ToKubernetesClusterExtensionAksAssignedIdentityOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterExtensionAksAssignedIdentityArgs) ToKubernetesClusterExtensionAksAssignedIdentityOutputWithContext(ctx context.Context) KubernetesClusterExtensionAksAssignedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterExtensionAksAssignedIdentityOutput)
+}
+
+// KubernetesClusterExtensionAksAssignedIdentityArrayInput is an input type that accepts KubernetesClusterExtensionAksAssignedIdentityArray and KubernetesClusterExtensionAksAssignedIdentityArrayOutput values.
+// You can construct a concrete instance of `KubernetesClusterExtensionAksAssignedIdentityArrayInput` via:
+//
+//	KubernetesClusterExtensionAksAssignedIdentityArray{ KubernetesClusterExtensionAksAssignedIdentityArgs{...} }
+type KubernetesClusterExtensionAksAssignedIdentityArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterExtensionAksAssignedIdentityArrayOutput() KubernetesClusterExtensionAksAssignedIdentityArrayOutput
+	ToKubernetesClusterExtensionAksAssignedIdentityArrayOutputWithContext(context.Context) KubernetesClusterExtensionAksAssignedIdentityArrayOutput
+}
+
+type KubernetesClusterExtensionAksAssignedIdentityArray []KubernetesClusterExtensionAksAssignedIdentityInput
+
+func (KubernetesClusterExtensionAksAssignedIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterExtensionAksAssignedIdentity)(nil)).Elem()
+}
+
+func (i KubernetesClusterExtensionAksAssignedIdentityArray) ToKubernetesClusterExtensionAksAssignedIdentityArrayOutput() KubernetesClusterExtensionAksAssignedIdentityArrayOutput {
+	return i.ToKubernetesClusterExtensionAksAssignedIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterExtensionAksAssignedIdentityArray) ToKubernetesClusterExtensionAksAssignedIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterExtensionAksAssignedIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterExtensionAksAssignedIdentityArrayOutput)
+}
+
+type KubernetesClusterExtensionAksAssignedIdentityOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterExtensionAksAssignedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterExtensionAksAssignedIdentity)(nil)).Elem()
+}
+
+func (o KubernetesClusterExtensionAksAssignedIdentityOutput) ToKubernetesClusterExtensionAksAssignedIdentityOutput() KubernetesClusterExtensionAksAssignedIdentityOutput {
+	return o
+}
+
+func (o KubernetesClusterExtensionAksAssignedIdentityOutput) ToKubernetesClusterExtensionAksAssignedIdentityOutputWithContext(ctx context.Context) KubernetesClusterExtensionAksAssignedIdentityOutput {
+	return o
+}
+
+// The principal ID of resource identity.
+func (o KubernetesClusterExtensionAksAssignedIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterExtensionAksAssignedIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of resource.
+func (o KubernetesClusterExtensionAksAssignedIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterExtensionAksAssignedIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The identity type.
+func (o KubernetesClusterExtensionAksAssignedIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterExtensionAksAssignedIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterExtensionAksAssignedIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterExtensionAksAssignedIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterExtensionAksAssignedIdentity)(nil)).Elem()
+}
+
+func (o KubernetesClusterExtensionAksAssignedIdentityArrayOutput) ToKubernetesClusterExtensionAksAssignedIdentityArrayOutput() KubernetesClusterExtensionAksAssignedIdentityArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterExtensionAksAssignedIdentityArrayOutput) ToKubernetesClusterExtensionAksAssignedIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterExtensionAksAssignedIdentityArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterExtensionAksAssignedIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterExtensionAksAssignedIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterExtensionAksAssignedIdentity {
+		return vs[0].([]KubernetesClusterExtensionAksAssignedIdentity)[vs[1].(int)]
+	}).(KubernetesClusterExtensionAksAssignedIdentityOutput)
+}
+
+type KubernetesClusterExtensionPlan struct {
+	// Specifies the name of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+	Name string `pulumi:"name"`
+	// Specifies the product of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+	Product string `pulumi:"product"`
+	// Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+	PromotionCode *string `pulumi:"promotionCode"`
+	// Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+	Publisher string `pulumi:"publisher"`
+	// Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+	Version *string `pulumi:"version"`
+}
+
+// KubernetesClusterExtensionPlanInput is an input type that accepts KubernetesClusterExtensionPlanArgs and KubernetesClusterExtensionPlanOutput values.
+// You can construct a concrete instance of `KubernetesClusterExtensionPlanInput` via:
+//
+//	KubernetesClusterExtensionPlanArgs{...}
+type KubernetesClusterExtensionPlanInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterExtensionPlanOutput() KubernetesClusterExtensionPlanOutput
+	ToKubernetesClusterExtensionPlanOutputWithContext(context.Context) KubernetesClusterExtensionPlanOutput
+}
+
+type KubernetesClusterExtensionPlanArgs struct {
+	// Specifies the name of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the product of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+	Product pulumi.StringInput `pulumi:"product"`
+	// Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
+	// Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (KubernetesClusterExtensionPlanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterExtensionPlan)(nil)).Elem()
+}
+
+func (i KubernetesClusterExtensionPlanArgs) ToKubernetesClusterExtensionPlanOutput() KubernetesClusterExtensionPlanOutput {
+	return i.ToKubernetesClusterExtensionPlanOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterExtensionPlanArgs) ToKubernetesClusterExtensionPlanOutputWithContext(ctx context.Context) KubernetesClusterExtensionPlanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterExtensionPlanOutput)
+}
+
+func (i KubernetesClusterExtensionPlanArgs) ToKubernetesClusterExtensionPlanPtrOutput() KubernetesClusterExtensionPlanPtrOutput {
+	return i.ToKubernetesClusterExtensionPlanPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterExtensionPlanArgs) ToKubernetesClusterExtensionPlanPtrOutputWithContext(ctx context.Context) KubernetesClusterExtensionPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterExtensionPlanOutput).ToKubernetesClusterExtensionPlanPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterExtensionPlanPtrInput is an input type that accepts KubernetesClusterExtensionPlanArgs, KubernetesClusterExtensionPlanPtr and KubernetesClusterExtensionPlanPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterExtensionPlanPtrInput` via:
+//
+//	        KubernetesClusterExtensionPlanArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterExtensionPlanPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterExtensionPlanPtrOutput() KubernetesClusterExtensionPlanPtrOutput
+	ToKubernetesClusterExtensionPlanPtrOutputWithContext(context.Context) KubernetesClusterExtensionPlanPtrOutput
+}
+
+type kubernetesClusterExtensionPlanPtrType KubernetesClusterExtensionPlanArgs
+
+func KubernetesClusterExtensionPlanPtr(v *KubernetesClusterExtensionPlanArgs) KubernetesClusterExtensionPlanPtrInput {
+	return (*kubernetesClusterExtensionPlanPtrType)(v)
+}
+
+func (*kubernetesClusterExtensionPlanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterExtensionPlan)(nil)).Elem()
+}
+
+func (i *kubernetesClusterExtensionPlanPtrType) ToKubernetesClusterExtensionPlanPtrOutput() KubernetesClusterExtensionPlanPtrOutput {
+	return i.ToKubernetesClusterExtensionPlanPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterExtensionPlanPtrType) ToKubernetesClusterExtensionPlanPtrOutputWithContext(ctx context.Context) KubernetesClusterExtensionPlanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterExtensionPlanPtrOutput)
+}
+
+type KubernetesClusterExtensionPlanOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterExtensionPlanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterExtensionPlan)(nil)).Elem()
+}
+
+func (o KubernetesClusterExtensionPlanOutput) ToKubernetesClusterExtensionPlanOutput() KubernetesClusterExtensionPlanOutput {
+	return o
+}
+
+func (o KubernetesClusterExtensionPlanOutput) ToKubernetesClusterExtensionPlanOutputWithContext(ctx context.Context) KubernetesClusterExtensionPlanOutput {
+	return o
+}
+
+func (o KubernetesClusterExtensionPlanOutput) ToKubernetesClusterExtensionPlanPtrOutput() KubernetesClusterExtensionPlanPtrOutput {
+	return o.ToKubernetesClusterExtensionPlanPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterExtensionPlanOutput) ToKubernetesClusterExtensionPlanPtrOutputWithContext(ctx context.Context) KubernetesClusterExtensionPlanPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterExtensionPlan) *KubernetesClusterExtensionPlan {
+		return &v
+	}).(KubernetesClusterExtensionPlanPtrOutput)
+}
+
+// Specifies the name of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+func (o KubernetesClusterExtensionPlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterExtensionPlan) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the product of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+func (o KubernetesClusterExtensionPlanOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterExtensionPlan) string { return v.Product }).(pulumi.StringOutput)
+}
+
+// Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+func (o KubernetesClusterExtensionPlanOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterExtensionPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+func (o KubernetesClusterExtensionPlanOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterExtensionPlan) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+func (o KubernetesClusterExtensionPlanOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterExtensionPlan) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterExtensionPlanPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterExtensionPlanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterExtensionPlan)(nil)).Elem()
+}
+
+func (o KubernetesClusterExtensionPlanPtrOutput) ToKubernetesClusterExtensionPlanPtrOutput() KubernetesClusterExtensionPlanPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterExtensionPlanPtrOutput) ToKubernetesClusterExtensionPlanPtrOutputWithContext(ctx context.Context) KubernetesClusterExtensionPlanPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterExtensionPlanPtrOutput) Elem() KubernetesClusterExtensionPlanOutput {
+	return o.ApplyT(func(v *KubernetesClusterExtensionPlan) KubernetesClusterExtensionPlan {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterExtensionPlan
+		return ret
+	}).(KubernetesClusterExtensionPlanOutput)
+}
+
+// Specifies the name of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+func (o KubernetesClusterExtensionPlanPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterExtensionPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the product of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+func (o KubernetesClusterExtensionPlanPtrOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterExtensionPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Product
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+func (o KubernetesClusterExtensionPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterExtensionPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PromotionCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+func (o KubernetesClusterExtensionPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterExtensionPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+func (o KubernetesClusterExtensionPlanPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterExtensionPlan) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type KubernetesClusterHttpProxyConfig struct {
 	// The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
 	HttpProxy *string `pulumi:"httpProxy"`
@@ -12216,6 +12544,143 @@ func (o KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterOmsAgentOmsAgentIdentity {
 		return vs[0].([]KubernetesClusterOmsAgentOmsAgentIdentity)[vs[1].(int)]
 	}).(KubernetesClusterOmsAgentOmsAgentIdentityOutput)
+}
+
+type KubernetesClusterServiceMeshProfile struct {
+	// The mode of the service mesh. Possible value is `Istio`.
+	Mode string `pulumi:"mode"`
+}
+
+// KubernetesClusterServiceMeshProfileInput is an input type that accepts KubernetesClusterServiceMeshProfileArgs and KubernetesClusterServiceMeshProfileOutput values.
+// You can construct a concrete instance of `KubernetesClusterServiceMeshProfileInput` via:
+//
+//	KubernetesClusterServiceMeshProfileArgs{...}
+type KubernetesClusterServiceMeshProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterServiceMeshProfileOutput() KubernetesClusterServiceMeshProfileOutput
+	ToKubernetesClusterServiceMeshProfileOutputWithContext(context.Context) KubernetesClusterServiceMeshProfileOutput
+}
+
+type KubernetesClusterServiceMeshProfileArgs struct {
+	// The mode of the service mesh. Possible value is `Istio`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (KubernetesClusterServiceMeshProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterServiceMeshProfile)(nil)).Elem()
+}
+
+func (i KubernetesClusterServiceMeshProfileArgs) ToKubernetesClusterServiceMeshProfileOutput() KubernetesClusterServiceMeshProfileOutput {
+	return i.ToKubernetesClusterServiceMeshProfileOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterServiceMeshProfileArgs) ToKubernetesClusterServiceMeshProfileOutputWithContext(ctx context.Context) KubernetesClusterServiceMeshProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterServiceMeshProfileOutput)
+}
+
+func (i KubernetesClusterServiceMeshProfileArgs) ToKubernetesClusterServiceMeshProfilePtrOutput() KubernetesClusterServiceMeshProfilePtrOutput {
+	return i.ToKubernetesClusterServiceMeshProfilePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterServiceMeshProfileArgs) ToKubernetesClusterServiceMeshProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterServiceMeshProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterServiceMeshProfileOutput).ToKubernetesClusterServiceMeshProfilePtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterServiceMeshProfilePtrInput is an input type that accepts KubernetesClusterServiceMeshProfileArgs, KubernetesClusterServiceMeshProfilePtr and KubernetesClusterServiceMeshProfilePtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterServiceMeshProfilePtrInput` via:
+//
+//	        KubernetesClusterServiceMeshProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterServiceMeshProfilePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterServiceMeshProfilePtrOutput() KubernetesClusterServiceMeshProfilePtrOutput
+	ToKubernetesClusterServiceMeshProfilePtrOutputWithContext(context.Context) KubernetesClusterServiceMeshProfilePtrOutput
+}
+
+type kubernetesClusterServiceMeshProfilePtrType KubernetesClusterServiceMeshProfileArgs
+
+func KubernetesClusterServiceMeshProfilePtr(v *KubernetesClusterServiceMeshProfileArgs) KubernetesClusterServiceMeshProfilePtrInput {
+	return (*kubernetesClusterServiceMeshProfilePtrType)(v)
+}
+
+func (*kubernetesClusterServiceMeshProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterServiceMeshProfile)(nil)).Elem()
+}
+
+func (i *kubernetesClusterServiceMeshProfilePtrType) ToKubernetesClusterServiceMeshProfilePtrOutput() KubernetesClusterServiceMeshProfilePtrOutput {
+	return i.ToKubernetesClusterServiceMeshProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterServiceMeshProfilePtrType) ToKubernetesClusterServiceMeshProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterServiceMeshProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterServiceMeshProfilePtrOutput)
+}
+
+type KubernetesClusterServiceMeshProfileOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterServiceMeshProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterServiceMeshProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterServiceMeshProfileOutput) ToKubernetesClusterServiceMeshProfileOutput() KubernetesClusterServiceMeshProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterServiceMeshProfileOutput) ToKubernetesClusterServiceMeshProfileOutputWithContext(ctx context.Context) KubernetesClusterServiceMeshProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterServiceMeshProfileOutput) ToKubernetesClusterServiceMeshProfilePtrOutput() KubernetesClusterServiceMeshProfilePtrOutput {
+	return o.ToKubernetesClusterServiceMeshProfilePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterServiceMeshProfileOutput) ToKubernetesClusterServiceMeshProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterServiceMeshProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterServiceMeshProfile) *KubernetesClusterServiceMeshProfile {
+		return &v
+	}).(KubernetesClusterServiceMeshProfilePtrOutput)
+}
+
+// The mode of the service mesh. Possible value is `Istio`.
+func (o KubernetesClusterServiceMeshProfileOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterServiceMeshProfile) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type KubernetesClusterServiceMeshProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterServiceMeshProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterServiceMeshProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterServiceMeshProfilePtrOutput) ToKubernetesClusterServiceMeshProfilePtrOutput() KubernetesClusterServiceMeshProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterServiceMeshProfilePtrOutput) ToKubernetesClusterServiceMeshProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterServiceMeshProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterServiceMeshProfilePtrOutput) Elem() KubernetesClusterServiceMeshProfileOutput {
+	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfile) KubernetesClusterServiceMeshProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterServiceMeshProfile
+		return ret
+	}).(KubernetesClusterServiceMeshProfileOutput)
+}
+
+// The mode of the service mesh. Possible value is `Istio`.
+func (o KubernetesClusterServiceMeshProfilePtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
 }
 
 type KubernetesClusterServicePrincipal struct {
@@ -20297,6 +20762,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolUpgradeSettingsInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolUpgradeSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterExtensionAksAssignedIdentityInput)(nil)).Elem(), KubernetesClusterExtensionAksAssignedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterExtensionAksAssignedIdentityArrayInput)(nil)).Elem(), KubernetesClusterExtensionAksAssignedIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterExtensionPlanInput)(nil)).Elem(), KubernetesClusterExtensionPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterExtensionPlanPtrInput)(nil)).Elem(), KubernetesClusterExtensionPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterHttpProxyConfigInput)(nil)).Elem(), KubernetesClusterHttpProxyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterHttpProxyConfigPtrInput)(nil)).Elem(), KubernetesClusterHttpProxyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterIdentityInput)(nil)).Elem(), KubernetesClusterIdentityArgs{})
@@ -20353,6 +20822,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentPtrInput)(nil)).Elem(), KubernetesClusterOmsAgentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentOmsAgentIdentityInput)(nil)).Elem(), KubernetesClusterOmsAgentOmsAgentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentOmsAgentIdentityArrayInput)(nil)).Elem(), KubernetesClusterOmsAgentOmsAgentIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServiceMeshProfileInput)(nil)).Elem(), KubernetesClusterServiceMeshProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServiceMeshProfilePtrInput)(nil)).Elem(), KubernetesClusterServiceMeshProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServicePrincipalInput)(nil)).Elem(), KubernetesClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServicePrincipalPtrInput)(nil)).Elem(), KubernetesClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterStorageProfileInput)(nil)).Elem(), KubernetesClusterStorageProfileArgs{})
@@ -20525,6 +20996,10 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolUpgradeSettingsOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterExtensionAksAssignedIdentityOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterExtensionAksAssignedIdentityArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterExtensionPlanOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterExtensionPlanPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterHttpProxyConfigOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterHttpProxyConfigPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterIdentityOutput{})
@@ -20581,6 +21056,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentOmsAgentIdentityOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterServiceMeshProfileOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterServiceMeshProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterServicePrincipalOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterServicePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterStorageProfileOutput{})

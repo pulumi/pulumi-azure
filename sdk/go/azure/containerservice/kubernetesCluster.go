@@ -183,6 +183,8 @@ type KubernetesCluster struct {
 	RoleBasedAccessControlEnabled pulumi.BoolPtrOutput `pulumi:"roleBasedAccessControlEnabled"`
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled pulumi.BoolPtrOutput `pulumi:"runCommandEnabled"`
+	// A `serviceMeshProfile` block as defined below.
+	ServiceMeshProfile KubernetesClusterServiceMeshProfilePtrOutput `pulumi:"serviceMeshProfile"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrOutput `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
@@ -349,6 +351,8 @@ type kubernetesClusterState struct {
 	RoleBasedAccessControlEnabled *bool `pulumi:"roleBasedAccessControlEnabled"`
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled *bool `pulumi:"runCommandEnabled"`
+	// A `serviceMeshProfile` block as defined below.
+	ServiceMeshProfile *KubernetesClusterServiceMeshProfile `pulumi:"serviceMeshProfile"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
@@ -474,6 +478,8 @@ type KubernetesClusterState struct {
 	RoleBasedAccessControlEnabled pulumi.BoolPtrInput
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled pulumi.BoolPtrInput
+	// A `serviceMeshProfile` block as defined below.
+	ServiceMeshProfile KubernetesClusterServiceMeshProfilePtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
@@ -583,6 +589,8 @@ type kubernetesClusterArgs struct {
 	RoleBasedAccessControlEnabled *bool `pulumi:"roleBasedAccessControlEnabled"`
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled *bool `pulumi:"runCommandEnabled"`
+	// A `serviceMeshProfile` block as defined below.
+	ServiceMeshProfile *KubernetesClusterServiceMeshProfile `pulumi:"serviceMeshProfile"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
@@ -689,6 +697,8 @@ type KubernetesClusterArgs struct {
 	RoleBasedAccessControlEnabled pulumi.BoolPtrInput
 	// Whether to enable run command for the cluster or not. Defaults to `true`.
 	RunCommandEnabled pulumi.BoolPtrInput
+	// A `serviceMeshProfile` block as defined below.
+	ServiceMeshProfile KubernetesClusterServiceMeshProfilePtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
@@ -1069,6 +1079,11 @@ func (o KubernetesClusterOutput) RoleBasedAccessControlEnabled() pulumi.BoolPtrO
 // Whether to enable run command for the cluster or not. Defaults to `true`.
 func (o KubernetesClusterOutput) RunCommandEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.RunCommandEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A `serviceMeshProfile` block as defined below.
+func (o KubernetesClusterOutput) ServiceMeshProfile() KubernetesClusterServiceMeshProfilePtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterServiceMeshProfilePtrOutput { return v.ServiceMeshProfile }).(KubernetesClusterServiceMeshProfilePtrOutput)
 }
 
 // A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.

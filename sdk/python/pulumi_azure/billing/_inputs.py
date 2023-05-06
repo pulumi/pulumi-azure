@@ -20,7 +20,7 @@ class AccountCostManagementExportExportDataOptionsArgs:
                  time_frame: pulumi.Input[str],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] time_frame: The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+        :param pulumi.Input[str] time_frame: The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
         :param pulumi.Input[str] type: The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
         """
         pulumi.set(__self__, "time_frame", time_frame)
@@ -30,7 +30,7 @@ class AccountCostManagementExportExportDataOptionsArgs:
     @pulumi.getter(name="timeFrame")
     def time_frame(self) -> pulumi.Input[str]:
         """
-        The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+        The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
         """
         return pulumi.get(self, "time_frame")
 

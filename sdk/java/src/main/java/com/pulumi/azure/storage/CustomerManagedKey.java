@@ -82,26 +82,18 @@ import javax.annotation.Nullable;
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .objectId(exampleAccount.identity().applyValue(identity -&gt; identity.principalId()))
+ *             .secretPermissions(&#34;Get&#34;)
  *             .keyPermissions(            
  *                 &#34;Get&#34;,
- *                 &#34;Create&#34;,
- *                 &#34;List&#34;,
- *                 &#34;Restore&#34;,
- *                 &#34;Recover&#34;,
  *                 &#34;UnwrapKey&#34;,
- *                 &#34;WrapKey&#34;,
- *                 &#34;Purge&#34;,
- *                 &#34;Encrypt&#34;,
- *                 &#34;Decrypt&#34;,
- *                 &#34;Sign&#34;,
- *                 &#34;Verify&#34;)
- *             .secretPermissions(&#34;Get&#34;)
+ *                 &#34;WrapKey&#34;)
  *             .build());
  * 
  *         var client = new AccessPolicy(&#34;client&#34;, AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .secretPermissions(&#34;Get&#34;)
  *             .keyPermissions(            
  *                 &#34;Get&#34;,
  *                 &#34;Create&#34;,
@@ -116,8 +108,8 @@ import javax.annotation.Nullable;
  *                 &#34;Decrypt&#34;,
  *                 &#34;Sign&#34;,
  *                 &#34;Verify&#34;,
- *                 &#34;GetRotationPolicy&#34;)
- *             .secretPermissions(&#34;Get&#34;)
+ *                 &#34;GetRotationPolicy&#34;,
+ *                 &#34;SetRotationPolicy&#34;)
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        

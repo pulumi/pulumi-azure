@@ -312,7 +312,7 @@ func (o CachePatchScheduleArrayOutput) Index(i pulumi.IntInput) CachePatchSchedu
 }
 
 type CacheRedisConfiguration struct {
-	// Enable or disable AOF persistence for this Redis Cache.
+	// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
 	AofBackupEnabled *bool `pulumi:"aofBackupEnabled"`
 	// First Storage Account connection string for AOF persistence.
 	AofStorageConnectionString0 *string `pulumi:"aofStorageConnectionString0"`
@@ -332,7 +332,7 @@ type CacheRedisConfiguration struct {
 	MaxmemoryReserved *int `pulumi:"maxmemoryReserved"`
 	// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
 	NotifyKeyspaceEvents *string `pulumi:"notifyKeyspaceEvents"`
-	// Is Backup Enabled? Only supported on Premium SKUs.
+	// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
 	RdbBackupEnabled *bool `pulumi:"rdbBackupEnabled"`
 	// The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
 	RdbBackupFrequency *int `pulumi:"rdbBackupFrequency"`
@@ -354,7 +354,7 @@ type CacheRedisConfigurationInput interface {
 }
 
 type CacheRedisConfigurationArgs struct {
-	// Enable or disable AOF persistence for this Redis Cache.
+	// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
 	AofBackupEnabled pulumi.BoolPtrInput `pulumi:"aofBackupEnabled"`
 	// First Storage Account connection string for AOF persistence.
 	AofStorageConnectionString0 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString0"`
@@ -374,7 +374,7 @@ type CacheRedisConfigurationArgs struct {
 	MaxmemoryReserved pulumi.IntPtrInput `pulumi:"maxmemoryReserved"`
 	// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
 	NotifyKeyspaceEvents pulumi.StringPtrInput `pulumi:"notifyKeyspaceEvents"`
-	// Is Backup Enabled? Only supported on Premium SKUs.
+	// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
 	RdbBackupEnabled pulumi.BoolPtrInput `pulumi:"rdbBackupEnabled"`
 	// The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
 	RdbBackupFrequency pulumi.IntPtrInput `pulumi:"rdbBackupFrequency"`
@@ -461,7 +461,7 @@ func (o CacheRedisConfigurationOutput) ToCacheRedisConfigurationPtrOutputWithCon
 	}).(CacheRedisConfigurationPtrOutput)
 }
 
-// Enable or disable AOF persistence for this Redis Cache.
+// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
 func (o CacheRedisConfigurationOutput) AofBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.AofBackupEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -511,7 +511,7 @@ func (o CacheRedisConfigurationOutput) NotifyKeyspaceEvents() pulumi.StringPtrOu
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.NotifyKeyspaceEvents }).(pulumi.StringPtrOutput)
 }
 
-// Is Backup Enabled? Only supported on Premium SKUs.
+// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
 func (o CacheRedisConfigurationOutput) RdbBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.RdbBackupEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -555,7 +555,7 @@ func (o CacheRedisConfigurationPtrOutput) Elem() CacheRedisConfigurationOutput {
 	}).(CacheRedisConfigurationOutput)
 }
 
-// Enable or disable AOF persistence for this Redis Cache.
+// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
 func (o CacheRedisConfigurationPtrOutput) AofBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
 		if v == nil {
@@ -655,7 +655,7 @@ func (o CacheRedisConfigurationPtrOutput) NotifyKeyspaceEvents() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Is Backup Enabled? Only supported on Premium SKUs.
+// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
 func (o CacheRedisConfigurationPtrOutput) RdbBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
 		if v == nil {

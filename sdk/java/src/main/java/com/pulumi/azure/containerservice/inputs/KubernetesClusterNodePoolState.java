@@ -506,6 +506,21 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     }
 
     /**
+     * The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="snapshotId")
+    private @Nullable Output<String> snapshotId;
+
+    /**
+     * @return The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> snapshotId() {
+        return Optional.ofNullable(this.snapshotId);
+    }
+
+    /**
      * The maximum price you&#39;re willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      * 
      */
@@ -675,6 +690,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         this.priority = $.priority;
         this.proximityPlacementGroupId = $.proximityPlacementGroupId;
         this.scaleDownMode = $.scaleDownMode;
+        this.snapshotId = $.snapshotId;
         this.spotMaxPrice = $.spotMaxPrice;
         this.tags = $.tags;
         this.ultraSsdEnabled = $.ultraSsdEnabled;
@@ -1384,6 +1400,27 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
          */
         public Builder scaleDownMode(String scaleDownMode) {
             return scaleDownMode(Output.of(scaleDownMode));
+        }
+
+        /**
+         * @param snapshotId The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapshotId(@Nullable Output<String> snapshotId) {
+            $.snapshotId = snapshotId;
+            return this;
+        }
+
+        /**
+         * @param snapshotId The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapshotId(String snapshotId) {
+            return snapshotId(Output.of(snapshotId));
         }
 
         /**

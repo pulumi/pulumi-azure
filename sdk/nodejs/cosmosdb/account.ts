@@ -136,7 +136,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly createMode!: pulumi.Output<string>;
     /**
-     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
      */
     public readonly defaultIdentityType!: pulumi.Output<string>;
     /**
@@ -422,7 +422,7 @@ export interface AccountState {
      */
     createMode?: pulumi.Input<string>;
     /**
-     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
      */
     defaultIdentityType?: pulumi.Input<string>;
     /**
@@ -584,7 +584,7 @@ export interface AccountArgs {
      */
     createMode?: pulumi.Input<string>;
     /**
-     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
      */
     defaultIdentityType?: pulumi.Input<string>;
     /**

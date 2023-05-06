@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Attestation Provider.
+ * Manages an Attestation Provider.
  * 
  * ## Example Usage
  * ```java
@@ -112,16 +112,28 @@ public class Provider extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `policy` blocks as defined below.
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
      * 
      */
+    @Export(name="openEnclavePolicyBase64", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> openEnclavePolicyBase64;
+
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * 
+     */
+    public Output<Optional<String>> openEnclavePolicyBase64() {
+        return Codegen.optional(this.openEnclavePolicyBase64);
+    }
+    /**
+     * @deprecated
+     * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+     * 
+     */
+    @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead. */
     @Export(name="policies", refs={List.class,ProviderPolicy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProviderPolicy>> policies;
 
-    /**
-     * @return One or more `policy` blocks as defined below.
-     * 
-     */
     public Output<Optional<List<ProviderPolicy>>> policies() {
         return Codegen.optional(this.policies);
     }
@@ -154,6 +166,20 @@ public class Provider extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * 
+     */
+    @Export(name="sgxEnclavePolicyBase64", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sgxEnclavePolicyBase64;
+
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * 
+     */
+    public Output<Optional<String>> sgxEnclavePolicyBase64() {
+        return Codegen.optional(this.sgxEnclavePolicyBase64);
+    }
+    /**
      * A mapping of tags which should be assigned to the Attestation Provider.
      * 
      */
@@ -166,6 +192,20 @@ public class Provider extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
+    }
+    /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * 
+     */
+    @Export(name="tpmPolicyBase64", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tpmPolicyBase64;
+
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * 
+     */
+    public Output<Optional<String>> tpmPolicyBase64() {
+        return Codegen.optional(this.tpmPolicyBase64);
     }
     /**
      * Trust model used for the Attestation Service.

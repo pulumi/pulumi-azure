@@ -7,40 +7,30 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class FlexibleServerIdentity {
     /**
-     * @return A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server.
      * 
      */
-    private @Nullable List<String> identityIds;
-    private @Nullable String principalId;
-    private @Nullable String tenantId;
+    private List<String> identityIds;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is `UserAssigned`.
      * 
      */
     private String type;
 
     private FlexibleServerIdentity() {}
     /**
-     * @return A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
+     * @return A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server.
      * 
      */
     public List<String> identityIds() {
-        return this.identityIds == null ? List.of() : this.identityIds;
-    }
-    public Optional<String> principalId() {
-        return Optional.ofNullable(this.principalId);
-    }
-    public Optional<String> tenantId() {
-        return Optional.ofNullable(this.tenantId);
+        return this.identityIds;
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is `UserAssigned`.
      * 
      */
     public String type() {
@@ -56,36 +46,22 @@ public final class FlexibleServerIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<String> identityIds;
-        private @Nullable String principalId;
-        private @Nullable String tenantId;
+        private List<String> identityIds;
         private String type;
         public Builder() {}
         public Builder(FlexibleServerIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
-    	      this.principalId = defaults.principalId;
-    	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
         @CustomType.Setter
-        public Builder identityIds(@Nullable List<String> identityIds) {
-            this.identityIds = identityIds;
+        public Builder identityIds(List<String> identityIds) {
+            this.identityIds = Objects.requireNonNull(identityIds);
             return this;
         }
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
-        }
-        @CustomType.Setter
-        public Builder principalId(@Nullable String principalId) {
-            this.principalId = principalId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder tenantId(@Nullable String tenantId) {
-            this.tenantId = tenantId;
-            return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
@@ -95,8 +71,6 @@ public final class FlexibleServerIdentity {
         public FlexibleServerIdentity build() {
             final var o = new FlexibleServerIdentity();
             o.identityIds = identityIds;
-            o.principalId = principalId;
-            o.tenantId = tenantId;
             o.type = type;
             return o;
         }

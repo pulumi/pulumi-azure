@@ -64,16 +64,35 @@ public final class ProviderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `policy` blocks as defined below.
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
      * 
      */
+    @Import(name="openEnclavePolicyBase64")
+    private @Nullable Output<String> openEnclavePolicyBase64;
+
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * 
+     */
+    public Optional<Output<String>> openEnclavePolicyBase64() {
+        return Optional.ofNullable(this.openEnclavePolicyBase64);
+    }
+
+    /**
+     * @deprecated
+     * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+     * 
+     */
+    @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead. */
     @Import(name="policies")
     private @Nullable Output<List<ProviderPolicyArgs>> policies;
 
     /**
-     * @return One or more `policy` blocks as defined below.
+     * @deprecated
+     * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
      * 
      */
+    @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead. */
     public Optional<Output<List<ProviderPolicyArgs>>> policies() {
         return Optional.ofNullable(this.policies);
     }
@@ -109,6 +128,21 @@ public final class ProviderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * 
+     */
+    @Import(name="sgxEnclavePolicyBase64")
+    private @Nullable Output<String> sgxEnclavePolicyBase64;
+
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * 
+     */
+    public Optional<Output<String>> sgxEnclavePolicyBase64() {
+        return Optional.ofNullable(this.sgxEnclavePolicyBase64);
+    }
+
+    /**
      * A mapping of tags which should be assigned to the Attestation Provider.
      * 
      */
@@ -121,6 +155,21 @@ public final class ProviderState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
+    }
+
+    /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * 
+     */
+    @Import(name="tpmPolicyBase64")
+    private @Nullable Output<String> tpmPolicyBase64;
+
+    /**
+     * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * 
+     */
+    public Optional<Output<String>> tpmPolicyBase64() {
+        return Optional.ofNullable(this.tpmPolicyBase64);
     }
 
     /**
@@ -144,10 +193,13 @@ public final class ProviderState extends com.pulumi.resources.ResourceArgs {
         this.attestationUri = $.attestationUri;
         this.location = $.location;
         this.name = $.name;
+        this.openEnclavePolicyBase64 = $.openEnclavePolicyBase64;
         this.policies = $.policies;
         this.policySigningCertificateData = $.policySigningCertificateData;
         this.resourceGroupName = $.resourceGroupName;
+        this.sgxEnclavePolicyBase64 = $.sgxEnclavePolicyBase64;
         this.tags = $.tags;
+        this.tpmPolicyBase64 = $.tpmPolicyBase64;
         this.trustModel = $.trustModel;
     }
 
@@ -233,32 +285,59 @@ public final class ProviderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policies One or more `policy` blocks as defined below.
+         * @param openEnclavePolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
          * 
          * @return builder
          * 
          */
+        public Builder openEnclavePolicyBase64(@Nullable Output<String> openEnclavePolicyBase64) {
+            $.openEnclavePolicyBase64 = openEnclavePolicyBase64;
+            return this;
+        }
+
+        /**
+         * @param openEnclavePolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder openEnclavePolicyBase64(String openEnclavePolicyBase64) {
+            return openEnclavePolicyBase64(Output.of(openEnclavePolicyBase64));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+         * 
+         */
+        @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead. */
         public Builder policies(@Nullable Output<List<ProviderPolicyArgs>> policies) {
             $.policies = policies;
             return this;
         }
 
         /**
-         * @param policies One or more `policy` blocks as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+         * 
          */
+        @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead. */
         public Builder policies(List<ProviderPolicyArgs> policies) {
             return policies(Output.of(policies));
         }
 
         /**
-         * @param policies One or more `policy` blocks as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
+         * 
          */
+        @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead. */
         public Builder policies(ProviderPolicyArgs... policies) {
             return policies(List.of(policies));
         }
@@ -306,6 +385,27 @@ public final class ProviderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param sgxEnclavePolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sgxEnclavePolicyBase64(@Nullable Output<String> sgxEnclavePolicyBase64) {
+            $.sgxEnclavePolicyBase64 = sgxEnclavePolicyBase64;
+            return this;
+        }
+
+        /**
+         * @param sgxEnclavePolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sgxEnclavePolicyBase64(String sgxEnclavePolicyBase64) {
+            return sgxEnclavePolicyBase64(Output.of(sgxEnclavePolicyBase64));
+        }
+
+        /**
          * @param tags A mapping of tags which should be assigned to the Attestation Provider.
          * 
          * @return builder
@@ -324,6 +424,27 @@ public final class ProviderState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tpmPolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tpmPolicyBase64(@Nullable Output<String> tpmPolicyBase64) {
+            $.tpmPolicyBase64 = tpmPolicyBase64;
+            return this;
+        }
+
+        /**
+         * @param tpmPolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tpmPolicyBase64(String tpmPolicyBase64) {
+            return tpmPolicyBase64(Output.of(tpmPolicyBase64));
         }
 
         /**

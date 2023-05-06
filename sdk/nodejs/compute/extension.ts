@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
@@ -40,50 +41,29 @@ import * as utilities from "../utilities";
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     tags: {
- *         environment: "staging",
- *     },
- * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
- *     storageAccountName: exampleAccount.name,
- *     containerAccessType: "private",
- * });
- * const exampleVirtualMachine = new azure.compute.VirtualMachine("exampleVirtualMachine", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     size: "Standard_F2",
+ *     adminUsername: "adminuser",
  *     networkInterfaceIds: [exampleNetworkInterface.id],
- *     vmSize: "Standard_F2",
- *     storageImageReference: {
+ *     adminSshKeys: [{
+ *         username: "adminuser",
+ *         publicKey: fs.readFileSync("~/.ssh/id_rsa.pub"),
+ *     }],
+ *     osDisk: {
+ *         caching: "ReadWrite",
+ *         storageAccountType: "Standard_LRS",
+ *     },
+ *     sourceImageReference: {
  *         publisher: "Canonical",
  *         offer: "UbuntuServer",
  *         sku: "16.04-LTS",
  *         version: "latest",
  *     },
- *     storageOsDisk: {
- *         name: "myosdisk1",
- *         vhdUri: pulumi.interpolate`${exampleAccount.primaryBlobEndpoint}${exampleContainer.name}/myosdisk1.vhd`,
- *         caching: "ReadWrite",
- *         createOption: "FromImage",
- *     },
- *     osProfile: {
- *         computerName: "hostname",
- *         adminUsername: "testadmin",
- *         adminPassword: "Password1234!",
- *     },
- *     osProfileLinuxConfig: {
- *         disablePasswordAuthentication: false,
- *     },
- *     tags: {
- *         environment: "staging",
- *     },
  * });
  * const exampleExtension = new azure.compute.Extension("exampleExtension", {
- *     virtualMachineId: exampleVirtualMachine.id,
+ *     virtualMachineId: exampleLinuxVirtualMachine.id,
  *     publisher: "Microsoft.Azure.Extensions",
  *     type: "CustomScript",
  *     typeHandlerVersion: "2.0",

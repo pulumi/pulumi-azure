@@ -18067,6 +18067,21 @@ export namespace appservice {
 }
 
 export namespace arckubernetes {
+    export interface ClusterExtensionIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`.
+         */
+        type: string;
+    }
+
     export interface ClusterIdentity {
         /**
          * The Principal ID associated with this Managed Service Identity.
@@ -18086,14 +18101,8 @@ export namespace arckubernetes {
 
 export namespace attestation {
     export interface ProviderPolicy {
-        /**
-         * Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-         */
-        data: string;
-        /**
-         * Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-         */
-        environmentType: string;
+        data?: string;
+        environmentType?: string;
     }
 
 }
@@ -20039,7 +20048,7 @@ export namespace batch {
 export namespace billing {
     export interface AccountCostManagementExportExportDataOptions {
         /**
-         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
          */
         timeFrame: string;
         /**
@@ -28143,6 +28152,44 @@ export namespace containerservice {
         maxSurge: string;
     }
 
+    export interface KubernetesClusterExtensionAksAssignedIdentity {
+        /**
+         * The principal ID of resource identity.
+         */
+        principalId: string;
+        /**
+         * The tenant ID of resource.
+         */
+        tenantId: string;
+        /**
+         * The identity type.
+         */
+        type: string;
+    }
+
+    export interface KubernetesClusterExtensionPlan {
+        /**
+         * Specifies the name of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+         */
+        name: string;
+        /**
+         * Specifies the product of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+         */
+        product: string;
+        /**
+         * Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+         */
+        promotionCode?: string;
+        /**
+         * Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+         */
+        publisher: string;
+        /**
+         * Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+         */
+        version?: string;
+    }
+
     export interface KubernetesClusterHttpProxyConfig {
         /**
          * The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
@@ -28747,6 +28794,13 @@ export namespace containerservice {
          * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
          */
         userAssignedIdentityId: string;
+    }
+
+    export interface KubernetesClusterServiceMeshProfile {
+        /**
+         * The mode of the service mesh. Possible value is `Istio`.
+         */
+        mode: string;
     }
 
     export interface KubernetesClusterServicePrincipal {
@@ -29426,7 +29480,7 @@ export namespace core {
 
     export interface ResourceGroupCostManagementExportExportDataOptions {
         /**
-         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
          */
         timeFrame: string;
         /**
@@ -29693,7 +29747,7 @@ export namespace core {
 
     export interface SubscriptionCostManagementExportExportDataOptions {
         /**
-         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
+         * The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
          */
         timeFrame: string;
         /**
@@ -30308,6 +30362,21 @@ export namespace cosmosdb {
          * The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
+    }
+
+    export interface PostgresqlClusterMaintenanceWindow {
+        /**
+         * The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
+         */
+        dayOfWeek?: number;
+        /**
+         * The start hour for maintenance window. Defaults to `0`.
+         */
+        startHour?: number;
+        /**
+         * The start minute for maintenance window. Defaults to `0`.
+         */
+        startMinute?: number;
     }
 
     export interface SqlContainerAutoscaleSettings {
@@ -38199,11 +38268,14 @@ export namespace healthcare {
     }
 
     export interface FhirServiceIdentity {
+        /**
+         * A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+         */
         identityIds?: string[];
         principalId: string;
         tenantId: string;
         /**
-         * The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
+         * The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
          */
         type: string;
     }
@@ -38282,6 +38354,7 @@ export namespace healthcare {
     }
 
     export interface GetFhirServiceIdentity {
+        identityIds: string[];
         /**
          * The Principal ID associated with this System Assigned Managed Service Identity.
          */
@@ -38297,6 +38370,7 @@ export namespace healthcare {
     }
 
     export interface GetMedtechServiceIdentity {
+        identityIds: string[];
         /**
          * The Principal ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
          */
@@ -47572,13 +47646,11 @@ export namespace mysql {
 
     export interface FlexibleServerIdentity {
         /**
-         * A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customerManagedKey` block.
+         * A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server.
          */
-        identityIds?: string[];
-        principalId: string;
-        tenantId: string;
+        identityIds: string[];
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is `UserAssigned`.
          */
         type: string;
     }
@@ -47856,6 +47928,138 @@ export namespace netapp {
         replicationFrequency: string;
     }
 
+    export interface GetVolumeGroupSapHanaVolume {
+        /**
+         * The ID of the Capacity Pool.
+         */
+        capacityPoolId: string;
+        /**
+         * A `dataProtectionReplication` block as defined below.
+         */
+        dataProtectionReplications: outputs.netapp.GetVolumeGroupSapHanaVolumeDataProtectionReplication[];
+        /**
+         * A `dataProtectionSnapshotPolicy` block as defined below.
+         */
+        dataProtectionSnapshotPolicies: outputs.netapp.GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy[];
+        /**
+         * A `exportPolicyRule` block as defined below.
+         */
+        exportPolicyRules: outputs.netapp.GetVolumeGroupSapHanaVolumeExportPolicyRule[];
+        /**
+         * Volume ID.
+         */
+        id: string;
+        /**
+         * A `mountIpAddresses` block as defined below.
+         */
+        mountIpAddresses: string[];
+        /**
+         * The name of this Application Volume Group for SAP HANA application.
+         */
+        name: string;
+        /**
+         * A `protocols` block as defined below.
+         */
+        protocols: string[];
+        /**
+         * The ID of the proximity placement group.
+         */
+        proximityPlacementGroupId: string;
+        /**
+         * Volume security style.
+         */
+        securityStyle: string;
+        /**
+         * The target performance of the file system.
+         */
+        serviceLevel: string;
+        /**
+         * Is the .snapshot (NFS clients) path of a volume visible?
+         */
+        snapshotDirectoryVisible: boolean;
+        /**
+         * The maximum Storage Quota allowed for a file system in Gigabytes.
+         */
+        storageQuotaInGb: number;
+        /**
+         * The ID of the Subnet the NetApp Volume resides in.
+         */
+        subnetId: string;
+        /**
+         * A mapping of tags assigned to the Application Volume Group.
+         */
+        tags: {[key: string]: string};
+        /**
+         * Throughput of this volume in Mibps.
+         */
+        throughputInMibps: number;
+        /**
+         * A unique file path for the volume.
+         */
+        volumePath: string;
+        /**
+         * Volume spec name.
+         */
+        volumeSpecName: string;
+    }
+
+    export interface GetVolumeGroupSapHanaVolumeDataProtectionReplication {
+        /**
+         * The endpoint type.
+         */
+        endpointType: string;
+        /**
+         * Location of the primary volume.
+         */
+        remoteVolumeLocation: string;
+        /**
+         * Resource ID of the primary volume.
+         */
+        remoteVolumeResourceId: string;
+        /**
+         * Replication frequency.
+         */
+        replicationFrequency: string;
+    }
+
+    export interface GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy {
+        /**
+         * Resource ID of the snapshot policy to apply to the volume.
+         */
+        snapshotPolicyId: string;
+    }
+
+    export interface GetVolumeGroupSapHanaVolumeExportPolicyRule {
+        /**
+         * A list of allowed clients IPv4 addresses.
+         */
+        allowedClients: string;
+        /**
+         * Is the NFSv3 protocol enabled?
+         */
+        nfsv3Enabled: boolean;
+        /**
+         * Is the NFSv4.1 enabled?
+         */
+        nfsv41Enabled: boolean;
+        /**
+         * Is root access permitted to this volume?
+         */
+        rootAccessEnabled: boolean;
+        /**
+         * The index number of the rule.
+         */
+        ruleIndex: number;
+        /**
+         * Is the file system on unix read only?.
+         */
+        unixReadOnly: boolean;
+        /**
+         * Is the file system on unix read and write?.
+         */
+        unixReadWrite: boolean;
+    }
+
     export interface SnapshotPolicyDailySchedule {
         /**
          * Hour of the day that the snapshots will be created, valid range is from 0 to 23.
@@ -47969,6 +48173,135 @@ export namespace netapp {
         unixReadOnly?: boolean;
         /**
          * Is the file system on unix read and write?
+         */
+        unixReadWrite?: boolean;
+    }
+
+    export interface VolumeGroupSapHanaVolume {
+        /**
+         * The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        capacityPoolId: string;
+        /**
+         * A `dataProtectionReplication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        dataProtectionReplication?: outputs.netapp.VolumeGroupSapHanaVolumeDataProtectionReplication;
+        /**
+         * A `dataProtectionSnapshotPolicy` block as defined below.
+         */
+        dataProtectionSnapshotPolicy?: outputs.netapp.VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy;
+        /**
+         * One or more `exportPolicyRule` blocks as defined below.
+         */
+        exportPolicyRules: outputs.netapp.VolumeGroupSapHanaVolumeExportPolicyRule[];
+        /**
+         * The ID of the Application Volume Group.
+         */
+        id: string;
+        mountIpAddresses: string[];
+        /**
+         * The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        name: string;
+        /**
+         * The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`, multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+         */
+        protocols: string;
+        /**
+         * The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+         */
+        proximityPlacementGroupId?: string;
+        /**
+         * Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        securityStyle: string;
+        /**
+         * Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        serviceLevel: string;
+        /**
+         * Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        snapshotDirectoryVisible: boolean;
+        /**
+         * The maximum Storage Quota allowed for a file system in Gigabytes.
+         */
+        storageQuotaInGb: number;
+        /**
+         * The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        subnetId: string;
+        /**
+         * A mapping of tags which should be assigned to the Application Volume Group.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Throughput of this volume in Mibps.
+         */
+        throughputInMibps: number;
+        /**
+         * A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        volumePath: string;
+        /**
+         * Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        volumeSpecName: string;
+    }
+
+    export interface VolumeGroupSapHanaVolumeDataProtectionReplication {
+        /**
+         * The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+         */
+        endpointType?: string;
+        /**
+         * Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         */
+        remoteVolumeLocation: string;
+        /**
+         * Resource ID of the primary volume.
+         */
+        remoteVolumeResourceId: string;
+        /**
+         * eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+         */
+        replicationFrequency: string;
+    }
+
+    export interface VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy {
+        /**
+         * Resource ID of the snapshot policy to apply to the volume.
+         */
+        snapshotPolicyId: string;
+    }
+
+    export interface VolumeGroupSapHanaVolumeExportPolicyRule {
+        /**
+         * A comma-sperated list of allowed client IPv4 addresses.
+         */
+        allowedClients: string;
+        /**
+         * Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+         */
+        nfsv3Enabled: boolean;
+        /**
+         * Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+         */
+        nfsv41Enabled: boolean;
+        /**
+         * Is root access permitted to this volume? Defaults to `true`.
+         */
+        rootAccessEnabled?: boolean;
+        /**
+         * The index number of the rule, must start at 1 and maximum 5.
+         */
+        ruleIndex: number;
+        /**
+         * Is the file system on unix read only? Defaults to `false.
+         */
+        unixReadOnly?: boolean;
+        /**
+         * Is the file system on unix read and write? Defaults to `true`.
          */
         unixReadWrite?: boolean;
     }
@@ -49433,7 +49766,7 @@ export namespace network {
          */
         description?: string;
         /**
-         * Specifies a list of destination IP addresses (including CIDR and `*`).
+         * Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
          */
         destinationAddresses?: string[];
         /**
@@ -49457,7 +49790,7 @@ export namespace network {
          */
         protocols?: outputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol[];
         /**
-         * Specifies a list of source IP addresses (including CIDR and `*`).
+         * Specifies a list of source IP addresses (including CIDR, IP range and `*`).
          */
         sourceAddresses?: string[];
         /**
@@ -49522,7 +49855,7 @@ export namespace network {
          */
         protocols: string[];
         /**
-         * Specifies a list of source IP addresses (including CIDR and `*`).
+         * Specifies a list of source IP addresses (including CIDR, IP range and `*`).
          */
         sourceAddresses?: string[];
         /**
@@ -49564,7 +49897,7 @@ export namespace network {
 
     export interface FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         /**
-         * Specifies a list of destination IP addresses (including CIDR and `*`).
+         * Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
          */
         destinationAddresses?: string[];
         /**
@@ -49588,7 +49921,7 @@ export namespace network {
          */
         protocols: string[];
         /**
-         * Specifies a list of source IP addresses (including CIDR and `*`).
+         * Specifies a list of source IP addresses (including CIDR, IP range and `*`).
          */
         sourceAddresses?: string[];
         /**
@@ -50145,6 +50478,10 @@ export namespace network {
          * Specifies the name of the Virtual Network Gateway.
          */
         name: string;
+        /**
+         * The Private IP Address associated with the Virtual Network Gateway.
+         */
+        privateIpAddress: string;
         /**
          * Defines how the private IP address
          * of the gateways virtual interface is assigned.
@@ -52935,7 +53272,7 @@ export namespace redis {
 
     export interface CacheRedisConfiguration {
         /**
-         * Enable or disable AOF persistence for this Redis Cache.
+         * Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
          */
         aofBackupEnabled?: boolean;
         /**
@@ -52975,7 +53312,7 @@ export namespace redis {
          */
         notifyKeyspaceEvents?: string;
         /**
-         * Is Backup Enabled? Only supported on Premium SKUs.
+         * Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
          */
         rdbBackupEnabled?: boolean;
         /**

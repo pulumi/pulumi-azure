@@ -226,25 +226,17 @@ class CustomerManagedKey(pulumi.CustomResource):
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
             object_id=example_account.identity.principal_id,
+            secret_permissions=["Get"],
             key_permissions=[
                 "Get",
-                "Create",
-                "List",
-                "Restore",
-                "Recover",
                 "UnwrapKey",
                 "WrapKey",
-                "Purge",
-                "Encrypt",
-                "Decrypt",
-                "Sign",
-                "Verify",
-            ],
-            secret_permissions=["Get"])
+            ])
         client = azure.keyvault.AccessPolicy("client",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
             object_id=current.object_id,
+            secret_permissions=["Get"],
             key_permissions=[
                 "Get",
                 "Create",
@@ -260,8 +252,8 @@ class CustomerManagedKey(pulumi.CustomResource):
                 "Sign",
                 "Verify",
                 "GetRotationPolicy",
-            ],
-            secret_permissions=["Get"])
+                "SetRotationPolicy",
+            ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
@@ -337,25 +329,17 @@ class CustomerManagedKey(pulumi.CustomResource):
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
             object_id=example_account.identity.principal_id,
+            secret_permissions=["Get"],
             key_permissions=[
                 "Get",
-                "Create",
-                "List",
-                "Restore",
-                "Recover",
                 "UnwrapKey",
                 "WrapKey",
-                "Purge",
-                "Encrypt",
-                "Decrypt",
-                "Sign",
-                "Verify",
-            ],
-            secret_permissions=["Get"])
+            ])
         client = azure.keyvault.AccessPolicy("client",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
             object_id=current.object_id,
+            secret_permissions=["Get"],
             key_permissions=[
                 "Get",
                 "Create",
@@ -371,8 +355,8 @@ class CustomerManagedKey(pulumi.CustomResource):
                 "Sign",
                 "Verify",
                 "GetRotationPolicy",
-            ],
-            secret_permissions=["Get"])
+                "SetRotationPolicy",
+            ])
         example_key = azure.keyvault.Key("exampleKey",
             key_vault_id=example_key_vault.id,
             key_type="RSA",

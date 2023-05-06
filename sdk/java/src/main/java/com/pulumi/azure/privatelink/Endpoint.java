@@ -190,6 +190,95 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.privatedns.Zone;
+ * import com.pulumi.azure.privatedns.ZoneArgs;
+ * import com.pulumi.azure.privatelink.Endpoint;
+ * import com.pulumi.azure.privatelink.EndpointArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
+ * import com.pulumi.azure.privatelink.inputs.EndpointPrivateDnsZoneGroupArgs;
+ * import com.pulumi.azure.privatedns.ZoneVirtualNetworkLink;
+ * import com.pulumi.azure.privatedns.ZoneVirtualNetworkLinkArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .build());
+ * 
+ *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .subnetId(exampleSubnet.id())
+ *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
+ *                 .name(&#34;example-privateserviceconnection&#34;)
+ *                 .privateConnectionResourceId(exampleAccount.id())
+ *                 .subresourceNames(&#34;blob&#34;)
+ *                 .isManualConnection(false)
+ *                 .build())
+ *             .privateDnsZoneGroup(EndpointPrivateDnsZoneGroupArgs.builder()
+ *                 .name(&#34;example-dns-zone-group&#34;)
+ *                 .privateDnsZoneIds(exampleZone.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink(&#34;exampleZoneVirtualNetworkLink&#34;, ZoneVirtualNetworkLinkArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .privateDnsZoneName(exampleZone.name())
+ *             .virtualNetworkId(exampleVirtualNetwork.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Private Endpoints can be imported using the `resource id`, e.g.

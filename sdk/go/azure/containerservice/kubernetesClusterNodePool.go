@@ -148,6 +148,8 @@ type KubernetesClusterNodePool struct {
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
 	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode pulumi.StringPtrOutput `pulumi:"scaleDownMode"`
+	// The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice pulumi.Float64PtrOutput `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
@@ -267,6 +269,8 @@ type kubernetesClusterNodePoolState struct {
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode *string `pulumi:"scaleDownMode"`
+	// The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+	SnapshotId *string `pulumi:"snapshotId"`
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
@@ -352,6 +356,8 @@ type KubernetesClusterNodePoolState struct {
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode pulumi.StringPtrInput
+	// The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+	SnapshotId pulumi.StringPtrInput
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
@@ -441,6 +447,8 @@ type kubernetesClusterNodePoolArgs struct {
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode *string `pulumi:"scaleDownMode"`
+	// The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+	SnapshotId *string `pulumi:"snapshotId"`
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
 	// A mapping of tags to assign to the resource.
@@ -527,6 +535,8 @@ type KubernetesClusterNodePoolArgs struct {
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode pulumi.StringPtrInput
+	// The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+	SnapshotId pulumi.StringPtrInput
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	SpotMaxPrice pulumi.Float64PtrInput
 	// A mapping of tags to assign to the resource.
@@ -798,6 +808,11 @@ func (o KubernetesClusterNodePoolOutput) ProximityPlacementGroupId() pulumi.Stri
 // Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 func (o KubernetesClusterNodePoolOutput) ScaleDownMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.ScaleDownMode }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
 // The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.

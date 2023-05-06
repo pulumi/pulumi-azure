@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Attestation Provider.
+ * Manages an Attestation Provider.
  *
  * ## Example Usage
  *
@@ -73,7 +73,11 @@ export class Provider extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * One or more `policy` blocks as defined below.
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     */
+    public readonly openEnclavePolicyBase64!: pulumi.Output<string | undefined>;
+    /**
+     * @deprecated This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
      */
     public readonly policies!: pulumi.Output<outputs.attestation.ProviderPolicy[] | undefined>;
     /**
@@ -85,9 +89,17 @@ export class Provider extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     */
+    public readonly sgxEnclavePolicyBase64!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags which should be assigned to the Attestation Provider.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     */
+    public readonly tpmPolicyBase64!: pulumi.Output<string | undefined>;
     /**
      * Trust model used for the Attestation Service.
      */
@@ -109,10 +121,13 @@ export class Provider extends pulumi.CustomResource {
             resourceInputs["attestationUri"] = state ? state.attestationUri : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["openEnclavePolicyBase64"] = state ? state.openEnclavePolicyBase64 : undefined;
             resourceInputs["policies"] = state ? state.policies : undefined;
             resourceInputs["policySigningCertificateData"] = state ? state.policySigningCertificateData : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["sgxEnclavePolicyBase64"] = state ? state.sgxEnclavePolicyBase64 : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tpmPolicyBase64"] = state ? state.tpmPolicyBase64 : undefined;
             resourceInputs["trustModel"] = state ? state.trustModel : undefined;
         } else {
             const args = argsOrState as ProviderArgs | undefined;
@@ -121,10 +136,13 @@ export class Provider extends pulumi.CustomResource {
             }
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["openEnclavePolicyBase64"] = args ? args.openEnclavePolicyBase64 : undefined;
             resourceInputs["policies"] = args ? args.policies : undefined;
             resourceInputs["policySigningCertificateData"] = args ? args.policySigningCertificateData : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sgxEnclavePolicyBase64"] = args ? args.sgxEnclavePolicyBase64 : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tpmPolicyBase64"] = args ? args.tpmPolicyBase64 : undefined;
             resourceInputs["attestationUri"] = undefined /*out*/;
             resourceInputs["trustModel"] = undefined /*out*/;
         }
@@ -150,7 +168,11 @@ export interface ProviderState {
      */
     name?: pulumi.Input<string>;
     /**
-     * One or more `policy` blocks as defined below.
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     */
+    openEnclavePolicyBase64?: pulumi.Input<string>;
+    /**
+     * @deprecated This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
      */
     policies?: pulumi.Input<pulumi.Input<inputs.attestation.ProviderPolicy>[]>;
     /**
@@ -162,9 +184,17 @@ export interface ProviderState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     */
+    sgxEnclavePolicyBase64?: pulumi.Input<string>;
+    /**
      * A mapping of tags which should be assigned to the Attestation Provider.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     */
+    tpmPolicyBase64?: pulumi.Input<string>;
     /**
      * Trust model used for the Attestation Service.
      */
@@ -184,7 +214,11 @@ export interface ProviderArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * One or more `policy` blocks as defined below.
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     */
+    openEnclavePolicyBase64?: pulumi.Input<string>;
+    /**
+     * @deprecated This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead.
      */
     policies?: pulumi.Input<pulumi.Input<inputs.attestation.ProviderPolicy>[]>;
     /**
@@ -196,7 +230,15 @@ export interface ProviderArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     */
+    sgxEnclavePolicyBase64?: pulumi.Input<string>;
+    /**
      * A mapping of tags which should be assigned to the Attestation Provider.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     */
+    tpmPolicyBase64?: pulumi.Input<string>;
 }

@@ -43,6 +43,8 @@ __all__ = [
     'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig',
     'KubernetesClusterDefaultNodePoolNodeNetworkProfile',
     'KubernetesClusterDefaultNodePoolUpgradeSettings',
+    'KubernetesClusterExtensionAksAssignedIdentity',
+    'KubernetesClusterExtensionPlan',
     'KubernetesClusterHttpProxyConfig',
     'KubernetesClusterIdentity',
     'KubernetesClusterIngressApplicationGateway',
@@ -71,6 +73,7 @@ __all__ = [
     'KubernetesClusterNodePoolWindowsProfile',
     'KubernetesClusterOmsAgent',
     'KubernetesClusterOmsAgentOmsAgentIdentity',
+    'KubernetesClusterServiceMeshProfile',
     'KubernetesClusterServicePrincipal',
     'KubernetesClusterStorageProfile',
     'KubernetesClusterWebAppRouting',
@@ -3532,6 +3535,149 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
 
 
 @pulumi.output_type
+class KubernetesClusterExtensionAksAssignedIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterExtensionAksAssignedIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterExtensionAksAssignedIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterExtensionAksAssignedIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        """
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class KubernetesClusterExtensionPlan(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "promotionCode":
+            suggest = "promotion_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterExtensionPlan. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterExtensionPlan.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterExtensionPlan.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 product: str,
+                 publisher: str,
+                 promotion_code: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        :param str name: Specifies the name of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param str product: Specifies the product of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param str publisher: Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param str promotion_code: Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param str version: Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "product", product)
+        pulumi.set(__self__, "publisher", publisher)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> str:
+        """
+        Specifies the product of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> str:
+        """
+        Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[str]:
+        """
+        Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
+        """
+        return pulumi.get(self, "promotion_code")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
 class KubernetesClusterHttpProxyConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5898,6 +6044,24 @@ class KubernetesClusterOmsAgentOmsAgentIdentity(dict):
         The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
+class KubernetesClusterServiceMeshProfile(dict):
+    def __init__(__self__, *,
+                 mode: str):
+        """
+        :param str mode: The mode of the service mesh. Possible value is `Istio`.
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The mode of the service mesh. Possible value is `Istio`.
+        """
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type

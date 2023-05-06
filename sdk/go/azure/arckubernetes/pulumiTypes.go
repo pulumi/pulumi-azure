@@ -10,6 +10,181 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ClusterExtensionIdentity struct {
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// ClusterExtensionIdentityInput is an input type that accepts ClusterExtensionIdentityArgs and ClusterExtensionIdentityOutput values.
+// You can construct a concrete instance of `ClusterExtensionIdentityInput` via:
+//
+//	ClusterExtensionIdentityArgs{...}
+type ClusterExtensionIdentityInput interface {
+	pulumi.Input
+
+	ToClusterExtensionIdentityOutput() ClusterExtensionIdentityOutput
+	ToClusterExtensionIdentityOutputWithContext(context.Context) ClusterExtensionIdentityOutput
+}
+
+type ClusterExtensionIdentityArgs struct {
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ClusterExtensionIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterExtensionIdentity)(nil)).Elem()
+}
+
+func (i ClusterExtensionIdentityArgs) ToClusterExtensionIdentityOutput() ClusterExtensionIdentityOutput {
+	return i.ToClusterExtensionIdentityOutputWithContext(context.Background())
+}
+
+func (i ClusterExtensionIdentityArgs) ToClusterExtensionIdentityOutputWithContext(ctx context.Context) ClusterExtensionIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterExtensionIdentityOutput)
+}
+
+func (i ClusterExtensionIdentityArgs) ToClusterExtensionIdentityPtrOutput() ClusterExtensionIdentityPtrOutput {
+	return i.ToClusterExtensionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterExtensionIdentityArgs) ToClusterExtensionIdentityPtrOutputWithContext(ctx context.Context) ClusterExtensionIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterExtensionIdentityOutput).ToClusterExtensionIdentityPtrOutputWithContext(ctx)
+}
+
+// ClusterExtensionIdentityPtrInput is an input type that accepts ClusterExtensionIdentityArgs, ClusterExtensionIdentityPtr and ClusterExtensionIdentityPtrOutput values.
+// You can construct a concrete instance of `ClusterExtensionIdentityPtrInput` via:
+//
+//	        ClusterExtensionIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterExtensionIdentityPtrInput interface {
+	pulumi.Input
+
+	ToClusterExtensionIdentityPtrOutput() ClusterExtensionIdentityPtrOutput
+	ToClusterExtensionIdentityPtrOutputWithContext(context.Context) ClusterExtensionIdentityPtrOutput
+}
+
+type clusterExtensionIdentityPtrType ClusterExtensionIdentityArgs
+
+func ClusterExtensionIdentityPtr(v *ClusterExtensionIdentityArgs) ClusterExtensionIdentityPtrInput {
+	return (*clusterExtensionIdentityPtrType)(v)
+}
+
+func (*clusterExtensionIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterExtensionIdentity)(nil)).Elem()
+}
+
+func (i *clusterExtensionIdentityPtrType) ToClusterExtensionIdentityPtrOutput() ClusterExtensionIdentityPtrOutput {
+	return i.ToClusterExtensionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterExtensionIdentityPtrType) ToClusterExtensionIdentityPtrOutputWithContext(ctx context.Context) ClusterExtensionIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterExtensionIdentityPtrOutput)
+}
+
+type ClusterExtensionIdentityOutput struct{ *pulumi.OutputState }
+
+func (ClusterExtensionIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterExtensionIdentity)(nil)).Elem()
+}
+
+func (o ClusterExtensionIdentityOutput) ToClusterExtensionIdentityOutput() ClusterExtensionIdentityOutput {
+	return o
+}
+
+func (o ClusterExtensionIdentityOutput) ToClusterExtensionIdentityOutputWithContext(ctx context.Context) ClusterExtensionIdentityOutput {
+	return o
+}
+
+func (o ClusterExtensionIdentityOutput) ToClusterExtensionIdentityPtrOutput() ClusterExtensionIdentityPtrOutput {
+	return o.ToClusterExtensionIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterExtensionIdentityOutput) ToClusterExtensionIdentityPtrOutputWithContext(ctx context.Context) ClusterExtensionIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterExtensionIdentity) *ClusterExtensionIdentity {
+		return &v
+	}).(ClusterExtensionIdentityPtrOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
+func (o ClusterExtensionIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterExtensionIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o ClusterExtensionIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterExtensionIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`.
+func (o ClusterExtensionIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterExtensionIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ClusterExtensionIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterExtensionIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterExtensionIdentity)(nil)).Elem()
+}
+
+func (o ClusterExtensionIdentityPtrOutput) ToClusterExtensionIdentityPtrOutput() ClusterExtensionIdentityPtrOutput {
+	return o
+}
+
+func (o ClusterExtensionIdentityPtrOutput) ToClusterExtensionIdentityPtrOutputWithContext(ctx context.Context) ClusterExtensionIdentityPtrOutput {
+	return o
+}
+
+func (o ClusterExtensionIdentityPtrOutput) Elem() ClusterExtensionIdentityOutput {
+	return o.ApplyT(func(v *ClusterExtensionIdentity) ClusterExtensionIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterExtensionIdentity
+		return ret
+	}).(ClusterExtensionIdentityOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
+func (o ClusterExtensionIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterExtensionIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o ClusterExtensionIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterExtensionIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`.
+func (o ClusterExtensionIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterExtensionIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterIdentity struct {
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -186,8 +361,12 @@ func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExtensionIdentityInput)(nil)).Elem(), ClusterExtensionIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExtensionIdentityPtrInput)(nil)).Elem(), ClusterExtensionIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityInput)(nil)).Elem(), ClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityPtrInput)(nil)).Elem(), ClusterIdentityArgs{})
+	pulumi.RegisterOutputType(ClusterExtensionIdentityOutput{})
+	pulumi.RegisterOutputType(ClusterExtensionIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityPtrOutput{})
 }

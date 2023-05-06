@@ -4165,6 +4165,181 @@ func (o MongoDatabaseAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+type PostgresqlClusterMaintenanceWindow struct {
+	// The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
+	DayOfWeek *int `pulumi:"dayOfWeek"`
+	// The start hour for maintenance window. Defaults to `0`.
+	StartHour *int `pulumi:"startHour"`
+	// The start minute for maintenance window. Defaults to `0`.
+	StartMinute *int `pulumi:"startMinute"`
+}
+
+// PostgresqlClusterMaintenanceWindowInput is an input type that accepts PostgresqlClusterMaintenanceWindowArgs and PostgresqlClusterMaintenanceWindowOutput values.
+// You can construct a concrete instance of `PostgresqlClusterMaintenanceWindowInput` via:
+//
+//	PostgresqlClusterMaintenanceWindowArgs{...}
+type PostgresqlClusterMaintenanceWindowInput interface {
+	pulumi.Input
+
+	ToPostgresqlClusterMaintenanceWindowOutput() PostgresqlClusterMaintenanceWindowOutput
+	ToPostgresqlClusterMaintenanceWindowOutputWithContext(context.Context) PostgresqlClusterMaintenanceWindowOutput
+}
+
+type PostgresqlClusterMaintenanceWindowArgs struct {
+	// The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
+	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
+	// The start hour for maintenance window. Defaults to `0`.
+	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
+	// The start minute for maintenance window. Defaults to `0`.
+	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
+}
+
+func (PostgresqlClusterMaintenanceWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostgresqlClusterMaintenanceWindow)(nil)).Elem()
+}
+
+func (i PostgresqlClusterMaintenanceWindowArgs) ToPostgresqlClusterMaintenanceWindowOutput() PostgresqlClusterMaintenanceWindowOutput {
+	return i.ToPostgresqlClusterMaintenanceWindowOutputWithContext(context.Background())
+}
+
+func (i PostgresqlClusterMaintenanceWindowArgs) ToPostgresqlClusterMaintenanceWindowOutputWithContext(ctx context.Context) PostgresqlClusterMaintenanceWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlClusterMaintenanceWindowOutput)
+}
+
+func (i PostgresqlClusterMaintenanceWindowArgs) ToPostgresqlClusterMaintenanceWindowPtrOutput() PostgresqlClusterMaintenanceWindowPtrOutput {
+	return i.ToPostgresqlClusterMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (i PostgresqlClusterMaintenanceWindowArgs) ToPostgresqlClusterMaintenanceWindowPtrOutputWithContext(ctx context.Context) PostgresqlClusterMaintenanceWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlClusterMaintenanceWindowOutput).ToPostgresqlClusterMaintenanceWindowPtrOutputWithContext(ctx)
+}
+
+// PostgresqlClusterMaintenanceWindowPtrInput is an input type that accepts PostgresqlClusterMaintenanceWindowArgs, PostgresqlClusterMaintenanceWindowPtr and PostgresqlClusterMaintenanceWindowPtrOutput values.
+// You can construct a concrete instance of `PostgresqlClusterMaintenanceWindowPtrInput` via:
+//
+//	        PostgresqlClusterMaintenanceWindowArgs{...}
+//
+//	or:
+//
+//	        nil
+type PostgresqlClusterMaintenanceWindowPtrInput interface {
+	pulumi.Input
+
+	ToPostgresqlClusterMaintenanceWindowPtrOutput() PostgresqlClusterMaintenanceWindowPtrOutput
+	ToPostgresqlClusterMaintenanceWindowPtrOutputWithContext(context.Context) PostgresqlClusterMaintenanceWindowPtrOutput
+}
+
+type postgresqlClusterMaintenanceWindowPtrType PostgresqlClusterMaintenanceWindowArgs
+
+func PostgresqlClusterMaintenanceWindowPtr(v *PostgresqlClusterMaintenanceWindowArgs) PostgresqlClusterMaintenanceWindowPtrInput {
+	return (*postgresqlClusterMaintenanceWindowPtrType)(v)
+}
+
+func (*postgresqlClusterMaintenanceWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PostgresqlClusterMaintenanceWindow)(nil)).Elem()
+}
+
+func (i *postgresqlClusterMaintenanceWindowPtrType) ToPostgresqlClusterMaintenanceWindowPtrOutput() PostgresqlClusterMaintenanceWindowPtrOutput {
+	return i.ToPostgresqlClusterMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *postgresqlClusterMaintenanceWindowPtrType) ToPostgresqlClusterMaintenanceWindowPtrOutputWithContext(ctx context.Context) PostgresqlClusterMaintenanceWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlClusterMaintenanceWindowPtrOutput)
+}
+
+type PostgresqlClusterMaintenanceWindowOutput struct{ *pulumi.OutputState }
+
+func (PostgresqlClusterMaintenanceWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostgresqlClusterMaintenanceWindow)(nil)).Elem()
+}
+
+func (o PostgresqlClusterMaintenanceWindowOutput) ToPostgresqlClusterMaintenanceWindowOutput() PostgresqlClusterMaintenanceWindowOutput {
+	return o
+}
+
+func (o PostgresqlClusterMaintenanceWindowOutput) ToPostgresqlClusterMaintenanceWindowOutputWithContext(ctx context.Context) PostgresqlClusterMaintenanceWindowOutput {
+	return o
+}
+
+func (o PostgresqlClusterMaintenanceWindowOutput) ToPostgresqlClusterMaintenanceWindowPtrOutput() PostgresqlClusterMaintenanceWindowPtrOutput {
+	return o.ToPostgresqlClusterMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (o PostgresqlClusterMaintenanceWindowOutput) ToPostgresqlClusterMaintenanceWindowPtrOutputWithContext(ctx context.Context) PostgresqlClusterMaintenanceWindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresqlClusterMaintenanceWindow) *PostgresqlClusterMaintenanceWindow {
+		return &v
+	}).(PostgresqlClusterMaintenanceWindowPtrOutput)
+}
+
+// The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
+func (o PostgresqlClusterMaintenanceWindowOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PostgresqlClusterMaintenanceWindow) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
+}
+
+// The start hour for maintenance window. Defaults to `0`.
+func (o PostgresqlClusterMaintenanceWindowOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PostgresqlClusterMaintenanceWindow) *int { return v.StartHour }).(pulumi.IntPtrOutput)
+}
+
+// The start minute for maintenance window. Defaults to `0`.
+func (o PostgresqlClusterMaintenanceWindowOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PostgresqlClusterMaintenanceWindow) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
+}
+
+type PostgresqlClusterMaintenanceWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (PostgresqlClusterMaintenanceWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PostgresqlClusterMaintenanceWindow)(nil)).Elem()
+}
+
+func (o PostgresqlClusterMaintenanceWindowPtrOutput) ToPostgresqlClusterMaintenanceWindowPtrOutput() PostgresqlClusterMaintenanceWindowPtrOutput {
+	return o
+}
+
+func (o PostgresqlClusterMaintenanceWindowPtrOutput) ToPostgresqlClusterMaintenanceWindowPtrOutputWithContext(ctx context.Context) PostgresqlClusterMaintenanceWindowPtrOutput {
+	return o
+}
+
+func (o PostgresqlClusterMaintenanceWindowPtrOutput) Elem() PostgresqlClusterMaintenanceWindowOutput {
+	return o.ApplyT(func(v *PostgresqlClusterMaintenanceWindow) PostgresqlClusterMaintenanceWindow {
+		if v != nil {
+			return *v
+		}
+		var ret PostgresqlClusterMaintenanceWindow
+		return ret
+	}).(PostgresqlClusterMaintenanceWindowOutput)
+}
+
+// The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
+func (o PostgresqlClusterMaintenanceWindowPtrOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PostgresqlClusterMaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfWeek
+	}).(pulumi.IntPtrOutput)
+}
+
+// The start hour for maintenance window. Defaults to `0`.
+func (o PostgresqlClusterMaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PostgresqlClusterMaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartHour
+	}).(pulumi.IntPtrOutput)
+}
+
+// The start minute for maintenance window. Defaults to `0`.
+func (o PostgresqlClusterMaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PostgresqlClusterMaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartMinute
+	}).(pulumi.IntPtrOutput)
+}
+
 type SqlContainerAutoscaleSettings struct {
 	// The maximum throughput of the SQL container (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
 	MaxThroughput *int `pulumi:"maxThroughput"`
@@ -6602,6 +6777,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoCollectionSystemIndexArrayInput)(nil)).Elem(), MongoCollectionSystemIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoDatabaseAutoscaleSettingsInput)(nil)).Elem(), MongoDatabaseAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MongoDatabaseAutoscaleSettingsPtrInput)(nil)).Elem(), MongoDatabaseAutoscaleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PostgresqlClusterMaintenanceWindowInput)(nil)).Elem(), PostgresqlClusterMaintenanceWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PostgresqlClusterMaintenanceWindowPtrInput)(nil)).Elem(), PostgresqlClusterMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlContainerAutoscaleSettingsInput)(nil)).Elem(), SqlContainerAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlContainerAutoscaleSettingsPtrInput)(nil)).Elem(), SqlContainerAutoscaleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlContainerConflictResolutionPolicyInput)(nil)).Elem(), SqlContainerConflictResolutionPolicyArgs{})
@@ -6702,6 +6879,8 @@ func init() {
 	pulumi.RegisterOutputType(MongoCollectionSystemIndexArrayOutput{})
 	pulumi.RegisterOutputType(MongoDatabaseAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(MongoDatabaseAutoscaleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(PostgresqlClusterMaintenanceWindowOutput{})
+	pulumi.RegisterOutputType(PostgresqlClusterMaintenanceWindowPtrOutput{})
 	pulumi.RegisterOutputType(SqlContainerAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(SqlContainerAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SqlContainerConflictResolutionPolicyOutput{})

@@ -41,6 +41,7 @@ __all__ = [
     'MongoCollectionIndex',
     'MongoCollectionSystemIndex',
     'MongoDatabaseAutoscaleSettings',
+    'PostgresqlClusterMaintenanceWindow',
     'SqlContainerAutoscaleSettings',
     'SqlContainerConflictResolutionPolicy',
     'SqlContainerIndexingPolicy',
@@ -1413,6 +1414,70 @@ class MongoDatabaseAutoscaleSettings(dict):
         The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
+
+
+@pulumi.output_type
+class PostgresqlClusterMaintenanceWindow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMinute":
+            suggest = "start_minute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PostgresqlClusterMaintenanceWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PostgresqlClusterMaintenanceWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PostgresqlClusterMaintenanceWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_week: Optional[int] = None,
+                 start_hour: Optional[int] = None,
+                 start_minute: Optional[int] = None):
+        """
+        :param int day_of_week: The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
+        :param int start_hour: The start hour for maintenance window. Defaults to `0`.
+        :param int start_minute: The start minute for maintenance window. Defaults to `0`.
+        """
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if start_hour is not None:
+            pulumi.set(__self__, "start_hour", start_hour)
+        if start_minute is not None:
+            pulumi.set(__self__, "start_minute", start_minute)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[int]:
+        """
+        The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> Optional[int]:
+        """
+        The start hour for maintenance window. Defaults to `0`.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @property
+    @pulumi.getter(name="startMinute")
+    def start_minute(self) -> Optional[int]:
+        """
+        The start minute for maintenance window. Defaults to `0`.
+        """
+        return pulumi.get(self, "start_minute")
 
 
 @pulumi.output_type

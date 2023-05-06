@@ -549,6 +549,20 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.scaleDownMode);
     }
     /**
+     * The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="snapshotId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> snapshotId;
+
+    /**
+     * @return The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> snapshotId() {
+        return Codegen.optional(this.snapshotId);
+    }
+    /**
      * The maximum price you&#39;re willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      * 
      */

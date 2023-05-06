@@ -78,14 +78,14 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
     }
 
     /**
-     * Specifies a list of source IP addresses (including CIDR and `*`).
+     * Specifies a list of source IP addresses (including CIDR, IP range and `*`).
      * 
      */
     @Import(name="sourceAddresses")
     private @Nullable Output<List<String>> sourceAddresses;
 
     /**
-     * @return Specifies a list of source IP addresses (including CIDR and `*`).
+     * @return Specifies a list of source IP addresses (including CIDR, IP range and `*`).
      * 
      */
     public Optional<Output<List<String>>> sourceAddresses() {
@@ -279,7 +279,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
         }
 
         /**
-         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR and `*`).
+         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR, IP range and `*`).
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
         }
 
         /**
-         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR and `*`).
+         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR, IP range and `*`).
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
         }
 
         /**
-         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR and `*`).
+         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR, IP range and `*`).
          * 
          * @return builder
          * 

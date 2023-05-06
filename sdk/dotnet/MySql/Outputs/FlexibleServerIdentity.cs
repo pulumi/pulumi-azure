@@ -14,13 +14,11 @@ namespace Pulumi.Azure.MySql.Outputs
     public sealed class FlexibleServerIdentity
     {
         /// <summary>
-        /// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. Required if used together with `customer_managed_key` block.
+        /// A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
-        public readonly string? PrincipalId;
-        public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Should be set to `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is `UserAssigned`.
         /// </summary>
         public readonly string Type;
 
@@ -28,15 +26,9 @@ namespace Pulumi.Azure.MySql.Outputs
         private FlexibleServerIdentity(
             ImmutableArray<string> identityIds,
 
-            string? principalId,
-
-            string? tenantId,
-
             string type)
         {
             IdentityIds = identityIds;
-            PrincipalId = principalId;
-            TenantId = tenantId;
             Type = type;
         }
     }

@@ -21,6 +21,7 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
@@ -67,71 +68,41 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "staging" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
-    ///     {
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         ContainerAccessType = "private",
-    ///     });
-    /// 
-    ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Size = "Standard_F2",
+    ///         AdminUsername = "adminuser",
     ///         NetworkInterfaceIds = new[]
     ///         {
     ///             exampleNetworkInterface.Id,
     ///         },
-    ///         VmSize = "Standard_F2",
-    ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
+    ///         AdminSshKeys = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineAdminSshKeyArgs
+    ///             {
+    ///                 Username = "adminuser",
+    ///                 PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///             },
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
+    ///         {
+    ///             Caching = "ReadWrite",
+    ///             StorageAccountType = "Standard_LRS",
+    ///         },
+    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineSourceImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
     ///             Offer = "UbuntuServer",
     ///             Sku = "16.04-LTS",
     ///             Version = "latest",
     ///         },
-    ///         StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
-    ///         {
-    ///             Name = "myosdisk1",
-    ///             VhdUri = Output.Tuple(exampleAccount.PrimaryBlobEndpoint, exampleContainer.Name).Apply(values =&gt;
-    ///             {
-    ///                 var primaryBlobEndpoint = values.Item1;
-    ///                 var name = values.Item2;
-    ///                 return $"{primaryBlobEndpoint}{name}/myosdisk1.vhd";
-    ///             }),
-    ///             Caching = "ReadWrite",
-    ///             CreateOption = "FromImage",
-    ///         },
-    ///         OsProfile = new Azure.Compute.Inputs.VirtualMachineOsProfileArgs
-    ///         {
-    ///             ComputerName = "hostname",
-    ///             AdminUsername = "testadmin",
-    ///             AdminPassword = "Password1234!",
-    ///         },
-    ///         OsProfileLinuxConfig = new Azure.Compute.Inputs.VirtualMachineOsProfileLinuxConfigArgs
-    ///         {
-    ///             DisablePasswordAuthentication = false,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "staging" },
-    ///         },
     ///     });
     /// 
     ///     var exampleExtension = new Azure.Compute.Extension("exampleExtension", new()
     ///     {
-    ///         VirtualMachineId = exampleVirtualMachine.Id,
+    ///         VirtualMachineId = exampleLinuxVirtualMachine.Id,
     ///         Publisher = "Microsoft.Azure.Extensions",
     ///         Type = "CustomScript",
     ///         TypeHandlerVersion = "2.0",

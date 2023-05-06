@@ -259,14 +259,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.createMode;
     }
     /**
-     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+     * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
      * 
      */
     @Export(name="defaultIdentityType", refs={String.class}, tree="[0]")
     private Output<String> defaultIdentityType;
 
     /**
-     * @return The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+     * @return The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
      * 
      */
     public Output<String> defaultIdentityType() {

@@ -41,6 +41,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MongoDatabase{}
 	case "azure:cosmosdb/notebookWorkspace:NotebookWorkspace":
 		r = &NotebookWorkspace{}
+	case "azure:cosmosdb/postgresqlCluster:PostgresqlCluster":
+		r = &PostgresqlCluster{}
+	case "azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule":
+		r = &PostgresqlFirewallRule{}
 	case "azure:cosmosdb/sqlContainer:SqlContainer":
 		r = &SqlContainer{}
 	case "azure:cosmosdb/sqlDatabase:SqlDatabase":
@@ -120,6 +124,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cosmosdb/notebookWorkspace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cosmosdb/postgresqlCluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cosmosdb/postgresqlFirewallRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

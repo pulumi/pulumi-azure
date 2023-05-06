@@ -287,6 +287,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly runCommandEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * A `serviceMeshProfile` block as defined below.
+     */
+    public readonly serviceMeshProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterServiceMeshProfile | undefined>;
+    /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      */
     public readonly servicePrincipal!: pulumi.Output<outputs.containerservice.KubernetesClusterServicePrincipal | undefined>;
@@ -385,6 +389,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["roleBasedAccessControlEnabled"] = state ? state.roleBasedAccessControlEnabled : undefined;
             resourceInputs["runCommandEnabled"] = state ? state.runCommandEnabled : undefined;
+            resourceInputs["serviceMeshProfile"] = state ? state.serviceMeshProfile : undefined;
             resourceInputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
             resourceInputs["skuTier"] = state ? state.skuTier : undefined;
             resourceInputs["storageProfile"] = state ? state.storageProfile : undefined;
@@ -444,6 +449,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["roleBasedAccessControlEnabled"] = args ? args.roleBasedAccessControlEnabled : undefined;
             resourceInputs["runCommandEnabled"] = args ? args.runCommandEnabled : undefined;
+            resourceInputs["serviceMeshProfile"] = args ? args.serviceMeshProfile : undefined;
             resourceInputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
             resourceInputs["skuTier"] = args ? args.skuTier : undefined;
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
@@ -687,6 +693,10 @@ export interface KubernetesClusterState {
      */
     runCommandEnabled?: pulumi.Input<boolean>;
     /**
+     * A `serviceMeshProfile` block as defined below.
+     */
+    serviceMeshProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterServiceMeshProfile>;
+    /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      */
     servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal>;
@@ -896,6 +906,10 @@ export interface KubernetesClusterArgs {
      * Whether to enable run command for the cluster or not. Defaults to `true`.
      */
     runCommandEnabled?: pulumi.Input<boolean>;
+    /**
+     * A `serviceMeshProfile` block as defined below.
+     */
+    serviceMeshProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterServiceMeshProfile>;
     /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      */

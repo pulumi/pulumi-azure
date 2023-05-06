@@ -207,7 +207,7 @@ class CacheRedisConfiguration(dict):
                  rdb_backup_max_snapshot_count: Optional[int] = None,
                  rdb_storage_connection_string: Optional[str] = None):
         """
-        :param bool aof_backup_enabled: Enable or disable AOF persistence for this Redis Cache.
+        :param bool aof_backup_enabled: Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
         :param str aof_storage_connection_string0: First Storage Account connection string for AOF persistence.
         :param str aof_storage_connection_string1: Second Storage Account connection string for AOF persistence.
         :param bool enable_authentication: If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
@@ -217,7 +217,7 @@ class CacheRedisConfiguration(dict):
         :param str maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
         :param int maxmemory_reserved: Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
         :param str notify_keyspace_events: Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-        :param bool rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKUs.
+        :param bool rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
         :param int rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
         :param int rdb_backup_max_snapshot_count: The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
         :param str rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
@@ -255,7 +255,7 @@ class CacheRedisConfiguration(dict):
     @pulumi.getter(name="aofBackupEnabled")
     def aof_backup_enabled(self) -> Optional[bool]:
         """
-        Enable or disable AOF persistence for this Redis Cache.
+        Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
         """
         return pulumi.get(self, "aof_backup_enabled")
 
@@ -335,7 +335,7 @@ class CacheRedisConfiguration(dict):
     @pulumi.getter(name="rdbBackupEnabled")
     def rdb_backup_enabled(self) -> Optional[bool]:
         """
-        Is Backup Enabled? Only supported on Premium SKUs.
+        Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
         """
         return pulumi.get(self, "rdb_backup_enabled")
 

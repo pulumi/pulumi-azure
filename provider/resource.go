@@ -986,6 +986,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_container_connected_registry":             {Tok: azureResource(azureContainerService, "ConnectedRegistry")},
 			"azurerm_container_registry_task_schedule_run_now": {Tok: azureResource(azureContainerService, "RegistryTaskScheduleRunNow")},
 			"azurerm_container_registry_token_password":        {Tok: azureResource(azureContainerService, "TokenPassword")},
+			"azurerm_kubernetes_cluster_extension":             {Tok: azureResource(azureContainerService, "KubernetesClusterExtension")},
 
 			// Batch
 			"azurerm_batch_account":     {Tok: azureResource(azureBatch, "Account")},
@@ -2700,7 +2701,8 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// communication
-			"azurerm_communication_service": {Tok: azureResource(azureCommunication, "Service")},
+			"azurerm_communication_service":       {Tok: azureResource(azureCommunication, "Service")},
+			"azurerm_email_communication_service": {Tok: azureResource(azureCommunication, "EmailService")},
 
 			// confidential ledger
 			"azurerm_confidential_ledger": {Tok: azureResource(azureConfidentialLedger, "Ledger")},
@@ -2953,10 +2955,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_kubernetes_cluster_node_pool": {
 				Tok: azureDataSource(azureContainerService, "getClusterNodePool"),
 			},
-			"azurerm_container_registry_scope_map": {Tok: azureDataSource(azureContainerService, "getRegistryScopeMap")},
-			"azurerm_container_registry_token":     {Tok: azureDataSource(azureContainerService, "getRegistryToken")},
-			"azurerm_container_group":              {Tok: azureDataSource(azureContainerService, "getGroup")},
-			"azurerm_notification_hub":             {Tok: azureDataSource(azureNotificationHub, "getHub")},
+			"azurerm_container_registry_scope_map":  {Tok: azureDataSource(azureContainerService, "getRegistryScopeMap")},
+			"azurerm_container_registry_token":      {Tok: azureDataSource(azureContainerService, "getRegistryToken")},
+			"azurerm_container_group":               {Tok: azureDataSource(azureContainerService, "getGroup")},
+			"azurerm_kubernetes_node_pool_snapshot": {Tok: azureDataSource(azureContainerService, "getKubernetesNodePoolSnapshot")},
+
+			"azurerm_notification_hub": {Tok: azureDataSource(azureNotificationHub, "getHub")},
 			"azurerm_notification_hub_namespace": {
 				Tok: azureDataSource(azureNotificationHub, "getNamespace"),
 				Fields: map[string]*tfbridge.SchemaInfo{

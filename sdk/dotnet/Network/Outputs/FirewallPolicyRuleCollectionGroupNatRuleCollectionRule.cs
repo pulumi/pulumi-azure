@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Protocols;
         /// <summary>
-        /// Specifies a list of source IP addresses (including CIDR and `*`).
+        /// Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         /// </summary>
         public readonly ImmutableArray<string> SourceAddresses;
         /// <summary>

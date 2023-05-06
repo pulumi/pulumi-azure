@@ -61,7 +61,7 @@ class AccountArgs:
         :param pulumi.Input['AccountCapacityArgs'] capacity: A `capacity` block as defined below.
         :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+        :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic failover for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
@@ -288,7 +288,7 @@ class AccountArgs:
     @pulumi.getter(name="defaultIdentityType")
     def default_identity_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+        The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
         """
         return pulumi.get(self, "default_identity_type")
 
@@ -571,7 +571,7 @@ class _AccountState:
         :param pulumi.Input['AccountConsistencyPolicyArgs'] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+        :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic failover for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
@@ -812,7 +812,7 @@ class _AccountState:
     @pulumi.getter(name="defaultIdentityType")
     def default_identity_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+        The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
         """
         return pulumi.get(self, "default_identity_type")
 
@@ -1300,7 +1300,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+        :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic failover for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
@@ -1566,7 +1566,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+        :param pulumi.Input[str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic failover for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable the Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multiple write locations for this Cosmos DB account.
@@ -1729,7 +1729,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="defaultIdentityType")
     def default_identity_type(self) -> pulumi.Output[str]:
         """
-        The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or start with `UserAssignedIdentity`.
+        The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`.
         """
         return pulumi.get(self, "default_identity_type")
 

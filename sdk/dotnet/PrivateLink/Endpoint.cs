@@ -164,6 +164,89 @@ namespace Pulumi.Azure.PrivateLink
     /// });
     /// ```
     /// 
+    /// Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("exampleEndpoint", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///         {
+    ///             Name = "example-privateserviceconnection",
+    ///             PrivateConnectionResourceId = exampleAccount.Id,
+    ///             SubresourceNames = new[]
+    ///             {
+    ///                 "blob",
+    ///             },
+    ///             IsManualConnection = false,
+    ///         },
+    ///         PrivateDnsZoneGroup = new Azure.PrivateLink.Inputs.EndpointPrivateDnsZoneGroupArgs
+    ///         {
+    ///             Name = "example-dns-zone-group",
+    ///             PrivateDnsZoneIds = new[]
+    ///             {
+    ///                 exampleZone.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         VirtualNetworkId = exampleVirtualNetwork.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Private Endpoints can be imported using the `resource id`, e.g.

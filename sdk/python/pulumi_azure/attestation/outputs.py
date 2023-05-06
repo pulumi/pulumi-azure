@@ -33,29 +33,21 @@ class ProviderPolicy(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data: str,
-                 environment_type: str):
-        """
-        :param str data: Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-        :param str environment_type: Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-        """
-        pulumi.set(__self__, "data", data)
-        pulumi.set(__self__, "environment_type", environment_type)
+                 data: Optional[str] = None,
+                 environment_type: Optional[str] = None):
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if environment_type is not None:
+            pulumi.set(__self__, "environment_type", environment_type)
 
     @property
     @pulumi.getter
-    def data(self) -> str:
-        """
-        Specifies an RFC 7519 JWT Expressing the new policy. more details see: [How-to-build-a-policy](https://learn.microsoft.com/en-us/azure/attestation/author-sign-policy).
-        """
+    def data(self) -> Optional[str]:
         return pulumi.get(self, "data")
 
     @property
     @pulumi.getter(name="environmentType")
-    def environment_type(self) -> str:
-        """
-        Specifies the type of the trusted environment to be used. Possible values are `OpenEnclave`, `SgxEnclave` and `Tpm`.
-        """
+    def environment_type(self) -> Optional[str]:
         return pulumi.get(self, "environment_type")
 
 

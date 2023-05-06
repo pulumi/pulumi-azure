@@ -18,6 +18,10 @@ __all__ = [
     'VolumeDataProtectionReplicationArgs',
     'VolumeDataProtectionSnapshotPolicyArgs',
     'VolumeExportPolicyRuleArgs',
+    'VolumeGroupSapHanaVolumeArgs',
+    'VolumeGroupSapHanaVolumeDataProtectionReplicationArgs',
+    'VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs',
+    'VolumeGroupSapHanaVolumeExportPolicyRuleArgs',
 ]
 
 @pulumi.input_type
@@ -524,6 +528,490 @@ class VolumeExportPolicyRuleArgs:
     def unix_read_write(self) -> Optional[pulumi.Input[bool]]:
         """
         Is the file system on unix read and write?
+        """
+        return pulumi.get(self, "unix_read_write")
+
+    @unix_read_write.setter
+    def unix_read_write(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "unix_read_write", value)
+
+
+@pulumi.input_type
+class VolumeGroupSapHanaVolumeArgs:
+    def __init__(__self__, *,
+                 capacity_pool_id: pulumi.Input[str],
+                 export_policy_rules: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgs']]],
+                 name: pulumi.Input[str],
+                 protocols: pulumi.Input[str],
+                 security_style: pulumi.Input[str],
+                 service_level: pulumi.Input[str],
+                 snapshot_directory_visible: pulumi.Input[bool],
+                 storage_quota_in_gb: pulumi.Input[int],
+                 subnet_id: pulumi.Input[str],
+                 throughput_in_mibps: pulumi.Input[float],
+                 volume_path: pulumi.Input[str],
+                 volume_spec_name: pulumi.Input[str],
+                 data_protection_replication: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']] = None,
+                 data_protection_snapshot_policy: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] capacity_pool_id: The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` blocks as defined below.
+        :param pulumi.Input[str] name: The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[str] protocols: The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`, multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+        :param pulumi.Input[str] security_style: Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[str] service_level: Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[float] throughput_in_mibps: Throughput of this volume in Mibps.
+        :param pulumi.Input[str] volume_path: A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[str] volume_spec_name: Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
+        :param pulumi.Input[str] id: The ID of the Application Volume Group.
+        :param pulumi.Input[str] proximity_placement_group_id: The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Application Volume Group.
+        """
+        pulumi.set(__self__, "capacity_pool_id", capacity_pool_id)
+        pulumi.set(__self__, "export_policy_rules", export_policy_rules)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protocols", protocols)
+        pulumi.set(__self__, "security_style", security_style)
+        pulumi.set(__self__, "service_level", service_level)
+        pulumi.set(__self__, "snapshot_directory_visible", snapshot_directory_visible)
+        pulumi.set(__self__, "storage_quota_in_gb", storage_quota_in_gb)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        pulumi.set(__self__, "throughput_in_mibps", throughput_in_mibps)
+        pulumi.set(__self__, "volume_path", volume_path)
+        pulumi.set(__self__, "volume_spec_name", volume_spec_name)
+        if data_protection_replication is not None:
+            pulumi.set(__self__, "data_protection_replication", data_protection_replication)
+        if data_protection_snapshot_policy is not None:
+            pulumi.set(__self__, "data_protection_snapshot_policy", data_protection_snapshot_policy)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if mount_ip_addresses is not None:
+            pulumi.set(__self__, "mount_ip_addresses", mount_ip_addresses)
+        if proximity_placement_group_id is not None:
+            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="capacityPoolId")
+    def capacity_pool_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "capacity_pool_id")
+
+    @capacity_pool_id.setter
+    def capacity_pool_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "capacity_pool_id", value)
+
+    @property
+    @pulumi.getter(name="exportPolicyRules")
+    def export_policy_rules(self) -> pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgs']]]:
+        """
+        One or more `export_policy_rule` blocks as defined below.
+        """
+        return pulumi.get(self, "export_policy_rules")
+
+    @export_policy_rules.setter
+    def export_policy_rules(self, value: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgs']]]):
+        pulumi.set(self, "export_policy_rules", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> pulumi.Input[str]:
+        """
+        The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`, multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter(name="securityStyle")
+    def security_style(self) -> pulumi.Input[str]:
+        """
+        Volume security style. Possible value is `Unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "security_style")
+
+    @security_style.setter
+    def security_style(self, value: pulumi.Input[str]):
+        pulumi.set(self, "security_style", value)
+
+    @property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> pulumi.Input[str]:
+        """
+        Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "service_level")
+
+    @service_level.setter
+    def service_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_level", value)
+
+    @property
+    @pulumi.getter(name="snapshotDirectoryVisible")
+    def snapshot_directory_visible(self) -> pulumi.Input[bool]:
+        """
+        Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "snapshot_directory_visible")
+
+    @snapshot_directory_visible.setter
+    def snapshot_directory_visible(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "snapshot_directory_visible", value)
+
+    @property
+    @pulumi.getter(name="storageQuotaInGb")
+    def storage_quota_in_gb(self) -> pulumi.Input[int]:
+        """
+        The maximum Storage Quota allowed for a file system in Gigabytes.
+        """
+        return pulumi.get(self, "storage_quota_in_gb")
+
+    @storage_quota_in_gb.setter
+    def storage_quota_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "storage_quota_in_gb", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="throughputInMibps")
+    def throughput_in_mibps(self) -> pulumi.Input[float]:
+        """
+        Throughput of this volume in Mibps.
+        """
+        return pulumi.get(self, "throughput_in_mibps")
+
+    @throughput_in_mibps.setter
+    def throughput_in_mibps(self, value: pulumi.Input[float]):
+        pulumi.set(self, "throughput_in_mibps", value)
+
+    @property
+    @pulumi.getter(name="volumePath")
+    def volume_path(self) -> pulumi.Input[str]:
+        """
+        A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "volume_path")
+
+    @volume_path.setter
+    def volume_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "volume_path", value)
+
+    @property
+    @pulumi.getter(name="volumeSpecName")
+    def volume_spec_name(self) -> pulumi.Input[str]:
+        """
+        Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "volume_spec_name")
+
+    @volume_spec_name.setter
+    def volume_spec_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "volume_spec_name", value)
+
+    @property
+    @pulumi.getter(name="dataProtectionReplication")
+    def data_protection_replication(self) -> Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']]:
+        """
+        A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "data_protection_replication")
+
+    @data_protection_replication.setter
+    def data_protection_replication(self, value: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']]):
+        pulumi.set(self, "data_protection_replication", value)
+
+    @property
+    @pulumi.getter(name="dataProtectionSnapshotPolicy")
+    def data_protection_snapshot_policy(self) -> Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']]:
+        """
+        A `data_protection_snapshot_policy` block as defined below.
+        """
+        return pulumi.get(self, "data_protection_snapshot_policy")
+
+    @data_protection_snapshot_policy.setter
+    def data_protection_snapshot_policy(self, value: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']]):
+        pulumi.set(self, "data_protection_snapshot_policy", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Application Volume Group.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="mountIpAddresses")
+    def mount_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "mount_ip_addresses")
+
+    @mount_ip_addresses.setter
+    def mount_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "mount_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="proximityPlacementGroupId")
+    def proximity_placement_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+        """
+        return pulumi.get(self, "proximity_placement_group_id")
+
+    @proximity_placement_group_id.setter
+    def proximity_placement_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proximity_placement_group_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the Application Volume Group.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
+    def __init__(__self__, *,
+                 remote_volume_location: pulumi.Input[str],
+                 remote_volume_resource_id: pulumi.Input[str],
+                 replication_frequency: pulumi.Input[str],
+                 endpoint_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] remote_volume_location: Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[str] remote_volume_resource_id: Resource ID of the primary volume.
+        :param pulumi.Input[str] replication_frequency: eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+        :param pulumi.Input[str] endpoint_type: The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+        """
+        pulumi.set(__self__, "remote_volume_location", remote_volume_location)
+        pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
+        pulumi.set(__self__, "replication_frequency", replication_frequency)
+        if endpoint_type is not None:
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
+
+    @property
+    @pulumi.getter(name="remoteVolumeLocation")
+    def remote_volume_location(self) -> pulumi.Input[str]:
+        """
+        Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        return pulumi.get(self, "remote_volume_location")
+
+    @remote_volume_location.setter
+    def remote_volume_location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "remote_volume_location", value)
+
+    @property
+    @pulumi.getter(name="remoteVolumeResourceId")
+    def remote_volume_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource ID of the primary volume.
+        """
+        return pulumi.get(self, "remote_volume_resource_id")
+
+    @remote_volume_resource_id.setter
+    def remote_volume_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "remote_volume_resource_id", value)
+
+    @property
+    @pulumi.getter(name="replicationFrequency")
+    def replication_frequency(self) -> pulumi.Input[str]:
+        """
+        eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+        """
+        return pulumi.get(self, "replication_frequency")
+
+    @replication_frequency.setter
+    def replication_frequency(self, value: pulumi.Input[str]):
+        pulumi.set(self, "replication_frequency", value)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_type", value)
+
+
+@pulumi.input_type
+class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs:
+    def __init__(__self__, *,
+                 snapshot_policy_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] snapshot_policy_id: Resource ID of the snapshot policy to apply to the volume.
+        """
+        pulumi.set(__self__, "snapshot_policy_id", snapshot_policy_id)
+
+    @property
+    @pulumi.getter(name="snapshotPolicyId")
+    def snapshot_policy_id(self) -> pulumi.Input[str]:
+        """
+        Resource ID of the snapshot policy to apply to the volume.
+        """
+        return pulumi.get(self, "snapshot_policy_id")
+
+    @snapshot_policy_id.setter
+    def snapshot_policy_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "snapshot_policy_id", value)
+
+
+@pulumi.input_type
+class VolumeGroupSapHanaVolumeExportPolicyRuleArgs:
+    def __init__(__self__, *,
+                 allowed_clients: pulumi.Input[str],
+                 nfsv3_enabled: pulumi.Input[bool],
+                 nfsv41_enabled: pulumi.Input[bool],
+                 rule_index: pulumi.Input[int],
+                 root_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 unix_read_only: Optional[pulumi.Input[bool]] = None,
+                 unix_read_write: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] allowed_clients: A comma-sperated list of allowed client IPv4 addresses.
+        :param pulumi.Input[bool] nfsv3_enabled: Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+        :param pulumi.Input[bool] nfsv41_enabled: Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+        :param pulumi.Input[int] rule_index: The index number of the rule, must start at 1 and maximum 5.
+        :param pulumi.Input[bool] root_access_enabled: Is root access permitted to this volume? Defaults to `true`.
+        :param pulumi.Input[bool] unix_read_only: Is the file system on unix read only? Defaults to `false.
+        :param pulumi.Input[bool] unix_read_write: Is the file system on unix read and write? Defaults to `true`.
+        """
+        pulumi.set(__self__, "allowed_clients", allowed_clients)
+        pulumi.set(__self__, "nfsv3_enabled", nfsv3_enabled)
+        pulumi.set(__self__, "nfsv41_enabled", nfsv41_enabled)
+        pulumi.set(__self__, "rule_index", rule_index)
+        if root_access_enabled is not None:
+            pulumi.set(__self__, "root_access_enabled", root_access_enabled)
+        if unix_read_only is not None:
+            pulumi.set(__self__, "unix_read_only", unix_read_only)
+        if unix_read_write is not None:
+            pulumi.set(__self__, "unix_read_write", unix_read_write)
+
+    @property
+    @pulumi.getter(name="allowedClients")
+    def allowed_clients(self) -> pulumi.Input[str]:
+        """
+        A comma-sperated list of allowed client IPv4 addresses.
+        """
+        return pulumi.get(self, "allowed_clients")
+
+    @allowed_clients.setter
+    def allowed_clients(self, value: pulumi.Input[str]):
+        pulumi.set(self, "allowed_clients", value)
+
+    @property
+    @pulumi.getter(name="nfsv3Enabled")
+    def nfsv3_enabled(self) -> pulumi.Input[bool]:
+        """
+        Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+        """
+        return pulumi.get(self, "nfsv3_enabled")
+
+    @nfsv3_enabled.setter
+    def nfsv3_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "nfsv3_enabled", value)
+
+    @property
+    @pulumi.getter(name="nfsv41Enabled")
+    def nfsv41_enabled(self) -> pulumi.Input[bool]:
+        """
+        Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+        """
+        return pulumi.get(self, "nfsv41_enabled")
+
+    @nfsv41_enabled.setter
+    def nfsv41_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "nfsv41_enabled", value)
+
+    @property
+    @pulumi.getter(name="ruleIndex")
+    def rule_index(self) -> pulumi.Input[int]:
+        """
+        The index number of the rule, must start at 1 and maximum 5.
+        """
+        return pulumi.get(self, "rule_index")
+
+    @rule_index.setter
+    def rule_index(self, value: pulumi.Input[int]):
+        pulumi.set(self, "rule_index", value)
+
+    @property
+    @pulumi.getter(name="rootAccessEnabled")
+    def root_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is root access permitted to this volume? Defaults to `true`.
+        """
+        return pulumi.get(self, "root_access_enabled")
+
+    @root_access_enabled.setter
+    def root_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "root_access_enabled", value)
+
+    @property
+    @pulumi.getter(name="unixReadOnly")
+    def unix_read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the file system on unix read only? Defaults to `false.
+        """
+        return pulumi.get(self, "unix_read_only")
+
+    @unix_read_only.setter
+    def unix_read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "unix_read_only", value)
+
+    @property
+    @pulumi.getter(name="unixReadWrite")
+    def unix_read_write(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the file system on unix read and write? Defaults to `true`.
         """
         return pulumi.get(self, "unix_read_write")
 

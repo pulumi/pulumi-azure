@@ -34,14 +34,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     }
 
     /**
-     * Specifies a list of destination IP addresses (including CIDR and `*`).
+     * Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
      * 
      */
     @Import(name="destinationAddresses")
     private @Nullable Output<List<String>> destinationAddresses;
 
     /**
-     * @return Specifies a list of destination IP addresses (including CIDR and `*`).
+     * @return Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
      * 
      */
     public Optional<Output<List<String>>> destinationAddresses() {
@@ -124,14 +124,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     }
 
     /**
-     * Specifies a list of source IP addresses (including CIDR and `*`).
+     * Specifies a list of source IP addresses (including CIDR, IP range and `*`).
      * 
      */
     @Import(name="sourceAddresses")
     private @Nullable Output<List<String>> sourceAddresses;
 
     /**
-     * @return Specifies a list of source IP addresses (including CIDR and `*`).
+     * @return Specifies a list of source IP addresses (including CIDR, IP range and `*`).
      * 
      */
     public Optional<Output<List<String>>> sourceAddresses() {
@@ -239,7 +239,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param destinationAddresses Specifies a list of destination IP addresses (including CIDR and `*`).
+         * @param destinationAddresses Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param destinationAddresses Specifies a list of destination IP addresses (including CIDR and `*`).
+         * @param destinationAddresses Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param destinationAddresses Specifies a list of destination IP addresses (including CIDR and `*`).
+         * @param destinationAddresses Specifies a list of destination IP addresses (including CIDR, IP range and `*`).
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR and `*`).
+         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR, IP range and `*`).
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR and `*`).
+         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR, IP range and `*`).
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         /**
-         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR and `*`).
+         * @param sourceAddresses Specifies a list of source IP addresses (including CIDR, IP range and `*`).
          * 
          * @return builder
          * 
