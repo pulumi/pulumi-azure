@@ -70,7 +70,7 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
      * The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
      * 
      */
-    @Export(name="datadogMonitorId", type=String.class, parameters={})
+    @Export(name="datadogMonitorId", refs={String.class}, tree="[0]")
     private Output<String> datadogMonitorId;
 
     /**
@@ -84,7 +84,7 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
      * The application Id to perform SSO operation.
      * 
      */
-    @Export(name="enterpriseApplicationId", type=String.class, parameters={})
+    @Export(name="enterpriseApplicationId", refs={String.class}, tree="[0]")
     private Output<String> enterpriseApplicationId;
 
     /**
@@ -98,7 +98,7 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
      * The SingleSignOn URL to login to Datadog org.
      * 
      */
-    @Export(name="loginUrl", type=String.class, parameters={})
+    @Export(name="loginUrl", refs={String.class}, tree="[0]")
     private Output<String> loginUrl;
 
     /**
@@ -112,7 +112,7 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
      * The name of the SingleSignOn configuration. Defaults to `default`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -126,7 +126,7 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
      * The state of SingleSignOn configuration.
      * 
      */
-    @Export(name="singleSignOnEnabled", type=String.class, parameters={})
+    @Export(name="singleSignOnEnabled", refs={String.class}, tree="[0]")
     private Output<String> singleSignOnEnabled;
 
     /**

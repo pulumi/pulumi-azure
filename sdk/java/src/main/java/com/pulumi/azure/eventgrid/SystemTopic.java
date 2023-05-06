@@ -83,7 +83,7 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=SystemTopicIdentity.class, parameters={})
+    @Export(name="identity", refs={SystemTopicIdentity.class}, tree="[0]")
     private Output</* @Nullable */ SystemTopicIdentity> identity;
 
     /**
@@ -97,7 +97,7 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -111,7 +111,7 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
      * The Metric ARM Resource ID of the Event Grid System Topic.
      * 
      */
-    @Export(name="metricArmResourceId", type=String.class, parameters={})
+    @Export(name="metricArmResourceId", refs={String.class}, tree="[0]")
     private Output<String> metricArmResourceId;
 
     /**
@@ -125,7 +125,7 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -139,7 +139,7 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -153,7 +153,7 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
      * The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
      * 
      */
-    @Export(name="sourceArmResourceId", type=String.class, parameters={})
+    @Export(name="sourceArmResourceId", refs={String.class}, tree="[0]")
     private Output<String> sourceArmResourceId;
 
     /**
@@ -167,7 +167,7 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Event Grid System Topic.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -181,7 +181,7 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
      * The Topic Type of the Event Grid System Topic. The topic type is validated by Azure and there may be additional topic types beyond the following: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`, `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
      * 
      */
-    @Export(name="topicType", type=String.class, parameters={})
+    @Export(name="topicType", refs={String.class}, tree="[0]")
     private Output<String> topicType;
 
     /**

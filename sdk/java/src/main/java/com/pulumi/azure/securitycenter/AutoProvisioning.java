@@ -63,7 +63,7 @@ public class AutoProvisioning extends com.pulumi.resources.CustomResource {
      * Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it&#39;s missing) or `Off` (to not install the security agent automatically).
      * 
      */
-    @Export(name="autoProvision", type=String.class, parameters={})
+    @Export(name="autoProvision", refs={String.class}, tree="[0]")
     private Output<String> autoProvision;
 
     /**

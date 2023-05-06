@@ -103,7 +103,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -117,7 +117,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * The request message for requesting approval of the Shared Private Link Enabled Remote Resource.
      * 
      */
-    @Export(name="requestMessage", type=String.class, parameters={})
+    @Export(name="requestMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> requestMessage;
 
     /**
@@ -131,7 +131,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * The id of the Signalr Service. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="signalrServiceId", type=String.class, parameters={})
+    @Export(name="signalrServiceId", refs={String.class}, tree="[0]")
     private Output<String> signalrServiceId;
 
     /**
@@ -145,7 +145,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
@@ -159,7 +159,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subResourceName", type=String.class, parameters={})
+    @Export(name="subResourceName", refs={String.class}, tree="[0]")
     private Output<String> subResourceName;
 
     /**
@@ -173,7 +173,7 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
      * The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetResourceId", type=String.class, parameters={})
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**

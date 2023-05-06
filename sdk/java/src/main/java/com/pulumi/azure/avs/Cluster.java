@@ -87,7 +87,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The count of the VMware Cluster nodes.
      * 
      */
-    @Export(name="clusterNodeCount", type=Integer.class, parameters={})
+    @Export(name="clusterNodeCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> clusterNodeCount;
 
     /**
@@ -101,7 +101,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A number that identifies this VMware Cluster in its VMware Private Cloud.
      * 
      */
-    @Export(name="clusterNumber", type=Integer.class, parameters={})
+    @Export(name="clusterNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> clusterNumber;
 
     /**
@@ -115,7 +115,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A list of host of the VMware Cluster.
      * 
      */
-    @Export(name="hosts", type=List.class, parameters={String.class})
+    @Export(name="hosts", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> hosts;
 
     /**
@@ -129,7 +129,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -143,7 +143,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Cluster to be created.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -157,7 +157,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created.
      * 
      */
-    @Export(name="vmwareCloudId", type=String.class, parameters={})
+    @Export(name="vmwareCloudId", refs={String.class}, tree="[0]")
     private Output<String> vmwareCloudId;
 
     /**

@@ -179,7 +179,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * The ID of the App Service Plan within which to create this Logic App
      * 
      */
-    @Export(name="appServicePlanId", type=String.class, parameters={})
+    @Export(name="appServicePlanId", refs={String.class}, tree="[0]")
     private Output<String> appServicePlanId;
 
     /**
@@ -193,7 +193,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
      */
-    @Export(name="appSettings", type=Map.class, parameters={String.class, String.class})
+    @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> appSettings;
 
     /**
@@ -207,7 +207,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
      * 
      */
-    @Export(name="bundleVersion", type=String.class, parameters={})
+    @Export(name="bundleVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bundleVersion;
 
     /**
@@ -221,7 +221,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
      * 
      */
-    @Export(name="clientAffinityEnabled", type=Boolean.class, parameters={})
+    @Export(name="clientAffinityEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> clientAffinityEnabled;
 
     /**
@@ -235,7 +235,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
      * 
      */
-    @Export(name="clientCertificateMode", type=String.class, parameters={})
+    @Export(name="clientCertificateMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
@@ -249,7 +249,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * An `connection_string` block as defined below.
      * 
      */
-    @Export(name="connectionStrings", type=List.class, parameters={StandardConnectionString.class})
+    @Export(name="connectionStrings", refs={List.class,StandardConnectionString.class}, tree="[0,1]")
     private Output<List<StandardConnectionString>> connectionStrings;
 
     /**
@@ -263,7 +263,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * An identifier used by App Service to perform domain ownership verification via DNS TXT record.
      * 
      */
-    @Export(name="customDomainVerificationId", type=String.class, parameters={})
+    @Export(name="customDomainVerificationId", refs={String.class}, tree="[0]")
     private Output<String> customDomainVerificationId;
 
     /**
@@ -277,7 +277,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
      * 
      */
-    @Export(name="defaultHostname", type=String.class, parameters={})
+    @Export(name="defaultHostname", refs={String.class}, tree="[0]")
     private Output<String> defaultHostname;
 
     /**
@@ -291,7 +291,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * Is the Logic App enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -305,7 +305,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * Can the Logic App only be accessed via HTTPS? Defaults to `false`.
      * 
      */
-    @Export(name="httpsOnly", type=Boolean.class, parameters={})
+    @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
@@ -319,7 +319,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=StandardIdentity.class, parameters={})
+    @Export(name="identity", refs={StandardIdentity.class}, tree="[0]")
     private Output</* @Nullable */ StandardIdentity> identity;
 
     /**
@@ -333,7 +333,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * The Logic App kind - will be `functionapp,workflowapp`
      * 
      */
-    @Export(name="kind", type=String.class, parameters={})
+    @Export(name="kind", refs={String.class}, tree="[0]")
     private Output<String> kind;
 
     /**
@@ -347,7 +347,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -361,7 +361,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Logic App Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -375,7 +375,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      * 
      */
-    @Export(name="outboundIpAddresses", type=String.class, parameters={})
+    @Export(name="outboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> outboundIpAddresses;
 
     /**
@@ -389,7 +389,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
-    @Export(name="possibleOutboundIpAddresses", type=String.class, parameters={})
+    @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> possibleOutboundIpAddresses;
 
     /**
@@ -403,7 +403,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -417,7 +417,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * A `site_config` object as defined below.
      * 
      */
-    @Export(name="siteConfig", type=StandardSiteConfig.class, parameters={})
+    @Export(name="siteConfig", refs={StandardSiteConfig.class}, tree="[0]")
     private Output<StandardSiteConfig> siteConfig;
 
     /**
@@ -431,7 +431,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      * 
      */
-    @Export(name="siteCredentials", type=List.class, parameters={StandardSiteCredential.class})
+    @Export(name="siteCredentials", refs={List.class,StandardSiteCredential.class}, tree="[0,1]")
     private Output<List<StandardSiteCredential>> siteCredentials;
 
     /**
@@ -445,7 +445,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * The access key which will be used to access the backend storage account for the Logic App
      * 
      */
-    @Export(name="storageAccountAccessKey", type=String.class, parameters={})
+    @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
     private Output<String> storageAccountAccessKey;
 
     /**
@@ -459,7 +459,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageAccountName", type=String.class, parameters={})
+    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output<String> storageAccountName;
 
     /**
@@ -473,7 +473,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don&#39;t specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
      * 
      */
-    @Export(name="storageAccountShareName", type=String.class, parameters={})
+    @Export(name="storageAccountShareName", refs={String.class}, tree="[0]")
     private Output<String> storageAccountShareName;
 
     /**
@@ -487,7 +487,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -501,7 +501,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
      * 
      */
-    @Export(name="useExtensionBundle", type=Boolean.class, parameters={})
+    @Export(name="useExtensionBundle", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useExtensionBundle;
 
     /**
@@ -515,7 +515,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * The runtime version associated with the Logic App Defaults to `~3`.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> version;
 
     /**
@@ -529,7 +529,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      * 
      */
-    @Export(name="virtualNetworkSubnetId", type=String.class, parameters={})
+    @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
     /**

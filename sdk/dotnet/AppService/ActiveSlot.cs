@@ -9,6 +9,43 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.AppService
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Random = Pulumi.Random;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new Random.RandomId("server");
+    /// 
+    ///     // ...
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup");
+    /// 
+    ///     // ...
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan");
+    /// 
+    ///     // ...
+    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService");
+    /// 
+    ///     // ...
+    ///     var exampleSlot = new Azure.AppService.Slot("exampleSlot");
+    /// 
+    ///     // ...
+    ///     var exampleActiveSlot = new Azure.AppService.ActiveSlot("exampleActiveSlot", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServiceName = exampleAppService.Name,
+    ///         AppServiceSlotName = exampleSlot.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:appservice/activeSlot:ActiveSlot")]
     public partial class ActiveSlot : global::Pulumi.CustomResource
     {

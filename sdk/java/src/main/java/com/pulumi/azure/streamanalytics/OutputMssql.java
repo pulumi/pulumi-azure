@@ -105,7 +105,7 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      * 
      */
-    @Export(name="authenticationMode", type=String.class, parameters={})
+    @Export(name="authenticationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authenticationMode;
 
     /**
@@ -119,7 +119,7 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      * The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -133,7 +133,7 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      * The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
      * 
      */
-    @Export(name="maxBatchCount", type=Double.class, parameters={})
+    @Export(name="maxBatchCount", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> maxBatchCount;
 
     /**
@@ -147,7 +147,7 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      * The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
      * 
      */
-    @Export(name="maxWriterCount", type=Double.class, parameters={})
+    @Export(name="maxWriterCount", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> maxWriterCount;
 
     /**
@@ -161,7 +161,7 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      * The name of the Stream Output. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -175,7 +175,7 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      * Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -189,7 +189,7 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -203,7 +203,7 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      * The SQL server url. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="server", type=String.class, parameters={})
+    @Export(name="server", refs={String.class}, tree="[0]")
     private Output<String> server;
 
     /**
@@ -217,7 +217,7 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobName", type=String.class, parameters={})
+    @Export(name="streamAnalyticsJobName", refs={String.class}, tree="[0]")
     private Output<String> streamAnalyticsJobName;
 
     /**
@@ -231,7 +231,7 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      * Table in the database that the output points to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="table", type=String.class, parameters={})
+    @Export(name="table", refs={String.class}, tree="[0]")
     private Output<String> table;
 
     /**
@@ -245,7 +245,7 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
      * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
-    @Export(name="user", type=String.class, parameters={})
+    @Export(name="user", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> user;
 
     /**

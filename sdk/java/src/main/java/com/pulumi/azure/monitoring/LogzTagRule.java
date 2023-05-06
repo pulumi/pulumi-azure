@@ -106,7 +106,7 @@ public class LogzTagRule extends com.pulumi.resources.CustomResource {
      * The ID of the Logz Monitor. Changing this forces a new logz Tag Rule to be created.
      * 
      */
-    @Export(name="logzMonitorId", type=String.class, parameters={})
+    @Export(name="logzMonitorId", refs={String.class}, tree="[0]")
     private Output<String> logzMonitorId;
 
     /**
@@ -120,7 +120,7 @@ public class LogzTagRule extends com.pulumi.resources.CustomResource {
      * Whether AAD logs should be sent to the Monitor resource?
      * 
      */
-    @Export(name="sendAadLogs", type=Boolean.class, parameters={})
+    @Export(name="sendAadLogs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendAadLogs;
 
     /**
@@ -134,7 +134,7 @@ public class LogzTagRule extends com.pulumi.resources.CustomResource {
      * Whether activity logs from Azure resources should be sent to the Monitor resource?
      * 
      */
-    @Export(name="sendActivityLogs", type=Boolean.class, parameters={})
+    @Export(name="sendActivityLogs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendActivityLogs;
 
     /**
@@ -148,7 +148,7 @@ public class LogzTagRule extends com.pulumi.resources.CustomResource {
      * Whether subscription logs should be sent to the Monitor resource?
      * 
      */
-    @Export(name="sendSubscriptionLogs", type=Boolean.class, parameters={})
+    @Export(name="sendSubscriptionLogs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendSubscriptionLogs;
 
     /**
@@ -162,7 +162,7 @@ public class LogzTagRule extends com.pulumi.resources.CustomResource {
      * One or more (up to 10) `tag_filter` blocks as defined below.
      * 
      */
-    @Export(name="tagFilters", type=List.class, parameters={LogzTagRuleTagFilter.class})
+    @Export(name="tagFilters", refs={List.class,LogzTagRuleTagFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LogzTagRuleTagFilter>> tagFilters;
 
     /**

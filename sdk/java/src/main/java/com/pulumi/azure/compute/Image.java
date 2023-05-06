@@ -171,7 +171,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * One or more `data_disk` elements as defined below.
      * 
      */
-    @Export(name="dataDisks", type=List.class, parameters={ImageDataDisk.class})
+    @Export(name="dataDisks", refs={List.class,ImageDataDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ImageDataDisk>> dataDisks;
 
     /**
@@ -185,7 +185,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="hyperVGeneration", type=String.class, parameters={})
+    @Export(name="hyperVGeneration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hyperVGeneration;
 
     /**
@@ -200,7 +200,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -215,7 +215,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Specifies the name of the image. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -229,7 +229,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="osDisk", type=ImageOsDisk.class, parameters={})
+    @Export(name="osDisk", refs={ImageOsDisk.class}, tree="[0]")
     private Output</* @Nullable */ ImageOsDisk> osDisk;
 
     /**
@@ -244,7 +244,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * the image. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -259,7 +259,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * The Virtual Machine ID from which to create the image.
      * 
      */
-    @Export(name="sourceVirtualMachineId", type=String.class, parameters={})
+    @Export(name="sourceVirtualMachineId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceVirtualMachineId;
 
     /**
@@ -273,7 +273,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -287,7 +287,7 @@ public class Image extends com.pulumi.resources.CustomResource {
      * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zoneResilient", type=Boolean.class, parameters={})
+    @Export(name="zoneResilient", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> zoneResilient;
 
     /**

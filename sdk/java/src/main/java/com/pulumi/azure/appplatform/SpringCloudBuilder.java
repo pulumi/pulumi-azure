@@ -90,7 +90,7 @@ public class SpringCloudBuilder extends com.pulumi.resources.CustomResource {
      * One or more `build_pack_group` blocks as defined below.
      * 
      */
-    @Export(name="buildPackGroups", type=List.class, parameters={SpringCloudBuilderBuildPackGroup.class})
+    @Export(name="buildPackGroups", refs={List.class,SpringCloudBuilderBuildPackGroup.class}, tree="[0,1]")
     private Output<List<SpringCloudBuilderBuildPackGroup>> buildPackGroups;
 
     /**
@@ -104,7 +104,7 @@ public class SpringCloudBuilder extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -118,7 +118,7 @@ public class SpringCloudBuilder extends com.pulumi.resources.CustomResource {
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created.
      * 
      */
-    @Export(name="springCloudServiceId", type=String.class, parameters={})
+    @Export(name="springCloudServiceId", refs={String.class}, tree="[0]")
     private Output<String> springCloudServiceId;
 
     /**
@@ -132,7 +132,7 @@ public class SpringCloudBuilder extends com.pulumi.resources.CustomResource {
      * A `stack` block as defined below.
      * 
      */
-    @Export(name="stack", type=SpringCloudBuilderStack.class, parameters={})
+    @Export(name="stack", refs={SpringCloudBuilderStack.class}, tree="[0]")
     private Output<SpringCloudBuilderStack> stack;
 
     /**

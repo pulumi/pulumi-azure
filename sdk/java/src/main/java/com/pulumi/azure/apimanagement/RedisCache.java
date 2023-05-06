@@ -97,7 +97,7 @@ public class RedisCache extends com.pulumi.resources.CustomResource {
      * The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
      * 
      */
-    @Export(name="apiManagementId", type=String.class, parameters={})
+    @Export(name="apiManagementId", refs={String.class}, tree="[0]")
     private Output<String> apiManagementId;
 
     /**
@@ -111,7 +111,7 @@ public class RedisCache extends com.pulumi.resources.CustomResource {
      * The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
      * 
      */
-    @Export(name="cacheLocation", type=String.class, parameters={})
+    @Export(name="cacheLocation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cacheLocation;
 
     /**
@@ -125,7 +125,7 @@ public class RedisCache extends com.pulumi.resources.CustomResource {
      * The connection string to the Cache for Redis.
      * 
      */
-    @Export(name="connectionString", type=String.class, parameters={})
+    @Export(name="connectionString", refs={String.class}, tree="[0]")
     private Output<String> connectionString;
 
     /**
@@ -139,7 +139,7 @@ public class RedisCache extends com.pulumi.resources.CustomResource {
      * The description of the API Management Redis Cache.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -153,7 +153,7 @@ public class RedisCache extends com.pulumi.resources.CustomResource {
      * The name which should be used for this API Management Redis Cache. Changing this forces a new API Management Redis Cache to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -167,7 +167,7 @@ public class RedisCache extends com.pulumi.resources.CustomResource {
      * The resource ID of the Cache for Redis.
      * 
      */
-    @Export(name="redisCacheId", type=String.class, parameters={})
+    @Export(name="redisCacheId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> redisCacheId;
 
     /**

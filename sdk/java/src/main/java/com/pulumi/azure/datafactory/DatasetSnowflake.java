@@ -90,7 +90,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      * A map of additional properties to associate with the Data Factory Dataset Snowflake.
      * 
      */
-    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -104,7 +104,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Data Factory Dataset Snowflake.
      * 
      */
-    @Export(name="annotations", type=List.class, parameters={String.class})
+    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -118,7 +118,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", type=String.class, parameters={})
+    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
@@ -132,7 +132,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      * The description for the Data Factory Dataset Snowflake.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -146,7 +146,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      * 
      */
-    @Export(name="folder", type=String.class, parameters={})
+    @Export(name="folder", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> folder;
 
     /**
@@ -160,7 +160,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      * The Data Factory Linked Service name in which to associate the Dataset with.
      * 
      */
-    @Export(name="linkedServiceName", type=String.class, parameters={})
+    @Export(name="linkedServiceName", refs={String.class}, tree="[0]")
     private Output<String> linkedServiceName;
 
     /**
@@ -174,7 +174,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -188,7 +188,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      * A map of parameters to associate with the Data Factory Dataset Snowflake.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -202,7 +202,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      * A `schema_column` block as defined below.
      * 
      */
-    @Export(name="schemaColumns", type=List.class, parameters={DatasetSnowflakeSchemaColumn.class})
+    @Export(name="schemaColumns", refs={List.class,DatasetSnowflakeSchemaColumn.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DatasetSnowflakeSchemaColumn>> schemaColumns;
 
     /**
@@ -216,7 +216,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      * The schema name of the Data Factory Dataset Snowflake.
      * 
      */
-    @Export(name="schemaName", type=String.class, parameters={})
+    @Export(name="schemaName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schemaName;
 
     /**
@@ -230,7 +230,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      * The table name of the Data Factory Dataset Snowflake.
      * 
      */
-    @Export(name="tableName", type=String.class, parameters={})
+    @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tableName;
 
     /**

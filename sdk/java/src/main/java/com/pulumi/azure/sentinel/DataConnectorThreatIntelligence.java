@@ -82,7 +82,7 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
      * The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -96,7 +96,7 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
      * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
      * 
      */
-    @Export(name="lookbackDate", type=String.class, parameters={})
+    @Export(name="lookbackDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lookbackDate;
 
     /**
@@ -110,7 +110,7 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
      * The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -124,7 +124,7 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
      * The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

@@ -209,7 +209,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A unique ID for the managed domain deployment.
      * 
      */
-    @Export(name="deploymentId", type=String.class, parameters={})
+    @Export(name="deploymentId", refs={String.class}, tree="[0]")
     private Output<String> deploymentId;
 
     /**
@@ -223,7 +223,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="domainConfigurationType", type=String.class, parameters={})
+    @Export(name="domainConfigurationType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domainConfigurationType;
 
     /**
@@ -237,7 +237,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="domainName", type=String.class, parameters={})
+    @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
@@ -251,7 +251,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
      * 
      */
-    @Export(name="filteredSyncEnabled", type=Boolean.class, parameters={})
+    @Export(name="filteredSyncEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> filteredSyncEnabled;
 
     /**
@@ -265,7 +265,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
      * 
      */
-    @Export(name="initialReplicaSet", type=ServiceInitialReplicaSet.class, parameters={})
+    @Export(name="initialReplicaSet", refs={ServiceInitialReplicaSet.class}, tree="[0]")
     private Output<ServiceInitialReplicaSet> initialReplicaSet;
 
     /**
@@ -279,7 +279,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -293,7 +293,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -307,7 +307,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `notifications` block as defined below.
      * 
      */
-    @Export(name="notifications", type=ServiceNotifications.class, parameters={})
+    @Export(name="notifications", refs={ServiceNotifications.class}, tree="[0]")
     private Output<ServiceNotifications> notifications;
 
     /**
@@ -321,7 +321,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -335,7 +335,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The Azure resource ID for the domain service.
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -349,7 +349,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `secure_ldap` block as defined below.
      * 
      */
-    @Export(name="secureLdap", type=ServiceSecureLdap.class, parameters={})
+    @Export(name="secureLdap", refs={ServiceSecureLdap.class}, tree="[0]")
     private Output<ServiceSecureLdap> secureLdap;
 
     /**
@@ -363,7 +363,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A `security` block as defined below.
      * 
      */
-    @Export(name="security", type=ServiceSecurity.class, parameters={})
+    @Export(name="security", refs={ServiceSecurity.class}, tree="[0]")
     private Output<ServiceSecurity> security;
 
     /**
@@ -377,7 +377,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
      * 
      */
-    @Export(name="sku", type=String.class, parameters={})
+    @Export(name="sku", refs={String.class}, tree="[0]")
     private Output<String> sku;
 
     /**
@@ -387,7 +387,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     public Output<String> sku() {
         return this.sku;
     }
-    @Export(name="syncOwner", type=String.class, parameters={})
+    @Export(name="syncOwner", refs={String.class}, tree="[0]")
     private Output<String> syncOwner;
 
     public Output<String> syncOwner() {
@@ -397,7 +397,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * A mapping of tags assigned to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -407,13 +407,13 @@ public class Service extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     public Output<String> tenantId() {
         return this.tenantId;
     }
-    @Export(name="version", type=Integer.class, parameters={})
+    @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     public Output<Integer> version() {

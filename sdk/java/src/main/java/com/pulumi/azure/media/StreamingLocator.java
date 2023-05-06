@@ -110,7 +110,7 @@ public class StreamingLocator extends com.pulumi.resources.CustomResource {
      * Alternative Media ID of this Streaming Locator. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    @Export(name="alternativeMediaId", type=String.class, parameters={})
+    @Export(name="alternativeMediaId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alternativeMediaId;
 
     /**
@@ -124,7 +124,7 @@ public class StreamingLocator extends com.pulumi.resources.CustomResource {
      * Asset Name. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    @Export(name="assetName", type=String.class, parameters={})
+    @Export(name="assetName", refs={String.class}, tree="[0]")
     private Output<String> assetName;
 
     /**
@@ -138,7 +138,7 @@ public class StreamingLocator extends com.pulumi.resources.CustomResource {
      * One or more `content_key` blocks as defined below. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    @Export(name="contentKeys", type=List.class, parameters={StreamingLocatorContentKey.class})
+    @Export(name="contentKeys", refs={List.class,StreamingLocatorContentKey.class}, tree="[0,1]")
     private Output</* @Nullable */ List<StreamingLocatorContentKey>> contentKeys;
 
     /**
@@ -152,7 +152,7 @@ public class StreamingLocator extends com.pulumi.resources.CustomResource {
      * Name of the default Content Key Policy used by this Streaming Locator.Changing this forces a new Streaming Locator to be created.
      * 
      */
-    @Export(name="defaultContentKeyPolicyName", type=String.class, parameters={})
+    @Export(name="defaultContentKeyPolicyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultContentKeyPolicyName;
 
     /**
@@ -166,7 +166,7 @@ public class StreamingLocator extends com.pulumi.resources.CustomResource {
      * The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    @Export(name="endTime", type=String.class, parameters={})
+    @Export(name="endTime", refs={String.class}, tree="[0]")
     private Output<String> endTime;
 
     /**
@@ -180,7 +180,7 @@ public class StreamingLocator extends com.pulumi.resources.CustomResource {
      * A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    @Export(name="filterNames", type=List.class, parameters={String.class})
+    @Export(name="filterNames", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> filterNames;
 
     /**
@@ -194,7 +194,7 @@ public class StreamingLocator extends com.pulumi.resources.CustomResource {
      * The Media Services account name. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    @Export(name="mediaServicesAccountName", type=String.class, parameters={})
+    @Export(name="mediaServicesAccountName", refs={String.class}, tree="[0]")
     private Output<String> mediaServicesAccountName;
 
     /**
@@ -208,7 +208,7 @@ public class StreamingLocator extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Streaming Locator. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -222,7 +222,7 @@ public class StreamingLocator extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Streaming Locator should exist. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -236,7 +236,7 @@ public class StreamingLocator extends com.pulumi.resources.CustomResource {
      * The start time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    @Export(name="startTime", type=String.class, parameters={})
+    @Export(name="startTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startTime;
 
     /**
@@ -250,7 +250,7 @@ public class StreamingLocator extends com.pulumi.resources.CustomResource {
      * The ID of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    @Export(name="streamingLocatorId", type=String.class, parameters={})
+    @Export(name="streamingLocatorId", refs={String.class}, tree="[0]")
     private Output<String> streamingLocatorId;
 
     /**
@@ -264,7 +264,7 @@ public class StreamingLocator extends com.pulumi.resources.CustomResource {
      * Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: `Predefined_DownloadOnly`, `Predefined_ClearStreamingOnly`, `Predefined_DownloadAndClearStreaming`, `Predefined_ClearKey`, `Predefined_MultiDrmCencStreaming` and `Predefined_MultiDrmStreaming`. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    @Export(name="streamingPolicyName", type=String.class, parameters={})
+    @Export(name="streamingPolicyName", refs={String.class}, tree="[0]")
     private Output<String> streamingPolicyName;
 
     /**

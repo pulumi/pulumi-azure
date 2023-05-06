@@ -83,7 +83,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A description for the Policy.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -97,7 +97,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * The Evaluation Type used for this Policy. Possible values include: &#39;AllowedValuesPolicy&#39;, &#39;MaxValuePolicy&#39;. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="evaluatorType", type=String.class, parameters={})
+    @Export(name="evaluatorType", refs={String.class}, tree="[0]")
     private Output<String> evaluatorType;
 
     /**
@@ -111,7 +111,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * The Fact Data for this Policy.
      * 
      */
-    @Export(name="factData", type=String.class, parameters={})
+    @Export(name="factData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> factData;
 
     /**
@@ -125,7 +125,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Dev Test Lab in which the Policy should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="labName", type=String.class, parameters={})
+    @Export(name="labName", refs={String.class}, tree="[0]")
     private Output<String> labName;
 
     /**
@@ -139,7 +139,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -153,7 +153,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Policy Set within the Dev Test Lab where this policy should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="policySetName", type=String.class, parameters={})
+    @Export(name="policySetName", refs={String.class}, tree="[0]")
     private Output<String> policySetName;
 
     /**
@@ -167,7 +167,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -181,7 +181,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -195,7 +195,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * The Threshold for this Policy.
      * 
      */
-    @Export(name="threshold", type=String.class, parameters={})
+    @Export(name="threshold", refs={String.class}, tree="[0]")
     private Output<String> threshold;
 
     /**

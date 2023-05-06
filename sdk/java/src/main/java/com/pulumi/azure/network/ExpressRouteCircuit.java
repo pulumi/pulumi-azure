@@ -84,7 +84,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
      * 
      */
-    @Export(name="allowClassicOperations", type=Boolean.class, parameters={})
+    @Export(name="allowClassicOperations", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowClassicOperations;
 
     /**
@@ -98,7 +98,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
      * 
      */
-    @Export(name="authorizationKey", type=String.class, parameters={})
+    @Export(name="authorizationKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authorizationKey;
 
     /**
@@ -112,7 +112,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      * 
      */
-    @Export(name="bandwidthInGbps", type=Double.class, parameters={})
+    @Export(name="bandwidthInGbps", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> bandwidthInGbps;
 
     /**
@@ -126,7 +126,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * The bandwidth in Mbps of the circuit being created on the Service Provider.
      * 
      */
-    @Export(name="bandwidthInMbps", type=Integer.class, parameters={})
+    @Export(name="bandwidthInMbps", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> bandwidthInMbps;
 
     /**
@@ -140,7 +140,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="expressRoutePortId", type=String.class, parameters={})
+    @Export(name="expressRoutePortId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expressRoutePortId;
 
     /**
@@ -154,7 +154,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -168,7 +168,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -182,7 +182,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="peeringLocation", type=String.class, parameters={})
+    @Export(name="peeringLocation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> peeringLocation;
 
     /**
@@ -196,7 +196,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -210,7 +210,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * The string needed by the service provider to provision the ExpressRoute circuit.
      * 
      */
-    @Export(name="serviceKey", type=String.class, parameters={})
+    @Export(name="serviceKey", refs={String.class}, tree="[0]")
     private Output<String> serviceKey;
 
     /**
@@ -224,7 +224,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serviceProviderName", type=String.class, parameters={})
+    @Export(name="serviceProviderName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceProviderName;
 
     /**
@@ -238,7 +238,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
      * 
      */
-    @Export(name="serviceProviderProvisioningState", type=String.class, parameters={})
+    @Export(name="serviceProviderProvisioningState", refs={String.class}, tree="[0]")
     private Output<String> serviceProviderProvisioningState;
 
     /**
@@ -252,7 +252,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * A `sku` block for the ExpressRoute circuit as documented below.
      * 
      */
-    @Export(name="sku", type=ExpressRouteCircuitSku.class, parameters={})
+    @Export(name="sku", refs={ExpressRouteCircuitSku.class}, tree="[0]")
     private Output<ExpressRouteCircuitSku> sku;
 
     /**
@@ -266,7 +266,7 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

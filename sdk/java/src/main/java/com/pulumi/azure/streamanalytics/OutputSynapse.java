@@ -112,7 +112,7 @@ public class OutputSynapse extends com.pulumi.resources.CustomResource {
      * The name of the Azure SQL database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="database", type=String.class, parameters={})
+    @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
@@ -126,7 +126,7 @@ public class OutputSynapse extends com.pulumi.resources.CustomResource {
      * The name of the Stream Output. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -140,7 +140,7 @@ public class OutputSynapse extends com.pulumi.resources.CustomResource {
      * The password that will be used to connect to the Azure SQL database.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
@@ -154,7 +154,7 @@ public class OutputSynapse extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -168,7 +168,7 @@ public class OutputSynapse extends com.pulumi.resources.CustomResource {
      * The name of the SQL server containing the Azure SQL database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="server", type=String.class, parameters={})
+    @Export(name="server", refs={String.class}, tree="[0]")
     private Output<String> server;
 
     /**
@@ -182,7 +182,7 @@ public class OutputSynapse extends com.pulumi.resources.CustomResource {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobName", type=String.class, parameters={})
+    @Export(name="streamAnalyticsJobName", refs={String.class}, tree="[0]")
     private Output<String> streamAnalyticsJobName;
 
     /**
@@ -196,7 +196,7 @@ public class OutputSynapse extends com.pulumi.resources.CustomResource {
      * The name of the table in the Azure SQL database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="table", type=String.class, parameters={})
+    @Export(name="table", refs={String.class}, tree="[0]")
     private Output<String> table;
 
     /**
@@ -210,7 +210,7 @@ public class OutputSynapse extends com.pulumi.resources.CustomResource {
      * The user name that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="user", type=String.class, parameters={})
+    @Export(name="user", refs={String.class}, tree="[0]")
     private Output<String> user;
 
     /**

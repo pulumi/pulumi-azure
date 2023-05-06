@@ -87,7 +87,7 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      * The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
      * 
      */
-    @Export(name="apiManagementId", type=String.class, parameters={})
+    @Export(name="apiManagementId", refs={String.class}, tree="[0]")
     private Output<String> apiManagementId;
 
     /**
@@ -101,7 +101,7 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      * The description of the API Management Gateway.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -115,7 +115,7 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      * A `location_data` block as documented below.
      * 
      */
-    @Export(name="locationData", type=GatewayLocationData.class, parameters={})
+    @Export(name="locationData", refs={GatewayLocationData.class}, tree="[0]")
     private Output<GatewayLocationData> locationData;
 
     /**
@@ -129,7 +129,7 @@ public class Gateway extends com.pulumi.resources.CustomResource {
      * The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

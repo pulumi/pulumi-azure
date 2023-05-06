@@ -150,7 +150,7 @@ public class DiskPoolManagedDiskAttachment extends com.pulumi.resources.CustomRe
      * The ID of the Disk Pool. Changing this forces a new Disk Pool Managed Disk Attachment to be created.
      * 
      */
-    @Export(name="diskPoolId", type=String.class, parameters={})
+    @Export(name="diskPoolId", refs={String.class}, tree="[0]")
     private Output<String> diskPoolId;
 
     /**
@@ -164,7 +164,7 @@ public class DiskPoolManagedDiskAttachment extends com.pulumi.resources.CustomRe
      * The ID of the Managed Disk. Changing this forces a new Disks Pool Managed Disk Attachment to be created.
      * 
      */
-    @Export(name="managedDiskId", type=String.class, parameters={})
+    @Export(name="managedDiskId", refs={String.class}, tree="[0]")
     private Output<String> managedDiskId;
 
     /**

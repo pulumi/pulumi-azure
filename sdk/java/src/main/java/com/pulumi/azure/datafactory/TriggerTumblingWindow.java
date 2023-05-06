@@ -117,7 +117,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
      * 
      */
-    @Export(name="activated", type=Boolean.class, parameters={})
+    @Export(name="activated", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> activated;
 
     /**
@@ -131,7 +131,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
      * 
      */
-    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -145,7 +145,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
      * 
      */
-    @Export(name="annotations", type=List.class, parameters={String.class})
+    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -159,7 +159,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", type=String.class, parameters={})
+    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
@@ -173,7 +173,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
      * 
      */
-    @Export(name="delay", type=String.class, parameters={})
+    @Export(name="delay", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> delay;
 
     /**
@@ -187,7 +187,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * The description for the Data Factory Tumbling Window Trigger.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -201,7 +201,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
      * 
      */
-    @Export(name="endTime", type=String.class, parameters={})
+    @Export(name="endTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endTime;
 
     /**
@@ -215,7 +215,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
      * 
      */
-    @Export(name="frequency", type=String.class, parameters={})
+    @Export(name="frequency", refs={String.class}, tree="[0]")
     private Output<String> frequency;
 
     /**
@@ -229,7 +229,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * Specifies the interval of Tumbling Window. Changing this forces a new resource.
      * 
      */
-    @Export(name="interval", type=Integer.class, parameters={})
+    @Export(name="interval", refs={Integer.class}, tree="[0]")
     private Output<Integer> interval;
 
     /**
@@ -243,7 +243,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
      * 
      */
-    @Export(name="maxConcurrency", type=Integer.class, parameters={})
+    @Export(name="maxConcurrency", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxConcurrency;
 
     /**
@@ -257,7 +257,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -271,7 +271,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * A `pipeline` block as defined below.
      * 
      */
-    @Export(name="pipeline", type=TriggerTumblingWindowPipeline.class, parameters={})
+    @Export(name="pipeline", refs={TriggerTumblingWindowPipeline.class}, tree="[0]")
     private Output<TriggerTumblingWindowPipeline> pipeline;
 
     /**
@@ -285,7 +285,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * A `retry` block as defined below.
      * 
      */
-    @Export(name="retry", type=TriggerTumblingWindowRetry.class, parameters={})
+    @Export(name="retry", refs={TriggerTumblingWindowRetry.class}, tree="[0]")
     private Output</* @Nullable */ TriggerTumblingWindowRetry> retry;
 
     /**
@@ -299,7 +299,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
      * 
      */
-    @Export(name="startTime", type=String.class, parameters={})
+    @Export(name="startTime", refs={String.class}, tree="[0]")
     private Output<String> startTime;
 
     /**
@@ -313,7 +313,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * One or more `trigger_dependency` block as defined below.
      * 
      */
-    @Export(name="triggerDependencies", type=List.class, parameters={TriggerTumblingWindowTriggerDependency.class})
+    @Export(name="triggerDependencies", refs={List.class,TriggerTumblingWindowTriggerDependency.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TriggerTumblingWindowTriggerDependency>> triggerDependencies;
 
     /**

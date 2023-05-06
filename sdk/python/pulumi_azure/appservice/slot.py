@@ -627,6 +627,98 @@ class Slot(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+        ### NET 4.X)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_random as random
+
+        server = random.RandomId("server",
+            keepers={
+                "azi_id": 1,
+            },
+            byte_length=8)
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Standard",
+                size="S1",
+            ))
+        example_app_service = azure.appservice.AppService("exampleAppService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            site_config=azure.appservice.AppServiceSiteConfigArgs(
+                dotnet_framework_version="v4.0",
+            ),
+            app_settings={
+                "SOME_KEY": "some-value",
+            },
+            connection_strings=[azure.appservice.AppServiceConnectionStringArgs(
+                name="Database",
+                type="SQLServer",
+                value="Server=some-server.mydomain.com;Integrated Security=SSPI",
+            )])
+        example_slot = azure.appservice.Slot("exampleSlot",
+            app_service_name=example_app_service.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            site_config=azure.appservice.SlotSiteConfigArgs(
+                dotnet_framework_version="v4.0",
+            ),
+            app_settings={
+                "SOME_KEY": "some-value",
+            },
+            connection_strings=[azure.appservice.SlotConnectionStringArgs(
+                name="Database",
+                type="SQLServer",
+                value="Server=some-server.mydomain.com;Integrated Security=SSPI",
+            )])
+        ```
+        ### Java 1.8)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_random as random
+
+        server = random.RandomId("server",
+            keepers={
+                "azi_id": 1,
+            },
+            byte_length=8)
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Standard",
+                size="S1",
+            ))
+        example_app_service = azure.appservice.AppService("exampleAppService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            site_config=azure.appservice.AppServiceSiteConfigArgs(
+                java_version="1.8",
+                java_container="JETTY",
+                java_container_version="9.3",
+            ))
+        example_slot = azure.appservice.Slot("exampleSlot",
+            app_service_name=example_app_service.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            site_config=azure.appservice.SlotSiteConfigArgs(
+                java_version="1.8",
+                java_container="JETTY",
+                java_container_version="9.3",
+            ))
+        ```
 
         ## Import
 
@@ -664,6 +756,98 @@ class Slot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+        ### NET 4.X)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_random as random
+
+        server = random.RandomId("server",
+            keepers={
+                "azi_id": 1,
+            },
+            byte_length=8)
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Standard",
+                size="S1",
+            ))
+        example_app_service = azure.appservice.AppService("exampleAppService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            site_config=azure.appservice.AppServiceSiteConfigArgs(
+                dotnet_framework_version="v4.0",
+            ),
+            app_settings={
+                "SOME_KEY": "some-value",
+            },
+            connection_strings=[azure.appservice.AppServiceConnectionStringArgs(
+                name="Database",
+                type="SQLServer",
+                value="Server=some-server.mydomain.com;Integrated Security=SSPI",
+            )])
+        example_slot = azure.appservice.Slot("exampleSlot",
+            app_service_name=example_app_service.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            site_config=azure.appservice.SlotSiteConfigArgs(
+                dotnet_framework_version="v4.0",
+            ),
+            app_settings={
+                "SOME_KEY": "some-value",
+            },
+            connection_strings=[azure.appservice.SlotConnectionStringArgs(
+                name="Database",
+                type="SQLServer",
+                value="Server=some-server.mydomain.com;Integrated Security=SSPI",
+            )])
+        ```
+        ### Java 1.8)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_random as random
+
+        server = random.RandomId("server",
+            keepers={
+                "azi_id": 1,
+            },
+            byte_length=8)
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Standard",
+                size="S1",
+            ))
+        example_app_service = azure.appservice.AppService("exampleAppService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            site_config=azure.appservice.AppServiceSiteConfigArgs(
+                java_version="1.8",
+                java_container="JETTY",
+                java_container_version="9.3",
+            ))
+        example_slot = azure.appservice.Slot("exampleSlot",
+            app_service_name=example_app_service.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id,
+            site_config=azure.appservice.SlotSiteConfigArgs(
+                java_version="1.8",
+                java_container="JETTY",
+                java_container_version="9.3",
+            ))
+        ```
 
         ## Import
 

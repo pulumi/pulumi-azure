@@ -109,7 +109,7 @@ public class SpringCloudAppMysqlAssociation extends com.pulumi.resources.CustomR
      * Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
@@ -123,7 +123,7 @@ public class SpringCloudAppMysqlAssociation extends com.pulumi.resources.CustomR
      * Specifies the ID of the MySQL Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="mysqlServerId", type=String.class, parameters={})
+    @Export(name="mysqlServerId", refs={String.class}, tree="[0]")
     private Output<String> mysqlServerId;
 
     /**
@@ -137,7 +137,7 @@ public class SpringCloudAppMysqlAssociation extends com.pulumi.resources.CustomR
      * Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -151,7 +151,7 @@ public class SpringCloudAppMysqlAssociation extends com.pulumi.resources.CustomR
      * Specifies the password which should be used when connecting to the MySQL Database from the Spring Cloud App.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
@@ -165,7 +165,7 @@ public class SpringCloudAppMysqlAssociation extends com.pulumi.resources.CustomR
      * Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="springCloudAppId", type=String.class, parameters={})
+    @Export(name="springCloudAppId", refs={String.class}, tree="[0]")
     private Output<String> springCloudAppId;
 
     /**
@@ -179,7 +179,7 @@ public class SpringCloudAppMysqlAssociation extends com.pulumi.resources.CustomR
      * Specifies the username which should be used when connecting to the MySQL Database from the Spring Cloud App.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

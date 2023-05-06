@@ -70,7 +70,7 @@ public class EmailService extends com.pulumi.resources.CustomResource {
      * The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` and `United States`. Defaults to `United States`. Changing this forces a new Email Communication Service to be created.
      * 
      */
-    @Export(name="dataLocation", type=String.class, parameters={})
+    @Export(name="dataLocation", refs={String.class}, tree="[0]")
     private Output<String> dataLocation;
 
     /**
@@ -84,7 +84,7 @@ public class EmailService extends com.pulumi.resources.CustomResource {
      * The name of the Email Communication Service resource. Changing this forces a new Email Communication Service to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -98,7 +98,7 @@ public class EmailService extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Email Communication Service should exist. Changing this forces a new Email Communication Service to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -112,7 +112,7 @@ public class EmailService extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Email Communication Service.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

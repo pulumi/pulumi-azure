@@ -81,7 +81,7 @@ public class DscConfiguration extends com.pulumi.resources.CustomResource {
      * The name of the automation account in which the DSC Configuration is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", type=String.class, parameters={})
+    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
     private Output<String> automationAccountName;
 
     /**
@@ -95,7 +95,7 @@ public class DscConfiguration extends com.pulumi.resources.CustomResource {
      * The PowerShell DSC Configuration script.
      * 
      */
-    @Export(name="contentEmbedded", type=String.class, parameters={})
+    @Export(name="contentEmbedded", refs={String.class}, tree="[0]")
     private Output<String> contentEmbedded;
 
     /**
@@ -109,7 +109,7 @@ public class DscConfiguration extends com.pulumi.resources.CustomResource {
      * Description to go with DSC Configuration.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -123,7 +123,7 @@ public class DscConfiguration extends com.pulumi.resources.CustomResource {
      * Must be the same location as the Automation Account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -137,7 +137,7 @@ public class DscConfiguration extends com.pulumi.resources.CustomResource {
      * Verbose log option.
      * 
      */
-    @Export(name="logVerbose", type=Boolean.class, parameters={})
+    @Export(name="logVerbose", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> logVerbose;
 
     /**
@@ -151,7 +151,7 @@ public class DscConfiguration extends com.pulumi.resources.CustomResource {
      * Specifies the name of the DSC Configuration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -165,7 +165,7 @@ public class DscConfiguration extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -175,7 +175,7 @@ public class DscConfiguration extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     public Output<String> state() {
@@ -185,7 +185,7 @@ public class DscConfiguration extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

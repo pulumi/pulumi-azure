@@ -88,7 +88,7 @@ public class JobAgent extends com.pulumi.resources.CustomResource {
      * The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      * 
      */
-    @Export(name="databaseId", type=String.class, parameters={})
+    @Export(name="databaseId", refs={String.class}, tree="[0]")
     private Output<String> databaseId;
 
     /**
@@ -102,7 +102,7 @@ public class JobAgent extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -116,7 +116,7 @@ public class JobAgent extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -130,7 +130,7 @@ public class JobAgent extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Database.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

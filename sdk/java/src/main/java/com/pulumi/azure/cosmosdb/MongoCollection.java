@@ -91,7 +91,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
      * The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="accountName", type=String.class, parameters={})
+    @Export(name="accountName", refs={String.class}, tree="[0]")
     private Output<String> accountName;
 
     /**
@@ -105,7 +105,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
      * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      * 
      */
-    @Export(name="analyticalStorageTtl", type=Integer.class, parameters={})
+    @Export(name="analyticalStorageTtl", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> analyticalStorageTtl;
 
     /**
@@ -115,7 +115,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> analyticalStorageTtl() {
         return Codegen.optional(this.analyticalStorageTtl);
     }
-    @Export(name="autoscaleSettings", type=MongoCollectionAutoscaleSettings.class, parameters={})
+    @Export(name="autoscaleSettings", refs={MongoCollectionAutoscaleSettings.class}, tree="[0]")
     private Output</* @Nullable */ MongoCollectionAutoscaleSettings> autoscaleSettings;
 
     public Output<Optional<MongoCollectionAutoscaleSettings>> autoscaleSettings() {
@@ -125,7 +125,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
      * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="databaseName", type=String.class, parameters={})
+    @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
@@ -139,7 +139,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
      * The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
      * 
      */
-    @Export(name="defaultTtlSeconds", type=Integer.class, parameters={})
+    @Export(name="defaultTtlSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> defaultTtlSeconds;
 
     /**
@@ -153,7 +153,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
      * One or more `index` blocks as defined below.
      * 
      */
-    @Export(name="indices", type=List.class, parameters={MongoCollectionIndex.class})
+    @Export(name="indices", refs={List.class,MongoCollectionIndex.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MongoCollectionIndex>> indices;
 
     /**
@@ -167,7 +167,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -181,7 +181,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -195,7 +195,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
      * The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="shardKey", type=String.class, parameters={})
+    @Export(name="shardKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> shardKey;
 
     /**
@@ -209,7 +209,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
      * One or more `system_indexes` blocks as defined below.
      * 
      */
-    @Export(name="systemIndexes", type=List.class, parameters={MongoCollectionSystemIndex.class})
+    @Export(name="systemIndexes", refs={List.class,MongoCollectionSystemIndex.class}, tree="[0,1]")
     private Output<List<MongoCollectionSystemIndex>> systemIndexes;
 
     /**
@@ -219,7 +219,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
     public Output<List<MongoCollectionSystemIndex>> systemIndexes() {
         return this.systemIndexes;
     }
-    @Export(name="throughput", type=Integer.class, parameters={})
+    @Export(name="throughput", refs={Integer.class}, tree="[0]")
     private Output<Integer> throughput;
 
     public Output<Integer> throughput() {

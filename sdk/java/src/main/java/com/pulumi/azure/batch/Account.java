@@ -88,7 +88,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The account endpoint used to interact with the Batch service.
      * 
      */
-    @Export(name="accountEndpoint", type=String.class, parameters={})
+    @Export(name="accountEndpoint", refs={String.class}, tree="[0]")
     private Output<String> accountEndpoint;
 
     /**
@@ -102,7 +102,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
      * 
      */
-    @Export(name="allowedAuthenticationModes", type=List.class, parameters={String.class})
+    @Export(name="allowedAuthenticationModes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> allowedAuthenticationModes;
 
     /**
@@ -116,7 +116,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies if customer managed key encryption should be used to encrypt batch account data.
      * 
      */
-    @Export(name="encryption", type=AccountEncryption.class, parameters={})
+    @Export(name="encryption", refs={AccountEncryption.class}, tree="[0]")
     private Output</* @Nullable */ AccountEncryption> encryption;
 
     /**
@@ -130,7 +130,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=AccountIdentity.class, parameters={})
+    @Export(name="identity", refs={AccountIdentity.class}, tree="[0]")
     private Output</* @Nullable */ AccountIdentity> identity;
 
     /**
@@ -144,7 +144,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
      * 
      */
-    @Export(name="keyVaultReference", type=AccountKeyVaultReference.class, parameters={})
+    @Export(name="keyVaultReference", refs={AccountKeyVaultReference.class}, tree="[0]")
     private Output</* @Nullable */ AccountKeyVaultReference> keyVaultReference;
 
     /**
@@ -158,7 +158,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -172,7 +172,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -186,7 +186,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
      * 
      */
-    @Export(name="poolAllocationMode", type=String.class, parameters={})
+    @Export(name="poolAllocationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> poolAllocationMode;
 
     /**
@@ -200,7 +200,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The Batch account primary access key.
      * 
      */
-    @Export(name="primaryAccessKey", type=String.class, parameters={})
+    @Export(name="primaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> primaryAccessKey;
 
     /**
@@ -214,7 +214,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -228,7 +228,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -242,7 +242,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * The Batch account secondary access key.
      * 
      */
-    @Export(name="secondaryAccessKey", type=String.class, parameters={})
+    @Export(name="secondaryAccessKey", refs={String.class}, tree="[0]")
     private Output<String> secondaryAccessKey;
 
     /**
@@ -256,7 +256,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
      * 
      */
-    @Export(name="storageAccountAuthenticationMode", type=String.class, parameters={})
+    @Export(name="storageAccountAuthenticationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountAuthenticationMode;
 
     /**
@@ -270,7 +270,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      * 
      */
-    @Export(name="storageAccountId", type=String.class, parameters={})
+    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountId;
 
     /**
@@ -284,7 +284,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * Specifies the user assigned identity for the storage account.
      * 
      */
-    @Export(name="storageAccountNodeIdentity", type=String.class, parameters={})
+    @Export(name="storageAccountNodeIdentity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountNodeIdentity;
 
     /**
@@ -298,7 +298,7 @@ public class Account extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

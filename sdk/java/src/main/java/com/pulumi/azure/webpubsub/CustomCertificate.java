@@ -31,7 +31,7 @@ public class CustomCertificate extends com.pulumi.resources.CustomResource {
      * The certificate version of the Web Pubsub Custom Certificate.
      * 
      */
-    @Export(name="certificateVersion", type=String.class, parameters={})
+    @Export(name="certificateVersion", refs={String.class}, tree="[0]")
     private Output<String> certificateVersion;
 
     /**
@@ -45,7 +45,7 @@ public class CustomCertificate extends com.pulumi.resources.CustomResource {
      * The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="customCertificateId", type=String.class, parameters={})
+    @Export(name="customCertificateId", refs={String.class}, tree="[0]")
     private Output<String> customCertificateId;
 
     /**
@@ -59,7 +59,7 @@ public class CustomCertificate extends com.pulumi.resources.CustomResource {
      * The name of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -73,7 +73,7 @@ public class CustomCertificate extends com.pulumi.resources.CustomResource {
      * The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="webPubsubId", type=String.class, parameters={})
+    @Export(name="webPubsubId", refs={String.class}, tree="[0]")
     private Output<String> webPubsubId;
 
     /**

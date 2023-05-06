@@ -78,7 +78,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The ending IP address to allow through the firewall for this rule.
      * 
      */
-    @Export(name="endIpAddress", type=String.class, parameters={})
+    @Export(name="endIpAddress", refs={String.class}, tree="[0]")
     private Output<String> endIpAddress;
 
     /**
@@ -92,7 +92,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The name of the firewall rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -106,7 +106,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -120,7 +120,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", type=String.class, parameters={})
+    @Export(name="serverName", refs={String.class}, tree="[0]")
     private Output<String> serverName;
 
     /**
@@ -134,7 +134,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The starting IP address to allow through the firewall for this rule.
      * 
      */
-    @Export(name="startIpAddress", type=String.class, parameters={})
+    @Export(name="startIpAddress", refs={String.class}, tree="[0]")
     private Output<String> startIpAddress;
 
     /**

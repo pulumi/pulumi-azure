@@ -77,7 +77,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -91,7 +91,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=ApplicationIdentity.class, parameters={})
+    @Export(name="identity", refs={ApplicationIdentity.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationIdentity> identity;
 
     /**
@@ -105,7 +105,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -119,7 +119,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -133,7 +133,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
      * 
      */
-    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
@@ -147,7 +147,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -161,7 +161,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
      * 
      */
-    @Export(name="sku", type=String.class, parameters={})
+    @Export(name="sku", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sku;
 
     /**
@@ -175,7 +175,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
      * 
      */
-    @Export(name="subDomain", type=String.class, parameters={})
+    @Export(name="subDomain", refs={String.class}, tree="[0]")
     private Output<String> subDomain;
 
     /**
@@ -189,7 +189,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -203,7 +203,7 @@ public class Application extends com.pulumi.resources.CustomResource {
      * A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="template", type=String.class, parameters={})
+    @Export(name="template", refs={String.class}, tree="[0]")
     private Output<String> template;
 
     /**

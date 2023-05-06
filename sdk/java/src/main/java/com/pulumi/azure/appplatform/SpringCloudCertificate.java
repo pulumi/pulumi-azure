@@ -161,7 +161,7 @@ public class SpringCloudCertificate extends com.pulumi.resources.CustomResource 
      * The content of uploaded certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="certificateContent", type=String.class, parameters={})
+    @Export(name="certificateContent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateContent;
 
     /**
@@ -175,7 +175,7 @@ public class SpringCloudCertificate extends com.pulumi.resources.CustomResource 
      * Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keyVaultCertificateId", type=String.class, parameters={})
+    @Export(name="keyVaultCertificateId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyVaultCertificateId;
 
     /**
@@ -189,7 +189,7 @@ public class SpringCloudCertificate extends com.pulumi.resources.CustomResource 
      * Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -203,7 +203,7 @@ public class SpringCloudCertificate extends com.pulumi.resources.CustomResource 
      * Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -217,7 +217,7 @@ public class SpringCloudCertificate extends com.pulumi.resources.CustomResource 
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serviceName", type=String.class, parameters={})
+    @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
     /**
@@ -231,7 +231,7 @@ public class SpringCloudCertificate extends com.pulumi.resources.CustomResource 
      * The thumbprint of the Spring Cloud certificate.
      * 
      */
-    @Export(name="thumbprint", type=String.class, parameters={})
+    @Export(name="thumbprint", refs={String.class}, tree="[0]")
     private Output<String> thumbprint;
 
     /**

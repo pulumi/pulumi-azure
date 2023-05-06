@@ -36,7 +36,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * Should new Private Endpoint Connections be allowed. Defaults to `true`.
      * 
      */
-    @Export(name="allowNewPrivateEndpointConnections", type=Boolean.class, parameters={})
+    @Export(name="allowNewPrivateEndpointConnections", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowNewPrivateEndpointConnections;
 
     /**
@@ -50,7 +50,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * Zero or more `cluster_setting` blocks as defined below.
      * 
      */
-    @Export(name="clusterSettings", type=List.class, parameters={EnvironmentV3ClusterSetting.class})
+    @Export(name="clusterSettings", refs={List.class,EnvironmentV3ClusterSetting.class}, tree="[0,1]")
     private Output<List<EnvironmentV3ClusterSetting>> clusterSettings;
 
     /**
@@ -64,7 +64,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="dedicatedHostCount", type=Integer.class, parameters={})
+    @Export(name="dedicatedHostCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dedicatedHostCount;
 
     /**
@@ -78,7 +78,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * the DNS suffix for this App Service Environment V3.
      * 
      */
-    @Export(name="dnsSuffix", type=String.class, parameters={})
+    @Export(name="dnsSuffix", refs={String.class}, tree="[0]")
     private Output<String> dnsSuffix;
 
     /**
@@ -92,7 +92,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * The external inbound IP addresses of the App Service Environment V3.
      * 
      */
-    @Export(name="externalInboundIpAddresses", type=List.class, parameters={String.class})
+    @Export(name="externalInboundIpAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> externalInboundIpAddresses;
 
     /**
@@ -106,7 +106,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * An Inbound Network Dependencies block as defined below.
      * 
      */
-    @Export(name="inboundNetworkDependencies", type=List.class, parameters={EnvironmentV3InboundNetworkDependency.class})
+    @Export(name="inboundNetworkDependencies", refs={List.class,EnvironmentV3InboundNetworkDependency.class}, tree="[0,1]")
     private Output<List<EnvironmentV3InboundNetworkDependency>> inboundNetworkDependencies;
 
     /**
@@ -120,7 +120,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * The internal inbound IP addresses of the App Service Environment V3.
      * 
      */
-    @Export(name="internalInboundIpAddresses", type=List.class, parameters={String.class})
+    @Export(name="internalInboundIpAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> internalInboundIpAddresses;
 
     /**
@@ -134,7 +134,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `&#34;Web, Publishing&#34;` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="internalLoadBalancingMode", type=String.class, parameters={})
+    @Export(name="internalLoadBalancingMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> internalLoadBalancingMode;
 
     /**
@@ -148,7 +148,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * The number of IP SSL addresses reserved for the App Service Environment V3.
      * 
      */
-    @Export(name="ipSslAddressCount", type=Integer.class, parameters={})
+    @Export(name="ipSslAddressCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> ipSslAddressCount;
 
     /**
@@ -162,7 +162,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * Outbound addresses of Linux based Apps in this App Service Environment V3
      * 
      */
-    @Export(name="linuxOutboundIpAddresses", type=List.class, parameters={String.class})
+    @Export(name="linuxOutboundIpAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> linuxOutboundIpAddresses;
 
     /**
@@ -176,7 +176,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * The location where the App Service Environment exists.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -190,7 +190,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * The name of the App Service Environment. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -204,7 +204,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * Pricing tier for the front end instances.
      * 
      */
-    @Export(name="pricingTier", type=String.class, parameters={})
+    @Export(name="pricingTier", refs={String.class}, tree="[0]")
     private Output<String> pricingTier;
 
     /**
@@ -218,7 +218,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -232,7 +232,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
@@ -246,7 +246,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -260,7 +260,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * Outbound addresses of Windows based Apps in this App Service Environment V3.
      * 
      */
-    @Export(name="windowsOutboundIpAddresses", type=List.class, parameters={String.class})
+    @Export(name="windowsOutboundIpAddresses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> windowsOutboundIpAddresses;
 
     /**
@@ -274,7 +274,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zoneRedundant", type=Boolean.class, parameters={})
+    @Export(name="zoneRedundant", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> zoneRedundant;
 
     /**

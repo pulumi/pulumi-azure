@@ -270,7 +270,7 @@ public class VolumeGroupSapHana extends com.pulumi.resources.CustomResource {
      * Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
-    @Export(name="accountName", type=String.class, parameters={})
+    @Export(name="accountName", refs={String.class}, tree="[0]")
     private Output<String> accountName;
 
     /**
@@ -284,7 +284,7 @@ public class VolumeGroupSapHana extends com.pulumi.resources.CustomResource {
      * The SAP System ID, maximum 3 characters, e.g. `SH9`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
-    @Export(name="applicationIdentifier", type=String.class, parameters={})
+    @Export(name="applicationIdentifier", refs={String.class}, tree="[0]")
     private Output<String> applicationIdentifier;
 
     /**
@@ -298,7 +298,7 @@ public class VolumeGroupSapHana extends com.pulumi.resources.CustomResource {
      * Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
-    @Export(name="groupDescription", type=String.class, parameters={})
+    @Export(name="groupDescription", refs={String.class}, tree="[0]")
     private Output<String> groupDescription;
 
     /**
@@ -312,7 +312,7 @@ public class VolumeGroupSapHana extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -326,7 +326,7 @@ public class VolumeGroupSapHana extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -340,7 +340,7 @@ public class VolumeGroupSapHana extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -354,7 +354,7 @@ public class VolumeGroupSapHana extends com.pulumi.resources.CustomResource {
      * One or more `volume` blocks as defined below.
      * 
      */
-    @Export(name="volumes", type=List.class, parameters={VolumeGroupSapHanaVolume.class})
+    @Export(name="volumes", refs={List.class,VolumeGroupSapHanaVolume.class}, tree="[0,1]")
     private Output<List<VolumeGroupSapHanaVolume>> volumes;
 
     /**

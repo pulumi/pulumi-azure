@@ -209,7 +209,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * An `encryption` block as defined below.
      * 
      */
-    @Export(name="encryption", type=ConfigurationStoreEncryption.class, parameters={})
+    @Export(name="encryption", refs={ConfigurationStoreEncryption.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationStoreEncryption> encryption;
 
     /**
@@ -223,7 +223,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * The URL of the App Configuration.
      * 
      */
-    @Export(name="endpoint", type=String.class, parameters={})
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
@@ -237,7 +237,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=ConfigurationStoreIdentity.class, parameters={})
+    @Export(name="identity", refs={ConfigurationStoreIdentity.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationStoreIdentity> identity;
 
     /**
@@ -251,7 +251,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * Whether local authentication methods is enabled. Defaults to `true`.
      * 
      */
-    @Export(name="localAuthEnabled", type=Boolean.class, parameters={})
+    @Export(name="localAuthEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> localAuthEnabled;
 
     /**
@@ -265,7 +265,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -279,7 +279,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * Specifies the name of the App Configuration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -293,7 +293,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * A `primary_read_key` block as defined below containing the primary read access key.
      * 
      */
-    @Export(name="primaryReadKeys", type=List.class, parameters={ConfigurationStorePrimaryReadKey.class})
+    @Export(name="primaryReadKeys", refs={List.class,ConfigurationStorePrimaryReadKey.class}, tree="[0,1]")
     private Output<List<ConfigurationStorePrimaryReadKey>> primaryReadKeys;
 
     /**
@@ -307,7 +307,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * A `primary_write_key` block as defined below containing the primary write access key.
      * 
      */
-    @Export(name="primaryWriteKeys", type=List.class, parameters={ConfigurationStorePrimaryWriteKey.class})
+    @Export(name="primaryWriteKeys", refs={List.class,ConfigurationStorePrimaryWriteKey.class}, tree="[0,1]")
     private Output<List<ConfigurationStorePrimaryWriteKey>> primaryWriteKeys;
 
     /**
@@ -321,7 +321,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
      */
-    @Export(name="publicNetworkAccess", type=String.class, parameters={})
+    @Export(name="publicNetworkAccess", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> publicNetworkAccess;
 
     /**
@@ -335,7 +335,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
      * 
      */
-    @Export(name="purgeProtectionEnabled", type=Boolean.class, parameters={})
+    @Export(name="purgeProtectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> purgeProtectionEnabled;
 
     /**
@@ -349,7 +349,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -363,7 +363,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * A `secondary_read_key` block as defined below containing the secondary read access key.
      * 
      */
-    @Export(name="secondaryReadKeys", type=List.class, parameters={ConfigurationStoreSecondaryReadKey.class})
+    @Export(name="secondaryReadKeys", refs={List.class,ConfigurationStoreSecondaryReadKey.class}, tree="[0,1]")
     private Output<List<ConfigurationStoreSecondaryReadKey>> secondaryReadKeys;
 
     /**
@@ -377,7 +377,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * A `secondary_write_key` block as defined below containing the secondary write access key.
      * 
      */
-    @Export(name="secondaryWriteKeys", type=List.class, parameters={ConfigurationStoreSecondaryWriteKey.class})
+    @Export(name="secondaryWriteKeys", refs={List.class,ConfigurationStoreSecondaryWriteKey.class}, tree="[0,1]")
     private Output<List<ConfigurationStoreSecondaryWriteKey>> secondaryWriteKeys;
 
     /**
@@ -391,7 +391,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * The SKU name of the App Configuration. Possible values are `free` and `standard`.
      * 
      */
-    @Export(name="sku", type=String.class, parameters={})
+    @Export(name="sku", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sku;
 
     /**
@@ -405,7 +405,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="softDeleteRetentionDays", type=Integer.class, parameters={})
+    @Export(name="softDeleteRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> softDeleteRetentionDays;
 
     /**
@@ -419,7 +419,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

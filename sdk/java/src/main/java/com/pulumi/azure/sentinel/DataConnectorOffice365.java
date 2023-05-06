@@ -83,7 +83,7 @@ public class DataConnectorOffice365 extends com.pulumi.resources.CustomResource 
      * Should the Exchange data connector be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="exchangeEnabled", type=Boolean.class, parameters={})
+    @Export(name="exchangeEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> exchangeEnabled;
 
     /**
@@ -97,7 +97,7 @@ public class DataConnectorOffice365 extends com.pulumi.resources.CustomResource 
      * The ID of the Log Analytics Workspace that this Office 365 Data Connector resides in. Changing this forces a new Office 365 Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -111,7 +111,7 @@ public class DataConnectorOffice365 extends com.pulumi.resources.CustomResource 
      * The name which should be used for this Office 365 Data Connector. Changing this forces a new Office 365 Data Connector to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -125,7 +125,7 @@ public class DataConnectorOffice365 extends com.pulumi.resources.CustomResource 
      * Should the SharePoint data connector be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="sharepointEnabled", type=Boolean.class, parameters={})
+    @Export(name="sharepointEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sharepointEnabled;
 
     /**
@@ -139,7 +139,7 @@ public class DataConnectorOffice365 extends com.pulumi.resources.CustomResource 
      * Should the Microsoft Teams data connector be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="teamsEnabled", type=Boolean.class, parameters={})
+    @Export(name="teamsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> teamsEnabled;
 
     /**
@@ -153,7 +153,7 @@ public class DataConnectorOffice365 extends com.pulumi.resources.CustomResource 
      * The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
      * 
      */
-    @Export(name="tenantId", type=String.class, parameters={})
+    @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**

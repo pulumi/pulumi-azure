@@ -13,6 +13,65 @@ import (
 
 // Manages a Traffic Manager Profile to which multiple endpoints can be attached.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
+//				Keepers: pulumi.AnyMap{
+//					"azi_id": pulumi.Any(1),
+//				},
+//				ByteLength: pulumi.Int(8),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewTrafficManagerProfile(ctx, "exampleTrafficManagerProfile", &network.TrafficManagerProfileArgs{
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//				TrafficRoutingMethod: pulumi.String("Weighted"),
+//				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
+//					RelativeName: server.Hex,
+//					Ttl:          pulumi.Int(100),
+//				},
+//				MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
+//					Protocol:                  pulumi.String("HTTP"),
+//					Port:                      pulumi.Int(80),
+//					Path:                      pulumi.String("/"),
+//					IntervalInSeconds:         pulumi.Int(30),
+//					TimeoutInSeconds:          pulumi.Int(9),
+//					ToleratedNumberOfFailures: pulumi.Int(3),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Traffic Manager Profiles can be imported using the `resource id`, e.g.

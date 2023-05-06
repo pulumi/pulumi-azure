@@ -92,7 +92,7 @@ public class ApplicationNetworkRuleSet extends com.pulumi.resources.CustomResour
      * Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
      * 
      */
-    @Export(name="applyToDevice", type=Boolean.class, parameters={})
+    @Export(name="applyToDevice", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> applyToDevice;
 
     /**
@@ -106,7 +106,7 @@ public class ApplicationNetworkRuleSet extends com.pulumi.resources.CustomResour
      * Specifies the default action for the IoT Central Application Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
      * 
      */
-    @Export(name="defaultAction", type=String.class, parameters={})
+    @Export(name="defaultAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultAction;
 
     /**
@@ -120,7 +120,7 @@ public class ApplicationNetworkRuleSet extends com.pulumi.resources.CustomResour
      * The ID of the IoT Central Application. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="iotcentralApplicationId", type=String.class, parameters={})
+    @Export(name="iotcentralApplicationId", refs={String.class}, tree="[0]")
     private Output<String> iotcentralApplicationId;
 
     /**
@@ -134,7 +134,7 @@ public class ApplicationNetworkRuleSet extends com.pulumi.resources.CustomResour
      * One or more `ip_rule` blocks as defined below.
      * 
      */
-    @Export(name="ipRules", type=List.class, parameters={ApplicationNetworkRuleSetIpRule.class})
+    @Export(name="ipRules", refs={List.class,ApplicationNetworkRuleSetIpRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationNetworkRuleSetIpRule>> ipRules;
 
     /**

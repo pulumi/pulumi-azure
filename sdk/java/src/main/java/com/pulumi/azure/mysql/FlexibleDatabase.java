@@ -80,7 +80,7 @@ public class FlexibleDatabase extends com.pulumi.resources.CustomResource {
      * Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="charset", type=String.class, parameters={})
+    @Export(name="charset", refs={String.class}, tree="[0]")
     private Output<String> charset;
 
     /**
@@ -94,7 +94,7 @@ public class FlexibleDatabase extends com.pulumi.resources.CustomResource {
      * Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="collation", type=String.class, parameters={})
+    @Export(name="collation", refs={String.class}, tree="[0]")
     private Output<String> collation;
 
     /**
@@ -108,7 +108,7 @@ public class FlexibleDatabase extends com.pulumi.resources.CustomResource {
      * Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -122,7 +122,7 @@ public class FlexibleDatabase extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -136,7 +136,7 @@ public class FlexibleDatabase extends com.pulumi.resources.CustomResource {
      * Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="serverName", type=String.class, parameters={})
+    @Export(name="serverName", refs={String.class}, tree="[0]")
     private Output<String> serverName;
 
     /**

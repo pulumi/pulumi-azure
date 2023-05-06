@@ -113,7 +113,7 @@ public class NetworkManagerManagementGroupConnection extends com.pulumi.resource
      * The Connection state of the Network Manager Management Group Connection.
      * 
      */
-    @Export(name="connectionState", type=String.class, parameters={})
+    @Export(name="connectionState", refs={String.class}, tree="[0]")
     private Output<String> connectionState;
 
     /**
@@ -127,7 +127,7 @@ public class NetworkManagerManagementGroupConnection extends com.pulumi.resource
      * A description of the Network Manager Management Group Connection.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -141,7 +141,7 @@ public class NetworkManagerManagementGroupConnection extends com.pulumi.resource
      * Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="managementGroupId", type=String.class, parameters={})
+    @Export(name="managementGroupId", refs={String.class}, tree="[0]")
     private Output<String> managementGroupId;
 
     /**
@@ -155,7 +155,7 @@ public class NetworkManagerManagementGroupConnection extends com.pulumi.resource
      * Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -169,7 +169,7 @@ public class NetworkManagerManagementGroupConnection extends com.pulumi.resource
      * Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkManagerId", type=String.class, parameters={})
+    @Export(name="networkManagerId", refs={String.class}, tree="[0]")
     private Output<String> networkManagerId;
 
     /**

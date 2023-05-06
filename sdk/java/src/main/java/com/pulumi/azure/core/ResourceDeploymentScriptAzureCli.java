@@ -97,7 +97,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="cleanupPreference", type=String.class, parameters={})
+    @Export(name="cleanupPreference", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cleanupPreference;
 
     /**
@@ -111,7 +111,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="commandLine", type=String.class, parameters={})
+    @Export(name="commandLine", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> commandLine;
 
     /**
@@ -125,7 +125,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="container", type=ResourceDeploymentScriptAzureCliContainer.class, parameters={})
+    @Export(name="container", refs={ResourceDeploymentScriptAzureCliContainer.class}, tree="[0]")
     private Output</* @Nullable */ ResourceDeploymentScriptAzureCliContainer> container;
 
     /**
@@ -139,7 +139,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="environmentVariables", type=List.class, parameters={ResourceDeploymentScriptAzureCliEnvironmentVariable.class})
+    @Export(name="environmentVariables", refs={List.class,ResourceDeploymentScriptAzureCliEnvironmentVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourceDeploymentScriptAzureCliEnvironmentVariable>> environmentVariables;
 
     /**
@@ -153,7 +153,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="forceUpdateTag", type=String.class, parameters={})
+    @Export(name="forceUpdateTag", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> forceUpdateTag;
 
     /**
@@ -167,7 +167,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="identity", type=ResourceDeploymentScriptAzureCliIdentity.class, parameters={})
+    @Export(name="identity", refs={ResourceDeploymentScriptAzureCliIdentity.class}, tree="[0]")
     private Output</* @Nullable */ ResourceDeploymentScriptAzureCliIdentity> identity;
 
     /**
@@ -181,7 +181,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * Specifies the Azure Region where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -195,7 +195,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * Specifies the name which should be used for this Resource Deployment Script. The name length must be from 1 to 260 characters. The name can only contain alphanumeric, underscore, parentheses, hyphen and period, and it cannot end with a period. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -209,7 +209,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * List of script outputs.
      * 
      */
-    @Export(name="outputs", type=String.class, parameters={})
+    @Export(name="outputs", refs={String.class}, tree="[0]")
     private Output<String> outputs;
 
     /**
@@ -223,7 +223,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * Uri for the script. This is the entry point for the external script. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="primaryScriptUri", type=String.class, parameters={})
+    @Export(name="primaryScriptUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> primaryScriptUri;
 
     /**
@@ -237,7 +237,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -251,7 +251,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="retentionInterval", type=String.class, parameters={})
+    @Export(name="retentionInterval", refs={String.class}, tree="[0]")
     private Output<String> retentionInterval;
 
     /**
@@ -265,7 +265,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * Script body. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="scriptContent", type=String.class, parameters={})
+    @Export(name="scriptContent", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scriptContent;
 
     /**
@@ -279,7 +279,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="storageAccount", type=ResourceDeploymentScriptAzureCliStorageAccount.class, parameters={})
+    @Export(name="storageAccount", refs={ResourceDeploymentScriptAzureCliStorageAccount.class}, tree="[0]")
     private Output</* @Nullable */ ResourceDeploymentScriptAzureCliStorageAccount> storageAccount;
 
     /**
@@ -293,7 +293,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="supportingScriptUris", type=List.class, parameters={String.class})
+    @Export(name="supportingScriptUris", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> supportingScriptUris;
 
     /**
@@ -307,7 +307,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * A mapping of tags which should be assigned to the Resource Deployment Script.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -321,7 +321,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="timeout", type=String.class, parameters={})
+    @Export(name="timeout", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timeout;
 
     /**
@@ -335,7 +335,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * Azure CLI module version to be used. The supported versions are `2.0.77`, `2.0.78`, `2.0.79`, `2.0.80`, `2.0.81`, `2.1.0`, `2.10.0`, `2.10.1`, `2.11.0`, `2.11.1`, `2.12.0`, `2.12.1`, `2.13.0`, `2.14.0`, `2.14.1`, `2.14.2`, `2.15.0`, `2.15.1`, `2.16.0`, `2.17.0`, `2.17.1`, `2.18.0`, `2.19.0`, `2.19.1`, `2.2.0`, `2.20.0`, `2.21.0`, `2.22.0`, `2.22.1`, `2.23.0`, `2.24.0`, `2.24.1`, `2.24.2`, `2.25.0`, `2.26.0`, `2.26.1`, `2.27.0`, `2.27.1`, `2.27.2`, `2.28.0`, `2.29.0`, `2.29.1`, `2.29.2`, `2.3.0`, `2.3.1`, `2.30.0`, `2.31.0`, `2.32.0`, `2.33.0`, `2.33.1`, `2.34.0`, `2.34.1`, `2.35.0`, `2.36.0`, `2.37.0`, `2.38.0`, `2.39.0`, `2.4.0`, `2.40.0`, `2.41.0`, `2.5.0`, `2.5.1`, `2.6.0`, `2.7.0`, `2.8.0`, `2.9.0`, `2.9.1`. Changing this forces a new Resource Deployment Script to be created.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**

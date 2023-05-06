@@ -92,7 +92,7 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
      * 
      */
-    @Export(name="apiManagementName", type=String.class, parameters={})
+    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
     private Output<String> apiManagementName;
 
     /**
@@ -106,7 +106,7 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
      * The body of the Email. Its format has to be a well-formed HTML document.
      * 
      */
-    @Export(name="body", type=String.class, parameters={})
+    @Export(name="body", refs={String.class}, tree="[0]")
     private Output<String> body;
 
     /**
@@ -120,7 +120,7 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
      * The description of the Email Template.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -134,7 +134,7 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the API Management Email Template should exist. Changing this forces a new API Management Email Template to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -148,7 +148,7 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
      * The subject of the Email.
      * 
      */
-    @Export(name="subject", type=String.class, parameters={})
+    @Export(name="subject", refs={String.class}, tree="[0]")
     private Output<String> subject;
 
     /**
@@ -162,7 +162,7 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
      * The name of the Email Template. Possible values are `AccountClosedDeveloper`, `ApplicationApprovedNotificationMessage`, `ConfirmSignUpIdentityDefault`, `EmailChangeIdentityDefault`, `InviteUserNotificationMessage`, `NewCommentNotificationMessage`, `NewDeveloperNotificationMessage`, `NewIssueNotificationMessage`, `PasswordResetByAdminNotificationMessage`, `PasswordResetIdentityDefault`, `PurchaseDeveloperNotificationMessage`, `QuotaLimitApproachingDeveloperNotificationMessage`, `RejectDeveloperNotificationMessage`, `RequestDeveloperNotificationMessage`. Changing this forces a new API Management Email Template to be created.
      * 
      */
-    @Export(name="templateName", type=String.class, parameters={})
+    @Export(name="templateName", refs={String.class}, tree="[0]")
     private Output<String> templateName;
 
     /**
@@ -176,7 +176,7 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
      * The title of the Email Template.
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**

@@ -4,6 +4,31 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ *
+ * const server = new random.RandomId("server", {});
+ * // ...
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {});
+ * // ...
+ * const examplePlan = new azure.appservice.Plan("examplePlan", {});
+ * // ...
+ * const exampleAppService = new azure.appservice.AppService("exampleAppService", {});
+ * // ...
+ * const exampleSlot = new azure.appservice.Slot("exampleSlot", {});
+ * // ...
+ * const exampleActiveSlot = new azure.appservice.ActiveSlot("exampleActiveSlot", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     appServiceName: exampleAppService.name,
+ *     appServiceSlotName: exampleSlot.name,
+ * });
+ * ```
+ */
 export class ActiveSlot extends pulumi.CustomResource {
     /**
      * Get an existing ActiveSlot resource's state with the given name, ID, and optional extra

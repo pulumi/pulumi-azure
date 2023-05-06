@@ -276,7 +276,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * A `certificate` block as defined below, used to Import an existing certificate.
      * 
      */
-    @Export(name="certificate", type=CertificateCertificate.class, parameters={})
+    @Export(name="certificate", refs={CertificateCertificate.class}, tree="[0]")
     private Output</* @Nullable */ CertificateCertificate> certificate;
 
     /**
@@ -290,7 +290,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * A `certificate_attribute` block as defined below.
      * 
      */
-    @Export(name="certificateAttributes", type=List.class, parameters={CertificateCertificateAttribute.class})
+    @Export(name="certificateAttributes", refs={List.class,CertificateCertificateAttribute.class}, tree="[0,1]")
     private Output<List<CertificateCertificateAttribute>> certificateAttributes;
 
     /**
@@ -304,7 +304,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The raw Key Vault Certificate data represented as a hexadecimal string.
      * 
      */
-    @Export(name="certificateData", type=String.class, parameters={})
+    @Export(name="certificateData", refs={String.class}, tree="[0]")
     private Output<String> certificateData;
 
     /**
@@ -318,7 +318,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The Base64 encoded Key Vault Certificate data.
      * 
      */
-    @Export(name="certificateDataBase64", type=String.class, parameters={})
+    @Export(name="certificateDataBase64", refs={String.class}, tree="[0]")
     private Output<String> certificateDataBase64;
 
     /**
@@ -332,7 +332,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="certificatePolicy", type=CertificateCertificatePolicy.class, parameters={})
+    @Export(name="certificatePolicy", refs={CertificateCertificatePolicy.class}, tree="[0]")
     private Output<CertificateCertificatePolicy> certificatePolicy;
 
     /**
@@ -346,7 +346,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="keyVaultId", type=String.class, parameters={})
+    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultId;
 
     /**
@@ -360,7 +360,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -374,7 +374,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won&#39;t auto-rotate values if used in other Azure Services.
      * 
      */
-    @Export(name="resourceManagerId", type=String.class, parameters={})
+    @Export(name="resourceManagerId", refs={String.class}, tree="[0]")
     private Output<String> resourceManagerId;
 
     /**
@@ -388,7 +388,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
      * 
      */
-    @Export(name="resourceManagerVersionlessId", type=String.class, parameters={})
+    @Export(name="resourceManagerVersionlessId", refs={String.class}, tree="[0]")
     private Output<String> resourceManagerVersionlessId;
 
     /**
@@ -402,7 +402,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The ID of the associated Key Vault Secret.
      * 
      */
-    @Export(name="secretId", type=String.class, parameters={})
+    @Export(name="secretId", refs={String.class}, tree="[0]")
     private Output<String> secretId;
 
     /**
@@ -416,7 +416,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -430,7 +430,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
      * 
      */
-    @Export(name="thumbprint", type=String.class, parameters={})
+    @Export(name="thumbprint", refs={String.class}, tree="[0]")
     private Output<String> thumbprint;
 
     /**
@@ -444,7 +444,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The current version of the Key Vault Certificate.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
@@ -458,7 +458,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The Base ID of the Key Vault Certificate.
      * 
      */
-    @Export(name="versionlessId", type=String.class, parameters={})
+    @Export(name="versionlessId", refs={String.class}, tree="[0]")
     private Output<String> versionlessId;
 
     /**
@@ -472,7 +472,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The Base ID of the Key Vault Secret.
      * 
      */
-    @Export(name="versionlessSecretId", type=String.class, parameters={})
+    @Export(name="versionlessSecretId", refs={String.class}, tree="[0]")
     private Output<String> versionlessSecretId;
 
     /**

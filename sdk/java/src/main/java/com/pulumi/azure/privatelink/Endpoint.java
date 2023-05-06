@@ -294,7 +294,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A `custom_dns_configs` block as defined below.
      * 
      */
-    @Export(name="customDnsConfigs", type=List.class, parameters={EndpointCustomDnsConfig.class})
+    @Export(name="customDnsConfigs", refs={List.class,EndpointCustomDnsConfig.class}, tree="[0,1]")
     private Output<List<EndpointCustomDnsConfig>> customDnsConfigs;
 
     /**
@@ -308,7 +308,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="customNetworkInterfaceName", type=String.class, parameters={})
+    @Export(name="customNetworkInterfaceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customNetworkInterfaceName;
 
     /**
@@ -322,7 +322,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      * 
      */
-    @Export(name="ipConfigurations", type=List.class, parameters={EndpointIpConfiguration.class})
+    @Export(name="ipConfigurations", refs={List.class,EndpointIpConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EndpointIpConfiguration>> ipConfigurations;
 
     /**
@@ -336,7 +336,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -350,7 +350,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -364,7 +364,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A `network_interface` block as defined below.
      * 
      */
-    @Export(name="networkInterfaces", type=List.class, parameters={EndpointNetworkInterface.class})
+    @Export(name="networkInterfaces", refs={List.class,EndpointNetworkInterface.class}, tree="[0,1]")
     private Output<List<EndpointNetworkInterface>> networkInterfaces;
 
     /**
@@ -378,7 +378,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A `private_dns_zone_configs` block as defined below.
      * 
      */
-    @Export(name="privateDnsZoneConfigs", type=List.class, parameters={EndpointPrivateDnsZoneConfig.class})
+    @Export(name="privateDnsZoneConfigs", refs={List.class,EndpointPrivateDnsZoneConfig.class}, tree="[0,1]")
     private Output<List<EndpointPrivateDnsZoneConfig>> privateDnsZoneConfigs;
 
     /**
@@ -392,7 +392,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A `private_dns_zone_group` block as defined below.
      * 
      */
-    @Export(name="privateDnsZoneGroup", type=EndpointPrivateDnsZoneGroup.class, parameters={})
+    @Export(name="privateDnsZoneGroup", refs={EndpointPrivateDnsZoneGroup.class}, tree="[0]")
     private Output</* @Nullable */ EndpointPrivateDnsZoneGroup> privateDnsZoneGroup;
 
     /**
@@ -406,7 +406,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A `private_service_connection` block as defined below.
      * 
      */
-    @Export(name="privateServiceConnection", type=EndpointPrivateServiceConnection.class, parameters={})
+    @Export(name="privateServiceConnection", refs={EndpointPrivateServiceConnection.class}, tree="[0]")
     private Output<EndpointPrivateServiceConnection> privateServiceConnection;
 
     /**
@@ -420,7 +420,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -434,7 +434,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subnetId", type=String.class, parameters={})
+    @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
@@ -448,7 +448,7 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -113,7 +113,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * An `author` blocks as defined below.
      * 
      */
-    @Export(name="author", type=MetadataAuthor.class, parameters={})
+    @Export(name="author", refs={MetadataAuthor.class}, tree="[0]")
     private Output</* @Nullable */ MetadataAuthor> author;
 
     /**
@@ -127,7 +127,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * A `category` block as defined below.
      * 
      */
-    @Export(name="category", type=MetadataCategory.class, parameters={})
+    @Export(name="category", refs={MetadataCategory.class}, tree="[0]")
     private Output</* @Nullable */ MetadataCategory> category;
 
     /**
@@ -141,7 +141,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * The ID of the content. Used to identify dependencies and content from solutions or community.
      * 
      */
-    @Export(name="contentId", type=String.class, parameters={})
+    @Export(name="contentId", refs={String.class}, tree="[0]")
     private Output<String> contentId;
 
     /**
@@ -155,7 +155,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * Schema version of the content. Can be used to distinguish between flow based on the schema version.
      * 
      */
-    @Export(name="contentSchemaVersion", type=String.class, parameters={})
+    @Export(name="contentSchemaVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentSchemaVersion;
 
     /**
@@ -169,7 +169,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * The Custom version of the content.
      * 
      */
-    @Export(name="customVersion", type=String.class, parameters={})
+    @Export(name="customVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customVersion;
 
     /**
@@ -183,7 +183,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * A JSON formatted `dependency` block as defined below. Dependency for the content item, what other content items it requires to work.
      * 
      */
-    @Export(name="dependency", type=String.class, parameters={})
+    @Export(name="dependency", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dependency;
 
     /**
@@ -197,7 +197,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * The first publish date of solution content item.
      * 
      */
-    @Export(name="firstPublishDate", type=String.class, parameters={})
+    @Export(name="firstPublishDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> firstPublishDate;
 
     /**
@@ -211,7 +211,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * The ID of the icon, this id can be fetched from the solution template.
      * 
      */
-    @Export(name="iconId", type=String.class, parameters={})
+    @Export(name="iconId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iconId;
 
     /**
@@ -225,7 +225,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * The kind of content the metadata is for. Possible values are `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook` and `WorkbookTemplate`.
      * 
      */
-    @Export(name="kind", type=String.class, parameters={})
+    @Export(name="kind", refs={String.class}, tree="[0]")
     private Output<String> kind;
 
     /**
@@ -239,7 +239,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * The last publish date of solution content item.
      * 
      */
-    @Export(name="lastPublishDate", type=String.class, parameters={})
+    @Export(name="lastPublishDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lastPublishDate;
 
     /**
@@ -253,7 +253,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -267,7 +267,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * The ID of the parent resource ID of the content item, which the metadata belongs to.
      * 
      */
-    @Export(name="parentId", type=String.class, parameters={})
+    @Export(name="parentId", refs={String.class}, tree="[0]")
     private Output<String> parentId;
 
     /**
@@ -277,13 +277,13 @@ public class Metadata extends com.pulumi.resources.CustomResource {
     public Output<String> parentId() {
         return this.parentId;
     }
-    @Export(name="previewImages", type=List.class, parameters={String.class})
+    @Export(name="previewImages", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> previewImages;
 
     public Output<Optional<List<String>>> previewImages() {
         return Codegen.optional(this.previewImages);
     }
-    @Export(name="previewImagesDarks", type=List.class, parameters={String.class})
+    @Export(name="previewImagesDarks", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> previewImagesDarks;
 
     public Output<Optional<List<String>>> previewImagesDarks() {
@@ -293,7 +293,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * Specifies a list of providers for the solution content item.
      * 
      */
-    @Export(name="providers", type=List.class, parameters={String.class})
+    @Export(name="providers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> providers;
 
     /**
@@ -307,7 +307,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * A `source` block as defined below.
      * 
      */
-    @Export(name="source", type=MetadataSource.class, parameters={})
+    @Export(name="source", refs={MetadataSource.class}, tree="[0]")
     private Output<MetadataSource> source;
 
     /**
@@ -321,7 +321,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * A `support` block as defined below.
      * 
      */
-    @Export(name="support", type=MetadataSupport.class, parameters={})
+    @Export(name="support", refs={MetadataSupport.class}, tree="[0]")
     private Output</* @Nullable */ MetadataSupport> support;
 
     /**
@@ -335,7 +335,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * Specifies a list of tactics the resource covers.
      * 
      */
-    @Export(name="threatAnalysisTactics", type=List.class, parameters={String.class})
+    @Export(name="threatAnalysisTactics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> threatAnalysisTactics;
 
     /**
@@ -349,7 +349,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * Specifies a list of techniques the resource covers.
      * 
      */
-    @Export(name="threatAnalysisTechniques", type=List.class, parameters={String.class})
+    @Export(name="threatAnalysisTechniques", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> threatAnalysisTechniques;
 
     /**
@@ -363,7 +363,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * Version of the content.
      * 
      */
-    @Export(name="version", type=String.class, parameters={})
+    @Export(name="version", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> version;
 
     /**
@@ -377,7 +377,7 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created.
      * 
      */
-    @Export(name="workspaceId", type=String.class, parameters={})
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**

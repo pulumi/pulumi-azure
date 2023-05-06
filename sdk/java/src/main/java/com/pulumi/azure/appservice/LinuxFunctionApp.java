@@ -105,7 +105,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
      */
-    @Export(name="appSettings", type=Map.class, parameters={String.class, String.class})
+    @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> appSettings;
 
     /**
@@ -119,7 +119,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * A `auth_settings` block as defined below.
      * 
      */
-    @Export(name="authSettings", type=LinuxFunctionAppAuthSettings.class, parameters={})
+    @Export(name="authSettings", refs={LinuxFunctionAppAuthSettings.class}, tree="[0]")
     private Output</* @Nullable */ LinuxFunctionAppAuthSettings> authSettings;
 
     /**
@@ -133,7 +133,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * An `auth_settings_v2` block as defined below.
      * 
      */
-    @Export(name="authSettingsV2", type=LinuxFunctionAppAuthSettingsV2.class, parameters={})
+    @Export(name="authSettingsV2", refs={LinuxFunctionAppAuthSettingsV2.class}, tree="[0]")
     private Output</* @Nullable */ LinuxFunctionAppAuthSettingsV2> authSettingsV2;
 
     /**
@@ -147,7 +147,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * A `backup` block as defined below.
      * 
      */
-    @Export(name="backup", type=LinuxFunctionAppBackup.class, parameters={})
+    @Export(name="backup", refs={LinuxFunctionAppBackup.class}, tree="[0]")
     private Output</* @Nullable */ LinuxFunctionAppBackup> backup;
 
     /**
@@ -161,7 +161,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      * 
      */
-    @Export(name="builtinLoggingEnabled", type=Boolean.class, parameters={})
+    @Export(name="builtinLoggingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> builtinLoggingEnabled;
 
     /**
@@ -175,7 +175,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * Should the function app use Client Certificates.
      * 
      */
-    @Export(name="clientCertificateEnabled", type=Boolean.class, parameters={})
+    @Export(name="clientCertificateEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> clientCertificateEnabled;
 
     /**
@@ -189,7 +189,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * Paths to exclude when using client certificates, separated by ;
      * 
      */
-    @Export(name="clientCertificateExclusionPaths", type=String.class, parameters={})
+    @Export(name="clientCertificateExclusionPaths", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateExclusionPaths;
 
     /**
@@ -203,7 +203,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The mode of the Function App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      * 
      */
-    @Export(name="clientCertificateMode", type=String.class, parameters={})
+    @Export(name="clientCertificateMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
@@ -217,7 +217,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * One or more `connection_string` blocks as defined below.
      * 
      */
-    @Export(name="connectionStrings", type=List.class, parameters={LinuxFunctionAppConnectionString.class})
+    @Export(name="connectionStrings", refs={List.class,LinuxFunctionAppConnectionString.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LinuxFunctionAppConnectionString>> connectionStrings;
 
     /**
@@ -231,7 +231,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * Should the settings for linking the Function App to storage be suppressed.
      * 
      */
-    @Export(name="contentShareForceDisabled", type=Boolean.class, parameters={})
+    @Export(name="contentShareForceDisabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> contentShareForceDisabled;
 
     /**
@@ -245,7 +245,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The identifier used by App Service to perform domain ownership verification via DNS TXT record.
      * 
      */
-    @Export(name="customDomainVerificationId", type=String.class, parameters={})
+    @Export(name="customDomainVerificationId", refs={String.class}, tree="[0]")
     private Output<String> customDomainVerificationId;
 
     /**
@@ -259,7 +259,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
      * 
      */
-    @Export(name="dailyMemoryTimeQuota", type=Integer.class, parameters={})
+    @Export(name="dailyMemoryTimeQuota", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dailyMemoryTimeQuota;
 
     /**
@@ -273,7 +273,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The default hostname of the Linux Function App.
      * 
      */
-    @Export(name="defaultHostname", type=String.class, parameters={})
+    @Export(name="defaultHostname", refs={String.class}, tree="[0]")
     private Output<String> defaultHostname;
 
     /**
@@ -287,7 +287,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * Is the Function App enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -301,7 +301,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The runtime version associated with the Function App. Defaults to `~4`.
      * 
      */
-    @Export(name="functionsExtensionVersion", type=String.class, parameters={})
+    @Export(name="functionsExtensionVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> functionsExtensionVersion;
 
     /**
@@ -315,7 +315,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The ID of the App Service Environment used by Function App.
      * 
      */
-    @Export(name="hostingEnvironmentId", type=String.class, parameters={})
+    @Export(name="hostingEnvironmentId", refs={String.class}, tree="[0]")
     private Output<String> hostingEnvironmentId;
 
     /**
@@ -329,7 +329,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      * 
      */
-    @Export(name="httpsOnly", type=Boolean.class, parameters={})
+    @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
@@ -343,7 +343,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * A `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=LinuxFunctionAppIdentity.class, parameters={})
+    @Export(name="identity", refs={LinuxFunctionAppIdentity.class}, tree="[0]")
     private Output</* @Nullable */ LinuxFunctionAppIdentity> identity;
 
     /**
@@ -357,7 +357,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      * 
      */
-    @Export(name="keyVaultReferenceIdentityId", type=String.class, parameters={})
+    @Export(name="keyVaultReferenceIdentityId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultReferenceIdentityId;
 
     /**
@@ -371,7 +371,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The Kind value for this Linux Function App.
      * 
      */
-    @Export(name="kind", type=String.class, parameters={})
+    @Export(name="kind", refs={String.class}, tree="[0]")
     private Output<String> kind;
 
     /**
@@ -385,7 +385,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -399,7 +399,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -413,7 +413,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * A list of outbound IP addresses. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`
      * 
      */
-    @Export(name="outboundIpAddressLists", type=List.class, parameters={String.class})
+    @Export(name="outboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> outboundIpAddressLists;
 
     /**
@@ -427,7 +427,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
      * 
      */
-    @Export(name="outboundIpAddresses", type=String.class, parameters={})
+    @Export(name="outboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> outboundIpAddresses;
 
     /**
@@ -441,7 +441,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
-    @Export(name="possibleOutboundIpAddressLists", type=List.class, parameters={String.class})
+    @Export(name="possibleOutboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
@@ -455,7 +455,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;,&#34;52.143.43.17&#34;]`.
      * 
      */
-    @Export(name="possibleOutboundIpAddresses", type=String.class, parameters={})
+    @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> possibleOutboundIpAddresses;
 
     /**
@@ -469,7 +469,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -483,7 +483,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The ID of the App Service Plan within which to create this Function App.
      * 
      */
-    @Export(name="servicePlanId", type=String.class, parameters={})
+    @Export(name="servicePlanId", refs={String.class}, tree="[0]")
     private Output<String> servicePlanId;
 
     /**
@@ -497,7 +497,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * A `site_config` block as defined below.
      * 
      */
-    @Export(name="siteConfig", type=LinuxFunctionAppSiteConfig.class, parameters={})
+    @Export(name="siteConfig", refs={LinuxFunctionAppSiteConfig.class}, tree="[0]")
     private Output<LinuxFunctionAppSiteConfig> siteConfig;
 
     /**
@@ -511,7 +511,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * A `site_credential` block as defined below.
      * 
      */
-    @Export(name="siteCredentials", type=List.class, parameters={LinuxFunctionAppSiteCredential.class})
+    @Export(name="siteCredentials", refs={List.class,LinuxFunctionAppSiteCredential.class}, tree="[0,1]")
     private Output<List<LinuxFunctionAppSiteCredential>> siteCredentials;
 
     /**
@@ -525,7 +525,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * A `sticky_settings` block as defined below.
      * 
      */
-    @Export(name="stickySettings", type=LinuxFunctionAppStickySettings.class, parameters={})
+    @Export(name="stickySettings", refs={LinuxFunctionAppStickySettings.class}, tree="[0]")
     private Output</* @Nullable */ LinuxFunctionAppStickySettings> stickySettings;
 
     /**
@@ -539,7 +539,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
      * 
      */
-    @Export(name="storageAccountAccessKey", type=String.class, parameters={})
+    @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountAccessKey;
 
     /**
@@ -553,7 +553,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The backend storage account name which will be used by this Function App.
      * 
      */
-    @Export(name="storageAccountName", type=String.class, parameters={})
+    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountName;
 
     /**
@@ -567,7 +567,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * One or more `storage_account` blocks as defined below.
      * 
      */
-    @Export(name="storageAccounts", type=List.class, parameters={LinuxFunctionAppStorageAccount.class})
+    @Export(name="storageAccounts", refs={List.class,LinuxFunctionAppStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LinuxFunctionAppStorageAccount>> storageAccounts;
 
     /**
@@ -581,7 +581,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      * 
      */
-    @Export(name="storageKeyVaultSecretId", type=String.class, parameters={})
+    @Export(name="storageKeyVaultSecretId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageKeyVaultSecretId;
 
     /**
@@ -595,7 +595,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
      * 
      */
-    @Export(name="storageUsesManagedIdentity", type=Boolean.class, parameters={})
+    @Export(name="storageUsesManagedIdentity", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> storageUsesManagedIdentity;
 
     /**
@@ -609,7 +609,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Linux Function App.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -623,7 +623,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      * 
      */
-    @Export(name="virtualNetworkSubnetId", type=String.class, parameters={})
+    @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
     /**
@@ -637,7 +637,7 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * The local path and filename of the Zip packaged application to deploy to this Linux Function App.
      * 
      */
-    @Export(name="zipDeployFile", type=String.class, parameters={})
+    @Export(name="zipDeployFile", refs={String.class}, tree="[0]")
     private Output<String> zipDeployFile;
 
     /**

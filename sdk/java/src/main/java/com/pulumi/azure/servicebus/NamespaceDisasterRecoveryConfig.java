@@ -98,7 +98,7 @@ public class NamespaceDisasterRecoveryConfig extends com.pulumi.resources.Custom
      * The Shared access policies used to access the connection string for the alias.
      * 
      */
-    @Export(name="aliasAuthorizationRuleId", type=String.class, parameters={})
+    @Export(name="aliasAuthorizationRuleId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> aliasAuthorizationRuleId;
 
     /**
@@ -112,7 +112,7 @@ public class NamespaceDisasterRecoveryConfig extends com.pulumi.resources.Custom
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="defaultPrimaryKey", type=String.class, parameters={})
+    @Export(name="defaultPrimaryKey", refs={String.class}, tree="[0]")
     private Output<String> defaultPrimaryKey;
 
     /**
@@ -126,7 +126,7 @@ public class NamespaceDisasterRecoveryConfig extends com.pulumi.resources.Custom
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    @Export(name="defaultSecondaryKey", type=String.class, parameters={})
+    @Export(name="defaultSecondaryKey", refs={String.class}, tree="[0]")
     private Output<String> defaultSecondaryKey;
 
     /**
@@ -140,7 +140,7 @@ public class NamespaceDisasterRecoveryConfig extends com.pulumi.resources.Custom
      * Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -154,7 +154,7 @@ public class NamespaceDisasterRecoveryConfig extends com.pulumi.resources.Custom
      * The ID of the Service Bus Namespace to replicate to.
      * 
      */
-    @Export(name="partnerNamespaceId", type=String.class, parameters={})
+    @Export(name="partnerNamespaceId", refs={String.class}, tree="[0]")
     private Output<String> partnerNamespaceId;
 
     /**
@@ -168,7 +168,7 @@ public class NamespaceDisasterRecoveryConfig extends com.pulumi.resources.Custom
      * The alias Primary Connection String for the ServiceBus Namespace.
      * 
      */
-    @Export(name="primaryConnectionStringAlias", type=String.class, parameters={})
+    @Export(name="primaryConnectionStringAlias", refs={String.class}, tree="[0]")
     private Output<String> primaryConnectionStringAlias;
 
     /**
@@ -182,7 +182,7 @@ public class NamespaceDisasterRecoveryConfig extends com.pulumi.resources.Custom
      * The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="primaryNamespaceId", type=String.class, parameters={})
+    @Export(name="primaryNamespaceId", refs={String.class}, tree="[0]")
     private Output<String> primaryNamespaceId;
 
     /**
@@ -196,7 +196,7 @@ public class NamespaceDisasterRecoveryConfig extends com.pulumi.resources.Custom
      * The alias Secondary Connection String for the ServiceBus Namespace
      * 
      */
-    @Export(name="secondaryConnectionStringAlias", type=String.class, parameters={})
+    @Export(name="secondaryConnectionStringAlias", refs={String.class}, tree="[0]")
     private Output<String> secondaryConnectionStringAlias;
 
     /**

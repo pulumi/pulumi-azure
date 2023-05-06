@@ -79,7 +79,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      * Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="customerManagedKeyEnabled", type=Boolean.class, parameters={})
+    @Export(name="customerManagedKeyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> customerManagedKeyEnabled;
 
     /**
@@ -97,7 +97,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      * 
      */
     @Deprecated /* this property has been deprecated in favour of `workspace_id` */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -107,7 +107,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    @Export(name="workspaceId", type=String.class, parameters={})
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     public Output<String> workspaceId() {
@@ -121,7 +121,7 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      * 
      */
     @Deprecated /* this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider */
-    @Export(name="workspaceName", type=String.class, parameters={})
+    @Export(name="workspaceName", refs={String.class}, tree="[0]")
     private Output<String> workspaceName;
 
     /**

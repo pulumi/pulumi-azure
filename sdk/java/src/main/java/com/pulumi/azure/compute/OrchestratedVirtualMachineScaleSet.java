@@ -95,7 +95,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * An `additional_capabilities` block as defined below.
      * 
      */
-    @Export(name="additionalCapabilities", type=OrchestratedVirtualMachineScaleSetAdditionalCapabilities.class, parameters={})
+    @Export(name="additionalCapabilities", refs={OrchestratedVirtualMachineScaleSetAdditionalCapabilities.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetAdditionalCapabilities> additionalCapabilities;
 
     /**
@@ -109,7 +109,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * An `automatic_instance_repair` block as defined below.
      * 
      */
-    @Export(name="automaticInstanceRepair", type=OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair.class, parameters={})
+    @Export(name="automaticInstanceRepair", refs={OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair.class}, tree="[0]")
     private Output<OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair;
 
     /**
@@ -123,7 +123,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * A `boot_diagnostics` block as defined below.
      * 
      */
-    @Export(name="bootDiagnostics", type=OrchestratedVirtualMachineScaleSetBootDiagnostics.class, parameters={})
+    @Export(name="bootDiagnostics", refs={OrchestratedVirtualMachineScaleSetBootDiagnostics.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetBootDiagnostics> bootDiagnostics;
 
     /**
@@ -137,7 +137,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="capacityReservationGroupId", type=String.class, parameters={})
+    @Export(name="capacityReservationGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> capacityReservationGroupId;
 
     /**
@@ -151,7 +151,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * One or more `data_disk` blocks as defined below.
      * 
      */
-    @Export(name="dataDisks", type=List.class, parameters={OrchestratedVirtualMachineScaleSetDataDisk.class})
+    @Export(name="dataDisks", refs={List.class,OrchestratedVirtualMachineScaleSetDataDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OrchestratedVirtualMachineScaleSetDataDisk>> dataDisks;
 
     /**
@@ -165,7 +165,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
      * 
      */
-    @Export(name="encryptionAtHostEnabled", type=Boolean.class, parameters={})
+    @Export(name="encryptionAtHostEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> encryptionAtHostEnabled;
 
     /**
@@ -179,7 +179,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="evictionPolicy", type=String.class, parameters={})
+    @Export(name="evictionPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> evictionPolicy;
 
     /**
@@ -193,7 +193,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
      * 
      */
-    @Export(name="extensionOperationsEnabled", type=Boolean.class, parameters={})
+    @Export(name="extensionOperationsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> extensionOperationsEnabled;
 
     /**
@@ -207,7 +207,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * One or more `extension` blocks as defined below
      * 
      */
-    @Export(name="extensions", type=List.class, parameters={OrchestratedVirtualMachineScaleSetExtension.class})
+    @Export(name="extensions", refs={List.class,OrchestratedVirtualMachineScaleSetExtension.class}, tree="[0,1]")
     private Output<List<OrchestratedVirtualMachineScaleSetExtension>> extensions;
 
     /**
@@ -221,7 +221,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
      * 
      */
-    @Export(name="extensionsTimeBudget", type=String.class, parameters={})
+    @Export(name="extensionsTimeBudget", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> extensionsTimeBudget;
 
     /**
@@ -235,7 +235,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=OrchestratedVirtualMachineScaleSetIdentity.class, parameters={})
+    @Export(name="identity", refs={OrchestratedVirtualMachineScaleSetIdentity.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetIdentity> identity;
 
     /**
@@ -249,7 +249,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
      * 
      */
-    @Export(name="instances", type=Integer.class, parameters={})
+    @Export(name="instances", refs={Integer.class}, tree="[0]")
     private Output<Integer> instances;
 
     /**
@@ -263,7 +263,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      * 
      */
-    @Export(name="licenseType", type=String.class, parameters={})
+    @Export(name="licenseType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> licenseType;
 
     /**
@@ -277,7 +277,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -291,7 +291,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * The maximum price you&#39;re willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
      * 
      */
-    @Export(name="maxBidPrice", type=Double.class, parameters={})
+    @Export(name="maxBidPrice", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> maxBidPrice;
 
     /**
@@ -305,7 +305,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -319,7 +319,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * One or more `network_interface` blocks as defined below.
      * 
      */
-    @Export(name="networkInterfaces", type=List.class, parameters={OrchestratedVirtualMachineScaleSetNetworkInterface.class})
+    @Export(name="networkInterfaces", refs={List.class,OrchestratedVirtualMachineScaleSetNetworkInterface.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OrchestratedVirtualMachineScaleSetNetworkInterface>> networkInterfaces;
 
     /**
@@ -333,7 +333,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * An `os_disk` block as defined below.
      * 
      */
-    @Export(name="osDisk", type=OrchestratedVirtualMachineScaleSetOsDisk.class, parameters={})
+    @Export(name="osDisk", refs={OrchestratedVirtualMachineScaleSetOsDisk.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetOsDisk> osDisk;
 
     /**
@@ -347,7 +347,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * An `os_profile` block as defined below.
      * 
      */
-    @Export(name="osProfile", type=OrchestratedVirtualMachineScaleSetOsProfile.class, parameters={})
+    @Export(name="osProfile", refs={OrchestratedVirtualMachineScaleSetOsProfile.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetOsProfile> osProfile;
 
     /**
@@ -361,7 +361,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * A `plan` block as documented below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="plan", type=OrchestratedVirtualMachineScaleSetPlan.class, parameters={})
+    @Export(name="plan", refs={OrchestratedVirtualMachineScaleSetPlan.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetPlan> plan;
 
     /**
@@ -375,7 +375,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="platformFaultDomainCount", type=Integer.class, parameters={})
+    @Export(name="platformFaultDomainCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> platformFaultDomainCount;
 
     /**
@@ -389,7 +389,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      * 
      */
-    @Export(name="priority", type=String.class, parameters={})
+    @Export(name="priority", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> priority;
 
     /**
@@ -403,7 +403,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * a `priority_mix` block as defined below
      * 
      */
-    @Export(name="priorityMix", type=OrchestratedVirtualMachineScaleSetPriorityMix.class, parameters={})
+    @Export(name="priorityMix", refs={OrchestratedVirtualMachineScaleSetPriorityMix.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetPriorityMix> priorityMix;
 
     /**
@@ -417,7 +417,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="proximityPlacementGroupId", type=String.class, parameters={})
+    @Export(name="proximityPlacementGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proximityPlacementGroupId;
 
     /**
@@ -431,7 +431,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -445,7 +445,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
      * 
      */
-    @Export(name="singlePlacementGroup", type=Boolean.class, parameters={})
+    @Export(name="singlePlacementGroup", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> singlePlacementGroup;
 
     /**
@@ -459,7 +459,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> skuName;
 
     /**
@@ -473,7 +473,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
      */
-    @Export(name="sourceImageId", type=String.class, parameters={})
+    @Export(name="sourceImageId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceImageId;
 
     /**
@@ -487,7 +487,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * A `source_image_reference` block as defined below.
      * 
      */
-    @Export(name="sourceImageReference", type=OrchestratedVirtualMachineScaleSetSourceImageReference.class, parameters={})
+    @Export(name="sourceImageReference", refs={OrchestratedVirtualMachineScaleSetSourceImageReference.class}, tree="[0]")
     private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetSourceImageReference> sourceImageReference;
 
     /**
@@ -501,7 +501,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -515,7 +515,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * A `termination_notification` block as defined below.
      * 
      */
-    @Export(name="terminationNotification", type=OrchestratedVirtualMachineScaleSetTerminationNotification.class, parameters={})
+    @Export(name="terminationNotification", refs={OrchestratedVirtualMachineScaleSetTerminationNotification.class}, tree="[0]")
     private Output<OrchestratedVirtualMachineScaleSetTerminationNotification> terminationNotification;
 
     /**
@@ -529,7 +529,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * The Unique ID for the Orchestrated Virtual Machine Scale Set.
      * 
      */
-    @Export(name="uniqueId", type=String.class, parameters={})
+    @Export(name="uniqueId", refs={String.class}, tree="[0]")
     private Output<String> uniqueId;
 
     /**
@@ -543,7 +543,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
      * 
      */
-    @Export(name="userDataBase64", type=String.class, parameters={})
+    @Export(name="userDataBase64", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userDataBase64;
 
     /**
@@ -557,7 +557,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zoneBalance", type=Boolean.class, parameters={})
+    @Export(name="zoneBalance", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> zoneBalance;
 
     /**
@@ -571,7 +571,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
      * 
      */
-    @Export(name="zones", type=List.class, parameters={String.class})
+    @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**

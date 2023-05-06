@@ -101,7 +101,7 @@ public class SpringCloudActiveDeployment extends com.pulumi.resources.CustomReso
      * Specifies the name of Spring Cloud Deployment which is going to be active.
      * 
      */
-    @Export(name="deploymentName", type=String.class, parameters={})
+    @Export(name="deploymentName", refs={String.class}, tree="[0]")
     private Output<String> deploymentName;
 
     /**
@@ -115,7 +115,7 @@ public class SpringCloudActiveDeployment extends com.pulumi.resources.CustomReso
      * Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="springCloudAppId", type=String.class, parameters={})
+    @Export(name="springCloudAppId", refs={String.class}, tree="[0]")
     private Output<String> springCloudAppId;
 
     /**

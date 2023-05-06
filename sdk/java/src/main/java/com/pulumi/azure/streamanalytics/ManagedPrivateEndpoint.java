@@ -89,7 +89,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * The name which should be used for this Stream Analytics Managed Private Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -103,7 +103,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * The name of the Resource Group where the Stream Analytics Managed Private Endpoint should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -117,7 +117,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * The name of the Stream Analytics Cluster where the Managed Private Endpoint should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsClusterName", type=String.class, parameters={})
+    @Export(name="streamAnalyticsClusterName", refs={String.class}, tree="[0]")
     private Output<String> streamAnalyticsClusterName;
 
     /**
@@ -131,7 +131,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * Specifies the sub resource name which the Stream Analytics Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="subresourceName", type=String.class, parameters={})
+    @Export(name="subresourceName", refs={String.class}, tree="[0]")
     private Output<String> subresourceName;
 
     /**
@@ -145,7 +145,7 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
      * The ID of the Private Link Enabled Remote Resource which this Stream Analytics Private endpoint should be connected to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="targetResourceId", type=String.class, parameters={})
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**

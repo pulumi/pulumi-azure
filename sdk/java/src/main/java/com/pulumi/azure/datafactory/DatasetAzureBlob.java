@@ -96,7 +96,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * A map of additional properties to associate with the Data Factory Dataset.
      * 
      */
-    @Export(name="additionalProperties", type=Map.class, parameters={String.class, String.class})
+    @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
@@ -110,7 +110,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * List of tags that can be used for describing the Data Factory Dataset.
      * 
      */
-    @Export(name="annotations", type=List.class, parameters={String.class})
+    @Export(name="annotations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> annotations;
 
     /**
@@ -124,7 +124,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      * 
      */
-    @Export(name="dataFactoryId", type=String.class, parameters={})
+    @Export(name="dataFactoryId", refs={String.class}, tree="[0]")
     private Output<String> dataFactoryId;
 
     /**
@@ -138,7 +138,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * The description for the Data Factory Dataset.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -152,7 +152,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
      * 
      */
-    @Export(name="dynamicFilenameEnabled", type=Boolean.class, parameters={})
+    @Export(name="dynamicFilenameEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dynamicFilenameEnabled;
 
     /**
@@ -166,7 +166,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
      * 
      */
-    @Export(name="dynamicPathEnabled", type=Boolean.class, parameters={})
+    @Export(name="dynamicPathEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dynamicPathEnabled;
 
     /**
@@ -180,7 +180,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * The filename of the Azure Blob.
      * 
      */
-    @Export(name="filename", type=String.class, parameters={})
+    @Export(name="filename", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> filename;
 
     /**
@@ -194,7 +194,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      * 
      */
-    @Export(name="folder", type=String.class, parameters={})
+    @Export(name="folder", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> folder;
 
     /**
@@ -208,7 +208,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * The Data Factory Linked Service name in which to associate the Dataset with.
      * 
      */
-    @Export(name="linkedServiceName", type=String.class, parameters={})
+    @Export(name="linkedServiceName", refs={String.class}, tree="[0]")
     private Output<String> linkedServiceName;
 
     /**
@@ -222,7 +222,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -236,7 +236,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * A map of parameters to associate with the Data Factory Dataset.
      * 
      */
-    @Export(name="parameters", type=Map.class, parameters={String.class, String.class})
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
@@ -250,7 +250,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * The path of the Azure Blob.
      * 
      */
-    @Export(name="path", type=String.class, parameters={})
+    @Export(name="path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> path;
 
     /**
@@ -264,7 +264,7 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * A `schema_column` block as defined below.
      * 
      */
-    @Export(name="schemaColumns", type=List.class, parameters={DatasetAzureBlobSchemaColumn.class})
+    @Export(name="schemaColumns", refs={List.class,DatasetAzureBlobSchemaColumn.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DatasetAzureBlobSchemaColumn>> schemaColumns;
 
     /**

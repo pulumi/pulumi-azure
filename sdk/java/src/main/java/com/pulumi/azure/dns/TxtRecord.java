@@ -87,7 +87,7 @@ public class TxtRecord extends com.pulumi.resources.CustomResource {
      * The FQDN of the DNS TXT Record.
      * 
      */
-    @Export(name="fqdn", type=String.class, parameters={})
+    @Export(name="fqdn", refs={String.class}, tree="[0]")
     private Output<String> fqdn;
 
     /**
@@ -101,7 +101,7 @@ public class TxtRecord extends com.pulumi.resources.CustomResource {
      * The name of the DNS TXT Record. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -115,7 +115,7 @@ public class TxtRecord extends com.pulumi.resources.CustomResource {
      * A list of values that make up the txt record. Each `record` block supports fields documented below.
      * 
      */
-    @Export(name="records", type=List.class, parameters={TxtRecordRecord.class})
+    @Export(name="records", refs={List.class,TxtRecordRecord.class}, tree="[0,1]")
     private Output<List<TxtRecordRecord>> records;
 
     /**
@@ -129,7 +129,7 @@ public class TxtRecord extends com.pulumi.resources.CustomResource {
      * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -143,7 +143,7 @@ public class TxtRecord extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -157,7 +157,7 @@ public class TxtRecord extends com.pulumi.resources.CustomResource {
      * The Time To Live (TTL) of the DNS record in seconds.
      * 
      */
-    @Export(name="ttl", type=Integer.class, parameters={})
+    @Export(name="ttl", refs={Integer.class}, tree="[0]")
     private Output<Integer> ttl;
 
     /**
@@ -171,7 +171,7 @@ public class TxtRecord extends com.pulumi.resources.CustomResource {
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="zoneName", type=String.class, parameters={})
+    @Export(name="zoneName", refs={String.class}, tree="[0]")
     private Output<String> zoneName;
 
     /**

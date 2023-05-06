@@ -177,7 +177,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * The ASN used by Azure.
      * 
      */
-    @Export(name="azureAsn", type=Integer.class, parameters={})
+    @Export(name="azureAsn", refs={Integer.class}, tree="[0]")
     private Output<Integer> azureAsn;
 
     /**
@@ -191,7 +191,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="expressRouteCircuitName", type=String.class, parameters={})
+    @Export(name="expressRouteCircuitName", refs={String.class}, tree="[0]")
     private Output<String> expressRouteCircuitName;
 
     /**
@@ -201,7 +201,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
     public Output<String> expressRouteCircuitName() {
         return this.expressRouteCircuitName;
     }
-    @Export(name="gatewayManagerEtag", type=String.class, parameters={})
+    @Export(name="gatewayManagerEtag", refs={String.class}, tree="[0]")
     private Output<String> gatewayManagerEtag;
 
     public Output<String> gatewayManagerEtag() {
@@ -211,7 +211,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
      * 
      */
-    @Export(name="ipv4Enabled", type=Boolean.class, parameters={})
+    @Export(name="ipv4Enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipv4Enabled;
 
     /**
@@ -225,7 +225,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * A `ipv6` block as defined below.
      * 
      */
-    @Export(name="ipv6", type=ExpressRouteCircuitPeeringIpv6.class, parameters={})
+    @Export(name="ipv6", refs={ExpressRouteCircuitPeeringIpv6.class}, tree="[0]")
     private Output</* @Nullable */ ExpressRouteCircuitPeeringIpv6> ipv6;
 
     /**
@@ -239,7 +239,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
      * 
      */
-    @Export(name="microsoftPeeringConfig", type=ExpressRouteCircuitPeeringMicrosoftPeeringConfig.class, parameters={})
+    @Export(name="microsoftPeeringConfig", refs={ExpressRouteCircuitPeeringMicrosoftPeeringConfig.class}, tree="[0]")
     private Output</* @Nullable */ ExpressRouteCircuitPeeringMicrosoftPeeringConfig> microsoftPeeringConfig;
 
     /**
@@ -253,7 +253,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * The Either a 16-bit or a 32-bit ASN. Can either be public or private.
      * 
      */
-    @Export(name="peerAsn", type=Integer.class, parameters={})
+    @Export(name="peerAsn", refs={Integer.class}, tree="[0]")
     private Output<Integer> peerAsn;
 
     /**
@@ -267,7 +267,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
      * 
      */
-    @Export(name="peeringType", type=String.class, parameters={})
+    @Export(name="peeringType", refs={String.class}, tree="[0]")
     private Output<String> peeringType;
 
     /**
@@ -281,7 +281,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * The Primary Port used by Azure for this Peering.
      * 
      */
-    @Export(name="primaryAzurePort", type=String.class, parameters={})
+    @Export(name="primaryAzurePort", refs={String.class}, tree="[0]")
     private Output<String> primaryAzurePort;
 
     /**
@@ -295,7 +295,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * A subnet for the primary link.
      * 
      */
-    @Export(name="primaryPeerAddressPrefix", type=String.class, parameters={})
+    @Export(name="primaryPeerAddressPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> primaryPeerAddressPrefix;
 
     /**
@@ -309,7 +309,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -323,7 +323,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
      * 
      */
-    @Export(name="routeFilterId", type=String.class, parameters={})
+    @Export(name="routeFilterId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> routeFilterId;
 
     /**
@@ -337,7 +337,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * The Secondary Port used by Azure for this Peering.
      * 
      */
-    @Export(name="secondaryAzurePort", type=String.class, parameters={})
+    @Export(name="secondaryAzurePort", refs={String.class}, tree="[0]")
     private Output<String> secondaryAzurePort;
 
     /**
@@ -351,7 +351,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * A subnet for the secondary link.
      * 
      */
-    @Export(name="secondaryPeerAddressPrefix", type=String.class, parameters={})
+    @Export(name="secondaryPeerAddressPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secondaryPeerAddressPrefix;
 
     /**
@@ -365,7 +365,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * The shared key. Can be a maximum of 25 characters.
      * 
      */
-    @Export(name="sharedKey", type=String.class, parameters={})
+    @Export(name="sharedKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedKey;
 
     /**
@@ -379,7 +379,7 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * A valid VLAN ID to establish this peering on.
      * 
      */
-    @Export(name="vlanId", type=Integer.class, parameters={})
+    @Export(name="vlanId", refs={Integer.class}, tree="[0]")
     private Output<Integer> vlanId;
 
     /**

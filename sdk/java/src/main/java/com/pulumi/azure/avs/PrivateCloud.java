@@ -35,7 +35,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * A `circuit` block as defined below.
      * 
      */
-    @Export(name="circuits", type=List.class, parameters={PrivateCloudCircuit.class})
+    @Export(name="circuits", refs={List.class,PrivateCloudCircuit.class}, tree="[0,1]")
     private Output<List<PrivateCloudCircuit>> circuits;
 
     /**
@@ -49,7 +49,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The endpoint for the HCX Cloud Manager.
      * 
      */
-    @Export(name="hcxCloudManagerEndpoint", type=String.class, parameters={})
+    @Export(name="hcxCloudManagerEndpoint", refs={String.class}, tree="[0]")
     private Output<String> hcxCloudManagerEndpoint;
 
     /**
@@ -64,7 +64,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
      * 
      */
-    @Export(name="internetConnectionEnabled", type=Boolean.class, parameters={})
+    @Export(name="internetConnectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> internetConnectionEnabled;
 
     /**
@@ -79,7 +79,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -94,7 +94,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
      * 
      */
-    @Export(name="managementCluster", type=PrivateCloudManagementCluster.class, parameters={})
+    @Export(name="managementCluster", refs={PrivateCloudManagementCluster.class}, tree="[0]")
     private Output<PrivateCloudManagementCluster> managementCluster;
 
     /**
@@ -109,7 +109,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The network used to access vCenter Server and NSX-T Manager.
      * 
      */
-    @Export(name="managementSubnetCidr", type=String.class, parameters={})
+    @Export(name="managementSubnetCidr", refs={String.class}, tree="[0]")
     private Output<String> managementSubnetCidr;
 
     /**
@@ -123,7 +123,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -137,7 +137,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created.
      * 
      */
-    @Export(name="networkSubnetCidr", type=String.class, parameters={})
+    @Export(name="networkSubnetCidr", refs={String.class}, tree="[0]")
     private Output<String> networkSubnetCidr;
 
     /**
@@ -151,7 +151,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The thumbprint of the NSX-T Manager SSL certificate.
      * 
      */
-    @Export(name="nsxtCertificateThumbprint", type=String.class, parameters={})
+    @Export(name="nsxtCertificateThumbprint", refs={String.class}, tree="[0]")
     private Output<String> nsxtCertificateThumbprint;
 
     /**
@@ -165,7 +165,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The endpoint for the NSX-T Data Center manager.
      * 
      */
-    @Export(name="nsxtManagerEndpoint", type=String.class, parameters={})
+    @Export(name="nsxtManagerEndpoint", refs={String.class}, tree="[0]")
     private Output<String> nsxtManagerEndpoint;
 
     /**
@@ -179,7 +179,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created.
      * 
      */
-    @Export(name="nsxtPassword", type=String.class, parameters={})
+    @Export(name="nsxtPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nsxtPassword;
 
     /**
@@ -193,7 +193,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The network which is used for virtual machine cold migration, cloning, and snapshot migration.
      * 
      */
-    @Export(name="provisioningSubnetCidr", type=String.class, parameters={})
+    @Export(name="provisioningSubnetCidr", refs={String.class}, tree="[0]")
     private Output<String> provisioningSubnetCidr;
 
     /**
@@ -207,7 +207,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -221,7 +221,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Private Cloud to be created.
      * 
      */
-    @Export(name="skuName", type=String.class, parameters={})
+    @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
@@ -235,7 +235,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the VMware Private Cloud.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -249,7 +249,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The thumbprint of the vCenter Server SSL certificate.
      * 
      */
-    @Export(name="vcenterCertificateThumbprint", type=String.class, parameters={})
+    @Export(name="vcenterCertificateThumbprint", refs={String.class}, tree="[0]")
     private Output<String> vcenterCertificateThumbprint;
 
     /**
@@ -263,7 +263,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created.
      * 
      */
-    @Export(name="vcenterPassword", type=String.class, parameters={})
+    @Export(name="vcenterPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vcenterPassword;
 
     /**
@@ -277,7 +277,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The endpoint for Virtual Center Server Appliance.
      * 
      */
-    @Export(name="vcsaEndpoint", type=String.class, parameters={})
+    @Export(name="vcsaEndpoint", refs={String.class}, tree="[0]")
     private Output<String> vcsaEndpoint;
 
     /**
@@ -291,7 +291,7 @@ public class PrivateCloud extends com.pulumi.resources.CustomResource {
      * The network which is used for live migration of virtual machines.
      * 
      */
-    @Export(name="vmotionSubnetCidr", type=String.class, parameters={})
+    @Export(name="vmotionSubnetCidr", refs={String.class}, tree="[0]")
     private Output<String> vmotionSubnetCidr;
 
     /**

@@ -100,7 +100,7 @@ public class FunctionJavascriptUda extends com.pulumi.resources.CustomResource {
      * One or more `input` blocks as defined below.
      * 
      */
-    @Export(name="inputs", type=List.class, parameters={FunctionJavascriptUdaInput.class})
+    @Export(name="inputs", refs={List.class,FunctionJavascriptUdaInput.class}, tree="[0,1]")
     private Output<List<FunctionJavascriptUdaInput>> inputs;
 
     /**
@@ -114,7 +114,7 @@ public class FunctionJavascriptUda extends com.pulumi.resources.CustomResource {
      * The name of the JavaScript UDA Function. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class FunctionJavascriptUda extends com.pulumi.resources.CustomResource {
      * An `output` block as defined below.
      * 
      */
-    @Export(name="output", type=FunctionJavascriptUdaOutput.class, parameters={})
+    @Export(name="output", refs={FunctionJavascriptUdaOutput.class}, tree="[0]")
     private Output<FunctionJavascriptUdaOutput> output;
 
     /**
@@ -142,7 +142,7 @@ public class FunctionJavascriptUda extends com.pulumi.resources.CustomResource {
      * The JavaScript of this UDA Function.
      * 
      */
-    @Export(name="script", type=String.class, parameters={})
+    @Export(name="script", refs={String.class}, tree="[0]")
     private Output<String> script;
 
     /**
@@ -156,7 +156,7 @@ public class FunctionJavascriptUda extends com.pulumi.resources.CustomResource {
      * The resource ID of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobId", type=String.class, parameters={})
+    @Export(name="streamAnalyticsJobId", refs={String.class}, tree="[0]")
     private Output<String> streamAnalyticsJobId;
 
     /**

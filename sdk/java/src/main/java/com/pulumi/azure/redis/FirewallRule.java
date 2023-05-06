@@ -94,7 +94,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The highest IP address included in the range.
      * 
      */
-    @Export(name="endIp", type=String.class, parameters={})
+    @Export(name="endIp", refs={String.class}, tree="[0]")
     private Output<String> endIp;
 
     /**
@@ -108,7 +108,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The name of the Firewall Rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -122,7 +122,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The name of the Redis Cache. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="redisCacheName", type=String.class, parameters={})
+    @Export(name="redisCacheName", refs={String.class}, tree="[0]")
     private Output<String> redisCacheName;
 
     /**
@@ -136,7 +136,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -150,7 +150,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
      * The lowest IP address included in the range
      * 
      */
-    @Export(name="startIp", type=String.class, parameters={})
+    @Export(name="startIp", refs={String.class}, tree="[0]")
     private Output<String> startIp;
 
     /**

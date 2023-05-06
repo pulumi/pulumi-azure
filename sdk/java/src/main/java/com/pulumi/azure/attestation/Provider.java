@@ -73,7 +73,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
      * The URI of the Attestation Service.
      * 
      */
-    @Export(name="attestationUri", type=String.class, parameters={})
+    @Export(name="attestationUri", refs={String.class}, tree="[0]")
     private Output<String> attestationUri;
 
     /**
@@ -87,7 +87,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -101,7 +101,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -115,7 +115,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
      * 
      */
-    @Export(name="openEnclavePolicyBase64", type=String.class, parameters={})
+    @Export(name="openEnclavePolicyBase64", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> openEnclavePolicyBase64;
 
     /**
@@ -131,7 +131,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* This field is no longer used and will be removed in v4.0 of the Azure Provider - use `open_enclave_policy_base64`, `sgx_enclave_policy_base64` and `tpm_policy_base64` instead. */
-    @Export(name="policies", type=List.class, parameters={ProviderPolicy.class})
+    @Export(name="policies", refs={List.class,ProviderPolicy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProviderPolicy>> policies;
 
     public Output<Optional<List<ProviderPolicy>>> policies() {
@@ -141,7 +141,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="policySigningCertificateData", type=String.class, parameters={})
+    @Export(name="policySigningCertificateData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policySigningCertificateData;
 
     /**
@@ -155,7 +155,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -169,7 +169,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
      * 
      */
-    @Export(name="sgxEnclavePolicyBase64", type=String.class, parameters={})
+    @Export(name="sgxEnclavePolicyBase64", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sgxEnclavePolicyBase64;
 
     /**
@@ -183,7 +183,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Attestation Provider.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -197,7 +197,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
      * 
      */
-    @Export(name="tpmPolicyBase64", type=String.class, parameters={})
+    @Export(name="tpmPolicyBase64", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tpmPolicyBase64;
 
     /**
@@ -211,7 +211,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
      * Trust model used for the Attestation Service.
      * 
      */
-    @Export(name="trustModel", type=String.class, parameters={})
+    @Export(name="trustModel", refs={String.class}, tree="[0]")
     private Output<String> trustModel;
 
     /**

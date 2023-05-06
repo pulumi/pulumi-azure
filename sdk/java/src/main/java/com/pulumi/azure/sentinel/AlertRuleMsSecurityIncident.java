@@ -87,7 +87,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      * The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      * 
      */
-    @Export(name="alertRuleTemplateGuid", type=String.class, parameters={})
+    @Export(name="alertRuleTemplateGuid", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alertRuleTemplateGuid;
 
     /**
@@ -101,7 +101,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      * The description of this Sentinel MS Security Incident Alert Rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -115,7 +115,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      * The friendly name of this Sentinel MS Security Incident Alert Rule.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -129,7 +129,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      * Only create incidents when the alert display name doesn&#39;t contain text from this list.
      * 
      */
-    @Export(name="displayNameExcludeFilters", type=List.class, parameters={String.class})
+    @Export(name="displayNameExcludeFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> displayNameExcludeFilters;
 
     /**
@@ -143,7 +143,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      * Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
      * 
      */
-    @Export(name="displayNameFilters", type=List.class, parameters={String.class})
+    @Export(name="displayNameFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> displayNameFilters;
 
     /**
@@ -157,7 +157,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      * Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -171,7 +171,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      * The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -185,7 +185,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      * The name which should be used for this Sentinel MS Security Incident Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -199,7 +199,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      * The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
      * 
      */
-    @Export(name="productFilter", type=String.class, parameters={})
+    @Export(name="productFilter", refs={String.class}, tree="[0]")
     private Output<String> productFilter;
 
     /**
@@ -213,7 +213,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      * Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
      * 
      */
-    @Export(name="severityFilters", type=List.class, parameters={String.class})
+    @Export(name="severityFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> severityFilters;
 
     /**

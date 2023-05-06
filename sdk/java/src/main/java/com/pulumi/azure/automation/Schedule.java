@@ -86,7 +86,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="automationAccountName", type=String.class, parameters={})
+    @Export(name="automationAccountName", refs={String.class}, tree="[0]")
     private Output<String> automationAccountName;
 
     /**
@@ -100,7 +100,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * A description for this Schedule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -114,7 +114,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The end time of the schedule.
      * 
      */
-    @Export(name="expiryTime", type=String.class, parameters={})
+    @Export(name="expiryTime", refs={String.class}, tree="[0]")
     private Output<String> expiryTime;
 
     /**
@@ -128,7 +128,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
      * 
      */
-    @Export(name="frequency", type=String.class, parameters={})
+    @Export(name="frequency", refs={String.class}, tree="[0]")
     private Output<String> frequency;
 
     /**
@@ -142,7 +142,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
      * 
      */
-    @Export(name="interval", type=Integer.class, parameters={})
+    @Export(name="interval", refs={Integer.class}, tree="[0]")
     private Output<Integer> interval;
 
     /**
@@ -156,7 +156,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
      * 
      */
-    @Export(name="monthDays", type=List.class, parameters={Integer.class})
+    @Export(name="monthDays", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> monthDays;
 
     /**
@@ -170,7 +170,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
      * 
      */
-    @Export(name="monthlyOccurrences", type=List.class, parameters={ScheduleMonthlyOccurrence.class})
+    @Export(name="monthlyOccurrences", refs={List.class,ScheduleMonthlyOccurrence.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScheduleMonthlyOccurrence>> monthlyOccurrences;
 
     /**
@@ -184,7 +184,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -198,7 +198,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -212,7 +212,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
      * 
      */
-    @Export(name="startTime", type=String.class, parameters={})
+    @Export(name="startTime", refs={String.class}, tree="[0]")
     private Output<String> startTime;
 
     /**
@@ -226,7 +226,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: &lt;https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows&gt;
      * 
      */
-    @Export(name="timezone", type=String.class, parameters={})
+    @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezone;
 
     /**
@@ -240,7 +240,7 @@ public class Schedule extends com.pulumi.resources.CustomResource {
      * List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
-    @Export(name="weekDays", type=List.class, parameters={String.class})
+    @Export(name="weekDays", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> weekDays;
 
     /**

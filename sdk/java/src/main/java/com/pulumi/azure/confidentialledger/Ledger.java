@@ -83,7 +83,7 @@ public class Ledger extends com.pulumi.resources.CustomResource {
      * A list of `azuread_based_service_principal` blocks as defined below.
      * 
      */
-    @Export(name="azureadBasedServicePrincipals", type=List.class, parameters={LedgerAzureadBasedServicePrincipal.class})
+    @Export(name="azureadBasedServicePrincipals", refs={List.class,LedgerAzureadBasedServicePrincipal.class}, tree="[0,1]")
     private Output<List<LedgerAzureadBasedServicePrincipal>> azureadBasedServicePrincipals;
 
     /**
@@ -97,7 +97,7 @@ public class Ledger extends com.pulumi.resources.CustomResource {
      * A list of `certificate_based_security_principal` blocks as defined below.
      * 
      */
-    @Export(name="certificateBasedSecurityPrincipals", type=List.class, parameters={LedgerCertificateBasedSecurityPrincipal.class})
+    @Export(name="certificateBasedSecurityPrincipals", refs={List.class,LedgerCertificateBasedSecurityPrincipal.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LedgerCertificateBasedSecurityPrincipal>> certificateBasedSecurityPrincipals;
 
     /**
@@ -111,7 +111,7 @@ public class Ledger extends com.pulumi.resources.CustomResource {
      * The Identity Service Endpoint for this Confidential Ledger.
      * 
      */
-    @Export(name="identityServiceEndpoint", type=String.class, parameters={})
+    @Export(name="identityServiceEndpoint", refs={String.class}, tree="[0]")
     private Output<String> identityServiceEndpoint;
 
     /**
@@ -125,7 +125,7 @@ public class Ledger extends com.pulumi.resources.CustomResource {
      * The Endpoint for this Confidential Ledger.
      * 
      */
-    @Export(name="ledgerEndpoint", type=String.class, parameters={})
+    @Export(name="ledgerEndpoint", refs={String.class}, tree="[0]")
     private Output<String> ledgerEndpoint;
 
     /**
@@ -139,7 +139,7 @@ public class Ledger extends com.pulumi.resources.CustomResource {
      * Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="ledgerType", type=String.class, parameters={})
+    @Export(name="ledgerType", refs={String.class}, tree="[0]")
     private Output<String> ledgerType;
 
     /**
@@ -153,7 +153,7 @@ public class Ledger extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the Confidential Ledger exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -167,7 +167,7 @@ public class Ledger extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Confidential Ledger. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -181,7 +181,7 @@ public class Ledger extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Confidential Ledger exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -195,7 +195,7 @@ public class Ledger extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the Confidential Ledger.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

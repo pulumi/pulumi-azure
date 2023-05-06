@@ -79,7 +79,7 @@ public class ServicesCommunicationsGatewayTestLine extends com.pulumi.resources.
      * Specifies the Azure Region where the Voice Services Communications Gateway Test Line should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -93,7 +93,7 @@ public class ServicesCommunicationsGatewayTestLine extends com.pulumi.resources.
      * Specifies the name which should be used for this Voice Services Communications Gateway Test Line. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -107,7 +107,7 @@ public class ServicesCommunicationsGatewayTestLine extends com.pulumi.resources.
      * Specifies the phone number.
      * 
      */
-    @Export(name="phoneNumber", type=String.class, parameters={})
+    @Export(name="phoneNumber", refs={String.class}, tree="[0]")
     private Output<String> phoneNumber;
 
     /**
@@ -121,7 +121,7 @@ public class ServicesCommunicationsGatewayTestLine extends com.pulumi.resources.
      * The purpose of the Voice Services Communications Gateway Test Line. Possible values are `Automated` or `Manual`.
      * 
      */
-    @Export(name="purpose", type=String.class, parameters={})
+    @Export(name="purpose", refs={String.class}, tree="[0]")
     private Output<String> purpose;
 
     /**
@@ -135,7 +135,7 @@ public class ServicesCommunicationsGatewayTestLine extends com.pulumi.resources.
      * A mapping of tags which should be assigned to the Voice Services Communications Gateway Test Line.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -149,7 +149,7 @@ public class ServicesCommunicationsGatewayTestLine extends com.pulumi.resources.
      * Specifies the ID of the Voice Services Communications Gateway. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="voiceServicesCommunicationsGatewayId", type=String.class, parameters={})
+    @Export(name="voiceServicesCommunicationsGatewayId", refs={String.class}, tree="[0]")
     private Output<String> voiceServicesCommunicationsGatewayId;
 
     /**

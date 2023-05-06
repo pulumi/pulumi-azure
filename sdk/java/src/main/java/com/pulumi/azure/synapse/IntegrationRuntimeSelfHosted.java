@@ -113,7 +113,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * The primary integration runtime authentication key.
      * 
      */
-    @Export(name="authorizationKeyPrimary", type=String.class, parameters={})
+    @Export(name="authorizationKeyPrimary", refs={String.class}, tree="[0]")
     private Output<String> authorizationKeyPrimary;
 
     /**
@@ -127,7 +127,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * The secondary integration runtime authentication key.
      * 
      */
-    @Export(name="authorizationKeySecondary", type=String.class, parameters={})
+    @Export(name="authorizationKeySecondary", refs={String.class}, tree="[0]")
     private Output<String> authorizationKeySecondary;
 
     /**
@@ -141,7 +141,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * Integration runtime description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -155,7 +155,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * The name which should be used for this Synapse Self-hosted Integration Runtime. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -169,7 +169,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
      * 
      */
-    @Export(name="synapseWorkspaceId", type=String.class, parameters={})
+    @Export(name="synapseWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> synapseWorkspaceId;
 
     /**

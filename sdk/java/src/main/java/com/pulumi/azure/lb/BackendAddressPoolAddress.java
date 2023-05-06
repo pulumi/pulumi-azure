@@ -103,7 +103,7 @@ public class BackendAddressPoolAddress extends com.pulumi.resources.CustomResour
      * The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
      * 
      */
-    @Export(name="backendAddressIpConfigurationId", type=String.class, parameters={})
+    @Export(name="backendAddressIpConfigurationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> backendAddressIpConfigurationId;
 
     /**
@@ -117,7 +117,7 @@ public class BackendAddressPoolAddress extends com.pulumi.resources.CustomResour
      * The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
      * 
      */
-    @Export(name="backendAddressPoolId", type=String.class, parameters={})
+    @Export(name="backendAddressPoolId", refs={String.class}, tree="[0]")
     private Output<String> backendAddressPoolId;
 
     /**
@@ -131,7 +131,7 @@ public class BackendAddressPoolAddress extends com.pulumi.resources.CustomResour
      * A list of `inbound_nat_rule_port_mapping` block as defined below.
      * 
      */
-    @Export(name="inboundNatRulePortMappings", type=List.class, parameters={BackendAddressPoolAddressInboundNatRulePortMapping.class})
+    @Export(name="inboundNatRulePortMappings", refs={List.class,BackendAddressPoolAddressInboundNatRulePortMapping.class}, tree="[0,1]")
     private Output<List<BackendAddressPoolAddressInboundNatRulePortMapping>> inboundNatRulePortMappings;
 
     /**
@@ -145,7 +145,7 @@ public class BackendAddressPoolAddress extends com.pulumi.resources.CustomResour
      * The Static IP Address which should be allocated to this Backend Address Pool.
      * 
      */
-    @Export(name="ipAddress", type=String.class, parameters={})
+    @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddress;
 
     /**
@@ -159,7 +159,7 @@ public class BackendAddressPoolAddress extends com.pulumi.resources.CustomResour
      * The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -173,7 +173,7 @@ public class BackendAddressPoolAddress extends com.pulumi.resources.CustomResour
      * The ID of the Virtual Network within which the Backend Address Pool should exist.
      * 
      */
-    @Export(name="virtualNetworkId", type=String.class, parameters={})
+    @Export(name="virtualNetworkId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkId;
 
     /**

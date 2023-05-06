@@ -87,7 +87,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      * Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
      * 
      */
-    @Export(name="addressCidrs", type=List.class, parameters={String.class})
+    @Export(name="addressCidrs", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> addressCidrs;
 
     /**
@@ -101,7 +101,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      * The model of the VPN device.
      * 
      */
-    @Export(name="deviceModel", type=String.class, parameters={})
+    @Export(name="deviceModel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceModel;
 
     /**
@@ -115,7 +115,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      * The name of the VPN device vendor.
      * 
      */
-    @Export(name="deviceVendor", type=String.class, parameters={})
+    @Export(name="deviceVendor", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceVendor;
 
     /**
@@ -129,7 +129,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      * One or more `link` blocks as defined below.
      * 
      */
-    @Export(name="links", type=List.class, parameters={VpnSiteLink.class})
+    @Export(name="links", refs={List.class,VpnSiteLink.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VpnSiteLink>> links;
 
     /**
@@ -143,7 +143,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      * The Azure Region where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -157,7 +157,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      * The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -171,7 +171,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      * An `o365_policy` block as defined below.
      * 
      */
-    @Export(name="o365Policy", type=VpnSiteO365Policy.class, parameters={})
+    @Export(name="o365Policy", refs={VpnSiteO365Policy.class}, tree="[0]")
     private Output<VpnSiteO365Policy> o365Policy;
 
     /**
@@ -185,7 +185,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -199,7 +199,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the VPN Site.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -213,7 +213,7 @@ public class VpnSite extends com.pulumi.resources.CustomResource {
      * The ID of the Virtual Wan where this VPN site resides in. Changing this forces a new VPN Site to be created.
      * 
      */
-    @Export(name="virtualWanId", type=String.class, parameters={})
+    @Export(name="virtualWanId", refs={String.class}, tree="[0]")
     private Output<String> virtualWanId;
 
     /**

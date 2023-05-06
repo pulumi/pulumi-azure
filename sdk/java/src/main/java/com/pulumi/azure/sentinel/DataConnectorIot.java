@@ -81,7 +81,7 @@ public class DataConnectorIot extends com.pulumi.resources.CustomResource {
      * The ID of the Log Analytics Workspace that this Iot Data Connector resides in. Changing this forces a new Iot Data Connector to be created.
      * 
      */
-    @Export(name="logAnalyticsWorkspaceId", type=String.class, parameters={})
+    @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> logAnalyticsWorkspaceId;
 
     /**
@@ -95,7 +95,7 @@ public class DataConnectorIot extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Iot Data Connector. Changing this forces a new Iot Data Connector to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -109,7 +109,7 @@ public class DataConnectorIot extends com.pulumi.resources.CustomResource {
      * The ID of the subscription that this Iot Data Connector connects to. Changing this forces a new Iot Data Connector to be created.
      * 
      */
-    @Export(name="subscriptionId", type=String.class, parameters={})
+    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
     private Output<String> subscriptionId;
 
     /**

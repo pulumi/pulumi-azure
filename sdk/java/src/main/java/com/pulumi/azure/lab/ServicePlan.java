@@ -77,7 +77,7 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
      * The allowed regions for the lab creator to use when creating labs using this Lab Service Plan. The allowed region&#39;s count must be between `1` and `28`.
      * 
      */
-    @Export(name="allowedRegions", type=List.class, parameters={String.class})
+    @Export(name="allowedRegions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> allowedRegions;
 
     /**
@@ -91,7 +91,7 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
      * A `default_auto_shutdown` block as defined below.
      * 
      */
-    @Export(name="defaultAutoShutdown", type=ServicePlanDefaultAutoShutdown.class, parameters={})
+    @Export(name="defaultAutoShutdown", refs={ServicePlanDefaultAutoShutdown.class}, tree="[0]")
     private Output</* @Nullable */ ServicePlanDefaultAutoShutdown> defaultAutoShutdown;
 
     /**
@@ -105,7 +105,7 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
      * A `default_connection` block as defined below.
      * 
      */
-    @Export(name="defaultConnection", type=ServicePlanDefaultConnection.class, parameters={})
+    @Export(name="defaultConnection", refs={ServicePlanDefaultConnection.class}, tree="[0]")
     private Output</* @Nullable */ ServicePlanDefaultConnection> defaultConnection;
 
     /**
@@ -119,7 +119,7 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
      * The resource ID of the Subnet for the Lab Service Plan network profile.
      * 
      */
-    @Export(name="defaultNetworkSubnetId", type=String.class, parameters={})
+    @Export(name="defaultNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultNetworkSubnetId;
 
     /**
@@ -133,7 +133,7 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Lab Service Plan should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -147,7 +147,7 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
      * The name of the Lab Service Plan. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -161,7 +161,7 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Lab Service Plan should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -175,7 +175,7 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
      * The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs.
      * 
      */
-    @Export(name="sharedGalleryId", type=String.class, parameters={})
+    @Export(name="sharedGalleryId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedGalleryId;
 
     /**
@@ -189,7 +189,7 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
      * A `support` block as defined below.
      * 
      */
-    @Export(name="support", type=ServicePlanSupport.class, parameters={})
+    @Export(name="support", refs={ServicePlanSupport.class}, tree="[0]")
     private Output</* @Nullable */ ServicePlanSupport> support;
 
     /**
@@ -203,7 +203,7 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Lab Service Plan.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

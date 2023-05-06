@@ -86,7 +86,7 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
      * A `links` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="links", type=List.class, parameters={SpacecraftLink.class})
+    @Export(name="links", refs={List.class,SpacecraftLink.class}, tree="[0,1]")
     private Output<List<SpacecraftLink>> links;
 
     /**
@@ -100,7 +100,7 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
      * The location where the Spacecraft exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -114,7 +114,7 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
      * The name of the Spacecraft. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
      * NORAD ID of the Spacecraft.
      * 
      */
-    @Export(name="noradId", type=String.class, parameters={})
+    @Export(name="noradId", refs={String.class}, tree="[0]")
     private Output<String> noradId;
 
     /**
@@ -142,7 +142,7 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -156,7 +156,7 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -170,7 +170,7 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
      * Title of the two line elements (TLE).
      * 
      */
-    @Export(name="titleLine", type=String.class, parameters={})
+    @Export(name="titleLine", refs={String.class}, tree="[0]")
     private Output<String> titleLine;
 
     /**
@@ -184,7 +184,7 @@ public class Spacecraft extends com.pulumi.resources.CustomResource {
      * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="twoLineElements", type=List.class, parameters={String.class})
+    @Export(name="twoLineElements", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> twoLineElements;
 
     /**

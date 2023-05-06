@@ -79,7 +79,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="apiManagementName", type=String.class, parameters={})
+    @Export(name="apiManagementName", refs={String.class}, tree="[0]")
     private Output<String> apiManagementName;
 
     /**
@@ -93,7 +93,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The OAUTH Authorization Endpoint.
      * 
      */
-    @Export(name="authorizationEndpoint", type=String.class, parameters={})
+    @Export(name="authorizationEndpoint", refs={String.class}, tree="[0]")
     private Output<String> authorizationEndpoint;
 
     /**
@@ -107,7 +107,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
      * 
      */
-    @Export(name="authorizationMethods", type=List.class, parameters={String.class})
+    @Export(name="authorizationMethods", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> authorizationMethods;
 
     /**
@@ -121,7 +121,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
      * 
      */
-    @Export(name="bearerTokenSendingMethods", type=List.class, parameters={String.class})
+    @Export(name="bearerTokenSendingMethods", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> bearerTokenSendingMethods;
 
     /**
@@ -135,7 +135,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The Authentication Methods supported by the Token endpoint of this Authorization Server.. Possible values are `Basic` and `Body`.
      * 
      */
-    @Export(name="clientAuthenticationMethods", type=List.class, parameters={String.class})
+    @Export(name="clientAuthenticationMethods", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> clientAuthenticationMethods;
 
     /**
@@ -149,7 +149,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The Client/App ID registered with this Authorization Server.
      * 
      */
-    @Export(name="clientId", type=String.class, parameters={})
+    @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output<String> clientId;
 
     /**
@@ -163,7 +163,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The URI of page where Client/App Registration is performed for this Authorization Server.
      * 
      */
-    @Export(name="clientRegistrationEndpoint", type=String.class, parameters={})
+    @Export(name="clientRegistrationEndpoint", refs={String.class}, tree="[0]")
     private Output<String> clientRegistrationEndpoint;
 
     /**
@@ -177,7 +177,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The Client/App Secret registered with this Authorization Server.
      * 
      */
-    @Export(name="clientSecret", type=String.class, parameters={})
+    @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientSecret;
 
     /**
@@ -191,7 +191,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The Default Scope used when requesting an Access Token, specified as a string containing space-delimited values.
      * 
      */
-    @Export(name="defaultScope", type=String.class, parameters={})
+    @Export(name="defaultScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultScope;
 
     /**
@@ -205,7 +205,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * A description of the Authorization Server, which may contain HTML formatting tags.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -219,7 +219,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The user-friendly name of this Authorization Server.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -233,7 +233,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `implicit` and `resourceOwnerPassword`.
      * 
      */
-    @Export(name="grantTypes", type=List.class, parameters={String.class})
+    @Export(name="grantTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> grantTypes;
 
     /**
@@ -247,7 +247,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The name of this Authorization Server. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -261,7 +261,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -275,7 +275,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The password associated with the Resource Owner.
      * 
      */
-    @Export(name="resourceOwnerPassword", type=String.class, parameters={})
+    @Export(name="resourceOwnerPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceOwnerPassword;
 
     /**
@@ -289,7 +289,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The username associated with the Resource Owner.
      * 
      */
-    @Export(name="resourceOwnerUsername", type=String.class, parameters={})
+    @Export(name="resourceOwnerUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceOwnerUsername;
 
     /**
@@ -303,7 +303,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
      * 
      */
-    @Export(name="supportState", type=Boolean.class, parameters={})
+    @Export(name="supportState", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> supportState;
 
     /**
@@ -317,7 +317,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * A `token_body_parameter` block as defined below.
      * 
      */
-    @Export(name="tokenBodyParameters", type=List.class, parameters={AuthorizationServerTokenBodyParameter.class})
+    @Export(name="tokenBodyParameters", refs={List.class,AuthorizationServerTokenBodyParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AuthorizationServerTokenBodyParameter>> tokenBodyParameters;
 
     /**
@@ -331,7 +331,7 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
      * The OAUTH Token Endpoint.
      * 
      */
-    @Export(name="tokenEndpoint", type=String.class, parameters={})
+    @Export(name="tokenEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenEndpoint;
 
     /**

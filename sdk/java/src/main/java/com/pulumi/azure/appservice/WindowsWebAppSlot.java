@@ -101,7 +101,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * The ID of the Windows Web App this Deployment Slot will be part of. Changing this forces a new Windows Web App to be created.
      * 
      */
-    @Export(name="appServiceId", type=String.class, parameters={})
+    @Export(name="appServiceId", refs={String.class}, tree="[0]")
     private Output<String> appServiceId;
 
     /**
@@ -115,7 +115,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * A map of key-value pairs of App Settings.
      * 
      */
-    @Export(name="appSettings", type=Map.class, parameters={String.class, String.class})
+    @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> appSettings;
 
     /**
@@ -129,7 +129,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * An `auth_settings` block as defined below.
      * 
      */
-    @Export(name="authSettings", type=WindowsWebAppSlotAuthSettings.class, parameters={})
+    @Export(name="authSettings", refs={WindowsWebAppSlotAuthSettings.class}, tree="[0]")
     private Output</* @Nullable */ WindowsWebAppSlotAuthSettings> authSettings;
 
     /**
@@ -143,7 +143,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * An `auth_settings_v2` block as defined below.
      * 
      */
-    @Export(name="authSettingsV2", type=WindowsWebAppSlotAuthSettingsV2.class, parameters={})
+    @Export(name="authSettingsV2", refs={WindowsWebAppSlotAuthSettingsV2.class}, tree="[0]")
     private Output</* @Nullable */ WindowsWebAppSlotAuthSettingsV2> authSettingsV2;
 
     /**
@@ -157,7 +157,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * A `backup` block as defined below.
      * 
      */
-    @Export(name="backup", type=WindowsWebAppSlotBackup.class, parameters={})
+    @Export(name="backup", refs={WindowsWebAppSlotBackup.class}, tree="[0]")
     private Output</* @Nullable */ WindowsWebAppSlotBackup> backup;
 
     /**
@@ -171,7 +171,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * Should Client Affinity be enabled?
      * 
      */
-    @Export(name="clientAffinityEnabled", type=Boolean.class, parameters={})
+    @Export(name="clientAffinityEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> clientAffinityEnabled;
 
     /**
@@ -185,7 +185,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * Should Client Certificates be enabled?
      * 
      */
-    @Export(name="clientCertificateEnabled", type=Boolean.class, parameters={})
+    @Export(name="clientCertificateEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> clientCertificateEnabled;
 
     /**
@@ -199,7 +199,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * Paths to exclude when using client certificates, separated by ;
      * 
      */
-    @Export(name="clientCertificateExclusionPaths", type=String.class, parameters={})
+    @Export(name="clientCertificateExclusionPaths", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateExclusionPaths;
 
     /**
@@ -213,7 +213,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
      * 
      */
-    @Export(name="clientCertificateMode", type=String.class, parameters={})
+    @Export(name="clientCertificateMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
@@ -227,7 +227,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * One or more `connection_string` blocks as defined below.
      * 
      */
-    @Export(name="connectionStrings", type=List.class, parameters={WindowsWebAppSlotConnectionString.class})
+    @Export(name="connectionStrings", refs={List.class,WindowsWebAppSlotConnectionString.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WindowsWebAppSlotConnectionString>> connectionStrings;
 
     /**
@@ -241,7 +241,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * The identifier used by App Service to perform domain ownership verification via DNS TXT record.
      * 
      */
-    @Export(name="customDomainVerificationId", type=String.class, parameters={})
+    @Export(name="customDomainVerificationId", refs={String.class}, tree="[0]")
     private Output<String> customDomainVerificationId;
 
     /**
@@ -255,7 +255,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * The default hostname of the Windows Web App Slot.
      * 
      */
-    @Export(name="defaultHostname", type=String.class, parameters={})
+    @Export(name="defaultHostname", refs={String.class}, tree="[0]")
     private Output<String> defaultHostname;
 
     /**
@@ -269,7 +269,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * Should the Windows Web App Slot be enabled? Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -283,7 +283,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * The ID of the App Service Environment used by App Service Slot.
      * 
      */
-    @Export(name="hostingEnvironmentId", type=String.class, parameters={})
+    @Export(name="hostingEnvironmentId", refs={String.class}, tree="[0]")
     private Output<String> hostingEnvironmentId;
 
     /**
@@ -297,7 +297,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * Should the Windows Web App Slot require HTTPS connections.
      * 
      */
-    @Export(name="httpsOnly", type=Boolean.class, parameters={})
+    @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
@@ -311,7 +311,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=WindowsWebAppSlotIdentity.class, parameters={})
+    @Export(name="identity", refs={WindowsWebAppSlotIdentity.class}, tree="[0]")
     private Output</* @Nullable */ WindowsWebAppSlotIdentity> identity;
 
     /**
@@ -325,7 +325,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      * 
      */
-    @Export(name="keyVaultReferenceIdentityId", type=String.class, parameters={})
+    @Export(name="keyVaultReferenceIdentityId", refs={String.class}, tree="[0]")
     private Output<String> keyVaultReferenceIdentityId;
 
     /**
@@ -339,7 +339,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * The Kind value for this Windows Web App Slot.
      * 
      */
-    @Export(name="kind", type=String.class, parameters={})
+    @Export(name="kind", refs={String.class}, tree="[0]")
     private Output<String> kind;
 
     /**
@@ -353,7 +353,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * A `logs` block as defined below.
      * 
      */
-    @Export(name="logs", type=WindowsWebAppSlotLogs.class, parameters={})
+    @Export(name="logs", refs={WindowsWebAppSlotLogs.class}, tree="[0]")
     private Output</* @Nullable */ WindowsWebAppSlotLogs> logs;
 
     /**
@@ -367,7 +367,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -381,7 +381,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`
      * 
      */
-    @Export(name="outboundIpAddressLists", type=List.class, parameters={String.class})
+    @Export(name="outboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> outboundIpAddressLists;
 
     /**
@@ -395,7 +395,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      * 
      */
-    @Export(name="outboundIpAddresses", type=String.class, parameters={})
+    @Export(name="outboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> outboundIpAddresses;
 
     /**
@@ -409,7 +409,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * A `possible_outbound_ip_address_list` block as defined below.
      * 
      */
-    @Export(name="possibleOutboundIpAddressLists", type=List.class, parameters={String.class})
+    @Export(name="possibleOutboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
@@ -423,7 +423,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
-    @Export(name="possibleOutboundIpAddresses", type=String.class, parameters={})
+    @Export(name="possibleOutboundIpAddresses", refs={String.class}, tree="[0]")
     private Output<String> possibleOutboundIpAddresses;
 
     /**
@@ -437,7 +437,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
      * 
      */
-    @Export(name="servicePlanId", type=String.class, parameters={})
+    @Export(name="servicePlanId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> servicePlanId;
 
     /**
@@ -451,7 +451,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * A `site_config` block as defined below.
      * 
      */
-    @Export(name="siteConfig", type=WindowsWebAppSlotSiteConfig.class, parameters={})
+    @Export(name="siteConfig", refs={WindowsWebAppSlotSiteConfig.class}, tree="[0]")
     private Output<WindowsWebAppSlotSiteConfig> siteConfig;
 
     /**
@@ -465,7 +465,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * A `site_credential` block as defined below.
      * 
      */
-    @Export(name="siteCredentials", type=List.class, parameters={WindowsWebAppSlotSiteCredential.class})
+    @Export(name="siteCredentials", refs={List.class,WindowsWebAppSlotSiteCredential.class}, tree="[0,1]")
     private Output<List<WindowsWebAppSlotSiteCredential>> siteCredentials;
 
     /**
@@ -479,7 +479,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * One or more `storage_account` blocks as defined below.
      * 
      */
-    @Export(name="storageAccounts", type=List.class, parameters={WindowsWebAppSlotStorageAccount.class})
+    @Export(name="storageAccounts", refs={List.class,WindowsWebAppSlotStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WindowsWebAppSlotStorageAccount>> storageAccounts;
 
     /**
@@ -493,7 +493,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Windows Web App Slot.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
@@ -507,7 +507,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      * 
      */
-    @Export(name="virtualNetworkSubnetId", type=String.class, parameters={})
+    @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
     /**
@@ -521,7 +521,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
      * 
      */
-    @Export(name="zipDeployFile", type=String.class, parameters={})
+    @Export(name="zipDeployFile", refs={String.class}, tree="[0]")
     private Output<String> zipDeployFile;
 
     /**

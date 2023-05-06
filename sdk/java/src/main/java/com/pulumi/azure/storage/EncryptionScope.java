@@ -85,7 +85,7 @@ public class EncryptionScope extends com.pulumi.resources.CustomResource {
      * Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="infrastructureEncryptionRequired", type=Boolean.class, parameters={})
+    @Export(name="infrastructureEncryptionRequired", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> infrastructureEncryptionRequired;
 
     /**
@@ -99,7 +99,7 @@ public class EncryptionScope extends com.pulumi.resources.CustomResource {
      * The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
      * 
      */
-    @Export(name="keyVaultKeyId", type=String.class, parameters={})
+    @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyVaultKeyId;
 
     /**
@@ -113,7 +113,7 @@ public class EncryptionScope extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -127,7 +127,7 @@ public class EncryptionScope extends com.pulumi.resources.CustomResource {
      * The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`.
      * 
      */
-    @Export(name="source", type=String.class, parameters={})
+    @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
     /**
@@ -141,7 +141,7 @@ public class EncryptionScope extends com.pulumi.resources.CustomResource {
      * The ID of the Storage Account where this Storage Encryption Scope is created. Changing this forces a new Storage Encryption Scope to be created.
      * 
      */
-    @Export(name="storageAccountId", type=String.class, parameters={})
+    @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output<String> storageAccountId;
 
     /**

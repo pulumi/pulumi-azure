@@ -158,7 +158,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="clusterPurpose", type=String.class, parameters={})
+    @Export(name="clusterPurpose", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clusterPurpose;
 
     /**
@@ -172,7 +172,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -186,7 +186,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="identity", type=InferenceClusterIdentity.class, parameters={})
+    @Export(name="identity", refs={InferenceClusterIdentity.class}, tree="[0]")
     private Output</* @Nullable */ InferenceClusterIdentity> identity;
 
     /**
@@ -200,7 +200,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="kubernetesClusterId", type=String.class, parameters={})
+    @Export(name="kubernetesClusterId", refs={String.class}, tree="[0]")
     private Output<String> kubernetesClusterId;
 
     /**
@@ -214,7 +214,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -228,7 +228,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="machineLearningWorkspaceId", type=String.class, parameters={})
+    @Export(name="machineLearningWorkspaceId", refs={String.class}, tree="[0]")
     private Output<String> machineLearningWorkspaceId;
 
     /**
@@ -242,7 +242,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -256,7 +256,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="ssl", type=InferenceClusterSsl.class, parameters={})
+    @Export(name="ssl", refs={InferenceClusterSsl.class}, tree="[0]")
     private Output</* @Nullable */ InferenceClusterSsl> ssl;
 
     /**
@@ -270,7 +270,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

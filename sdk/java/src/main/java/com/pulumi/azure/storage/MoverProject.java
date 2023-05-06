@@ -76,7 +76,7 @@ public class MoverProject extends com.pulumi.resources.CustomResource {
      * Specifies a description for this Storage Mover Project.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -90,7 +90,7 @@ public class MoverProject extends com.pulumi.resources.CustomResource {
      * Specifies the name which should be used for this Storage Mover Project. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -104,7 +104,7 @@ public class MoverProject extends com.pulumi.resources.CustomResource {
      * Specifies the ID of the storage mover for this Storage Mover Project. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="storageMoverId", type=String.class, parameters={})
+    @Export(name="storageMoverId", refs={String.class}, tree="[0]")
     private Output<String> storageMoverId;
 
     /**

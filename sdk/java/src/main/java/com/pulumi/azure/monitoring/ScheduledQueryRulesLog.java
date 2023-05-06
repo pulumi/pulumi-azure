@@ -129,7 +129,7 @@ public class ScheduledQueryRulesLog extends com.pulumi.resources.CustomResource 
      * A list of IDs of Resources referred into query.
      * 
      */
-    @Export(name="authorizedResourceIds", type=List.class, parameters={String.class})
+    @Export(name="authorizedResourceIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> authorizedResourceIds;
 
     /**
@@ -143,7 +143,7 @@ public class ScheduledQueryRulesLog extends com.pulumi.resources.CustomResource 
      * A `criteria` block as defined below.
      * 
      */
-    @Export(name="criteria", type=ScheduledQueryRulesLogCriteria.class, parameters={})
+    @Export(name="criteria", refs={ScheduledQueryRulesLogCriteria.class}, tree="[0]")
     private Output<ScheduledQueryRulesLogCriteria> criteria;
 
     /**
@@ -157,7 +157,7 @@ public class ScheduledQueryRulesLog extends com.pulumi.resources.CustomResource 
      * The resource URI over which log search query is to be run.
      * 
      */
-    @Export(name="dataSourceId", type=String.class, parameters={})
+    @Export(name="dataSourceId", refs={String.class}, tree="[0]")
     private Output<String> dataSourceId;
 
     /**
@@ -171,7 +171,7 @@ public class ScheduledQueryRulesLog extends com.pulumi.resources.CustomResource 
      * The description of the scheduled query rule.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -185,7 +185,7 @@ public class ScheduledQueryRulesLog extends com.pulumi.resources.CustomResource 
      * Whether this scheduled query rule is enabled. Default is `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -199,7 +199,7 @@ public class ScheduledQueryRulesLog extends com.pulumi.resources.CustomResource 
      * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -213,7 +213,7 @@ public class ScheduledQueryRulesLog extends com.pulumi.resources.CustomResource 
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -227,7 +227,7 @@ public class ScheduledQueryRulesLog extends com.pulumi.resources.CustomResource 
      * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -241,7 +241,7 @@ public class ScheduledQueryRulesLog extends com.pulumi.resources.CustomResource 
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

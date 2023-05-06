@@ -90,7 +90,7 @@ public class RegistryWebook extends com.pulumi.resources.CustomResource {
      * A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
      * 
      */
-    @Export(name="actions", type=List.class, parameters={String.class})
+    @Export(name="actions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> actions;
 
     /**
@@ -104,7 +104,7 @@ public class RegistryWebook extends com.pulumi.resources.CustomResource {
      * Custom headers that will be added to the webhook notifications request.
      * 
      */
-    @Export(name="customHeaders", type=Map.class, parameters={String.class, String.class})
+    @Export(name="customHeaders", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> customHeaders;
 
     /**
@@ -118,7 +118,7 @@ public class RegistryWebook extends com.pulumi.resources.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -132,7 +132,7 @@ public class RegistryWebook extends com.pulumi.resources.CustomResource {
      * Specifies the name of the Container Registry Webhook. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -146,7 +146,7 @@ public class RegistryWebook extends com.pulumi.resources.CustomResource {
      * The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="registryName", type=String.class, parameters={})
+    @Export(name="registryName", refs={String.class}, tree="[0]")
     private Output<String> registryName;
 
     /**
@@ -160,7 +160,7 @@ public class RegistryWebook extends com.pulumi.resources.CustomResource {
      * The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -174,7 +174,7 @@ public class RegistryWebook extends com.pulumi.resources.CustomResource {
      * Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for &#39;foo:bar&#39; only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `&#34;&#34;`.
      * 
      */
-    @Export(name="scope", type=String.class, parameters={})
+    @Export(name="scope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scope;
 
     /**
@@ -188,7 +188,7 @@ public class RegistryWebook extends com.pulumi.resources.CustomResource {
      * Specifies the service URI for the Webhook to post notifications.
      * 
      */
-    @Export(name="serviceUri", type=String.class, parameters={})
+    @Export(name="serviceUri", refs={String.class}, tree="[0]")
     private Output<String> serviceUri;
 
     /**
@@ -202,7 +202,7 @@ public class RegistryWebook extends com.pulumi.resources.CustomResource {
      * Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
      * 
      */
-    @Export(name="status", type=String.class, parameters={})
+    @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
@@ -216,7 +216,7 @@ public class RegistryWebook extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

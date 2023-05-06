@@ -72,7 +72,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The Fluid tenantId for this server.
      * 
      */
-    @Export(name="frsTenantId", type=String.class, parameters={})
+    @Export(name="frsTenantId", refs={String.class}, tree="[0]")
     private Output<String> frsTenantId;
 
     /**
@@ -86,7 +86,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * An `identity` block as defined below.
      * 
      */
-    @Export(name="identity", type=ServerIdentity.class, parameters={})
+    @Export(name="identity", refs={ServerIdentity.class}, tree="[0]")
     private Output</* @Nullable */ ServerIdentity> identity;
 
     /**
@@ -100,7 +100,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
      * 
      */
-    @Export(name="location", type=String.class, parameters={})
+    @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
@@ -114,7 +114,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -128,7 +128,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
      * 
      */
-    @Export(name="ordererEndpoints", type=List.class, parameters={String.class})
+    @Export(name="ordererEndpoints", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> ordererEndpoints;
 
     /**
@@ -142,7 +142,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The primary key for this server.
      * 
      */
-    @Export(name="primaryKey", type=String.class, parameters={})
+    @Export(name="primaryKey", refs={String.class}, tree="[0]")
     private Output<String> primaryKey;
 
     /**
@@ -156,7 +156,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -170,7 +170,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * The secondary key for this server.
      * 
      */
-    @Export(name="secondaryKey", type=String.class, parameters={})
+    @Export(name="secondaryKey", refs={String.class}, tree="[0]")
     private Output<String> secondaryKey;
 
     /**
@@ -184,7 +184,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * An array of service endpoints for this Fluid Relay Server.
      * 
      */
-    @Export(name="serviceEndpoints", type=List.class, parameters={String.class})
+    @Export(name="serviceEndpoints", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> serviceEndpoints;
 
     /**
@@ -198,7 +198,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
      * 
      */
-    @Export(name="storageEndpoints", type=List.class, parameters={String.class})
+    @Export(name="storageEndpoints", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> storageEndpoints;
 
     /**
@@ -212,7 +212,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
      * 
      */
-    @Export(name="storageSku", type=String.class, parameters={})
+    @Export(name="storageSku", refs={String.class}, tree="[0]")
     private Output<String> storageSku;
 
     /**
@@ -226,7 +226,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * A mapping of tags which should be assigned to the Fluid Relay Server.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**

@@ -104,7 +104,7 @@ public class NetworkInterfaceApplicationSecurityGroupAssociation extends com.pul
      * The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="applicationSecurityGroupId", type=String.class, parameters={})
+    @Export(name="applicationSecurityGroupId", refs={String.class}, tree="[0]")
     private Output<String> applicationSecurityGroupId;
 
     /**
@@ -118,7 +118,7 @@ public class NetworkInterfaceApplicationSecurityGroupAssociation extends com.pul
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="networkInterfaceId", type=String.class, parameters={})
+    @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
     /**

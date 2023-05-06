@@ -103,7 +103,7 @@ public class OutputServiceBusQueue extends com.pulumi.resources.CustomResource {
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      * 
      */
-    @Export(name="authenticationMode", type=String.class, parameters={})
+    @Export(name="authenticationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authenticationMode;
 
     /**
@@ -117,7 +117,7 @@ public class OutputServiceBusQueue extends com.pulumi.resources.CustomResource {
      * The name of the Stream Output. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -131,7 +131,7 @@ public class OutputServiceBusQueue extends com.pulumi.resources.CustomResource {
      * A list of property columns to add to the Service Bus Queue output.
      * 
      */
-    @Export(name="propertyColumns", type=List.class, parameters={String.class})
+    @Export(name="propertyColumns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> propertyColumns;
 
     /**
@@ -145,7 +145,7 @@ public class OutputServiceBusQueue extends com.pulumi.resources.CustomResource {
      * The name of the Service Bus Queue.
      * 
      */
-    @Export(name="queueName", type=String.class, parameters={})
+    @Export(name="queueName", refs={String.class}, tree="[0]")
     private Output<String> queueName;
 
     /**
@@ -159,7 +159,7 @@ public class OutputServiceBusQueue extends com.pulumi.resources.CustomResource {
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -173,7 +173,7 @@ public class OutputServiceBusQueue extends com.pulumi.resources.CustomResource {
      * A `serialization` block as defined below.
      * 
      */
-    @Export(name="serialization", type=OutputServiceBusQueueSerialization.class, parameters={})
+    @Export(name="serialization", refs={OutputServiceBusQueueSerialization.class}, tree="[0]")
     private Output<OutputServiceBusQueueSerialization> serialization;
 
     /**
@@ -187,7 +187,7 @@ public class OutputServiceBusQueue extends com.pulumi.resources.CustomResource {
      * The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
      * 
      */
-    @Export(name="servicebusNamespace", type=String.class, parameters={})
+    @Export(name="servicebusNamespace", refs={String.class}, tree="[0]")
     private Output<String> servicebusNamespace;
 
     /**
@@ -201,7 +201,7 @@ public class OutputServiceBusQueue extends com.pulumi.resources.CustomResource {
      * The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
-    @Export(name="sharedAccessPolicyKey", type=String.class, parameters={})
+    @Export(name="sharedAccessPolicyKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedAccessPolicyKey;
 
     /**
@@ -215,7 +215,7 @@ public class OutputServiceBusQueue extends com.pulumi.resources.CustomResource {
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
      * 
      */
-    @Export(name="sharedAccessPolicyName", type=String.class, parameters={})
+    @Export(name="sharedAccessPolicyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sharedAccessPolicyName;
 
     /**
@@ -229,7 +229,7 @@ public class OutputServiceBusQueue extends com.pulumi.resources.CustomResource {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="streamAnalyticsJobName", type=String.class, parameters={})
+    @Export(name="streamAnalyticsJobName", refs={String.class}, tree="[0]")
     private Output<String> streamAnalyticsJobName;
 
     /**
@@ -243,7 +243,7 @@ public class OutputServiceBusQueue extends com.pulumi.resources.CustomResource {
      * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
      * 
      */
-    @Export(name="systemPropertyColumns", type=Map.class, parameters={String.class, String.class})
+    @Export(name="systemPropertyColumns", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> systemPropertyColumns;
 
     /**

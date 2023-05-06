@@ -72,7 +72,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * (Optional) Maximum number of Records in the zone. Defaults to `1000`.
      * 
      */
-    @Export(name="maxNumberOfRecordSets", type=Integer.class, parameters={})
+    @Export(name="maxNumberOfRecordSets", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxNumberOfRecordSets;
 
     /**
@@ -86,7 +86,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -100,7 +100,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * (Optional) A list of values that make up the NS record for the zone.
      * 
      */
-    @Export(name="nameServers", type=List.class, parameters={String.class})
+    @Export(name="nameServers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> nameServers;
 
     /**
@@ -114,7 +114,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * (Optional) The number of records already in the zone.
      * 
      */
-    @Export(name="numberOfRecordSets", type=Integer.class, parameters={})
+    @Export(name="numberOfRecordSets", refs={Integer.class}, tree="[0]")
     private Output<Integer> numberOfRecordSets;
 
     /**
@@ -128,7 +128,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="resourceGroupName", type=String.class, parameters={})
+    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
@@ -142,7 +142,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * An `soa_record` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="soaRecord", type=ZoneSoaRecord.class, parameters={})
+    @Export(name="soaRecord", refs={ZoneSoaRecord.class}, tree="[0]")
     private Output<ZoneSoaRecord> soaRecord;
 
     /**
@@ -156,7 +156,7 @@ public class Zone extends com.pulumi.resources.CustomResource {
      * A mapping of tags to assign to the resource.
      * 
      */
-    @Export(name="tags", type=Map.class, parameters={String.class, String.class})
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
