@@ -84,7 +84,7 @@ start_rebase() {
      git checkout "$TO"
   fi
 
-  git branch local
+  git branch -f local
   git checkout -B pulumi-patch ${FROM}
   git branch --set-upstream-to=local pulumi-patch
 

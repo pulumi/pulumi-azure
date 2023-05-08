@@ -1,0 +1,54 @@
+From 612e0fbfc9ca54d352b30a1765eb48066601651e Mon Sep 17 00:00:00 2001
+From: Ian Wahbe <ian@wahbe.com>
+Date: Mon, 8 May 2023 15:24:57 -0700
+Subject: [PATCH 1/8] Client options
+
+---
+ internal/common/client_options.go | 15 +++++----------
+ 1 file changed, 5 insertions(+), 10 deletions(-)
+
+diff --git a/internal/common/client_options.go b/internal/common/client_options.go
+index 0e227eaa68..6477e38cae 100644
+--- a/internal/common/client_options.go
++++ b/internal/common/client_options.go
+@@ -12,7 +12,6 @@ import (
+ 	"github.com/hashicorp/go-azure-sdk/sdk/client"
+ 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
+ 	"github.com/hashicorp/go-azure-sdk/sdk/environments"
+-	"github.com/hashicorp/terraform-plugin-sdk/v2/meta"
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
+ 	"github.com/hashicorp/terraform-provider-azurerm/version"
+ )
+@@ -98,12 +97,8 @@ func (o ClientOptions) ConfigureClient(c *autorest.Client, authorizer autorest.A
+ }
+ 
+ func userAgent(userAgent, tfVersion, partnerID string, disableTerraformPartnerID bool) string {
+-	tfUserAgent := fmt.Sprintf("HashiCorp Terraform/%s (+https://www.terraform.io) Terraform Plugin SDK/%s", tfVersion, meta.SDKVersionString())
+-
+-	providerUserAgent := fmt.Sprintf("%s terraform-provider-azurerm/%s", tfUserAgent, version.ProviderVersion)
+-	if features.FourPointOhBeta() {
+-		providerUserAgent = fmt.Sprintf("%s terraform-provider-azurerm/%s+4.0-beta", tfUserAgent, version.ProviderVersion)
+-	}
++	// FORK: this gives us the ability to add a Pulumi Specific user agent
++	providerUserAgent := fmt.Sprintf("pulumi-azure/%s", version.ProviderVersion)
+ 	userAgent = strings.TrimSpace(fmt.Sprintf("%s %s", userAgent, providerUserAgent))
+ 
+ 	// append the CloudShell version to the user agent if it exists
+@@ -112,11 +107,11 @@ func userAgent(userAgent, tfVersion, partnerID string, disableTerraformPartnerID
+ 	}
+ 
+ 	// only one pid can be interpreted currently
+-	// hence, send partner ID if present, otherwise send Terraform GUID
++	// hence, send partner ID if present, otherwise send Pulumi GUID
+ 	// unless users have opted out
+ 	if partnerID == "" && !disableTerraformPartnerID {
+-		// Microsoft’s Terraform Partner ID is this specific GUID
+-		partnerID = "222c6c49-1b0a-5959-a213-6608f9eb8820"
++		// FORK: Microsoft’s Pulumi Partner ID is this specific GUID
++		partnerID = "a90539d8-a7a6-5826-95c4-1fbef22d4b22"
+ 	}
+ 
+ 	if partnerID != "" {
+-- 
+2.40.1
+

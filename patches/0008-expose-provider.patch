@@ -1,7 +1,7 @@
-From 928226783c3cd805d9b9b17f1815d3d0002fdbb2 Mon Sep 17 00:00:00 2001
+From 7ec29493b6ac55ee9446ea7f1bd82d5144a8b64e Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
-Date: Mon, 8 May 2023 15:10:05 -0700
-Subject: [PATCH 2/2] expose provider
+Date: Mon, 8 May 2023 15:20:20 -0700
+Subject: [PATCH 8/8] expose-provider
 
 ---
  shim/shim.go | 10 ++++++++++

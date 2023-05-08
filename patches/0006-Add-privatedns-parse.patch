@@ -1,0 +1,1960 @@
+From 6c38d288bf671a3e8703073881b277b19ab3804f Mon Sep 17 00:00:00 2001
+From: Ian Wahbe <ian@wahbe.com>
+Date: Mon, 8 May 2023 15:30:49 -0700
+Subject: [PATCH 6/8] Add privatedns/parse
+
+---
+ .../services/privatedns/parse/a_record.go     |  75 ++++++++++
+ .../privatedns/parse/a_record_test.go         | 128 ++++++++++++++++++
+ .../services/privatedns/parse/aaaa_record.go  |  75 ++++++++++
+ .../privatedns/parse/aaaa_record_test.go      | 128 ++++++++++++++++++
+ .../services/privatedns/parse/cname_record.go |  75 ++++++++++
+ .../privatedns/parse/cname_record_test.go     | 128 ++++++++++++++++++
+ .../services/privatedns/parse/mx_record.go    |  75 ++++++++++
+ .../privatedns/parse/mx_record_test.go        | 128 ++++++++++++++++++
+ .../privatedns/parse/private_dns_zone.go      |  69 ++++++++++
+ .../privatedns/parse/private_dns_zone_test.go | 112 +++++++++++++++
+ .../services/privatedns/parse/ptr_record.go   |  75 ++++++++++
+ .../privatedns/parse/ptr_record_test.go       | 128 ++++++++++++++++++
+ .../services/privatedns/parse/srv_record.go   |  75 ++++++++++
+ .../privatedns/parse/srv_record_test.go       | 128 ++++++++++++++++++
+ .../services/privatedns/parse/txt_record.go   |  75 ++++++++++
+ .../privatedns/parse/txt_record_test.go       | 128 ++++++++++++++++++
+ .../privatedns/parse/virtual_network_link.go  |  75 ++++++++++
+ .../parse/virtual_network_link_test.go        | 128 ++++++++++++++++++
+ 18 files changed, 1805 insertions(+)
+ create mode 100644 internal/services/privatedns/parse/a_record.go
+ create mode 100644 internal/services/privatedns/parse/a_record_test.go
+ create mode 100644 internal/services/privatedns/parse/aaaa_record.go
+ create mode 100644 internal/services/privatedns/parse/aaaa_record_test.go
+ create mode 100644 internal/services/privatedns/parse/cname_record.go
+ create mode 100644 internal/services/privatedns/parse/cname_record_test.go
+ create mode 100644 internal/services/privatedns/parse/mx_record.go
+ create mode 100644 internal/services/privatedns/parse/mx_record_test.go
+ create mode 100644 internal/services/privatedns/parse/private_dns_zone.go
+ create mode 100644 internal/services/privatedns/parse/private_dns_zone_test.go
+ create mode 100644 internal/services/privatedns/parse/ptr_record.go
+ create mode 100644 internal/services/privatedns/parse/ptr_record_test.go
+ create mode 100644 internal/services/privatedns/parse/srv_record.go
+ create mode 100644 internal/services/privatedns/parse/srv_record_test.go
+ create mode 100644 internal/services/privatedns/parse/txt_record.go
+ create mode 100644 internal/services/privatedns/parse/txt_record_test.go
+ create mode 100644 internal/services/privatedns/parse/virtual_network_link.go
+ create mode 100644 internal/services/privatedns/parse/virtual_network_link_test.go
+
+diff --git a/internal/services/privatedns/parse/a_record.go b/internal/services/privatedns/parse/a_record.go
+new file mode 100644
+index 0000000000..1ff34aa6cc
+--- /dev/null
++++ b/internal/services/privatedns/parse/a_record.go
+@@ -0,0 +1,75 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"fmt"
++	"strings"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++type ARecordId struct {
++	SubscriptionId     string
++	ResourceGroup      string
++	PrivateDnsZoneName string
++	AName              string
++}
++
++func NewARecordID(subscriptionId, resourceGroup, privateDnsZoneName, aName string) ARecordId {
++	return ARecordId{
++		SubscriptionId:     subscriptionId,
++		ResourceGroup:      resourceGroup,
++		PrivateDnsZoneName: privateDnsZoneName,
++		AName:              aName,
++	}
++}
++
++func (id ARecordId) String() string {
++	segments := []string{
++		fmt.Sprintf("A Name %q", id.AName),
++		fmt.Sprintf("Private Dns Zone Name %q", id.PrivateDnsZoneName),
++		fmt.Sprintf("Resource Group %q", id.ResourceGroup),
++	}
++	segmentsStr := strings.Join(segments, " / ")
++	return fmt.Sprintf("%s: (%s)", "A Record", segmentsStr)
++}
++
++func (id ARecordId) ID() string {
++	fmtString := "/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Network/privateDnsZones/%s/A/%s"
++	return fmt.Sprintf(fmtString, id.SubscriptionId, id.ResourceGroup, id.PrivateDnsZoneName, id.AName)
++}
++
++// ARecordID parses a ARecord ID into an ARecordId struct
++func ARecordID(input string) (*ARecordId, error) {
++	id, err := resourceids.ParseAzureResourceID(input)
++	if err != nil {
++		return nil, err
++	}
++
++	resourceId := ARecordId{
++		SubscriptionId: id.SubscriptionID,
++		ResourceGroup:  id.ResourceGroup,
++	}
++
++	if resourceId.SubscriptionId == "" {
++		return nil, fmt.Errorf("ID was missing the 'subscriptions' element")
++	}
++
++	if resourceId.ResourceGroup == "" {
++		return nil, fmt.Errorf("ID was missing the 'resourceGroups' element")
++	}
++
++	if resourceId.PrivateDnsZoneName, err = id.PopSegment("privateDnsZones"); err != nil {
++		return nil, err
++	}
++	if resourceId.AName, err = id.PopSegment("A"); err != nil {
++		return nil, err
++	}
++
++	if err := id.ValidateNoEmptySegments(input); err != nil {
++		return nil, err
++	}
++
++	return &resourceId, nil
++}
+diff --git a/internal/services/privatedns/parse/a_record_test.go b/internal/services/privatedns/parse/a_record_test.go
+new file mode 100644
+index 0000000000..4077882d24
+--- /dev/null
++++ b/internal/services/privatedns/parse/a_record_test.go
+@@ -0,0 +1,128 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"testing"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++var _ resourceids.Id = ARecordId{}
++
++func TestARecordIDFormatter(t *testing.T) {
++	actual := NewARecordID("12345678-1234-9876-4563-123456789012", "resGroup1", "privateDnsZone1", "eh1").ID()
++	expected := "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/A/eh1"
++	if actual != expected {
++		t.Fatalf("Expected %q but got %q", expected, actual)
++	}
++}
++
++func TestARecordID(t *testing.T) {
++	testData := []struct {
++		Input    string
++		Error    bool
++		Expected *ARecordId
++	}{
++
++		{
++			// empty
++			Input: "",
++			Error: true,
++		},
++
++		{
++			// missing SubscriptionId
++			Input: "/",
++			Error: true,
++		},
++
++		{
++			// missing value for SubscriptionId
++			Input: "/subscriptions/",
++			Error: true,
++		},
++
++		{
++			// missing ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/",
++			Error: true,
++		},
++
++		{
++			// missing value for ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/",
++			Error: true,
++		},
++
++		{
++			// missing PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/",
++			Error: true,
++		},
++
++		{
++			// missing value for PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/",
++			Error: true,
++		},
++
++		{
++			// missing AName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/",
++			Error: true,
++		},
++
++		{
++			// missing value for AName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/A/",
++			Error: true,
++		},
++
++		{
++			// valid
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/A/eh1",
++			Expected: &ARecordId{
++				SubscriptionId:     "12345678-1234-9876-4563-123456789012",
++				ResourceGroup:      "resGroup1",
++				PrivateDnsZoneName: "privateDnsZone1",
++				AName:              "eh1",
++			},
++		},
++
++		{
++			// upper-cased
++			Input: "/SUBSCRIPTIONS/12345678-1234-9876-4563-123456789012/RESOURCEGROUPS/RESGROUP1/PROVIDERS/MICROSOFT.NETWORK/PRIVATEDNSZONES/PRIVATEDNSZONE1/A/EH1",
++			Error: true,
++		},
++	}
++
++	for _, v := range testData {
++		t.Logf("[DEBUG] Testing %q", v.Input)
++
++		actual, err := ARecordID(v.Input)
++		if err != nil {
++			if v.Error {
++				continue
++			}
++
++			t.Fatalf("Expect a value but got an error: %s", err)
++		}
++		if v.Error {
++			t.Fatal("Expect an error but didn't get one")
++		}
++
++		if actual.SubscriptionId != v.Expected.SubscriptionId {
++			t.Fatalf("Expected %q but got %q for SubscriptionId", v.Expected.SubscriptionId, actual.SubscriptionId)
++		}
++		if actual.ResourceGroup != v.Expected.ResourceGroup {
++			t.Fatalf("Expected %q but got %q for ResourceGroup", v.Expected.ResourceGroup, actual.ResourceGroup)
++		}
++		if actual.PrivateDnsZoneName != v.Expected.PrivateDnsZoneName {
++			t.Fatalf("Expected %q but got %q for PrivateDnsZoneName", v.Expected.PrivateDnsZoneName, actual.PrivateDnsZoneName)
++		}
++		if actual.AName != v.Expected.AName {
++			t.Fatalf("Expected %q but got %q for AName", v.Expected.AName, actual.AName)
++		}
++	}
++}
+diff --git a/internal/services/privatedns/parse/aaaa_record.go b/internal/services/privatedns/parse/aaaa_record.go
+new file mode 100644
+index 0000000000..c44c0d268b
+--- /dev/null
++++ b/internal/services/privatedns/parse/aaaa_record.go
+@@ -0,0 +1,75 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"fmt"
++	"strings"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++type AaaaRecordId struct {
++	SubscriptionId     string
++	ResourceGroup      string
++	PrivateDnsZoneName string
++	AAAAName           string
++}
++
++func NewAaaaRecordID(subscriptionId, resourceGroup, privateDnsZoneName, aAAAName string) AaaaRecordId {
++	return AaaaRecordId{
++		SubscriptionId:     subscriptionId,
++		ResourceGroup:      resourceGroup,
++		PrivateDnsZoneName: privateDnsZoneName,
++		AAAAName:           aAAAName,
++	}
++}
++
++func (id AaaaRecordId) String() string {
++	segments := []string{
++		fmt.Sprintf("A A A A Name %q", id.AAAAName),
++		fmt.Sprintf("Private Dns Zone Name %q", id.PrivateDnsZoneName),
++		fmt.Sprintf("Resource Group %q", id.ResourceGroup),
++	}
++	segmentsStr := strings.Join(segments, " / ")
++	return fmt.Sprintf("%s: (%s)", "Aaaa Record", segmentsStr)
++}
++
++func (id AaaaRecordId) ID() string {
++	fmtString := "/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Network/privateDnsZones/%s/AAAA/%s"
++	return fmt.Sprintf(fmtString, id.SubscriptionId, id.ResourceGroup, id.PrivateDnsZoneName, id.AAAAName)
++}
++
++// AaaaRecordID parses a AaaaRecord ID into an AaaaRecordId struct
++func AaaaRecordID(input string) (*AaaaRecordId, error) {
++	id, err := resourceids.ParseAzureResourceID(input)
++	if err != nil {
++		return nil, err
++	}
++
++	resourceId := AaaaRecordId{
++		SubscriptionId: id.SubscriptionID,
++		ResourceGroup:  id.ResourceGroup,
++	}
++
++	if resourceId.SubscriptionId == "" {
++		return nil, fmt.Errorf("ID was missing the 'subscriptions' element")
++	}
++
++	if resourceId.ResourceGroup == "" {
++		return nil, fmt.Errorf("ID was missing the 'resourceGroups' element")
++	}
++
++	if resourceId.PrivateDnsZoneName, err = id.PopSegment("privateDnsZones"); err != nil {
++		return nil, err
++	}
++	if resourceId.AAAAName, err = id.PopSegment("AAAA"); err != nil {
++		return nil, err
++	}
++
++	if err := id.ValidateNoEmptySegments(input); err != nil {
++		return nil, err
++	}
++
++	return &resourceId, nil
++}
+diff --git a/internal/services/privatedns/parse/aaaa_record_test.go b/internal/services/privatedns/parse/aaaa_record_test.go
+new file mode 100644
+index 0000000000..3d61bf94fe
+--- /dev/null
++++ b/internal/services/privatedns/parse/aaaa_record_test.go
+@@ -0,0 +1,128 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"testing"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++var _ resourceids.Id = AaaaRecordId{}
++
++func TestAaaaRecordIDFormatter(t *testing.T) {
++	actual := NewAaaaRecordID("12345678-1234-9876-4563-123456789012", "resGroup1", "privateDnsZone1", "eheh1").ID()
++	expected := "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/AAAA/eheh1"
++	if actual != expected {
++		t.Fatalf("Expected %q but got %q", expected, actual)
++	}
++}
++
++func TestAaaaRecordID(t *testing.T) {
++	testData := []struct {
++		Input    string
++		Error    bool
++		Expected *AaaaRecordId
++	}{
++
++		{
++			// empty
++			Input: "",
++			Error: true,
++		},
++
++		{
++			// missing SubscriptionId
++			Input: "/",
++			Error: true,
++		},
++
++		{
++			// missing value for SubscriptionId
++			Input: "/subscriptions/",
++			Error: true,
++		},
++
++		{
++			// missing ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/",
++			Error: true,
++		},
++
++		{
++			// missing value for ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/",
++			Error: true,
++		},
++
++		{
++			// missing PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/",
++			Error: true,
++		},
++
++		{
++			// missing value for PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/",
++			Error: true,
++		},
++
++		{
++			// missing AAAAName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/",
++			Error: true,
++		},
++
++		{
++			// missing value for AAAAName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/AAAA/",
++			Error: true,
++		},
++
++		{
++			// valid
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/AAAA/eheh1",
++			Expected: &AaaaRecordId{
++				SubscriptionId:     "12345678-1234-9876-4563-123456789012",
++				ResourceGroup:      "resGroup1",
++				PrivateDnsZoneName: "privateDnsZone1",
++				AAAAName:           "eheh1",
++			},
++		},
++
++		{
++			// upper-cased
++			Input: "/SUBSCRIPTIONS/12345678-1234-9876-4563-123456789012/RESOURCEGROUPS/RESGROUP1/PROVIDERS/MICROSOFT.NETWORK/PRIVATEDNSZONES/PRIVATEDNSZONE1/AAAA/EHEH1",
++			Error: true,
++		},
++	}
++
++	for _, v := range testData {
++		t.Logf("[DEBUG] Testing %q", v.Input)
++
++		actual, err := AaaaRecordID(v.Input)
++		if err != nil {
++			if v.Error {
++				continue
++			}
++
++			t.Fatalf("Expect a value but got an error: %s", err)
++		}
++		if v.Error {
++			t.Fatal("Expect an error but didn't get one")
++		}
++
++		if actual.SubscriptionId != v.Expected.SubscriptionId {
++			t.Fatalf("Expected %q but got %q for SubscriptionId", v.Expected.SubscriptionId, actual.SubscriptionId)
++		}
++		if actual.ResourceGroup != v.Expected.ResourceGroup {
++			t.Fatalf("Expected %q but got %q for ResourceGroup", v.Expected.ResourceGroup, actual.ResourceGroup)
++		}
++		if actual.PrivateDnsZoneName != v.Expected.PrivateDnsZoneName {
++			t.Fatalf("Expected %q but got %q for PrivateDnsZoneName", v.Expected.PrivateDnsZoneName, actual.PrivateDnsZoneName)
++		}
++		if actual.AAAAName != v.Expected.AAAAName {
++			t.Fatalf("Expected %q but got %q for AAAAName", v.Expected.AAAAName, actual.AAAAName)
++		}
++	}
++}
+diff --git a/internal/services/privatedns/parse/cname_record.go b/internal/services/privatedns/parse/cname_record.go
+new file mode 100644
+index 0000000000..52de00de2a
+--- /dev/null
++++ b/internal/services/privatedns/parse/cname_record.go
+@@ -0,0 +1,75 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"fmt"
++	"strings"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++type CnameRecordId struct {
++	SubscriptionId     string
++	ResourceGroup      string
++	PrivateDnsZoneName string
++	CNAMEName          string
++}
++
++func NewCnameRecordID(subscriptionId, resourceGroup, privateDnsZoneName, cNAMEName string) CnameRecordId {
++	return CnameRecordId{
++		SubscriptionId:     subscriptionId,
++		ResourceGroup:      resourceGroup,
++		PrivateDnsZoneName: privateDnsZoneName,
++		CNAMEName:          cNAMEName,
++	}
++}
++
++func (id CnameRecordId) String() string {
++	segments := []string{
++		fmt.Sprintf("C N A M E Name %q", id.CNAMEName),
++		fmt.Sprintf("Private Dns Zone Name %q", id.PrivateDnsZoneName),
++		fmt.Sprintf("Resource Group %q", id.ResourceGroup),
++	}
++	segmentsStr := strings.Join(segments, " / ")
++	return fmt.Sprintf("%s: (%s)", "Cname Record", segmentsStr)
++}
++
++func (id CnameRecordId) ID() string {
++	fmtString := "/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Network/privateDnsZones/%s/CNAME/%s"
++	return fmt.Sprintf(fmtString, id.SubscriptionId, id.ResourceGroup, id.PrivateDnsZoneName, id.CNAMEName)
++}
++
++// CnameRecordID parses a CnameRecord ID into an CnameRecordId struct
++func CnameRecordID(input string) (*CnameRecordId, error) {
++	id, err := resourceids.ParseAzureResourceID(input)
++	if err != nil {
++		return nil, err
++	}
++
++	resourceId := CnameRecordId{
++		SubscriptionId: id.SubscriptionID,
++		ResourceGroup:  id.ResourceGroup,
++	}
++
++	if resourceId.SubscriptionId == "" {
++		return nil, fmt.Errorf("ID was missing the 'subscriptions' element")
++	}
++
++	if resourceId.ResourceGroup == "" {
++		return nil, fmt.Errorf("ID was missing the 'resourceGroups' element")
++	}
++
++	if resourceId.PrivateDnsZoneName, err = id.PopSegment("privateDnsZones"); err != nil {
++		return nil, err
++	}
++	if resourceId.CNAMEName, err = id.PopSegment("CNAME"); err != nil {
++		return nil, err
++	}
++
++	if err := id.ValidateNoEmptySegments(input); err != nil {
++		return nil, err
++	}
++
++	return &resourceId, nil
++}
+diff --git a/internal/services/privatedns/parse/cname_record_test.go b/internal/services/privatedns/parse/cname_record_test.go
+new file mode 100644
+index 0000000000..5d18f58e25
+--- /dev/null
++++ b/internal/services/privatedns/parse/cname_record_test.go
+@@ -0,0 +1,128 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"testing"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++var _ resourceids.Id = CnameRecordId{}
++
++func TestCnameRecordIDFormatter(t *testing.T) {
++	actual := NewCnameRecordID("12345678-1234-9876-4563-123456789012", "resGroup1", "privateDnsZone1", "name1").ID()
++	expected := "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/CNAME/name1"
++	if actual != expected {
++		t.Fatalf("Expected %q but got %q", expected, actual)
++	}
++}
++
++func TestCnameRecordID(t *testing.T) {
++	testData := []struct {
++		Input    string
++		Error    bool
++		Expected *CnameRecordId
++	}{
++
++		{
++			// empty
++			Input: "",
++			Error: true,
++		},
++
++		{
++			// missing SubscriptionId
++			Input: "/",
++			Error: true,
++		},
++
++		{
++			// missing value for SubscriptionId
++			Input: "/subscriptions/",
++			Error: true,
++		},
++
++		{
++			// missing ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/",
++			Error: true,
++		},
++
++		{
++			// missing value for ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/",
++			Error: true,
++		},
++
++		{
++			// missing PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/",
++			Error: true,
++		},
++
++		{
++			// missing value for PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/",
++			Error: true,
++		},
++
++		{
++			// missing CNAMEName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/",
++			Error: true,
++		},
++
++		{
++			// missing value for CNAMEName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/CNAME/",
++			Error: true,
++		},
++
++		{
++			// valid
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/CNAME/name1",
++			Expected: &CnameRecordId{
++				SubscriptionId:     "12345678-1234-9876-4563-123456789012",
++				ResourceGroup:      "resGroup1",
++				PrivateDnsZoneName: "privateDnsZone1",
++				CNAMEName:          "name1",
++			},
++		},
++
++		{
++			// upper-cased
++			Input: "/SUBSCRIPTIONS/12345678-1234-9876-4563-123456789012/RESOURCEGROUPS/RESGROUP1/PROVIDERS/MICROSOFT.NETWORK/PRIVATEDNSZONES/PRIVATEDNSZONE1/CNAME/NAME1",
++			Error: true,
++		},
++	}
++
++	for _, v := range testData {
++		t.Logf("[DEBUG] Testing %q", v.Input)
++
++		actual, err := CnameRecordID(v.Input)
++		if err != nil {
++			if v.Error {
++				continue
++			}
++
++			t.Fatalf("Expect a value but got an error: %s", err)
++		}
++		if v.Error {
++			t.Fatal("Expect an error but didn't get one")
++		}
++
++		if actual.SubscriptionId != v.Expected.SubscriptionId {
++			t.Fatalf("Expected %q but got %q for SubscriptionId", v.Expected.SubscriptionId, actual.SubscriptionId)
++		}
++		if actual.ResourceGroup != v.Expected.ResourceGroup {
++			t.Fatalf("Expected %q but got %q for ResourceGroup", v.Expected.ResourceGroup, actual.ResourceGroup)
++		}
++		if actual.PrivateDnsZoneName != v.Expected.PrivateDnsZoneName {
++			t.Fatalf("Expected %q but got %q for PrivateDnsZoneName", v.Expected.PrivateDnsZoneName, actual.PrivateDnsZoneName)
++		}
++		if actual.CNAMEName != v.Expected.CNAMEName {
++			t.Fatalf("Expected %q but got %q for CNAMEName", v.Expected.CNAMEName, actual.CNAMEName)
++		}
++	}
++}
+diff --git a/internal/services/privatedns/parse/mx_record.go b/internal/services/privatedns/parse/mx_record.go
+new file mode 100644
+index 0000000000..b753efdf2b
+--- /dev/null
++++ b/internal/services/privatedns/parse/mx_record.go
+@@ -0,0 +1,75 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"fmt"
++	"strings"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++type MxRecordId struct {
++	SubscriptionId     string
++	ResourceGroup      string
++	PrivateDnsZoneName string
++	MXName             string
++}
++
++func NewMxRecordID(subscriptionId, resourceGroup, privateDnsZoneName, mXName string) MxRecordId {
++	return MxRecordId{
++		SubscriptionId:     subscriptionId,
++		ResourceGroup:      resourceGroup,
++		PrivateDnsZoneName: privateDnsZoneName,
++		MXName:             mXName,
++	}
++}
++
++func (id MxRecordId) String() string {
++	segments := []string{
++		fmt.Sprintf("M X Name %q", id.MXName),
++		fmt.Sprintf("Private Dns Zone Name %q", id.PrivateDnsZoneName),
++		fmt.Sprintf("Resource Group %q", id.ResourceGroup),
++	}
++	segmentsStr := strings.Join(segments, " / ")
++	return fmt.Sprintf("%s: (%s)", "Mx Record", segmentsStr)
++}
++
++func (id MxRecordId) ID() string {
++	fmtString := "/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Network/privateDnsZones/%s/MX/%s"
++	return fmt.Sprintf(fmtString, id.SubscriptionId, id.ResourceGroup, id.PrivateDnsZoneName, id.MXName)
++}
++
++// MxRecordID parses a MxRecord ID into an MxRecordId struct
++func MxRecordID(input string) (*MxRecordId, error) {
++	id, err := resourceids.ParseAzureResourceID(input)
++	if err != nil {
++		return nil, err
++	}
++
++	resourceId := MxRecordId{
++		SubscriptionId: id.SubscriptionID,
++		ResourceGroup:  id.ResourceGroup,
++	}
++
++	if resourceId.SubscriptionId == "" {
++		return nil, fmt.Errorf("ID was missing the 'subscriptions' element")
++	}
++
++	if resourceId.ResourceGroup == "" {
++		return nil, fmt.Errorf("ID was missing the 'resourceGroups' element")
++	}
++
++	if resourceId.PrivateDnsZoneName, err = id.PopSegment("privateDnsZones"); err != nil {
++		return nil, err
++	}
++	if resourceId.MXName, err = id.PopSegment("MX"); err != nil {
++		return nil, err
++	}
++
++	if err := id.ValidateNoEmptySegments(input); err != nil {
++		return nil, err
++	}
++
++	return &resourceId, nil
++}
+diff --git a/internal/services/privatedns/parse/mx_record_test.go b/internal/services/privatedns/parse/mx_record_test.go
+new file mode 100644
+index 0000000000..3bd9befb82
+--- /dev/null
++++ b/internal/services/privatedns/parse/mx_record_test.go
+@@ -0,0 +1,128 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"testing"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++var _ resourceids.Id = MxRecordId{}
++
++func TestMxRecordIDFormatter(t *testing.T) {
++	actual := NewMxRecordID("12345678-1234-9876-4563-123456789012", "resGroup1", "privateDnsZone1", "mx1").ID()
++	expected := "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/MX/mx1"
++	if actual != expected {
++		t.Fatalf("Expected %q but got %q", expected, actual)
++	}
++}
++
++func TestMxRecordID(t *testing.T) {
++	testData := []struct {
++		Input    string
++		Error    bool
++		Expected *MxRecordId
++	}{
++
++		{
++			// empty
++			Input: "",
++			Error: true,
++		},
++
++		{
++			// missing SubscriptionId
++			Input: "/",
++			Error: true,
++		},
++
++		{
++			// missing value for SubscriptionId
++			Input: "/subscriptions/",
++			Error: true,
++		},
++
++		{
++			// missing ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/",
++			Error: true,
++		},
++
++		{
++			// missing value for ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/",
++			Error: true,
++		},
++
++		{
++			// missing PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/",
++			Error: true,
++		},
++
++		{
++			// missing value for PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/",
++			Error: true,
++		},
++
++		{
++			// missing MXName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/",
++			Error: true,
++		},
++
++		{
++			// missing value for MXName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/MX/",
++			Error: true,
++		},
++
++		{
++			// valid
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/MX/mx1",
++			Expected: &MxRecordId{
++				SubscriptionId:     "12345678-1234-9876-4563-123456789012",
++				ResourceGroup:      "resGroup1",
++				PrivateDnsZoneName: "privateDnsZone1",
++				MXName:             "mx1",
++			},
++		},
++
++		{
++			// upper-cased
++			Input: "/SUBSCRIPTIONS/12345678-1234-9876-4563-123456789012/RESOURCEGROUPS/RESGROUP1/PROVIDERS/MICROSOFT.NETWORK/PRIVATEDNSZONES/PRIVATEDNSZONE1/MX/MX1",
++			Error: true,
++		},
++	}
++
++	for _, v := range testData {
++		t.Logf("[DEBUG] Testing %q", v.Input)
++
++		actual, err := MxRecordID(v.Input)
++		if err != nil {
++			if v.Error {
++				continue
++			}
++
++			t.Fatalf("Expect a value but got an error: %s", err)
++		}
++		if v.Error {
++			t.Fatal("Expect an error but didn't get one")
++		}
++
++		if actual.SubscriptionId != v.Expected.SubscriptionId {
++			t.Fatalf("Expected %q but got %q for SubscriptionId", v.Expected.SubscriptionId, actual.SubscriptionId)
++		}
++		if actual.ResourceGroup != v.Expected.ResourceGroup {
++			t.Fatalf("Expected %q but got %q for ResourceGroup", v.Expected.ResourceGroup, actual.ResourceGroup)
++		}
++		if actual.PrivateDnsZoneName != v.Expected.PrivateDnsZoneName {
++			t.Fatalf("Expected %q but got %q for PrivateDnsZoneName", v.Expected.PrivateDnsZoneName, actual.PrivateDnsZoneName)
++		}
++		if actual.MXName != v.Expected.MXName {
++			t.Fatalf("Expected %q but got %q for MXName", v.Expected.MXName, actual.MXName)
++		}
++	}
++}
+diff --git a/internal/services/privatedns/parse/private_dns_zone.go b/internal/services/privatedns/parse/private_dns_zone.go
+new file mode 100644
+index 0000000000..7ed4f6f732
+--- /dev/null
++++ b/internal/services/privatedns/parse/private_dns_zone.go
+@@ -0,0 +1,69 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"fmt"
++	"strings"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++type PrivateDnsZoneId struct {
++	SubscriptionId string
++	ResourceGroup  string
++	Name           string
++}
++
++func NewPrivateDnsZoneID(subscriptionId, resourceGroup, name string) PrivateDnsZoneId {
++	return PrivateDnsZoneId{
++		SubscriptionId: subscriptionId,
++		ResourceGroup:  resourceGroup,
++		Name:           name,
++	}
++}
++
++func (id PrivateDnsZoneId) String() string {
++	segments := []string{
++		fmt.Sprintf("Name %q", id.Name),
++		fmt.Sprintf("Resource Group %q", id.ResourceGroup),
++	}
++	segmentsStr := strings.Join(segments, " / ")
++	return fmt.Sprintf("%s: (%s)", "Private Dns Zone", segmentsStr)
++}
++
++func (id PrivateDnsZoneId) ID() string {
++	fmtString := "/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Network/privateDnsZones/%s"
++	return fmt.Sprintf(fmtString, id.SubscriptionId, id.ResourceGroup, id.Name)
++}
++
++// PrivateDnsZoneID parses a PrivateDnsZone ID into an PrivateDnsZoneId struct
++func PrivateDnsZoneID(input string) (*PrivateDnsZoneId, error) {
++	id, err := resourceids.ParseAzureResourceID(input)
++	if err != nil {
++		return nil, err
++	}
++
++	resourceId := PrivateDnsZoneId{
++		SubscriptionId: id.SubscriptionID,
++		ResourceGroup:  id.ResourceGroup,
++	}
++
++	if resourceId.SubscriptionId == "" {
++		return nil, fmt.Errorf("ID was missing the 'subscriptions' element")
++	}
++
++	if resourceId.ResourceGroup == "" {
++		return nil, fmt.Errorf("ID was missing the 'resourceGroups' element")
++	}
++
++	if resourceId.Name, err = id.PopSegment("privateDnsZones"); err != nil {
++		return nil, err
++	}
++
++	if err := id.ValidateNoEmptySegments(input); err != nil {
++		return nil, err
++	}
++
++	return &resourceId, nil
++}
+diff --git a/internal/services/privatedns/parse/private_dns_zone_test.go b/internal/services/privatedns/parse/private_dns_zone_test.go
+new file mode 100644
+index 0000000000..6edb3569ca
+--- /dev/null
++++ b/internal/services/privatedns/parse/private_dns_zone_test.go
+@@ -0,0 +1,112 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"testing"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++var _ resourceids.Id = PrivateDnsZoneId{}
++
++func TestPrivateDnsZoneIDFormatter(t *testing.T) {
++	actual := NewPrivateDnsZoneID("12345678-1234-9876-4563-123456789012", "resGroup1", "privateDnsZone1").ID()
++	expected := "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1"
++	if actual != expected {
++		t.Fatalf("Expected %q but got %q", expected, actual)
++	}
++}
++
++func TestPrivateDnsZoneID(t *testing.T) {
++	testData := []struct {
++		Input    string
++		Error    bool
++		Expected *PrivateDnsZoneId
++	}{
++
++		{
++			// empty
++			Input: "",
++			Error: true,
++		},
++
++		{
++			// missing SubscriptionId
++			Input: "/",
++			Error: true,
++		},
++
++		{
++			// missing value for SubscriptionId
++			Input: "/subscriptions/",
++			Error: true,
++		},
++
++		{
++			// missing ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/",
++			Error: true,
++		},
++
++		{
++			// missing value for ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/",
++			Error: true,
++		},
++
++		{
++			// missing Name
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/",
++			Error: true,
++		},
++
++		{
++			// missing value for Name
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/",
++			Error: true,
++		},
++
++		{
++			// valid
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1",
++			Expected: &PrivateDnsZoneId{
++				SubscriptionId: "12345678-1234-9876-4563-123456789012",
++				ResourceGroup:  "resGroup1",
++				Name:           "privateDnsZone1",
++			},
++		},
++
++		{
++			// upper-cased
++			Input: "/SUBSCRIPTIONS/12345678-1234-9876-4563-123456789012/RESOURCEGROUPS/RESGROUP1/PROVIDERS/MICROSOFT.NETWORK/PRIVATEDNSZONES/PRIVATEDNSZONE1",
++			Error: true,
++		},
++	}
++
++	for _, v := range testData {
++		t.Logf("[DEBUG] Testing %q", v.Input)
++
++		actual, err := PrivateDnsZoneID(v.Input)
++		if err != nil {
++			if v.Error {
++				continue
++			}
++
++			t.Fatalf("Expect a value but got an error: %s", err)
++		}
++		if v.Error {
++			t.Fatal("Expect an error but didn't get one")
++		}
++
++		if actual.SubscriptionId != v.Expected.SubscriptionId {
++			t.Fatalf("Expected %q but got %q for SubscriptionId", v.Expected.SubscriptionId, actual.SubscriptionId)
++		}
++		if actual.ResourceGroup != v.Expected.ResourceGroup {
++			t.Fatalf("Expected %q but got %q for ResourceGroup", v.Expected.ResourceGroup, actual.ResourceGroup)
++		}
++		if actual.Name != v.Expected.Name {
++			t.Fatalf("Expected %q but got %q for Name", v.Expected.Name, actual.Name)
++		}
++	}
++}
+diff --git a/internal/services/privatedns/parse/ptr_record.go b/internal/services/privatedns/parse/ptr_record.go
+new file mode 100644
+index 0000000000..c665609f92
+--- /dev/null
++++ b/internal/services/privatedns/parse/ptr_record.go
+@@ -0,0 +1,75 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"fmt"
++	"strings"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++type PtrRecordId struct {
++	SubscriptionId     string
++	ResourceGroup      string
++	PrivateDnsZoneName string
++	PTRName            string
++}
++
++func NewPtrRecordID(subscriptionId, resourceGroup, privateDnsZoneName, pTRName string) PtrRecordId {
++	return PtrRecordId{
++		SubscriptionId:     subscriptionId,
++		ResourceGroup:      resourceGroup,
++		PrivateDnsZoneName: privateDnsZoneName,
++		PTRName:            pTRName,
++	}
++}
++
++func (id PtrRecordId) String() string {
++	segments := []string{
++		fmt.Sprintf("P T R Name %q", id.PTRName),
++		fmt.Sprintf("Private Dns Zone Name %q", id.PrivateDnsZoneName),
++		fmt.Sprintf("Resource Group %q", id.ResourceGroup),
++	}
++	segmentsStr := strings.Join(segments, " / ")
++	return fmt.Sprintf("%s: (%s)", "Ptr Record", segmentsStr)
++}
++
++func (id PtrRecordId) ID() string {
++	fmtString := "/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Network/privateDnsZones/%s/PTR/%s"
++	return fmt.Sprintf(fmtString, id.SubscriptionId, id.ResourceGroup, id.PrivateDnsZoneName, id.PTRName)
++}
++
++// PtrRecordID parses a PtrRecord ID into an PtrRecordId struct
++func PtrRecordID(input string) (*PtrRecordId, error) {
++	id, err := resourceids.ParseAzureResourceID(input)
++	if err != nil {
++		return nil, err
++	}
++
++	resourceId := PtrRecordId{
++		SubscriptionId: id.SubscriptionID,
++		ResourceGroup:  id.ResourceGroup,
++	}
++
++	if resourceId.SubscriptionId == "" {
++		return nil, fmt.Errorf("ID was missing the 'subscriptions' element")
++	}
++
++	if resourceId.ResourceGroup == "" {
++		return nil, fmt.Errorf("ID was missing the 'resourceGroups' element")
++	}
++
++	if resourceId.PrivateDnsZoneName, err = id.PopSegment("privateDnsZones"); err != nil {
++		return nil, err
++	}
++	if resourceId.PTRName, err = id.PopSegment("PTR"); err != nil {
++		return nil, err
++	}
++
++	if err := id.ValidateNoEmptySegments(input); err != nil {
++		return nil, err
++	}
++
++	return &resourceId, nil
++}
+diff --git a/internal/services/privatedns/parse/ptr_record_test.go b/internal/services/privatedns/parse/ptr_record_test.go
+new file mode 100644
+index 0000000000..b16c62f84a
+--- /dev/null
++++ b/internal/services/privatedns/parse/ptr_record_test.go
+@@ -0,0 +1,128 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"testing"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++var _ resourceids.Id = PtrRecordId{}
++
++func TestPtrRecordIDFormatter(t *testing.T) {
++	actual := NewPtrRecordID("12345678-1234-9876-4563-123456789012", "resGroup1", "privateDnsZone1", "ptr1").ID()
++	expected := "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/PTR/ptr1"
++	if actual != expected {
++		t.Fatalf("Expected %q but got %q", expected, actual)
++	}
++}
++
++func TestPtrRecordID(t *testing.T) {
++	testData := []struct {
++		Input    string
++		Error    bool
++		Expected *PtrRecordId
++	}{
++
++		{
++			// empty
++			Input: "",
++			Error: true,
++		},
++
++		{
++			// missing SubscriptionId
++			Input: "/",
++			Error: true,
++		},
++
++		{
++			// missing value for SubscriptionId
++			Input: "/subscriptions/",
++			Error: true,
++		},
++
++		{
++			// missing ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/",
++			Error: true,
++		},
++
++		{
++			// missing value for ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/",
++			Error: true,
++		},
++
++		{
++			// missing PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/",
++			Error: true,
++		},
++
++		{
++			// missing value for PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/",
++			Error: true,
++		},
++
++		{
++			// missing PTRName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/",
++			Error: true,
++		},
++
++		{
++			// missing value for PTRName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/PTR/",
++			Error: true,
++		},
++
++		{
++			// valid
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/PTR/ptr1",
++			Expected: &PtrRecordId{
++				SubscriptionId:     "12345678-1234-9876-4563-123456789012",
++				ResourceGroup:      "resGroup1",
++				PrivateDnsZoneName: "privateDnsZone1",
++				PTRName:            "ptr1",
++			},
++		},
++
++		{
++			// upper-cased
++			Input: "/SUBSCRIPTIONS/12345678-1234-9876-4563-123456789012/RESOURCEGROUPS/RESGROUP1/PROVIDERS/MICROSOFT.NETWORK/PRIVATEDNSZONES/PRIVATEDNSZONE1/PTR/PTR1",
++			Error: true,
++		},
++	}
++
++	for _, v := range testData {
++		t.Logf("[DEBUG] Testing %q", v.Input)
++
++		actual, err := PtrRecordID(v.Input)
++		if err != nil {
++			if v.Error {
++				continue
++			}
++
++			t.Fatalf("Expect a value but got an error: %s", err)
++		}
++		if v.Error {
++			t.Fatal("Expect an error but didn't get one")
++		}
++
++		if actual.SubscriptionId != v.Expected.SubscriptionId {
++			t.Fatalf("Expected %q but got %q for SubscriptionId", v.Expected.SubscriptionId, actual.SubscriptionId)
++		}
++		if actual.ResourceGroup != v.Expected.ResourceGroup {
++			t.Fatalf("Expected %q but got %q for ResourceGroup", v.Expected.ResourceGroup, actual.ResourceGroup)
++		}
++		if actual.PrivateDnsZoneName != v.Expected.PrivateDnsZoneName {
++			t.Fatalf("Expected %q but got %q for PrivateDnsZoneName", v.Expected.PrivateDnsZoneName, actual.PrivateDnsZoneName)
++		}
++		if actual.PTRName != v.Expected.PTRName {
++			t.Fatalf("Expected %q but got %q for PTRName", v.Expected.PTRName, actual.PTRName)
++		}
++	}
++}
+diff --git a/internal/services/privatedns/parse/srv_record.go b/internal/services/privatedns/parse/srv_record.go
+new file mode 100644
+index 0000000000..9dffad560e
+--- /dev/null
++++ b/internal/services/privatedns/parse/srv_record.go
+@@ -0,0 +1,75 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"fmt"
++	"strings"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++type SrvRecordId struct {
++	SubscriptionId     string
++	ResourceGroup      string
++	PrivateDnsZoneName string
++	SRVName            string
++}
++
++func NewSrvRecordID(subscriptionId, resourceGroup, privateDnsZoneName, sRVName string) SrvRecordId {
++	return SrvRecordId{
++		SubscriptionId:     subscriptionId,
++		ResourceGroup:      resourceGroup,
++		PrivateDnsZoneName: privateDnsZoneName,
++		SRVName:            sRVName,
++	}
++}
++
++func (id SrvRecordId) String() string {
++	segments := []string{
++		fmt.Sprintf("S R V Name %q", id.SRVName),
++		fmt.Sprintf("Private Dns Zone Name %q", id.PrivateDnsZoneName),
++		fmt.Sprintf("Resource Group %q", id.ResourceGroup),
++	}
++	segmentsStr := strings.Join(segments, " / ")
++	return fmt.Sprintf("%s: (%s)", "Srv Record", segmentsStr)
++}
++
++func (id SrvRecordId) ID() string {
++	fmtString := "/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Network/privateDnsZones/%s/SRV/%s"
++	return fmt.Sprintf(fmtString, id.SubscriptionId, id.ResourceGroup, id.PrivateDnsZoneName, id.SRVName)
++}
++
++// SrvRecordID parses a SrvRecord ID into an SrvRecordId struct
++func SrvRecordID(input string) (*SrvRecordId, error) {
++	id, err := resourceids.ParseAzureResourceID(input)
++	if err != nil {
++		return nil, err
++	}
++
++	resourceId := SrvRecordId{
++		SubscriptionId: id.SubscriptionID,
++		ResourceGroup:  id.ResourceGroup,
++	}
++
++	if resourceId.SubscriptionId == "" {
++		return nil, fmt.Errorf("ID was missing the 'subscriptions' element")
++	}
++
++	if resourceId.ResourceGroup == "" {
++		return nil, fmt.Errorf("ID was missing the 'resourceGroups' element")
++	}
++
++	if resourceId.PrivateDnsZoneName, err = id.PopSegment("privateDnsZones"); err != nil {
++		return nil, err
++	}
++	if resourceId.SRVName, err = id.PopSegment("SRV"); err != nil {
++		return nil, err
++	}
++
++	if err := id.ValidateNoEmptySegments(input); err != nil {
++		return nil, err
++	}
++
++	return &resourceId, nil
++}
+diff --git a/internal/services/privatedns/parse/srv_record_test.go b/internal/services/privatedns/parse/srv_record_test.go
+new file mode 100644
+index 0000000000..2fceda33a8
+--- /dev/null
++++ b/internal/services/privatedns/parse/srv_record_test.go
+@@ -0,0 +1,128 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"testing"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++var _ resourceids.Id = SrvRecordId{}
++
++func TestSrvRecordIDFormatter(t *testing.T) {
++	actual := NewSrvRecordID("12345678-1234-9876-4563-123456789012", "resGroup1", "privateDnsZone1", "srv1").ID()
++	expected := "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/SRV/srv1"
++	if actual != expected {
++		t.Fatalf("Expected %q but got %q", expected, actual)
++	}
++}
++
++func TestSrvRecordID(t *testing.T) {
++	testData := []struct {
++		Input    string
++		Error    bool
++		Expected *SrvRecordId
++	}{
++
++		{
++			// empty
++			Input: "",
++			Error: true,
++		},
++
++		{
++			// missing SubscriptionId
++			Input: "/",
++			Error: true,
++		},
++
++		{
++			// missing value for SubscriptionId
++			Input: "/subscriptions/",
++			Error: true,
++		},
++
++		{
++			// missing ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/",
++			Error: true,
++		},
++
++		{
++			// missing value for ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/",
++			Error: true,
++		},
++
++		{
++			// missing PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/",
++			Error: true,
++		},
++
++		{
++			// missing value for PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/",
++			Error: true,
++		},
++
++		{
++			// missing SRVName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/",
++			Error: true,
++		},
++
++		{
++			// missing value for SRVName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/SRV/",
++			Error: true,
++		},
++
++		{
++			// valid
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/SRV/srv1",
++			Expected: &SrvRecordId{
++				SubscriptionId:     "12345678-1234-9876-4563-123456789012",
++				ResourceGroup:      "resGroup1",
++				PrivateDnsZoneName: "privateDnsZone1",
++				SRVName:            "srv1",
++			},
++		},
++
++		{
++			// upper-cased
++			Input: "/SUBSCRIPTIONS/12345678-1234-9876-4563-123456789012/RESOURCEGROUPS/RESGROUP1/PROVIDERS/MICROSOFT.NETWORK/PRIVATEDNSZONES/PRIVATEDNSZONE1/SRV/SRV1",
++			Error: true,
++		},
++	}
++
++	for _, v := range testData {
++		t.Logf("[DEBUG] Testing %q", v.Input)
++
++		actual, err := SrvRecordID(v.Input)
++		if err != nil {
++			if v.Error {
++				continue
++			}
++
++			t.Fatalf("Expect a value but got an error: %s", err)
++		}
++		if v.Error {
++			t.Fatal("Expect an error but didn't get one")
++		}
++
++		if actual.SubscriptionId != v.Expected.SubscriptionId {
++			t.Fatalf("Expected %q but got %q for SubscriptionId", v.Expected.SubscriptionId, actual.SubscriptionId)
++		}
++		if actual.ResourceGroup != v.Expected.ResourceGroup {
++			t.Fatalf("Expected %q but got %q for ResourceGroup", v.Expected.ResourceGroup, actual.ResourceGroup)
++		}
++		if actual.PrivateDnsZoneName != v.Expected.PrivateDnsZoneName {
++			t.Fatalf("Expected %q but got %q for PrivateDnsZoneName", v.Expected.PrivateDnsZoneName, actual.PrivateDnsZoneName)
++		}
++		if actual.SRVName != v.Expected.SRVName {
++			t.Fatalf("Expected %q but got %q for SRVName", v.Expected.SRVName, actual.SRVName)
++		}
++	}
++}
+diff --git a/internal/services/privatedns/parse/txt_record.go b/internal/services/privatedns/parse/txt_record.go
+new file mode 100644
+index 0000000000..3eb8a1ba99
+--- /dev/null
++++ b/internal/services/privatedns/parse/txt_record.go
+@@ -0,0 +1,75 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"fmt"
++	"strings"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++type TxtRecordId struct {
++	SubscriptionId     string
++	ResourceGroup      string
++	PrivateDnsZoneName string
++	TXTName            string
++}
++
++func NewTxtRecordID(subscriptionId, resourceGroup, privateDnsZoneName, tXTName string) TxtRecordId {
++	return TxtRecordId{
++		SubscriptionId:     subscriptionId,
++		ResourceGroup:      resourceGroup,
++		PrivateDnsZoneName: privateDnsZoneName,
++		TXTName:            tXTName,
++	}
++}
++
++func (id TxtRecordId) String() string {
++	segments := []string{
++		fmt.Sprintf("T X T Name %q", id.TXTName),
++		fmt.Sprintf("Private Dns Zone Name %q", id.PrivateDnsZoneName),
++		fmt.Sprintf("Resource Group %q", id.ResourceGroup),
++	}
++	segmentsStr := strings.Join(segments, " / ")
++	return fmt.Sprintf("%s: (%s)", "Txt Record", segmentsStr)
++}
++
++func (id TxtRecordId) ID() string {
++	fmtString := "/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Network/privateDnsZones/%s/TXT/%s"
++	return fmt.Sprintf(fmtString, id.SubscriptionId, id.ResourceGroup, id.PrivateDnsZoneName, id.TXTName)
++}
++
++// TxtRecordID parses a TxtRecord ID into an TxtRecordId struct
++func TxtRecordID(input string) (*TxtRecordId, error) {
++	id, err := resourceids.ParseAzureResourceID(input)
++	if err != nil {
++		return nil, err
++	}
++
++	resourceId := TxtRecordId{
++		SubscriptionId: id.SubscriptionID,
++		ResourceGroup:  id.ResourceGroup,
++	}
++
++	if resourceId.SubscriptionId == "" {
++		return nil, fmt.Errorf("ID was missing the 'subscriptions' element")
++	}
++
++	if resourceId.ResourceGroup == "" {
++		return nil, fmt.Errorf("ID was missing the 'resourceGroups' element")
++	}
++
++	if resourceId.PrivateDnsZoneName, err = id.PopSegment("privateDnsZones"); err != nil {
++		return nil, err
++	}
++	if resourceId.TXTName, err = id.PopSegment("TXT"); err != nil {
++		return nil, err
++	}
++
++	if err := id.ValidateNoEmptySegments(input); err != nil {
++		return nil, err
++	}
++
++	return &resourceId, nil
++}
+diff --git a/internal/services/privatedns/parse/txt_record_test.go b/internal/services/privatedns/parse/txt_record_test.go
+new file mode 100644
+index 0000000000..4947041f90
+--- /dev/null
++++ b/internal/services/privatedns/parse/txt_record_test.go
+@@ -0,0 +1,128 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"testing"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++var _ resourceids.Id = TxtRecordId{}
++
++func TestTxtRecordIDFormatter(t *testing.T) {
++	actual := NewTxtRecordID("12345678-1234-9876-4563-123456789012", "resGroup1", "privateDnsZone1", "txt1").ID()
++	expected := "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/TXT/txt1"
++	if actual != expected {
++		t.Fatalf("Expected %q but got %q", expected, actual)
++	}
++}
++
++func TestTxtRecordID(t *testing.T) {
++	testData := []struct {
++		Input    string
++		Error    bool
++		Expected *TxtRecordId
++	}{
++
++		{
++			// empty
++			Input: "",
++			Error: true,
++		},
++
++		{
++			// missing SubscriptionId
++			Input: "/",
++			Error: true,
++		},
++
++		{
++			// missing value for SubscriptionId
++			Input: "/subscriptions/",
++			Error: true,
++		},
++
++		{
++			// missing ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/",
++			Error: true,
++		},
++
++		{
++			// missing value for ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/",
++			Error: true,
++		},
++
++		{
++			// missing PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/",
++			Error: true,
++		},
++
++		{
++			// missing value for PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/",
++			Error: true,
++		},
++
++		{
++			// missing TXTName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/",
++			Error: true,
++		},
++
++		{
++			// missing value for TXTName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/TXT/",
++			Error: true,
++		},
++
++		{
++			// valid
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/TXT/txt1",
++			Expected: &TxtRecordId{
++				SubscriptionId:     "12345678-1234-9876-4563-123456789012",
++				ResourceGroup:      "resGroup1",
++				PrivateDnsZoneName: "privateDnsZone1",
++				TXTName:            "txt1",
++			},
++		},
++
++		{
++			// upper-cased
++			Input: "/SUBSCRIPTIONS/12345678-1234-9876-4563-123456789012/RESOURCEGROUPS/RESGROUP1/PROVIDERS/MICROSOFT.NETWORK/PRIVATEDNSZONES/PRIVATEDNSZONE1/TXT/TXT1",
++			Error: true,
++		},
++	}
++
++	for _, v := range testData {
++		t.Logf("[DEBUG] Testing %q", v.Input)
++
++		actual, err := TxtRecordID(v.Input)
++		if err != nil {
++			if v.Error {
++				continue
++			}
++
++			t.Fatalf("Expect a value but got an error: %s", err)
++		}
++		if v.Error {
++			t.Fatal("Expect an error but didn't get one")
++		}
++
++		if actual.SubscriptionId != v.Expected.SubscriptionId {
++			t.Fatalf("Expected %q but got %q for SubscriptionId", v.Expected.SubscriptionId, actual.SubscriptionId)
++		}
++		if actual.ResourceGroup != v.Expected.ResourceGroup {
++			t.Fatalf("Expected %q but got %q for ResourceGroup", v.Expected.ResourceGroup, actual.ResourceGroup)
++		}
++		if actual.PrivateDnsZoneName != v.Expected.PrivateDnsZoneName {
++			t.Fatalf("Expected %q but got %q for PrivateDnsZoneName", v.Expected.PrivateDnsZoneName, actual.PrivateDnsZoneName)
++		}
++		if actual.TXTName != v.Expected.TXTName {
++			t.Fatalf("Expected %q but got %q for TXTName", v.Expected.TXTName, actual.TXTName)
++		}
++	}
++}
+diff --git a/internal/services/privatedns/parse/virtual_network_link.go b/internal/services/privatedns/parse/virtual_network_link.go
+new file mode 100644
+index 0000000000..7ca1c96fdb
+--- /dev/null
++++ b/internal/services/privatedns/parse/virtual_network_link.go
+@@ -0,0 +1,75 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"fmt"
++	"strings"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++type VirtualNetworkLinkId struct {
++	SubscriptionId     string
++	ResourceGroup      string
++	PrivateDnsZoneName string
++	Name               string
++}
++
++func NewVirtualNetworkLinkID(subscriptionId, resourceGroup, privateDnsZoneName, name string) VirtualNetworkLinkId {
++	return VirtualNetworkLinkId{
++		SubscriptionId:     subscriptionId,
++		ResourceGroup:      resourceGroup,
++		PrivateDnsZoneName: privateDnsZoneName,
++		Name:               name,
++	}
++}
++
++func (id VirtualNetworkLinkId) String() string {
++	segments := []string{
++		fmt.Sprintf("Name %q", id.Name),
++		fmt.Sprintf("Private Dns Zone Name %q", id.PrivateDnsZoneName),
++		fmt.Sprintf("Resource Group %q", id.ResourceGroup),
++	}
++	segmentsStr := strings.Join(segments, " / ")
++	return fmt.Sprintf("%s: (%s)", "Virtual Network Link", segmentsStr)
++}
++
++func (id VirtualNetworkLinkId) ID() string {
++	fmtString := "/subscriptions/%s/resourceGroups/%s/providers/Microsoft.Network/privateDnsZones/%s/virtualNetworkLinks/%s"
++	return fmt.Sprintf(fmtString, id.SubscriptionId, id.ResourceGroup, id.PrivateDnsZoneName, id.Name)
++}
++
++// VirtualNetworkLinkID parses a VirtualNetworkLink ID into an VirtualNetworkLinkId struct
++func VirtualNetworkLinkID(input string) (*VirtualNetworkLinkId, error) {
++	id, err := resourceids.ParseAzureResourceID(input)
++	if err != nil {
++		return nil, err
++	}
++
++	resourceId := VirtualNetworkLinkId{
++		SubscriptionId: id.SubscriptionID,
++		ResourceGroup:  id.ResourceGroup,
++	}
++
++	if resourceId.SubscriptionId == "" {
++		return nil, fmt.Errorf("ID was missing the 'subscriptions' element")
++	}
++
++	if resourceId.ResourceGroup == "" {
++		return nil, fmt.Errorf("ID was missing the 'resourceGroups' element")
++	}
++
++	if resourceId.PrivateDnsZoneName, err = id.PopSegment("privateDnsZones"); err != nil {
++		return nil, err
++	}
++	if resourceId.Name, err = id.PopSegment("virtualNetworkLinks"); err != nil {
++		return nil, err
++	}
++
++	if err := id.ValidateNoEmptySegments(input); err != nil {
++		return nil, err
++	}
++
++	return &resourceId, nil
++}
+diff --git a/internal/services/privatedns/parse/virtual_network_link_test.go b/internal/services/privatedns/parse/virtual_network_link_test.go
+new file mode 100644
+index 0000000000..1f45b56b1b
+--- /dev/null
++++ b/internal/services/privatedns/parse/virtual_network_link_test.go
+@@ -0,0 +1,128 @@
++package parse
++
++// NOTE: this file is generated via 'go:generate' - manual changes will be overwritten
++
++import (
++	"testing"
++
++	"github.com/hashicorp/go-azure-helpers/resourcemanager/resourceids"
++)
++
++var _ resourceids.Id = VirtualNetworkLinkId{}
++
++func TestVirtualNetworkLinkIDFormatter(t *testing.T) {
++	actual := NewVirtualNetworkLinkID("12345678-1234-9876-4563-123456789012", "resGroup1", "privateDnsZone1", "virtualNetworkLink1").ID()
++	expected := "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/virtualNetworkLinks/virtualNetworkLink1"
++	if actual != expected {
++		t.Fatalf("Expected %q but got %q", expected, actual)
++	}
++}
++
++func TestVirtualNetworkLinkID(t *testing.T) {
++	testData := []struct {
++		Input    string
++		Error    bool
++		Expected *VirtualNetworkLinkId
++	}{
++
++		{
++			// empty
++			Input: "",
++			Error: true,
++		},
++
++		{
++			// missing SubscriptionId
++			Input: "/",
++			Error: true,
++		},
++
++		{
++			// missing value for SubscriptionId
++			Input: "/subscriptions/",
++			Error: true,
++		},
++
++		{
++			// missing ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/",
++			Error: true,
++		},
++
++		{
++			// missing value for ResourceGroup
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/",
++			Error: true,
++		},
++
++		{
++			// missing PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/",
++			Error: true,
++		},
++
++		{
++			// missing value for PrivateDnsZoneName
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/",
++			Error: true,
++		},
++
++		{
++			// missing Name
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/",
++			Error: true,
++		},
++
++		{
++			// missing value for Name
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/virtualNetworkLinks/",
++			Error: true,
++		},
++
++		{
++			// valid
++			Input: "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Network/privateDnsZones/privateDnsZone1/virtualNetworkLinks/virtualNetworkLink1",
++			Expected: &VirtualNetworkLinkId{
++				SubscriptionId:     "12345678-1234-9876-4563-123456789012",
++				ResourceGroup:      "resGroup1",
++				PrivateDnsZoneName: "privateDnsZone1",
++				Name:               "virtualNetworkLink1",
++			},
++		},
++
++		{
++			// upper-cased
++			Input: "/SUBSCRIPTIONS/12345678-1234-9876-4563-123456789012/RESOURCEGROUPS/RESGROUP1/PROVIDERS/MICROSOFT.NETWORK/PRIVATEDNSZONES/PRIVATEDNSZONE1/VIRTUALNETWORKLINKS/VIRTUALNETWORKLINK1",
++			Error: true,
++		},
++	}
++
++	for _, v := range testData {
++		t.Logf("[DEBUG] Testing %q", v.Input)
++
++		actual, err := VirtualNetworkLinkID(v.Input)
++		if err != nil {
++			if v.Error {
++				continue
++			}
++
++			t.Fatalf("Expect a value but got an error: %s", err)
++		}
++		if v.Error {
++			t.Fatal("Expect an error but didn't get one")
++		}
++
++		if actual.SubscriptionId != v.Expected.SubscriptionId {
++			t.Fatalf("Expected %q but got %q for SubscriptionId", v.Expected.SubscriptionId, actual.SubscriptionId)
++		}
++		if actual.ResourceGroup != v.Expected.ResourceGroup {
++			t.Fatalf("Expected %q but got %q for ResourceGroup", v.Expected.ResourceGroup, actual.ResourceGroup)
++		}
++		if actual.PrivateDnsZoneName != v.Expected.PrivateDnsZoneName {
++			t.Fatalf("Expected %q but got %q for PrivateDnsZoneName", v.Expected.PrivateDnsZoneName, actual.PrivateDnsZoneName)
++		}
++		if actual.Name != v.Expected.Name {
++			t.Fatalf("Expected %q but got %q for Name", v.Expected.Name, actual.Name)
++		}
++	}
++}
+-- 
+2.40.1
+
