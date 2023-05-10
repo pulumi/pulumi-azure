@@ -1,0 +1,40 @@
+From 547e6e78827ad710e004323f321ed94a08e0d41c Mon Sep 17 00:00:00 2001
+From: Ian Wahbe <ian@wahbe.com>
+Date: Mon, 8 May 2023 15:25:24 -0700
+Subject: [PATCH 2/8] Shared features
+
+---
+ internal/features/four_point_oh.go | 6 ++++++
+ internal/provider/features.go      | 2 +-
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/internal/features/four_point_oh.go b/internal/features/four_point_oh.go
+index 5b88169333..a57b9fac8e 100644
+--- a/internal/features/four_point_oh.go
++++ b/internal/features/four_point_oh.go
+@@ -35,3 +35,9 @@ func FourPointOh() bool {
+ func FourPointOhBeta() bool {
+ 	return FourPointOh() || false
+ }
++
++// FORK: Small function to help us not make a breaking change in the Pulumi
++// provider where all Enums have been changed to case sensitive
++func CaseInsensitive() bool {
++	return true
++}
+diff --git a/internal/provider/features.go b/internal/provider/features.go
+index 2757e5c3b1..029a0c9936 100644
+--- a/internal/provider/features.go
++++ b/internal/provider/features.go
+@@ -295,7 +295,7 @@ func schemaFeatures(supportLegacyTestSuite bool) *pluginsdk.Schema {
+ 
+ 	return &pluginsdk.Schema{
+ 		Type:     pluginsdk.TypeList,
+-		Required: true,
++		Optional: true,
+ 		MaxItems: 1,
+ 		MinItems: 1,
+ 		Elem: &pluginsdk.Resource{
+-- 
+2.40.1
+

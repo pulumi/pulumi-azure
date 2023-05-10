@@ -7,7 +7,6 @@ require (
 	github.com/hashicorp/go-azure-sdk v0.20230503.1093249
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.24.1
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
-	github.com/hashicorp/terraform-provider-azurerm/shim v0.0.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.46.1
 	github.com/pulumi/pulumi/sdk/v3 v3.64.0
 	github.com/stretchr/testify v1.8.2
@@ -15,8 +14,7 @@ require (
 
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9
-	github.com/hashicorp/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.44.1-0.20230505181200-3c3d12cd2a8a
-	github.com/hashicorp/terraform-provider-azurerm/shim => ./shim
+	github.com/hashicorp/terraform-provider-azurerm => ../upstream
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 )
 
