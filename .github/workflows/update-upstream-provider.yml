@@ -11,7 +11,7 @@ env:
     6.0.x
     3.1.301
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  GOVERSION: 1.19.x
+  GOVERSION: 1.20.1
   JAVAVERSION: "11"
   NODEVERSION: 16.x
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -52,9 +52,9 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
-        go-version: ${{ env.GOVERSION }}
+        go-version: 1.20.1
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
