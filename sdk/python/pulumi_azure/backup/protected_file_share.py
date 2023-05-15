@@ -26,6 +26,8 @@ class ProtectedFileShareArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_file_share_name: Specifies the name of the file share to backup. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_storage_account_id: Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+               
+               > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `depends_on` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
         """
         pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
@@ -86,6 +88,8 @@ class ProtectedFileShareArgs:
     def source_storage_account_id(self) -> pulumi.Input[str]:
         """
         Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+
+        > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `depends_on` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
         """
         return pulumi.get(self, "source_storage_account_id")
 
@@ -109,6 +113,8 @@ class _ProtectedFileShareState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_file_share_name: Specifies the name of the file share to backup. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_storage_account_id: Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+               
+               > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `depends_on` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
         """
         if backup_policy_id is not None:
             pulumi.set(__self__, "backup_policy_id", backup_policy_id)
@@ -174,6 +180,8 @@ class _ProtectedFileShareState:
     def source_storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+
+        > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `depends_on` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
         """
         return pulumi.get(self, "source_storage_account_id")
 
@@ -254,6 +262,8 @@ class ProtectedFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_file_share_name: Specifies the name of the file share to backup. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_storage_account_id: Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+               
+               > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `depends_on` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
         """
         ...
     @overload
@@ -386,6 +396,8 @@ class ProtectedFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_file_share_name: Specifies the name of the file share to backup. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_storage_account_id: Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+               
+               > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `depends_on` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -435,6 +447,8 @@ class ProtectedFileShare(pulumi.CustomResource):
     def source_storage_account_id(self) -> pulumi.Output[str]:
         """
         Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+
+        > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `depends_on` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
         """
         return pulumi.get(self, "source_storage_account_id")
 

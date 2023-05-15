@@ -142,8 +142,13 @@ type LinuxVirtualMachine struct {
 	// A `additionalCapabilities` block as defined below.
 	AdditionalCapabilities LinuxVirtualMachineAdditionalCapabilitiesPtrOutput `pulumi:"additionalCapabilities"`
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+	// **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminPassword pulumi.StringPtrOutput `pulumi:"adminPassword"`
 	// One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminSshKeys LinuxVirtualMachineAdminSshKeyArrayOutput `pulumi:"adminSshKeys"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
@@ -154,6 +159,8 @@ type LinuxVirtualMachine struct {
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics LinuxVirtualMachineBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
 	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringOutput `pulumi:"computerName"`
@@ -164,12 +171,18 @@ type LinuxVirtualMachine struct {
 	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId pulumi.StringPtrOutput `pulumi:"dedicatedHostId"`
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	//
+	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication pulumi.BoolPtrOutput `pulumi:"disablePasswordAuthentication"`
 	// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrOutput `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
@@ -182,6 +195,8 @@ type LinuxVirtualMachine struct {
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	MaxBidPrice pulumi.Float64PtrOutput `pulumi:"maxBidPrice"`
 	// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -190,8 +205,12 @@ type LinuxVirtualMachine struct {
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDiskOutput `pulumi:"osDisk"`
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	//
+	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 	PatchAssessmentMode pulumi.StringPtrOutput `pulumi:"patchAssessmentMode"`
 	// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	//
+	// > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
 	PatchMode pulumi.StringPtrOutput `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LinuxVirtualMachinePlanPtrOutput `pulumi:"plan"`
@@ -204,6 +223,8 @@ type LinuxVirtualMachine struct {
 	// A list of Private IP Addresses assigned to this Virtual Machine.
 	PrivateIpAddresses pulumi.StringArrayOutput `pulumi:"privateIpAddresses"`
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
 	ProvisionVmAgent pulumi.BoolPtrOutput `pulumi:"provisionVmAgent"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
@@ -220,8 +241,12 @@ type LinuxVirtualMachine struct {
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringOutput `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageId pulumi.StringPtrOutput `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageReference LinuxVirtualMachineSourceImageReferencePtrOutput `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -232,6 +257,8 @@ type LinuxVirtualMachine struct {
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId pulumi.StringPtrOutput `pulumi:"virtualMachineScaleSetId"`
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
@@ -297,8 +324,13 @@ type linuxVirtualMachineState struct {
 	// A `additionalCapabilities` block as defined below.
 	AdditionalCapabilities *LinuxVirtualMachineAdditionalCapabilities `pulumi:"additionalCapabilities"`
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+	// **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminPassword *string `pulumi:"adminPassword"`
 	// One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminSshKeys []LinuxVirtualMachineAdminSshKey `pulumi:"adminSshKeys"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername *string `pulumi:"adminUsername"`
@@ -309,6 +341,8 @@ type linuxVirtualMachineState struct {
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *LinuxVirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName *string `pulumi:"computerName"`
@@ -319,12 +353,18 @@ type linuxVirtualMachineState struct {
 	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	//
+	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
 	// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
@@ -337,6 +377,8 @@ type linuxVirtualMachineState struct {
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	MaxBidPrice *float64 `pulumi:"maxBidPrice"`
 	// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -345,8 +387,12 @@ type linuxVirtualMachineState struct {
 	// A `osDisk` block as defined below.
 	OsDisk *LinuxVirtualMachineOsDisk `pulumi:"osDisk"`
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	//
+	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 	PatchAssessmentMode *string `pulumi:"patchAssessmentMode"`
 	// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	//
+	// > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
 	PatchMode *string `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *LinuxVirtualMachinePlan `pulumi:"plan"`
@@ -359,6 +405,8 @@ type linuxVirtualMachineState struct {
 	// A list of Private IP Addresses assigned to this Virtual Machine.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
@@ -375,8 +423,12 @@ type linuxVirtualMachineState struct {
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size *string `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageReference *LinuxVirtualMachineSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags map[string]string `pulumi:"tags"`
@@ -387,6 +439,8 @@ type linuxVirtualMachineState struct {
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
@@ -398,8 +452,13 @@ type LinuxVirtualMachineState struct {
 	// A `additionalCapabilities` block as defined below.
 	AdditionalCapabilities LinuxVirtualMachineAdditionalCapabilitiesPtrInput
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+	// **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminPassword pulumi.StringPtrInput
 	// One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminSshKeys LinuxVirtualMachineAdminSshKeyArrayInput
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringPtrInput
@@ -410,6 +469,8 @@ type LinuxVirtualMachineState struct {
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics LinuxVirtualMachineBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
 	CapacityReservationGroupId pulumi.StringPtrInput
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringPtrInput
@@ -420,12 +481,18 @@ type LinuxVirtualMachineState struct {
 	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId pulumi.StringPtrInput
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	//
+	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication pulumi.BoolPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	EvictionPolicy pulumi.StringPtrInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
@@ -438,6 +505,8 @@ type LinuxVirtualMachineState struct {
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	MaxBidPrice pulumi.Float64PtrInput
 	// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -446,8 +515,12 @@ type LinuxVirtualMachineState struct {
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDiskPtrInput
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	//
+	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 	PatchAssessmentMode pulumi.StringPtrInput
 	// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	//
+	// > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
 	PatchMode pulumi.StringPtrInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LinuxVirtualMachinePlanPtrInput
@@ -460,6 +533,8 @@ type LinuxVirtualMachineState struct {
 	// A list of Private IP Addresses assigned to this Virtual Machine.
 	PrivateIpAddresses pulumi.StringArrayInput
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
 	ProvisionVmAgent pulumi.BoolPtrInput
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId pulumi.StringPtrInput
@@ -476,8 +551,12 @@ type LinuxVirtualMachineState struct {
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringPtrInput
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageReference LinuxVirtualMachineSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags pulumi.StringMapInput
@@ -488,6 +567,8 @@ type LinuxVirtualMachineState struct {
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId pulumi.StringPtrInput
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
@@ -503,8 +584,13 @@ type linuxVirtualMachineArgs struct {
 	// A `additionalCapabilities` block as defined below.
 	AdditionalCapabilities *LinuxVirtualMachineAdditionalCapabilities `pulumi:"additionalCapabilities"`
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+	// **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminPassword *string `pulumi:"adminPassword"`
 	// One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminSshKeys []LinuxVirtualMachineAdminSshKey `pulumi:"adminSshKeys"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
@@ -515,6 +601,8 @@ type linuxVirtualMachineArgs struct {
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *LinuxVirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName *string `pulumi:"computerName"`
@@ -525,12 +613,18 @@ type linuxVirtualMachineArgs struct {
 	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId *string `pulumi:"dedicatedHostId"`
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	//
+	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
 	// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
@@ -543,6 +637,8 @@ type linuxVirtualMachineArgs struct {
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	MaxBidPrice *float64 `pulumi:"maxBidPrice"`
 	// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -551,8 +647,12 @@ type linuxVirtualMachineArgs struct {
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDisk `pulumi:"osDisk"`
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	//
+	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 	PatchAssessmentMode *string `pulumi:"patchAssessmentMode"`
 	// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	//
+	// > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
 	PatchMode *string `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *LinuxVirtualMachinePlan `pulumi:"plan"`
@@ -561,6 +661,8 @@ type linuxVirtualMachineArgs struct {
 	// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
@@ -573,8 +675,12 @@ type linuxVirtualMachineArgs struct {
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size string `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageReference *LinuxVirtualMachineSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags map[string]string `pulumi:"tags"`
@@ -583,6 +689,8 @@ type linuxVirtualMachineArgs struct {
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
 	UserData *string `pulumi:"userData"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
@@ -595,8 +703,13 @@ type LinuxVirtualMachineArgs struct {
 	// A `additionalCapabilities` block as defined below.
 	AdditionalCapabilities LinuxVirtualMachineAdditionalCapabilitiesPtrInput
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+	// **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminPassword pulumi.StringPtrInput
 	// One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminSshKeys LinuxVirtualMachineAdminSshKeyArrayInput
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput
@@ -607,6 +720,8 @@ type LinuxVirtualMachineArgs struct {
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics LinuxVirtualMachineBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
 	CapacityReservationGroupId pulumi.StringPtrInput
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringPtrInput
@@ -617,12 +732,18 @@ type LinuxVirtualMachineArgs struct {
 	// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
 	DedicatedHostId pulumi.StringPtrInput
 	// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	//
+	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication pulumi.BoolPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	EvictionPolicy pulumi.StringPtrInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
@@ -635,6 +756,8 @@ type LinuxVirtualMachineArgs struct {
 	// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	MaxBidPrice pulumi.Float64PtrInput
 	// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -643,8 +766,12 @@ type LinuxVirtualMachineArgs struct {
 	// A `osDisk` block as defined below.
 	OsDisk LinuxVirtualMachineOsDiskInput
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	//
+	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 	PatchAssessmentMode pulumi.StringPtrInput
 	// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	//
+	// > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
 	PatchMode pulumi.StringPtrInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LinuxVirtualMachinePlanPtrInput
@@ -653,6 +780,8 @@ type LinuxVirtualMachineArgs struct {
 	// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
 	ProvisionVmAgent pulumi.BoolPtrInput
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId pulumi.StringPtrInput
@@ -665,8 +794,12 @@ type LinuxVirtualMachineArgs struct {
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringInput
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageReference LinuxVirtualMachineSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags pulumi.StringMapInput
@@ -675,6 +808,8 @@ type LinuxVirtualMachineArgs struct {
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
 	UserData pulumi.StringPtrInput
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
@@ -777,11 +912,16 @@ func (o LinuxVirtualMachineOutput) AdditionalCapabilities() LinuxVirtualMachineA
 }
 
 // The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+//
+// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+// **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 func (o LinuxVirtualMachineOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
 // One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
+//
+// > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 func (o LinuxVirtualMachineOutput) AdminSshKeys() LinuxVirtualMachineAdminSshKeyArrayOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) LinuxVirtualMachineAdminSshKeyArrayOutput { return v.AdminSshKeys }).(LinuxVirtualMachineAdminSshKeyArrayOutput)
 }
@@ -807,6 +947,8 @@ func (o LinuxVirtualMachineOutput) BootDiagnostics() LinuxVirtualMachineBootDiag
 }
 
 // Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+//
+// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
 func (o LinuxVirtualMachineOutput) CapacityReservationGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
 }
@@ -832,6 +974,10 @@ func (o LinuxVirtualMachineOutput) DedicatedHostId() pulumi.StringPtrOutput {
 }
 
 // Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+//
+// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+//
+// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 func (o LinuxVirtualMachineOutput) DisablePasswordAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.BoolPtrOutput { return v.DisablePasswordAuthentication }).(pulumi.BoolPtrOutput)
 }
@@ -847,6 +993,8 @@ func (o LinuxVirtualMachineOutput) EncryptionAtHostEnabled() pulumi.BoolPtrOutpu
 }
 
 // Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 func (o LinuxVirtualMachineOutput) EvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }
@@ -879,6 +1027,8 @@ func (o LinuxVirtualMachineOutput) Location() pulumi.StringOutput {
 }
 
 // The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+//
+// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 func (o LinuxVirtualMachineOutput) MaxBidPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.Float64PtrOutput { return v.MaxBidPrice }).(pulumi.Float64PtrOutput)
 }
@@ -899,11 +1049,15 @@ func (o LinuxVirtualMachineOutput) OsDisk() LinuxVirtualMachineOsDiskOutput {
 }
 
 // Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+//
+// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 func (o LinuxVirtualMachineOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.PatchAssessmentMode }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+//
+// > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
 func (o LinuxVirtualMachineOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.PatchMode }).(pulumi.StringPtrOutput)
 }
@@ -934,6 +1088,8 @@ func (o LinuxVirtualMachineOutput) PrivateIpAddresses() pulumi.StringArrayOutput
 }
 
 // Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
 func (o LinuxVirtualMachineOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.BoolPtrOutput { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
@@ -974,11 +1130,15 @@ func (o LinuxVirtualMachineOutput) Size() pulumi.StringOutput {
 }
 
 // The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+//
+// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 func (o LinuxVirtualMachineOutput) SourceImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.SourceImageId }).(pulumi.StringPtrOutput)
 }
 
 // A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+//
+// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 func (o LinuxVirtualMachineOutput) SourceImageReference() LinuxVirtualMachineSourceImageReferencePtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) LinuxVirtualMachineSourceImageReferencePtrOutput {
 		return v.SourceImageReference
@@ -1008,6 +1168,8 @@ func (o LinuxVirtualMachineOutput) VirtualMachineId() pulumi.StringOutput {
 }
 
 // Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+//
+// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 func (o LinuxVirtualMachineOutput) VirtualMachineScaleSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.VirtualMachineScaleSetId }).(pulumi.StringPtrOutput)
 }

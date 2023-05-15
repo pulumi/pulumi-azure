@@ -119,6 +119,8 @@ export class Volume extends pulumi.CustomResource {
     public readonly subnetId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -298,6 +300,8 @@ export interface VolumeState {
     subnetId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -388,6 +392,8 @@ export interface VolumeArgs {
     subnetId: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -96,6 +96,8 @@ type Definition struct {
 	// The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **NOTE:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -160,6 +162,8 @@ type definitionState struct {
 	// The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **NOTE:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -187,6 +191,8 @@ type DefinitionState struct {
 	// The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
+	//
+	// > **NOTE:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
 	Tags pulumi.StringMapInput
 }
 
@@ -218,6 +224,8 @@ type definitionArgs struct {
 	// The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **NOTE:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -246,6 +254,8 @@ type DefinitionArgs struct {
 	// The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
+	//
+	// > **NOTE:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
 	Tags pulumi.StringMapInput
 }
 
@@ -392,6 +402,8 @@ func (o DefinitionOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // A mapping of tags to assign to the resource.
+//
+// > **NOTE:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
 func (o DefinitionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Definition) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

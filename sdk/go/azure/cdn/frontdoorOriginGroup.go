@@ -86,6 +86,8 @@ type FrontdoorOriginGroup struct {
 	// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+	//
+	// > **NOTE:** This property is currently not used, but will be in the near future.
 	RestoreTrafficTimeToHealedOrNewEndpointInMinutes pulumi.IntPtrOutput `pulumi:"restoreTrafficTimeToHealedOrNewEndpointInMinutes"`
 	// Specifies whether session affinity should be enabled on this host. Defaults to `true`.
 	SessionAffinityEnabled pulumi.BoolPtrOutput `pulumi:"sessionAffinityEnabled"`
@@ -135,6 +137,8 @@ type frontdoorOriginGroupState struct {
 	// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+	//
+	// > **NOTE:** This property is currently not used, but will be in the near future.
 	RestoreTrafficTimeToHealedOrNewEndpointInMinutes *int `pulumi:"restoreTrafficTimeToHealedOrNewEndpointInMinutes"`
 	// Specifies whether session affinity should be enabled on this host. Defaults to `true`.
 	SessionAffinityEnabled *bool `pulumi:"sessionAffinityEnabled"`
@@ -150,6 +154,8 @@ type FrontdoorOriginGroupState struct {
 	// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+	//
+	// > **NOTE:** This property is currently not used, but will be in the near future.
 	RestoreTrafficTimeToHealedOrNewEndpointInMinutes pulumi.IntPtrInput
 	// Specifies whether session affinity should be enabled on this host. Defaults to `true`.
 	SessionAffinityEnabled pulumi.BoolPtrInput
@@ -169,6 +175,8 @@ type frontdoorOriginGroupArgs struct {
 	// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+	//
+	// > **NOTE:** This property is currently not used, but will be in the near future.
 	RestoreTrafficTimeToHealedOrNewEndpointInMinutes *int `pulumi:"restoreTrafficTimeToHealedOrNewEndpointInMinutes"`
 	// Specifies whether session affinity should be enabled on this host. Defaults to `true`.
 	SessionAffinityEnabled *bool `pulumi:"sessionAffinityEnabled"`
@@ -185,6 +193,8 @@ type FrontdoorOriginGroupArgs struct {
 	// The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+	//
+	// > **NOTE:** This property is currently not used, but will be in the near future.
 	RestoreTrafficTimeToHealedOrNewEndpointInMinutes pulumi.IntPtrInput
 	// Specifies whether session affinity should be enabled on this host. Defaults to `true`.
 	SessionAffinityEnabled pulumi.BoolPtrInput
@@ -298,6 +308,8 @@ func (o FrontdoorOriginGroupOutput) Name() pulumi.StringOutput {
 }
 
 // Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+//
+// > **NOTE:** This property is currently not used, but will be in the near future.
 func (o FrontdoorOriginGroupOutput) RestoreTrafficTimeToHealedOrNewEndpointInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FrontdoorOriginGroup) pulumi.IntPtrOutput {
 		return v.RestoreTrafficTimeToHealedOrNewEndpointInMinutes

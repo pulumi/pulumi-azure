@@ -78,12 +78,16 @@ public final class PoolStorageImageReferenceArgs extends com.pulumi.resources.Re
     /**
      * Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
      * 
+     * To provision a Custom Image, the following fields are applicable:
+     * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
      * @return Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+     * 
+     * To provision a Custom Image, the following fields are applicable:
      * 
      */
     public Optional<Output<String>> version() {
@@ -205,6 +209,8 @@ public final class PoolStorageImageReferenceArgs extends com.pulumi.resources.Re
         /**
          * @param version Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
          * 
+         * To provision a Custom Image, the following fields are applicable:
+         * 
          * @return builder
          * 
          */
@@ -215,6 +221,8 @@ public final class PoolStorageImageReferenceArgs extends com.pulumi.resources.Re
 
         /**
          * @param version Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+         * 
+         * To provision a Custom Image, the following fields are applicable:
          * 
          * @return builder
          * 

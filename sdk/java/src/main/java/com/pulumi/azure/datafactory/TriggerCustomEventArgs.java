@@ -172,12 +172,16 @@ public final class TriggerCustomEventArgs extends com.pulumi.resources.ResourceA
     /**
      * The pattern that event subject ends with for trigger to fire.
      * 
+     * &gt; **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
+     * 
      */
     @Import(name="subjectEndsWith")
     private @Nullable Output<String> subjectEndsWith;
 
     /**
      * @return The pattern that event subject ends with for trigger to fire.
+     * 
+     * &gt; **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
      * 
      */
     public Optional<Output<String>> subjectEndsWith() {
@@ -461,6 +465,8 @@ public final class TriggerCustomEventArgs extends com.pulumi.resources.ResourceA
         /**
          * @param subjectEndsWith The pattern that event subject ends with for trigger to fire.
          * 
+         * &gt; **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
+         * 
          * @return builder
          * 
          */
@@ -471,6 +477,8 @@ public final class TriggerCustomEventArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param subjectEndsWith The pattern that event subject ends with for trigger to fire.
+         * 
+         * &gt; **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
          * 
          * @return builder
          * 

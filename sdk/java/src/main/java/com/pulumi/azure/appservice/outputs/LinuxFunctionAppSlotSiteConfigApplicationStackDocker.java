@@ -24,6 +24,8 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackDocker {
     /**
      * @return The password for the account to use to connect to the registry.
      * 
+     * &gt; **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+     * 
      */
     private @Nullable String registryPassword;
     /**
@@ -33,6 +35,8 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackDocker {
     private String registryUrl;
     /**
      * @return The username to use for connections to the registry.
+     * 
+     * &gt; **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
      * 
      */
     private @Nullable String registryUsername;
@@ -55,6 +59,8 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackDocker {
     /**
      * @return The password for the account to use to connect to the registry.
      * 
+     * &gt; **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+     * 
      */
     public Optional<String> registryPassword() {
         return Optional.ofNullable(this.registryPassword);
@@ -68,6 +74,8 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackDocker {
     }
     /**
      * @return The username to use for connections to the registry.
+     * 
+     * &gt; **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
      * 
      */
     public Optional<String> registryUsername() {

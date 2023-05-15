@@ -797,6 +797,8 @@ class ManagedInstanceIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+               
+               > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
@@ -821,6 +823,8 @@ class ManagedInstanceIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+
+        > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -934,7 +938,7 @@ class ServerAzureadAdministrator(dict):
         """
         :param str login_username: The login username of the Azure AD Administrator of this SQL Server.
         :param str object_id: The object id of the Azure AD Administrator of this SQL Server.
-        :param bool azuread_authentication_only: Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
+        :param bool azuread_authentication_only: Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
         :param str tenant_id: The tenant id of the Azure AD Administrator of this SQL Server.
         """
         pulumi.set(__self__, "login_username", login_username)
@@ -964,7 +968,7 @@ class ServerAzureadAdministrator(dict):
     @pulumi.getter(name="azureadAuthenticationOnly")
     def azuread_authentication_only(self) -> Optional[bool]:
         """
-        Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
+        Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
         """
         return pulumi.get(self, "azuread_authentication_only")
 
@@ -1008,6 +1012,10 @@ class ServerIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               
+               > **NOTE:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         :param str tenant_id: The tenant id of the Azure AD Administrator of this SQL Server.
         """
@@ -1032,6 +1040,10 @@ class ServerIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -1206,6 +1218,8 @@ class VirtualMachineAssessmentSchedule(dict):
         :param str day_of_week: What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param str start_time: What time the assessment will be run. Must be in the format `HH:mm`.
         :param int monthly_occurrence: How many months between assessment runs. Valid values are between `1` and `5`.
+               
+               > **NOTE:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
         :param int weekly_interval: How many weeks between assessment runs. Valid values are between `1` and `6`.
         """
         pulumi.set(__self__, "day_of_week", day_of_week)
@@ -1236,6 +1250,8 @@ class VirtualMachineAssessmentSchedule(dict):
     def monthly_occurrence(self) -> Optional[int]:
         """
         How many months between assessment runs. Valid values are between `1` and `5`.
+
+        > **NOTE:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
         """
         return pulumi.get(self, "monthly_occurrence")
 
@@ -1404,6 +1420,8 @@ class VirtualMachineAutoBackupManualSchedule(dict):
         :param int full_backup_window_in_hours: Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
         :param int log_backup_frequency_in_minutes: Frequency of log backups, in minutes. Valid values are from `5` to `60`.
         :param Sequence[str] days_of_weeks: A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+               
+               > **NOTE:** `days_of_week` can only be specified when `manual_schedule` is set to `Weekly`
         """
         pulumi.set(__self__, "full_backup_frequency", full_backup_frequency)
         pulumi.set(__self__, "full_backup_start_hour", full_backup_start_hour)
@@ -1449,6 +1467,8 @@ class VirtualMachineAutoBackupManualSchedule(dict):
     def days_of_weeks(self) -> Optional[Sequence[str]]:
         """
         A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+
+        > **NOTE:** `days_of_week` can only be specified when `manual_schedule` is set to `Weekly`
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -1631,6 +1651,8 @@ class VirtualMachineSqlInstance(dict):
         :param int max_dop: Maximum Degree of Parallelism of the SQL Server. Possible values are between `0` and `32767`. Defaults to `0`.
         :param int max_server_memory_mb: Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `128` and `2147483647` Defaults to `2147483647`.
         :param int min_server_memory_mb: Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
+               
+               > **NOTE:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
         """
         if adhoc_workloads_optimization_enabled is not None:
             pulumi.set(__self__, "adhoc_workloads_optimization_enabled", adhoc_workloads_optimization_enabled)
@@ -1700,6 +1722,8 @@ class VirtualMachineSqlInstance(dict):
     def min_server_memory_mb(self) -> Optional[int]:
         """
         Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
+
+        > **NOTE:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
         """
         return pulumi.get(self, "min_server_memory_mb")
 

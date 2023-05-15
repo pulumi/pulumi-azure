@@ -57,6 +57,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         /// </summary>
         [Output("autoscaleSettings")]
         public Output<Outputs.TableAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
@@ -75,6 +77,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// 
+        /// &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
@@ -133,6 +137,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.TableAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
@@ -151,6 +157,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// 
+        /// &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
@@ -171,6 +179,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        /// 
+        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.TableAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
@@ -189,6 +199,8 @@ namespace Pulumi.Azure.CosmosDB
 
         /// <summary>
         /// The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+        /// 
+        /// &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }

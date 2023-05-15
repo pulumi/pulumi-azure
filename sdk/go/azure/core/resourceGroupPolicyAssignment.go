@@ -76,6 +76,8 @@ type ResourceGroupPolicyAssignment struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrOutput `pulumi:"enforce"`
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity ResourceGroupPolicyAssignmentIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -141,6 +143,8 @@ type resourceGroupPolicyAssignmentState struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity *ResourceGroupPolicyAssignmentIdentity `pulumi:"identity"`
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location *string `pulumi:"location"`
@@ -172,6 +176,8 @@ type ResourceGroupPolicyAssignmentState struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrInput
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity ResourceGroupPolicyAssignmentIdentityPtrInput
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location pulumi.StringPtrInput
@@ -207,6 +213,8 @@ type resourceGroupPolicyAssignmentArgs struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce *bool `pulumi:"enforce"`
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity *ResourceGroupPolicyAssignmentIdentity `pulumi:"identity"`
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location *string `pulumi:"location"`
@@ -239,6 +247,8 @@ type ResourceGroupPolicyAssignmentArgs struct {
 	// Specifies if this Policy should be enforced or not? Defaults to `true`.
 	Enforce pulumi.BoolPtrInput
 	// An `identity` block as defined below.
+	//
+	// > **Note:** The `location` field must also be specified when `identity` is specified.
 	Identity ResourceGroupPolicyAssignmentIdentityPtrInput
 	// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
 	Location pulumi.StringPtrInput
@@ -365,6 +375,8 @@ func (o ResourceGroupPolicyAssignmentOutput) Enforce() pulumi.BoolPtrOutput {
 }
 
 // An `identity` block as defined below.
+//
+// > **Note:** The `location` field must also be specified when `identity` is specified.
 func (o ResourceGroupPolicyAssignmentOutput) Identity() ResourceGroupPolicyAssignmentIdentityPtrOutput {
 	return o.ApplyT(func(v *ResourceGroupPolicyAssignment) ResourceGroupPolicyAssignmentIdentityPtrOutput {
 		return v.Identity

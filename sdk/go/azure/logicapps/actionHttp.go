@@ -76,6 +76,8 @@ type ActionHttp struct {
 	// Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
 	Method pulumi.StringOutput `pulumi:"method"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
 	Queries pulumi.StringMapOutput `pulumi:"queries"`
@@ -132,6 +134,8 @@ type actionHttpState struct {
 	// Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
 	Method *string `pulumi:"method"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 	// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
 	Queries map[string]string `pulumi:"queries"`
@@ -151,6 +155,8 @@ type ActionHttpState struct {
 	// Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
 	Method pulumi.StringPtrInput
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 	// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
 	Queries pulumi.StringMapInput
@@ -174,6 +180,8 @@ type actionHttpArgs struct {
 	// Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
 	Method string `pulumi:"method"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 	// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
 	Queries map[string]string `pulumi:"queries"`
@@ -194,6 +202,8 @@ type ActionHttpArgs struct {
 	// Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
 	Method pulumi.StringInput
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 	// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
 	Queries pulumi.StringMapInput
@@ -311,6 +321,8 @@ func (o ActionHttpOutput) Method() pulumi.StringOutput {
 }
 
 // Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+//
+// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
 func (o ActionHttpOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionHttp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

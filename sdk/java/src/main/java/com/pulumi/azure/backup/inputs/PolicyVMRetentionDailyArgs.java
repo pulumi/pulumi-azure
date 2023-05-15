@@ -16,12 +16,16 @@ public final class PolicyVMRetentionDailyArgs extends com.pulumi.resources.Resou
     /**
      * The number of daily backups to keep. Must be between `7` and `9999`.
      * 
+     * &gt; **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
+     * 
      */
     @Import(name="count", required=true)
     private Output<Integer> count;
 
     /**
      * @return The number of daily backups to keep. Must be between `7` and `9999`.
+     * 
+     * &gt; **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
      * 
      */
     public Output<Integer> count() {
@@ -55,6 +59,8 @@ public final class PolicyVMRetentionDailyArgs extends com.pulumi.resources.Resou
         /**
          * @param count The number of daily backups to keep. Must be between `7` and `9999`.
          * 
+         * &gt; **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
+         * 
          * @return builder
          * 
          */
@@ -65,6 +71,8 @@ public final class PolicyVMRetentionDailyArgs extends com.pulumi.resources.Resou
 
         /**
          * @param count The number of daily backups to keep. Must be between `7` and `9999`.
+         * 
+         * &gt; **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
          * 
          * @return builder
          * 

@@ -87,6 +87,8 @@ type DatasetDelimitedText struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
@@ -113,6 +115,8 @@ type DatasetDelimitedText struct {
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
 	Folder pulumi.StringPtrOutput `pulumi:"folder"`
 	// A `httpServerLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Delimited Text Dataset:
 	HttpServerLocation DatasetDelimitedTextHttpServerLocationPtrOutput `pulumi:"httpServerLocation"`
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName pulumi.StringOutput `pulumi:"linkedServiceName"`
@@ -166,6 +170,8 @@ func GetDatasetDelimitedText(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DatasetDelimitedText resources.
 type datasetDelimitedTextState struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
@@ -192,6 +198,8 @@ type datasetDelimitedTextState struct {
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
 	Folder *string `pulumi:"folder"`
 	// A `httpServerLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Delimited Text Dataset:
 	HttpServerLocation *DatasetDelimitedTextHttpServerLocation `pulumi:"httpServerLocation"`
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName *string `pulumi:"linkedServiceName"`
@@ -211,6 +219,8 @@ type datasetDelimitedTextState struct {
 
 type DatasetDelimitedTextState struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
@@ -237,6 +247,8 @@ type DatasetDelimitedTextState struct {
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
 	Folder pulumi.StringPtrInput
 	// A `httpServerLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Delimited Text Dataset:
 	HttpServerLocation DatasetDelimitedTextHttpServerLocationPtrInput
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName pulumi.StringPtrInput
@@ -260,6 +272,8 @@ func (DatasetDelimitedTextState) ElementType() reflect.Type {
 
 type datasetDelimitedTextArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
@@ -286,6 +300,8 @@ type datasetDelimitedTextArgs struct {
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
 	Folder *string `pulumi:"folder"`
 	// A `httpServerLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Delimited Text Dataset:
 	HttpServerLocation *DatasetDelimitedTextHttpServerLocation `pulumi:"httpServerLocation"`
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
@@ -306,6 +322,8 @@ type datasetDelimitedTextArgs struct {
 // The set of arguments for constructing a DatasetDelimitedText resource.
 type DatasetDelimitedTextArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
@@ -332,6 +350,8 @@ type DatasetDelimitedTextArgs struct {
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
 	Folder pulumi.StringPtrInput
 	// A `httpServerLocation` block as defined below.
+	//
+	// The following supported arguments are specific to Delimited Text Dataset:
 	HttpServerLocation DatasetDelimitedTextHttpServerLocationPtrInput
 	// The Data Factory Linked Service name in which to associate the Dataset with.
 	LinkedServiceName pulumi.StringInput
@@ -437,6 +457,8 @@ func (o DatasetDelimitedTextOutput) ToDatasetDelimitedTextOutputWithContext(ctx 
 }
 
 // A map of additional properties to associate with the Data Factory Dataset.
+//
+// The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
 func (o DatasetDelimitedTextOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DatasetDelimitedText) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }
@@ -506,6 +528,8 @@ func (o DatasetDelimitedTextOutput) Folder() pulumi.StringPtrOutput {
 }
 
 // A `httpServerLocation` block as defined below.
+//
+// The following supported arguments are specific to Delimited Text Dataset:
 func (o DatasetDelimitedTextOutput) HttpServerLocation() DatasetDelimitedTextHttpServerLocationPtrOutput {
 	return o.ApplyT(func(v *DatasetDelimitedText) DatasetDelimitedTextHttpServerLocationPtrOutput {
 		return v.HttpServerLocation

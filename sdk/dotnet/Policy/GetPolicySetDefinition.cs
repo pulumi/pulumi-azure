@@ -81,6 +81,8 @@ namespace Pulumi.Azure.Policy
     {
         /// <summary>
         /// Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+        /// 
+        /// **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
         /// </summary>
         [Input("displayName")]
         public string? DisplayName { get; set; }
@@ -107,6 +109,8 @@ namespace Pulumi.Azure.Policy
     {
         /// <summary>
         /// Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+        /// 
+        /// **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

@@ -90,6 +90,8 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+     *
+     * > **NOTE:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
      */
     public readonly maxReturn!: pulumi.Output<number | undefined>;
     /**
@@ -190,6 +192,8 @@ export interface TrafficManagerProfileState {
     fqdn?: pulumi.Input<string>;
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+     *
+     * > **NOTE:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
      */
     maxReturn?: pulumi.Input<number>;
     /**
@@ -232,6 +236,8 @@ export interface TrafficManagerProfileArgs {
     dnsConfig: pulumi.Input<inputs.network.TrafficManagerProfileDnsConfig>;
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+     *
+     * > **NOTE:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
      */
     maxReturn?: pulumi.Input<number>;
     /**

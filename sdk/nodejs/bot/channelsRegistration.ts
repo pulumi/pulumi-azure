@@ -61,6 +61,10 @@ export class ChannelsRegistration extends pulumi.CustomResource {
 
     /**
      * The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+     *
+     * > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `softDeleteEnabled` and the `purgeProtectionEnabled` is enabled on the `azure.keyvault.KeyVault` resource while using `cmkKeyVaultUrl`.
+     *
+     * > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
      */
     public readonly cmkKeyVaultUrl!: pulumi.Output<string | undefined>;
     /**
@@ -93,6 +97,8 @@ export class ChannelsRegistration extends pulumi.CustomResource {
     public readonly iconUrl!: pulumi.Output<string>;
     /**
      * Is the Bot Channels Registration in an isolated network?
+     *
+     * > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
      *
      * @deprecated `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
      */
@@ -202,6 +208,10 @@ export class ChannelsRegistration extends pulumi.CustomResource {
 export interface ChannelsRegistrationState {
     /**
      * The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+     *
+     * > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `softDeleteEnabled` and the `purgeProtectionEnabled` is enabled on the `azure.keyvault.KeyVault` resource while using `cmkKeyVaultUrl`.
+     *
+     * > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
      */
     cmkKeyVaultUrl?: pulumi.Input<string>;
     /**
@@ -234,6 +244,8 @@ export interface ChannelsRegistrationState {
     iconUrl?: pulumi.Input<string>;
     /**
      * Is the Bot Channels Registration in an isolated network?
+     *
+     * > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
      *
      * @deprecated `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
      */
@@ -278,6 +290,10 @@ export interface ChannelsRegistrationState {
 export interface ChannelsRegistrationArgs {
     /**
      * The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+     *
+     * > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `softDeleteEnabled` and the `purgeProtectionEnabled` is enabled on the `azure.keyvault.KeyVault` resource while using `cmkKeyVaultUrl`.
+     *
+     * > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
      */
     cmkKeyVaultUrl?: pulumi.Input<string>;
     /**
@@ -310,6 +326,8 @@ export interface ChannelsRegistrationArgs {
     iconUrl?: pulumi.Input<string>;
     /**
      * Is the Bot Channels Registration in an isolated network?
+     *
+     * > **NOTE:** `isolatedNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled` in version 4.0 of the AzureRM Provider.
      *
      * @deprecated `isolated_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
      */

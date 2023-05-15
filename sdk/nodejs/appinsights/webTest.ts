@@ -100,6 +100,8 @@ export class WebTest extends pulumi.CustomResource {
     public readonly frequency!: pulumi.Output<number | undefined>;
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
+     *
+     * > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
      */
     public readonly geoLocations!: pulumi.Output<string[]>;
     /**
@@ -222,6 +224,8 @@ export interface WebTestState {
     frequency?: pulumi.Input<number>;
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
+     *
+     * > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
      */
     geoLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -281,6 +285,8 @@ export interface WebTestArgs {
     frequency?: pulumi.Input<number>;
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
+     *
+     * > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
      */
     geoLocations: pulumi.Input<pulumi.Input<string>[]>;
     /**

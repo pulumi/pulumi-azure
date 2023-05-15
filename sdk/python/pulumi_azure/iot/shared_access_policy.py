@@ -26,9 +26,13 @@ class SharedAccessPolicyArgs:
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] device_connect: Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+               
+               > **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
         :param pulumi.Input[str] name: Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] registry_read: Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
         :param pulumi.Input[bool] registry_write: Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+               
+               > **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
         :param pulumi.Input[bool] service_connect: Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
         """
         pulumi.set(__self__, "iothub_name", iothub_name)
@@ -73,6 +77,8 @@ class SharedAccessPolicyArgs:
     def device_connect(self) -> Optional[pulumi.Input[bool]]:
         """
         Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+
+        > **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
         """
         return pulumi.get(self, "device_connect")
 
@@ -109,6 +115,8 @@ class SharedAccessPolicyArgs:
     def registry_write(self) -> Optional[pulumi.Input[bool]]:
         """
         Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+
+        > **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
         """
         return pulumi.get(self, "registry_write")
 
@@ -146,12 +154,16 @@ class _SharedAccessPolicyState:
         """
         Input properties used for looking up and filtering SharedAccessPolicy resources.
         :param pulumi.Input[bool] device_connect: Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+               
+               > **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Shared Access Policy.
         :param pulumi.Input[str] primary_key: The primary key used to create the authentication token.
         :param pulumi.Input[bool] registry_read: Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
         :param pulumi.Input[bool] registry_write: Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+               
+               > **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Shared Access Policy.
         :param pulumi.Input[str] secondary_key: The secondary key used to create the authentication token.
@@ -185,6 +197,8 @@ class _SharedAccessPolicyState:
     def device_connect(self) -> Optional[pulumi.Input[bool]]:
         """
         Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+
+        > **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
         """
         return pulumi.get(self, "device_connect")
 
@@ -257,6 +271,8 @@ class _SharedAccessPolicyState:
     def registry_write(self) -> Optional[pulumi.Input[bool]]:
         """
         Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+
+        > **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
         """
         return pulumi.get(self, "registry_write")
 
@@ -361,10 +377,14 @@ class SharedAccessPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] device_connect: Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+               
+               > **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] registry_read: Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
         :param pulumi.Input[bool] registry_write: Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+               
+               > **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_connect: Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
         """
@@ -483,12 +503,16 @@ class SharedAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] device_connect: Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+               
+               > **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Shared Access Policy.
         :param pulumi.Input[str] primary_key: The primary key used to create the authentication token.
         :param pulumi.Input[bool] registry_read: Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
         :param pulumi.Input[bool] registry_write: Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+               
+               > **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Shared Access Policy.
         :param pulumi.Input[str] secondary_key: The secondary key used to create the authentication token.
@@ -516,6 +540,8 @@ class SharedAccessPolicy(pulumi.CustomResource):
     def device_connect(self) -> pulumi.Output[Optional[bool]]:
         """
         Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+
+        > **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
         """
         return pulumi.get(self, "device_connect")
 
@@ -564,6 +590,8 @@ class SharedAccessPolicy(pulumi.CustomResource):
     def registry_write(self) -> pulumi.Output[Optional[bool]]:
         """
         Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+
+        > **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
         """
         return pulumi.get(self, "registry_write")
 

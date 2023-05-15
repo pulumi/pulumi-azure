@@ -101,7 +101,9 @@ type NatGateway struct {
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	//
+	// > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -151,7 +153,9 @@ type natGatewayState struct {
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	//
+	// > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
 	Zones []string `pulumi:"zones"`
 }
 
@@ -170,7 +174,9 @@ type NatGatewayState struct {
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	//
+	// > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
 	Zones pulumi.StringArrayInput
 }
 
@@ -191,7 +197,9 @@ type natGatewayArgs struct {
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	//
+	// > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
 	Zones []string `pulumi:"zones"`
 }
 
@@ -209,7 +217,9 @@ type NatGatewayArgs struct {
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+	//
+	// > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
 	Zones pulumi.StringArrayInput
 }
 
@@ -335,7 +345,9 @@ func (o NatGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+//
+// > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
 func (o NatGatewayOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

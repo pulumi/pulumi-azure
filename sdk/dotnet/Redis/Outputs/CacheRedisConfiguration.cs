@@ -23,10 +23,24 @@ namespace Pulumi.Azure.Redis.Outputs
         public readonly string? AofStorageConnectionString0;
         /// <summary>
         /// Second Storage Account connection string for AOF persistence.
+        /// 
+        /// Example usage:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         public readonly string? AofStorageConnectionString1;
         /// <summary>
         /// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `enable_authentication` set to `true`.
         /// </summary>
         public readonly bool? EnableAuthentication;
         /// <summary>
@@ -51,10 +65,22 @@ namespace Pulumi.Azure.Redis.Outputs
         public readonly int? MaxmemoryReserved;
         /// <summary>
         /// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         public readonly string? NotifyKeyspaceEvents;
         /// <summary>
         /// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
         /// </summary>
         public readonly bool? RdbBackupEnabled;
         /// <summary>
@@ -67,6 +93,8 @@ namespace Pulumi.Azure.Redis.Outputs
         public readonly int? RdbBackupMaxSnapshotCount;
         /// <summary>
         /// The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+        /// 
+        /// &gt; **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
         /// </summary>
         public readonly string? RdbStorageConnectionString;
 

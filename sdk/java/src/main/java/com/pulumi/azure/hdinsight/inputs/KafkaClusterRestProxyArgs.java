@@ -31,12 +31,16 @@ public final class KafkaClusterRestProxyArgs extends com.pulumi.resources.Resour
     /**
      * The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** The `security_group_name` property will be Required in version 3.0 of the AzureRM Provider.
+     * 
      */
     @Import(name="securityGroupName", required=true)
     private Output<String> securityGroupName;
 
     /**
      * @return The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** The `security_group_name` property will be Required in version 3.0 of the AzureRM Provider.
      * 
      */
     public Output<String> securityGroupName() {
@@ -92,6 +96,8 @@ public final class KafkaClusterRestProxyArgs extends com.pulumi.resources.Resour
         /**
          * @param securityGroupName The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** The `security_group_name` property will be Required in version 3.0 of the AzureRM Provider.
+         * 
          * @return builder
          * 
          */
@@ -102,6 +108,8 @@ public final class KafkaClusterRestProxyArgs extends com.pulumi.resources.Resour
 
         /**
          * @param securityGroupName The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** The `security_group_name` property will be Required in version 3.0 of the AzureRM Provider.
          * 
          * @return builder
          * 

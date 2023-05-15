@@ -17,9 +17,6 @@ namespace Pulumi.Azure.Storage.Outputs
         /// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
         /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
-        /// </summary>
         public readonly string Permissions;
         /// <summary>
         /// Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.

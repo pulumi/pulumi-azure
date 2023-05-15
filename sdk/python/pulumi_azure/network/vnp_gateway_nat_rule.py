@@ -31,8 +31,12 @@ class VnpGatewayNatRuleArgs:
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Gateway NAT Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+               
+               > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]] external_mappings: One or more `external_mapping` blocks as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+               
+               > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
@@ -93,6 +97,8 @@ class VnpGatewayNatRuleArgs:
     def external_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+
+        > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "external_address_space_mappings")
 
@@ -117,6 +123,8 @@ class VnpGatewayNatRuleArgs:
     def internal_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+
+        > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "internal_address_space_mappings")
 
@@ -201,8 +209,12 @@ class _VnpGatewayNatRuleState:
         """
         Input properties used for looking up and filtering VnpGatewayNatRule resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+               
+               > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]] external_mappings: One or more `external_mapping` blocks as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+               
+               > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
@@ -243,6 +255,8 @@ class _VnpGatewayNatRuleState:
     def external_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+
+        > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "external_address_space_mappings")
 
@@ -267,6 +281,8 @@ class _VnpGatewayNatRuleState:
     def internal_address_space_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+
+        > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "internal_address_space_mappings")
 
@@ -419,8 +435,12 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+               
+               > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArgs']]]] external_mappings: One or more `external_mapping` blocks as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+               
+               > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArgs']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
@@ -558,8 +578,12 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+               
+               > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArgs']]]] external_mappings: One or more `external_mapping` blocks as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+               
+               > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArgs']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
@@ -589,6 +613,8 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     def external_address_space_mappings(self) -> pulumi.Output[Sequence[str]]:
         """
         (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
+
+        > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "external_address_space_mappings")
 
@@ -605,6 +631,8 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     def internal_address_space_mappings(self) -> pulumi.Output[Sequence[str]]:
         """
         (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+
+        > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "internal_address_space_mappings")
 

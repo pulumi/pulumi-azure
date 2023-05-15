@@ -117,12 +117,16 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
      * 
+     * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+     * 
      */
     @Import(name="exportPolicyEnabled")
     private @Nullable Output<Boolean> exportPolicyEnabled;
 
     /**
      * @return Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+     * 
+     * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
      * 
      */
     public Optional<Output<Boolean>> exportPolicyEnabled() {
@@ -132,12 +136,24 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     /**
      * A `georeplications` block as documented below.
      * 
+     * &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+     * 
+     * &gt; **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+     * 
+     * &gt; **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
+     * 
      */
     @Import(name="georeplications")
     private @Nullable Output<List<RegistryGeoreplicationArgs>> georeplications;
 
     /**
      * @return A `georeplications` block as documented below.
+     * 
+     * &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+     * 
+     * &gt; **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+     * 
+     * &gt; **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
      * 
      */
     public Optional<Output<List<RegistryGeoreplicationArgs>>> georeplications() {
@@ -528,6 +544,8 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param exportPolicyEnabled Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
          * 
+         * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+         * 
          * @return builder
          * 
          */
@@ -539,6 +557,8 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param exportPolicyEnabled Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
          * 
+         * &gt; **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+         * 
          * @return builder
          * 
          */
@@ -548,6 +568,12 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param georeplications A `georeplications` block as documented below.
+         * 
+         * &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+         * 
+         * &gt; **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+         * 
+         * &gt; **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
          * 
          * @return builder
          * 
@@ -560,6 +586,12 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param georeplications A `georeplications` block as documented below.
          * 
+         * &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+         * 
+         * &gt; **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+         * 
+         * &gt; **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
+         * 
          * @return builder
          * 
          */
@@ -569,6 +601,12 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param georeplications A `georeplications` block as documented below.
+         * 
+         * &gt; **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+         * 
+         * &gt; **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+         * 
+         * &gt; **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
          * 
          * @return builder
          * 

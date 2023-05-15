@@ -48,6 +48,8 @@ class ClusterArgs:
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+               
+               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -60,6 +62,8 @@ class ClusterArgs:
         :param pulumi.Input[bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
+               
+               > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         :param pulumi.Input['ClusterVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         """
@@ -195,6 +199,8 @@ class ClusterArgs:
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
         . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+
+        > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         """
         return pulumi.get(self, "engine")
 
@@ -339,6 +345,8 @@ class ClusterArgs:
     def trusted_external_tenants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
+
+        > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         """
         return pulumi.get(self, "trusted_external_tenants")
 
@@ -407,6 +415,8 @@ class _ClusterState:
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+               
+               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -421,6 +431,8 @@ class _ClusterState:
         :param pulumi.Input[bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
+               
+               > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         :param pulumi.Input[str] uri: The FQDN of the Azure Kusto Cluster.
         :param pulumi.Input['ClusterVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
@@ -551,6 +563,8 @@ class _ClusterState:
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
         . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+
+        > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         """
         return pulumi.get(self, "engine")
 
@@ -719,6 +733,8 @@ class _ClusterState:
     def trusted_external_tenants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
+
+        > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         """
         return pulumi.get(self, "trusted_external_tenants")
 
@@ -829,6 +845,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+               
+               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -843,6 +861,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
+               
+               > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         :param pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         """
@@ -1004,6 +1024,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] engine: . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+               
+               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -1018,6 +1040,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
+               
+               > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         :param pulumi.Input[str] uri: The FQDN of the Azure Kusto Cluster.
         :param pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
@@ -1105,6 +1129,8 @@ class Cluster(pulumi.CustomResource):
     def engine(self) -> pulumi.Output[Optional[str]]:
         """
         . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+
+        > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
         """
         return pulumi.get(self, "engine")
 
@@ -1217,6 +1243,8 @@ class Cluster(pulumi.CustomResource):
     def trusted_external_tenants(self) -> pulumi.Output[Sequence[str]]:
         """
         Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
+
+        > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         """
         return pulumi.get(self, "trusted_external_tenants")
 

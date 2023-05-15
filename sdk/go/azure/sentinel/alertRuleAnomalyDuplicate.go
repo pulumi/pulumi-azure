@@ -13,6 +13,71 @@ import (
 
 // Manages a Duplicated Anomaly Alert Rule.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sentinel"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "exampleLogAnalyticsWorkspaceOnboarding", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
+//				WorkspaceId:               exampleAnalyticsWorkspace.ID(),
+//				CustomerManagedKeyEnabled: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAlertRuleAnomaly := sentinel.GetAlertRuleAnomalyOutput(ctx, sentinel.GetAlertRuleAnomalyOutputArgs{
+//				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
+//				DisplayName:             pulumi.String("UEBA Anomalous Sign In"),
+//			}, nil)
+//			_, err = sentinel.NewAlertRuleAnomalyDuplicate(ctx, "exampleAlertRuleAnomalyDuplicate", &sentinel.AlertRuleAnomalyDuplicateArgs{
+//				DisplayName:             pulumi.String("example duplicated UEBA Anomalous Sign In"),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
+//				BuiltInRuleId: exampleAlertRuleAnomaly.ApplyT(func(exampleAlertRuleAnomaly sentinel.GetAlertRuleAnomalyResult) (*string, error) {
+//					return &exampleAlertRuleAnomaly.Id, nil
+//				}).(pulumi.StringPtrOutput),
+//				Enabled: pulumi.Bool(true),
+//				Mode:    pulumi.String("Flighting"),
+//				ThresholdObservations: sentinel.AlertRuleAnomalyDuplicateThresholdObservationArray{
+//					&sentinel.AlertRuleAnomalyDuplicateThresholdObservationArgs{
+//						Name:  pulumi.String("Anomaly score threshold"),
+//						Value: pulumi.String("0.6"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Built In Anomaly Alert Rules can be imported using the `resource id`, e.g.
@@ -62,6 +127,8 @@ type AlertRuleAnomalyDuplicate struct {
 	// A list of techniques of attacks by which to classify the rule.
 	Techniques pulumi.StringArrayOutput `pulumi:"techniques"`
 	// A list of `thresholdObservation` blocks as defined below.
+	//
+	// > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
 	ThresholdObservations AlertRuleAnomalyDuplicateThresholdObservationArrayOutput `pulumi:"thresholdObservations"`
 }
 
@@ -146,6 +213,8 @@ type alertRuleAnomalyDuplicateState struct {
 	// A list of techniques of attacks by which to classify the rule.
 	Techniques []string `pulumi:"techniques"`
 	// A list of `thresholdObservation` blocks as defined below.
+	//
+	// > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
 	ThresholdObservations []AlertRuleAnomalyDuplicateThresholdObservation `pulumi:"thresholdObservations"`
 }
 
@@ -187,6 +256,8 @@ type AlertRuleAnomalyDuplicateState struct {
 	// A list of techniques of attacks by which to classify the rule.
 	Techniques pulumi.StringArrayInput
 	// A list of `thresholdObservation` blocks as defined below.
+	//
+	// > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
 	ThresholdObservations AlertRuleAnomalyDuplicateThresholdObservationArrayInput
 }
 
@@ -212,6 +283,8 @@ type alertRuleAnomalyDuplicateArgs struct {
 	// A list of `singleSelectObservation` blocks as defined below.
 	SingleSelectObservations []AlertRuleAnomalyDuplicateSingleSelectObservation `pulumi:"singleSelectObservations"`
 	// A list of `thresholdObservation` blocks as defined below.
+	//
+	// > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
 	ThresholdObservations []AlertRuleAnomalyDuplicateThresholdObservation `pulumi:"thresholdObservations"`
 }
 
@@ -234,6 +307,8 @@ type AlertRuleAnomalyDuplicateArgs struct {
 	// A list of `singleSelectObservation` blocks as defined below.
 	SingleSelectObservations AlertRuleAnomalyDuplicateSingleSelectObservationArrayInput
 	// A list of `thresholdObservation` blocks as defined below.
+	//
+	// > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
 	ThresholdObservations AlertRuleAnomalyDuplicateThresholdObservationArrayInput
 }
 
@@ -423,6 +498,8 @@ func (o AlertRuleAnomalyDuplicateOutput) Techniques() pulumi.StringArrayOutput {
 }
 
 // A list of `thresholdObservation` blocks as defined below.
+//
+// > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
 func (o AlertRuleAnomalyDuplicateOutput) ThresholdObservations() AlertRuleAnomalyDuplicateThresholdObservationArrayOutput {
 	return o.ApplyT(func(v *AlertRuleAnomalyDuplicate) AlertRuleAnomalyDuplicateThresholdObservationArrayOutput {
 		return v.ThresholdObservations

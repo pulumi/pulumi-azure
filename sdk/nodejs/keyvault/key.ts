@@ -7,6 +7,65 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a Key Vault Key.
+ *
+ * ## Example Usage
+ *
+ * > **Note:** To use this resource, your client should have RBAC roles with permissions like `Key Vault Crypto Officer` or `Key Vault Administrator` or an assigned Key Vault Access Policy with permissions `Create`,`Delete`,`Get`,`Purge`,`Recover`,`Update` and `GetRotationPolicy` for keys without Rotation Policy. Include `SetRotationPolicy` for keys with Rotation Policy.
+ *
+ * > **Note:** the Azure Provider includes a Feature Toggle which will purge a Key Vault Key resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedKeysOnDestroy` for more information.
+ * ### Additional Examples
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     softDeleteRetentionDays: 7,
+ *     accessPolicies: [{
+ *         tenantId: current.then(current => current.tenantId),
+ *         objectId: current.then(current => current.objectId),
+ *         keyPermissions: [
+ *             "Create",
+ *             "Delete",
+ *             "Get",
+ *             "Purge",
+ *             "Recover",
+ *             "Update",
+ *             "GetRotationPolicy",
+ *             "SetRotationPolicy",
+ *         ],
+ *         secretPermissions: ["Set"],
+ *     }],
+ * });
+ * const generated = new azure.keyvault.Key("generated", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ *     rotationPolicy: {
+ *         automatic: {
+ *             timeBeforeExpiry: "P30D",
+ *         },
+ *         expireAfter: "P90D",
+ *         notifyBeforeExpiry: "P29D",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Key Vault Key which is Enabled can be imported using the `resource id`, e.g.

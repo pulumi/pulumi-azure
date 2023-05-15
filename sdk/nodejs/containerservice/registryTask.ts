@@ -101,6 +101,8 @@ export class RegistryTask extends pulumi.CustomResource {
     public readonly encodedStep!: pulumi.Output<outputs.containerservice.RegistryTaskEncodedStep | undefined>;
     /**
      * A `fileStep` block as defined below.
+     *
+     * > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
      */
     public readonly fileStep!: pulumi.Output<outputs.containerservice.RegistryTaskFileStep | undefined>;
     /**
@@ -121,6 +123,8 @@ export class RegistryTask extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * A `platform` block as defined below.
+     *
+     * > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      */
     public readonly platform!: pulumi.Output<outputs.containerservice.RegistryTaskPlatform | undefined>;
     /**
@@ -238,6 +242,8 @@ export interface RegistryTaskState {
     encodedStep?: pulumi.Input<inputs.containerservice.RegistryTaskEncodedStep>;
     /**
      * A `fileStep` block as defined below.
+     *
+     * > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
      */
     fileStep?: pulumi.Input<inputs.containerservice.RegistryTaskFileStep>;
     /**
@@ -258,6 +264,8 @@ export interface RegistryTaskState {
     name?: pulumi.Input<string>;
     /**
      * A `platform` block as defined below.
+     *
+     * > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      */
     platform?: pulumi.Input<inputs.containerservice.RegistryTaskPlatform>;
     /**
@@ -316,6 +324,8 @@ export interface RegistryTaskArgs {
     encodedStep?: pulumi.Input<inputs.containerservice.RegistryTaskEncodedStep>;
     /**
      * A `fileStep` block as defined below.
+     *
+     * > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
      */
     fileStep?: pulumi.Input<inputs.containerservice.RegistryTaskFileStep>;
     /**
@@ -336,6 +346,8 @@ export interface RegistryTaskArgs {
     name?: pulumi.Input<string>;
     /**
      * A `platform` block as defined below.
+     *
+     * > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      */
     platform?: pulumi.Input<inputs.containerservice.RegistryTaskPlatform>;
     /**

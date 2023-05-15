@@ -298,6 +298,8 @@ class AccountStorageAccount(dict):
         """
         :param str id: Specifies the ID of the Storage Account that will be associated with the Media Services instance.
         :param bool is_primary: Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+               
+               > **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
         :param 'AccountStorageAccountManagedIdentityArgs' managed_identity: A `managed_identity` block as defined below.
         """
         pulumi.set(__self__, "id", id)
@@ -319,6 +321,8 @@ class AccountStorageAccount(dict):
     def is_primary(self) -> Optional[bool]:
         """
         Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+
+        > **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
         """
         return pulumi.get(self, "is_primary")
 

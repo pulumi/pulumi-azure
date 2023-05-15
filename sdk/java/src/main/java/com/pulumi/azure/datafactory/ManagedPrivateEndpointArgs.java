@@ -34,12 +34,16 @@ public final class ManagedPrivateEndpointArgs extends com.pulumi.resources.Resou
     /**
      * Fully qualified domain names. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+     * 
      */
     @Import(name="fqdns")
     private @Nullable Output<List<String>> fqdns;
 
     /**
      * @return Fully qualified domain names. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      * 
      */
     public Optional<Output<List<String>>> fqdns() {
@@ -143,6 +147,8 @@ public final class ManagedPrivateEndpointArgs extends com.pulumi.resources.Resou
         /**
          * @param fqdns Fully qualified domain names. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+         * 
          * @return builder
          * 
          */
@@ -154,6 +160,8 @@ public final class ManagedPrivateEndpointArgs extends com.pulumi.resources.Resou
         /**
          * @param fqdns Fully qualified domain names. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+         * 
          * @return builder
          * 
          */
@@ -163,6 +171,8 @@ public final class ManagedPrivateEndpointArgs extends com.pulumi.resources.Resou
 
         /**
          * @param fqdns Fully qualified domain names. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
          * 
          * @return builder
          * 

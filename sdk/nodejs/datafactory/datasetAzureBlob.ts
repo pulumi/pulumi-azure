@@ -74,6 +74,8 @@ export class DatasetAzureBlob extends pulumi.CustomResource {
 
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported arguments are specific to Azure Blob Dataset:
      */
     public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -184,6 +186,8 @@ export class DatasetAzureBlob extends pulumi.CustomResource {
 export interface DatasetAzureBlobState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported arguments are specific to Azure Blob Dataset:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -242,6 +246,8 @@ export interface DatasetAzureBlobState {
 export interface DatasetAzureBlobArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported arguments are specific to Azure Blob Dataset:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

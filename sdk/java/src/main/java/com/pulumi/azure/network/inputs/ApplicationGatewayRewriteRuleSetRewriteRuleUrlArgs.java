@@ -19,12 +19,16 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs extends co
     /**
      * The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
      * 
+     * &gt; **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
+     * 
      */
     @Import(name="components")
     private @Nullable Output<String> components;
 
     /**
      * @return The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+     * 
+     * &gt; **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
      * 
      */
     public Optional<Output<String>> components() {
@@ -106,6 +110,8 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs extends co
         /**
          * @param components The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
          * 
+         * &gt; **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
+         * 
          * @return builder
          * 
          */
@@ -116,6 +122,8 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs extends co
 
         /**
          * @param components The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+         * 
+         * &gt; **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
          * 
          * @return builder
          * 

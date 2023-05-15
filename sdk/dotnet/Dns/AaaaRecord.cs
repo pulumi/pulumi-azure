@@ -119,6 +119,8 @@ namespace Pulumi.Azure.Dns
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -216,6 +218,8 @@ namespace Pulumi.Azure.Dns
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -284,6 +288,8 @@ namespace Pulumi.Azure.Dns
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
         /// </summary>
         public InputMap<string> Tags
         {

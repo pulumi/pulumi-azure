@@ -42,6 +42,8 @@ public final class SystemTopicEventSubscriptionAdvancedFilter {
     /**
      * @return Evaluates if a value of an event is NULL or undefined.
      * 
+     * Each nested block consists of a key and a value(s) element.
+     * 
      */
     private @Nullable List<SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined> isNullOrUndefineds;
     /**
@@ -142,6 +144,8 @@ public final class SystemTopicEventSubscriptionAdvancedFilter {
     }
     /**
      * @return Evaluates if a value of an event is NULL or undefined.
+     * 
+     * Each nested block consists of a key and a value(s) element.
      * 
      */
     public List<SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined> isNullOrUndefineds() {

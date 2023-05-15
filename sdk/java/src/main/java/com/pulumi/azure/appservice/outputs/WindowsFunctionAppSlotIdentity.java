@@ -15,6 +15,8 @@ public final class WindowsFunctionAppSlotIdentity {
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App Slot.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     private @Nullable List<String> identityIds;
     /**
@@ -36,6 +38,8 @@ public final class WindowsFunctionAppSlotIdentity {
     private WindowsFunctionAppSlotIdentity() {}
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App Slot.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public List<String> identityIds() {

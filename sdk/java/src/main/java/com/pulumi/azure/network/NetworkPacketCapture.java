@@ -284,12 +284,16 @@ public class NetworkPacketCapture extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Currently only Virtual Machines IDs are supported.
+     * 
      */
     @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**
      * @return The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Currently only Virtual Machines IDs are supported.
      * 
      */
     public Output<String> targetResourceId() {

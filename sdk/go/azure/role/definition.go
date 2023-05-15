@@ -71,6 +71,8 @@ type Definition struct {
 	pulumi.CustomResourceState
 
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+	//
+	// > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
 	AssignableScopes pulumi.StringArrayOutput `pulumi:"assignableScopes"`
 	// A description of the Role Definition.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -119,6 +121,8 @@ func GetDefinition(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Definition resources.
 type definitionState struct {
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+	//
+	// > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
 	AssignableScopes []string `pulumi:"assignableScopes"`
 	// A description of the Role Definition.
 	Description *string `pulumi:"description"`
@@ -136,6 +140,8 @@ type definitionState struct {
 
 type DefinitionState struct {
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+	//
+	// > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
 	AssignableScopes pulumi.StringArrayInput
 	// A description of the Role Definition.
 	Description pulumi.StringPtrInput
@@ -157,6 +163,8 @@ func (DefinitionState) ElementType() reflect.Type {
 
 type definitionArgs struct {
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+	//
+	// > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
 	AssignableScopes []string `pulumi:"assignableScopes"`
 	// A description of the Role Definition.
 	Description *string `pulumi:"description"`
@@ -173,6 +181,8 @@ type definitionArgs struct {
 // The set of arguments for constructing a Definition resource.
 type DefinitionArgs struct {
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+	//
+	// > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
 	AssignableScopes pulumi.StringArrayInput
 	// A description of the Role Definition.
 	Description pulumi.StringPtrInput
@@ -274,6 +284,8 @@ func (o DefinitionOutput) ToDefinitionOutputWithContext(ctx context.Context) Def
 }
 
 // One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+//
+// > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
 func (o DefinitionOutput) AssignableScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Definition) pulumi.StringArrayOutput { return v.AssignableScopes }).(pulumi.StringArrayOutput)
 }

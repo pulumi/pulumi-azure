@@ -27,7 +27,6 @@ class DatastoreDatalakeGen2Args:
         """
         The set of arguments for constructing a DatastoreDatalakeGen2 resource.
         :param pulumi.Input[str] storage_container_id: The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-               ---
         :param pulumi.Input[str] workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[str] authority_url: An URL used for authentication.
         :param pulumi.Input[str] client_id: The object ID of the Service Principal.
@@ -62,7 +61,6 @@ class DatastoreDatalakeGen2Args:
     def storage_container_id(self) -> pulumi.Input[str]:
         """
         The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-        ---
         """
         return pulumi.get(self, "storage_container_id")
 
@@ -203,7 +201,6 @@ class _DatastoreDatalakeGen2State:
         :param pulumi.Input[str] name: The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[str] service_data_identity: Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
         :param pulumi.Input[str] storage_container_id: The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-               ---
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant which the Service Principal belongs to.
         :param pulumi.Input[str] workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
@@ -320,7 +317,6 @@ class _DatastoreDatalakeGen2State:
     def storage_container_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-        ---
         """
         return pulumi.get(self, "storage_container_id")
 
@@ -440,7 +436,6 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[str] service_data_identity: Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
         :param pulumi.Input[str] storage_container_id: The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-               ---
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant which the Service Principal belongs to.
         :param pulumi.Input[str] workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
@@ -588,7 +583,6 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[str] service_data_identity: Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
         :param pulumi.Input[str] storage_container_id: The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-               ---
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant which the Service Principal belongs to.
         :param pulumi.Input[str] workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
@@ -671,7 +665,6 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
     def storage_container_id(self) -> pulumi.Output[str]:
         """
         The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-        ---
         """
         return pulumi.get(self, "storage_container_id")
 

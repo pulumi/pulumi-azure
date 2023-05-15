@@ -32,6 +32,8 @@ class AccountArgs:
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+               
+               > **NOTE:** To work around [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/5574) this property is currently treated as case-insensitive. A future version of this provider will require that the casing is correct.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_authentication_modes: Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
         :param pulumi.Input['AccountEncryptionArgs'] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
@@ -40,8 +42,16 @@ class AccountArgs:
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+               
+               > **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
         :param pulumi.Input[str] storage_account_authentication_mode: Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+               
+               > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+               
+               > **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
         :param pulumi.Input[str] storage_account_node_identity: Specifies the user assigned identity for the storage account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -76,6 +86,8 @@ class AccountArgs:
     def resource_group_name(self) -> pulumi.Input[str]:
         """
         The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+
+        > **NOTE:** To work around [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/5574) this property is currently treated as case-insensitive. A future version of this provider will require that the casing is correct.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -172,6 +184,10 @@ class AccountArgs:
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+
+        > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+
+        > **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -184,6 +200,8 @@ class AccountArgs:
     def storage_account_authentication_mode(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+
+        > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "storage_account_authentication_mode")
 
@@ -196,6 +214,8 @@ class AccountArgs:
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+
+        > **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -259,10 +279,20 @@ class _AccountState:
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[str] primary_access_key: The Batch account primary access key.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+               
+               > **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+               
+               > **NOTE:** To work around [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/5574) this property is currently treated as case-insensitive. A future version of this provider will require that the casing is correct.
         :param pulumi.Input[str] secondary_access_key: The Batch account secondary access key.
         :param pulumi.Input[str] storage_account_authentication_mode: Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+               
+               > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+               
+               > **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
         :param pulumi.Input[str] storage_account_node_identity: Specifies the user assigned identity for the storage account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -412,6 +442,10 @@ class _AccountState:
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+
+        > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+
+        > **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -424,6 +458,8 @@ class _AccountState:
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+
+        > **NOTE:** To work around [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/5574) this property is currently treated as case-insensitive. A future version of this provider will require that the casing is correct.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -448,6 +484,8 @@ class _AccountState:
     def storage_account_authentication_mode(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+
+        > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "storage_account_authentication_mode")
 
@@ -460,6 +498,8 @@ class _AccountState:
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+
+        > **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -555,9 +595,19 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+               
+               > **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+               
+               > **NOTE:** To work around [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/5574) this property is currently treated as case-insensitive. A future version of this provider will require that the casing is correct.
         :param pulumi.Input[str] storage_account_authentication_mode: Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+               
+               > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+               
+               > **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
         :param pulumi.Input[str] storage_account_node_identity: Specifies the user assigned identity for the storage account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -701,10 +751,20 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[str] primary_access_key: The Batch account primary access key.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+               
+               > **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+               
+               > **NOTE:** To work around [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/5574) this property is currently treated as case-insensitive. A future version of this provider will require that the casing is correct.
         :param pulumi.Input[str] secondary_access_key: The Batch account secondary access key.
         :param pulumi.Input[str] storage_account_authentication_mode: Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+               
+               > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+               
+               > **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
         :param pulumi.Input[str] storage_account_node_identity: Specifies the user assigned identity for the storage account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -807,6 +867,10 @@ class Account(pulumi.CustomResource):
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+
+        > **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+
+        > **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -815,6 +879,8 @@ class Account(pulumi.CustomResource):
     def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+
+        > **NOTE:** To work around [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/5574) this property is currently treated as case-insensitive. A future version of this provider will require that the casing is correct.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -831,6 +897,8 @@ class Account(pulumi.CustomResource):
     def storage_account_authentication_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+
+        > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "storage_account_authentication_mode")
 
@@ -839,6 +907,8 @@ class Account(pulumi.CustomResource):
     def storage_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+
+        > **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
         """
         return pulumi.get(self, "storage_account_id")
 

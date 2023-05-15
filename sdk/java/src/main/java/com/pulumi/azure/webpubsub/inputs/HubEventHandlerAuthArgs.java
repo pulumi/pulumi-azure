@@ -16,12 +16,16 @@ public final class HubEventHandlerAuthArgs extends com.pulumi.resources.Resource
     /**
      * Specify the identity ID of the target resource.
      * 
+     * &gt; **NOTE:** `managed_identity_id` is required if the auth block is defined
+     * 
      */
     @Import(name="managedIdentityId", required=true)
     private Output<String> managedIdentityId;
 
     /**
      * @return Specify the identity ID of the target resource.
+     * 
+     * &gt; **NOTE:** `managed_identity_id` is required if the auth block is defined
      * 
      */
     public Output<String> managedIdentityId() {
@@ -55,6 +59,8 @@ public final class HubEventHandlerAuthArgs extends com.pulumi.resources.Resource
         /**
          * @param managedIdentityId Specify the identity ID of the target resource.
          * 
+         * &gt; **NOTE:** `managed_identity_id` is required if the auth block is defined
+         * 
          * @return builder
          * 
          */
@@ -65,6 +71,8 @@ public final class HubEventHandlerAuthArgs extends com.pulumi.resources.Resource
 
         /**
          * @param managedIdentityId Specify the identity ID of the target resource.
+         * 
+         * &gt; **NOTE:** `managed_identity_id` is required if the auth block is defined
          * 
          * @return builder
          * 

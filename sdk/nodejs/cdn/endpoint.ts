@@ -124,6 +124,8 @@ export class Endpoint extends pulumi.CustomResource {
     public readonly origins!: pulumi.Output<outputs.cdn.EndpointOrigin[]>;
     /**
      * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
+     *
+     * > **NOTE:** `globalDeliveryRule` and `deliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
      */
     public readonly probePath!: pulumi.Output<string>;
     /**
@@ -273,6 +275,8 @@ export interface EndpointState {
     origins?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointOrigin>[]>;
     /**
      * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
+     *
+     * > **NOTE:** `globalDeliveryRule` and `deliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
      */
     probePath?: pulumi.Input<string>;
     /**
@@ -351,6 +355,8 @@ export interface EndpointArgs {
     origins: pulumi.Input<pulumi.Input<inputs.cdn.EndpointOrigin>[]>;
     /**
      * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
+     *
+     * > **NOTE:** `globalDeliveryRule` and `deliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
      */
     probePath?: pulumi.Input<string>;
     /**

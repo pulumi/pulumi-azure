@@ -175,6 +175,8 @@ class MonitorIdentity(dict):
                  tenant_id: Optional[str] = None):
         """
         :param str type: Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
+               
+               > **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this Datadog Monitor.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Datadog Monitor.
         """
@@ -189,6 +191,8 @@ class MonitorIdentity(dict):
     def type(self) -> str:
         """
         Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
+
+        > **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
         """
         return pulumi.get(self, "type")
 
@@ -240,6 +244,8 @@ class MonitorTagRuleLog(dict):
         """
         :param bool aad_log_enabled: Whether AAD logs should be sent for the Monitor resource?
         :param Sequence['MonitorTagRuleLogFilterArgs'] filters: A `filter` block as defined below.
+               
+               > **NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resource_log_enabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         :param bool resource_log_enabled: Whether Azure resource logs should be sent for the Monitor resource?
         :param bool subscription_log_enabled: Whether Azure subscription logs should be sent for the Monitor resource?
         """
@@ -265,6 +271,8 @@ class MonitorTagRuleLog(dict):
     def filters(self) -> Optional[Sequence['outputs.MonitorTagRuleLogFilter']]:
         """
         A `filter` block as defined below.
+
+        > **NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resource_log_enabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         """
         return pulumi.get(self, "filters")
 
@@ -331,6 +339,8 @@ class MonitorTagRuleMetric(dict):
                  filters: Optional[Sequence['outputs.MonitorTagRuleMetricFilter']] = None):
         """
         :param Sequence['MonitorTagRuleMetricFilterArgs'] filters: A `filter` block as defined below.
+               
+               > **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -340,6 +350,8 @@ class MonitorTagRuleMetric(dict):
     def filters(self) -> Optional[Sequence['outputs.MonitorTagRuleMetricFilter']]:
         """
         A `filter` block as defined below.
+
+        > **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         """
         return pulumi.get(self, "filters")
 

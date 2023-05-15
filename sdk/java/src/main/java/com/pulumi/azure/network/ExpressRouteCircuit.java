@@ -111,12 +111,16 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
     /**
      * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      * 
+     * &gt; **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+     * 
      */
     @Export(name="bandwidthInGbps", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> bandwidthInGbps;
 
     /**
      * @return The bandwidth in Gbps of the circuit being created on the Express Route Port.
+     * 
+     * &gt; **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
      * 
      */
     public Output<Optional<Double>> bandwidthInGbps() {
@@ -125,12 +129,20 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
     /**
      * The bandwidth in Mbps of the circuit being created on the Service Provider.
      * 
+     * &gt; **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+     * 
+     * &gt; **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+     * 
      */
     @Export(name="bandwidthInMbps", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> bandwidthInMbps;
 
     /**
      * @return The bandwidth in Mbps of the circuit being created on the Service Provider.
+     * 
+     * &gt; **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+     * 
+     * &gt; **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
      * 
      */
     public Output<Optional<Integer>> bandwidthInMbps() {

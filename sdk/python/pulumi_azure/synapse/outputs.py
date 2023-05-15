@@ -590,6 +590,8 @@ class WorkspaceGithubRepo(dict):
         :param str repository_name: Specifies the name of the git repository.
         :param str root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
         :param str git_url: Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
+               
+               > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
         :param str last_commit_id: The last commit ID.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -638,6 +640,8 @@ class WorkspaceGithubRepo(dict):
     def git_url(self) -> Optional[str]:
         """
         Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
+
+        > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
         """
         return pulumi.get(self, "git_url")
 
@@ -681,6 +685,8 @@ class WorkspaceIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         :param str tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace.
         """
@@ -705,6 +711,8 @@ class WorkspaceIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

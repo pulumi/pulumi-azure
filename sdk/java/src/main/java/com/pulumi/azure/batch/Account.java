@@ -213,12 +213,20 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+     * 
+     * &gt; **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
+     * 
      */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
      * @return Whether public network access is allowed for this server. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** When using `UserSubscription` mode, an Azure KeyVault reference has to be specified. See `key_vault_reference` below.
+     * 
+     * &gt; **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
@@ -227,12 +235,16 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** To work around [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/5574) this property is currently treated as case-insensitive. A future version of this provider will require that the casing is correct.
+     * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
      * @return The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** To work around [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/5574) this property is currently treated as case-insensitive. A future version of this provider will require that the casing is correct.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -255,12 +267,16 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
      * 
+     * &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     @Export(name="storageAccountAuthenticationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountAuthenticationMode;
 
     /**
      * @return Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+     * 
+     * &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public Output<Optional<String>> storageAccountAuthenticationMode() {
@@ -269,12 +285,16 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      * 
+     * &gt; **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
+     * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountId;
 
     /**
      * @return Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+     * 
+     * &gt; **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
      * 
      */
     public Output<Optional<String>> storageAccountId() {

@@ -67,12 +67,16 @@ public final class SystemTopicEventSubscriptionAdvancedFilterArgs extends com.pu
     /**
      * Evaluates if a value of an event is NULL or undefined.
      * 
+     * Each nested block consists of a key and a value(s) element.
+     * 
      */
     @Import(name="isNullOrUndefineds")
     private @Nullable Output<List<SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArgs>> isNullOrUndefineds;
 
     /**
      * @return Evaluates if a value of an event is NULL or undefined.
+     * 
+     * Each nested block consists of a key and a value(s) element.
      * 
      */
     public Optional<Output<List<SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArgs>>> isNullOrUndefineds() {
@@ -426,6 +430,8 @@ public final class SystemTopicEventSubscriptionAdvancedFilterArgs extends com.pu
         /**
          * @param isNullOrUndefineds Evaluates if a value of an event is NULL or undefined.
          * 
+         * Each nested block consists of a key and a value(s) element.
+         * 
          * @return builder
          * 
          */
@@ -437,6 +443,8 @@ public final class SystemTopicEventSubscriptionAdvancedFilterArgs extends com.pu
         /**
          * @param isNullOrUndefineds Evaluates if a value of an event is NULL or undefined.
          * 
+         * Each nested block consists of a key and a value(s) element.
+         * 
          * @return builder
          * 
          */
@@ -446,6 +454,8 @@ public final class SystemTopicEventSubscriptionAdvancedFilterArgs extends com.pu
 
         /**
          * @param isNullOrUndefineds Evaluates if a value of an event is NULL or undefined.
+         * 
+         * Each nested block consists of a key and a value(s) element.
          * 
          * @return builder
          * 

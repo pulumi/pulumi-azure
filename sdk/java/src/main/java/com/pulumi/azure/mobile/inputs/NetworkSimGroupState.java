@@ -35,12 +35,16 @@ public final class NetworkSimGroupState extends com.pulumi.resources.ResourceArg
     /**
      * An `identity` block as defined below.
      * 
+     * &gt; **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+     * 
      */
     @Import(name="identity")
     private @Nullable Output<NetworkSimGroupIdentityArgs> identity;
 
     /**
      * @return An `identity` block as defined below.
+     * 
+     * &gt; **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
      * 
      */
     public Optional<Output<NetworkSimGroupIdentityArgs>> identity() {
@@ -160,6 +164,8 @@ public final class NetworkSimGroupState extends com.pulumi.resources.ResourceArg
         /**
          * @param identity An `identity` block as defined below.
          * 
+         * &gt; **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+         * 
          * @return builder
          * 
          */
@@ -170,6 +176,8 @@ public final class NetworkSimGroupState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param identity An `identity` block as defined below.
+         * 
+         * &gt; **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
          * 
          * @return builder
          * 

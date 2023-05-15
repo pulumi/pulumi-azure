@@ -43,6 +43,8 @@ class IoTHubArgs:
         :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
         :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
         :param pulumi.Input['IoTHubFallbackRouteArgs'] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+               
+               > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         :param pulumi.Input['IoTHubFileUploadArgs'] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input['IoTHubIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -175,6 +177,8 @@ class IoTHubArgs:
     def fallback_route(self) -> Optional[pulumi.Input['IoTHubFallbackRouteArgs']]:
         """
         A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+
+        > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         """
         return pulumi.get(self, "fallback_route")
 
@@ -332,6 +336,8 @@ class _IoTHubState:
         :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
         :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
         :param pulumi.Input['IoTHubFallbackRouteArgs'] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+               
+               > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         :param pulumi.Input['IoTHubFileUploadArgs'] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[str] hostname: The hostname of the IotHub Resource.
         :param pulumi.Input['IoTHubIdentityArgs'] identity: An `identity` block as defined below.
@@ -523,6 +529,8 @@ class _IoTHubState:
     def fallback_route(self) -> Optional[pulumi.Input['IoTHubFallbackRouteArgs']]:
         """
         A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+
+        > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         """
         return pulumi.get(self, "fallback_route")
 
@@ -840,6 +848,8 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
         :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
         :param pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+               
+               > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         :param pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
@@ -1091,6 +1101,8 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
         :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
         :param pulumi.Input[pulumi.InputType['IoTHubFallbackRouteArgs']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+               
+               > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         :param pulumi.Input[pulumi.InputType['IoTHubFileUploadArgs']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[str] hostname: The hostname of the IotHub Resource.
         :param pulumi.Input[pulumi.InputType['IoTHubIdentityArgs']] identity: An `identity` block as defined below.
@@ -1222,6 +1234,8 @@ class IoTHub(pulumi.CustomResource):
     def fallback_route(self) -> pulumi.Output['outputs.IoTHubFallbackRoute']:
         """
         A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+
+        > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         """
         return pulumi.get(self, "fallback_route")
 

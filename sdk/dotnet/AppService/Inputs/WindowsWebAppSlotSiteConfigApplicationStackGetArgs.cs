@@ -14,6 +14,8 @@ namespace Pulumi.Azure.AppService.Inputs
     {
         /// <summary>
         /// The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
+        /// 
+        /// &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
         /// </summary>
         [Input("currentStack")]
         public Input<string>? CurrentStack { get; set; }
@@ -62,18 +64,24 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
+        /// 
+        /// &gt; **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
         /// </summary>
         [Input("javaVersion")]
         public Input<string>? JavaVersion { get; set; }
 
         /// <summary>
         /// The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+        /// 
+        /// &gt; **NOTE:** This property conflicts with `java_version`.
         /// </summary>
         [Input("nodeVersion")]
         public Input<string>? NodeVersion { get; set; }
 
         /// <summary>
         /// The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
+        /// 
+        /// &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
         /// </summary>
         [Input("phpVersion")]
         public Input<string>? PhpVersion { get; set; }
@@ -89,6 +97,8 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The version of Tomcat the Java App should use.
+        /// 
+        /// &gt; **NOTE:** See the official documentation for current supported versions.
         /// </summary>
         [Input("tomcatVersion")]
         public Input<string>? TomcatVersion { get; set; }

@@ -339,6 +339,8 @@ func (o SpringCloudAppCustomPersistentDiskArrayOutput) Index(i pulumi.IntInput) 
 
 type SpringCloudAppIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	PrincipalId *string `pulumi:"principalId"`
@@ -361,6 +363,8 @@ type SpringCloudAppIdentityInput interface {
 
 type SpringCloudAppIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -448,6 +452,8 @@ func (o SpringCloudAppIdentityOutput) ToSpringCloudAppIdentityPtrOutputWithConte
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o SpringCloudAppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpringCloudAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -492,6 +498,8 @@ func (o SpringCloudAppIdentityPtrOutput) Elem() SpringCloudAppIdentityOutput {
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o SpringCloudAppIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpringCloudAppIdentity) []string {
 		if v == nil {
@@ -902,8 +910,12 @@ func (o SpringCloudAppPersistentDiskPtrOutput) SizeInGb() pulumi.IntPtrOutput {
 
 type SpringCloudBuildDeploymentQuota struct {
 	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	//
+	// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 	Cpu *string `pulumi:"cpu"`
 	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+	//
+	// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 	Memory *string `pulumi:"memory"`
 }
 
@@ -920,8 +932,12 @@ type SpringCloudBuildDeploymentQuotaInput interface {
 
 type SpringCloudBuildDeploymentQuotaArgs struct {
 	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	//
+	// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
 	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+	//
+	// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 }
 
@@ -1003,11 +1019,15 @@ func (o SpringCloudBuildDeploymentQuotaOutput) ToSpringCloudBuildDeploymentQuota
 }
 
 // Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+//
+// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 func (o SpringCloudBuildDeploymentQuotaOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudBuildDeploymentQuota) *string { return v.Cpu }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+//
+// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 func (o SpringCloudBuildDeploymentQuotaOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudBuildDeploymentQuota) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
@@ -1037,6 +1057,8 @@ func (o SpringCloudBuildDeploymentQuotaPtrOutput) Elem() SpringCloudBuildDeploym
 }
 
 // Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+//
+// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 func (o SpringCloudBuildDeploymentQuotaPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudBuildDeploymentQuota) *string {
 		if v == nil {
@@ -1047,6 +1069,8 @@ func (o SpringCloudBuildDeploymentQuotaPtrOutput) Cpu() pulumi.StringPtrOutput {
 }
 
 // Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+//
+// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 func (o SpringCloudBuildDeploymentQuotaPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudBuildDeploymentQuota) *string {
 		if v == nil {
@@ -2051,8 +2075,12 @@ func (o SpringCloudConnectionSecretStorePtrOutput) KeyVaultId() pulumi.StringPtr
 
 type SpringCloudContainerDeploymentQuota struct {
 	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	//
+	// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 	Cpu *string `pulumi:"cpu"`
 	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+	//
+	// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 	Memory *string `pulumi:"memory"`
 }
 
@@ -2069,8 +2097,12 @@ type SpringCloudContainerDeploymentQuotaInput interface {
 
 type SpringCloudContainerDeploymentQuotaArgs struct {
 	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	//
+	// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
 	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+	//
+	// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 }
 
@@ -2152,11 +2184,15 @@ func (o SpringCloudContainerDeploymentQuotaOutput) ToSpringCloudContainerDeploym
 }
 
 // Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+//
+// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 func (o SpringCloudContainerDeploymentQuotaOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudContainerDeploymentQuota) *string { return v.Cpu }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+//
+// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 func (o SpringCloudContainerDeploymentQuotaOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudContainerDeploymentQuota) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
@@ -2186,6 +2222,8 @@ func (o SpringCloudContainerDeploymentQuotaPtrOutput) Elem() SpringCloudContaine
 }
 
 // Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+//
+// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 func (o SpringCloudContainerDeploymentQuotaPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudContainerDeploymentQuota) *string {
 		if v == nil {
@@ -2196,6 +2234,8 @@ func (o SpringCloudContainerDeploymentQuotaPtrOutput) Cpu() pulumi.StringPtrOutp
 }
 
 // Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+//
+// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 func (o SpringCloudContainerDeploymentQuotaPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudContainerDeploymentQuota) *string {
 		if v == nil {
@@ -3432,8 +3472,12 @@ func (o SpringCloudGatewayCorsPtrOutput) MaxAgeSeconds() pulumi.IntPtrOutput {
 
 type SpringCloudGatewayQuota struct {
 	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	//
+	// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 	Cpu *string `pulumi:"cpu"`
 	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+	//
+	// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 	Memory *string `pulumi:"memory"`
 }
 
@@ -3450,8 +3494,12 @@ type SpringCloudGatewayQuotaInput interface {
 
 type SpringCloudGatewayQuotaArgs struct {
 	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	//
+	// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
 	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+	//
+	// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 }
 
@@ -3533,11 +3581,15 @@ func (o SpringCloudGatewayQuotaOutput) ToSpringCloudGatewayQuotaPtrOutputWithCon
 }
 
 // Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+//
+// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 func (o SpringCloudGatewayQuotaOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudGatewayQuota) *string { return v.Cpu }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+//
+// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 func (o SpringCloudGatewayQuotaOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudGatewayQuota) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
@@ -3567,6 +3619,8 @@ func (o SpringCloudGatewayQuotaPtrOutput) Elem() SpringCloudGatewayQuotaOutput {
 }
 
 // Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+//
+// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 func (o SpringCloudGatewayQuotaPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudGatewayQuota) *string {
 		if v == nil {
@@ -3577,6 +3631,8 @@ func (o SpringCloudGatewayQuotaPtrOutput) Cpu() pulumi.StringPtrOutput {
 }
 
 // Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+//
+// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 func (o SpringCloudGatewayQuotaPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudGatewayQuota) *string {
 		if v == nil {
@@ -4088,8 +4144,12 @@ func (o SpringCloudGatewaySsoPtrOutput) Scopes() pulumi.StringArrayOutput {
 
 type SpringCloudJavaDeploymentQuota struct {
 	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	//
+	// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 	Cpu *string `pulumi:"cpu"`
 	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+	//
+	// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 	Memory *string `pulumi:"memory"`
 }
 
@@ -4106,8 +4166,12 @@ type SpringCloudJavaDeploymentQuotaInput interface {
 
 type SpringCloudJavaDeploymentQuotaArgs struct {
 	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+	//
+	// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
 	// Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+	//
+	// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 }
 
@@ -4189,11 +4253,15 @@ func (o SpringCloudJavaDeploymentQuotaOutput) ToSpringCloudJavaDeploymentQuotaPt
 }
 
 // Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+//
+// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 func (o SpringCloudJavaDeploymentQuotaOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudJavaDeploymentQuota) *string { return v.Cpu }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+//
+// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 func (o SpringCloudJavaDeploymentQuotaOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudJavaDeploymentQuota) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
@@ -4223,6 +4291,8 @@ func (o SpringCloudJavaDeploymentQuotaPtrOutput) Elem() SpringCloudJavaDeploymen
 }
 
 // Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+//
+// > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
 func (o SpringCloudJavaDeploymentQuotaPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudJavaDeploymentQuota) *string {
 		if v == nil {
@@ -4233,6 +4303,8 @@ func (o SpringCloudJavaDeploymentQuotaPtrOutput) Cpu() pulumi.StringPtrOutput {
 }
 
 // Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+//
+// > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
 func (o SpringCloudJavaDeploymentQuotaPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudJavaDeploymentQuota) *string {
 		if v == nil {

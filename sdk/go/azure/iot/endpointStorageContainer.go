@@ -110,6 +110,8 @@ type EndpointStorageContainer struct {
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrOutput `pulumi:"fileNameFormat"`
 	// ID of the User Managed Identity used to authenticate against the storage endpoint.
+	//
+	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId pulumi.StringPtrOutput `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringOutput `pulumi:"iothubId"`
@@ -181,6 +183,8 @@ type endpointStorageContainerState struct {
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
 	// ID of the User Managed Identity used to authenticate against the storage endpoint.
+	//
+	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId *string `pulumi:"iothubId"`
@@ -208,6 +212,8 @@ type EndpointStorageContainerState struct {
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrInput
 	// ID of the User Managed Identity used to authenticate against the storage endpoint.
+	//
+	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringPtrInput
@@ -239,6 +245,8 @@ type endpointStorageContainerArgs struct {
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
 	// ID of the User Managed Identity used to authenticate against the storage endpoint.
+	//
+	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId *string `pulumi:"identityId"`
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId string `pulumi:"iothubId"`
@@ -267,6 +275,8 @@ type EndpointStorageContainerArgs struct {
 	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
 	FileNameFormat pulumi.StringPtrInput
 	// ID of the User Managed Identity used to authenticate against the storage endpoint.
+	//
+	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId pulumi.StringPtrInput
 	// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringInput
@@ -401,6 +411,8 @@ func (o EndpointStorageContainerOutput) FileNameFormat() pulumi.StringPtrOutput 
 }
 
 // ID of the User Managed Identity used to authenticate against the storage endpoint.
+//
+// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 func (o EndpointStorageContainerOutput) IdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointStorageContainer) pulumi.StringPtrOutput { return v.IdentityId }).(pulumi.StringPtrOutput)
 }

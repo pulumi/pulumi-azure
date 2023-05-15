@@ -97,6 +97,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
         /// </summary>
         [Output("fileCopyEnabled")]
         public Output<bool?> FileCopyEnabled { get; private set; } = null!;
@@ -109,6 +111,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
         /// </summary>
         [Output("ipConnectEnabled")]
         public Output<bool?> IpConnectEnabled { get; private set; } = null!;
@@ -133,12 +137,16 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+        /// 
+        /// &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
         /// </summary>
         [Output("scaleUnits")]
         public Output<int?> ScaleUnits { get; private set; } = null!;
 
         /// <summary>
         /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
         /// </summary>
         [Output("shareableLinkEnabled")]
         public Output<bool?> ShareableLinkEnabled { get; private set; } = null!;
@@ -157,6 +165,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
         /// </summary>
         [Output("tunnelingEnabled")]
         public Output<bool?> TunnelingEnabled { get; private set; } = null!;
@@ -215,6 +225,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
         /// </summary>
         [Input("fileCopyEnabled")]
         public Input<bool>? FileCopyEnabled { get; set; }
@@ -227,6 +239,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
         /// </summary>
         [Input("ipConnectEnabled")]
         public Input<bool>? IpConnectEnabled { get; set; }
@@ -251,12 +265,16 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+        /// 
+        /// &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
         /// </summary>
         [Input("scaleUnits")]
         public Input<int>? ScaleUnits { get; set; }
 
         /// <summary>
         /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
         /// </summary>
         [Input("shareableLinkEnabled")]
         public Input<bool>? ShareableLinkEnabled { get; set; }
@@ -281,6 +299,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
         /// </summary>
         [Input("tunnelingEnabled")]
         public Input<bool>? TunnelingEnabled { get; set; }
@@ -307,6 +327,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
         /// </summary>
         [Input("fileCopyEnabled")]
         public Input<bool>? FileCopyEnabled { get; set; }
@@ -319,6 +341,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
         /// </summary>
         [Input("ipConnectEnabled")]
         public Input<bool>? IpConnectEnabled { get; set; }
@@ -343,12 +367,16 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+        /// 
+        /// &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
         /// </summary>
         [Input("scaleUnits")]
         public Input<int>? ScaleUnits { get; set; }
 
         /// <summary>
         /// Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
         /// </summary>
         [Input("shareableLinkEnabled")]
         public Input<bool>? ShareableLinkEnabled { get; set; }
@@ -373,6 +401,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
         /// </summary>
         [Input("tunnelingEnabled")]
         public Input<bool>? TunnelingEnabled { get; set; }

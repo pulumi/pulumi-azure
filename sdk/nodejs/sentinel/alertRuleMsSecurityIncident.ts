@@ -102,6 +102,8 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
     public readonly productFilter!: pulumi.Output<string>;
     /**
      * Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+     *
+     * > **NOTE** At least one of the severity filters need to be set.
      */
     public readonly severityFilters!: pulumi.Output<string[]>;
 
@@ -200,6 +202,8 @@ export interface AlertRuleMsSecurityIncidentState {
     productFilter?: pulumi.Input<string>;
     /**
      * Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+     *
+     * > **NOTE** At least one of the severity filters need to be set.
      */
     severityFilters?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -246,6 +250,8 @@ export interface AlertRuleMsSecurityIncidentArgs {
     productFilter: pulumi.Input<string>;
     /**
      * Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+     *
+     * > **NOTE** At least one of the severity filters need to be set.
      */
     severityFilters: pulumi.Input<pulumi.Input<string>[]>;
 }

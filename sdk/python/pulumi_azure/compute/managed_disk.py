@@ -54,36 +54,65 @@ class ManagedDiskArgs:
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+               
+               > **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
+               
+               > **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+               
+               > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+               
+               > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
         :param pulumi.Input[int] disk_iops_read_only: The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
-        :param pulumi.Input[int] disk_size_gb: (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
         :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
+               
+               > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] logical_sector_size: Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+               
+               > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
         :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk.
+               
+               > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
+               
+               For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
         :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         :param pulumi.Input[str] security_type: Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+               
+               
+               > **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+               
+               > **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+               
+               > **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
         :param pulumi.Input[int] upload_size_bytes: Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+               
+               > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         pulumi.set(__self__, "create_option", create_option)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -178,6 +207,8 @@ class ManagedDiskArgs:
     def storage_account_type(self) -> pulumi.Input[str]:
         """
         The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+
+        > **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -190,6 +221,8 @@ class ManagedDiskArgs:
     def disk_access_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the disk access resource for using private endpoints on disks.
+
+        > **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
         """
         return pulumi.get(self, "disk_access_id")
 
@@ -202,6 +235,10 @@ class ManagedDiskArgs:
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+
+        > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+
+        > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -260,9 +297,6 @@ class ManagedDiskArgs:
     @property
     @pulumi.getter(name="diskSizeGb")
     def disk_size_gb(self) -> Optional[pulumi.Input[int]]:
-        """
-        (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
-        """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
@@ -286,6 +320,8 @@ class ManagedDiskArgs:
     def encryption_settings(self) -> Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']]:
         """
         A `encryption_settings` block as defined below.
+
+        > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_settings")
 
@@ -346,6 +382,8 @@ class ManagedDiskArgs:
     def logical_sector_size(self) -> Optional[pulumi.Input[int]]:
         """
         Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+
+        > **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
         """
         return pulumi.get(self, "logical_sector_size")
 
@@ -358,6 +396,8 @@ class ManagedDiskArgs:
     def max_shares(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+
+        > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
         """
         return pulumi.get(self, "max_shares")
 
@@ -394,6 +434,8 @@ class ManagedDiskArgs:
     def on_demand_bursting_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies if On-Demand Bursting is enabled for the Managed Disk.
+
+        > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
         """
         return pulumi.get(self, "on_demand_bursting_enabled")
 
@@ -418,6 +460,8 @@ class ManagedDiskArgs:
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether it is allowed to access the disk via public network. Defaults to `true`.
+
+        For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -430,6 +474,8 @@ class ManagedDiskArgs:
     def secure_vm_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         """
         return pulumi.get(self, "secure_vm_disk_encryption_set_id")
 
@@ -442,6 +488,13 @@ class ManagedDiskArgs:
     def security_type(self) -> Optional[pulumi.Input[str]]:
         """
         Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+
+        > **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+
+
+        > **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+
+        > **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         """
         return pulumi.get(self, "security_type")
 
@@ -500,9 +553,6 @@ class ManagedDiskArgs:
     @property
     @pulumi.getter
     def tier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
-        """
         return pulumi.get(self, "tier")
 
     @tier.setter
@@ -514,6 +564,8 @@ class ManagedDiskArgs:
     def trusted_launch_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+
+        > **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
         """
         return pulumi.get(self, "trusted_launch_enabled")
 
@@ -538,6 +590,8 @@ class ManagedDiskArgs:
     def zone(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+
+        > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zone")
 
@@ -586,37 +640,66 @@ class _ManagedDiskState:
         Input properties used for looking up and filtering ManagedDisk resources.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
+               
+               > **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+               
+               > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+               
+               > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
         :param pulumi.Input[int] disk_iops_read_only: The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
-        :param pulumi.Input[int] disk_size_gb: (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
         :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
+               
+               > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] logical_sector_size: Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+               
+               > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
         :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk.
+               
+               > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
+               
+               For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         :param pulumi.Input[str] security_type: Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+               
+               
+               > **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+               
+               > **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+               
+               > **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+               
+               > **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
         :param pulumi.Input[int] upload_size_bytes: Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+               
+               > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         if create_option is not None:
             pulumi.set(__self__, "create_option", create_option)
@@ -702,6 +785,8 @@ class _ManagedDiskState:
     def disk_access_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the disk access resource for using private endpoints on disks.
+
+        > **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
         """
         return pulumi.get(self, "disk_access_id")
 
@@ -714,6 +799,10 @@ class _ManagedDiskState:
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+
+        > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+
+        > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -772,9 +861,6 @@ class _ManagedDiskState:
     @property
     @pulumi.getter(name="diskSizeGb")
     def disk_size_gb(self) -> Optional[pulumi.Input[int]]:
-        """
-        (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
-        """
         return pulumi.get(self, "disk_size_gb")
 
     @disk_size_gb.setter
@@ -798,6 +884,8 @@ class _ManagedDiskState:
     def encryption_settings(self) -> Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']]:
         """
         A `encryption_settings` block as defined below.
+
+        > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_settings")
 
@@ -858,6 +946,8 @@ class _ManagedDiskState:
     def logical_sector_size(self) -> Optional[pulumi.Input[int]]:
         """
         Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+
+        > **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
         """
         return pulumi.get(self, "logical_sector_size")
 
@@ -870,6 +960,8 @@ class _ManagedDiskState:
     def max_shares(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+
+        > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
         """
         return pulumi.get(self, "max_shares")
 
@@ -906,6 +998,8 @@ class _ManagedDiskState:
     def on_demand_bursting_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies if On-Demand Bursting is enabled for the Managed Disk.
+
+        > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
         """
         return pulumi.get(self, "on_demand_bursting_enabled")
 
@@ -930,6 +1024,8 @@ class _ManagedDiskState:
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether it is allowed to access the disk via public network. Defaults to `true`.
+
+        For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -954,6 +1050,8 @@ class _ManagedDiskState:
     def secure_vm_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         """
         return pulumi.get(self, "secure_vm_disk_encryption_set_id")
 
@@ -966,6 +1064,13 @@ class _ManagedDiskState:
     def security_type(self) -> Optional[pulumi.Input[str]]:
         """
         Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+
+        > **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+
+
+        > **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+
+        > **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         """
         return pulumi.get(self, "security_type")
 
@@ -1014,6 +1119,8 @@ class _ManagedDiskState:
     def storage_account_type(self) -> Optional[pulumi.Input[str]]:
         """
         The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+
+        > **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -1036,9 +1143,6 @@ class _ManagedDiskState:
     @property
     @pulumi.getter
     def tier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
-        """
         return pulumi.get(self, "tier")
 
     @tier.setter
@@ -1050,6 +1154,8 @@ class _ManagedDiskState:
     def trusted_launch_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+
+        > **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
         """
         return pulumi.get(self, "trusted_launch_enabled")
 
@@ -1074,6 +1180,8 @@ class _ManagedDiskState:
     def zone(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+
+        > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zone")
 
@@ -1182,37 +1290,66 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
+               
+               > **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+               
+               > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+               
+               > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
         :param pulumi.Input[int] disk_iops_read_only: The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
-        :param pulumi.Input[int] disk_size_gb: (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
         :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
+               
+               > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] logical_sector_size: Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+               
+               > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
         :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk.
+               
+               > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
+               
+               For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         :param pulumi.Input[str] security_type: Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+               
+               
+               > **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+               
+               > **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+               
+               > **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+               
+               > **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
         :param pulumi.Input[int] upload_size_bytes: Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+               
+               > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         ...
     @overload
@@ -1425,37 +1562,66 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
         :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
+               
+               > **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+               
+               > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+               
+               > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
         :param pulumi.Input[int] disk_iops_read_only: The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_mbps_read_only: The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
-        :param pulumi.Input[int] disk_size_gb: (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
         :param pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
+               
+               > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hyper_v_generation: The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] logical_sector_size: Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
         :param pulumi.Input[int] max_shares: The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+               
+               > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
         :param pulumi.Input[bool] on_demand_bursting_enabled: Specifies if On-Demand Bursting is enabled for the Managed Disk.
+               
+               > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether it is allowed to access the disk via public network. Defaults to `true`.
+               
+               For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         :param pulumi.Input[str] security_type: Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+               
+               
+               > **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+               
+               > **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+               
+               > **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+               
+               > **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
         :param pulumi.Input[int] upload_size_bytes: Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+               
+               > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1509,6 +1675,8 @@ class ManagedDisk(pulumi.CustomResource):
     def disk_access_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the disk access resource for using private endpoints on disks.
+
+        > **Note:** `disk_access_id` is only supported when `network_access_policy` is set to `AllowPrivate`.
         """
         return pulumi.get(self, "disk_access_id")
 
@@ -1517,6 +1685,10 @@ class ManagedDisk(pulumi.CustomResource):
     def disk_encryption_set_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
+
+        > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+
+        > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -1555,9 +1727,6 @@ class ManagedDisk(pulumi.CustomResource):
     @property
     @pulumi.getter(name="diskSizeGb")
     def disk_size_gb(self) -> pulumi.Output[int]:
-        """
-        (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
-        """
         return pulumi.get(self, "disk_size_gb")
 
     @property
@@ -1573,6 +1742,8 @@ class ManagedDisk(pulumi.CustomResource):
     def encryption_settings(self) -> pulumi.Output[Optional['outputs.ManagedDiskEncryptionSettings']]:
         """
         A `encryption_settings` block as defined below.
+
+        > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_settings")
 
@@ -1613,6 +1784,8 @@ class ManagedDisk(pulumi.CustomResource):
     def logical_sector_size(self) -> pulumi.Output[int]:
         """
         Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+
+        > **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
         """
         return pulumi.get(self, "logical_sector_size")
 
@@ -1621,6 +1794,8 @@ class ManagedDisk(pulumi.CustomResource):
     def max_shares(self) -> pulumi.Output[int]:
         """
         The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+
+        > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `max_shares` minimum value is 1 and the maximum is 5.
         """
         return pulumi.get(self, "max_shares")
 
@@ -1645,6 +1820,8 @@ class ManagedDisk(pulumi.CustomResource):
     def on_demand_bursting_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if On-Demand Bursting is enabled for the Managed Disk.
+
+        > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
         """
         return pulumi.get(self, "on_demand_bursting_enabled")
 
@@ -1661,6 +1838,8 @@ class ManagedDisk(pulumi.CustomResource):
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether it is allowed to access the disk via public network. Defaults to `true`.
+
+        For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -1677,6 +1856,8 @@ class ManagedDisk(pulumi.CustomResource):
     def secure_vm_disk_encryption_set_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         """
         return pulumi.get(self, "secure_vm_disk_encryption_set_id")
 
@@ -1685,6 +1866,13 @@ class ManagedDisk(pulumi.CustomResource):
     def security_type(self) -> pulumi.Output[Optional[str]]:
         """
         Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+
+        > **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+
+
+        > **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+
+        > **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         """
         return pulumi.get(self, "security_type")
 
@@ -1717,6 +1905,8 @@ class ManagedDisk(pulumi.CustomResource):
     def storage_account_type(self) -> pulumi.Output[str]:
         """
         The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+
+        > **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -1731,9 +1921,6 @@ class ManagedDisk(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tier(self) -> pulumi.Output[str]:
-        """
-        The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
-        """
         return pulumi.get(self, "tier")
 
     @property
@@ -1741,6 +1928,8 @@ class ManagedDisk(pulumi.CustomResource):
     def trusted_launch_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+
+        > **Note:** Trusted Launch can only be enabled when `create_option` is `FromImage` or `Import`.
         """
         return pulumi.get(self, "trusted_launch_enabled")
 
@@ -1757,6 +1946,8 @@ class ManagedDisk(pulumi.CustomResource):
     def zone(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+
+        > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zone")
 

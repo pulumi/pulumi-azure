@@ -26,6 +26,8 @@ class CacheIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -52,6 +54,8 @@ class CacheIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -88,6 +92,8 @@ class CachePatchScheduleArgs:
         :param pulumi.Input[str] day_of_week: the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
         :param pulumi.Input[str] maintenance_window: The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to `PT5H`.
         :param pulumi.Input[int] start_hour_utc: the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+               
+               > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
         """
         pulumi.set(__self__, "day_of_week", day_of_week)
         if maintenance_window is not None:
@@ -124,6 +130,8 @@ class CachePatchScheduleArgs:
     def start_hour_utc(self) -> Optional[pulumi.Input[int]]:
         """
         the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+
+        > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
         """
         return pulumi.get(self, "start_hour_utc")
 
@@ -153,17 +161,33 @@ class CacheRedisConfigurationArgs:
         :param pulumi.Input[bool] aof_backup_enabled: Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
         :param pulumi.Input[str] aof_storage_connection_string0: First Storage Account connection string for AOF persistence.
         :param pulumi.Input[str] aof_storage_connection_string1: Second Storage Account connection string for AOF persistence.
+               
+               Example usage:
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[bool] enable_authentication: If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+               
+               > **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `enable_authentication` set to `true`.
         :param pulumi.Input[int] maxclients: Returns the max number of connected clients at the same time.
         :param pulumi.Input[int] maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
         :param pulumi.Input[int] maxmemory_delta: The max-memory delta for this Redis instance. Defaults are shown below.
         :param pulumi.Input[str] maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
         :param pulumi.Input[int] maxmemory_reserved: Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
         :param pulumi.Input[str] notify_keyspace_events: Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[bool] rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
+               
+               > **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
         :param pulumi.Input[int] rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
         :param pulumi.Input[int] rdb_backup_max_snapshot_count: The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
         :param pulumi.Input[str] rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+               
+               > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
         """
         if aof_backup_enabled is not None:
             pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
@@ -223,6 +247,12 @@ class CacheRedisConfigurationArgs:
     def aof_storage_connection_string1(self) -> Optional[pulumi.Input[str]]:
         """
         Second Storage Account connection string for AOF persistence.
+
+        Example usage:
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "aof_storage_connection_string1")
 
@@ -235,6 +265,8 @@ class CacheRedisConfigurationArgs:
     def enable_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
         If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
+
+        > **NOTE:** `enable_authentication` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `enable_authentication` set to `true`.
         """
         return pulumi.get(self, "enable_authentication")
 
@@ -307,6 +339,10 @@ class CacheRedisConfigurationArgs:
     def notify_keyspace_events(self) -> Optional[pulumi.Input[str]]:
         """
         Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "notify_keyspace_events")
 
@@ -319,6 +355,8 @@ class CacheRedisConfigurationArgs:
     def rdb_backup_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
+
+        > **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
         """
         return pulumi.get(self, "rdb_backup_enabled")
 
@@ -355,6 +393,8 @@ class CacheRedisConfigurationArgs:
     def rdb_storage_connection_string(self) -> Optional[pulumi.Input[str]]:
         """
         The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
+
+        > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
         """
         return pulumi.get(self, "rdb_storage_connection_string")
 

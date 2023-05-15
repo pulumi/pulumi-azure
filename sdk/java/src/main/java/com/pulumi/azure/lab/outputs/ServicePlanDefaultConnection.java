@@ -14,20 +14,28 @@ public final class ServicePlanDefaultConnection {
     /**
      * @return The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+     * 
      */
     private @Nullable String clientRdpAccess;
     /**
      * @return The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
      * 
      */
     private @Nullable String clientSshAccess;
     /**
      * @return The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+     * 
      */
     private @Nullable String webRdpAccess;
     /**
      * @return The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
      * 
      */
     private @Nullable String webSshAccess;
@@ -36,12 +44,16 @@ public final class ServicePlanDefaultConnection {
     /**
      * @return The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+     * 
      */
     public Optional<String> clientRdpAccess() {
         return Optional.ofNullable(this.clientRdpAccess);
     }
     /**
      * @return The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
      * 
      */
     public Optional<String> clientSshAccess() {
@@ -50,12 +62,16 @@ public final class ServicePlanDefaultConnection {
     /**
      * @return The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+     * 
      */
     public Optional<String> webRdpAccess() {
         return Optional.ofNullable(this.webRdpAccess);
     }
     /**
      * @return The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
      * 
      */
     public Optional<String> webSshAccess() {

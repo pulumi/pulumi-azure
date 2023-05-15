@@ -19,12 +19,20 @@ public final class SystemTopicIdentityArgs extends com.pulumi.resources.Resource
     /**
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+     * 
+     * &gt; **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+     * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+     * 
+     * &gt; **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -106,6 +114,10 @@ public final class SystemTopicIdentityArgs extends com.pulumi.resources.Resource
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+         * 
+         * &gt; **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+         * 
          * @return builder
          * 
          */
@@ -117,6 +129,10 @@ public final class SystemTopicIdentityArgs extends com.pulumi.resources.Resource
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+         * 
+         * &gt; **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+         * 
          * @return builder
          * 
          */
@@ -126,6 +142,10 @@ public final class SystemTopicIdentityArgs extends com.pulumi.resources.Resource
 
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+         * 
+         * &gt; **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
          * 
          * @return builder
          * 

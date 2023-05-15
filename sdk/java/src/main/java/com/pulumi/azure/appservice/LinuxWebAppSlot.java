@@ -378,14 +378,14 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logs);
     }
     /**
-     * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+     * The Site Credentials Username used for publishing.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+     * @return The Site Credentials Username used for publishing.
      * 
      */
     public Output<String> name() {
@@ -517,22 +517,16 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     * 
-     */
     @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
-    /**
-     * @return The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     * 
-     */
     public Output<Optional<String>> virtualNetworkSubnetId() {
         return Codegen.optional(this.virtualNetworkSubnetId);
     }
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+     * 
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      * 
      */
     @Export(name="zipDeployFile", refs={String.class}, tree="[0]")
@@ -540,6 +534,8 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+     * 
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      * 
      */
     public Output<String> zipDeployFile() {

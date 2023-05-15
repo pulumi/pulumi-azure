@@ -34,12 +34,20 @@ public final class ServerTransparentDataEncryptionState extends com.pulumi.resou
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      * 
+     * &gt; **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
+     * 
+     * &gt; **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server&#39;s transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
+     * 
      */
     @Import(name="keyVaultKeyId")
     private @Nullable Output<String> keyVaultKeyId;
 
     /**
      * @return To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+     * 
+     * &gt; **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
+     * 
+     * &gt; **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server&#39;s transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
      * 
      */
     public Optional<Output<String>> keyVaultKeyId() {
@@ -111,6 +119,10 @@ public final class ServerTransparentDataEncryptionState extends com.pulumi.resou
         /**
          * @param keyVaultKeyId To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
          * 
+         * &gt; **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
+         * 
+         * &gt; **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server&#39;s transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
+         * 
          * @return builder
          * 
          */
@@ -121,6 +133,10 @@ public final class ServerTransparentDataEncryptionState extends com.pulumi.resou
 
         /**
          * @param keyVaultKeyId To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+         * 
+         * &gt; **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
+         * 
+         * &gt; **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server&#39;s transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
          * 
          * @return builder
          * 

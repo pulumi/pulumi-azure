@@ -368,12 +368,16 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
     /**
      * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
      * 
+     * &gt; **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+     * 
      */
     @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountAccessKey;
 
     /**
      * @return Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
+     * 
+     * &gt; **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
      * 
      */
     public Output<Optional<String>> storageAccountAccessKey() {

@@ -106,12 +106,16 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
     /**
      * The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
      * 
+     * &gt; **NOTE:** `GET` must always be present.
+     * 
      */
     @Export(name="authorizationMethods", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> authorizationMethods;
 
     /**
      * @return The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+     * 
+     * &gt; **NOTE:** `GET` must always be present.
      * 
      */
     public Output<List<String>> authorizationMethods() {
@@ -274,12 +278,16 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
     /**
      * The password associated with the Resource Owner.
      * 
+     * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * 
      */
     @Export(name="resourceOwnerPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceOwnerPassword;
 
     /**
      * @return The password associated with the Resource Owner.
+     * 
+     * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
      * 
      */
     public Output<Optional<String>> resourceOwnerPassword() {
@@ -288,12 +296,16 @@ public class AuthorizationServer extends com.pulumi.resources.CustomResource {
     /**
      * The username associated with the Resource Owner.
      * 
+     * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
+     * 
      */
     @Export(name="resourceOwnerUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceOwnerUsername;
 
     /**
      * @return The username associated with the Resource Owner.
+     * 
+     * &gt; **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
      * 
      */
     public Output<Optional<String>> resourceOwnerUsername() {

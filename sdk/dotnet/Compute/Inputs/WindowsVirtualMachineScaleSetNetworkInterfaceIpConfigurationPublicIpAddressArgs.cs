@@ -44,6 +44,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
         /// </summary>
         [Input("publicIpPrefixId")]
         public Input<string>? PublicIpPrefixId { get; set; }

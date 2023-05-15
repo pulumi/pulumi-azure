@@ -19,12 +19,16 @@ public final class SubscriptionClientScopedSubscriptionArgs extends com.pulumi.r
     /**
      * Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+     * 
      */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
     /**
      * @return Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
      * 
      */
     public Optional<Output<String>> clientId() {
@@ -90,6 +94,8 @@ public final class SubscriptionClientScopedSubscriptionArgs extends com.pulumi.r
         /**
          * @param clientId Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+         * 
          * @return builder
          * 
          */
@@ -100,6 +106,8 @@ public final class SubscriptionClientScopedSubscriptionArgs extends com.pulumi.r
 
         /**
          * @param clientId Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
          * 
          * @return builder
          * 

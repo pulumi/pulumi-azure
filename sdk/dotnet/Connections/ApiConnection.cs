@@ -87,9 +87,6 @@ namespace Pulumi.Azure.Connections
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
-        /// </summary>
         [Output("parameterValues")]
         public Output<ImmutableDictionary<string, string>?> ParameterValues { get; private set; } = null!;
 
@@ -171,10 +168,6 @@ namespace Pulumi.Azure.Connections
 
         [Input("parameterValues")]
         private InputMap<string>? _parameterValues;
-
-        /// <summary>
-        /// A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
-        /// </summary>
         public InputMap<string> ParameterValues
         {
             get => _parameterValues ?? (_parameterValues = new InputMap<string>());
@@ -227,10 +220,6 @@ namespace Pulumi.Azure.Connections
 
         [Input("parameterValues")]
         private InputMap<string>? _parameterValues;
-
-        /// <summary>
-        /// A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
-        /// </summary>
         public InputMap<string> ParameterValues
         {
             get => _parameterValues ?? (_parameterValues = new InputMap<string>());

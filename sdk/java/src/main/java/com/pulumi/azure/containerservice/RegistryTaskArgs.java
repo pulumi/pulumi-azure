@@ -137,12 +137,16 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `file_step` block as defined below.
      * 
+     * &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+     * 
      */
     @Import(name="fileStep")
     private @Nullable Output<RegistryTaskFileStepArgs> fileStep;
 
     /**
      * @return A `file_step` block as defined below.
+     * 
+     * &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
      * 
      */
     public Optional<Output<RegistryTaskFileStepArgs>> fileStep() {
@@ -212,12 +216,16 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `platform` block as defined below.
      * 
+     * &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+     * 
      */
     @Import(name="platform")
     private @Nullable Output<RegistryTaskPlatformArgs> platform;
 
     /**
      * @return A `platform` block as defined below.
+     * 
+     * &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
      * 
      */
     public Optional<Output<RegistryTaskPlatformArgs>> platform() {
@@ -490,6 +498,8 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param fileStep A `file_step` block as defined below.
          * 
+         * &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+         * 
          * @return builder
          * 
          */
@@ -500,6 +510,8 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param fileStep A `file_step` block as defined below.
+         * 
+         * &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
          * 
          * @return builder
          * 
@@ -595,6 +607,8 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param platform A `platform` block as defined below.
          * 
+         * &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+         * 
          * @return builder
          * 
          */
@@ -605,6 +619,8 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param platform A `platform` block as defined below.
+         * 
+         * &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
          * 
          * @return builder
          * 

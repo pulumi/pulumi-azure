@@ -514,6 +514,30 @@ class PrivateCloud(pulumi.CustomResource):
                  vcenter_password: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages a VMware Private Cloud.
+
+        ## Example Usage
+
+        > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_private_cloud = azure.avs.PrivateCloud("examplePrivateCloud",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="av36",
+            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
+                size=3,
+            ),
+            network_subnet_cidr="192.168.48.0/22",
+            internet_connection_enabled=False,
+            nsxt_password="QazWsx13$Edc",
+            vcenter_password="WsxEdc23$Rfv")
+        ```
+
         ## Import
 
         VMware Private Clouds can be imported using the `resource id`, e.g.
@@ -544,6 +568,30 @@ class PrivateCloud(pulumi.CustomResource):
                  args: PrivateCloudArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a VMware Private Cloud.
+
+        ## Example Usage
+
+        > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_private_cloud = azure.avs.PrivateCloud("examplePrivateCloud",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="av36",
+            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
+                size=3,
+            ),
+            network_subnet_cidr="192.168.48.0/22",
+            internet_connection_enabled=False,
+            nsxt_password="QazWsx13$Edc",
+            vcenter_password="WsxEdc23$Rfv")
+        ```
+
         ## Import
 
         VMware Private Clouds can be imported using the `resource id`, e.g.

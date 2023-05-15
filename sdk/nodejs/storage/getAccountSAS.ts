@@ -89,6 +89,8 @@ export interface GetAccountSASArgs {
     connectionString: string;
     /**
      * The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
+     *
+     * > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
      */
     expiry: string;
     /**
@@ -214,6 +216,8 @@ export interface GetAccountSASOutputArgs {
     connectionString: pulumi.Input<string>;
     /**
      * The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
+     *
+     * > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
      */
     expiry: pulumi.Input<string>;
     /**

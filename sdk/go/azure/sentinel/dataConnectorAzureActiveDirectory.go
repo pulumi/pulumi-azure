@@ -78,6 +78,8 @@ type DataConnectorAzureActiveDirectory struct {
 	// The name which should be used for this Azure Active Directory Data Connector. Changing this forces a new Azure Active Directory Data Connector to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the tenant that this Azure Active Directory Data Connector connects to. Changing this forces a new Azure Active Directory Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 }
 
@@ -118,6 +120,8 @@ type dataConnectorAzureActiveDirectoryState struct {
 	// The name which should be used for this Azure Active Directory Data Connector. Changing this forces a new Azure Active Directory Data Connector to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the tenant that this Azure Active Directory Data Connector connects to. Changing this forces a new Azure Active Directory Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -127,6 +131,8 @@ type DataConnectorAzureActiveDirectoryState struct {
 	// The name which should be used for this Azure Active Directory Data Connector. Changing this forces a new Azure Active Directory Data Connector to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the tenant that this Azure Active Directory Data Connector connects to. Changing this forces a new Azure Active Directory Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -140,6 +146,8 @@ type dataConnectorAzureActiveDirectoryArgs struct {
 	// The name which should be used for this Azure Active Directory Data Connector. Changing this forces a new Azure Active Directory Data Connector to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the tenant that this Azure Active Directory Data Connector connects to. Changing this forces a new Azure Active Directory Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -150,6 +158,8 @@ type DataConnectorAzureActiveDirectoryArgs struct {
 	// The name which should be used for this Azure Active Directory Data Connector. Changing this forces a new Azure Active Directory Data Connector to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the tenant that this Azure Active Directory Data Connector connects to. Changing this forces a new Azure Active Directory Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -251,6 +261,8 @@ func (o DataConnectorAzureActiveDirectoryOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the tenant that this Azure Active Directory Data Connector connects to. Changing this forces a new Azure Active Directory Data Connector to be created.
+//
+// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 func (o DataConnectorAzureActiveDirectoryOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnectorAzureActiveDirectory) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }

@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .shortName(&#34;exampleactiongroup&#34;)
+ *             .shortName(&#34;action&#34;)
  *             .build());
  * 
  *         var exampleAlertProcessingRuleActionGroup = new AlertProcessingRuleActionGroup(&#34;exampleAlertProcessingRuleActionGroup&#34;, AlertProcessingRuleActionGroupArgs.builder()        

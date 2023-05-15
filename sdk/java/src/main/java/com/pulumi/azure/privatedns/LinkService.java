@@ -272,12 +272,16 @@ public class LinkService extends com.pulumi.resources.CustomResource {
     /**
      * A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
      * 
+     * &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+     * 
      */
     @Export(name="visibilitySubscriptionIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> visibilitySubscriptionIds;
 
     /**
      * @return A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
+     * 
+     * &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      * 
      */
     public Output<Optional<List<String>>> visibilitySubscriptionIds() {

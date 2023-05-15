@@ -210,6 +210,8 @@ class SpringCloudAppIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         """
@@ -238,6 +240,8 @@ class SpringCloudAppIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -402,7 +406,11 @@ class SpringCloudBuildDeploymentQuotaArgs:
                  memory: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+               
+               > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
         :param pulumi.Input[str] memory: Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+               
+               > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
         """
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
@@ -414,6 +422,8 @@ class SpringCloudBuildDeploymentQuotaArgs:
     def cpu(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+
+        > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
         """
         return pulumi.get(self, "cpu")
 
@@ -426,6 +436,8 @@ class SpringCloudBuildDeploymentQuotaArgs:
     def memory(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+
+        > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
         """
         return pulumi.get(self, "memory")
 
@@ -874,7 +886,11 @@ class SpringCloudContainerDeploymentQuotaArgs:
                  memory: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+               
+               > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
         :param pulumi.Input[str] memory: Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+               
+               > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
         """
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
@@ -886,6 +902,8 @@ class SpringCloudContainerDeploymentQuotaArgs:
     def cpu(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+
+        > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
         """
         return pulumi.get(self, "cpu")
 
@@ -898,6 +916,8 @@ class SpringCloudContainerDeploymentQuotaArgs:
     def memory(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+
+        > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
         """
         return pulumi.get(self, "memory")
 
@@ -1383,7 +1403,11 @@ class SpringCloudGatewayQuotaArgs:
                  memory: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+               
+               > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
         :param pulumi.Input[str] memory: Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+               
+               > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
         """
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
@@ -1395,6 +1419,8 @@ class SpringCloudGatewayQuotaArgs:
     def cpu(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+
+        > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
         """
         return pulumi.get(self, "cpu")
 
@@ -1407,6 +1433,8 @@ class SpringCloudGatewayQuotaArgs:
     def memory(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+
+        > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
         """
         return pulumi.get(self, "memory")
 
@@ -1666,7 +1694,11 @@ class SpringCloudJavaDeploymentQuotaArgs:
                  memory: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cpu: Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+               
+               > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
         :param pulumi.Input[str] memory: Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+               
+               > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
         """
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
@@ -1678,6 +1710,8 @@ class SpringCloudJavaDeploymentQuotaArgs:
     def cpu(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+
+        > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
         """
         return pulumi.get(self, "cpu")
 
@@ -1690,6 +1724,8 @@ class SpringCloudJavaDeploymentQuotaArgs:
     def memory(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+
+        > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
         """
         return pulumi.get(self, "memory")
 

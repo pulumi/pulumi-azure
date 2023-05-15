@@ -20,6 +20,8 @@ public final class GroupExposedPort {
     /**
      * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
+     * 
      */
     private @Nullable String protocol;
 
@@ -33,6 +35,8 @@ public final class GroupExposedPort {
     }
     /**
      * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
      * 
      */
     public Optional<String> protocol() {

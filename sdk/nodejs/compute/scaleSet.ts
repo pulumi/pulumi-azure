@@ -144,6 +144,8 @@ export class ScaleSet extends pulumi.CustomResource {
     public readonly bootDiagnostics!: pulumi.Output<outputs.compute.ScaleSetBootDiagnostics | undefined>;
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -244,6 +246,8 @@ export class ScaleSet extends pulumi.CustomResource {
     public readonly upgradePolicyMode!: pulumi.Output<string>;
     /**
      * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+     *
+     * > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -356,6 +360,8 @@ export interface ScaleSetState {
     bootDiagnostics?: pulumi.Input<inputs.compute.ScaleSetBootDiagnostics>;
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
@@ -456,6 +462,8 @@ export interface ScaleSetState {
     upgradePolicyMode?: pulumi.Input<string>;
     /**
      * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+     *
+     * > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -474,6 +482,8 @@ export interface ScaleSetArgs {
     bootDiagnostics?: pulumi.Input<inputs.compute.ScaleSetBootDiagnostics>;
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
@@ -574,6 +584,8 @@ export interface ScaleSetArgs {
     upgradePolicyMode: pulumi.Input<string>;
     /**
      * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+     *
+     * > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -31,6 +31,8 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly string? PrivateIpAddress;
         /// <summary>
         /// The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        /// 
+        /// &gt; **Note:** `Dynamic` means "An IP is automatically assigned during creation of this Network Interface"; `Static` means "User supplied IP address will be used"
         /// </summary>
         public readonly string PrivateIpAddressAllocation;
         /// <summary>
@@ -43,6 +45,8 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly string? PublicIpAddressId;
         /// <summary>
         /// The ID of the Subnet where this Network Interface should be located in.
+        /// 
+        /// &gt; **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
         /// </summary>
         public readonly string? SubnetId;
 

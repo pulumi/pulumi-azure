@@ -79,12 +79,32 @@ public final class LinuxFunctionAppAuthSettingsV2CustomOidcV2Args extends com.pu
     /**
      * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
      */
     @Import(name="clientSecretSettingName")
     private @Nullable Output<String> clientSecretSettingName;
 
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Optional<Output<String>> clientSecretSettingName() {
@@ -302,6 +322,16 @@ public final class LinuxFunctionAppAuthSettingsV2CustomOidcV2Args extends com.pu
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
          * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
          * @return builder
          * 
          */
@@ -312,6 +342,16 @@ public final class LinuxFunctionAppAuthSettingsV2CustomOidcV2Args extends com.pu
 
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 

@@ -20,6 +20,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
+        /// 
+        /// &gt; **NOTE:** If using an image that does not have data to be written to the Data Disk, use `Empty` as the create option in order to create the desired disk without any data.
         /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
@@ -38,12 +40,16 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `create_option` must be set to `Attach`.
+        /// 
+        /// The following properties apply when using Unmanaged Disks:
         /// </summary>
         [Input("managedDiskId")]
         public Input<string>? ManagedDiskId { get; set; }
 
         /// <summary>
         /// Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
+        /// 
+        /// &gt; **Note:** `managed_disk_type` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
         /// </summary>
         [Input("managedDiskType")]
         public Input<string>? ManagedDiskType { get; set; }
@@ -62,6 +68,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        /// 
+        /// The following properties apply when using Managed Disks:
         /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }

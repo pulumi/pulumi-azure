@@ -626,6 +626,12 @@ class Slot(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Manages an App Service Slot (within an App Service).
+
+        !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.LinuxWebAppSlot` resources instead.
+
+        > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
+
         ## Example Usage
         ### NET 4.X)
 
@@ -755,6 +761,12 @@ class Slot(pulumi.CustomResource):
                  args: SlotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages an App Service Slot (within an App Service).
+
+        !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.LinuxWebAppSlot` resources instead.
+
+        > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
+
         ## Example Usage
         ### NET 4.X)
 

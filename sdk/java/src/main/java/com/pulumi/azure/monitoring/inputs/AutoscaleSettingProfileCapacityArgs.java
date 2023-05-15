@@ -31,12 +31,16 @@ public final class AutoscaleSettingProfileCapacityArgs extends com.pulumi.resour
     /**
      * The maximum number of instances for this resource. Valid values are between `0` and `1000`.
      * 
+     * &gt; **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
+     * 
      */
     @Import(name="maximum", required=true)
     private Output<Integer> maximum;
 
     /**
      * @return The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+     * 
+     * &gt; **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
      * 
      */
     public Output<Integer> maximum() {
@@ -108,6 +112,8 @@ public final class AutoscaleSettingProfileCapacityArgs extends com.pulumi.resour
         /**
          * @param maximum The maximum number of instances for this resource. Valid values are between `0` and `1000`.
          * 
+         * &gt; **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
+         * 
          * @return builder
          * 
          */
@@ -118,6 +124,8 @@ public final class AutoscaleSettingProfileCapacityArgs extends com.pulumi.resour
 
         /**
          * @param maximum The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+         * 
+         * &gt; **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
          * 
          * @return builder
          * 

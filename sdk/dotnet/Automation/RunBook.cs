@@ -71,6 +71,8 @@ namespace Pulumi.Azure.Automation
 
         /// <summary>
         /// The desired content of the runbook.
+        /// 
+        /// &gt; **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         /// </summary>
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
@@ -198,6 +200,8 @@ namespace Pulumi.Azure.Automation
 
         /// <summary>
         /// The desired content of the runbook.
+        /// 
+        /// &gt; **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
@@ -298,6 +302,8 @@ namespace Pulumi.Azure.Automation
 
         /// <summary>
         /// The desired content of the runbook.
+        /// 
+        /// &gt; **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }

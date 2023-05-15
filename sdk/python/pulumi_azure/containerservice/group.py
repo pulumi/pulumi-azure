@@ -40,16 +40,24 @@ class GroupArgs:
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+               
+               > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupDiagnosticsArgs'] diagnostics: A `diagnostics` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupDnsConfigArgs'] dns_config: A `dns_config` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+               
+               > **Note:** DNS label/name is not supported when deploying to virtual networks.
         :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         :param pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
         :param pulumi.Input['GroupIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+               
+               > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -116,6 +124,8 @@ class GroupArgs:
     def os_type(self) -> pulumi.Input[str]:
         """
         The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+
+        > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         """
         return pulumi.get(self, "os_type")
 
@@ -164,6 +174,8 @@ class GroupArgs:
     def dns_name_label(self) -> Optional[pulumi.Input[str]]:
         """
         The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+
+        > **Note:** DNS label/name is not supported when deploying to virtual networks.
         """
         return pulumi.get(self, "dns_name_label")
 
@@ -188,6 +200,8 @@ class GroupArgs:
     def exposed_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]]]:
         """
         Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
         """
         return pulumi.get(self, "exposed_ports")
 
@@ -236,6 +250,8 @@ class GroupArgs:
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+
+        > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -368,18 +384,26 @@ class _GroupState:
         :param pulumi.Input['GroupDiagnosticsArgs'] diagnostics: A `diagnostics` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupDnsConfigArgs'] dns_config: A `dns_config` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+               
+               > **Note:** DNS label/name is not supported when deploying to virtual networks.
         :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         :param pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
         :param pulumi.Input[str] fqdn: The FQDN of the container group derived from `dns_name_label`.
         :param pulumi.Input['GroupIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address: The IP address allocated to the container group.
         :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+               
+               > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+               
+               > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_ids: The subnet resource IDs for a container group. Changing this forces a new resource to be created.
@@ -475,6 +499,8 @@ class _GroupState:
     def dns_name_label(self) -> Optional[pulumi.Input[str]]:
         """
         The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+
+        > **Note:** DNS label/name is not supported when deploying to virtual networks.
         """
         return pulumi.get(self, "dns_name_label")
 
@@ -499,6 +525,8 @@ class _GroupState:
     def exposed_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]]]:
         """
         Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
         """
         return pulumi.get(self, "exposed_ports")
 
@@ -571,6 +599,8 @@ class _GroupState:
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+
+        > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -628,6 +658,8 @@ class _GroupState:
     def os_type(self) -> Optional[pulumi.Input[str]]:
         """
         The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+
+        > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         """
         return pulumi.get(self, "os_type")
 
@@ -779,16 +811,24 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']] dns_config: A `dns_config` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+               
+               > **Note:** DNS label/name is not supported when deploying to virtual networks.
         :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitContainerArgs']]]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+               
+               > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+               
+               > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_ids: The subnet resource IDs for a container group. Changing this forces a new resource to be created.
@@ -970,18 +1010,26 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']] dns_config: A `dns_config` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+               
+               > **Note:** DNS label/name is not supported when deploying to virtual networks.
         :param pulumi.Input[str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
         :param pulumi.Input[str] fqdn: The FQDN of the container group derived from `dns_name_label`.
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitContainerArgs']]]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address: The IP address allocated to the container group.
         :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+               
+               > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+               
+               > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_ids: The subnet resource IDs for a container group. Changing this forces a new resource to be created.
@@ -1045,6 +1093,8 @@ class Group(pulumi.CustomResource):
     def dns_name_label(self) -> pulumi.Output[Optional[str]]:
         """
         The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+
+        > **Note:** DNS label/name is not supported when deploying to virtual networks.
         """
         return pulumi.get(self, "dns_name_label")
 
@@ -1061,6 +1111,8 @@ class Group(pulumi.CustomResource):
     def exposed_ports(self) -> pulumi.Output[Sequence['outputs.GroupExposedPort']]:
         """
         Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
         """
         return pulumi.get(self, "exposed_ports")
 
@@ -1109,6 +1161,8 @@ class Group(pulumi.CustomResource):
     def ip_address_type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+
+        > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -1146,6 +1200,8 @@ class Group(pulumi.CustomResource):
     def os_type(self) -> pulumi.Output[str]:
         """
         The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+
+        > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         """
         return pulumi.get(self, "os_type")
 

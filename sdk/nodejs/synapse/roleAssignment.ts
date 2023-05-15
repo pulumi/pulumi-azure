@@ -90,10 +90,16 @@ export class RoleAssignment extends pulumi.CustomResource {
     public readonly principalId!: pulumi.Output<string>;
     /**
      * The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
+     *
+     * > **NOTE:** Old roles are still supported: `Workspace Admin`, `Apache Spark Admin`, `Sql Admin`. These values will be removed in the next Major Version 3.0.
      */
     public readonly roleName!: pulumi.Output<string>;
     /**
      * The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapseWorkspaceId`, `synapseSparkPoolId` must be set.
      */
     public readonly synapseSparkPoolId!: pulumi.Output<string | undefined>;
     /**
@@ -146,10 +152,16 @@ export interface RoleAssignmentState {
     principalId?: pulumi.Input<string>;
     /**
      * The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
+     *
+     * > **NOTE:** Old roles are still supported: `Workspace Admin`, `Apache Spark Admin`, `Sql Admin`. These values will be removed in the next Major Version 3.0.
      */
     roleName?: pulumi.Input<string>;
     /**
      * The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapseWorkspaceId`, `synapseSparkPoolId` must be set.
      */
     synapseSparkPoolId?: pulumi.Input<string>;
     /**
@@ -168,10 +180,16 @@ export interface RoleAssignmentArgs {
     principalId: pulumi.Input<string>;
     /**
      * The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
+     *
+     * > **NOTE:** Old roles are still supported: `Workspace Admin`, `Apache Spark Admin`, `Sql Admin`. These values will be removed in the next Major Version 3.0.
      */
     roleName: pulumi.Input<string>;
     /**
      * The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapseWorkspaceId`, `synapseSparkPoolId` must be set.
      */
     synapseSparkPoolId?: pulumi.Input<string>;
     /**

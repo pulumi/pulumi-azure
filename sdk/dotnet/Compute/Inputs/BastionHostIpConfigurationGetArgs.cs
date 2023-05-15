@@ -26,6 +26,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** The Subnet used for the Bastion Host must have the name `AzureBastionSubnet` and the subnet mask must be at least a `/26`.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;

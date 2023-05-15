@@ -86,6 +86,8 @@ export class Environment extends pulumi.CustomResource {
 
     /**
      * Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+     *
+     * > **NOTE:** `allowedUserIpCidrs` The addresses that will be used for all outbound traffic from your App Service Environment to the internet to avoid asymmetric routing challenge. If you're routing the traffic on premises, these addresses are your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA. Please visit [Create your ASE with the egress addresses](https://docs.microsoft.com/azure/app-service/environment/forced-tunnel-support#add-your-own-ips-to-the-ase-azure-sql-firewall)
      */
     public readonly allowedUserIpCidrs!: pulumi.Output<string[] | undefined>;
     /**
@@ -130,6 +132,8 @@ export class Environment extends pulumi.CustomResource {
     public /*out*/ readonly serviceIpAddress!: pulumi.Output<string>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE this size cannot be changed.
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
@@ -196,6 +200,8 @@ export class Environment extends pulumi.CustomResource {
 export interface EnvironmentState {
     /**
      * Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+     *
+     * > **NOTE:** `allowedUserIpCidrs` The addresses that will be used for all outbound traffic from your App Service Environment to the internet to avoid asymmetric routing challenge. If you're routing the traffic on premises, these addresses are your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA. Please visit [Create your ASE with the egress addresses](https://docs.microsoft.com/azure/app-service/environment/forced-tunnel-support#add-your-own-ips-to-the-ase-azure-sql-firewall)
      */
     allowedUserIpCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -240,6 +246,8 @@ export interface EnvironmentState {
     serviceIpAddress?: pulumi.Input<string>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE this size cannot be changed.
      */
     subnetId?: pulumi.Input<string>;
     /**
@@ -254,6 +262,8 @@ export interface EnvironmentState {
 export interface EnvironmentArgs {
     /**
      * Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+     *
+     * > **NOTE:** `allowedUserIpCidrs` The addresses that will be used for all outbound traffic from your App Service Environment to the internet to avoid asymmetric routing challenge. If you're routing the traffic on premises, these addresses are your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA. Please visit [Create your ASE with the egress addresses](https://docs.microsoft.com/azure/app-service/environment/forced-tunnel-support#add-your-own-ips-to-the-ase-azure-sql-firewall)
      */
     allowedUserIpCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -282,6 +292,8 @@ export interface EnvironmentArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE this size cannot be changed.
      */
     subnetId: pulumi.Input<string>;
     /**

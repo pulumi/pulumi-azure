@@ -35,6 +35,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -44,6 +46,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The IPv4 address, IPv6 address or Domain name of the Origin.
+        /// 
+        /// !&gt; **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         /// </summary>
         [Output("hostName")]
         public Output<string> HostName { get; private set; } = null!;
@@ -68,6 +72,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
+        /// 
+        /// &gt; Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         /// </summary>
         [Output("originHostHeader")]
         public Output<string?> OriginHostHeader { get; private set; } = null!;
@@ -80,6 +86,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// A `private_link` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         /// </summary>
         [Output("privateLink")]
         public Output<Outputs.FrontdoorOriginPrivateLink?> PrivateLink { get; private set; } = null!;
@@ -150,6 +158,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -159,6 +169,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The IPv4 address, IPv6 address or Domain name of the Origin.
+        /// 
+        /// !&gt; **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
@@ -183,6 +195,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
+        /// 
+        /// &gt; Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         /// </summary>
         [Input("originHostHeader")]
         public Input<string>? OriginHostHeader { get; set; }
@@ -195,6 +209,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// A `private_link` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         /// </summary>
         [Input("privateLink")]
         public Input<Inputs.FrontdoorOriginPrivateLinkArgs>? PrivateLink { get; set; }
@@ -227,6 +243,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** The `enabled` field will need to be explicitly set until the 4.0 provider is released due to the deprecation of the `health_probes_enabled` property in version 3.x of the AzureRM Provider.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -236,6 +254,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The IPv4 address, IPv6 address or Domain name of the Origin.
+        /// 
+        /// !&gt; **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }
@@ -260,6 +280,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
+        /// 
+        /// &gt; Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         /// </summary>
         [Input("originHostHeader")]
         public Input<string>? OriginHostHeader { get; set; }
@@ -272,6 +294,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// A `private_link` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         /// </summary>
         [Input("privateLink")]
         public Input<Inputs.FrontdoorOriginPrivateLinkGetArgs>? PrivateLink { get; set; }

@@ -79,6 +79,8 @@ type Cluster struct {
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"doubleEncryptionEnabled"`
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+	//
+	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrOutput `pulumi:"identity"`
@@ -107,6 +109,8 @@ type Cluster struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
+	//
+	// > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
 	TrustedExternalTenants pulumi.StringArrayOutput `pulumi:"trustedExternalTenants"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri pulumi.StringOutput `pulumi:"uri"`
@@ -164,6 +168,8 @@ type clusterState struct {
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+	//
+	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
 	Engine *string `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity *ClusterIdentity `pulumi:"identity"`
@@ -192,6 +198,8 @@ type clusterState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
+	//
+	// > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
 	TrustedExternalTenants []string `pulumi:"trustedExternalTenants"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri *string `pulumi:"uri"`
@@ -215,6 +223,8 @@ type ClusterState struct {
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+	//
+	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
 	Engine pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrInput
@@ -243,6 +253,8 @@ type ClusterState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
+	//
+	// > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
 	TrustedExternalTenants pulumi.StringArrayInput
 	// The FQDN of the Azure Kusto Cluster.
 	Uri pulumi.StringPtrInput
@@ -268,6 +280,8 @@ type clusterArgs struct {
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+	//
+	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
 	Engine *string `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity *ClusterIdentity `pulumi:"identity"`
@@ -296,6 +310,8 @@ type clusterArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
+	//
+	// > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
 	TrustedExternalTenants []string `pulumi:"trustedExternalTenants"`
 	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
 	VirtualNetworkConfiguration *ClusterVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
@@ -316,6 +332,8 @@ type ClusterArgs struct {
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
 	// . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+	//
+	// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
 	Engine pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrInput
@@ -344,6 +362,8 @@ type ClusterArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
+	//
+	// > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
 	TrustedExternalTenants pulumi.StringArrayInput
 	// A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
 	VirtualNetworkConfiguration ClusterVirtualNetworkConfigurationPtrInput
@@ -469,6 +489,8 @@ func (o ClusterOutput) DoubleEncryptionEnabled() pulumi.BoolPtrOutput {
 }
 
 // . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
+//
+// > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, default engine type will be changed to `V3`.
 func (o ClusterOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }
@@ -539,6 +561,8 @@ func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
+//
+// > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
 func (o ClusterOutput) TrustedExternalTenants() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.TrustedExternalTenants }).(pulumi.StringArrayOutput)
 }

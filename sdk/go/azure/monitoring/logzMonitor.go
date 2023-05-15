@@ -75,6 +75,8 @@ type LogzMonitor struct {
 	// Whether the resource monitoring is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+	//
+	// > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
 	EnterpriseAppId pulumi.StringPtrOutput `pulumi:"enterpriseAppId"`
 	// The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -137,6 +139,8 @@ type logzMonitorState struct {
 	// Whether the resource monitoring is enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+	//
+	// > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
 	EnterpriseAppId *string `pulumi:"enterpriseAppId"`
 	// The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
 	Location *string `pulumi:"location"`
@@ -162,6 +166,8 @@ type LogzMonitorState struct {
 	// Whether the resource monitoring is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+	//
+	// > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
 	EnterpriseAppId pulumi.StringPtrInput
 	// The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
 	Location pulumi.StringPtrInput
@@ -191,6 +197,8 @@ type logzMonitorArgs struct {
 	// Whether the resource monitoring is enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+	//
+	// > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
 	EnterpriseAppId *string `pulumi:"enterpriseAppId"`
 	// The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
 	Location *string `pulumi:"location"`
@@ -213,6 +221,8 @@ type LogzMonitorArgs struct {
 	// Whether the resource monitoring is enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+	//
+	// > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
 	EnterpriseAppId pulumi.StringPtrInput
 	// The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created.
 	Location pulumi.StringPtrInput
@@ -326,6 +336,8 @@ func (o LogzMonitorOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+//
+// > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
 func (o LogzMonitorOutput) EnterpriseAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogzMonitor) pulumi.StringPtrOutput { return v.EnterpriseAppId }).(pulumi.StringPtrOutput)
 }

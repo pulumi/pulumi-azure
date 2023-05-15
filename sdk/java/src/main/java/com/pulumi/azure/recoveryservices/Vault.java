@@ -88,12 +88,16 @@ public class Vault extends com.pulumi.resources.CustomResource {
     /**
      * Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
      * 
+     * &gt; **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
+     * 
      */
     @Export(name="crossRegionRestoreEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> crossRegionRestoreEnabled;
 
     /**
      * @return Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+     * 
+     * &gt; **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
      * 
      */
     public Output<Optional<Boolean>> crossRegionRestoreEnabled() {
@@ -102,12 +106,16 @@ public class Vault extends com.pulumi.resources.CustomResource {
     /**
      * An `encryption` block as defined below. Required with `identity`.
      * 
+     * !&gt; **Note:** Once Encryption with your own key has been Enabled it&#39;s not possible to Disable it.
+     * 
      */
     @Export(name="encryption", refs={VaultEncryption.class}, tree="[0]")
     private Output</* @Nullable */ VaultEncryption> encryption;
 
     /**
      * @return An `encryption` block as defined below. Required with `identity`.
+     * 
+     * !&gt; **Note:** Once Encryption with your own key has been Enabled it&#39;s not possible to Disable it.
      * 
      */
     public Output<Optional<VaultEncryption>> encryption() {

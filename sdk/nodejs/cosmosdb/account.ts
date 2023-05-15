@@ -133,6 +133,8 @@ export class Account extends pulumi.CustomResource {
     public readonly corsRule!: pulumi.Output<outputs.cosmosdb.AccountCorsRule | undefined>;
     /**
      * The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `createMode` only works when `backup.type` is `Continuous`.
      */
     public readonly createMode!: pulumi.Output<string>;
     /**
@@ -165,6 +167,10 @@ export class Account extends pulumi.CustomResource {
     public readonly identity!: pulumi.Output<outputs.cosmosdb.AccountIdentity | undefined>;
     /**
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+     *
+     * > **NOTE:** To enable the "Allow access from the Azure portal" behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
+     *
+     * > **NOTE:** To enable the "Accept connections from within public Azure datacenters" behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
      */
     public readonly ipRangeFilter!: pulumi.Output<string | undefined>;
     /**
@@ -173,6 +179,10 @@ export class Account extends pulumi.CustomResource {
     public readonly isVirtualNetworkFilterEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** When referencing an `azure.keyvault.Key` resource, use `versionlessId` instead of `id`
+     *
+     * > **NOTE:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
      */
     public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
     /**
@@ -231,6 +241,8 @@ export class Account extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `restore` block as defined below.
+     *
+     * > **NOTE:** `restore` should be set when `createMode` is `Restore`.
      */
     public readonly restore!: pulumi.Output<outputs.cosmosdb.AccountRestore | undefined>;
     /**
@@ -419,6 +431,8 @@ export interface AccountState {
     corsRule?: pulumi.Input<inputs.cosmosdb.AccountCorsRule>;
     /**
      * The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `createMode` only works when `backup.type` is `Continuous`.
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -451,6 +465,10 @@ export interface AccountState {
     identity?: pulumi.Input<inputs.cosmosdb.AccountIdentity>;
     /**
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+     *
+     * > **NOTE:** To enable the "Allow access from the Azure portal" behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
+     *
+     * > **NOTE:** To enable the "Accept connections from within public Azure datacenters" behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
      */
     ipRangeFilter?: pulumi.Input<string>;
     /**
@@ -459,6 +477,10 @@ export interface AccountState {
     isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
     /**
      * A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** When referencing an `azure.keyvault.Key` resource, use `versionlessId` instead of `id`
+     *
+     * > **NOTE:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**
@@ -517,6 +539,8 @@ export interface AccountState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * A `restore` block as defined below.
+     *
+     * > **NOTE:** `restore` should be set when `createMode` is `Restore`.
      */
     restore?: pulumi.Input<inputs.cosmosdb.AccountRestore>;
     /**
@@ -581,6 +605,8 @@ export interface AccountArgs {
     corsRule?: pulumi.Input<inputs.cosmosdb.AccountCorsRule>;
     /**
      * The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `createMode` only works when `backup.type` is `Continuous`.
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -609,6 +635,10 @@ export interface AccountArgs {
     identity?: pulumi.Input<inputs.cosmosdb.AccountIdentity>;
     /**
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+     *
+     * > **NOTE:** To enable the "Allow access from the Azure portal" behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list.
+     *
+     * > **NOTE:** To enable the "Accept connections from within public Azure datacenters" behavior, you should add `0.0.0.0` to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details.
      */
     ipRangeFilter?: pulumi.Input<string>;
     /**
@@ -617,6 +647,10 @@ export interface AccountArgs {
     isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
     /**
      * A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** When referencing an `azure.keyvault.Key` resource, use `versionlessId` instead of `id`
+     *
+     * > **NOTE:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
      */
     keyVaultKeyId?: pulumi.Input<string>;
     /**
@@ -661,6 +695,8 @@ export interface AccountArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * A `restore` block as defined below.
+     *
+     * > **NOTE:** `restore` should be set when `createMode` is `Restore`.
      */
     restore?: pulumi.Input<inputs.cosmosdb.AccountRestore>;
     /**

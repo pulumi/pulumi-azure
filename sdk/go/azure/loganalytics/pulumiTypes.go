@@ -16,6 +16,8 @@ type ClusterIdentity struct {
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
 	Type string `pulumi:"type"`
 }
 
@@ -36,6 +38,8 @@ type ClusterIdentityArgs struct {
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -127,6 +131,8 @@ func (o ClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
 func (o ClusterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -176,6 +182,8 @@ func (o ClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Log Analytics Cluster has been created. More details are available below.
 func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterIdentity) *string {
 		if v == nil {

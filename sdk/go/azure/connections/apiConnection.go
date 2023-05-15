@@ -86,8 +86,7 @@ type ApiConnection struct {
 	// The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
 	ManagedApiId pulumi.StringOutput `pulumi:"managedApiId"`
 	// The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
+	Name            pulumi.StringOutput    `pulumi:"name"`
 	ParameterValues pulumi.StringMapOutput `pulumi:"parameterValues"`
 	// The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -135,8 +134,7 @@ type apiConnectionState struct {
 	// The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
 	ManagedApiId *string `pulumi:"managedApiId"`
 	// The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
-	Name *string `pulumi:"name"`
-	// A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
+	Name            *string           `pulumi:"name"`
 	ParameterValues map[string]string `pulumi:"parameterValues"`
 	// The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -150,8 +148,7 @@ type ApiConnectionState struct {
 	// The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
 	ManagedApiId pulumi.StringPtrInput
 	// The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
-	Name pulumi.StringPtrInput
-	// A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
+	Name            pulumi.StringPtrInput
 	ParameterValues pulumi.StringMapInput
 	// The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -169,8 +166,7 @@ type apiConnectionArgs struct {
 	// The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
 	ManagedApiId string `pulumi:"managedApiId"`
 	// The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
-	Name *string `pulumi:"name"`
-	// A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
+	Name            *string           `pulumi:"name"`
 	ParameterValues map[string]string `pulumi:"parameterValues"`
 	// The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -185,8 +181,7 @@ type ApiConnectionArgs struct {
 	// The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
 	ManagedApiId pulumi.StringInput
 	// The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
-	Name pulumi.StringPtrInput
-	// A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
+	Name            pulumi.StringPtrInput
 	ParameterValues pulumi.StringMapInput
 	// The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
 	ResourceGroupName pulumi.StringInput
@@ -296,7 +291,6 @@ func (o ApiConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
 func (o ApiConnectionOutput) ParameterValues() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApiConnection) pulumi.StringMapOutput { return v.ParameterValues }).(pulumi.StringMapOutput)
 }

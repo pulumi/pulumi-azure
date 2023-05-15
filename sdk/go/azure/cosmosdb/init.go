@@ -43,8 +43,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NotebookWorkspace{}
 	case "azure:cosmosdb/postgresqlCluster:PostgresqlCluster":
 		r = &PostgresqlCluster{}
+	case "azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration":
+		r = &PostgresqlCoordinatorConfiguration{}
 	case "azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule":
 		r = &PostgresqlFirewallRule{}
+	case "azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration":
+		r = &PostgresqlNodeConfiguration{}
+	case "azure:cosmosdb/postgresqlRole:PostgresqlRole":
+		r = &PostgresqlRole{}
 	case "azure:cosmosdb/sqlContainer:SqlContainer":
 		r = &SqlContainer{}
 	case "azure:cosmosdb/sqlDatabase:SqlDatabase":
@@ -133,7 +139,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"cosmosdb/postgresqlCoordinatorConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"cosmosdb/postgresqlFirewallRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cosmosdb/postgresqlNodeConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cosmosdb/postgresqlRole",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

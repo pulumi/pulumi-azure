@@ -15,6 +15,8 @@ namespace Pulumi.Azure.Monitoring.Outputs
     {
         /// <summary>
         /// The number of days for which this Retention Policy should apply.
+        /// 
+        /// &gt; **NOTE:** Setting this to `0` will retain the events indefinitely.
         /// </summary>
         public readonly int? Days;
         /// <summary>

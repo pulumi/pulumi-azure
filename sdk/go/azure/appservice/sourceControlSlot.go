@@ -96,6 +96,8 @@ type SourceControlSlot struct {
 	// The SCM Type in use. This value is decoded by the service from the repository information supplied.
 	ScmType pulumi.StringOutput `pulumi:"scmType"`
 	// The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Function App Slots are not supported at this time.
 	SlotId pulumi.StringOutput `pulumi:"slotId"`
 	// Should the Slot use local Git configuration. Changing this forces a new resource to be created.
 	UseLocalGit pulumi.BoolPtrOutput `pulumi:"useLocalGit"`
@@ -150,6 +152,8 @@ type sourceControlSlotState struct {
 	// The SCM Type in use. This value is decoded by the service from the repository information supplied.
 	ScmType *string `pulumi:"scmType"`
 	// The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Function App Slots are not supported at this time.
 	SlotId *string `pulumi:"slotId"`
 	// Should the Slot use local Git configuration. Changing this forces a new resource to be created.
 	UseLocalGit *bool `pulumi:"useLocalGit"`
@@ -173,6 +177,8 @@ type SourceControlSlotState struct {
 	// The SCM Type in use. This value is decoded by the service from the repository information supplied.
 	ScmType pulumi.StringPtrInput
 	// The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Function App Slots are not supported at this time.
 	SlotId pulumi.StringPtrInput
 	// Should the Slot use local Git configuration. Changing this forces a new resource to be created.
 	UseLocalGit pulumi.BoolPtrInput
@@ -198,6 +204,8 @@ type sourceControlSlotArgs struct {
 	// Should the Deployment Rollback be enabled? Defaults to `false` Changing this forces a new resource to be created.
 	RollbackEnabled *bool `pulumi:"rollbackEnabled"`
 	// The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Function App Slots are not supported at this time.
 	SlotId string `pulumi:"slotId"`
 	// Should the Slot use local Git configuration. Changing this forces a new resource to be created.
 	UseLocalGit *bool `pulumi:"useLocalGit"`
@@ -218,6 +226,8 @@ type SourceControlSlotArgs struct {
 	// Should the Deployment Rollback be enabled? Defaults to `false` Changing this forces a new resource to be created.
 	RollbackEnabled pulumi.BoolPtrInput
 	// The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Function App Slots are not supported at this time.
 	SlotId pulumi.StringInput
 	// Should the Slot use local Git configuration. Changing this forces a new resource to be created.
 	UseLocalGit pulumi.BoolPtrInput
@@ -342,6 +352,8 @@ func (o SourceControlSlotOutput) ScmType() pulumi.StringOutput {
 }
 
 // The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
+//
+// > **NOTE:** Function App Slots are not supported at this time.
 func (o SourceControlSlotOutput) SlotId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceControlSlot) pulumi.StringOutput { return v.SlotId }).(pulumi.StringOutput)
 }

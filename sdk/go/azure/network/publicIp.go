@@ -66,10 +66,14 @@ type PublicIp struct {
 	pulumi.CustomResourceState
 
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+	//
+	// > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
 	AllocationMethod pulumi.StringOutput `pulumi:"allocationMethod"`
 	// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
 	DdosProtectionMode pulumi.StringPtrOutput `pulumi:"ddosProtectionMode"`
 	// The ID of DDoS protection plan associated with the public IP.
+	//
+	// > **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
 	DdosProtectionPlanId pulumi.StringPtrOutput `pulumi:"ddosProtectionPlanId"`
 	// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrOutput `pulumi:"domainNameLabel"`
@@ -82,8 +86,12 @@ type PublicIp struct {
 	// The IP address value that was allocated.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
+	//
+	// > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
 	IpTags pulumi.StringMapOutput `pulumi:"ipTags"`
 	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+	//
+	// > **Note** Only `static` IP address allocation is supported for IPv6.
 	IpVersion pulumi.StringPtrOutput `pulumi:"ipVersion"`
 	// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -96,12 +104,18 @@ type PublicIp struct {
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn pulumi.StringPtrOutput `pulumi:"reverseFqdn"`
 	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+	//
+	// > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	//
+	// > **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -141,10 +155,14 @@ func GetPublicIp(ctx *pulumi.Context,
 // Input properties used for looking up and filtering PublicIp resources.
 type publicIpState struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+	//
+	// > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
 	AllocationMethod *string `pulumi:"allocationMethod"`
 	// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
 	DdosProtectionMode *string `pulumi:"ddosProtectionMode"`
 	// The ID of DDoS protection plan associated with the public IP.
+	//
+	// > **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
 	DdosProtectionPlanId *string `pulumi:"ddosProtectionPlanId"`
 	// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
@@ -157,8 +175,12 @@ type publicIpState struct {
 	// The IP address value that was allocated.
 	IpAddress *string `pulumi:"ipAddress"`
 	// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
+	//
+	// > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
 	IpTags map[string]string `pulumi:"ipTags"`
 	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+	//
+	// > **Note** Only `static` IP address allocation is supported for IPv6.
 	IpVersion *string `pulumi:"ipVersion"`
 	// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -171,21 +193,31 @@ type publicIpState struct {
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn *string `pulumi:"reverseFqdn"`
 	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+	//
+	// > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
 	Sku *string `pulumi:"sku"`
 	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	//
+	// > **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
 	Zones []string `pulumi:"zones"`
 }
 
 type PublicIpState struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+	//
+	// > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
 	AllocationMethod pulumi.StringPtrInput
 	// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
 	DdosProtectionMode pulumi.StringPtrInput
 	// The ID of DDoS protection plan associated with the public IP.
+	//
+	// > **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
 	DdosProtectionPlanId pulumi.StringPtrInput
 	// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrInput
@@ -198,8 +230,12 @@ type PublicIpState struct {
 	// The IP address value that was allocated.
 	IpAddress pulumi.StringPtrInput
 	// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
+	//
+	// > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
 	IpTags pulumi.StringMapInput
 	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+	//
+	// > **Note** Only `static` IP address allocation is supported for IPv6.
 	IpVersion pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -212,12 +248,18 @@ type PublicIpState struct {
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn pulumi.StringPtrInput
 	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+	//
+	// > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
 	Sku pulumi.StringPtrInput
 	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	//
+	// > **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
 	Zones pulumi.StringArrayInput
 }
 
@@ -227,10 +269,14 @@ func (PublicIpState) ElementType() reflect.Type {
 
 type publicIpArgs struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+	//
+	// > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
 	AllocationMethod string `pulumi:"allocationMethod"`
 	// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
 	DdosProtectionMode *string `pulumi:"ddosProtectionMode"`
 	// The ID of DDoS protection plan associated with the public IP.
+	//
+	// > **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
 	DdosProtectionPlanId *string `pulumi:"ddosProtectionPlanId"`
 	// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
@@ -239,8 +285,12 @@ type publicIpArgs struct {
 	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
+	//
+	// > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
 	IpTags map[string]string `pulumi:"ipTags"`
 	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+	//
+	// > **Note** Only `static` IP address allocation is supported for IPv6.
 	IpVersion *string `pulumi:"ipVersion"`
 	// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -253,22 +303,32 @@ type publicIpArgs struct {
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn *string `pulumi:"reverseFqdn"`
 	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+	//
+	// > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
 	Sku *string `pulumi:"sku"`
 	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	//
+	// > **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
 	Zones []string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a PublicIp resource.
 type PublicIpArgs struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+	//
+	// > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
 	AllocationMethod pulumi.StringInput
 	// The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
 	DdosProtectionMode pulumi.StringPtrInput
 	// The ID of DDoS protection plan associated with the public IP.
+	//
+	// > **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
 	DdosProtectionPlanId pulumi.StringPtrInput
 	// Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrInput
@@ -277,8 +337,12 @@ type PublicIpArgs struct {
 	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
 	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
+	//
+	// > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
 	IpTags pulumi.StringMapInput
 	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+	//
+	// > **Note** Only `static` IP address allocation is supported for IPv6.
 	IpVersion pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -291,12 +355,18 @@ type PublicIpArgs struct {
 	// A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
 	ReverseFqdn pulumi.StringPtrInput
 	// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+	//
+	// > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
 	Sku pulumi.StringPtrInput
 	// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+	//
+	// > **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
 	Zones pulumi.StringArrayInput
 }
 
@@ -388,6 +458,8 @@ func (o PublicIpOutput) ToPublicIpOutputWithContext(ctx context.Context) PublicI
 }
 
 // Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+//
+// > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
 func (o PublicIpOutput) AllocationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringOutput { return v.AllocationMethod }).(pulumi.StringOutput)
 }
@@ -398,6 +470,8 @@ func (o PublicIpOutput) DdosProtectionMode() pulumi.StringPtrOutput {
 }
 
 // The ID of DDoS protection plan associated with the public IP.
+//
+// > **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
 func (o PublicIpOutput) DdosProtectionPlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.DdosProtectionPlanId }).(pulumi.StringPtrOutput)
 }
@@ -428,11 +502,15 @@ func (o PublicIpOutput) IpAddress() pulumi.StringOutput {
 }
 
 // A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
+//
+// > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
 func (o PublicIpOutput) IpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringMapOutput { return v.IpTags }).(pulumi.StringMapOutput)
 }
 
 // The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+//
+// > **Note** Only `static` IP address allocation is supported for IPv6.
 func (o PublicIpOutput) IpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.IpVersion }).(pulumi.StringPtrOutput)
 }
@@ -463,11 +541,15 @@ func (o PublicIpOutput) ReverseFqdn() pulumi.StringPtrOutput {
 }
 
 // The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+//
+// > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
 func (o PublicIpOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 // The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+//
+// > **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
 func (o PublicIpOutput) SkuTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringPtrOutput { return v.SkuTier }).(pulumi.StringPtrOutput)
 }
@@ -478,6 +560,8 @@ func (o PublicIpOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
+//
+// > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
 func (o PublicIpOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

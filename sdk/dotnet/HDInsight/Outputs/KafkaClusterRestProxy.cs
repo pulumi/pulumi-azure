@@ -19,6 +19,8 @@ namespace Pulumi.Azure.HDInsight.Outputs
         public readonly string SecurityGroupId;
         /// <summary>
         /// The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** The `security_group_name` property will be Required in version 3.0 of the AzureRM Provider.
         /// </summary>
         public readonly string SecurityGroupName;
 

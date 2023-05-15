@@ -51,12 +51,16 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      * 
+     * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+     * 
      */
     @Import(name="failureSuppressionEnabled")
     private @Nullable Output<Boolean> failureSuppressionEnabled;
 
     /**
      * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
      * 
      */
     public Optional<Output<Boolean>> failureSuppressionEnabled() {
@@ -96,12 +100,16 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
     /**
      * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
      * 
+     * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+     * 
      */
     @Import(name="protectedSettings")
     private @Nullable Output<String> protectedSettings;
 
     /**
      * @return A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+     * 
+     * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
      * 
      */
     public Optional<Output<String>> protectedSettings() {
@@ -111,12 +119,16 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
     /**
      * A `protected_settings_from_key_vault` block as defined below.
      * 
+     * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+     * 
      */
     @Import(name="protectedSettingsFromKeyVault")
     private @Nullable Output<VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs> protectedSettingsFromKeyVault;
 
     /**
      * @return A `protected_settings_from_key_vault` block as defined below.
+     * 
+     * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
      * 
      */
     public Optional<Output<VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs>> protectedSettingsFromKeyVault() {
@@ -156,12 +168,16 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
     /**
      * A JSON String which specifies Settings for the Extension.
      * 
+     * &gt; **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+     * 
      */
     @Import(name="settings")
     private @Nullable Output<String> settings;
 
     /**
      * @return A JSON String which specifies Settings for the Extension.
+     * 
+     * &gt; **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
      * 
      */
     public Optional<Output<String>> settings() {
@@ -186,12 +202,60 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
     /**
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      * 
+     * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
+     * 
      */
     @Import(name="typeHandlerVersion", required=true)
     private Output<String> typeHandlerVersion;
 
     /**
      * @return Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+     * 
+     * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * 
      */
     public Output<String> typeHandlerVersion() {
@@ -201,12 +265,16 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
     /**
      * The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
+     * 
      */
     @Import(name="virtualMachineScaleSetId", required=true)
     private Output<String> virtualMachineScaleSetId;
 
     /**
      * @return The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
      * 
      */
     public Output<String> virtualMachineScaleSetId() {
@@ -294,6 +362,8 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
         /**
          * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
          * 
+         * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+         * 
          * @return builder
          * 
          */
@@ -304,6 +374,8 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
 
         /**
          * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
          * 
          * @return builder
          * 
@@ -357,6 +429,8 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
         /**
          * @param protectedSettings A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
          * 
+         * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+         * 
          * @return builder
          * 
          */
@@ -368,6 +442,8 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
         /**
          * @param protectedSettings A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
          * 
+         * &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+         * 
          * @return builder
          * 
          */
@@ -377,6 +453,8 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
 
         /**
          * @param protectedSettingsFromKeyVault A `protected_settings_from_key_vault` block as defined below.
+         * 
+         * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
          * 
          * @return builder
          * 
@@ -388,6 +466,8 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
 
         /**
          * @param protectedSettingsFromKeyVault A `protected_settings_from_key_vault` block as defined below.
+         * 
+         * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
          * 
          * @return builder
          * 
@@ -451,6 +531,8 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
         /**
          * @param settings A JSON String which specifies Settings for the Extension.
          * 
+         * &gt; **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+         * 
          * @return builder
          * 
          */
@@ -461,6 +543,8 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
 
         /**
          * @param settings A JSON String which specifies Settings for the Extension.
+         * 
+         * &gt; **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
          * 
          * @return builder
          * 
@@ -493,6 +577,30 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
         /**
          * @param typeHandlerVersion Specifies the version of the extension to use, available versions can be found using the Azure CLI.
          * 
+         * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
+         * 
          * @return builder
          * 
          */
@@ -504,6 +612,30 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
         /**
          * @param typeHandlerVersion Specifies the version of the extension to use, available versions can be found using the Azure CLI.
          * 
+         * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
+         * 
          * @return builder
          * 
          */
@@ -513,6 +645,8 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
 
         /**
          * @param virtualMachineScaleSetId The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
          * 
          * @return builder
          * 
@@ -524,6 +658,8 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
 
         /**
          * @param virtualMachineScaleSetId The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
          * 
          * @return builder
          * 

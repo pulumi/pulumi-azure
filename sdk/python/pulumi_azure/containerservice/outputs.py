@@ -141,6 +141,8 @@ class ConnectedRegistryNotification(dict):
         :param str action: The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
         :param str name: The name of the artifact that wants to be subscribed for the Connected Registry.
         :param str digest: The digest of the artifact that wants to be subscribed for the Connected Registry.
+               
+               > **NOTE:** One of either `tag` or `digest` can be specified.
         :param str tag: The tag of the artifact that wants to be subscribed for the Connected Registry.
         """
         pulumi.set(__self__, "action", action)
@@ -171,6 +173,8 @@ class ConnectedRegistryNotification(dict):
     def digest(self) -> Optional[str]:
         """
         The digest of the artifact that wants to be subscribed for the Connected Registry.
+
+        > **NOTE:** One of either `tag` or `digest` can be specified.
         """
         return pulumi.get(self, "digest")
 
@@ -239,6 +243,8 @@ class GroupContainer(dict):
         :param float cpu_limit: The upper limit of the number of CPU cores of the containers.
         :param Mapping[str, str] environment_variables: A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
         :param 'GroupContainerGpuArgs' gpu: A `gpu` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** Gpu resources are currently only supported in Linux containers.
         :param 'GroupContainerGpuLimitArgs' gpu_limit: A `gpu_limit` block as defined below.
         :param 'GroupContainerLivenessProbeArgs' liveness_probe: The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
         :param float memory_limit: The the upper limit of the memory of the containers in GB.
@@ -335,6 +341,8 @@ class GroupContainer(dict):
     def gpu(self) -> Optional['outputs.GroupContainerGpu']:
         """
         A `gpu` block as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** Gpu resources are currently only supported in Linux containers.
         """
         return pulumi.get(self, "gpu")
 
@@ -655,6 +663,8 @@ class GroupContainerPort(dict):
         """
         :param int port: The port number the container will expose. Changing this forces a new resource to be created.
         :param str protocol: The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+               
+               > **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
         """
         if port is not None:
             pulumi.set(__self__, "port", port)
@@ -674,6 +684,8 @@ class GroupContainerPort(dict):
     def protocol(self) -> Optional[str]:
         """
         The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+
+        > **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
         """
         return pulumi.get(self, "protocol")
 
@@ -916,6 +928,12 @@ class GroupContainerVolume(dict):
         :param 'GroupContainerVolumeGitRepoArgs' git_repo: A `git_repo` block as defined below. Changing this forces a new resource to be created.
         :param bool read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
         :param Mapping[str, str] secret: A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+               
+               > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
+               
+               > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
+               
+               > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
         :param str share_name: The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
         :param str storage_account_key: The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
         :param str storage_account_name: The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
@@ -982,6 +1000,12 @@ class GroupContainerVolume(dict):
     def secret(self) -> Optional[Mapping[str, str]]:
         """
         A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+
+        > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
+
+        > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
+
+        > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
         """
         return pulumi.get(self, "secret")
 
@@ -1228,6 +1252,8 @@ class GroupExposedPort(dict):
         """
         :param int port: The port number the container will expose. Changing this forces a new resource to be created.
         :param str protocol: The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+               
+               > **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
         """
         if port is not None:
             pulumi.set(__self__, "port", port)
@@ -1247,6 +1273,8 @@ class GroupExposedPort(dict):
     def protocol(self) -> Optional[str]:
         """
         The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+
+        > **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
         """
         return pulumi.get(self, "protocol")
 
@@ -1281,7 +1309,13 @@ class GroupIdentity(dict):
                  tenant_id: Optional[str] = None):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+               
+               > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               
+               > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -1298,6 +1332,8 @@ class GroupIdentity(dict):
     def type(self) -> str:
         """
         Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
         """
         return pulumi.get(self, "type")
 
@@ -1306,6 +1342,10 @@ class GroupIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+
+        > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -1541,6 +1581,12 @@ class GroupInitContainerVolume(dict):
         :param 'GroupInitContainerVolumeGitRepoArgs' git_repo: A `git_repo` block as defined below. Changing this forces a new resource to be created.
         :param bool read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
         :param Mapping[str, str] secret: A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+               
+               > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
+               
+               > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
+               
+               > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
         :param str share_name: The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
         :param str storage_account_key: The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
         :param str storage_account_name: The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
@@ -1607,6 +1653,12 @@ class GroupInitContainerVolume(dict):
     def secret(self) -> Optional[Mapping[str, str]]:
         """
         A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
+
+        > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
+
+        > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
+
+        > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
         """
         return pulumi.get(self, "secret")
 
@@ -1703,6 +1755,23 @@ class KubernetesClusterAciConnectorLinux(dict):
                  connector_identities: Optional[Sequence['outputs.KubernetesClusterAciConnectorLinuxConnectorIdentity']] = None):
         """
         :param str subnet_name: The subnet name for the virtual nodes to run.
+               
+               > **Note:** At this time ACI Connectors are not supported in Azure China.
+               
+               > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+               
+               ```python
+               import pulumi
+               import pulumi_azure as azure
+               
+               virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArgs(
+                   name="aciDelegation",
+                   service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                       actions=["Microsoft.Network/virtualNetworks/subnets/action"],
+                       name="Microsoft.ContainerInstance/containerGroups",
+                   ),
+               )])
+               ```
         :param Sequence['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs'] connector_identities: A `connector_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "subnet_name", subnet_name)
@@ -1714,6 +1783,23 @@ class KubernetesClusterAciConnectorLinux(dict):
     def subnet_name(self) -> str:
         """
         The subnet name for the virtual nodes to run.
+
+        > **Note:** At this time ACI Connectors are not supported in Azure China.
+
+        > **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArgs(
+            name="aciDelegation",
+            service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                actions=["Microsoft.Network/virtualNetworks/subnets/action"],
+                name="Microsoft.ContainerInstance/containerGroups",
+            ),
+        )])
+        ```
         """
         return pulumi.get(self, "subnet_name")
 
@@ -1757,6 +1843,8 @@ class KubernetesClusterAciConnectorLinuxConnectorIdentity(dict):
         :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+               
+               > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -1786,6 +1874,8 @@ class KubernetesClusterAciConnectorLinuxConnectorIdentity(dict):
     def user_assigned_identity_id(self) -> Optional[str]:
         """
         The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+
+        > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -1821,6 +1911,8 @@ class KubernetesClusterApiServerAccessProfile(dict):
         :param Sequence[str] authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
         :param str subnet_id: The ID of the Subnet where the API server endpoint is delegated to.
         :param bool vnet_integration_enabled: Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
         """
         if authorized_ip_ranges is not None:
             pulumi.set(__self__, "authorized_ip_ranges", authorized_ip_ranges)
@@ -1850,6 +1942,8 @@ class KubernetesClusterApiServerAccessProfile(dict):
     def vnet_integration_enabled(self) -> Optional[bool]:
         """
         Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
         """
         return pulumi.get(self, "vnet_integration_enabled")
 
@@ -2389,10 +2483,20 @@ class KubernetesClusterDefaultNodePool(dict):
         """
         :param str name: The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
         :param str vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`.
+               
+               > **Note:** Resizing the `default_node_pool` Virtual Machine is done by cycling the system node pool of the cluster. `temporary_name_for_rotation` must be specified when attempting a resize.
         :param str capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param bool custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
-        :param bool enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+        :param bool enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? 
+               
+               > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
+               
+               > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
         :param bool enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
         :param bool enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Changing this forces a new resource to be created.
         :param bool fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param str host_group_id: Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
@@ -2404,12 +2508,19 @@ class KubernetesClusterDefaultNodePool(dict):
         :param str message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
         :param int min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param int node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
+               
+               > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+               
+               
+               > **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
         :param Mapping[str, str] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         :param 'KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs' node_network_profile: A `node_network_profile` block as documented below.
         :param str node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param Sequence[str] node_taints: A list of the taints added to new nodes during node pool create and scale. Changing this forces a new resource to be created.
         :param bool only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
         :param str orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+               
+               > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         :param int os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
         :param str os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
         :param str os_sku: Specifies the OS SKU used by the agent pool. Possible values include: `Ubuntu`, `CBLMariner`, `Mariner`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created.
@@ -2417,13 +2528,23 @@ class KubernetesClusterDefaultNodePool(dict):
         :param str proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
         :param str scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param Mapping[str, str] tags: A mapping of tags to assign to the Node Pool.
+               
+               > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param str temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
         :param str type: The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+               
+               > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
         :param bool ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
         :param 'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs' upgrade_settings: A `upgrade_settings` block as documented below.
         :param str vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+               
+               > **Note:** A Route Table must be configured on this Subnet.
         :param str workload_runtime: Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
+               
+               > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
         :param Sequence[str] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+               
+               > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -2511,6 +2632,8 @@ class KubernetesClusterDefaultNodePool(dict):
     def vm_size(self) -> str:
         """
         The size of the Virtual Machine, such as `Standard_DS2_v2`.
+
+        > **Note:** Resizing the `default_node_pool` Virtual Machine is done by cycling the system node pool of the cluster. `temporary_name_for_rotation` must be specified when attempting a resize.
         """
         return pulumi.get(self, "vm_size")
 
@@ -2527,6 +2650,8 @@ class KubernetesClusterDefaultNodePool(dict):
     def custom_ca_trust_enabled(self) -> Optional[bool]:
         """
         Specifies whether to trust a Custom CA.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         """
         return pulumi.get(self, "custom_ca_trust_enabled")
 
@@ -2534,7 +2659,11 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="enableAutoScaling")
     def enable_auto_scaling(self) -> Optional[bool]:
         """
-        Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
+        Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? 
+
+        > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
+
+        > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
         """
         return pulumi.get(self, "enable_auto_scaling")
 
@@ -2543,6 +2672,8 @@ class KubernetesClusterDefaultNodePool(dict):
     def enable_host_encryption(self) -> Optional[bool]:
         """
         Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
         """
         return pulumi.get(self, "enable_host_encryption")
 
@@ -2631,6 +2762,11 @@ class KubernetesClusterDefaultNodePool(dict):
     def node_count(self) -> Optional[int]:
         """
         The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
+
+        > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+
+
+        > **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
         """
         return pulumi.get(self, "node_count")
 
@@ -2679,6 +2815,8 @@ class KubernetesClusterDefaultNodePool(dict):
     def orchestrator_version(self) -> Optional[str]:
         """
         Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+
+        > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         """
         return pulumi.get(self, "orchestrator_version")
 
@@ -2735,6 +2873,8 @@ class KubernetesClusterDefaultNodePool(dict):
     def tags(self) -> Optional[Mapping[str, str]]:
         """
         A mapping of tags to assign to the Node Pool.
+
+        > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         """
         return pulumi.get(self, "tags")
 
@@ -2751,6 +2891,8 @@ class KubernetesClusterDefaultNodePool(dict):
     def type(self) -> Optional[str]:
         """
         The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+
+        > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
         """
         return pulumi.get(self, "type")
 
@@ -2775,6 +2917,8 @@ class KubernetesClusterDefaultNodePool(dict):
     def vnet_subnet_id(self) -> Optional[str]:
         """
         The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+
+        > **Note:** A Route Table must be configured on this Subnet.
         """
         return pulumi.get(self, "vnet_subnet_id")
 
@@ -2783,6 +2927,8 @@ class KubernetesClusterDefaultNodePool(dict):
     def workload_runtime(self) -> Optional[str]:
         """
         Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
+
+        > **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
         """
         return pulumi.get(self, "workload_runtime")
 
@@ -2791,6 +2937,8 @@ class KubernetesClusterDefaultNodePool(dict):
     def zones(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+
+        > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
         """
         return pulumi.get(self, "zones")
 
@@ -3486,6 +3634,8 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfile(dict):
                  node_public_ip_tags: Optional[Mapping[str, str]] = None):
         """
         :param Mapping[str, str] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
         if node_public_ip_tags is not None:
             pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
@@ -3495,6 +3645,8 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfile(dict):
     def node_public_ip_tags(self) -> Optional[Mapping[str, str]]:
         """
         Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
         return pulumi.get(self, "node_public_ip_tags")
 
@@ -3522,6 +3674,8 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
                  max_surge: str):
         """
         :param str max_surge: The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+               
+               > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
         """
         pulumi.set(__self__, "max_surge", max_surge)
 
@@ -3530,6 +3684,8 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
     def max_surge(self) -> str:
         """
         The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+
+        > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
         """
         return pulumi.get(self, "max_surge")
 
@@ -3627,6 +3783,8 @@ class KubernetesClusterExtensionPlan(dict):
         :param str publisher: Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param str promotion_code: Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param str version: Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+               
+               > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "product", product)
@@ -3673,6 +3831,8 @@ class KubernetesClusterExtensionPlan(dict):
     def version(self) -> Optional[str]:
         """
         Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+
+        > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
         return pulumi.get(self, "version")
 
@@ -3710,7 +3870,6 @@ class KubernetesClusterHttpProxyConfig(dict):
         """
         :param str http_proxy: The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
         :param str https_proxy: The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
-        :param Sequence[str] no_proxies: The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
         :param str trusted_ca: The base64 encoded alternative CA certificate content in PEM format.
         """
         if http_proxy is not None:
@@ -3741,9 +3900,6 @@ class KubernetesClusterHttpProxyConfig(dict):
     @property
     @pulumi.getter(name="noProxies")
     def no_proxies(self) -> Optional[Sequence[str]]:
-        """
-        The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "no_proxies")
 
     @property
@@ -3786,6 +3942,8 @@ class KubernetesClusterIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned` or `UserAssigned`.
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+               
+               > **Note:** This is required when `type` is set to `UserAssigned`.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
         """
@@ -3810,6 +3968,8 @@ class KubernetesClusterIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+
+        > **Note:** This is required when `type` is set to `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -3873,6 +4033,8 @@ class KubernetesClusterIngressApplicationGateway(dict):
         :param Sequence['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs'] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
         :param str subnet_cidr: The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         :param str subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+               
+               > **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
         """
         if effective_gateway_id is not None:
             pulumi.set(__self__, "effective_gateway_id", effective_gateway_id)
@@ -3932,6 +4094,8 @@ class KubernetesClusterIngressApplicationGateway(dict):
     def subnet_id(self) -> Optional[str]:
         """
         The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+
+        > **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
         """
         return pulumi.get(self, "subnet_id")
 
@@ -3967,6 +4131,8 @@ class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentit
         :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+               
+               > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -3996,6 +4162,8 @@ class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentit
     def user_assigned_identity_id(self) -> Optional[str]:
         """
         The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+
+        > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -4080,6 +4248,8 @@ class KubernetesClusterKeyVaultSecretsProvider(dict):
         :param Sequence['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs'] secret_identities: An `secret_identity` block is exported. The exported attributes are defined below.
         :param bool secret_rotation_enabled: Should the secret store CSI driver on the AKS cluster be enabled?
         :param str secret_rotation_interval: The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
+               
+               > **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
         """
         if secret_identities is not None:
             pulumi.set(__self__, "secret_identities", secret_identities)
@@ -4109,6 +4279,8 @@ class KubernetesClusterKeyVaultSecretsProvider(dict):
     def secret_rotation_interval(self) -> Optional[str]:
         """
         The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
+
+        > **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
         """
         return pulumi.get(self, "secret_rotation_interval")
 
@@ -4144,6 +4316,8 @@ class KubernetesClusterKeyVaultSecretsProviderSecretIdentity(dict):
         :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+               
+               > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -4173,6 +4347,8 @@ class KubernetesClusterKeyVaultSecretsProviderSecretIdentity(dict):
     def user_assigned_identity_id(self) -> Optional[str]:
         """
         The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+
+        > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -4408,6 +4584,8 @@ class KubernetesClusterKubeletIdentity(dict):
         :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+               
+               > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -4437,6 +4615,8 @@ class KubernetesClusterKubeletIdentity(dict):
     def user_assigned_identity_id(self) -> Optional[str]:
         """
         The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+
+        > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -4783,21 +4963,47 @@ class KubernetesClusterNetworkProfile(dict):
                  service_cidrs: Optional[Sequence[str]] = None):
         """
         :param str network_plugin: Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `network_plugin` is set to `azure` - the `vnet_subnet_id` field in the `default_node_pool` block must be set and `pod_cidr` must not be set.
         :param str dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         :param str docker_bridge_cidr: IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
+               
+               > **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param str ebpf_data_plane: Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+               
+               > **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = "Overlay"` or `pod_subnet_id` must be specified.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
         :param Sequence[str] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+               
+               ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
+               
+               ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
         :param 'KubernetesClusterNetworkProfileLoadBalancerProfileArgs' load_balancer_profile: A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
         :param str load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
         :param 'KubernetesClusterNetworkProfileNatGatewayProfileArgs' nat_gateway_profile: A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
         :param str network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
+               
+               > **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
+               
+               > **Note:** This property can only be set when `network_plugin` is set to `azure`.
         :param str network_plugin_mode: Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `network_plugin_mode` is set to `Overlay`, the `network_plugin` field can only be set to `azure`.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
         :param str network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
         :param str outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
         :param str pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
         :param Sequence[str] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
         :param str service_cidr: The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
         :param Sequence[str] service_cidrs: A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+               
+               > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
         """
         pulumi.set(__self__, "network_plugin", network_plugin)
         if dns_service_ip is not None:
@@ -4836,6 +5042,8 @@ class KubernetesClusterNetworkProfile(dict):
     def network_plugin(self) -> str:
         """
         Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+
+        > **Note:** When `network_plugin` is set to `azure` - the `vnet_subnet_id` field in the `default_node_pool` block must be set and `pod_cidr` must not be set.
         """
         return pulumi.get(self, "network_plugin")
 
@@ -4852,6 +5060,8 @@ class KubernetesClusterNetworkProfile(dict):
     def docker_bridge_cidr(self) -> Optional[str]:
         """
         IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
+
+        > **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
         return pulumi.get(self, "docker_bridge_cidr")
 
@@ -4860,6 +5070,12 @@ class KubernetesClusterNetworkProfile(dict):
     def ebpf_data_plane(self) -> Optional[str]:
         """
         Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+
+        > **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+
+        > **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = "Overlay"` or `pod_subnet_id` must be specified.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
         """
         return pulumi.get(self, "ebpf_data_plane")
 
@@ -4868,6 +5084,10 @@ class KubernetesClusterNetworkProfile(dict):
     def ip_versions(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+
+        ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
+
+        ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
         """
         return pulumi.get(self, "ip_versions")
 
@@ -4900,6 +5120,10 @@ class KubernetesClusterNetworkProfile(dict):
     def network_mode(self) -> Optional[str]:
         """
         Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
+
+        > **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
+
+        > **Note:** This property can only be set when `network_plugin` is set to `azure`.
         """
         return pulumi.get(self, "network_mode")
 
@@ -4908,6 +5132,10 @@ class KubernetesClusterNetworkProfile(dict):
     def network_plugin_mode(self) -> Optional[str]:
         """
         Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+
+        > **Note:** When `network_plugin_mode` is set to `Overlay`, the `network_plugin` field can only be set to `azure`.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
         """
         return pulumi.get(self, "network_plugin_mode")
 
@@ -4916,6 +5144,8 @@ class KubernetesClusterNetworkProfile(dict):
     def network_policy(self) -> Optional[str]:
         """
         Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+
+        > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
         """
         return pulumi.get(self, "network_policy")
 
@@ -4956,6 +5186,8 @@ class KubernetesClusterNetworkProfile(dict):
     def service_cidrs(self) -> Optional[Sequence[str]]:
         """
         A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+
+        > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
         """
         return pulumi.get(self, "service_cidrs")
 
@@ -5004,8 +5236,14 @@ class KubernetesClusterNetworkProfileLoadBalancerProfile(dict):
         :param int idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between `4` and `120` inclusive. Defaults to `30`.
         :param int managed_outbound_ip_count: Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
         :param int managed_outbound_ipv6_count: The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+               
+               > **Note:** `managed_outbound_ipv6_count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
         :param Sequence[str] outbound_ip_address_ids: The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+               
+               > **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
         :param Sequence[str] outbound_ip_prefix_ids: The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+               
+               > **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
         :param int outbound_ports_allocated: Number of desired SNAT port for each VM in the clusters load balancer. Must be between `0` and `64000` inclusive. Defaults to `0`.
         """
         if effective_outbound_ips is not None:
@@ -5052,6 +5290,8 @@ class KubernetesClusterNetworkProfileLoadBalancerProfile(dict):
     def managed_outbound_ipv6_count(self) -> Optional[int]:
         """
         The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+
+        > **Note:** `managed_outbound_ipv6_count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
         """
         return pulumi.get(self, "managed_outbound_ipv6_count")
 
@@ -5060,6 +5300,8 @@ class KubernetesClusterNetworkProfileLoadBalancerProfile(dict):
     def outbound_ip_address_ids(self) -> Optional[Sequence[str]]:
         """
         The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+
+        > **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
         """
         return pulumi.get(self, "outbound_ip_address_ids")
 
@@ -5068,6 +5310,8 @@ class KubernetesClusterNetworkProfileLoadBalancerProfile(dict):
     def outbound_ip_prefix_ids(self) -> Optional[Sequence[str]]:
         """
         The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+
+        > **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
         """
         return pulumi.get(self, "outbound_ip_prefix_ids")
 
@@ -5835,6 +6079,8 @@ class KubernetesClusterNodePoolNodeNetworkProfile(dict):
                  node_public_ip_tags: Optional[Mapping[str, str]] = None):
         """
         :param Mapping[str, str] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
         if node_public_ip_tags is not None:
             pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
@@ -5844,6 +6090,8 @@ class KubernetesClusterNodePoolNodeNetworkProfile(dict):
     def node_public_ip_tags(self) -> Optional[Mapping[str, str]]:
         """
         Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
         return pulumi.get(self, "node_public_ip_tags")
 
@@ -5906,6 +6154,8 @@ class KubernetesClusterNodePoolWindowsProfile(dict):
                  outbound_nat_enabled: Optional[bool] = None):
         """
         :param bool outbound_nat_enabled: Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created.
+               
+               > **Note:** If a percentage is provided, the number of surge nodes is calculated from the current node count on the cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
         """
         if outbound_nat_enabled is not None:
             pulumi.set(__self__, "outbound_nat_enabled", outbound_nat_enabled)
@@ -5915,6 +6165,8 @@ class KubernetesClusterNodePoolWindowsProfile(dict):
     def outbound_nat_enabled(self) -> Optional[bool]:
         """
         Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created.
+
+        > **Note:** If a percentage is provided, the number of surge nodes is calculated from the current node count on the cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
         """
         return pulumi.get(self, "outbound_nat_enabled")
 
@@ -6013,6 +6265,8 @@ class KubernetesClusterOmsAgentOmsAgentIdentity(dict):
         :param str client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
         :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+               
+               > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -6042,6 +6296,8 @@ class KubernetesClusterOmsAgentOmsAgentIdentity(dict):
     def user_assigned_identity_id(self) -> Optional[str]:
         """
         The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+
+        > **Note:** When `kubelet_identity` is enabled - The `type` field in the `identity` block must be set to `UserAssigned` and `identity_ids` must be set.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -6149,6 +6405,8 @@ class KubernetesClusterStorageProfile(dict):
         :param bool blob_driver_enabled: Is the Blob CSI driver enabled? Defaults to `false`.
         :param bool disk_driver_enabled: Is the Disk CSI driver enabled? Defaults to `true`.
         :param str disk_driver_version: Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+               
+               > **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
         :param bool file_driver_enabled: Is the File CSI driver enabled? Defaults to `true`.
         :param bool snapshot_controller_enabled: Is the Snapshot Controller enabled? Defaults to `true`.
         """
@@ -6184,6 +6442,8 @@ class KubernetesClusterStorageProfile(dict):
     def disk_driver_version(self) -> Optional[str]:
         """
         Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+
+        > **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
         """
         return pulumi.get(self, "disk_driver_version")
 
@@ -6339,6 +6599,8 @@ class KubernetesClusterWindowsProfileGmsa(dict):
         """
         :param str dns_server: Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
         :param str root_domain: Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+               
+               > **Note:** The properties `dns_server` and `root_domain` must both either be set or unset, i.e. empty.
         """
         pulumi.set(__self__, "dns_server", dns_server)
         pulumi.set(__self__, "root_domain", root_domain)
@@ -6356,6 +6618,8 @@ class KubernetesClusterWindowsProfileGmsa(dict):
     def root_domain(self) -> str:
         """
         Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+
+        > **Note:** The properties `dns_server` and `root_domain` must both either be set or unset, i.e. empty.
         """
         return pulumi.get(self, "root_domain")
 
@@ -6392,8 +6656,12 @@ class KubernetesClusterWorkloadAutoscalerProfile(dict):
                  vertical_pod_autoscaler_update_mode: Optional[str] = None):
         """
         :param bool keda_enabled: Specifies whether KEDA Autoscaler can be used for workloads.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
         :param str vertical_pod_autoscaler_controlled_values: Which resources values should be controlled.
         :param bool vertical_pod_autoscaler_enabled: Specifies whether Vertical Pod Autoscaler should be enabled.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
         :param str vertical_pod_autoscaler_update_mode: How the autoscaler applies changes to pod resources.
         """
         if keda_enabled is not None:
@@ -6410,6 +6678,8 @@ class KubernetesClusterWorkloadAutoscalerProfile(dict):
     def keda_enabled(self) -> Optional[bool]:
         """
         Specifies whether KEDA Autoscaler can be used for workloads.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
         """
         return pulumi.get(self, "keda_enabled")
 
@@ -6426,6 +6696,8 @@ class KubernetesClusterWorkloadAutoscalerProfile(dict):
     def vertical_pod_autoscaler_enabled(self) -> Optional[bool]:
         """
         Specifies whether Vertical Pod Autoscaler should be enabled.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
         """
         return pulumi.get(self, "vertical_pod_autoscaler_enabled")
 
@@ -6512,6 +6784,8 @@ class RegistryEncryption(dict):
                  enabled: Optional[bool] = None):
         """
         :param str identity_client_id: The client ID of the managed identity associated with the encryption key.
+               
+               > **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identity_ids`
         :param str key_vault_key_id: The ID of the Key Vault Key.
         :param bool enabled: Boolean value that indicates whether encryption is enabled.
         """
@@ -6525,6 +6799,8 @@ class RegistryEncryption(dict):
     def identity_client_id(self) -> str:
         """
         The client ID of the managed identity associated with the encryption key.
+
+        > **NOTE** The managed identity used in `encryption` also needs to be part of the `identity` block under `identity_ids`
         """
         return pulumi.get(self, "identity_client_id")
 
@@ -6576,6 +6852,8 @@ class RegistryGeoreplication(dict):
         :param bool regional_endpoint_enabled: Whether regional endpoint is enabled for this Container Registry?
         :param Mapping[str, str] tags: A mapping of tags to assign to this replication location.
         :param bool zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+               
+               > **NOTE:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
         """
         pulumi.set(__self__, "location", location)
         if regional_endpoint_enabled is not None:
@@ -6614,6 +6892,8 @@ class RegistryGeoreplication(dict):
     def zone_redundancy_enabled(self) -> Optional[bool]:
         """
         Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+
+        > **NOTE:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
         """
         return pulumi.get(self, "zone_redundancy_enabled")
 
@@ -6649,6 +6929,8 @@ class RegistryIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -6673,6 +6955,8 @@ class RegistryIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -6724,6 +7008,10 @@ class RegistryNetworkRuleSet(dict):
         :param str default_action: The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
         :param Sequence['RegistryNetworkRuleSetIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
         :param Sequence['RegistryNetworkRuleSetVirtualNetworkArgs'] virtual_networks: One or more `virtual_network` blocks as defined below.
+               
+               > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+               
+               > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
@@ -6753,6 +7041,10 @@ class RegistryNetworkRuleSet(dict):
     def virtual_networks(self) -> Optional[Sequence['outputs.RegistryNetworkRuleSetVirtualNetwork']]:
         """
         One or more `virtual_network` blocks as defined below.
+
+        > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+
+        > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
         return pulumi.get(self, "virtual_networks")
 
@@ -7360,6 +7652,8 @@ class RegistryTaskIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -7384,6 +7678,8 @@ class RegistryTaskIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

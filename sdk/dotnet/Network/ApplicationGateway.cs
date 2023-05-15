@@ -332,6 +332,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `ssl_profile` blocks as defined below.
+        /// 
+        /// &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         /// </summary>
         [Output("sslProfiles")]
         public Output<ImmutableArray<Outputs.ApplicationGatewaySslProfile>> SslProfiles { get; private set; } = null!;
@@ -663,6 +665,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `ssl_profile` blocks as defined below.
+        /// 
+        /// &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         /// </summary>
         public InputList<Inputs.ApplicationGatewaySslProfileArgs> SslProfiles
         {
@@ -1001,6 +1005,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `ssl_profile` blocks as defined below.
+        /// 
+        /// &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         /// </summary>
         public InputList<Inputs.ApplicationGatewaySslProfileGetArgs> SslProfiles
         {

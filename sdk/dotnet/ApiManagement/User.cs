@@ -111,6 +111,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The state of this user. Possible values are `active`, `blocked` and `pending`.
+        /// 
+        /// &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -231,6 +233,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The state of this user. Possible values are `active`, `blocked` and `pending`.
+        /// 
+        /// &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -309,6 +313,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The state of this user. Possible values are `active`, `blocked` and `pending`.
+        /// 
+        /// &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

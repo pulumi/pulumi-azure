@@ -68,6 +68,117 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.authorization.UserAssignedIdentity;
+ * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
+ * import com.pulumi.azure.keyvault.Key;
+ * import com.pulumi.azure.keyvault.KeyArgs;
+ * import com.pulumi.azure.mssql.Server;
+ * import com.pulumi.azure.mssql.ServerArgs;
+ * import com.pulumi.azure.mssql.inputs.ServerAzureadAdministratorArgs;
+ * import com.pulumi.azure.mssql.inputs.ServerIdentityArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .enabledForDiskEncryption(true)
+ *             .tenantId(exampleUserAssignedIdentity.tenantId())
+ *             .softDeleteRetentionDays(7)
+ *             .purgeProtectionEnabled(true)
+ *             .skuName(&#34;standard&#34;)
+ *             .accessPolicies(            
+ *                 KeyVaultAccessPolicyArgs.builder()
+ *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                     .keyPermissions(                    
+ *                         &#34;Get&#34;,
+ *                         &#34;List&#34;,
+ *                         &#34;Create&#34;,
+ *                         &#34;Delete&#34;,
+ *                         &#34;Update&#34;,
+ *                         &#34;Recover&#34;,
+ *                         &#34;Purge&#34;,
+ *                         &#34;GetRotationPolicy&#34;)
+ *                     .build(),
+ *                 KeyVaultAccessPolicyArgs.builder()
+ *                     .tenantId(exampleUserAssignedIdentity.tenantId())
+ *                     .objectId(exampleUserAssignedIdentity.principalId())
+ *                     .keyPermissions(                    
+ *                         &#34;Get&#34;,
+ *                         &#34;WrapKey&#34;,
+ *                         &#34;UnwrapKey&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .keyType(&#34;RSA&#34;)
+ *             .keySize(2048)
+ *             .keyOpts(            
+ *                 &#34;unwrapKey&#34;,
+ *                 &#34;wrapKey&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleKeyVault)
+ *                 .build());
+ * 
+ *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .version(&#34;12.0&#34;)
+ *             .administratorLogin(&#34;Example-Administrator&#34;)
+ *             .administratorLoginPassword(&#34;Example_Password!&#34;)
+ *             .minimumTlsVersion(&#34;1.2&#34;)
+ *             .azureadAdministrator(ServerAzureadAdministratorArgs.builder()
+ *                 .loginUsername(exampleUserAssignedIdentity.name())
+ *                 .objectId(exampleUserAssignedIdentity.principalId())
+ *                 .build())
+ *             .identity(ServerIdentityArgs.builder()
+ *                 .type(&#34;UserAssigned&#34;)
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
+ *             .primaryUserAssignedIdentityId(exampleUserAssignedIdentity.id())
+ *             .transparentDataEncryptionKeyVaultKeyId(exampleKey.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -181,12 +292,16 @@ public class Server extends com.pulumi.resources.CustomResource {
     /**
      * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
      * 
+     * &gt; **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it&#39;s not possible to revert to `Disabled`.
+     * 
      */
     @Export(name="minimumTlsVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> minimumTlsVersion;
 
     /**
      * @return The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+     * 
+     * &gt; **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it&#39;s not possible to revert to `Disabled`.
      * 
      */
     public Output<Optional<String>> minimumTlsVersion() {
@@ -289,6 +404,36 @@ public class Server extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
+    }
+    /**
+     * The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * 
+     * &gt; **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
+     * 
+     * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+     * 
+     * &gt; **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+     * 
+     * &gt; **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+     * 
+     */
+    @Export(name="transparentDataEncryptionKeyVaultKeyId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> transparentDataEncryptionKeyVaultKeyId;
+
+    /**
+     * @return The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * 
+     * &gt; **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
+     * 
+     * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+     * 
+     * &gt; **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+     * 
+     * &gt; **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+     * 
+     */
+    public Output<Optional<String>> transparentDataEncryptionKeyVaultKeyId() {
+        return Codegen.optional(this.transparentDataEncryptionKeyVaultKeyId);
     }
     /**
      * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.

@@ -212,7 +212,7 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A list of outbound IP addresses.
+        /// A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
         /// </summary>
         public readonly ImmutableArray<string> OutboundIpAddressLists;
         /// <summary>
@@ -220,11 +220,11 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly string OutboundIpAddresses;
         /// <summary>
-        /// AA list of possible outbound IP addresses, not all of which are necessarily in use.
+        /// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
         /// </summary>
         public readonly ImmutableArray<string> PossibleOutboundIpAddressLists;
         /// <summary>
-        /// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
+        /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         /// </summary>
         public readonly string PossibleOutboundIpAddresses;
         public readonly string ResourceGroupName;

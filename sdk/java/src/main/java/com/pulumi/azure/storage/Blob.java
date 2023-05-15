@@ -174,12 +174,16 @@ public class Blob extends com.pulumi.resources.CustomResource {
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
+     * 
      */
     @Export(name="parallelism", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> parallelism;
 
     /**
      * @return The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
      * 
      */
     public Output<Optional<Integer>> parallelism() {
@@ -188,12 +192,16 @@ public class Blob extends com.pulumi.resources.CustomResource {
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `size` is required if `source_uri` is not set.
+     * 
      */
     @Export(name="size", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> size;
 
     /**
      * @return Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `size` is required if `source_uri` is not set.
      * 
      */
     public Output<Optional<Integer>> size() {

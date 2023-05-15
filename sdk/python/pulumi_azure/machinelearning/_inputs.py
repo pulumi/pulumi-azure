@@ -33,6 +33,8 @@ class ComputeClusterIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
         """
@@ -61,6 +63,8 @@ class ComputeClusterIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -155,6 +159,8 @@ class ComputeClusterSshArgs:
         :param pulumi.Input[str] admin_username: Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] admin_password: Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[str] key_value: SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+               
+               > **NOTE:** At least one of `admin_password` and `key_value` shoud be specified.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         if admin_password is not None:
@@ -191,6 +197,8 @@ class ComputeClusterSshArgs:
     def key_value(self) -> Optional[pulumi.Input[str]]:
         """
         SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+
+        > **NOTE:** At least one of `admin_password` and `key_value` shoud be specified.
         """
         return pulumi.get(self, "key_value")
 
@@ -248,6 +256,8 @@ class ComputeInstanceIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
         :param pulumi.Input[str] tenant_id: User’s AAD Tenant Id.
         """
@@ -276,6 +286,8 @@ class ComputeInstanceIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -372,6 +384,8 @@ class InferenceClusterIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
         """
@@ -400,6 +414,8 @@ class InferenceClusterIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -529,6 +545,8 @@ class SynapseSparkIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
         """
@@ -557,6 +575,8 @@ class SynapseSparkIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -599,6 +619,8 @@ class WorkspaceEncryptionArgs:
         :param pulumi.Input[str] key_id: The Key Vault URI to access the encryption key.
         :param pulumi.Input[str] key_vault_id: The ID of the keyVault where the customer owned encryption key is present.
         :param pulumi.Input[str] user_assigned_identity_id: The Key Vault URI to access the encryption key.
+               
+               > **Note**: `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
         """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "key_vault_id", key_vault_id)
@@ -634,6 +656,8 @@ class WorkspaceEncryptionArgs:
     def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
         The Key Vault URI to access the encryption key.
+
+        > **Note**: `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -652,6 +676,8 @@ class WorkspaceIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -680,6 +706,8 @@ class WorkspaceIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

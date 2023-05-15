@@ -71,12 +71,16 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
      * 
+     * &gt; **NOTE:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
+     * 
      */
     @Export(name="allowedVmSizes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedVmSizes;
 
     /**
      * @return Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group.
+     * 
+     * &gt; **NOTE:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created.
      * 
      */
     public Output<Optional<List<String>>> allowedVmSizes() {
@@ -141,12 +145,16 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `allowed_vm_sizes` must be set when `zone` is specified.
+     * 
      */
     @Export(name="zone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> zone;
 
     /**
      * @return Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `allowed_vm_sizes` must be set when `zone` is specified.
      * 
      */
     public Output<Optional<String>> zone() {

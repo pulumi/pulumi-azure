@@ -20,6 +20,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

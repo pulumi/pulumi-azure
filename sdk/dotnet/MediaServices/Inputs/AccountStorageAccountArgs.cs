@@ -20,6 +20,8 @@ namespace Pulumi.Azure.MediaServices.Inputs
 
         /// <summary>
         /// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
         /// </summary>
         [Input("isPrimary")]
         public Input<bool>? IsPrimary { get; set; }

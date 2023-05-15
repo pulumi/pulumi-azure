@@ -19,6 +19,8 @@ public final class FlexibleServerCustomerManagedKey {
     /**
      * @return The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
      * 
+     * &gt; **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     private @Nullable String geoBackupUserAssignedIdentityId;
     /**
@@ -42,6 +44,8 @@ public final class FlexibleServerCustomerManagedKey {
     }
     /**
      * @return The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can&#39;t cross region and need identity in same region as geo backup.
+     * 
+     * &gt; **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public Optional<String> geoBackupUserAssignedIdentityId() {

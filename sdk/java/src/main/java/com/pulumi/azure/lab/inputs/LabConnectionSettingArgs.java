@@ -18,12 +18,16 @@ public final class LabConnectionSettingArgs extends com.pulumi.resources.Resourc
     /**
      * The enabled access level for Client Access over RDP. Possible value is `Public`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+     * 
      */
     @Import(name="clientRdpAccess")
     private @Nullable Output<String> clientRdpAccess;
 
     /**
      * @return The enabled access level for Client Access over RDP. Possible value is `Public`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
      * 
      */
     public Optional<Output<String>> clientRdpAccess() {
@@ -33,12 +37,16 @@ public final class LabConnectionSettingArgs extends com.pulumi.resources.Resourc
     /**
      * The enabled access level for Client Access over SSH. Possible value is `Public`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+     * 
      */
     @Import(name="clientSshAccess")
     private @Nullable Output<String> clientSshAccess;
 
     /**
      * @return The enabled access level for Client Access over SSH. Possible value is `Public`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
      * 
      */
     public Optional<Output<String>> clientSshAccess() {
@@ -73,6 +81,8 @@ public final class LabConnectionSettingArgs extends com.pulumi.resources.Resourc
         /**
          * @param clientRdpAccess The enabled access level for Client Access over RDP. Possible value is `Public`.
          * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+         * 
          * @return builder
          * 
          */
@@ -84,6 +94,8 @@ public final class LabConnectionSettingArgs extends com.pulumi.resources.Resourc
         /**
          * @param clientRdpAccess The enabled access level for Client Access over RDP. Possible value is `Public`.
          * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+         * 
          * @return builder
          * 
          */
@@ -93,6 +105,8 @@ public final class LabConnectionSettingArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param clientSshAccess The enabled access level for Client Access over SSH. Possible value is `Public`.
+         * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
          * 
          * @return builder
          * 
@@ -104,6 +118,8 @@ public final class LabConnectionSettingArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param clientSshAccess The enabled access level for Client Access over SSH. Possible value is `Public`.
+         * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
          * 
          * @return builder
          * 

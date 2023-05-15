@@ -101,12 +101,16 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
         /// </summary>
         [Output("parallelism")]
         public Output<int?> Parallelism { get; private set; } = null!;
 
         /// <summary>
         /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `size` is required if `source_uri` is not set.
         /// </summary>
         [Output("size")]
         public Output<int?> Size { get; private set; } = null!;
@@ -244,12 +248,16 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
         /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
 
         /// <summary>
         /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `size` is required if `source_uri` is not set.
         /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }
@@ -343,12 +351,16 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
         /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
 
         /// <summary>
         /// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `size` is required if `source_uri` is not set.
         /// </summary>
         [Input("size")]
         public Input<int>? Size { get; set; }

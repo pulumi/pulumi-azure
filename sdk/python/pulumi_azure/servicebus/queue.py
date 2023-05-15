@@ -41,7 +41,11 @@ class QueueArgs:
         :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+               
+               > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+               
+               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward dead lettered messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
@@ -166,6 +170,8 @@ class QueueArgs:
     def enable_express(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+
+        > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
         """
         return pulumi.get(self, "enable_express")
 
@@ -178,6 +184,8 @@ class QueueArgs:
     def enable_partitioning(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+
+        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         """
         return pulumi.get(self, "enable_partitioning")
 
@@ -337,7 +345,11 @@ class _QueueState:
         :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+               
+               > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+               
+               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward dead lettered messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
@@ -456,6 +468,8 @@ class _QueueState:
     def enable_express(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+
+        > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
         """
         return pulumi.get(self, "enable_express")
 
@@ -468,6 +482,8 @@ class _QueueState:
     def enable_partitioning(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+
+        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         """
         return pulumi.get(self, "enable_partitioning")
 
@@ -688,7 +704,11 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+               
+               > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+               
+               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward dead lettered messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
@@ -846,7 +866,11 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
         :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+               
+               > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+               
+               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward dead lettered messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
         :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute (`PT1M`).
@@ -930,6 +954,8 @@ class Queue(pulumi.CustomResource):
     def enable_express(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+
+        > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
         """
         return pulumi.get(self, "enable_express")
 
@@ -938,6 +964,8 @@ class Queue(pulumi.CustomResource):
     def enable_partitioning(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+
+        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         """
         return pulumi.get(self, "enable_partitioning")
 

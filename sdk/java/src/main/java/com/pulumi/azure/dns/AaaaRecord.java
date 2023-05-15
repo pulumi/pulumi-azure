@@ -186,12 +186,16 @@ public class AaaaRecord extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

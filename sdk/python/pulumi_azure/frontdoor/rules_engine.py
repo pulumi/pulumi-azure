@@ -211,6 +211,10 @@ class RulesEngine(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulesEngineRuleArgs']]]]] = None,
                  __props__=None):
         """
+        !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
+
+        Manages an Azure Front Door (classic) Rules Engine configuration and rules.
+
         ## Example Usage
 
         ```python
@@ -317,6 +321,10 @@ class RulesEngine(pulumi.CustomResource):
                  args: RulesEngineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
+
+        Manages an Azure Front Door (classic) Rules Engine configuration and rules.
+
         ## Example Usage
 
         ```python

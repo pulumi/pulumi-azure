@@ -63,12 +63,16 @@ public final class ServicePlanDefaultAutoShutdownArgs extends com.pulumi.resourc
     /**
      * Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified. No need to set `idle_delay` when `shutdown_on_idle` isn&#39;t specified.
+     * 
      */
     @Import(name="shutdownOnIdle")
     private @Nullable Output<String> shutdownOnIdle;
 
     /**
      * @return Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified. No need to set `idle_delay` when `shutdown_on_idle` isn&#39;t specified.
      * 
      */
     public Optional<Output<String>> shutdownOnIdle() {
@@ -168,6 +172,8 @@ public final class ServicePlanDefaultAutoShutdownArgs extends com.pulumi.resourc
         /**
          * @param shutdownOnIdle Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
          * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified. No need to set `idle_delay` when `shutdown_on_idle` isn&#39;t specified.
+         * 
          * @return builder
          * 
          */
@@ -178,6 +184,8 @@ public final class ServicePlanDefaultAutoShutdownArgs extends com.pulumi.resourc
 
         /**
          * @param shutdownOnIdle Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
+         * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified. No need to set `idle_delay` when `shutdown_on_idle` isn&#39;t specified.
          * 
          * @return builder
          * 

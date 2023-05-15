@@ -31,6 +31,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
         /// <summary>
         /// A `gpu` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Gpu resources are currently only supported in Linux containers.
         /// </summary>
         public readonly Outputs.GroupContainerGpu? Gpu;
         /// <summary>

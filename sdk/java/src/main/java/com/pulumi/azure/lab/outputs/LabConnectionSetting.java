@@ -14,10 +14,14 @@ public final class LabConnectionSetting {
     /**
      * @return The enabled access level for Client Access over RDP. Possible value is `Public`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+     * 
      */
     private @Nullable String clientRdpAccess;
     /**
      * @return The enabled access level for Client Access over SSH. Possible value is `Public`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
      * 
      */
     private @Nullable String clientSshAccess;
@@ -26,12 +30,16 @@ public final class LabConnectionSetting {
     /**
      * @return The enabled access level for Client Access over RDP. Possible value is `Public`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
+     * 
      */
     public Optional<String> clientRdpAccess() {
         return Optional.ofNullable(this.clientRdpAccess);
     }
     /**
      * @return The enabled access level for Client Access over SSH. Possible value is `Public`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified.
      * 
      */
     public Optional<String> clientSshAccess() {

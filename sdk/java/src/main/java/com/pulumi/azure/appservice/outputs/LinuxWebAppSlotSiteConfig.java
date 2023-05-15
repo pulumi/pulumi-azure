@@ -57,6 +57,8 @@ public final class LinuxWebAppSlotSiteConfig {
     /**
      * @return The Linux Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
      * 
+     * &gt; **Note:** This must be a valid slot name on the target Linux Web App.
+     * 
      */
     private @Nullable String autoSwapSlotName;
     /**
@@ -80,10 +82,6 @@ public final class LinuxWebAppSlotSiteConfig {
      */
     private @Nullable List<String> defaultDocuments;
     private @Nullable Boolean detailedErrorLoggingEnabled;
-    /**
-     * @return The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
-     * 
-     */
     private @Nullable String ftpsState;
     /**
      * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
@@ -226,6 +224,8 @@ public final class LinuxWebAppSlotSiteConfig {
     /**
      * @return The Linux Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
      * 
+     * &gt; **Note:** This must be a valid slot name on the target Linux Web App.
+     * 
      */
     public Optional<String> autoSwapSlotName() {
         return Optional.ofNullable(this.autoSwapSlotName);
@@ -261,10 +261,6 @@ public final class LinuxWebAppSlotSiteConfig {
     public Optional<Boolean> detailedErrorLoggingEnabled() {
         return Optional.ofNullable(this.detailedErrorLoggingEnabled);
     }
-    /**
-     * @return The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
-     * 
-     */
     public Optional<String> ftpsState() {
         return Optional.ofNullable(this.ftpsState);
     }

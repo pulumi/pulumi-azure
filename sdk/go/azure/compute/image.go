@@ -163,6 +163,8 @@ type Image struct {
 	// One or more `dataDisk` elements as defined below.
 	DataDisks ImageDataDiskArrayOutput `pulumi:"dataDisks"`
 	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
 	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
@@ -217,6 +219,8 @@ type imageState struct {
 	// One or more `dataDisk` elements as defined below.
 	DataDisks []ImageDataDisk `pulumi:"dataDisks"`
 	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
@@ -240,6 +244,8 @@ type ImageState struct {
 	// One or more `dataDisk` elements as defined below.
 	DataDisks ImageDataDiskArrayInput
 	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
 	HyperVGeneration pulumi.StringPtrInput
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
@@ -267,6 +273,8 @@ type imageArgs struct {
 	// One or more `dataDisk` elements as defined below.
 	DataDisks []ImageDataDisk `pulumi:"dataDisks"`
 	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
@@ -291,6 +299,8 @@ type ImageArgs struct {
 	// One or more `dataDisk` elements as defined below.
 	DataDisks ImageDataDiskArrayInput
 	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
 	HyperVGeneration pulumi.StringPtrInput
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	// Changing this forces a new resource to be created.
@@ -403,6 +413,8 @@ func (o ImageOutput) DataDisks() ImageDataDiskArrayOutput {
 }
 
 // The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+//
+// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
 func (o ImageOutput) HyperVGeneration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.HyperVGeneration }).(pulumi.StringPtrOutput)
 }

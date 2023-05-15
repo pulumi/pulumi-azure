@@ -40,6 +40,8 @@ class AuthorizationServerArgs:
         :param pulumi.Input[str] api_management_name: The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authorization_endpoint: The OAUTH Authorization Endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_methods: The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+               
+               > **NOTE:** `GET` must always be present.
         :param pulumi.Input[str] client_id: The Client/App ID registered with this Authorization Server.
         :param pulumi.Input[str] client_registration_endpoint: The URI of page where Client/App Registration is performed for this Authorization Server.
         :param pulumi.Input[str] display_name: The user-friendly name of this Authorization Server.
@@ -52,7 +54,11 @@ class AuthorizationServerArgs:
         :param pulumi.Input[str] description: A description of the Authorization Server, which may contain HTML formatting tags.
         :param pulumi.Input[str] name: The name of this Authorization Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_owner_password: The password associated with the Resource Owner.
+               
+               > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         :param pulumi.Input[str] resource_owner_username: The username associated with the Resource Owner.
+               
+               > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         :param pulumi.Input[bool] support_state: Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
         :param pulumi.Input[Sequence[pulumi.Input['AuthorizationServerTokenBodyParameterArgs']]] token_body_parameters: A `token_body_parameter` block as defined below.
         :param pulumi.Input[str] token_endpoint: The OAUTH Token Endpoint.
@@ -117,6 +123,8 @@ class AuthorizationServerArgs:
     def authorization_methods(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+
+        > **NOTE:** `GET` must always be present.
         """
         return pulumi.get(self, "authorization_methods")
 
@@ -261,6 +269,8 @@ class AuthorizationServerArgs:
     def resource_owner_password(self) -> Optional[pulumi.Input[str]]:
         """
         The password associated with the Resource Owner.
+
+        > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         """
         return pulumi.get(self, "resource_owner_password")
 
@@ -273,6 +283,8 @@ class AuthorizationServerArgs:
     def resource_owner_username(self) -> Optional[pulumi.Input[str]]:
         """
         The username associated with the Resource Owner.
+
+        > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         """
         return pulumi.get(self, "resource_owner_username")
 
@@ -344,6 +356,8 @@ class _AuthorizationServerState:
         :param pulumi.Input[str] api_management_name: The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authorization_endpoint: The OAUTH Authorization Endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_methods: The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+               
+               > **NOTE:** `GET` must always be present.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] bearer_token_sending_methods: The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_authentication_methods: The Authentication Methods supported by the Token endpoint of this Authorization Server.. Possible values are `Basic` and `Body`.
         :param pulumi.Input[str] client_id: The Client/App ID registered with this Authorization Server.
@@ -356,7 +370,11 @@ class _AuthorizationServerState:
         :param pulumi.Input[str] name: The name of this Authorization Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_owner_password: The password associated with the Resource Owner.
+               
+               > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         :param pulumi.Input[str] resource_owner_username: The username associated with the Resource Owner.
+               
+               > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         :param pulumi.Input[bool] support_state: Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
         :param pulumi.Input[Sequence[pulumi.Input['AuthorizationServerTokenBodyParameterArgs']]] token_body_parameters: A `token_body_parameter` block as defined below.
         :param pulumi.Input[str] token_endpoint: The OAUTH Token Endpoint.
@@ -429,6 +447,8 @@ class _AuthorizationServerState:
     def authorization_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+
+        > **NOTE:** `GET` must always be present.
         """
         return pulumi.get(self, "authorization_methods")
 
@@ -573,6 +593,8 @@ class _AuthorizationServerState:
     def resource_owner_password(self) -> Optional[pulumi.Input[str]]:
         """
         The password associated with the Resource Owner.
+
+        > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         """
         return pulumi.get(self, "resource_owner_password")
 
@@ -585,6 +607,8 @@ class _AuthorizationServerState:
     def resource_owner_username(self) -> Optional[pulumi.Input[str]]:
         """
         The username associated with the Resource Owner.
+
+        > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         """
         return pulumi.get(self, "resource_owner_username")
 
@@ -689,6 +713,8 @@ class AuthorizationServer(pulumi.CustomResource):
         :param pulumi.Input[str] api_management_name: The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authorization_endpoint: The OAUTH Authorization Endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_methods: The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+               
+               > **NOTE:** `GET` must always be present.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] bearer_token_sending_methods: The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_authentication_methods: The Authentication Methods supported by the Token endpoint of this Authorization Server.. Possible values are `Basic` and `Body`.
         :param pulumi.Input[str] client_id: The Client/App ID registered with this Authorization Server.
@@ -701,7 +727,11 @@ class AuthorizationServer(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of this Authorization Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_owner_password: The password associated with the Resource Owner.
+               
+               > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         :param pulumi.Input[str] resource_owner_username: The username associated with the Resource Owner.
+               
+               > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         :param pulumi.Input[bool] support_state: Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizationServerTokenBodyParameterArgs']]]] token_body_parameters: A `token_body_parameter` block as defined below.
         :param pulumi.Input[str] token_endpoint: The OAUTH Token Endpoint.
@@ -861,6 +891,8 @@ class AuthorizationServer(pulumi.CustomResource):
         :param pulumi.Input[str] api_management_name: The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authorization_endpoint: The OAUTH Authorization Endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_methods: The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+               
+               > **NOTE:** `GET` must always be present.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] bearer_token_sending_methods: The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_authentication_methods: The Authentication Methods supported by the Token endpoint of this Authorization Server.. Possible values are `Basic` and `Body`.
         :param pulumi.Input[str] client_id: The Client/App ID registered with this Authorization Server.
@@ -873,7 +905,11 @@ class AuthorizationServer(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of this Authorization Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_owner_password: The password associated with the Resource Owner.
+               
+               > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         :param pulumi.Input[str] resource_owner_username: The username associated with the Resource Owner.
+               
+               > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         :param pulumi.Input[bool] support_state: Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizationServerTokenBodyParameterArgs']]]] token_body_parameters: A `token_body_parameter` block as defined below.
         :param pulumi.Input[str] token_endpoint: The OAUTH Token Endpoint.
@@ -924,6 +960,8 @@ class AuthorizationServer(pulumi.CustomResource):
     def authorization_methods(self) -> pulumi.Output[Sequence[str]]:
         """
         The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
+
+        > **NOTE:** `GET` must always be present.
         """
         return pulumi.get(self, "authorization_methods")
 
@@ -1020,6 +1058,8 @@ class AuthorizationServer(pulumi.CustomResource):
     def resource_owner_password(self) -> pulumi.Output[Optional[str]]:
         """
         The password associated with the Resource Owner.
+
+        > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         """
         return pulumi.get(self, "resource_owner_password")
 
@@ -1028,6 +1068,8 @@ class AuthorizationServer(pulumi.CustomResource):
     def resource_owner_username(self) -> pulumi.Output[Optional[str]]:
         """
         The username associated with the Resource Owner.
+
+        > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         """
         return pulumi.get(self, "resource_owner_username")
 

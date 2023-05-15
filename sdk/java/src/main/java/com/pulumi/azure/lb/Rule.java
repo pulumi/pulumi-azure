@@ -96,12 +96,16 @@ public class Rule extends com.pulumi.resources.CustomResource {
     /**
      * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
      * 
+     * &gt; **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+     * 
      */
     @Export(name="backendAddressPoolIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> backendAddressPoolIds;
 
     /**
      * @return A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+     * 
+     * &gt; **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
      * 
      */
     public Output<Optional<List<String>>> backendAddressPoolIds() {

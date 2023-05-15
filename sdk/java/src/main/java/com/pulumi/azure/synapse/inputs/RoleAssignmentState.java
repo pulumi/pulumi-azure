@@ -33,12 +33,20 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
     /**
      * The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
+     * 
+     * &gt; **NOTE:** Old roles are still supported: `Workspace Admin`, `Apache Spark Admin`, `Sql Admin`. These values will be removed in the next Major Version 3.0.
+     * 
      */
     @Import(name="roleName")
     private @Nullable Output<String> roleName;
 
     /**
      * @return The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
+     * 
+     * &gt; **NOTE:** Old roles are still supported: `Workspace Admin`, `Apache Spark Admin`, `Sql Admin`. These values will be removed in the next Major Version 3.0.
      * 
      */
     public Optional<Output<String>> roleName() {
@@ -48,12 +56,16 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
     /**
      * The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
+     * 
      */
     @Import(name="synapseSparkPoolId")
     private @Nullable Output<String> synapseSparkPoolId;
 
     /**
      * @return The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
      * 
      */
     public Optional<Output<String>> synapseSparkPoolId() {
@@ -126,6 +138,10 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
         /**
          * @param roleName The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
+         * 
+         * &gt; **NOTE:** Old roles are still supported: `Workspace Admin`, `Apache Spark Admin`, `Sql Admin`. These values will be removed in the next Major Version 3.0.
+         * 
          * @return builder
          * 
          */
@@ -137,6 +153,10 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
         /**
          * @param roleName The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
+         * 
+         * &gt; **NOTE:** Old roles are still supported: `Workspace Admin`, `Apache Spark Admin`, `Sql Admin`. These values will be removed in the next Major Version 3.0.
+         * 
          * @return builder
          * 
          */
@@ -146,6 +166,8 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param synapseSparkPoolId The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
          * 
          * @return builder
          * 
@@ -157,6 +179,8 @@ public final class RoleAssignmentState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param synapseSparkPoolId The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
          * 
          * @return builder
          * 

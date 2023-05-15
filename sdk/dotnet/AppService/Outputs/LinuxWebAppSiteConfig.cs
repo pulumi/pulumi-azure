@@ -15,6 +15,8 @@ namespace Pulumi.Azure.AppService.Outputs
     {
         /// <summary>
         /// If this Linux Web App is Always On enabled. Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
         /// </summary>
         public readonly bool? AlwaysOn;
         /// <summary>
@@ -58,9 +60,6 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DefaultDocuments;
         public readonly bool? DetailedErrorLoggingEnabled;
-        /// <summary>
-        /// The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
-        /// </summary>
         public readonly string? FtpsState;
         /// <summary>
         /// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.

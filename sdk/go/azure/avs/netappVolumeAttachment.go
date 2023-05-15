@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a VMware Private Cloud Netapp File Attachment.
+//
 // ## Import
 //
 // VMware Private Clouds Netapp File Volume Attachment can be imported using the `resource id`, e.g.
@@ -28,6 +30,8 @@ type NetappVolumeAttachment struct {
 	// The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
 	NetappVolumeId pulumi.StringOutput `pulumi:"netappVolumeId"`
 	// The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+	//
+	// > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
 	VmwareClusterId pulumi.StringOutput `pulumi:"vmwareClusterId"`
 }
 
@@ -71,6 +75,8 @@ type netappVolumeAttachmentState struct {
 	// The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
 	NetappVolumeId *string `pulumi:"netappVolumeId"`
 	// The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+	//
+	// > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
 	VmwareClusterId *string `pulumi:"vmwareClusterId"`
 }
 
@@ -80,6 +86,8 @@ type NetappVolumeAttachmentState struct {
 	// The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
 	NetappVolumeId pulumi.StringPtrInput
 	// The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+	//
+	// > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
 	VmwareClusterId pulumi.StringPtrInput
 }
 
@@ -93,6 +101,8 @@ type netappVolumeAttachmentArgs struct {
 	// The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
 	NetappVolumeId string `pulumi:"netappVolumeId"`
 	// The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+	//
+	// > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
 	VmwareClusterId string `pulumi:"vmwareClusterId"`
 }
 
@@ -103,6 +113,8 @@ type NetappVolumeAttachmentArgs struct {
 	// The netapp file volume for this VMware Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
 	NetappVolumeId pulumi.StringInput
 	// The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+	//
+	// > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
 	VmwareClusterId pulumi.StringInput
 }
 
@@ -204,6 +216,8 @@ func (o NetappVolumeAttachmentOutput) NetappVolumeId() pulumi.StringOutput {
 }
 
 // The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+//
+// > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
 func (o NetappVolumeAttachmentOutput) VmwareClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetappVolumeAttachment) pulumi.StringOutput { return v.VmwareClusterId }).(pulumi.StringOutput)
 }

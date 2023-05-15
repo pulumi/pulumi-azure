@@ -17,6 +17,8 @@ namespace Pulumi.Azure.AppPlatform.Inputs
 
         /// <summary>
         /// A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public InputList<string> IdentityIds
         {

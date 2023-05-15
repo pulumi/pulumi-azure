@@ -405,7 +405,6 @@ class VolumeDataProtectionReplication(dict):
         """
         :param str remote_volume_location: Location of the primary volume. Changing this forces a new resource to be created.
         :param str remote_volume_resource_id: Resource ID of the primary volume.
-        :param str replication_frequency: Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
         :param str endpoint_type: The endpoint type, default value is `dst` for destination.
         """
         pulumi.set(__self__, "remote_volume_location", remote_volume_location)
@@ -433,9 +432,6 @@ class VolumeDataProtectionReplication(dict):
     @property
     @pulumi.getter(name="replicationFrequency")
     def replication_frequency(self) -> str:
-        """
-        Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
-        """
         return pulumi.get(self, "replication_frequency")
 
     @property
@@ -468,17 +464,11 @@ class VolumeDataProtectionSnapshotPolicy(dict):
 
     def __init__(__self__, *,
                  snapshot_policy_id: str):
-        """
-        :param str snapshot_policy_id: Resource ID of the snapshot policy to apply to the volume.
-        """
         pulumi.set(__self__, "snapshot_policy_id", snapshot_policy_id)
 
     @property
     @pulumi.getter(name="snapshotPolicyId")
     def snapshot_policy_id(self) -> str:
-        """
-        Resource ID of the snapshot policy to apply to the volume.
-        """
         return pulumi.get(self, "snapshot_policy_id")
 
 

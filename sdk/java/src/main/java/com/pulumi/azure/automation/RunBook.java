@@ -106,12 +106,16 @@ public class RunBook extends com.pulumi.resources.CustomResource {
     /**
      * The desired content of the runbook.
      * 
+     * &gt; **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
+     * 
      */
     @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
     /**
      * @return The desired content of the runbook.
+     * 
+     * &gt; **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
      * 
      */
     public Output<String> content() {

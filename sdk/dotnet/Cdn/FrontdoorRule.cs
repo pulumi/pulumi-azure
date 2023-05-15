@@ -184,6 +184,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
+        /// 
+        /// -&gt;**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
         /// </summary>
         [Output("order")]
         public Output<int> Order { get; private set; } = null!;
@@ -266,6 +268,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
+        /// 
+        /// -&gt;**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
         /// </summary>
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
@@ -316,6 +320,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
+        /// 
+        /// -&gt;**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
         /// </summary>
         [Input("order")]
         public Input<int>? Order { get; set; }

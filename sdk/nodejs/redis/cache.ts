@@ -139,6 +139,8 @@ export class Cache extends pulumi.CustomResource {
     public readonly redisVersion!: pulumi.Output<string>;
     /**
      * Amount of replicas to create per master for this Redis Cache.
+     *
+     * > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
      */
     public readonly replicasPerMaster!: pulumi.Output<number>;
     /**
@@ -163,6 +165,8 @@ export class Cache extends pulumi.CustomResource {
     public readonly shardCount!: pulumi.Output<number | undefined>;
     /**
      * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+     *
+     * > **Note** Downgrading the SKU will force a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -183,6 +187,8 @@ export class Cache extends pulumi.CustomResource {
     public readonly tenantSettings!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+     *
+     * > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -347,6 +353,8 @@ export interface CacheState {
     redisVersion?: pulumi.Input<string>;
     /**
      * Amount of replicas to create per master for this Redis Cache.
+     *
+     * > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
      */
     replicasPerMaster?: pulumi.Input<number>;
     /**
@@ -371,6 +379,8 @@ export interface CacheState {
     shardCount?: pulumi.Input<number>;
     /**
      * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+     *
+     * > **Note** Downgrading the SKU will force a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -391,6 +401,8 @@ export interface CacheState {
     tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+     *
+     * > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -449,6 +461,8 @@ export interface CacheArgs {
     redisVersion?: pulumi.Input<string>;
     /**
      * Amount of replicas to create per master for this Redis Cache.
+     *
+     * > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
      */
     replicasPerMaster?: pulumi.Input<number>;
     /**
@@ -465,6 +479,8 @@ export interface CacheArgs {
     shardCount?: pulumi.Input<number>;
     /**
      * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+     *
+     * > **Note** Downgrading the SKU will force a new resource to be created.
      */
     skuName: pulumi.Input<string>;
     /**
@@ -481,6 +497,8 @@ export interface CacheArgs {
     tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+     *
+     * > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

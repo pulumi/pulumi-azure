@@ -29,10 +29,14 @@ class SnapshotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
-        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+               
+               > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
         :param pulumi.Input['SnapshotEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
+               
+               > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
@@ -66,7 +70,9 @@ class SnapshotArgs:
     @pulumi.getter(name="createOption")
     def create_option(self) -> pulumi.Input[str]:
         """
-        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+
+        > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         """
         return pulumi.get(self, "create_option")
 
@@ -103,6 +109,8 @@ class SnapshotArgs:
     def encryption_settings(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']]:
         """
         A `encryption_settings` block as defined below.
+
+        > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_settings")
 
@@ -212,9 +220,13 @@ class _SnapshotState:
                  trusted_launch_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
-        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+               
+               > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
         :param pulumi.Input['SnapshotEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
+               
+               > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
@@ -254,7 +266,9 @@ class _SnapshotState:
     @pulumi.getter(name="createOption")
     def create_option(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+
+        > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         """
         return pulumi.get(self, "create_option")
 
@@ -279,6 +293,8 @@ class _SnapshotState:
     def encryption_settings(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']]:
         """
         A `encryption_settings` block as defined below.
+
+        > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_settings")
 
@@ -445,9 +461,13 @@ class Snapshot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+               
+               > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
         :param pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
+               
+               > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
@@ -574,9 +594,13 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+               
+               > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
         :param pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
+               
+               > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
@@ -609,7 +633,9 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="createOption")
     def create_option(self) -> pulumi.Output[str]:
         """
-        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+
+        > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         """
         return pulumi.get(self, "create_option")
 
@@ -626,6 +652,8 @@ class Snapshot(pulumi.CustomResource):
     def encryption_settings(self) -> pulumi.Output[Optional['outputs.SnapshotEncryptionSettings']]:
         """
         A `encryption_settings` block as defined below.
+
+        > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         """
         return pulumi.get(self, "encryption_settings")
 

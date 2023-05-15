@@ -75,6 +75,8 @@ type Account struct {
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+	//
+	// > **Note:** `managedResourceGroupName` must be a new Resource Group
 	ManagedResourceGroupName pulumi.StringOutput `pulumi:"managedResourceGroupName"`
 	// A `managedResources` block as defined below.
 	ManagedResources AccountManagedResourceArrayOutput `pulumi:"managedResources"`
@@ -143,6 +145,8 @@ type accountState struct {
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+	//
+	// > **Note:** `managedResourceGroupName` must be a new Resource Group
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// A `managedResources` block as defined below.
 	ManagedResources []AccountManagedResource `pulumi:"managedResources"`
@@ -172,6 +176,8 @@ type AccountState struct {
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+	//
+	// > **Note:** `managedResourceGroupName` must be a new Resource Group
 	ManagedResourceGroupName pulumi.StringPtrInput
 	// A `managedResources` block as defined below.
 	ManagedResources AccountManagedResourceArrayInput
@@ -197,6 +203,8 @@ type accountArgs struct {
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+	//
+	// > **Note:** `managedResourceGroupName` must be a new Resource Group
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
 	Name *string `pulumi:"name"`
@@ -215,6 +223,8 @@ type AccountArgs struct {
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+	//
+	// > **Note:** `managedResourceGroupName` must be a new Resource Group
 	ManagedResourceGroupName pulumi.StringPtrInput
 	// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
 	Name pulumi.StringPtrInput
@@ -344,6 +354,8 @@ func (o AccountOutput) Location() pulumi.StringOutput {
 }
 
 // The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
+//
+// > **Note:** `managedResourceGroupName` must be a new Resource Group
 func (o AccountOutput) ManagedResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ManagedResourceGroupName }).(pulumi.StringOutput)
 }

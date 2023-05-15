@@ -279,12 +279,16 @@ public class Server extends com.pulumi.resources.CustomResource {
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      * 
+     * &gt; **NOTE:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
+     * 
      */
     @Export(name="sslEnforcementEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> sslEnforcementEnabled;
 
     /**
      * @return Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+     * 
+     * &gt; **NOTE:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
      * 
      */
     public Output<Boolean> sslEnforcementEnabled() {

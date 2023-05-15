@@ -133,6 +133,8 @@ type BudgetSubscription struct {
 	// One or more `notification` blocks as defined below.
 	Notifications BudgetSubscriptionNotificationArrayOutput `pulumi:"notifications"`
 	// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
 	TimeGrain pulumi.StringPtrOutput `pulumi:"timeGrain"`
@@ -192,6 +194,8 @@ type budgetSubscriptionState struct {
 	// One or more `notification` blocks as defined below.
 	Notifications []BudgetSubscriptionNotification `pulumi:"notifications"`
 	// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
 	TimeGrain *string `pulumi:"timeGrain"`
@@ -211,6 +215,8 @@ type BudgetSubscriptionState struct {
 	// One or more `notification` blocks as defined below.
 	Notifications BudgetSubscriptionNotificationArrayInput
 	// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
 	SubscriptionId pulumi.StringPtrInput
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
 	TimeGrain pulumi.StringPtrInput
@@ -234,6 +240,8 @@ type budgetSubscriptionArgs struct {
 	// One or more `notification` blocks as defined below.
 	Notifications []BudgetSubscriptionNotification `pulumi:"notifications"`
 	// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
 	SubscriptionId string `pulumi:"subscriptionId"`
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
 	TimeGrain *string `pulumi:"timeGrain"`
@@ -254,6 +262,8 @@ type BudgetSubscriptionArgs struct {
 	// One or more `notification` blocks as defined below.
 	Notifications BudgetSubscriptionNotificationArrayInput
 	// The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
 	SubscriptionId pulumi.StringInput
 	// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
 	TimeGrain pulumi.StringPtrInput
@@ -374,6 +384,8 @@ func (o BudgetSubscriptionOutput) Notifications() BudgetSubscriptionNotification
 }
 
 // The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
 func (o BudgetSubscriptionOutput) SubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetSubscription) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
 }

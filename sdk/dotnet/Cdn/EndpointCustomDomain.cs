@@ -122,6 +122,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// A `user_managed_https` block as defined below.
+        /// 
+        /// &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         /// </summary>
         [Output("userManagedHttps")]
         public Output<Outputs.EndpointCustomDomainUserManagedHttps?> UserManagedHttps { get; private set; } = null!;
@@ -198,6 +200,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// A `user_managed_https` block as defined below.
+        /// 
+        /// &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         /// </summary>
         [Input("userManagedHttps")]
         public Input<Inputs.EndpointCustomDomainUserManagedHttpsArgs>? UserManagedHttps { get; set; }
@@ -236,6 +240,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// A `user_managed_https` block as defined below.
+        /// 
+        /// &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         /// </summary>
         [Input("userManagedHttps")]
         public Input<Inputs.EndpointCustomDomainUserManagedHttpsGetArgs>? UserManagedHttps { get; set; }

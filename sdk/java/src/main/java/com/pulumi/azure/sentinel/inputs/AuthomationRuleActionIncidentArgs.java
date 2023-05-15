@@ -20,12 +20,16 @@ public final class AuthomationRuleActionIncidentArgs extends com.pulumi.resource
     /**
      * The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
      * 
+     * &gt; **Note:** The `classification` is required when `status` is `Closed`.
+     * 
      */
     @Import(name="classification")
     private @Nullable Output<String> classification;
 
     /**
      * @return The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+     * 
+     * &gt; **Note:** The `classification` is required when `status` is `Closed`.
      * 
      */
     public Optional<Output<String>> classification() {
@@ -35,12 +39,16 @@ public final class AuthomationRuleActionIncidentArgs extends com.pulumi.resource
     /**
      * The comment why the incident is to be closed.
      * 
+     * &gt; **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
+     * 
      */
     @Import(name="classificationComment")
     private @Nullable Output<String> classificationComment;
 
     /**
      * @return The comment why the incident is to be closed.
+     * 
+     * &gt; **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
      * 
      */
     public Optional<Output<String>> classificationComment() {
@@ -95,12 +103,16 @@ public final class AuthomationRuleActionIncidentArgs extends com.pulumi.resource
     /**
      * The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
      * 
+     * &gt; **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+     * 
      */
     @Import(name="severity")
     private @Nullable Output<String> severity;
 
     /**
      * @return The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+     * 
+     * &gt; **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
      * 
      */
     public Optional<Output<String>> severity() {
@@ -155,6 +167,8 @@ public final class AuthomationRuleActionIncidentArgs extends com.pulumi.resource
         /**
          * @param classification The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
          * 
+         * &gt; **Note:** The `classification` is required when `status` is `Closed`.
+         * 
          * @return builder
          * 
          */
@@ -166,6 +180,8 @@ public final class AuthomationRuleActionIncidentArgs extends com.pulumi.resource
         /**
          * @param classification The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
          * 
+         * &gt; **Note:** The `classification` is required when `status` is `Closed`.
+         * 
          * @return builder
          * 
          */
@@ -175,6 +191,8 @@ public final class AuthomationRuleActionIncidentArgs extends com.pulumi.resource
 
         /**
          * @param classificationComment The comment why the incident is to be closed.
+         * 
+         * &gt; **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
          * 
          * @return builder
          * 
@@ -186,6 +204,8 @@ public final class AuthomationRuleActionIncidentArgs extends com.pulumi.resource
 
         /**
          * @param classificationComment The comment why the incident is to be closed.
+         * 
+         * &gt; **Note:** The `classification_comment` is allowed to set only when `status` is `Closed`.
          * 
          * @return builder
          * 
@@ -270,6 +290,8 @@ public final class AuthomationRuleActionIncidentArgs extends com.pulumi.resource
         /**
          * @param severity The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
          * 
+         * &gt; **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+         * 
          * @return builder
          * 
          */
@@ -280,6 +302,8 @@ public final class AuthomationRuleActionIncidentArgs extends com.pulumi.resource
 
         /**
          * @param severity The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+         * 
+         * &gt; **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
          * 
          * @return builder
          * 

@@ -100,6 +100,8 @@ class AccountIdentityArgs:
         """
         :param pulumi.Input[str] type: The type of identity used for this Automation Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: The ID of the User Assigned Identity which should be assigned to this Automation Account.
+               
+               > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -128,6 +130,8 @@ class AccountIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The ID of the User Assigned Identity which should be assigned to this Automation Account.
+
+        > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

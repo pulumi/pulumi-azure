@@ -112,6 +112,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The authentication info. An `authentication` block as defined below.
+        /// 
+        /// &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         /// </summary>
         [Output("authentication")]
         public Output<Outputs.ConnectionAuthentication> Authentication { get; private set; } = null!;
@@ -200,6 +202,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The authentication info. An `authentication` block as defined below.
+        /// 
+        /// &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         /// </summary>
         [Input("authentication", required: true)]
         public Input<Inputs.ConnectionAuthenticationArgs> Authentication { get; set; } = null!;
@@ -250,6 +254,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The authentication info. An `authentication` block as defined below.
+        /// 
+        /// &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         /// </summary>
         [Input("authentication")]
         public Input<Inputs.ConnectionAuthenticationGetArgs>? Authentication { get; set; }

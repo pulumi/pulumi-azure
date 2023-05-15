@@ -192,12 +192,16 @@ public class Standard extends com.pulumi.resources.CustomResource {
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
+     * &gt; **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+     * 
      */
     @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> appSettings;
 
     /**
      * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     * 
+     * &gt; **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      * 
      */
     public Output<Map<String,String>> appSettings() {
@@ -469,17 +473,9 @@ public class Standard extends com.pulumi.resources.CustomResource {
     public Output<String> storageAccountName() {
         return this.storageAccountName;
     }
-    /**
-     * The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don&#39;t specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
-     * 
-     */
     @Export(name="storageAccountShareName", refs={String.class}, tree="[0]")
     private Output<String> storageAccountShareName;
 
-    /**
-     * @return The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don&#39;t specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share
-     * 
-     */
     public Output<String> storageAccountShareName() {
         return this.storageAccountShareName;
     }
@@ -525,17 +521,9 @@ public class Standard extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> version() {
         return Codegen.optional(this.version);
     }
-    /**
-     * The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     * 
-     */
     @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
-    /**
-     * @return The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     * 
-     */
     public Output<Optional<String>> virtualNetworkSubnetId() {
         return Codegen.optional(this.virtualNetworkSubnetId);
     }

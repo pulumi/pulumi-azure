@@ -132,6 +132,8 @@ type CassandraCluster struct {
 	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
 	ExternalSeedNodeIpAddresses pulumi.StringArrayOutput `pulumi:"externalSeedNodeIpAddresses"`
 	// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+	//
+	// > **Note:** To disable this feature, set this property to `0`.
 	HoursBetweenBackups pulumi.IntPtrOutput `pulumi:"hoursBetweenBackups"`
 	// An `identity` block as defined below.
 	Identity CassandraClusterIdentityPtrOutput `pulumi:"identity"`
@@ -207,6 +209,8 @@ type cassandraClusterState struct {
 	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
 	ExternalSeedNodeIpAddresses []string `pulumi:"externalSeedNodeIpAddresses"`
 	// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+	//
+	// > **Note:** To disable this feature, set this property to `0`.
 	HoursBetweenBackups *int `pulumi:"hoursBetweenBackups"`
 	// An `identity` block as defined below.
 	Identity *CassandraClusterIdentity `pulumi:"identity"`
@@ -238,6 +242,8 @@ type CassandraClusterState struct {
 	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
 	ExternalSeedNodeIpAddresses pulumi.StringArrayInput
 	// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+	//
+	// > **Note:** To disable this feature, set this property to `0`.
 	HoursBetweenBackups pulumi.IntPtrInput
 	// An `identity` block as defined below.
 	Identity CassandraClusterIdentityPtrInput
@@ -273,6 +279,8 @@ type cassandraClusterArgs struct {
 	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
 	ExternalSeedNodeIpAddresses []string `pulumi:"externalSeedNodeIpAddresses"`
 	// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+	//
+	// > **Note:** To disable this feature, set this property to `0`.
 	HoursBetweenBackups *int `pulumi:"hoursBetweenBackups"`
 	// An `identity` block as defined below.
 	Identity *CassandraClusterIdentity `pulumi:"identity"`
@@ -305,6 +313,8 @@ type CassandraClusterArgs struct {
 	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
 	ExternalSeedNodeIpAddresses pulumi.StringArrayInput
 	// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+	//
+	// > **Note:** To disable this feature, set this property to `0`.
 	HoursBetweenBackups pulumi.IntPtrInput
 	// An `identity` block as defined below.
 	Identity CassandraClusterIdentityPtrInput
@@ -440,6 +450,8 @@ func (o CassandraClusterOutput) ExternalSeedNodeIpAddresses() pulumi.StringArray
 }
 
 // The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+//
+// > **Note:** To disable this feature, set this property to `0`.
 func (o CassandraClusterOutput) HoursBetweenBackups() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraCluster) pulumi.IntPtrOutput { return v.HoursBetweenBackups }).(pulumi.IntPtrOutput)
 }

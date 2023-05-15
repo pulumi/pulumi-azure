@@ -219,6 +219,8 @@ class AppIngress(dict):
         """
         :param int target_port: The target port on the container for the Ingress traffic.
         :param Sequence['AppIngressTrafficWeightArgs'] traffic_weights: A `traffic_weight` block as detailed below.
+               
+               > **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
         :param bool allow_insecure_connections: Should this ingress allow insecure connections?
         :param 'AppIngressCustomDomainArgs' custom_domain: One or more `custom_domain` block as detailed below.
         :param bool external_enabled: Is this an external Ingress.
@@ -251,6 +253,8 @@ class AppIngress(dict):
     def traffic_weights(self) -> Sequence['outputs.AppIngressTrafficWeight']:
         """
         A `traffic_weight` block as detailed below.
+
+        > **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
         """
         return pulumi.get(self, "traffic_weights")
 
@@ -383,6 +387,8 @@ class AppIngressTrafficWeight(dict):
                  revision_suffix: Optional[str] = None):
         """
         :param int percentage: The percentage of traffic which should be sent this revision.
+               
+               > **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
         :param str label: The label to apply to the revision as a name prefix for routing traffic.
         :param bool latest_revision: This traffic Weight relates to the latest stable Container Revision.
         :param str revision_suffix: The suffix string to which this `traffic_weight` applies.
@@ -400,6 +406,8 @@ class AppIngressTrafficWeight(dict):
     def percentage(self) -> int:
         """
         The percentage of traffic which should be sent this revision.
+
+        > **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
         """
         return pulumi.get(self, "percentage")
 
@@ -454,6 +462,8 @@ class AppRegistry(dict):
                  username: Optional[str] = None):
         """
         :param str server: The hostname for the Container Registry.
+               
+               The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
         :param str identity: Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         :param str password_secret_name: The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
         :param str username: The username to use for this Container Registry, `password_secret_name` must also be supplied..
@@ -471,6 +481,8 @@ class AppRegistry(dict):
     def server(self) -> str:
         """
         The hostname for the Container Registry.
+
+        The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
         """
         return pulumi.get(self, "server")
 
@@ -507,6 +519,8 @@ class AppSecret(dict):
         """
         :param str name: The Secret name.
         :param str value: The value for this secret.
+               
+               !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -524,6 +538,8 @@ class AppSecret(dict):
     def value(self) -> str:
         """
         The value for this secret.
+
+        !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
         """
         return pulumi.get(self, "value")
 
@@ -656,14 +672,20 @@ class AppTemplateContainer(dict):
                  startup_probes: Optional[Sequence['outputs.AppTemplateContainerStartupProbe']] = None,
                  volume_mounts: Optional[Sequence['outputs.AppTemplateContainerVolumeMount']] = None):
         """
-        :param float cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+        :param float cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. 
+               
+               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         :param str image: The image to use to create the container.
-        :param str memory: The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+        :param str memory: The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`. 
+               
+               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         :param str name: The name of the container
         :param Sequence[str] args: A list of extra arguments to pass to the container.
         :param Sequence[str] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
         :param Sequence['AppTemplateContainerEnvArgs'] envs: One or more `env` blocks as detailed below.
-        :param str ephemeral_storage: The amount of ephemeral storage available to the Container App.
+        :param str ephemeral_storage: The amount of ephemeral storage available to the Container App. 
+               
+               > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
         :param Sequence['AppTemplateContainerLivenessProbeArgs'] liveness_probes: A `liveness_probe` block as detailed below.
         :param Sequence['AppTemplateContainerReadinessProbeArgs'] readiness_probes: A `readiness_probe` block as detailed below.
         :param Sequence['AppTemplateContainerStartupProbeArgs'] startup_probes: A `startup_probe` block as detailed below.
@@ -694,7 +716,9 @@ class AppTemplateContainer(dict):
     @pulumi.getter
     def cpu(self) -> float:
         """
-        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. 
+
+        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         """
         return pulumi.get(self, "cpu")
 
@@ -710,7 +734,9 @@ class AppTemplateContainer(dict):
     @pulumi.getter
     def memory(self) -> str:
         """
-        The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+        The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`. 
+
+        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         """
         return pulumi.get(self, "memory")
 
@@ -750,7 +776,9 @@ class AppTemplateContainer(dict):
     @pulumi.getter(name="ephemeralStorage")
     def ephemeral_storage(self) -> Optional[str]:
         """
-        The amount of ephemeral storage available to the Container App.
+        The amount of ephemeral storage available to the Container App. 
+
+        > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
         """
         return pulumi.get(self, "ephemeral_storage")
 
@@ -814,6 +842,8 @@ class AppTemplateContainerEnv(dict):
         :param str name: The name of the environment variable for the container.
         :param str secret_name: The name of the secret that contains the value for this environment variable.
         :param str value: The value for this environment variable.
+               
+               > **NOTE:** This value is ignored if `secret_name` is used
         """
         pulumi.set(__self__, "name", name)
         if secret_name is not None:
@@ -842,6 +872,8 @@ class AppTemplateContainerEnv(dict):
     def value(self) -> Optional[str]:
         """
         The value for this environment variable.
+
+        > **NOTE:** This value is ignored if `secret_name` is used
         """
         return pulumi.get(self, "value")
 

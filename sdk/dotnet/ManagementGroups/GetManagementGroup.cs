@@ -82,6 +82,8 @@ namespace Pulumi.Azure.ManagementGroups
     {
         /// <summary>
         /// Specifies the display name of this Management Group.
+        /// 
+        /// &gt; **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
         /// </summary>
         [Input("displayName")]
         public string? DisplayName { get; set; }
@@ -102,6 +104,8 @@ namespace Pulumi.Azure.ManagementGroups
     {
         /// <summary>
         /// Specifies the display name of this Management Group.
+        /// 
+        /// &gt; **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

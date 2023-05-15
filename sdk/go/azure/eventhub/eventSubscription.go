@@ -90,6 +90,8 @@ type EventSubscription struct {
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint EventSubscriptionAzureFunctionEndpointPtrOutput `pulumi:"azureFunctionEndpoint"`
 	// A `deadLetterIdentity` block as defined below.
+	//
+	// > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
 	DeadLetterIdentity EventSubscriptionDeadLetterIdentityPtrOutput `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity EventSubscriptionDeliveryIdentityPtrOutput `pulumi:"deliveryIdentity"`
@@ -124,6 +126,8 @@ type EventSubscription struct {
 	// A `subjectFilter` block as defined below.
 	SubjectFilter EventSubscriptionSubjectFilterPtrOutput `pulumi:"subjectFilter"`
 	// A `webhookEndpoint` block as defined below.
+	//
+	// > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrOutput `pulumi:"webhookEndpoint"`
 }
 
@@ -166,6 +170,8 @@ type eventSubscriptionState struct {
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint *EventSubscriptionAzureFunctionEndpoint `pulumi:"azureFunctionEndpoint"`
 	// A `deadLetterIdentity` block as defined below.
+	//
+	// > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
 	DeadLetterIdentity *EventSubscriptionDeadLetterIdentity `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity *EventSubscriptionDeliveryIdentity `pulumi:"deliveryIdentity"`
@@ -200,6 +206,8 @@ type eventSubscriptionState struct {
 	// A `subjectFilter` block as defined below.
 	SubjectFilter *EventSubscriptionSubjectFilter `pulumi:"subjectFilter"`
 	// A `webhookEndpoint` block as defined below.
+	//
+	// > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
 	WebhookEndpoint *EventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
 }
 
@@ -211,6 +219,8 @@ type EventSubscriptionState struct {
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint EventSubscriptionAzureFunctionEndpointPtrInput
 	// A `deadLetterIdentity` block as defined below.
+	//
+	// > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
 	DeadLetterIdentity EventSubscriptionDeadLetterIdentityPtrInput
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity EventSubscriptionDeliveryIdentityPtrInput
@@ -245,6 +255,8 @@ type EventSubscriptionState struct {
 	// A `subjectFilter` block as defined below.
 	SubjectFilter EventSubscriptionSubjectFilterPtrInput
 	// A `webhookEndpoint` block as defined below.
+	//
+	// > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrInput
 }
 
@@ -260,6 +272,8 @@ type eventSubscriptionArgs struct {
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint *EventSubscriptionAzureFunctionEndpoint `pulumi:"azureFunctionEndpoint"`
 	// A `deadLetterIdentity` block as defined below.
+	//
+	// > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
 	DeadLetterIdentity *EventSubscriptionDeadLetterIdentity `pulumi:"deadLetterIdentity"`
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity *EventSubscriptionDeliveryIdentity `pulumi:"deliveryIdentity"`
@@ -294,6 +308,8 @@ type eventSubscriptionArgs struct {
 	// A `subjectFilter` block as defined below.
 	SubjectFilter *EventSubscriptionSubjectFilter `pulumi:"subjectFilter"`
 	// A `webhookEndpoint` block as defined below.
+	//
+	// > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
 	WebhookEndpoint *EventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
 }
 
@@ -306,6 +322,8 @@ type EventSubscriptionArgs struct {
 	// An `azureFunctionEndpoint` block as defined below.
 	AzureFunctionEndpoint EventSubscriptionAzureFunctionEndpointPtrInput
 	// A `deadLetterIdentity` block as defined below.
+	//
+	// > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
 	DeadLetterIdentity EventSubscriptionDeadLetterIdentityPtrInput
 	// A `deliveryIdentity` block as defined below.
 	DeliveryIdentity EventSubscriptionDeliveryIdentityPtrInput
@@ -340,6 +358,8 @@ type EventSubscriptionArgs struct {
 	// A `subjectFilter` block as defined below.
 	SubjectFilter EventSubscriptionSubjectFilterPtrInput
 	// A `webhookEndpoint` block as defined below.
+	//
+	// > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrInput
 }
 
@@ -448,6 +468,8 @@ func (o EventSubscriptionOutput) AzureFunctionEndpoint() EventSubscriptionAzureF
 }
 
 // A `deadLetterIdentity` block as defined below.
+//
+// > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
 func (o EventSubscriptionOutput) DeadLetterIdentity() EventSubscriptionDeadLetterIdentityPtrOutput {
 	return o.ApplyT(func(v *EventSubscription) EventSubscriptionDeadLetterIdentityPtrOutput { return v.DeadLetterIdentity }).(EventSubscriptionDeadLetterIdentityPtrOutput)
 }
@@ -537,6 +559,8 @@ func (o EventSubscriptionOutput) SubjectFilter() EventSubscriptionSubjectFilterP
 }
 
 // A `webhookEndpoint` block as defined below.
+//
+// > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
 func (o EventSubscriptionOutput) WebhookEndpoint() EventSubscriptionWebhookEndpointPtrOutput {
 	return o.ApplyT(func(v *EventSubscription) EventSubscriptionWebhookEndpointPtrOutput { return v.WebhookEndpoint }).(EventSubscriptionWebhookEndpointPtrOutput)
 }

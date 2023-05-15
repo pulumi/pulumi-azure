@@ -74,6 +74,8 @@ export class DatasetCosmosDBApi extends pulumi.CustomResource {
 
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported arguments are specific to Azure Cosmos DB SQL API Dataset:
      */
     public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -166,6 +168,8 @@ export class DatasetCosmosDBApi extends pulumi.CustomResource {
 export interface DatasetCosmosDBApiState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported arguments are specific to Azure Cosmos DB SQL API Dataset:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -212,6 +216,8 @@ export interface DatasetCosmosDBApiState {
 export interface DatasetCosmosDBApiArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported arguments are specific to Azure Cosmos DB SQL API Dataset:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

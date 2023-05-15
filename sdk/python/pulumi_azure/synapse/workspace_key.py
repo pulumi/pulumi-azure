@@ -21,6 +21,8 @@ class WorkspaceKeyArgs:
         """
         The set of arguments for constructing a WorkspaceKey resource.
         :param pulumi.Input[bool] active: Specifies if the workspace should be encrypted with this key.
+               
+               > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
         :param pulumi.Input[str] customer_managed_key_name: Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the encryption key should be configured.
         :param pulumi.Input[str] customer_managed_key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
@@ -36,6 +38,8 @@ class WorkspaceKeyArgs:
     def active(self) -> pulumi.Input[bool]:
         """
         Specifies if the workspace should be encrypted with this key.
+
+        > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
         """
         return pulumi.get(self, "active")
 
@@ -90,6 +94,8 @@ class _WorkspaceKeyState:
         """
         Input properties used for looking up and filtering WorkspaceKey resources.
         :param pulumi.Input[bool] active: Specifies if the workspace should be encrypted with this key.
+               
+               > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
         :param pulumi.Input[str] customer_managed_key_name: Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
         :param pulumi.Input[str] customer_managed_key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the encryption key should be configured.
@@ -108,6 +114,8 @@ class _WorkspaceKeyState:
     def active(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies if the workspace should be encrypted with this key.
+
+        > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
         """
         return pulumi.get(self, "active")
 
@@ -253,6 +261,8 @@ class WorkspaceKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Specifies if the workspace should be encrypted with this key.
+               
+               > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
         :param pulumi.Input[str] customer_managed_key_name: Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
         :param pulumi.Input[str] customer_managed_key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the encryption key should be configured.
@@ -411,6 +421,8 @@ class WorkspaceKey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active: Specifies if the workspace should be encrypted with this key.
+               
+               > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
         :param pulumi.Input[str] customer_managed_key_name: Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
         :param pulumi.Input[str] customer_managed_key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the encryption key should be configured.
@@ -430,6 +442,8 @@ class WorkspaceKey(pulumi.CustomResource):
     def active(self) -> pulumi.Output[bool]:
         """
         Specifies if the workspace should be encrypted with this key.
+
+        > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
         """
         return pulumi.get(self, "active")
 

@@ -83,8 +83,12 @@ type Queue struct {
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
 	EnableBatchedOperations pulumi.BoolPtrOutput `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+	//
+	// > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enableExpress` MUST be set to `false`.
 	EnableExpress pulumi.BoolPtrOutput `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+	//
+	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrOutput `pulumi:"forwardDeadLetteredMessagesTo"`
@@ -155,8 +159,12 @@ type queueState struct {
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+	//
+	// > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enableExpress` MUST be set to `false`.
 	EnableExpress *bool `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+	//
+	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
@@ -196,8 +204,12 @@ type QueueState struct {
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
 	EnableBatchedOperations pulumi.BoolPtrInput
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+	//
+	// > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enableExpress` MUST be set to `false`.
 	EnableExpress pulumi.BoolPtrInput
 	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+	//
+	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning pulumi.BoolPtrInput
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
@@ -241,8 +253,12 @@ type queueArgs struct {
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+	//
+	// > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enableExpress` MUST be set to `false`.
 	EnableExpress *bool `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+	//
+	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
@@ -281,8 +297,12 @@ type QueueArgs struct {
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
 	EnableBatchedOperations pulumi.BoolPtrInput
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+	//
+	// > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enableExpress` MUST be set to `false`.
 	EnableExpress pulumi.BoolPtrInput
 	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+	//
+	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	EnablePartitioning pulumi.BoolPtrInput
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
@@ -421,11 +441,15 @@ func (o QueueOutput) EnableBatchedOperations() pulumi.BoolPtrOutput {
 }
 
 // Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+//
+// > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enableExpress` MUST be set to `false`.
 func (o QueueOutput) EnableExpress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.EnableExpress }).(pulumi.BoolPtrOutput)
 }
 
 // Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+//
+// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 func (o QueueOutput) EnablePartitioning() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.EnablePartitioning }).(pulumi.BoolPtrOutput)
 }

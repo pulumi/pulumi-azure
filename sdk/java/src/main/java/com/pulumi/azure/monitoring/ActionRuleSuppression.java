@@ -20,6 +20,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a Monitor Action Rule which type is suppression.
+ * 
+ * !&gt; **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.monitoring.AlertProcessingRuleSuppression` resource instead.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

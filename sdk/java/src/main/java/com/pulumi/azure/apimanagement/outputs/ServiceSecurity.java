@@ -14,85 +14,119 @@ public final class ServiceSecurity {
     /**
      * @return Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
+     * 
      */
     private @Nullable Boolean enableBackendSsl30;
     /**
      * @return Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
      * 
      */
     private @Nullable Boolean enableBackendTls10;
     /**
      * @return Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
+     * 
      */
     private @Nullable Boolean enableBackendTls11;
     /**
      * @return Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
      * 
      */
     private @Nullable Boolean enableFrontendSsl30;
     /**
      * @return Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
+     * 
      */
     private @Nullable Boolean enableFrontendTls10;
     /**
      * @return Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
      * 
      */
     private @Nullable Boolean enableFrontendTls11;
     /**
      * @return Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
+     * 
      */
     private @Nullable Boolean tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled;
     /**
      * @return Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
      * 
      */
     private @Nullable Boolean tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled;
     /**
      * @return Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
+     * 
      */
     private @Nullable Boolean tlsEcdheRsaWithAes128CbcShaCiphersEnabled;
     /**
      * @return Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
      * 
      */
     private @Nullable Boolean tlsEcdheRsaWithAes256CbcShaCiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
+     * 
      */
     private @Nullable Boolean tlsRsaWithAes128CbcSha256CiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
      * 
      */
     private @Nullable Boolean tlsRsaWithAes128CbcShaCiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
+     * 
      */
     private @Nullable Boolean tlsRsaWithAes128GcmSha256CiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
      * 
      */
     private @Nullable Boolean tlsRsaWithAes256CbcSha256CiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
+     * 
      */
     private @Nullable Boolean tlsRsaWithAes256CbcShaCiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
+     * 
      */
     private @Nullable Boolean tlsRsaWithAes256GcmSha384CiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
      * 
      */
     private @Nullable Boolean tripleDesCiphersEnabled;
@@ -101,12 +135,16 @@ public final class ServiceSecurity {
     /**
      * @return Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
+     * 
      */
     public Optional<Boolean> enableBackendSsl30() {
         return Optional.ofNullable(this.enableBackendSsl30);
     }
     /**
      * @return Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
      * 
      */
     public Optional<Boolean> enableBackendTls10() {
@@ -115,12 +153,16 @@ public final class ServiceSecurity {
     /**
      * @return Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
+     * 
      */
     public Optional<Boolean> enableBackendTls11() {
         return Optional.ofNullable(this.enableBackendTls11);
     }
     /**
      * @return Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
      * 
      */
     public Optional<Boolean> enableFrontendSsl30() {
@@ -129,12 +171,16 @@ public final class ServiceSecurity {
     /**
      * @return Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
+     * 
      */
     public Optional<Boolean> enableFrontendTls10() {
         return Optional.ofNullable(this.enableFrontendTls10);
     }
     /**
      * @return Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
      * 
      */
     public Optional<Boolean> enableFrontendTls11() {
@@ -143,12 +189,16 @@ public final class ServiceSecurity {
     /**
      * @return Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
+     * 
      */
     public Optional<Boolean> tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled() {
         return Optional.ofNullable(this.tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled);
     }
     /**
      * @return Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
      * 
      */
     public Optional<Boolean> tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled() {
@@ -157,12 +207,16 @@ public final class ServiceSecurity {
     /**
      * @return Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
+     * 
      */
     public Optional<Boolean> tlsEcdheRsaWithAes128CbcShaCiphersEnabled() {
         return Optional.ofNullable(this.tlsEcdheRsaWithAes128CbcShaCiphersEnabled);
     }
     /**
      * @return Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
      * 
      */
     public Optional<Boolean> tlsEcdheRsaWithAes256CbcShaCiphersEnabled() {
@@ -171,12 +225,16 @@ public final class ServiceSecurity {
     /**
      * @return Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
+     * 
      */
     public Optional<Boolean> tlsRsaWithAes128CbcSha256CiphersEnabled() {
         return Optional.ofNullable(this.tlsRsaWithAes128CbcSha256CiphersEnabled);
     }
     /**
      * @return Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
      * 
      */
     public Optional<Boolean> tlsRsaWithAes128CbcShaCiphersEnabled() {
@@ -185,12 +243,16 @@ public final class ServiceSecurity {
     /**
      * @return Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
+     * 
      */
     public Optional<Boolean> tlsRsaWithAes128GcmSha256CiphersEnabled() {
         return Optional.ofNullable(this.tlsRsaWithAes128GcmSha256CiphersEnabled);
     }
     /**
      * @return Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
      * 
      */
     public Optional<Boolean> tlsRsaWithAes256CbcSha256CiphersEnabled() {
@@ -199,6 +261,8 @@ public final class ServiceSecurity {
     /**
      * @return Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
+     * 
      */
     public Optional<Boolean> tlsRsaWithAes256CbcShaCiphersEnabled() {
         return Optional.ofNullable(this.tlsRsaWithAes256CbcShaCiphersEnabled);
@@ -206,12 +270,16 @@ public final class ServiceSecurity {
     /**
      * @return Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
      * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
+     * 
      */
     public Optional<Boolean> tlsRsaWithAes256GcmSha384CiphersEnabled() {
         return Optional.ofNullable(this.tlsRsaWithAes256GcmSha384CiphersEnabled);
     }
     /**
      * @return Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
+     * 
+     * &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
      * 
      */
     public Optional<Boolean> tripleDesCiphersEnabled() {

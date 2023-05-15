@@ -115,10 +115,15 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     public readonly additionalCapabilities!: pulumi.Output<outputs.compute.LinuxVirtualMachineAdditionalCapabilities | undefined>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     public readonly adminPassword!: pulumi.Output<string | undefined>;
     /**
      * One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     public readonly adminSshKeys!: pulumi.Output<outputs.compute.LinuxVirtualMachineAdminSshKey[] | undefined>;
     /**
@@ -139,6 +144,8 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     public readonly bootDiagnostics!: pulumi.Output<outputs.compute.LinuxVirtualMachineBootDiagnostics | undefined>;
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+     *
+     * > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
      */
     public readonly capacityReservationGroupId!: pulumi.Output<string | undefined>;
     /**
@@ -159,6 +166,10 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     public readonly dedicatedHostId!: pulumi.Output<string | undefined>;
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+     *
+     * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     *
+     * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
     public readonly disablePasswordAuthentication!: pulumi.Output<boolean | undefined>;
     /**
@@ -171,6 +182,8 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -195,6 +208,8 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     public readonly location!: pulumi.Output<string>;
     /**
      * The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+     *
+     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
     public readonly maxBidPrice!: pulumi.Output<number | undefined>;
     /**
@@ -211,10 +226,14 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     public readonly osDisk!: pulumi.Output<outputs.compute.LinuxVirtualMachineOsDisk>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     *
+     * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      */
     public readonly patchAssessmentMode!: pulumi.Output<string | undefined>;
     /**
      * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     *
+     * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
      */
     public readonly patchMode!: pulumi.Output<string | undefined>;
     /**
@@ -239,6 +258,8 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     public /*out*/ readonly privateIpAddresses!: pulumi.Output<string[]>;
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
      */
     public readonly provisionVmAgent!: pulumi.Output<boolean | undefined>;
     /**
@@ -271,10 +292,14 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     public readonly size!: pulumi.Output<string>;
     /**
      * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     *
+     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     public readonly sourceImageId!: pulumi.Output<string | undefined>;
     /**
      * A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     public readonly sourceImageReference!: pulumi.Output<outputs.compute.LinuxVirtualMachineSourceImageReference | undefined>;
     /**
@@ -295,6 +320,8 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     public /*out*/ readonly virtualMachineId!: pulumi.Output<string>;
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      */
     public readonly virtualMachineScaleSetId!: pulumi.Output<string | undefined>;
     /**
@@ -452,10 +479,15 @@ export interface LinuxVirtualMachineState {
     additionalCapabilities?: pulumi.Input<inputs.compute.LinuxVirtualMachineAdditionalCapabilities>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     adminPassword?: pulumi.Input<string>;
     /**
      * One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineAdminSshKey>[]>;
     /**
@@ -476,6 +508,8 @@ export interface LinuxVirtualMachineState {
     bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineBootDiagnostics>;
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+     *
+     * > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
      */
     capacityReservationGroupId?: pulumi.Input<string>;
     /**
@@ -496,6 +530,10 @@ export interface LinuxVirtualMachineState {
     dedicatedHostId?: pulumi.Input<string>;
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+     *
+     * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     *
+     * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
     disablePasswordAuthentication?: pulumi.Input<boolean>;
     /**
@@ -508,6 +546,8 @@ export interface LinuxVirtualMachineState {
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
@@ -532,6 +572,8 @@ export interface LinuxVirtualMachineState {
     location?: pulumi.Input<string>;
     /**
      * The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+     *
+     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
     maxBidPrice?: pulumi.Input<number>;
     /**
@@ -548,10 +590,14 @@ export interface LinuxVirtualMachineState {
     osDisk?: pulumi.Input<inputs.compute.LinuxVirtualMachineOsDisk>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     *
+     * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      */
     patchAssessmentMode?: pulumi.Input<string>;
     /**
      * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     *
+     * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
      */
     patchMode?: pulumi.Input<string>;
     /**
@@ -576,6 +622,8 @@ export interface LinuxVirtualMachineState {
     privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
      */
     provisionVmAgent?: pulumi.Input<boolean>;
     /**
@@ -608,10 +656,14 @@ export interface LinuxVirtualMachineState {
     size?: pulumi.Input<string>;
     /**
      * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     *
+     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     sourceImageId?: pulumi.Input<string>;
     /**
      * A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     sourceImageReference?: pulumi.Input<inputs.compute.LinuxVirtualMachineSourceImageReference>;
     /**
@@ -632,6 +684,8 @@ export interface LinuxVirtualMachineState {
     virtualMachineId?: pulumi.Input<string>;
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      */
     virtualMachineScaleSetId?: pulumi.Input<string>;
     /**
@@ -654,10 +708,15 @@ export interface LinuxVirtualMachineArgs {
     additionalCapabilities?: pulumi.Input<inputs.compute.LinuxVirtualMachineAdditionalCapabilities>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
+     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     adminPassword?: pulumi.Input<string>;
     /**
      * One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineAdminSshKey>[]>;
     /**
@@ -678,6 +737,8 @@ export interface LinuxVirtualMachineArgs {
     bootDiagnostics?: pulumi.Input<inputs.compute.LinuxVirtualMachineBootDiagnostics>;
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+     *
+     * > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
      */
     capacityReservationGroupId?: pulumi.Input<string>;
     /**
@@ -698,6 +759,10 @@ export interface LinuxVirtualMachineArgs {
     dedicatedHostId?: pulumi.Input<string>;
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+     *
+     * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     *
+     * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
     disablePasswordAuthentication?: pulumi.Input<boolean>;
     /**
@@ -710,6 +775,8 @@ export interface LinuxVirtualMachineArgs {
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
@@ -734,6 +801,8 @@ export interface LinuxVirtualMachineArgs {
     location?: pulumi.Input<string>;
     /**
      * The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+     *
+     * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
     maxBidPrice?: pulumi.Input<number>;
     /**
@@ -750,10 +819,14 @@ export interface LinuxVirtualMachineArgs {
     osDisk: pulumi.Input<inputs.compute.LinuxVirtualMachineOsDisk>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     *
+     * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      */
     patchAssessmentMode?: pulumi.Input<string>;
     /**
      * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     *
+     * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
      */
     patchMode?: pulumi.Input<string>;
     /**
@@ -770,6 +843,8 @@ export interface LinuxVirtualMachineArgs {
     priority?: pulumi.Input<string>;
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
      */
     provisionVmAgent?: pulumi.Input<boolean>;
     /**
@@ -794,10 +869,14 @@ export interface LinuxVirtualMachineArgs {
     size: pulumi.Input<string>;
     /**
      * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     *
+     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     sourceImageId?: pulumi.Input<string>;
     /**
      * A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
     sourceImageReference?: pulumi.Input<inputs.compute.LinuxVirtualMachineSourceImageReference>;
     /**
@@ -814,6 +893,8 @@ export interface LinuxVirtualMachineArgs {
     userData?: pulumi.Input<string>;
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      */
     virtualMachineScaleSetId?: pulumi.Input<string>;
     /**

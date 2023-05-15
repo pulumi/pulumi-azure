@@ -29,7 +29,11 @@ class EnvironmentArgs:
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
+               
+               > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE this size cannot be changed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+               
+               > **NOTE:** `allowed_user_ip_cidrs` The addresses that will be used for all outbound traffic from your App Service Environment to the internet to avoid asymmetric routing challenge. If you're routing the traffic on premises, these addresses are your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA. Please visit [Create your ASE with the egress addresses](https://docs.microsoft.com/azure/app-service/environment/forced-tunnel-support#add-your-own-ips-to-the-ase-azure-sql-firewall)
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentClusterSettingArgs']]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
@@ -71,6 +75,8 @@ class EnvironmentArgs:
     def subnet_id(self) -> pulumi.Input[str]:
         """
         The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
+
+        > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE this size cannot be changed.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -83,6 +89,8 @@ class EnvironmentArgs:
     def allowed_user_ip_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+
+        > **NOTE:** `allowed_user_ip_cidrs` The addresses that will be used for all outbound traffic from your App Service Environment to the internet to avoid asymmetric routing challenge. If you're routing the traffic on premises, these addresses are your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA. Please visit [Create your ASE with the egress addresses](https://docs.microsoft.com/azure/app-service/environment/forced-tunnel-support#add-your-own-ips-to-the-ase-azure-sql-firewall)
         """
         return pulumi.get(self, "allowed_user_ip_cidrs")
 
@@ -182,6 +190,8 @@ class _EnvironmentState:
         """
         Input properties used for looking up and filtering Environment resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+               
+               > **NOTE:** `allowed_user_ip_cidrs` The addresses that will be used for all outbound traffic from your App Service Environment to the internet to avoid asymmetric routing challenge. If you're routing the traffic on premises, these addresses are your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA. Please visit [Create your ASE with the egress addresses](https://docs.microsoft.com/azure/app-service/environment/forced-tunnel-support#add-your-own-ips-to-the-ase-azure-sql-firewall)
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentClusterSettingArgs']]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         :param pulumi.Input[str] internal_ip_address: IP address of internal load balancer of the App Service Environment.
@@ -193,6 +203,8 @@ class _EnvironmentState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         :param pulumi.Input[str] service_ip_address: IP address of service endpoint of the App Service Environment.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
+               
+               > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE this size cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         if allowed_user_ip_cidrs is not None:
@@ -227,6 +239,8 @@ class _EnvironmentState:
     def allowed_user_ip_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+
+        > **NOTE:** `allowed_user_ip_cidrs` The addresses that will be used for all outbound traffic from your App Service Environment to the internet to avoid asymmetric routing challenge. If you're routing the traffic on premises, these addresses are your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA. Please visit [Create your ASE with the egress addresses](https://docs.microsoft.com/azure/app-service/environment/forced-tunnel-support#add-your-own-ips-to-the-ase-azure-sql-firewall)
         """
         return pulumi.get(self, "allowed_user_ip_cidrs")
 
@@ -359,6 +373,8 @@ class _EnvironmentState:
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
+
+        > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE this size cannot be changed.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -443,6 +459,8 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+               
+               > **NOTE:** `allowed_user_ip_cidrs` The addresses that will be used for all outbound traffic from your App Service Environment to the internet to avoid asymmetric routing challenge. If you're routing the traffic on premises, these addresses are your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA. Please visit [Create your ASE with the egress addresses](https://docs.microsoft.com/azure/app-service/environment/forced-tunnel-support#add-your-own-ips-to-the-ase-azure-sql-firewall)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentClusterSettingArgs']]]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
@@ -450,6 +468,8 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
+               
+               > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE this size cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         ...
@@ -585,6 +605,8 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+               
+               > **NOTE:** `allowed_user_ip_cidrs` The addresses that will be used for all outbound traffic from your App Service Environment to the internet to avoid asymmetric routing challenge. If you're routing the traffic on premises, these addresses are your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA. Please visit [Create your ASE with the egress addresses](https://docs.microsoft.com/azure/app-service/environment/forced-tunnel-support#add-your-own-ips-to-the-ase-azure-sql-firewall)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentClusterSettingArgs']]]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         :param pulumi.Input[str] internal_ip_address: IP address of internal load balancer of the App Service Environment.
@@ -596,6 +618,8 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         :param pulumi.Input[str] service_ip_address: IP address of service endpoint of the App Service Environment.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
+               
+               > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE this size cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -622,6 +646,8 @@ class Environment(pulumi.CustomResource):
     def allowed_user_ip_cidrs(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
+
+        > **NOTE:** `allowed_user_ip_cidrs` The addresses that will be used for all outbound traffic from your App Service Environment to the internet to avoid asymmetric routing challenge. If you're routing the traffic on premises, these addresses are your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA. Please visit [Create your ASE with the egress addresses](https://docs.microsoft.com/azure/app-service/environment/forced-tunnel-support#add-your-own-ips-to-the-ase-azure-sql-firewall)
         """
         return pulumi.get(self, "allowed_user_ip_cidrs")
 
@@ -710,6 +736,8 @@ class Environment(pulumi.CustomResource):
     def subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
+
+        > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE this size cannot be changed.
         """
         return pulumi.get(self, "subnet_id")
 

@@ -56,6 +56,8 @@ type LookupSharedImageVersionArgs struct {
 	// The name of the Shared Image in which this Version exists.
 	ImageName string `pulumi:"imageName"`
 	// The name of the Image Version.
+	//
+	// > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
 	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Shared Image Gallery exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -109,6 +111,8 @@ type LookupSharedImageVersionOutputArgs struct {
 	// The name of the Shared Image in which this Version exists.
 	ImageName pulumi.StringInput `pulumi:"imageName"`
 	// The name of the Image Version.
+	//
+	// > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the Shared Image Gallery exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`

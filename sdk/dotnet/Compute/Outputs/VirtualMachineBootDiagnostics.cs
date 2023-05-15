@@ -19,6 +19,8 @@ namespace Pulumi.Azure.Compute.Outputs
         public readonly bool Enabled;
         /// <summary>
         /// The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files.
+        /// 
+        /// &gt; **NOTE:** This needs to be the root of a Storage Account and not a Storage Container.
         /// </summary>
         public readonly string StorageUri;
 

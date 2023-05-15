@@ -235,6 +235,8 @@ namespace Pulumi.Azure.Iot
 
         /// <summary>
         /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        /// 
+        /// &gt; **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         /// </summary>
         [Output("fallbackRoute")]
         public Output<Outputs.IoTHubFallbackRoute> FallbackRoute { get; private set; } = null!;
@@ -413,6 +415,8 @@ namespace Pulumi.Azure.Iot
 
         /// <summary>
         /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        /// 
+        /// &gt; **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         /// </summary>
         [Input("fallbackRoute")]
         public Input<Inputs.IoTHubFallbackRouteArgs>? FallbackRoute { get; set; }
@@ -583,6 +587,8 @@ namespace Pulumi.Azure.Iot
 
         /// <summary>
         /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        /// 
+        /// &gt; **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         /// </summary>
         [Input("fallbackRoute")]
         public Input<Inputs.IoTHubFallbackRouteGetArgs>? FallbackRoute { get; set; }

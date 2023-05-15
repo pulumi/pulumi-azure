@@ -104,12 +104,16 @@ public class AuthorizationRule extends com.pulumi.resources.CustomResource {
     /**
      * Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
      * 
+     * &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
+     * 
      */
     @Export(name="manage", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manage;
 
     /**
      * @return Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+     * 
+     * &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
      * 
      */
     public Output<Optional<Boolean>> manage() {

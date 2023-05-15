@@ -15,6 +15,8 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
      * 
+     * &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+     * 
      */
     private @Nullable String currentStack;
     /**
@@ -64,15 +66,21 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
      * 
+     * &gt; **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+     * 
      */
     private @Nullable String javaVersion;
     /**
      * @return The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
      * 
+     * &gt; **NOTE:** This property conflicts with `java_version`.
+     * 
      */
     private @Nullable String nodeVersion;
     /**
      * @return The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
+     * 
+     * &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
      * 
      */
     private @Nullable String phpVersion;
@@ -91,12 +99,16 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The version of Tomcat the Java App should use.
      * 
+     * &gt; **NOTE:** See the official documentation for current supported versions.
+     * 
      */
     private @Nullable String tomcatVersion;
 
     private WindowsWebAppSlotSiteConfigApplicationStack() {}
     /**
      * @return The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
+     * 
+     * &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
      * 
      */
     public Optional<String> currentStack() {
@@ -165,6 +177,8 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
      * 
+     * &gt; **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+     * 
      */
     public Optional<String> javaVersion() {
         return Optional.ofNullable(this.javaVersion);
@@ -172,12 +186,16 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
      * 
+     * &gt; **NOTE:** This property conflicts with `java_version`.
+     * 
      */
     public Optional<String> nodeVersion() {
         return Optional.ofNullable(this.nodeVersion);
     }
     /**
      * @return The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
+     * 
+     * &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
      * 
      */
     public Optional<String> phpVersion() {
@@ -201,6 +219,8 @@ public final class WindowsWebAppSlotSiteConfigApplicationStack {
     }
     /**
      * @return The version of Tomcat the Java App should use.
+     * 
+     * &gt; **NOTE:** See the official documentation for current supported versions.
      * 
      */
     public Optional<String> tomcatVersion() {

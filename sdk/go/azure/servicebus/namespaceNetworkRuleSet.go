@@ -111,6 +111,8 @@ type NamespaceNetworkRuleSet struct {
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules pulumi.StringArrayOutput `pulumi:"ipRules"`
 	// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
 	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules NamespaceNetworkRuleSetNetworkRuleArrayOutput `pulumi:"networkRules"`
@@ -157,6 +159,8 @@ type namespaceNetworkRuleSetState struct {
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules []string `pulumi:"ipRules"`
 	// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
 	NamespaceId *string `pulumi:"namespaceId"`
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules []NamespaceNetworkRuleSetNetworkRule `pulumi:"networkRules"`
@@ -172,6 +176,8 @@ type NamespaceNetworkRuleSetState struct {
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules pulumi.StringArrayInput
 	// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
 	NamespaceId pulumi.StringPtrInput
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules NamespaceNetworkRuleSetNetworkRuleArrayInput
@@ -191,6 +197,8 @@ type namespaceNetworkRuleSetArgs struct {
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules []string `pulumi:"ipRules"`
 	// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
 	NamespaceId string `pulumi:"namespaceId"`
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules []NamespaceNetworkRuleSetNetworkRule `pulumi:"networkRules"`
@@ -207,6 +215,8 @@ type NamespaceNetworkRuleSetArgs struct {
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules pulumi.StringArrayInput
 	// Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
 	NamespaceId pulumi.StringInput
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules NamespaceNetworkRuleSetNetworkRuleArrayInput
@@ -314,6 +324,8 @@ func (o NamespaceNetworkRuleSetOutput) IpRules() pulumi.StringArrayOutput {
 }
 
 // Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
 func (o NamespaceNetworkRuleSetOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NamespaceNetworkRuleSet) pulumi.StringOutput { return v.NamespaceId }).(pulumi.StringOutput)
 }

@@ -38,6 +38,8 @@ export function getPolicySetDefinition(args?: GetPolicySetDefinitionArgs, opts?:
 export interface GetPolicySetDefinitionArgs {
     /**
      * Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+     *
+     * **NOTE** As `displayName` is not unique errors may occur when there are multiple policy set definitions with same display name.
      */
     displayName?: string;
     /**
@@ -121,6 +123,8 @@ export function getPolicySetDefinitionOutput(args?: GetPolicySetDefinitionOutput
 export interface GetPolicySetDefinitionOutputArgs {
     /**
      * Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+     *
+     * **NOTE** As `displayName` is not unique errors may occur when there are multiple policy set definitions with same display name.
      */
     displayName?: pulumi.Input<string>;
     /**

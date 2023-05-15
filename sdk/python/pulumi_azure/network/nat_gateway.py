@@ -29,7 +29,9 @@ class NatGatewayArgs:
         :param pulumi.Input[str] name: Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+               
+               > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if idle_timeout_in_minutes is not None:
@@ -121,7 +123,9 @@ class NatGatewayArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+        A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+
+        > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
         """
         return pulumi.get(self, "zones")
 
@@ -150,7 +154,9 @@ class _NatGatewayState:
         :param pulumi.Input[str] resource_guid: The resource GUID property of the NAT Gateway.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+               
+               > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
         """
         if idle_timeout_in_minutes is not None:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
@@ -257,7 +263,9 @@ class _NatGatewayState:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+        A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+
+        > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
         """
         return pulumi.get(self, "zones")
 
@@ -324,7 +332,9 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+               
+               > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
         """
         ...
     @overload
@@ -442,7 +452,9 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[str] resource_guid: The resource GUID property of the NAT Gateway.
         :param pulumi.Input[str] sku_name: The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+               
+               > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -518,7 +530,9 @@ class NatGateway(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies a list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+        A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
+
+        > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
         """
         return pulumi.get(self, "zones")
 

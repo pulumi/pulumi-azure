@@ -73,6 +73,8 @@ export class DataConnectorMicrosoftThreatIntelligence extends pulumi.CustomResou
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
     /**
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+     *
+     * > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
      */
     public readonly microsoftEmergingThreatFeedLookbackDate!: pulumi.Output<string | undefined>;
     /**
@@ -81,6 +83,8 @@ export class DataConnectorMicrosoftThreatIntelligence extends pulumi.CustomResou
     public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+     *
+     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     public readonly tenantId!: pulumi.Output<string>;
 
@@ -132,6 +136,8 @@ export interface DataConnectorMicrosoftThreatIntelligenceState {
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+     *
+     * > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
      */
     microsoftEmergingThreatFeedLookbackDate?: pulumi.Input<string>;
     /**
@@ -140,6 +146,8 @@ export interface DataConnectorMicrosoftThreatIntelligenceState {
     name?: pulumi.Input<string>;
     /**
      * The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+     *
+     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
 }
@@ -158,6 +166,8 @@ export interface DataConnectorMicrosoftThreatIntelligenceArgs {
     logAnalyticsWorkspaceId: pulumi.Input<string>;
     /**
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+     *
+     * > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
      */
     microsoftEmergingThreatFeedLookbackDate?: pulumi.Input<string>;
     /**
@@ -166,6 +176,8 @@ export interface DataConnectorMicrosoftThreatIntelligenceArgs {
     name?: pulumi.Input<string>;
     /**
      * The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+     *
+     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
 }

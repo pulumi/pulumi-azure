@@ -37,7 +37,7 @@ namespace Pulumi.Azure.PrivateDns
     ///         },
     ///     });
     /// 
-    ///     var test = new Azure.PrivateDns.Resolver("test", new()
+    ///     var exampleResolver = new Azure.PrivateDns.Resolver("exampleResolver", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
@@ -46,8 +46,8 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
     ///     {
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///         VirtualNetworkName = azurerm_virtual_network.Test.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
     ///             "10.0.0.0/28",
@@ -71,8 +71,8 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     ///     var exampleResolverInboundEndpoint = new Azure.PrivateDns.ResolverInboundEndpoint("exampleResolverInboundEndpoint", new()
     ///     {
-    ///         PrivateDnsResolverId = azurerm_private_dns_resolver.Example.Id,
-    ///         Location = azurerm_private_dns_resolver.Example.Location,
+    ///         PrivateDnsResolverId = exampleResolver.Id,
+    ///         Location = exampleResolver.Location,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.PrivateDns.Inputs.ResolverInboundEndpointIpConfigurationArgs

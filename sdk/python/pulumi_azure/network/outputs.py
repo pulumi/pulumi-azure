@@ -1068,6 +1068,8 @@ class ApplicationGatewayHttpListener(dict):
         :param str frontend_port_id: The ID of the associated Frontend Port.
         :param str host_name: The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
         :param Sequence[str] host_names: A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+               
+               > **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
         :param str id: The ID of the Rewrite Rule Set
         :param bool require_sni: Should Server Name Indication be Required? Defaults to `false`.
         :param str ssl_certificate_id: The ID of the associated SSL Certificate.
@@ -1181,6 +1183,8 @@ class ApplicationGatewayHttpListener(dict):
     def host_names(self) -> Optional[Sequence[str]]:
         """
         A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+
+        > **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
         """
         return pulumi.get(self, "host_names")
 
@@ -1395,6 +1399,12 @@ class ApplicationGatewayPrivateLinkConfiguration(dict):
                  id: Optional[str] = None):
         """
         :param Sequence['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined below.
+               
+               > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+               
+               ```python
+               import pulumi
+               ```
         :param str name: The name of the private link configuration.
         :param str id: The ID of the Rewrite Rule Set
         """
@@ -1408,6 +1418,12 @@ class ApplicationGatewayPrivateLinkConfiguration(dict):
     def ip_configurations(self) -> Sequence['outputs.ApplicationGatewayPrivateLinkConfigurationIpConfiguration']:
         """
         One or more `ip_configuration` blocks as defined below.
+
+        > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "ip_configurations")
 
@@ -1920,10 +1936,14 @@ class ApplicationGatewayRequestRoutingRule(dict):
         :param str http_listener_id: The ID of the associated HTTP Listener.
         :param str id: The ID of the Rewrite Rule Set
         :param int priority: Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+               
+               > **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
         :param str redirect_configuration_id: The ID of the associated Redirect Configuration.
         :param str redirect_configuration_name: The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
         :param str rewrite_rule_set_id: The ID of the associated Rewrite Rule Set.
         :param str rewrite_rule_set_name: The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+               
+               > **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
         :param str url_path_map_id: The ID of the associated URL Path Map.
         :param str url_path_map_name: The Name of the URL Path Map which should be associated with this Routing Rule.
         """
@@ -2034,6 +2054,8 @@ class ApplicationGatewayRequestRoutingRule(dict):
     def priority(self) -> Optional[int]:
         """
         Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+
+        > **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
         """
         return pulumi.get(self, "priority")
 
@@ -2066,6 +2088,8 @@ class ApplicationGatewayRequestRoutingRule(dict):
     def rewrite_rule_set_name(self) -> Optional[str]:
         """
         The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+
+        > **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
         """
         return pulumi.get(self, "rewrite_rule_set_name")
 
@@ -2435,6 +2459,8 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleUrl(dict):
                  reroute: Optional[bool] = None):
         """
         :param str components: The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+               
+               > **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
         :param str path: The URL path to rewrite.
         :param str query_string: The query string to rewrite.
         :param bool reroute: Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
@@ -2453,6 +2479,8 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleUrl(dict):
     def components(self) -> Optional[str]:
         """
         The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+
+        > **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
         """
         return pulumi.get(self, "components")
 
@@ -2553,8 +2581,14 @@ class ApplicationGatewaySslCertificate(dict):
         """
         :param str name: The Name of the SSL certificate that is unique within this Application Gateway
         :param str data: The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
+               
+               > **NOTE:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
         :param str id: The ID of the Rewrite Rule Set
         :param str key_vault_secret_id: Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+               
+               > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+               
+               > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         :param str password: Password for the pfx file specified in data. Required if `data` is set.
         :param str public_cert_data: The Public Certificate Data associated with the SSL Certificate.
         """
@@ -2583,6 +2617,8 @@ class ApplicationGatewaySslCertificate(dict):
     def data(self) -> Optional[str]:
         """
         The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
+
+        > **NOTE:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
         """
         return pulumi.get(self, "data")
 
@@ -2599,6 +2635,10 @@ class ApplicationGatewaySslCertificate(dict):
     def key_vault_secret_id(self) -> Optional[str]:
         """
         Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+
+        > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+
+        > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -2655,9 +2695,13 @@ class ApplicationGatewaySslPolicy(dict):
         """
         :param Sequence[str] cipher_suites: A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
         :param Sequence[str] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+               
+               > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         :param str min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
         :param str policy_name: The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
         :param str policy_type: The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+               
+               > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
         """
         if cipher_suites is not None:
             pulumi.set(__self__, "cipher_suites", cipher_suites)
@@ -2683,6 +2727,8 @@ class ApplicationGatewaySslPolicy(dict):
     def disabled_protocols(self) -> Optional[Sequence[str]]:
         """
         A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+
+        > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         """
         return pulumi.get(self, "disabled_protocols")
 
@@ -2707,6 +2753,8 @@ class ApplicationGatewaySslPolicy(dict):
     def policy_type(self) -> Optional[str]:
         """
         The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+
+        > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
         """
         return pulumi.get(self, "policy_type")
 
@@ -2834,9 +2882,13 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
         """
         :param Sequence[str] cipher_suites: A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
         :param Sequence[str] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+               
+               > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         :param str min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
         :param str policy_name: The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
         :param str policy_type: The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+               
+               > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
         """
         if cipher_suites is not None:
             pulumi.set(__self__, "cipher_suites", cipher_suites)
@@ -2862,6 +2914,8 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
     def disabled_protocols(self) -> Optional[Sequence[str]]:
         """
         A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
+
+        > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         """
         return pulumi.get(self, "disabled_protocols")
 
@@ -2886,6 +2940,8 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
     def policy_type(self) -> Optional[str]:
         """
         The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
+
+        > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
         """
         return pulumi.get(self, "policy_type")
 
@@ -2960,6 +3016,10 @@ class ApplicationGatewayTrustedRootCertificate(dict):
         :param str data: The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
         :param str id: The ID of the Rewrite Rule Set
         :param str key_vault_secret_id: The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+               
+               > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+               
+               > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         """
         pulumi.set(__self__, "name", name)
         if data is not None:
@@ -2998,6 +3058,10 @@ class ApplicationGatewayTrustedRootCertificate(dict):
     def key_vault_secret_id(self) -> Optional[str]:
         """
         The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
+
+        > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+
+        > **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -3058,6 +3122,8 @@ class ApplicationGatewayUrlPathMap(dict):
         :param str default_backend_http_settings_name: The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
         :param str default_redirect_configuration_id: The ID of the Default Redirect Configuration.
         :param str default_redirect_configuration_name: The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
+               
+               > **NOTE:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
         :param str default_rewrite_rule_set_name: The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
         :param str id: The ID of the Rewrite Rule Set
         """
@@ -3143,6 +3209,8 @@ class ApplicationGatewayUrlPathMap(dict):
     def default_redirect_configuration_name(self) -> Optional[str]:
         """
         The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
+
+        > **NOTE:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
         """
         return pulumi.get(self, "default_redirect_configuration_name")
 
@@ -3636,6 +3704,8 @@ class ExpressRouteCircuitPeeringIpv6(dict):
         :param bool enabled: A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
         :param 'ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs' microsoft_peering: A `microsoft_peering` block as defined below.
         :param str route_filter_id: The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+               
+               > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         """
         pulumi.set(__self__, "primary_peer_address_prefix", primary_peer_address_prefix)
         pulumi.set(__self__, "secondary_peer_address_prefix", secondary_peer_address_prefix)
@@ -3683,6 +3753,8 @@ class ExpressRouteCircuitPeeringIpv6(dict):
     def route_filter_id(self) -> Optional[str]:
         """
         The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+
+        > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         """
         return pulumi.get(self, "route_filter_id")
 
@@ -3849,6 +3921,8 @@ class ExpressRouteCircuitSku(dict):
                  tier: str):
         """
         :param str family: The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+               
+               > **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
         :param str tier: The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
         """
         pulumi.set(__self__, "family", family)
@@ -3859,6 +3933,8 @@ class ExpressRouteCircuitSku(dict):
     def family(self) -> str:
         """
         The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+
+        > **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
         """
         return pulumi.get(self, "family")
 
@@ -4095,6 +4171,8 @@ class ExpressRoutePortLink1(dict):
         :param str id: The ID of this Express Route Port Link.
         :param str interface_name: The interface name of the Azure router associated with the Express Route Port Link.
         :param str macsec_cak_keyvault_secret_id: The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+               
+               > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         :param str macsec_cipher: The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
         :param str macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
         :param str patch_panel_id: The ID that maps from the Express Route Port Link to the patch panel port.
@@ -4159,6 +4237,8 @@ class ExpressRoutePortLink1(dict):
     def macsec_cak_keyvault_secret_id(self) -> Optional[str]:
         """
         The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+
+        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         """
         return pulumi.get(self, "macsec_cak_keyvault_secret_id")
 
@@ -4255,6 +4335,8 @@ class ExpressRoutePortLink2(dict):
         :param str id: The ID of this Express Route Port Link.
         :param str interface_name: The interface name of the Azure router associated with the Express Route Port Link.
         :param str macsec_cak_keyvault_secret_id: The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+               
+               > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         :param str macsec_cipher: The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
         :param str macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
         :param str patch_panel_id: The ID that maps from the Express Route Port Link to the patch panel port.
@@ -4319,6 +4401,8 @@ class ExpressRoutePortLink2(dict):
     def macsec_cak_keyvault_secret_id(self) -> Optional[str]:
         """
         The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+
+        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         """
         return pulumi.get(self, "macsec_cak_keyvault_secret_id")
 
@@ -4403,6 +4487,8 @@ class FirewallApplicationRuleCollectionRule(dict):
         :param Sequence['FirewallApplicationRuleCollectionRuleProtocolArgs'] protocols: One or more `protocol` blocks as defined below.
         :param Sequence[str] source_addresses: A list of source IP addresses and/or IP ranges.
         :param Sequence[str] source_ip_groups: A list of source IP Group IDs for the rule.
+               
+               > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         :param Sequence[str] target_fqdns: A list of FQDNs.
         """
         pulumi.set(__self__, "name", name)
@@ -4464,6 +4550,8 @@ class FirewallApplicationRuleCollectionRule(dict):
     def source_ip_groups(self) -> Optional[Sequence[str]]:
         """
         A list of source IP Group IDs for the rule.
+
+        > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         return pulumi.get(self, "source_ip_groups")
 
@@ -4535,9 +4623,12 @@ class FirewallIpConfiguration(dict):
                  subnet_id: Optional[str] = None):
         """
         :param str name: Specifies the name of the IP Configuration.
-        :param str public_ip_address_id: The ID of the Public IP Address associated with the firewall.
         :param str private_ip_address: The private IP address associated with the Firewall.
         :param str subnet_id: Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+               
+               > **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+               
+               > **NOTE** At least one and only one `ip_configuration` block may contain a `subnet_id`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
@@ -4557,9 +4648,6 @@ class FirewallIpConfiguration(dict):
     @property
     @pulumi.getter(name="publicIpAddressId")
     def public_ip_address_id(self) -> str:
-        """
-        The ID of the Public IP Address associated with the firewall.
-        """
         return pulumi.get(self, "public_ip_address_id")
 
     @property
@@ -4575,6 +4663,10 @@ class FirewallIpConfiguration(dict):
     def subnet_id(self) -> Optional[str]:
         """
         Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+
+        > **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+
+        > **NOTE** At least one and only one `ip_configuration` block may contain a `subnet_id`.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -4610,7 +4702,11 @@ class FirewallManagementIpConfiguration(dict):
         """
         :param str name: Specifies the name of the IP Configuration.
         :param str public_ip_address_id: The ID of the Public IP Address associated with the firewall.
+               
+               > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
         :param str subnet_id: Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+               
+               > **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
         :param str private_ip_address: The private IP address associated with the Firewall.
         """
         pulumi.set(__self__, "name", name)
@@ -4632,6 +4728,8 @@ class FirewallManagementIpConfiguration(dict):
     def public_ip_address_id(self) -> str:
         """
         The ID of the Public IP Address associated with the firewall.
+
+        > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
         """
         return pulumi.get(self, "public_ip_address_id")
 
@@ -4640,6 +4738,8 @@ class FirewallManagementIpConfiguration(dict):
     def subnet_id(self) -> str:
         """
         Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+
+        > **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -4701,6 +4801,8 @@ class FirewallNatRuleCollectionRule(dict):
         :param str description: Specifies a description for the rule.
         :param Sequence[str] source_addresses: A list of source IP addresses and/or IP ranges.
         :param Sequence[str] source_ip_groups: A list of source IP Group IDs for the rule.
+               
+               > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         pulumi.set(__self__, "destination_addresses", destination_addresses)
         pulumi.set(__self__, "destination_ports", destination_ports)
@@ -4784,6 +4886,8 @@ class FirewallNatRuleCollectionRule(dict):
     def source_ip_groups(self) -> Optional[Sequence[str]]:
         """
         A list of source IP Group IDs for the rule.
+
+        > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         return pulumi.get(self, "source_ip_groups")
 
@@ -4834,9 +4938,15 @@ class FirewallNetworkRuleCollectionRule(dict):
         :param str description: Specifies a description for the rule.
         :param Sequence[str] destination_addresses: Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
         :param Sequence[str] destination_fqdns: A list of destination FQDNS for the rule.
+               
+               > **NOTE** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
+               
+               > **NOTE** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
         :param Sequence[str] destination_ip_groups: A list of destination IP Group IDs for the rule.
         :param Sequence[str] source_addresses: A list of source IP addresses and/or IP ranges.
         :param Sequence[str] source_ip_groups: A list of IP Group IDs for the rule.
+               
+               > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         pulumi.set(__self__, "destination_ports", destination_ports)
         pulumi.set(__self__, "name", name)
@@ -4899,6 +5009,10 @@ class FirewallNetworkRuleCollectionRule(dict):
     def destination_fqdns(self) -> Optional[Sequence[str]]:
         """
         A list of destination FQDNS for the rule.
+
+        > **NOTE** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
+
+        > **NOTE** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
         """
         return pulumi.get(self, "destination_fqdns")
 
@@ -4923,6 +5037,8 @@ class FirewallNetworkRuleCollectionRule(dict):
     def source_ip_groups(self) -> Optional[Sequence[str]]:
         """
         A list of IP Group IDs for the rule.
+
+        > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         return pulumi.get(self, "source_ip_groups")
 
@@ -5829,6 +5945,8 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
         :param Sequence[str] source_ip_groups: Specifies a list of source IP groups.
         :param str translated_address: Specifies the translated address.
         :param str translated_fqdn: Specifies the translated FQDN.
+               
+               > **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocols", protocols)
@@ -5915,6 +6033,8 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
     def translated_fqdn(self) -> Optional[str]:
         """
         Specifies the translated FQDN.
+
+        > **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
         """
         return pulumi.get(self, "translated_fqdn")
 
@@ -7046,12 +7166,16 @@ class NetworkInterfaceIpConfiguration(dict):
         """
         :param str name: A name used for this IP Configuration.
         :param str private_ip_address_allocation: The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+               
+               > **Note:** `Dynamic` means "An IP is automatically assigned during creation of this Network Interface"; `Static` means "User supplied IP address will be used"
         :param str gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         :param bool primary: Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
         :param str private_ip_address: The Static IP Address which should be used.
         :param str private_ip_address_version: The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
         :param str public_ip_address_id: Reference to a Public IP Address to associate with this NIC
         :param str subnet_id: The ID of the Subnet where this Network Interface should be located in.
+               
+               > **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_ip_address_allocation", private_ip_address_allocation)
@@ -7081,6 +7205,8 @@ class NetworkInterfaceIpConfiguration(dict):
     def private_ip_address_allocation(self) -> str:
         """
         The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+
+        > **Note:** `Dynamic` means "An IP is automatically assigned during creation of this Network Interface"; `Static` means "User supplied IP address will be used"
         """
         return pulumi.get(self, "private_ip_address_allocation")
 
@@ -7129,6 +7255,8 @@ class NetworkInterfaceIpConfiguration(dict):
     def subnet_id(self) -> Optional[str]:
         """
         The ID of the Subnet where this Network Interface should be located in.
+
+        > **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -7263,6 +7391,8 @@ class NetworkManagerConnectivityConfigurationAppliesToGroup(dict):
         :param str group_connectivity: Specifies the group connectivity type. Possible values are `None` and `DirectlyConnected`.
         :param str network_group_id: Specifies the resource ID of Network Group which the configuration applies to.
         :param bool global_mesh_enabled: Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
+               
+               > **NOTE:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
         :param bool use_hub_gateway: Indicates whether the hub gateway is used. Possible values are `true` and `false`.
         """
         pulumi.set(__self__, "group_connectivity", group_connectivity)
@@ -7293,6 +7423,8 @@ class NetworkManagerConnectivityConfigurationAppliesToGroup(dict):
     def global_mesh_enabled(self) -> Optional[bool]:
         """
         Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
+
+        > **NOTE:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
         """
         return pulumi.get(self, "global_mesh_enabled")
 
@@ -7584,6 +7716,8 @@ class NetworkPacketCaptureStorageLocation(dict):
         """
         :param str file_path: A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
         :param str storage_account_id: The ID of the storage account to save the packet capture session
+               
+               > **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
         :param str storage_path: The URI of the storage path to save the packet capture.
         """
         if file_path is not None:
@@ -7606,6 +7740,8 @@ class NetworkPacketCaptureStorageLocation(dict):
     def storage_account_id(self) -> Optional[str]:
         """
         The ID of the storage account to save the packet capture session
+
+        > **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -8702,6 +8838,8 @@ class SubnetDelegationServiceDelegation(dict):
         """
         :param str name: The name of service to delegate to. Possible values are `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.LabServices/labplans`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `Microsoft.Orbital/orbitalGateways`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
         :param Sequence[str] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+               
+               > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
         """
         pulumi.set(__self__, "name", name)
         if actions is not None:
@@ -8720,6 +8858,8 @@ class SubnetDelegationServiceDelegation(dict):
     def actions(self) -> Optional[Sequence[str]]:
         """
         A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+
+        > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
         """
         return pulumi.get(self, "actions")
 
@@ -9453,6 +9593,8 @@ class VirtualHubRouteTableRoute(dict):
         :param str name: The name which should be used for this route.
         :param str next_hop: The next hop's resource ID.
         :param str next_hop_type: The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+               
+               > **Note:** The Routes can alternatively be created using the virtual_hub_route_table_route resource. Using both inline and external routes is not supported and may result in unexpected configuration.
         """
         pulumi.set(__self__, "destinations", destinations)
         pulumi.set(__self__, "destinations_type", destinations_type)
@@ -9498,6 +9640,8 @@ class VirtualHubRouteTableRoute(dict):
     def next_hop_type(self) -> Optional[str]:
         """
         The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+
+        > **Note:** The Routes can alternatively be created using the virtual_hub_route_table_route resource. Using both inline and external routes is not supported and may result in unexpected configuration.
         """
         return pulumi.get(self, "next_hop_type")
 
@@ -9625,6 +9769,8 @@ class VirtualNetworkGatewayBgpSettingsPeeringAddress(dict):
                  tunnel_ip_addresses: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] apipa_addresses: A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+               
+               > **Note:** The valid range for the reserved APIPA address in Azure Public is from `169.254.21.0` to `169.254.22.255`.
         :param Sequence[str] default_addresses: A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
         :param str ip_configuration_name: The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
         :param Sequence[str] tunnel_ip_addresses: A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
@@ -9643,6 +9789,8 @@ class VirtualNetworkGatewayBgpSettingsPeeringAddress(dict):
     def apipa_addresses(self) -> Optional[Sequence[str]]:
         """
         A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
+
+        > **Note:** The valid range for the reserved APIPA address in Azure Public is from `169.254.21.0` to `169.254.22.255`.
         """
         return pulumi.get(self, "apipa_addresses")
 
@@ -10148,6 +10296,8 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         :param Sequence['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs'] root_certificates: One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
         :param Sequence[str] vpn_auth_types: List of the vpn authentication types for the virtual network gateway.
                The supported values are `AAD`, `Radius` and `Certificate`.
+               
+               > **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
         :param Sequence[str] vpn_client_protocols: List of the protocols supported by the vpn client.
                The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
                Values `SSTP` and `IkeV2` are incompatible with the use of
@@ -10244,6 +10394,8 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         """
         List of the vpn authentication types for the virtual network gateway.
         The supported values are `AAD`, `Radius` and `Certificate`.
+
+        > **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
         """
         return pulumi.get(self, "vpn_auth_types")
 
@@ -11810,9 +11962,13 @@ class VpnSiteLink(dict):
         """
         :param str name: The name which should be used for this VPN Site Link.
         :param 'VpnSiteLinkBgpArgs' bgp: A `bgp` block as defined above.
+               
+               > **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
         :param str fqdn: The FQDN of this VPN Site Link.
         :param str id: The ID of the VPN Site Link.
         :param str ip_address: The IP address of this VPN Site Link.
+               
+               > **NOTE:** Either `fqdn` or `ip_address` should be specified.
         :param str provider_name: The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
         :param int speed_in_mbps: The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
         """
@@ -11843,6 +11999,8 @@ class VpnSiteLink(dict):
     def bgp(self) -> Optional['outputs.VpnSiteLinkBgp']:
         """
         A `bgp` block as defined above.
+
+        > **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
         """
         return pulumi.get(self, "bgp")
 
@@ -11867,6 +12025,8 @@ class VpnSiteLink(dict):
     def ip_address(self) -> Optional[str]:
         """
         The IP address of this VPN Site Link.
+
+        > **NOTE:** Either `fqdn` or `ip_address` should be specified.
         """
         return pulumi.get(self, "ip_address")
 

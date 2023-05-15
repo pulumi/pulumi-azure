@@ -45,6 +45,8 @@ export class LinkedServiceAzureSearch extends pulumi.CustomResource {
 
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to Azure Search Linked Service:
      */
     public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -140,6 +142,8 @@ export class LinkedServiceAzureSearch extends pulumi.CustomResource {
 export interface LinkedServiceAzureSearchState {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to Azure Search Linked Service:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -186,6 +190,8 @@ export interface LinkedServiceAzureSearchState {
 export interface LinkedServiceAzureSearchArgs {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to Azure Search Linked Service:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

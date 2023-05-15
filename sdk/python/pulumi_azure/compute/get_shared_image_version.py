@@ -202,6 +202,8 @@ def get_shared_image_version(gallery_name: Optional[str] = None,
     :param str gallery_name: The name of the Shared Image Gallery in which the Shared Image exists.
     :param str image_name: The name of the Shared Image in which this Version exists.
     :param str name: The name of the Image Version.
+           
+           > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
     :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
     :param bool sort_versions_by_semver: Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
     """
@@ -256,6 +258,8 @@ def get_shared_image_version_output(gallery_name: Optional[pulumi.Input[str]] = 
     :param str gallery_name: The name of the Shared Image Gallery in which the Shared Image exists.
     :param str image_name: The name of the Shared Image in which this Version exists.
     :param str name: The name of the Image Version.
+           
+           > **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
     :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
     :param bool sort_versions_by_semver: Sort available versions taking SemVer versioning scheme into account. Defaults to `false`.
     """

@@ -54,6 +54,10 @@ import java.util.concurrent.CompletableFuture;
 
 public final class AppserviceFunctions {
     /**
+     * Use this data source to access information about an existing App Service.
+     * 
+     * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -91,6 +95,10 @@ public final class AppserviceFunctions {
         return getAppService(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing App Service.
+     * 
+     * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -128,6 +136,10 @@ public final class AppserviceFunctions {
         return getAppServicePlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing App Service.
+     * 
+     * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -165,6 +177,10 @@ public final class AppserviceFunctions {
         return Deployment.getInstance().invoke("azure:appservice/getAppService:getAppService", TypeShape.of(GetAppServiceResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing App Service.
+     * 
+     * !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -358,6 +374,10 @@ public final class AppserviceFunctions {
         return Deployment.getInstance().invokeAsync("azure:appservice/getAppServiceEnvironment:getAppServiceEnvironment", TypeShape.of(GetAppServiceEnvironmentResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
+     * 
+     * !&gt; **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -395,6 +415,10 @@ public final class AppserviceFunctions {
         return getAppServicePlan(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
+     * 
+     * !&gt; **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -432,6 +456,10 @@ public final class AppserviceFunctions {
         return getAppServicePlanPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
+     * 
+     * !&gt; **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -469,6 +497,10 @@ public final class AppserviceFunctions {
         return Deployment.getInstance().invoke("azure:appservice/getAppServicePlan:getAppServicePlan", TypeShape.of(GetAppServicePlanResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
+     * 
+     * !&gt; **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -974,6 +1006,10 @@ public final class AppserviceFunctions {
         return Deployment.getInstance().invokeAsync("azure:appservice/getEnvironmentV3:getEnvironmentV3", TypeShape.of(GetEnvironmentV3Result.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about a Function App.
+     * 
+     * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -1010,6 +1046,10 @@ public final class AppserviceFunctions {
         return getFunctionApp(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about a Function App.
+     * 
+     * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -1046,6 +1086,10 @@ public final class AppserviceFunctions {
         return getFunctionAppPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about a Function App.
+     * 
+     * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -1082,6 +1126,10 @@ public final class AppserviceFunctions {
         return Deployment.getInstance().invoke("azure:appservice/getFunctionApp:getFunctionApp", TypeShape.of(GetFunctionAppResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about a Function App.
+     * 
+     * !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;

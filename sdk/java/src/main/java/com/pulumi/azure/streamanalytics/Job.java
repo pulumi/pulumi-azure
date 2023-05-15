@@ -86,12 +86,16 @@ public class Job extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
      * 
+     * &gt; **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
+     * 
      */
     @Export(name="compatibilityLevel", refs={String.class}, tree="[0]")
     private Output<String> compatibilityLevel;
 
     /**
      * @return Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+     * 
+     * &gt; **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
      * 
      */
     public Output<String> compatibilityLevel() {
@@ -282,12 +286,16 @@ public class Job extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      * 
+     * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
+     * 
      */
     @Export(name="streamingUnits", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> streamingUnits;
 
     /**
      * @return Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+     * 
+     * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
      * 
      */
     public Output<Optional<Integer>> streamingUnits() {
@@ -324,12 +332,16 @@ public class Job extends com.pulumi.resources.CustomResource {
     /**
      * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `Edge` doesn&#39;t support `stream_analytics_cluster_id` and `streaming_units`.
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
      * @return The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `Edge` doesn&#39;t support `stream_analytics_cluster_id` and `streaming_units`.
      * 
      */
     public Output<Optional<String>> type() {

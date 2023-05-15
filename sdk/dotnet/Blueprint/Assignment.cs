@@ -181,12 +181,16 @@ namespace Pulumi.Azure.Blueprint
 
         /// <summary>
         /// a JSON string to supply Blueprint Assignment parameter values.
+        /// 
+        /// &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         /// </summary>
         [Output("parameterValues")]
         public Output<string?> ParameterValues { get; private set; } = null!;
 
         /// <summary>
         /// a JSON string to supply the Blueprint Resource Group information.
+        /// 
+        /// &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         /// </summary>
         [Output("resourceGroups")]
         public Output<string?> ResourceGroups { get; private set; } = null!;
@@ -305,12 +309,16 @@ namespace Pulumi.Azure.Blueprint
 
         /// <summary>
         /// a JSON string to supply Blueprint Assignment parameter values.
+        /// 
+        /// &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         /// </summary>
         [Input("parameterValues")]
         public Input<string>? ParameterValues { get; set; }
 
         /// <summary>
         /// a JSON string to supply the Blueprint Resource Group information.
+        /// 
+        /// &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         /// </summary>
         [Input("resourceGroups")]
         public Input<string>? ResourceGroups { get; set; }
@@ -403,12 +411,16 @@ namespace Pulumi.Azure.Blueprint
 
         /// <summary>
         /// a JSON string to supply Blueprint Assignment parameter values.
+        /// 
+        /// &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         /// </summary>
         [Input("parameterValues")]
         public Input<string>? ParameterValues { get; set; }
 
         /// <summary>
         /// a JSON string to supply the Blueprint Resource Group information.
+        /// 
+        /// &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         /// </summary>
         [Input("resourceGroups")]
         public Input<string>? ResourceGroups { get; set; }

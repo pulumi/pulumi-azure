@@ -51,6 +51,8 @@ namespace Pulumi.Azure.AppService
     {
         /// <summary>
         /// The ID of the App Service Environment to create this Service Plan in.
+        /// 
+        /// &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
         /// </summary>
         [Output("appServiceEnvironmentId")]
         public Output<string?> AppServiceEnvironmentId { get; private set; } = null!;
@@ -105,6 +107,10 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+        /// 
+        /// &gt; **NOTE:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I2v2`, and `I3v2`) can only be used with App Service Environments
+        /// 
+        /// &gt; **NOTE:** Elastic and Consumption SKUs (`Y1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -123,6 +129,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         /// </summary>
         [Output("zoneBalancingEnabled")]
         public Output<bool?> ZoneBalancingEnabled { get; private set; } = null!;
@@ -175,6 +183,8 @@ namespace Pulumi.Azure.AppService
     {
         /// <summary>
         /// The ID of the App Service Environment to create this Service Plan in.
+        /// 
+        /// &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
         /// </summary>
         [Input("appServiceEnvironmentId")]
         public Input<string>? AppServiceEnvironmentId { get; set; }
@@ -217,6 +227,10 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+        /// 
+        /// &gt; **NOTE:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I2v2`, and `I3v2`) can only be used with App Service Environments
+        /// 
+        /// &gt; **NOTE:** Elastic and Consumption SKUs (`Y1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -241,6 +255,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         /// </summary>
         [Input("zoneBalancingEnabled")]
         public Input<bool>? ZoneBalancingEnabled { get; set; }
@@ -255,6 +271,8 @@ namespace Pulumi.Azure.AppService
     {
         /// <summary>
         /// The ID of the App Service Environment to create this Service Plan in.
+        /// 
+        /// &gt; **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `azure.appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `azure.appservice.EnvironmentV3`
         /// </summary>
         [Input("appServiceEnvironmentId")]
         public Input<string>? AppServiceEnvironmentId { get; set; }
@@ -309,6 +327,10 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+        /// 
+        /// &gt; **NOTE:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I2v2`, and `I3v2`) can only be used with App Service Environments
+        /// 
+        /// &gt; **NOTE:** Elastic and Consumption SKUs (`Y1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -333,6 +355,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         /// </summary>
         [Input("zoneBalancingEnabled")]
         public Input<bool>? ZoneBalancingEnabled { get; set; }

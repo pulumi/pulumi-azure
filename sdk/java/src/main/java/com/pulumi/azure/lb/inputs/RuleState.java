@@ -21,12 +21,16 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
      * 
+     * &gt; **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+     * 
      */
     @Import(name="backendAddressPoolIds")
     private @Nullable Output<List<String>> backendAddressPoolIds;
 
     /**
      * @return A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+     * 
+     * &gt; **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
      * 
      */
     public Optional<Output<List<String>>> backendAddressPoolIds() {
@@ -260,6 +264,8 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param backendAddressPoolIds A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
          * 
+         * &gt; **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+         * 
          * @return builder
          * 
          */
@@ -271,6 +277,8 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param backendAddressPoolIds A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
          * 
+         * &gt; **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+         * 
          * @return builder
          * 
          */
@@ -280,6 +288,8 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param backendAddressPoolIds A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+         * 
+         * &gt; **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
          * 
          * @return builder
          * 

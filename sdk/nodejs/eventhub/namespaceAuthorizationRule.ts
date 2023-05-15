@@ -83,6 +83,8 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** At least one of the 3 permissions below needs to be set.
      */
     public readonly namespaceId!: pulumi.Output<string>;
     /**
@@ -183,6 +185,8 @@ export interface NamespaceAuthorizationRuleState {
     name?: pulumi.Input<string>;
     /**
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** At least one of the 3 permissions below needs to be set.
      */
     namespaceId?: pulumi.Input<string>;
     /**
@@ -233,6 +237,8 @@ export interface NamespaceAuthorizationRuleArgs {
     name?: pulumi.Input<string>;
     /**
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** At least one of the 3 permissions below needs to be set.
      */
     namespaceId: pulumi.Input<string>;
     /**

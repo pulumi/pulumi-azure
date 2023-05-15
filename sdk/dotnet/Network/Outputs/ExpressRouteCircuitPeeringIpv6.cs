@@ -27,6 +27,8 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly string PrimaryPeerAddressPrefix;
         /// <summary>
         /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// 
+        /// &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         /// </summary>
         public readonly string? RouteFilterId;
         /// <summary>

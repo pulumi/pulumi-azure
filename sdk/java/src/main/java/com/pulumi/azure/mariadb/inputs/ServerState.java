@@ -231,12 +231,16 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      * 
+     * &gt; **NOTE:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
+     * 
      */
     @Import(name="sslEnforcementEnabled")
     private @Nullable Output<Boolean> sslEnforcementEnabled;
 
     /**
      * @return Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+     * 
+     * &gt; **NOTE:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
      * 
      */
     public Optional<Output<Boolean>> sslEnforcementEnabled() {
@@ -642,6 +646,8 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sslEnforcementEnabled Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
          * 
+         * &gt; **NOTE:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
+         * 
          * @return builder
          * 
          */
@@ -652,6 +658,8 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param sslEnforcementEnabled Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+         * 
+         * &gt; **NOTE:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
          * 
          * @return builder
          * 

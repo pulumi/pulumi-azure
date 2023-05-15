@@ -133,6 +133,8 @@ namespace Pulumi.Azure.NetApp
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -320,6 +322,8 @@ namespace Pulumi.Azure.NetApp
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -484,6 +488,8 @@ namespace Pulumi.Azure.NetApp
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
         /// </summary>
         public InputMap<string> Tags
         {

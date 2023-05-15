@@ -99,12 +99,16 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      * 
+     * &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
+     * 
      */
     @Export(name="licenseType", refs={String.class}, tree="[0]")
     private Output<String> licenseType;
 
     /**
      * @return Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+     * 
+     * &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
      * 
      */
     public Output<String> licenseType() {
@@ -141,12 +145,16 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
      * 
+     * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+     * 
      */
     @Export(name="maxSizeBytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxSizeBytes;
 
     /**
      * @return The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+     * 
+     * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
      * 
      */
     public Output<Integer> maxSizeBytes() {

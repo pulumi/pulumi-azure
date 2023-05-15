@@ -127,12 +127,16 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
     /**
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * 
      */
     @Export(name="namespaceId", refs={String.class}, tree="[0]")
     private Output<String> namespaceId;
 
     /**
      * @return Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
      * 
      */
     public Output<String> namespaceId() {

@@ -2168,7 +2168,6 @@ class DatasetParquetHttpServerLocationArgs:
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] path: The folder path to the file on the web server.
-               ---
         """
         pulumi.set(__self__, "filename", filename)
         pulumi.set(__self__, "relative_url", relative_url)
@@ -2232,7 +2231,6 @@ class DatasetParquetHttpServerLocationArgs:
     def path(self) -> Optional[pulumi.Input[str]]:
         """
         The folder path to the file on the web server.
-        ---
         """
         return pulumi.get(self, "path")
 
@@ -2487,6 +2485,8 @@ class FactoryGithubConfigurationArgs:
         :param pulumi.Input[str] git_url: Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
         :param pulumi.Input[str] repository_name: Specifies the name of the git repository.
         :param pulumi.Input[str] root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
+               
+               > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "branch_name", branch_name)
@@ -2547,6 +2547,8 @@ class FactoryGithubConfigurationArgs:
     def root_folder(self) -> pulumi.Input[str]:
         """
         Specifies the root folder within the repository. Set to `/` for the top level.
+
+        > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
         """
         return pulumi.get(self, "root_folder")
 
@@ -2565,6 +2567,8 @@ class FactoryGlobalParameterArgs:
         :param pulumi.Input[str] name: Specifies the global parameter name.
         :param pulumi.Input[str] type: Specifies the global parameter type. Possible Values are `Array`, `Bool`, `Float`, `Int`, `Object` or `String`.
         :param pulumi.Input[str] value: Specifies the global parameter value.
+               
+               > **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -2599,6 +2603,8 @@ class FactoryGlobalParameterArgs:
     def value(self) -> pulumi.Input[str]:
         """
         Specifies the global parameter value.
+
+        > **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
         """
         return pulumi.get(self, "value")
 
@@ -2617,6 +2623,8 @@ class FactoryIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: Specifies the Tenant ID associated with the VSTS account.
         """
@@ -2645,6 +2653,8 @@ class FactoryIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -3788,6 +3798,10 @@ class IntegrationRuntimeSelfHostedRbacAuthorizationArgs:
                  resource_id: pulumi.Input[str]):
         """
         :param pulumi.Input[str] resource_id: The resource identifier of the integration runtime to be shared.
+               
+               > **Please Note**: RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resource_id](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory.
+               
+               For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
         """
         pulumi.set(__self__, "resource_id", resource_id)
 
@@ -3796,6 +3810,10 @@ class IntegrationRuntimeSelfHostedRbacAuthorizationArgs:
     def resource_id(self) -> pulumi.Input[str]:
         """
         The resource identifier of the integration runtime to be shared.
+
+        > **Please Note**: RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resource_id](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory.
+
+        For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
         """
         return pulumi.get(self, "resource_id")
 
@@ -3955,6 +3973,8 @@ class IntegrationRuntimeSsisExpressCustomSetupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]] components: One or more `component` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: The Environment Variables for the Azure-SSIS Integration Runtime.
         :param pulumi.Input[str] powershell_version: The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+               
+               > **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
         """
         if command_keys is not None:
             pulumi.set(__self__, "command_keys", command_keys)
@@ -4006,6 +4026,8 @@ class IntegrationRuntimeSsisExpressCustomSetupArgs:
     def powershell_version(self) -> Optional[pulumi.Input[str]]:
         """
         The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+
+        > **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
         """
         return pulumi.get(self, "powershell_version")
 
@@ -4397,6 +4419,8 @@ class IntegrationRuntimeSsisVnetIntegrationArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ips: Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
         :param pulumi.Input[str] subnet_id: id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+               
+               > **NOTE** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
         :param pulumi.Input[str] subnet_name: Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
         :param pulumi.Input[str] vnet_id: ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
         """
@@ -4426,6 +4450,8 @@ class IntegrationRuntimeSsisVnetIntegrationArgs:
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
         id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+
+        > **NOTE** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
         """
         return pulumi.get(self, "subnet_id")
 

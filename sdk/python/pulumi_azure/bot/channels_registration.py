@@ -37,6 +37,10 @@ class ChannelsRegistrationArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cmk_key_vault_url: The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+               
+               > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `keyvault.KeyVault` resource while using `cmk_key_vault_url`.
+               
+               > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
         :param pulumi.Input[str] description: The description of the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights Application ID to associate with the Bot Channels Registration.
@@ -45,6 +49,8 @@ class ChannelsRegistrationArgs:
         :param pulumi.Input[str] endpoint: The Bot Channels Registration endpoint.
         :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration.
         :param pulumi.Input[bool] isolated_network_enabled: Is the Bot Channels Registration in an isolated network?
+               
+               > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[bool] public_network_access_enabled: Is the Bot Channels Registration in an isolated network?
@@ -127,6 +133,10 @@ class ChannelsRegistrationArgs:
     def cmk_key_vault_url(self) -> Optional[pulumi.Input[str]]:
         """
         The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+
+        > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `keyvault.KeyVault` resource while using `cmk_key_vault_url`.
+
+        > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
         """
         return pulumi.get(self, "cmk_key_vault_url")
 
@@ -223,6 +233,8 @@ class ChannelsRegistrationArgs:
     def isolated_network_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Is the Bot Channels Registration in an isolated network?
+
+        > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "isolated_network_enabled")
 
@@ -314,6 +326,10 @@ class _ChannelsRegistrationState:
         """
         Input properties used for looking up and filtering ChannelsRegistration resources.
         :param pulumi.Input[str] cmk_key_vault_url: The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+               
+               > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `keyvault.KeyVault` resource while using `cmk_key_vault_url`.
+               
+               > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
         :param pulumi.Input[str] description: The description of the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights Application ID to associate with the Bot Channels Registration.
@@ -322,6 +338,8 @@ class _ChannelsRegistrationState:
         :param pulumi.Input[str] endpoint: The Bot Channels Registration endpoint.
         :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration.
         :param pulumi.Input[bool] isolated_network_enabled: Is the Bot Channels Registration in an isolated network?
+               
+               > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
@@ -374,6 +392,10 @@ class _ChannelsRegistrationState:
     def cmk_key_vault_url(self) -> Optional[pulumi.Input[str]]:
         """
         The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+
+        > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `keyvault.KeyVault` resource while using `cmk_key_vault_url`.
+
+        > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
         """
         return pulumi.get(self, "cmk_key_vault_url")
 
@@ -470,6 +492,8 @@ class _ChannelsRegistrationState:
     def isolated_network_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Is the Bot Channels Registration in an isolated network?
+
+        > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "isolated_network_enabled")
 
@@ -626,6 +650,10 @@ class ChannelsRegistration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cmk_key_vault_url: The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+               
+               > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `keyvault.KeyVault` resource while using `cmk_key_vault_url`.
+               
+               > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
         :param pulumi.Input[str] description: The description of the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights Application ID to associate with the Bot Channels Registration.
@@ -634,6 +662,8 @@ class ChannelsRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: The Bot Channels Registration endpoint.
         :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration.
         :param pulumi.Input[bool] isolated_network_enabled: Is the Bot Channels Registration in an isolated network?
+               
+               > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
@@ -779,6 +809,10 @@ class ChannelsRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cmk_key_vault_url: The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+               
+               > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `keyvault.KeyVault` resource while using `cmk_key_vault_url`.
+               
+               > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
         :param pulumi.Input[str] description: The description of the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights API Key to associate with the Bot Channels Registration.
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights Application ID to associate with the Bot Channels Registration.
@@ -787,6 +821,8 @@ class ChannelsRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: The Bot Channels Registration endpoint.
         :param pulumi.Input[str] icon_url: The icon URL to visually identify the Bot Channels Registration.
         :param pulumi.Input[bool] isolated_network_enabled: Is the Bot Channels Registration in an isolated network?
+               
+               > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
@@ -824,6 +860,10 @@ class ChannelsRegistration(pulumi.CustomResource):
     def cmk_key_vault_url(self) -> pulumi.Output[Optional[str]]:
         """
         The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
+
+        > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `keyvault.KeyVault` resource while using `cmk_key_vault_url`.
+
+        > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
         """
         return pulumi.get(self, "cmk_key_vault_url")
 
@@ -888,6 +928,8 @@ class ChannelsRegistration(pulumi.CustomResource):
     def isolated_network_enabled(self) -> pulumi.Output[bool]:
         """
         Is the Bot Channels Registration in an isolated network?
+
+        > **NOTE:** `isolated_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "isolated_network_enabled")
 

@@ -87,12 +87,16 @@ public class Configuration extends com.pulumi.resources.CustomResource {
     /**
      * An `install_patches` block as defined below.
      * 
+     * &gt; **NOTE:** `install_patches` must be specified when `scope` is `InGuestPatch`.
+     * 
      */
     @Export(name="installPatches", refs={ConfigurationInstallPatches.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationInstallPatches> installPatches;
 
     /**
      * @return An `install_patches` block as defined below.
+     * 
+     * &gt; **NOTE:** `install_patches` must be specified when `scope` is `InGuestPatch`.
      * 
      */
     public Output<Optional<ConfigurationInstallPatches>> installPatches() {

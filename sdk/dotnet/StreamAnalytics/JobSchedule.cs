@@ -141,6 +141,8 @@ namespace Pulumi.Azure.StreamAnalytics
 
         /// <summary>
         /// The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+        /// 
+        /// &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
         /// </summary>
         [Output("startMode")]
         public Output<string> StartMode { get; private set; } = null!;
@@ -205,6 +207,8 @@ namespace Pulumi.Azure.StreamAnalytics
     {
         /// <summary>
         /// The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+        /// 
+        /// &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
         /// </summary>
         [Input("startMode", required: true)]
         public Input<string> StartMode { get; set; } = null!;
@@ -237,6 +241,8 @@ namespace Pulumi.Azure.StreamAnalytics
 
         /// <summary>
         /// The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+        /// 
+        /// &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
         /// </summary>
         [Input("startMode")]
         public Input<string>? StartMode { get; set; }

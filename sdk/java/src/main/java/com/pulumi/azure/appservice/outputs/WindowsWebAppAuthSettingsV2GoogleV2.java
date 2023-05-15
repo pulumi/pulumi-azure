@@ -14,6 +14,10 @@ public final class WindowsWebAppAuthSettingsV2GoogleV2 {
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
      */
     private @Nullable List<String> allowedAudiences;
     /**
@@ -24,10 +28,22 @@ public final class WindowsWebAppAuthSettingsV2GoogleV2 {
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
      */
     private String clientSecretSettingName;
     /**
      * @return A list of Login Scopes provided by this Authentication Provider.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     private @Nullable List<String> loginScopes;
@@ -35,6 +51,10 @@ public final class WindowsWebAppAuthSettingsV2GoogleV2 {
     private WindowsWebAppAuthSettingsV2GoogleV2() {}
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+     * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     public List<String> allowedAudiences() {
@@ -50,12 +70,24 @@ public final class WindowsWebAppAuthSettingsV2GoogleV2 {
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
      */
     public String clientSecretSettingName() {
         return this.clientSecretSettingName;
     }
     /**
      * @return A list of Login Scopes provided by this Authentication Provider.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     public List<String> loginScopes() {

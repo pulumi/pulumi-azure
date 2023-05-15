@@ -30,9 +30,6 @@ namespace Pulumi.Azure.NetApp.Inputs
         [Input("remoteVolumeResourceId", required: true)]
         public Input<string> RemoteVolumeResourceId { get; set; } = null!;
 
-        /// <summary>
-        /// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
-        /// </summary>
         [Input("replicationFrequency", required: true)]
         public Input<string> ReplicationFrequency { get; set; } = null!;
 

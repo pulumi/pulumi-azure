@@ -107,6 +107,8 @@ type Secret struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret.
+	//
+	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
 	Value pulumi.StringOutput `pulumi:"value"`
 	// The current version of the Key Vault Secret.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -173,6 +175,8 @@ type secretState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret.
+	//
+	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
 	Value *string `pulumi:"value"`
 	// The current version of the Key Vault Secret.
 	Version *string `pulumi:"version"`
@@ -198,6 +202,8 @@ type SecretState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the value of the Key Vault Secret.
+	//
+	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
 	Value pulumi.StringPtrInput
 	// The current version of the Key Vault Secret.
 	Version pulumi.StringPtrInput
@@ -223,6 +229,8 @@ type secretArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the value of the Key Vault Secret.
+	//
+	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
 	Value string `pulumi:"value"`
 }
 
@@ -241,6 +249,8 @@ type SecretArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the value of the Key Vault Secret.
+	//
+	// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
 	Value pulumi.StringInput
 }
 
@@ -372,6 +382,8 @@ func (o SecretOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Specifies the value of the Key Vault Secret.
+//
+// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
 func (o SecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

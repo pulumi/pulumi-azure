@@ -96,12 +96,16 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
     /**
      * A list of database resources to link with this database with a maximum of 5.
      * 
+     * &gt; **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+     * 
      */
     @Import(name="linkedDatabaseIds")
     private @Nullable Output<List<String>> linkedDatabaseIds;
 
     /**
      * @return A list of database resources to link with this database with a maximum of 5.
+     * 
+     * &gt; **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
      * 
      */
     public Optional<Output<List<String>>> linkedDatabaseIds() {
@@ -111,12 +115,16 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
     /**
      * A `module` block as defined below. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
+     * 
      */
     @Import(name="modules")
     private @Nullable Output<List<EnterpriseDatabaseModuleArgs>> modules;
 
     /**
      * @return A `module` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
      * 
      */
     public Optional<Output<List<EnterpriseDatabaseModuleArgs>>> modules() {
@@ -317,6 +325,8 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
         /**
          * @param linkedDatabaseIds A list of database resources to link with this database with a maximum of 5.
          * 
+         * &gt; **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+         * 
          * @return builder
          * 
          */
@@ -328,6 +338,8 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
         /**
          * @param linkedDatabaseIds A list of database resources to link with this database with a maximum of 5.
          * 
+         * &gt; **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+         * 
          * @return builder
          * 
          */
@@ -338,6 +350,8 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
         /**
          * @param linkedDatabaseIds A list of database resources to link with this database with a maximum of 5.
          * 
+         * &gt; **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
+         * 
          * @return builder
          * 
          */
@@ -347,6 +361,8 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param modules A `module` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
          * 
          * @return builder
          * 
@@ -359,6 +375,8 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
         /**
          * @param modules A `module` block as defined below. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
+         * 
          * @return builder
          * 
          */
@@ -368,6 +386,8 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param modules A `module` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Only RediSearch module is allowed with geo-replication
          * 
          * @return builder
          * 

@@ -46,6 +46,8 @@ class InsightsArgs:
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource.
+               
+               > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
         """
         pulumi.set(__self__, "application_type", application_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -249,6 +251,8 @@ class InsightsArgs:
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the id of a log analytics workspace resource.
+
+        > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
         """
         return pulumi.get(self, "workspace_id")
 
@@ -298,6 +302,8 @@ class _InsightsState:
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource.
+               
+               > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -545,6 +551,8 @@ class _InsightsState:
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the id of a log analytics workspace resource.
+
+        > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
         """
         return pulumi.get(self, "workspace_id")
 
@@ -637,6 +645,8 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource.
+               
+               > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
         """
         ...
     @overload
@@ -806,6 +816,8 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] workspace_id: Specifies the id of a log analytics workspace resource.
+               
+               > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -972,6 +984,8 @@ class Insights(pulumi.CustomResource):
     def workspace_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the id of a log analytics workspace resource.
+
+        > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
         """
         return pulumi.get(self, "workspace_id")
 

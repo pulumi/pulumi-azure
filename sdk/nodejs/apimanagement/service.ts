@@ -137,6 +137,8 @@ export class Service extends pulumi.CustomResource {
     public readonly protocols!: pulumi.Output<outputs.apimanagement.ServiceProtocols>;
     /**
      * ID of a standard SKU IPv4 Public IP.
+     *
+     * > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
      */
     public readonly publicIpAddressId!: pulumi.Output<string | undefined>;
     /**
@@ -177,6 +179,10 @@ export class Service extends pulumi.CustomResource {
     public readonly signUp!: pulumi.Output<outputs.apimanagement.ServiceSignUp>;
     /**
      * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     *
+     * > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+     *
+     * > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -193,10 +199,14 @@ export class Service extends pulumi.CustomResource {
     public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.apimanagement.ServiceVirtualNetworkConfiguration | undefined>;
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+     *
+     * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      */
     public readonly virtualNetworkType!: pulumi.Output<string | undefined>;
     /**
      * Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+     *
+     * > **NOTE:** Availability zones are only supported in the Premium tier.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -385,6 +395,8 @@ export interface ServiceState {
     protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols>;
     /**
      * ID of a standard SKU IPv4 Public IP.
+     *
+     * > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
      */
     publicIpAddressId?: pulumi.Input<string>;
     /**
@@ -425,6 +437,10 @@ export interface ServiceState {
     signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
     /**
      * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     *
+     * > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+     *
+     * > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -441,10 +457,14 @@ export interface ServiceState {
     virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration>;
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+     *
+     * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      */
     virtualNetworkType?: pulumi.Input<string>;
     /**
      * Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+     *
+     * > **NOTE:** Availability zones are only supported in the Premium tier.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -507,6 +527,8 @@ export interface ServiceArgs {
     protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols>;
     /**
      * ID of a standard SKU IPv4 Public IP.
+     *
+     * > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
      */
     publicIpAddressId?: pulumi.Input<string>;
     /**
@@ -539,6 +561,10 @@ export interface ServiceArgs {
     signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
     /**
      * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     *
+     * > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+     *
+     * > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
      */
     skuName: pulumi.Input<string>;
     /**
@@ -555,10 +581,14 @@ export interface ServiceArgs {
     virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration>;
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+     *
+     * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      */
     virtualNetworkType?: pulumi.Input<string>;
     /**
      * Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+     *
+     * > **NOTE:** Availability zones are only supported in the Premium tier.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

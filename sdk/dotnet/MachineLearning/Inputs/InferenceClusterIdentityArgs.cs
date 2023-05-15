@@ -17,6 +17,8 @@ namespace Pulumi.Azure.MachineLearning.Inputs
 
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public InputList<string> IdentityIds
         {

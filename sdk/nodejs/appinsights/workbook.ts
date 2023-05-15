@@ -112,6 +112,8 @@ export class Workbook extends pulumi.CustomResource {
     public readonly sourceId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+     *
+     * > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      */
     public readonly storageContainerId!: pulumi.Output<string | undefined>;
     /**
@@ -213,6 +215,8 @@ export interface WorkbookState {
     sourceId?: pulumi.Input<string>;
     /**
      * Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+     *
+     * > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      */
     storageContainerId?: pulumi.Input<string>;
     /**
@@ -263,6 +267,8 @@ export interface WorkbookArgs {
     sourceId?: pulumi.Input<string>;
     /**
      * Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+     *
+     * > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      */
     storageContainerId?: pulumi.Input<string>;
     /**

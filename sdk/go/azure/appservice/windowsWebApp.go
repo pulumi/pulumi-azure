@@ -129,12 +129,15 @@ type WindowsWebApp struct {
 	// A `stickySettings` block as defined below.
 	StickySettings WindowsWebAppStickySettingsPtrOutput `pulumi:"stickySettings"`
 	// One or more `storageAccount` blocks as defined below.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts WindowsWebAppStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile pulumi.StringOutput `pulumi:"zipDeployFile"`
 }
 
@@ -240,12 +243,15 @@ type windowsWebAppState struct {
 	// A `stickySettings` block as defined below.
 	StickySettings *WindowsWebAppStickySettings `pulumi:"stickySettings"`
 	// One or more `storageAccount` blocks as defined below.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts []WindowsWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App.
-	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
@@ -309,12 +315,15 @@ type WindowsWebAppState struct {
 	// A `stickySettings` block as defined below.
 	StickySettings WindowsWebAppStickySettingsPtrInput
 	// One or more `storageAccount` blocks as defined below.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts WindowsWebAppStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Windows Web App.
-	Tags pulumi.StringMapInput
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -364,12 +373,15 @@ type windowsWebAppArgs struct {
 	// A `stickySettings` block as defined below.
 	StickySettings *WindowsWebAppStickySettings `pulumi:"stickySettings"`
 	// One or more `storageAccount` blocks as defined below.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts []WindowsWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App.
-	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
 
@@ -416,12 +428,15 @@ type WindowsWebAppArgs struct {
 	// A `stickySettings` block as defined below.
 	StickySettings WindowsWebAppStickySettingsPtrInput
 	// One or more `storageAccount` blocks as defined below.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts WindowsWebAppStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Windows Web App.
-	Tags pulumi.StringMapInput
-	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+	//
+	// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 	ZipDeployFile pulumi.StringPtrInput
 }
 
@@ -658,6 +673,8 @@ func (o WindowsWebAppOutput) StickySettings() WindowsWebAppStickySettingsPtrOutp
 }
 
 // One or more `storageAccount` blocks as defined below.
+//
+// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 func (o WindowsWebAppOutput) StorageAccounts() WindowsWebAppStorageAccountArrayOutput {
 	return o.ApplyT(func(v *WindowsWebApp) WindowsWebAppStorageAccountArrayOutput { return v.StorageAccounts }).(WindowsWebAppStorageAccountArrayOutput)
 }
@@ -667,12 +684,13 @@ func (o WindowsWebAppOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 func (o WindowsWebAppOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+//
+// > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
 func (o WindowsWebAppOutput) ZipDeployFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.StringOutput { return v.ZipDeployFile }).(pulumi.StringOutput)
 }

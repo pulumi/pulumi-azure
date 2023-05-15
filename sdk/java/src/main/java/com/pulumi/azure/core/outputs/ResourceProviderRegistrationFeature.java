@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class ResourceProviderRegistrationFeature {
     /**
-     * @return Specifies the name of the feature to register.
+     * @return The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class ResourceProviderRegistrationFeature {
 
     private ResourceProviderRegistrationFeature() {}
     /**
-     * @return Specifies the name of the feature to register.
+     * @return The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

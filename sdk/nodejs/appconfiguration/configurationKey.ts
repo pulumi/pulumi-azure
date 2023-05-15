@@ -170,6 +170,8 @@ export class ConfigurationKey extends pulumi.CustomResource {
     public readonly value!: pulumi.Output<string>;
     /**
      * The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+     *
+     * > **NOTE:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
      */
     public readonly vaultKeyReference!: pulumi.Output<string | undefined>;
 
@@ -262,6 +264,8 @@ export interface ConfigurationKeyState {
     value?: pulumi.Input<string>;
     /**
      * The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+     *
+     * > **NOTE:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
      */
     vaultKeyReference?: pulumi.Input<string>;
 }
@@ -308,6 +312,8 @@ export interface ConfigurationKeyArgs {
     value?: pulumi.Input<string>;
     /**
      * The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+     *
+     * > **NOTE:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
      */
     vaultKeyReference?: pulumi.Input<string>;
 }

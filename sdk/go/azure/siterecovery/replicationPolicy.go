@@ -71,6 +71,8 @@ type ReplicationPolicy struct {
 	pulumi.CustomResourceState
 
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
+	//
+	// > **Note:** The value of `applicationConsistentSnapshotFrequencyInMinutes` must be less than or equal to the value of `recoveryPointRetentionInMinutes`.
 	ApplicationConsistentSnapshotFrequencyInMinutes pulumi.IntOutput `pulumi:"applicationConsistentSnapshotFrequencyInMinutes"`
 	// The name of the replication policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -124,6 +126,8 @@ func GetReplicationPolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ReplicationPolicy resources.
 type replicationPolicyState struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
+	//
+	// > **Note:** The value of `applicationConsistentSnapshotFrequencyInMinutes` must be less than or equal to the value of `recoveryPointRetentionInMinutes`.
 	ApplicationConsistentSnapshotFrequencyInMinutes *int `pulumi:"applicationConsistentSnapshotFrequencyInMinutes"`
 	// The name of the replication policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -137,6 +141,8 @@ type replicationPolicyState struct {
 
 type ReplicationPolicyState struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
+	//
+	// > **Note:** The value of `applicationConsistentSnapshotFrequencyInMinutes` must be less than or equal to the value of `recoveryPointRetentionInMinutes`.
 	ApplicationConsistentSnapshotFrequencyInMinutes pulumi.IntPtrInput
 	// The name of the replication policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -154,6 +160,8 @@ func (ReplicationPolicyState) ElementType() reflect.Type {
 
 type replicationPolicyArgs struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
+	//
+	// > **Note:** The value of `applicationConsistentSnapshotFrequencyInMinutes` must be less than or equal to the value of `recoveryPointRetentionInMinutes`.
 	ApplicationConsistentSnapshotFrequencyInMinutes int `pulumi:"applicationConsistentSnapshotFrequencyInMinutes"`
 	// The name of the replication policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -168,6 +176,8 @@ type replicationPolicyArgs struct {
 // The set of arguments for constructing a ReplicationPolicy resource.
 type ReplicationPolicyArgs struct {
 	// Specifies the frequency(in minutes) at which to create application consistent recovery points.
+	//
+	// > **Note:** The value of `applicationConsistentSnapshotFrequencyInMinutes` must be less than or equal to the value of `recoveryPointRetentionInMinutes`.
 	ApplicationConsistentSnapshotFrequencyInMinutes pulumi.IntInput
 	// The name of the replication policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -267,6 +277,8 @@ func (o ReplicationPolicyOutput) ToReplicationPolicyOutputWithContext(ctx contex
 }
 
 // Specifies the frequency(in minutes) at which to create application consistent recovery points.
+//
+// > **Note:** The value of `applicationConsistentSnapshotFrequencyInMinutes` must be less than or equal to the value of `recoveryPointRetentionInMinutes`.
 func (o ReplicationPolicyOutput) ApplicationConsistentSnapshotFrequencyInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *ReplicationPolicy) pulumi.IntOutput { return v.ApplicationConsistentSnapshotFrequencyInMinutes }).(pulumi.IntOutput)
 }

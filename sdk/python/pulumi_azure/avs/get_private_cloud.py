@@ -247,7 +247,21 @@ def get_private_cloud(name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateCloudResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing VMware Private Cloud.
+
+    ## Example Usage
+
+    > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.avs.get_private_cloud(name="existing-vmware-private-cloud",
+        resource_group_name="existing-resgroup")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str name: The name of this VMware Private Cloud.
     :param str resource_group_name: The name of the Resource Group where the VMware Private Cloud exists.
@@ -284,7 +298,21 @@ def get_private_cloud_output(name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateCloudResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing VMware Private Cloud.
+
+    ## Example Usage
+
+    > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.avs.get_private_cloud(name="existing-vmware-private-cloud",
+        resource_group_name="existing-resgroup")
+    pulumi.export("id", example.id)
+    ```
+
 
     :param str name: The name of this VMware Private Cloud.
     :param str resource_group_name: The name of the Resource Group where the VMware Private Cloud exists.

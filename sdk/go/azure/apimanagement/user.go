@@ -91,6 +91,8 @@ type User struct {
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The state of this user. Possible values are `active`, `blocked` and `pending`.
+	//
+	// > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	UserId pulumi.StringOutput `pulumi:"userId"`
@@ -167,6 +169,8 @@ type userState struct {
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The state of this user. Possible values are `active`, `blocked` and `pending`.
+	//
+	// > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
 	State *string `pulumi:"state"`
 	// The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	UserId *string `pulumi:"userId"`
@@ -190,6 +194,8 @@ type UserState struct {
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The state of this user. Possible values are `active`, `blocked` and `pending`.
+	//
+	// > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
 	State pulumi.StringPtrInput
 	// The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	UserId pulumi.StringPtrInput
@@ -217,6 +223,8 @@ type userArgs struct {
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The state of this user. Possible values are `active`, `blocked` and `pending`.
+	//
+	// > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
 	State *string `pulumi:"state"`
 	// The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	UserId string `pulumi:"userId"`
@@ -241,6 +249,8 @@ type UserArgs struct {
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The state of this user. Possible values are `active`, `blocked` and `pending`.
+	//
+	// > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
 	State pulumi.StringPtrInput
 	// The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
 	UserId pulumi.StringInput
@@ -374,6 +384,8 @@ func (o UserOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The state of this user. Possible values are `active`, `blocked` and `pending`.
+//
+// > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
 func (o UserOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

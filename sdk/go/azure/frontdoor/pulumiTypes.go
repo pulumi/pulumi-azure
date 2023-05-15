@@ -14,10 +14,14 @@ type CustomHttpsConfigurationCustomHttpsConfiguration struct {
 	// The name of the Key Vault secret representing the full certificate PFX.
 	AzureKeyVaultCertificateSecretName *string `pulumi:"azureKeyVaultCertificateSecretName"`
 	// The version of the Key Vault secret representing the full certificate PFX.
+	//
+	// > **Note:** In order to enable the use of your own custom `HTTPS certificate` you must grant `Azure Front Door Service` access to your key vault. For instructions on how to configure your `Key Vault` correctly please refer to the [product documentation](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https#option-2-use-your-own-certificate).
 	AzureKeyVaultCertificateSecretVersion *string `pulumi:"azureKeyVaultCertificateSecretVersion"`
 	// The ID of the Key Vault containing the SSL certificate.
 	AzureKeyVaultCertificateVaultId *string `pulumi:"azureKeyVaultCertificateVaultId"`
 	// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+	//
+	// The following attributes are only valid if `certificateSource` is set to `AzureKeyVault`:
 	CertificateSource *string `pulumi:"certificateSource"`
 	// Minimum client TLS version supported.
 	MinimumTlsVersion    *string `pulumi:"minimumTlsVersion"`
@@ -40,10 +44,14 @@ type CustomHttpsConfigurationCustomHttpsConfigurationArgs struct {
 	// The name of the Key Vault secret representing the full certificate PFX.
 	AzureKeyVaultCertificateSecretName pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretName"`
 	// The version of the Key Vault secret representing the full certificate PFX.
+	//
+	// > **Note:** In order to enable the use of your own custom `HTTPS certificate` you must grant `Azure Front Door Service` access to your key vault. For instructions on how to configure your `Key Vault` correctly please refer to the [product documentation](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https#option-2-use-your-own-certificate).
 	AzureKeyVaultCertificateSecretVersion pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretVersion"`
 	// The ID of the Key Vault containing the SSL certificate.
 	AzureKeyVaultCertificateVaultId pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateVaultId"`
 	// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+	//
+	// The following attributes are only valid if `certificateSource` is set to `AzureKeyVault`:
 	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
 	// Minimum client TLS version supported.
 	MinimumTlsVersion    pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
@@ -136,6 +144,8 @@ func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) AzureKeyVaultCer
 }
 
 // The version of the Key Vault secret representing the full certificate PFX.
+//
+// > **Note:** In order to enable the use of your own custom `HTTPS certificate` you must grant `Azure Front Door Service` access to your key vault. For instructions on how to configure your `Key Vault` correctly please refer to the [product documentation](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https#option-2-use-your-own-certificate).
 func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomHttpsConfigurationCustomHttpsConfiguration) *string {
 		return v.AzureKeyVaultCertificateSecretVersion
@@ -150,6 +160,8 @@ func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) AzureKeyVaultCer
 }
 
 // Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+//
+// The following attributes are only valid if `certificateSource` is set to `AzureKeyVault`:
 func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) CertificateSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomHttpsConfigurationCustomHttpsConfiguration) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
 }
@@ -202,6 +214,8 @@ func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) AzureKeyVault
 }
 
 // The version of the Key Vault secret representing the full certificate PFX.
+//
+// > **Note:** In order to enable the use of your own custom `HTTPS certificate` you must grant `Azure Front Door Service` access to your key vault. For instructions on how to configure your `Key Vault` correctly please refer to the [product documentation](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https#option-2-use-your-own-certificate).
 func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomHttpsConfigurationCustomHttpsConfiguration) *string {
 		if v == nil {
@@ -222,6 +236,8 @@ func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) AzureKeyVault
 }
 
 // Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+//
+// The following attributes are only valid if `certificateSource` is set to `AzureKeyVault`:
 func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) CertificateSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomHttpsConfigurationCustomHttpsConfiguration) *string {
 		if v == nil {
@@ -1569,6 +1585,8 @@ type FrontdoorBackendPoolHealthProbe struct {
 	// The path to use for the Health Probe. Default is `/`.
 	Path *string `pulumi:"path"`
 	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
+	//
+	// > **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
 	ProbeMethod *string `pulumi:"probeMethod"`
 	// Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
 	Protocol *string `pulumi:"protocol"`
@@ -1597,6 +1615,8 @@ type FrontdoorBackendPoolHealthProbeArgs struct {
 	// The path to use for the Health Probe. Default is `/`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
+	//
+	// > **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
 	ProbeMethod pulumi.StringPtrInput `pulumi:"probeMethod"`
 	// Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
@@ -1679,6 +1699,8 @@ func (o FrontdoorBackendPoolHealthProbeOutput) Path() pulumi.StringPtrOutput {
 }
 
 // Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
+//
+// > **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
 func (o FrontdoorBackendPoolHealthProbeOutput) ProbeMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.ProbeMethod }).(pulumi.StringPtrOutput)
 }
@@ -1845,6 +1867,8 @@ type FrontdoorBackendPoolSetting struct {
 	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
 	BackendPoolsSendReceiveTimeoutSeconds *int `pulumi:"backendPoolsSendReceiveTimeoutSeconds"`
 	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+	//
+	// > **NOTE:** `backendPoolsSendReceiveTimeoutSeconds` and `enforceBackendPoolsCertificateNameCheck` apply to all backend pools.
 	EnforceBackendPoolsCertificateNameCheck bool `pulumi:"enforceBackendPoolsCertificateNameCheck"`
 }
 
@@ -1863,6 +1887,8 @@ type FrontdoorBackendPoolSettingArgs struct {
 	// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
 	BackendPoolsSendReceiveTimeoutSeconds pulumi.IntPtrInput `pulumi:"backendPoolsSendReceiveTimeoutSeconds"`
 	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+	//
+	// > **NOTE:** `backendPoolsSendReceiveTimeoutSeconds` and `enforceBackendPoolsCertificateNameCheck` apply to all backend pools.
 	EnforceBackendPoolsCertificateNameCheck pulumi.BoolInput `pulumi:"enforceBackendPoolsCertificateNameCheck"`
 }
 
@@ -1923,6 +1949,8 @@ func (o FrontdoorBackendPoolSettingOutput) BackendPoolsSendReceiveTimeoutSeconds
 }
 
 // Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+//
+// > **NOTE:** `backendPoolsSendReceiveTimeoutSeconds` and `enforceBackendPoolsCertificateNameCheck` apply to all backend pools.
 func (o FrontdoorBackendPoolSettingOutput) EnforceBackendPoolsCertificateNameCheck() pulumi.BoolOutput {
 	return o.ApplyT(func(v FrontdoorBackendPoolSetting) bool { return v.EnforceBackendPoolsCertificateNameCheck }).(pulumi.BoolOutput)
 }

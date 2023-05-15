@@ -25,9 +25,6 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// Resource ID of the primary volume.
         /// </summary>
         public readonly string RemoteVolumeResourceId;
-        /// <summary>
-        /// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
-        /// </summary>
         public readonly string ReplicationFrequency;
 
         [OutputConstructor]

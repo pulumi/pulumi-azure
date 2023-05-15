@@ -15,6 +15,8 @@ public final class WindowsVirtualMachineIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     private @Nullable List<String> identityIds;
     /**
@@ -36,6 +38,8 @@ public final class WindowsVirtualMachineIdentity {
     private WindowsVirtualMachineIdentity() {}
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public List<String> identityIds() {

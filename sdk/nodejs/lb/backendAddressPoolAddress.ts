@@ -86,6 +86,8 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
 
     /**
      * The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+     *
+     * > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
      */
     public readonly backendAddressIpConfigurationId!: pulumi.Output<string | undefined>;
     /**
@@ -151,6 +153,8 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
 export interface BackendAddressPoolAddressState {
     /**
      * The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+     *
+     * > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
      */
     backendAddressIpConfigurationId?: pulumi.Input<string>;
     /**
@@ -181,6 +185,8 @@ export interface BackendAddressPoolAddressState {
 export interface BackendAddressPoolAddressArgs {
     /**
      * The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+     *
+     * > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
      */
     backendAddressIpConfigurationId?: pulumi.Input<string>;
     /**

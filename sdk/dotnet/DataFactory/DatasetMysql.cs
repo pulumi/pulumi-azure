@@ -61,6 +61,8 @@ namespace Pulumi.Azure.DataFactory
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset MySQL.
+        /// 
+        /// The following supported arguments are specific to MySQL Dataset:
         /// </summary>
         [Output("additionalProperties")]
         public Output<ImmutableDictionary<string, string>?> AdditionalProperties { get; private set; } = null!;
@@ -170,6 +172,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset MySQL.
+        /// 
+        /// The following supported arguments are specific to MySQL Dataset:
         /// </summary>
         public InputMap<string> AdditionalProperties
         {
@@ -262,6 +266,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset MySQL.
+        /// 
+        /// The following supported arguments are specific to MySQL Dataset:
         /// </summary>
         public InputMap<string> AdditionalProperties
         {

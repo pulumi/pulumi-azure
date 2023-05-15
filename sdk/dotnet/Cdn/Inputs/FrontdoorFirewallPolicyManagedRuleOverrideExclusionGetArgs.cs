@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Cdn.Inputs
     {
         /// <summary>
         /// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+        /// 
+        /// &gt; **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
         /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;

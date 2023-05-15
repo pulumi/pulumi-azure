@@ -131,6 +131,8 @@ export class WorkspaceKey extends pulumi.CustomResource {
 
     /**
      * Specifies if the workspace should be encrypted with this key.
+     *
+     * > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
      */
     public readonly active!: pulumi.Output<boolean>;
     /**
@@ -190,6 +192,8 @@ export class WorkspaceKey extends pulumi.CustomResource {
 export interface WorkspaceKeyState {
     /**
      * Specifies if the workspace should be encrypted with this key.
+     *
+     * > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
      */
     active?: pulumi.Input<boolean>;
     /**
@@ -212,6 +216,8 @@ export interface WorkspaceKeyState {
 export interface WorkspaceKeyArgs {
     /**
      * Specifies if the workspace should be encrypted with this key.
+     *
+     * > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
      */
     active: pulumi.Input<boolean>;
     /**

@@ -33,6 +33,8 @@ class LinkedServiceKustoArgs:
         :param pulumi.Input[str] kusto_database_name: The Kusto Database Name.
         :param pulumi.Input[str] kusto_endpoint: The URI of the Kusto Cluster endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
+               
+               The following supported arguments are specific to Azure Kusto Linked Service:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
@@ -41,6 +43,10 @@ class LinkedServiceKustoArgs:
         :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Kusto Database.
         :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Kusto Database.
         :param pulumi.Input[str] tenant: The service principal tenant id or name in which to authenticate against the Kusto Database.
+               
+               > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+               
+               > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
         :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
@@ -108,6 +114,8 @@ class LinkedServiceKustoArgs:
     def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of additional properties to associate with the Data Factory Linked Service.
+
+        The following supported arguments are specific to Azure Kusto Linked Service:
         """
         return pulumi.get(self, "additional_properties")
 
@@ -204,6 +212,10 @@ class LinkedServiceKustoArgs:
     def tenant(self) -> Optional[pulumi.Input[str]]:
         """
         The service principal tenant id or name in which to authenticate against the Kusto Database.
+
+        > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+
+        > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
         """
         return pulumi.get(self, "tenant")
 
@@ -243,6 +255,8 @@ class _LinkedServiceKustoState:
         """
         Input properties used for looking up and filtering LinkedServiceKusto resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
+               
+               The following supported arguments are specific to Azure Kusto Linked Service:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
@@ -254,6 +268,10 @@ class _LinkedServiceKustoState:
         :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Kusto Database.
         :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Kusto Database.
         :param pulumi.Input[str] tenant: The service principal tenant id or name in which to authenticate against the Kusto Database.
+               
+               > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+               
+               > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
         :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
         """
         if additional_properties is not None:
@@ -288,6 +306,8 @@ class _LinkedServiceKustoState:
     def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of additional properties to associate with the Data Factory Linked Service.
+
+        The following supported arguments are specific to Azure Kusto Linked Service:
         """
         return pulumi.get(self, "additional_properties")
 
@@ -420,6 +440,10 @@ class _LinkedServiceKustoState:
     def tenant(self) -> Optional[pulumi.Input[str]]:
         """
         The service principal tenant id or name in which to authenticate against the Kusto Database.
+
+        > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+
+        > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
         """
         return pulumi.get(self, "tenant")
 
@@ -512,6 +536,8 @@ class LinkedServiceKusto(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
+               
+               The following supported arguments are specific to Azure Kusto Linked Service:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
@@ -523,6 +549,10 @@ class LinkedServiceKusto(pulumi.CustomResource):
         :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Kusto Database.
         :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Kusto Database.
         :param pulumi.Input[str] tenant: The service principal tenant id or name in which to authenticate against the Kusto Database.
+               
+               > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+               
+               > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
         :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
         """
         ...
@@ -670,6 +700,8 @@ class LinkedServiceKusto(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
+               
+               The following supported arguments are specific to Azure Kusto Linked Service:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
@@ -681,6 +713,10 @@ class LinkedServiceKusto(pulumi.CustomResource):
         :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Kusto Database.
         :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Kusto Database.
         :param pulumi.Input[str] tenant: The service principal tenant id or name in which to authenticate against the Kusto Database.
+               
+               > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+               
+               > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
         :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -707,6 +743,8 @@ class LinkedServiceKusto(pulumi.CustomResource):
     def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of additional properties to associate with the Data Factory Linked Service.
+
+        The following supported arguments are specific to Azure Kusto Linked Service:
         """
         return pulumi.get(self, "additional_properties")
 
@@ -795,6 +833,10 @@ class LinkedServiceKusto(pulumi.CustomResource):
     def tenant(self) -> pulumi.Output[Optional[str]]:
         """
         The service principal tenant id or name in which to authenticate against the Kusto Database.
+
+        > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+
+        > **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
         """
         return pulumi.get(self, "tenant")
 

@@ -106,6 +106,8 @@ namespace Pulumi.Azure.EventHub
 
         /// <summary>
         /// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -215,6 +217,8 @@ namespace Pulumi.Azure.EventHub
 
         /// <summary>
         /// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -307,6 +311,8 @@ namespace Pulumi.Azure.EventHub
 
         /// <summary>
         /// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

@@ -93,6 +93,8 @@ export class ResourcePolicyAssignment extends pulumi.CustomResource {
     public readonly enforce!: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
+     *
+     * > **Note:** The `location` field must also be specified when `identity` is specified.
      */
     public readonly identity!: pulumi.Output<outputs.core.ResourcePolicyAssignmentIdentity | undefined>;
     /**
@@ -129,6 +131,8 @@ export class ResourcePolicyAssignment extends pulumi.CustomResource {
     public readonly policyDefinitionId!: pulumi.Output<string>;
     /**
      * The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+     *
+     * > To create a Policy Assignment at a Management Group use the `azure.management.GroupPolicyAssignment` resource, for a Resource Group use the `azure.core.ResourceGroupPolicyAssignment` and for a Subscription use the `azure.core.SubscriptionPolicyAssignment` resource.
      */
     public readonly resourceId!: pulumi.Output<string>;
     /**
@@ -209,6 +213,8 @@ export interface ResourcePolicyAssignmentState {
     enforce?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
+     *
+     * > **Note:** The `location` field must also be specified when `identity` is specified.
      */
     identity?: pulumi.Input<inputs.core.ResourcePolicyAssignmentIdentity>;
     /**
@@ -245,6 +251,8 @@ export interface ResourcePolicyAssignmentState {
     policyDefinitionId?: pulumi.Input<string>;
     /**
      * The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+     *
+     * > To create a Policy Assignment at a Management Group use the `azure.management.GroupPolicyAssignment` resource, for a Resource Group use the `azure.core.ResourceGroupPolicyAssignment` and for a Subscription use the `azure.core.SubscriptionPolicyAssignment` resource.
      */
     resourceId?: pulumi.Input<string>;
     /**
@@ -271,6 +279,8 @@ export interface ResourcePolicyAssignmentArgs {
     enforce?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
+     *
+     * > **Note:** The `location` field must also be specified when `identity` is specified.
      */
     identity?: pulumi.Input<inputs.core.ResourcePolicyAssignmentIdentity>;
     /**
@@ -307,6 +317,8 @@ export interface ResourcePolicyAssignmentArgs {
     policyDefinitionId: pulumi.Input<string>;
     /**
      * The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
+     *
+     * > To create a Policy Assignment at a Management Group use the `azure.management.GroupPolicyAssignment` resource, for a Resource Group use the `azure.core.ResourceGroupPolicyAssignment` and for a Subscription use the `azure.core.SubscriptionPolicyAssignment` resource.
      */
     resourceId: pulumi.Input<string>;
     /**

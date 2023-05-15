@@ -91,6 +91,8 @@ type LinkedService struct {
 	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 	// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+	//
+	// > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
 	WriteAccessId pulumi.StringPtrOutput `pulumi:"writeAccessId"`
 }
 
@@ -138,6 +140,8 @@ type linkedServiceState struct {
 	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
 	WorkspaceId *string `pulumi:"workspaceId"`
 	// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+	//
+	// > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
 	WriteAccessId *string `pulumi:"writeAccessId"`
 }
 
@@ -151,6 +155,8 @@ type LinkedServiceState struct {
 	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
 	WorkspaceId pulumi.StringPtrInput
 	// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+	//
+	// > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
 	WriteAccessId pulumi.StringPtrInput
 }
 
@@ -166,6 +172,8 @@ type linkedServiceArgs struct {
 	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
 	WorkspaceId string `pulumi:"workspaceId"`
 	// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+	//
+	// > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
 	WriteAccessId *string `pulumi:"writeAccessId"`
 }
 
@@ -178,6 +186,8 @@ type LinkedServiceArgs struct {
 	// The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
 	WorkspaceId pulumi.StringInput
 	// The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+	//
+	// > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
 	WriteAccessId pulumi.StringPtrInput
 }
 
@@ -289,6 +299,8 @@ func (o LinkedServiceOutput) WorkspaceId() pulumi.StringOutput {
 }
 
 // The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
+//
+// > **NOTE:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
 func (o LinkedServiceOutput) WriteAccessId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedService) pulumi.StringPtrOutput { return v.WriteAccessId }).(pulumi.StringPtrOutput)
 }

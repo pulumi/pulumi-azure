@@ -79,11 +79,10 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
     public readonly databaseId!: pulumi.Output<string>;
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     *
+     * ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * Enable audit events to Azure Monitor? Defaults to `true`.
-     */
     public readonly logMonitoringEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -152,11 +151,10 @@ export interface DatabaseExtendedAuditingPolicyState {
     databaseId?: pulumi.Input<string>;
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     *
+     * ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Enable audit events to Azure Monitor? Defaults to `true`.
-     */
     logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -186,11 +184,10 @@ export interface DatabaseExtendedAuditingPolicyArgs {
     databaseId: pulumi.Input<string>;
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     *
+     * ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Enable audit events to Azure Monitor? Defaults to `true`.
-     */
     logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.

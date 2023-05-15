@@ -50,6 +50,8 @@ func LookupPolicySetDefinition(ctx *pulumi.Context, args *LookupPolicySetDefinit
 // A collection of arguments for invoking getPolicySetDefinition.
 type LookupPolicySetDefinitionArgs struct {
 	// Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+	//
+	// **NOTE** As `displayName` is not unique errors may occur when there are multiple policy set definitions with same display name.
 	DisplayName *string `pulumi:"displayName"`
 	// Only retrieve Policy Set Definitions from this Management Group.
 	ManagementGroupName *string `pulumi:"managementGroupName"`
@@ -98,6 +100,8 @@ func LookupPolicySetDefinitionOutput(ctx *pulumi.Context, args LookupPolicySetDe
 // A collection of arguments for invoking getPolicySetDefinition.
 type LookupPolicySetDefinitionOutputArgs struct {
 	// Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+	//
+	// **NOTE** As `displayName` is not unique errors may occur when there are multiple policy set definitions with same display name.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// Only retrieve Policy Set Definitions from this Management Group.
 	ManagementGroupName pulumi.StringPtrInput `pulumi:"managementGroupName"`

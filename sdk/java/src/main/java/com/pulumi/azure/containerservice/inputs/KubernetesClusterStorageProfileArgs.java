@@ -49,12 +49,16 @@ public final class KubernetesClusterStorageProfileArgs extends com.pulumi.resour
     /**
      * Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
      * 
+     * &gt; **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
+     * 
      */
     @Import(name="diskDriverVersion")
     private @Nullable Output<String> diskDriverVersion;
 
     /**
      * @return Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+     * 
+     * &gt; **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
      * 
      */
     public Optional<Output<String>> diskDriverVersion() {
@@ -164,6 +168,8 @@ public final class KubernetesClusterStorageProfileArgs extends com.pulumi.resour
         /**
          * @param diskDriverVersion Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
          * 
+         * &gt; **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
+         * 
          * @return builder
          * 
          */
@@ -174,6 +180,8 @@ public final class KubernetesClusterStorageProfileArgs extends com.pulumi.resour
 
         /**
          * @param diskDriverVersion Disk CSI Driver version to be used. Possible values are `v1` and `v2`. Defaults to `v1`.
+         * 
+         * &gt; **Note:** `Azure Disk CSI driver v2` is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature `EnableAzureDiskCSIDriverV2` for namespace `Microsoft.ContainerService` must be requested.
          * 
          * @return builder
          * 

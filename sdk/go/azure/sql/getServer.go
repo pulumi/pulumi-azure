@@ -10,6 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to access information about an existing SQL Azure Database Server.
+//
+// > **Note:** The `sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.Server` data source instead.
+//
 // ## Example Usage
 //
 // ```go

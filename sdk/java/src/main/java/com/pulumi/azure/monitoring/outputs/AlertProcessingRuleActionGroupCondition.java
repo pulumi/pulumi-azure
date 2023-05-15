@@ -74,6 +74,8 @@ public final class AlertProcessingRuleActionGroupCondition {
     /**
      * @return A `target_resource_type` block as defined below.
      * 
+     * &gt; **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
+     * 
      */
     private @Nullable AlertProcessingRuleActionGroupConditionTargetResourceType targetResourceType;
 
@@ -150,6 +152,8 @@ public final class AlertProcessingRuleActionGroupCondition {
     }
     /**
      * @return A `target_resource_type` block as defined below.
+     * 
+     * &gt; **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
      * 
      */
     public Optional<AlertProcessingRuleActionGroupConditionTargetResourceType> targetResourceType() {

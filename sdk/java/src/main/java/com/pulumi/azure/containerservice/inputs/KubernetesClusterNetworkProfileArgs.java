@@ -36,6 +36,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     /**
      * IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+     * 
      * @deprecated
      * `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
      * 
@@ -46,6 +48,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
 
     /**
      * @return IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
      * 
      * @deprecated
      * `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
@@ -59,12 +63,24 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     /**
      * Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+     * 
+     * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;Overlay&#34;` or `pod_subnet_id` must be specified.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+     * 
      */
     @Import(name="ebpfDataPlane")
     private @Nullable Output<String> ebpfDataPlane;
 
     /**
      * @return Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+     * 
+     * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;Overlay&#34;` or `pod_subnet_id` must be specified.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
      * 
      */
     public Optional<Output<String>> ebpfDataPlane() {
@@ -74,12 +90,20 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     /**
      * Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
      * 
+     * -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
+     * 
+     * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+     * 
      */
     @Import(name="ipVersions")
     private @Nullable Output<List<String>> ipVersions;
 
     /**
      * @return Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+     * 
+     * -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
+     * 
+     * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
      * 
      */
     public Optional<Output<List<String>>> ipVersions() {
@@ -134,12 +158,20 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     /**
      * Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
+     * 
+     * &gt; **Note:** This property can only be set when `network_plugin` is set to `azure`.
+     * 
      */
     @Import(name="networkMode")
     private @Nullable Output<String> networkMode;
 
     /**
      * @return Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
+     * 
+     * &gt; **Note:** This property can only be set when `network_plugin` is set to `azure`.
      * 
      */
     public Optional<Output<String>> networkMode() {
@@ -149,12 +181,16 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     /**
      * Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** When `network_plugin` is set to `azure` - the `vnet_subnet_id` field in the `default_node_pool` block must be set and `pod_cidr` must not be set.
+     * 
      */
     @Import(name="networkPlugin", required=true)
     private Output<String> networkPlugin;
 
     /**
      * @return Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `network_plugin` is set to `azure` - the `vnet_subnet_id` field in the `default_node_pool` block must be set and `pod_cidr` must not be set.
      * 
      */
     public Output<String> networkPlugin() {
@@ -164,12 +200,20 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     /**
      * Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** When `network_plugin_mode` is set to `Overlay`, the `network_plugin` field can only be set to `azure`.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
+     * 
      */
     @Import(name="networkPluginMode")
     private @Nullable Output<String> networkPluginMode;
 
     /**
      * @return Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `network_plugin_mode` is set to `Overlay`, the `network_plugin` field can only be set to `azure`.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
      * 
      */
     public Optional<Output<String>> networkPluginMode() {
@@ -179,12 +223,16 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     /**
      * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
+     * 
      */
     @Import(name="networkPolicy")
     private @Nullable Output<String> networkPolicy;
 
     /**
      * @return Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
      * 
      */
     public Optional<Output<String>> networkPolicy() {
@@ -254,12 +302,16 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
     /**
      * A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
+     * 
      */
     @Import(name="serviceCidrs")
     private @Nullable Output<List<String>> serviceCidrs;
 
     /**
      * @return A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
      * 
      */
     public Optional<Output<List<String>>> serviceCidrs() {
@@ -329,6 +381,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         /**
          * @param dockerBridgeCidr IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -344,6 +398,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         /**
          * @param dockerBridgeCidr IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -358,6 +414,12 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         /**
          * @param ebpfDataPlane Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+         * 
+         * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;Overlay&#34;` or `pod_subnet_id` must be specified.
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+         * 
          * @return builder
          * 
          */
@@ -369,6 +431,12 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         /**
          * @param ebpfDataPlane Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+         * 
+         * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;Overlay&#34;` or `pod_subnet_id` must be specified.
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+         * 
          * @return builder
          * 
          */
@@ -378,6 +446,10 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
 
         /**
          * @param ipVersions Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+         * 
+         * -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
+         * 
+         * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
          * 
          * @return builder
          * 
@@ -390,6 +462,10 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         /**
          * @param ipVersions Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
          * 
+         * -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
+         * 
+         * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+         * 
          * @return builder
          * 
          */
@@ -399,6 +475,10 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
 
         /**
          * @param ipVersions Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
+         * 
+         * -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
+         * 
+         * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
          * 
          * @return builder
          * 
@@ -473,6 +553,10 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         /**
          * @param networkMode Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
+         * 
+         * &gt; **Note:** This property can only be set when `network_plugin` is set to `azure`.
+         * 
          * @return builder
          * 
          */
@@ -484,6 +568,10 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         /**
          * @param networkMode Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
+         * 
+         * &gt; **Note:** This property can only be set when `network_plugin` is set to `azure`.
+         * 
          * @return builder
          * 
          */
@@ -493,6 +581,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
 
         /**
          * @param networkPlugin Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `network_plugin` is set to `azure` - the `vnet_subnet_id` field in the `default_node_pool` block must be set and `pod_cidr` must not be set.
          * 
          * @return builder
          * 
@@ -505,6 +595,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         /**
          * @param networkPlugin Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** When `network_plugin` is set to `azure` - the `vnet_subnet_id` field in the `default_node_pool` block must be set and `pod_cidr` must not be set.
+         * 
          * @return builder
          * 
          */
@@ -514,6 +606,10 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
 
         /**
          * @param networkPluginMode Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `network_plugin_mode` is set to `Overlay`, the `network_plugin` field can only be set to `azure`.
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
          * 
          * @return builder
          * 
@@ -526,6 +622,10 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         /**
          * @param networkPluginMode Specifies the network plugin mode used for building the Kubernetes network. Possible value is `Overlay`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** When `network_plugin_mode` is set to `Overlay`, the `network_plugin` field can only be set to `azure`.
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AzureOverlayPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-overlay) for more information.
+         * 
          * @return builder
          * 
          */
@@ -535,6 +635,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
 
         /**
          * @param networkPolicy Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
          * 
          * @return builder
          * 
@@ -546,6 +648,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
 
         /**
          * @param networkPolicy Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
          * 
          * @return builder
          * 
@@ -651,6 +755,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         /**
          * @param serviceCidrs A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
+         * 
          * @return builder
          * 
          */
@@ -662,6 +768,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         /**
          * @param serviceCidrs A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
+         * 
          * @return builder
          * 
          */
@@ -671,6 +779,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
 
         /**
          * @param serviceCidrs A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
          * 
          * @return builder
          * 

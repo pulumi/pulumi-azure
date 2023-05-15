@@ -254,6 +254,10 @@ def get_function_app(name: Optional[str] = None,
                      tags: Optional[Mapping[str, str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionAppResult:
     """
+    Use this data source to access information about a Function App.
+
+    !> **Note:** The `appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `appservice.LinuxFunctionApp` data sources instead.
+
     ## Example Usage
 
     ```python
@@ -261,7 +265,7 @@ def get_function_app(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.appservice.get_function_app(name="test-azure-functions",
-        resource_group_name=azurerm_resource_group["example"]["name"])
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -303,6 +307,10 @@ def get_function_app_output(name: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionAppResult]:
     """
+    Use this data source to access information about a Function App.
+
+    !> **Note:** The `appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `appservice.LinuxFunctionApp` data sources instead.
+
     ## Example Usage
 
     ```python
@@ -310,7 +318,7 @@ def get_function_app_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.appservice.get_function_app(name="test-azure-functions",
-        resource_group_name=azurerm_resource_group["example"]["name"])
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

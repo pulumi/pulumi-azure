@@ -125,6 +125,8 @@ export class Server extends pulumi.CustomResource {
     public readonly skuName!: pulumi.Output<string>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+     *
+     * > **NOTE:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
      */
     public readonly sslEnforcementEnabled!: pulumi.Output<boolean>;
     /**
@@ -279,6 +281,8 @@ export interface ServerState {
     skuName?: pulumi.Input<string>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+     *
+     * > **NOTE:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
      */
     sslEnforcementEnabled?: pulumi.Input<boolean>;
     /**
@@ -357,6 +361,8 @@ export interface ServerArgs {
     skuName: pulumi.Input<string>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+     *
+     * > **NOTE:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
      */
     sslEnforcementEnabled: pulumi.Input<boolean>;
     /**

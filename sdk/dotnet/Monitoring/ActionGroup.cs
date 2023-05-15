@@ -53,9 +53,9 @@ namespace Pulumi.Azure.Monitoring
     ///             new Azure.Monitoring.Inputs.ActionGroupAutomationRunbookReceiverArgs
     ///             {
     ///                 Name = "action_name_1",
-    ///                 AutomationAccountId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001",
+    ///                 AutomationAccountId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001",
     ///                 RunbookName = "my runbook",
-    ///                 WebhookResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001/webhooks/webhook_alert",
+    ///                 WebhookResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001/webHooks/webhook_alert",
     ///                 IsGlobalRunbook = true,
     ///                 ServiceUri = "https://s13events.azure-automation.net/webhooks?token=randomtoken",
     ///                 UseCommonAlertSchema = true,

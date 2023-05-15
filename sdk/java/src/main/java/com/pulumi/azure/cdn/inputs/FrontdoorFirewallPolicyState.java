@@ -114,12 +114,16 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     /**
      * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
      * 
+     * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+     * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
      * @return The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+     * 
+     * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -174,12 +178,16 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     /**
      * The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+     * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
      * @return The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -395,6 +403,8 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         /**
          * @param mode The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
          * 
+         * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+         * 
          * @return builder
          * 
          */
@@ -405,6 +415,8 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
 
         /**
          * @param mode The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+         * 
+         * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
          * 
          * @return builder
          * 
@@ -479,6 +491,8 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         /**
          * @param skuName The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
+         * 
          * @return builder
          * 
          */
@@ -489,6 +503,8 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
 
         /**
          * @param skuName The sku&#39;s pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
          * 
          * @return builder
          * 

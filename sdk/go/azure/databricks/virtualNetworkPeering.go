@@ -103,12 +103,18 @@ type VirtualNetworkPeering struct {
 	// A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
 	RemoteAddressSpacePrefixes pulumi.StringArrayOutput `pulumi:"remoteAddressSpacePrefixes"`
 	// The ID of the remote virtual network. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
 	RemoteVirtualNetworkId pulumi.StringOutput `pulumi:"remoteVirtualNetworkId"`
 	// The name of the Resource Group in which the Databricks Virtual Network Peering should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
+	//
+	// > **NOTE:** If the `useRemoteGateways` is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `useRemoteGateways` cannot be set if the virtual network already has a gateway.
 	UseRemoteGateways pulumi.BoolPtrOutput `pulumi:"useRemoteGateways"`
 	// The ID of the internal Virtual Network used by the DataBricks Workspace.
+	//
+	// > **NOTE:** The `virtualNetworkId` field is the value you must supply to the `network.VirtualNetworkPeering` resources `remoteVirtualNetworkId` field to successfully peer the Databricks Virtual Network with the remote virtual network.
 	VirtualNetworkId pulumi.StringOutput `pulumi:"virtualNetworkId"`
 	// The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
@@ -168,12 +174,18 @@ type virtualNetworkPeeringState struct {
 	// A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
 	RemoteAddressSpacePrefixes []string `pulumi:"remoteAddressSpacePrefixes"`
 	// The ID of the remote virtual network. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
 	RemoteVirtualNetworkId *string `pulumi:"remoteVirtualNetworkId"`
 	// The name of the Resource Group in which the Databricks Virtual Network Peering should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
+	//
+	// > **NOTE:** If the `useRemoteGateways` is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `useRemoteGateways` cannot be set if the virtual network already has a gateway.
 	UseRemoteGateways *bool `pulumi:"useRemoteGateways"`
 	// The ID of the internal Virtual Network used by the DataBricks Workspace.
+	//
+	// > **NOTE:** The `virtualNetworkId` field is the value you must supply to the `network.VirtualNetworkPeering` resources `remoteVirtualNetworkId` field to successfully peer the Databricks Virtual Network with the remote virtual network.
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 	// The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
 	WorkspaceId *string `pulumi:"workspaceId"`
@@ -193,12 +205,18 @@ type VirtualNetworkPeeringState struct {
 	// A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
 	RemoteAddressSpacePrefixes pulumi.StringArrayInput
 	// The ID of the remote virtual network. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
 	RemoteVirtualNetworkId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Databricks Virtual Network Peering should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
+	//
+	// > **NOTE:** If the `useRemoteGateways` is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `useRemoteGateways` cannot be set if the virtual network already has a gateway.
 	UseRemoteGateways pulumi.BoolPtrInput
 	// The ID of the internal Virtual Network used by the DataBricks Workspace.
+	//
+	// > **NOTE:** The `virtualNetworkId` field is the value you must supply to the `network.VirtualNetworkPeering` resources `remoteVirtualNetworkId` field to successfully peer the Databricks Virtual Network with the remote virtual network.
 	VirtualNetworkId pulumi.StringPtrInput
 	// The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
 	WorkspaceId pulumi.StringPtrInput
@@ -220,10 +238,14 @@ type virtualNetworkPeeringArgs struct {
 	// A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
 	RemoteAddressSpacePrefixes []string `pulumi:"remoteAddressSpacePrefixes"`
 	// The ID of the remote virtual network. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
 	RemoteVirtualNetworkId string `pulumi:"remoteVirtualNetworkId"`
 	// The name of the Resource Group in which the Databricks Virtual Network Peering should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
+	//
+	// > **NOTE:** If the `useRemoteGateways` is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `useRemoteGateways` cannot be set if the virtual network already has a gateway.
 	UseRemoteGateways *bool `pulumi:"useRemoteGateways"`
 	// The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
 	WorkspaceId string `pulumi:"workspaceId"`
@@ -242,10 +264,14 @@ type VirtualNetworkPeeringArgs struct {
 	// A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
 	RemoteAddressSpacePrefixes pulumi.StringArrayInput
 	// The ID of the remote virtual network. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
 	RemoteVirtualNetworkId pulumi.StringInput
 	// The name of the Resource Group in which the Databricks Virtual Network Peering should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
+	//
+	// > **NOTE:** If the `useRemoteGateways` is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `useRemoteGateways` cannot be set if the virtual network already has a gateway.
 	UseRemoteGateways pulumi.BoolPtrInput
 	// The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
 	WorkspaceId pulumi.StringInput
@@ -369,6 +395,8 @@ func (o VirtualNetworkPeeringOutput) RemoteAddressSpacePrefixes() pulumi.StringA
 }
 
 // The ID of the remote virtual network. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
 func (o VirtualNetworkPeeringOutput) RemoteVirtualNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.StringOutput { return v.RemoteVirtualNetworkId }).(pulumi.StringOutput)
 }
@@ -379,11 +407,15 @@ func (o VirtualNetworkPeeringOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
+//
+// > **NOTE:** If the `useRemoteGateways` is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `useRemoteGateways` cannot be set if the virtual network already has a gateway.
 func (o VirtualNetworkPeeringOutput) UseRemoteGateways() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.BoolPtrOutput { return v.UseRemoteGateways }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the internal Virtual Network used by the DataBricks Workspace.
+//
+// > **NOTE:** The `virtualNetworkId` field is the value you must supply to the `network.VirtualNetworkPeering` resources `remoteVirtualNetworkId` field to successfully peer the Databricks Virtual Network with the remote virtual network.
 func (o VirtualNetworkPeeringOutput) VirtualNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.StringOutput { return v.VirtualNetworkId }).(pulumi.StringOutput)
 }

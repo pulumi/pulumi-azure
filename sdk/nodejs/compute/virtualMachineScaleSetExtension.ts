@@ -92,6 +92,8 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     public readonly automaticUpgradeEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     *
+     * > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      */
     public readonly failureSuppressionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -104,10 +106,14 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+     *
+     * > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
      */
     public readonly protectedSettings!: pulumi.Output<string | undefined>;
     /**
      * A `protectedSettingsFromKeyVault` block as defined below.
+     *
+     * > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
      */
     public readonly protectedSettingsFromKeyVault!: pulumi.Output<outputs.compute.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault | undefined>;
     /**
@@ -120,6 +126,8 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     public readonly publisher!: pulumi.Output<string>;
     /**
      * A JSON String which specifies Settings for the Extension.
+     *
+     * > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
      */
     public readonly settings!: pulumi.Output<string | undefined>;
     /**
@@ -128,10 +136,18 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     public readonly type!: pulumi.Output<string>;
     /**
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+     *
+     * > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     public readonly typeHandlerVersion!: pulumi.Output<string>;
     /**
      * The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
      */
     public readonly virtualMachineScaleSetId!: pulumi.Output<string>;
 
@@ -210,6 +226,8 @@ export interface VirtualMachineScaleSetExtensionState {
     automaticUpgradeEnabled?: pulumi.Input<boolean>;
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     *
+     * > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      */
     failureSuppressionEnabled?: pulumi.Input<boolean>;
     /**
@@ -222,10 +240,14 @@ export interface VirtualMachineScaleSetExtensionState {
     name?: pulumi.Input<string>;
     /**
      * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+     *
+     * > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
      */
     protectedSettings?: pulumi.Input<string>;
     /**
      * A `protectedSettingsFromKeyVault` block as defined below.
+     *
+     * > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
      */
     protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault>;
     /**
@@ -238,6 +260,8 @@ export interface VirtualMachineScaleSetExtensionState {
     publisher?: pulumi.Input<string>;
     /**
      * A JSON String which specifies Settings for the Extension.
+     *
+     * > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
      */
     settings?: pulumi.Input<string>;
     /**
@@ -246,10 +270,18 @@ export interface VirtualMachineScaleSetExtensionState {
     type?: pulumi.Input<string>;
     /**
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+     *
+     * > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     typeHandlerVersion?: pulumi.Input<string>;
     /**
      * The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
      */
     virtualMachineScaleSetId?: pulumi.Input<string>;
 }
@@ -268,6 +300,8 @@ export interface VirtualMachineScaleSetExtensionArgs {
     automaticUpgradeEnabled?: pulumi.Input<boolean>;
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     *
+     * > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      */
     failureSuppressionEnabled?: pulumi.Input<boolean>;
     /**
@@ -280,10 +314,14 @@ export interface VirtualMachineScaleSetExtensionArgs {
     name?: pulumi.Input<string>;
     /**
      * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+     *
+     * > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
      */
     protectedSettings?: pulumi.Input<string>;
     /**
      * A `protectedSettingsFromKeyVault` block as defined below.
+     *
+     * > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
      */
     protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault>;
     /**
@@ -296,6 +334,8 @@ export interface VirtualMachineScaleSetExtensionArgs {
     publisher: pulumi.Input<string>;
     /**
      * A JSON String which specifies Settings for the Extension.
+     *
+     * > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
      */
     settings?: pulumi.Input<string>;
     /**
@@ -304,10 +344,18 @@ export interface VirtualMachineScaleSetExtensionArgs {
     type: pulumi.Input<string>;
     /**
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+     *
+     * > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     typeHandlerVersion: pulumi.Input<string>;
     /**
      * The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
      */
     virtualMachineScaleSetId: pulumi.Input<string>;
 }

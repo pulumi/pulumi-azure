@@ -233,6 +233,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// One or more `storage_account` blocks as defined below.
+        /// 
+        /// &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         /// </summary>
         [Output("storageAccounts")]
         public Output<ImmutableArray<Outputs.WindowsWebAppStorageAccount>> StorageAccounts { get; private set; } = null!;
@@ -243,14 +245,13 @@ namespace Pulumi.Azure.AppService
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        /// 
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         /// </summary>
         [Output("zipDeployFile")]
         public Output<string> ZipDeployFile { get; private set; } = null!;
@@ -443,6 +444,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// One or more `storage_account` blocks as defined below.
+        /// 
+        /// &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         /// </summary>
         public InputList<Inputs.WindowsWebAppStorageAccountArgs> StorageAccounts
         {
@@ -462,14 +465,13 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        /// 
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         /// </summary>
         [Input("zipDeployFile")]
         public Input<string>? ZipDeployFile { get; set; }
@@ -705,6 +707,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// One or more `storage_account` blocks as defined below.
+        /// 
+        /// &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         /// </summary>
         public InputList<Inputs.WindowsWebAppStorageAccountGetArgs> StorageAccounts
         {
@@ -724,14 +728,13 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+        /// 
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         /// </summary>
         [Input("zipDeployFile")]
         public Input<string>? ZipDeployFile { get; set; }

@@ -38,6 +38,21 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The app setting name that contains the `client_secret` value used for Apple Login.
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         /// </summary>
         [Input("clientSecretSettingName")]
         public Input<string>? ClientSecretSettingName { get; set; }

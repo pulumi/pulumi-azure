@@ -40,6 +40,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.privatedns.ResolverArgs;
  * import com.pulumi.azure.privatedns.ResolverOutboundEndpoint;
  * import com.pulumi.azure.privatedns.ResolverOutboundEndpointArgs;
+ * import com.pulumi.azure.privatedns.ResolverDnsForwardingRuleset;
+ * import com.pulumi.azure.privatedns.ResolverDnsForwardingRulesetArgs;
  * import com.pulumi.azure.privatedns.ResolverForwardingRule;
  * import com.pulumi.azure.privatedns.ResolverForwardingRuleArgs;
  * import com.pulumi.azure.privatedns.inputs.ResolverForwardingRuleTargetDnsServerArgs;
@@ -92,8 +94,14 @@ import javax.annotation.Nullable;
  *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
  *             .build());
  * 
+ *         var exampleResolverDnsForwardingRuleset = new ResolverDnsForwardingRuleset(&#34;exampleResolverDnsForwardingRuleset&#34;, ResolverDnsForwardingRulesetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .privateDnsResolverOutboundEndpointIds(exampleResolverOutboundEndpoint.id())
+ *             .build());
+ * 
  *         var exampleResolverForwardingRule = new ResolverForwardingRule(&#34;exampleResolverForwardingRule&#34;, ResolverForwardingRuleArgs.builder()        
- *             .dnsForwardingRulesetId(azurerm_private_dns_resolver_dns_forwarding_ruleset.example().id())
+ *             .dnsForwardingRulesetId(exampleResolverDnsForwardingRuleset.id())
  *             .domainName(&#34;onprem.local.&#34;)
  *             .enabled(true)
  *             .targetDnsServers(ResolverForwardingRuleTargetDnsServerArgs.builder()

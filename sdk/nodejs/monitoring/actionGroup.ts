@@ -31,9 +31,9 @@ import * as utilities from "../utilities";
  *     }],
  *     automationRunbookReceivers: [{
  *         name: "action_name_1",
- *         automationAccountId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001",
+ *         automationAccountId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001",
  *         runbookName: "my runbook",
- *         webhookResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001/webhooks/webhook_alert",
+ *         webhookResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001/webHooks/webhook_alert",
  *         isGlobalRunbook: true,
  *         serviceUri: "https://s13events.azure-automation.net/webhooks?token=randomtoken",
  *         useCommonAlertSchema: true,

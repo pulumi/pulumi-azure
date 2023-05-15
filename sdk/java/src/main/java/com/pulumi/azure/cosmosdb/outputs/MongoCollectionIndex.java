@@ -21,6 +21,8 @@ public final class MongoCollectionIndex {
     /**
      * @return Is the index unique or not? Defaults to `false`.
      * 
+     * &gt; **Note:** An index with an &#34;_id&#34; key must be specified.
+     * 
      */
     private @Nullable Boolean unique;
 
@@ -34,6 +36,8 @@ public final class MongoCollectionIndex {
     }
     /**
      * @return Is the index unique or not? Defaults to `false`.
+     * 
+     * &gt; **Note:** An index with an &#34;_id&#34; key must be specified.
      * 
      */
     public Optional<Boolean> unique() {

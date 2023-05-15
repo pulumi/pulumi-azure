@@ -75,6 +75,8 @@ export class DatasetJson extends pulumi.CustomResource {
 
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported arguments are specific to JSON Dataset:
      */
     public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -83,6 +85,8 @@ export class DatasetJson extends pulumi.CustomResource {
     public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
+     *
+     * The following supported arguments are specific to Delimited Text Dataset:
      */
     public readonly azureBlobStorageLocation!: pulumi.Output<outputs.datafactory.DatasetJsonAzureBlobStorageLocation | undefined>;
     /**
@@ -179,6 +183,8 @@ export class DatasetJson extends pulumi.CustomResource {
 export interface DatasetJsonState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported arguments are specific to JSON Dataset:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -187,6 +193,8 @@ export interface DatasetJsonState {
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
+     *
+     * The following supported arguments are specific to Delimited Text Dataset:
      */
     azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetJsonAzureBlobStorageLocation>;
     /**
@@ -233,6 +241,8 @@ export interface DatasetJsonState {
 export interface DatasetJsonArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported arguments are specific to JSON Dataset:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -241,6 +251,8 @@ export interface DatasetJsonArgs {
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
+     *
+     * The following supported arguments are specific to Delimited Text Dataset:
      */
     azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetJsonAzureBlobStorageLocation>;
     /**

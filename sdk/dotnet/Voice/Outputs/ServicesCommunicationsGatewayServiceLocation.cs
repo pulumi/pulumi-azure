@@ -23,6 +23,8 @@ namespace Pulumi.Azure.Voice.Outputs
         public readonly ImmutableArray<string> AllowedSignalingSourceAddressPrefixes;
         /// <summary>
         /// IP address to use to contact the ESRP from this region.
+        /// 
+        /// !&gt; **NOTE:** The `esrp_addresses` must be specified for each `service_location` when the`e911_type` is set to `DirectToEsrp`.  The `esrp_addresses` must not be specified for each `service_location` when the`e911_type` is set to `Standard`.
         /// </summary>
         public readonly ImmutableArray<string> EsrpAddresses;
         /// <summary>

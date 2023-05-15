@@ -19,12 +19,16 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
      * 
+     * &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+     * 
      */
     @Import(name="currentStack")
     private @Nullable Output<String> currentStack;
 
     /**
      * @return The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
+     * 
+     * &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
      * 
      */
     public Optional<Output<String>> currentStack() {
@@ -162,12 +166,16 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
      * 
+     * &gt; **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+     * 
      */
     @Import(name="javaVersion")
     private @Nullable Output<String> javaVersion;
 
     /**
      * @return The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
+     * 
+     * &gt; **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -177,12 +185,16 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
      * 
+     * &gt; **NOTE:** This property conflicts with `java_version`.
+     * 
      */
     @Import(name="nodeVersion")
     private @Nullable Output<String> nodeVersion;
 
     /**
      * @return The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+     * 
+     * &gt; **NOTE:** This property conflicts with `java_version`.
      * 
      */
     public Optional<Output<String>> nodeVersion() {
@@ -192,12 +204,16 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
      * 
+     * &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
+     * 
      */
     @Import(name="phpVersion")
     private @Nullable Output<String> phpVersion;
 
     /**
      * @return The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
+     * 
+     * &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
      * 
      */
     public Optional<Output<String>> phpVersion() {
@@ -241,12 +257,16 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
     /**
      * The version of Tomcat the Java App should use.
      * 
+     * &gt; **NOTE:** See the official documentation for current supported versions.
+     * 
      */
     @Import(name="tomcatVersion")
     private @Nullable Output<String> tomcatVersion;
 
     /**
      * @return The version of Tomcat the Java App should use.
+     * 
+     * &gt; **NOTE:** See the official documentation for current supported versions.
      * 
      */
     public Optional<Output<String>> tomcatVersion() {
@@ -294,6 +314,8 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param currentStack The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
          * 
+         * &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+         * 
          * @return builder
          * 
          */
@@ -304,6 +326,8 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
 
         /**
          * @param currentStack The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
+         * 
+         * &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
          * 
          * @return builder
          * 
@@ -491,6 +515,8 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param javaVersion The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
          * 
+         * &gt; **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+         * 
          * @return builder
          * 
          */
@@ -502,6 +528,8 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param javaVersion The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
          * 
+         * &gt; **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+         * 
          * @return builder
          * 
          */
@@ -511,6 +539,8 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
 
         /**
          * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+         * 
+         * &gt; **NOTE:** This property conflicts with `java_version`.
          * 
          * @return builder
          * 
@@ -523,6 +553,8 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
          * 
+         * &gt; **NOTE:** This property conflicts with `java_version`.
+         * 
          * @return builder
          * 
          */
@@ -532,6 +564,8 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
 
         /**
          * @param phpVersion The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
+         * 
+         * &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
          * 
          * @return builder
          * 
@@ -543,6 +577,8 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
 
         /**
          * @param phpVersion The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
+         * 
+         * &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
          * 
          * @return builder
          * 
@@ -600,6 +636,8 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
         /**
          * @param tomcatVersion The version of Tomcat the Java App should use.
          * 
+         * &gt; **NOTE:** See the official documentation for current supported versions.
+         * 
          * @return builder
          * 
          */
@@ -610,6 +648,8 @@ public final class WindowsWebAppSlotSiteConfigApplicationStackArgs extends com.p
 
         /**
          * @param tomcatVersion The version of Tomcat the Java App should use.
+         * 
+         * &gt; **NOTE:** See the official documentation for current supported versions.
          * 
          * @return builder
          * 

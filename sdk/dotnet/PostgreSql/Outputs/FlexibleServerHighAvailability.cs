@@ -17,9 +17,6 @@ namespace Pulumi.Azure.PostgreSql.Outputs
         /// The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
         /// </summary>
         public readonly string Mode;
-        /// <summary>
-        /// Specifies the Availability Zone in which the standby Flexible Server should be located.
-        /// </summary>
         public readonly string? StandbyAvailabilityZone;
 
         [OutputConstructor]

@@ -38,6 +38,8 @@ class ResourceGroupPolicyAssignmentArgs:
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input['ResourceGroupPolicyAssignmentIdentityArgs'] identity: An `identity` block as defined below.
+               
+               > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
@@ -139,6 +141,8 @@ class ResourceGroupPolicyAssignmentArgs:
     def identity(self) -> Optional[pulumi.Input['ResourceGroupPolicyAssignmentIdentityArgs']]:
         """
         An `identity` block as defined below.
+
+        > **Note:** The `location` field must also be specified when `identity` is specified.
         """
         return pulumi.get(self, "identity")
 
@@ -266,6 +270,8 @@ class _ResourceGroupPolicyAssignmentState:
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input['ResourceGroupPolicyAssignmentIdentityArgs'] identity: An `identity` block as defined below.
+               
+               > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
@@ -347,6 +353,8 @@ class _ResourceGroupPolicyAssignmentState:
     def identity(self) -> Optional[pulumi.Input['ResourceGroupPolicyAssignmentIdentityArgs']]:
         """
         An `identity` block as defined below.
+
+        > **Note:** The `location` field must also be specified when `identity` is specified.
         """
         return pulumi.get(self, "identity")
 
@@ -549,6 +557,8 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentIdentityArgs']] identity: An `identity` block as defined below.
+               
+               > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
@@ -705,6 +715,8 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
         :param pulumi.Input[pulumi.InputType['ResourceGroupPolicyAssignmentIdentityArgs']] identity: An `identity` block as defined below.
+               
+               > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created.
@@ -765,6 +777,8 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
     def identity(self) -> pulumi.Output[Optional['outputs.ResourceGroupPolicyAssignmentIdentity']]:
         """
         An `identity` block as defined below.
+
+        > **Note:** The `location` field must also be specified when `identity` is specified.
         """
         return pulumi.get(self, "identity")
 

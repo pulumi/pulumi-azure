@@ -12,6 +12,10 @@ namespace Pulumi.Azure.AppService
     public static class GetAppService
     {
         /// <summary>
+        /// Use this data source to access information about an existing App Service.
+        /// 
+        /// !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -43,6 +47,10 @@ namespace Pulumi.Azure.AppService
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceResult>("azure:appservice/getAppService:getAppService", args ?? new GetAppServiceArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to access information about an existing App Service.
+        /// 
+        /// !&gt; **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

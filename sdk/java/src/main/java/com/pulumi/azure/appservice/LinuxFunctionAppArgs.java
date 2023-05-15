@@ -28,14 +28,16 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     public static final LinuxFunctionAppArgs Empty = new LinuxFunctionAppArgs();
 
     /**
-     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App
+     * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      * 
      */
     @Import(name="appSettings")
     private @Nullable Output<Map<String,String>> appSettings;
 
     /**
-     * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+     * @return A map of key-value pairs for [App
+     * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      * 
      */
     public Optional<Output<Map<String,String>>> appSettings() {
@@ -405,12 +407,20 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      * 
+     * &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * 
+     * &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * 
      */
     @Import(name="storageKeyVaultSecretId")
     private @Nullable Output<String> storageKeyVaultSecretId;
 
     /**
      * @return The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+     * 
+     * &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+     * 
+     * &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      * 
      */
     public Optional<Output<String>> storageKeyVaultSecretId() {
@@ -420,12 +430,16 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     /**
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
      * 
+     * &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+     * 
      */
     @Import(name="storageUsesManagedIdentity")
     private @Nullable Output<Boolean> storageUsesManagedIdentity;
 
     /**
      * @return Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+     * 
+     * &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
      * 
      */
     public Optional<Output<Boolean>> storageUsesManagedIdentity() {
@@ -447,17 +461,9 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     * 
-     */
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
-    /**
-     * @return The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     * 
-     */
     public Optional<Output<String>> virtualNetworkSubnetId() {
         return Optional.ofNullable(this.virtualNetworkSubnetId);
     }
@@ -465,12 +471,16 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Function App.
      * 
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
+     * 
      */
     @Import(name="zipDeployFile")
     private @Nullable Output<String> zipDeployFile;
 
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+     * 
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      * 
      */
     public Optional<Output<String>> zipDeployFile() {
@@ -531,7 +541,8 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+         * @param appSettings A map of key-value pairs for [App
+         * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
          * 
          * @return builder
          * 
@@ -542,7 +553,8 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+         * @param appSettings A map of key-value pairs for [App
+         * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
          * 
          * @return builder
          * 
@@ -1078,6 +1090,10 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param storageKeyVaultSecretId The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
          * 
+         * &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+         * 
+         * &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+         * 
          * @return builder
          * 
          */
@@ -1089,6 +1105,10 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param storageKeyVaultSecretId The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
          * 
+         * &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+         * 
+         * &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+         * 
          * @return builder
          * 
          */
@@ -1098,6 +1118,8 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param storageUsesManagedIdentity Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+         * 
+         * &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
          * 
          * @return builder
          * 
@@ -1109,6 +1131,8 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param storageUsesManagedIdentity Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+         * 
+         * &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
          * 
          * @return builder
          * 
@@ -1138,29 +1162,19 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param virtualNetworkSubnetId The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualNetworkSubnetId(@Nullable Output<String> virtualNetworkSubnetId) {
             $.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }
 
-        /**
-         * @param virtualNetworkSubnetId The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
         }
 
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+         * 
+         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
          * 
          * @return builder
          * 
@@ -1172,6 +1186,8 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param zipDeployFile The local path and filename of the Zip packaged application to deploy to this Linux Function App.
+         * 
+         * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
          * 
          * @return builder
          * 

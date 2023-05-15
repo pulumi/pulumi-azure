@@ -227,6 +227,10 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Allows you to set a user or group as the AD administrator for an Azure SQL server.
+
+        > **Note:** The `sql.ActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azuread_administrator` block of the `mssql.Server` resource instead.
+
         ## Example Usage
 
         ```python
@@ -273,6 +277,10 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
                  args: ActiveDirectoryAdministratorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Allows you to set a user or group as the AD administrator for an Azure SQL server.
+
+        > **Note:** The `sql.ActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azuread_administrator` block of the `mssql.Server` resource instead.
+
         ## Example Usage
 
         ```python

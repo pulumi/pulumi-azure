@@ -9,6 +9,39 @@ import * as utilities from "../utilities";
 /**
  * Manages a Lab Service Lab.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleLab = new azure.lab.Lab("exampleLab", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     title: "Test Title",
+ *     security: {
+ *         openAccessEnabled: false,
+ *     },
+ *     virtualMachine: {
+ *         adminUser: {
+ *             username: "testadmin",
+ *             password: "Password1234!",
+ *         },
+ *         imageReference: {
+ *             offer: "0001-com-ubuntu-server-focal",
+ *             publisher: "canonical",
+ *             sku: "20_04-lts",
+ *             version: "latest",
+ *         },
+ *         sku: {
+ *             name: "Classic_Fsv2_2_4GB_128_S_SSD",
+ *             capacity: 0,
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Lab Service Labs can be imported using the `resource id`, e.g.

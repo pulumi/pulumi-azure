@@ -34,8 +34,12 @@ class DatasetParquetArgs:
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
+               
+               The following supported locations for a Parquet Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+               
+               The following supported arguments are specific to Parquet Dataset:
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
         :param pulumi.Input[str] compression_level: Specifies the compression level. Possible values are `Optimal` and `Fastest`,
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
@@ -99,6 +103,8 @@ class DatasetParquetArgs:
     def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset.
+
+        The following supported locations for a Parquet Dataset:
         """
         return pulumi.get(self, "additional_properties")
 
@@ -123,6 +129,8 @@ class DatasetParquetArgs:
     def azure_blob_storage_location(self) -> Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs']]:
         """
         A `azure_blob_storage_location` block as defined below.
+
+        The following supported arguments are specific to Parquet Dataset:
         """
         return pulumi.get(self, "azure_blob_storage_location")
 
@@ -246,8 +254,12 @@ class _DatasetParquetState:
         """
         Input properties used for looking up and filtering DatasetParquet resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
+               
+               The following supported locations for a Parquet Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+               
+               The following supported arguments are specific to Parquet Dataset:
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
         :param pulumi.Input[str] compression_level: Specifies the compression level. Possible values are `Optimal` and `Fastest`,
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
@@ -291,6 +303,8 @@ class _DatasetParquetState:
     def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset.
+
+        The following supported locations for a Parquet Dataset:
         """
         return pulumi.get(self, "additional_properties")
 
@@ -315,6 +329,8 @@ class _DatasetParquetState:
     def azure_blob_storage_location(self) -> Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs']]:
         """
         A `azure_blob_storage_location` block as defined below.
+
+        The following supported arguments are specific to Parquet Dataset:
         """
         return pulumi.get(self, "azure_blob_storage_location")
 
@@ -500,8 +516,12 @@ class DatasetParquet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
+               
+               The following supported locations for a Parquet Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+               
+               The following supported arguments are specific to Parquet Dataset:
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
         :param pulumi.Input[str] compression_level: Specifies the compression level. Possible values are `Optimal` and `Fastest`,
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
@@ -639,8 +659,12 @@ class DatasetParquet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
+               
+               The following supported locations for a Parquet Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+               
+               The following supported arguments are specific to Parquet Dataset:
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
         :param pulumi.Input[str] compression_level: Specifies the compression level. Possible values are `Optimal` and `Fastest`,
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
@@ -676,6 +700,8 @@ class DatasetParquet(pulumi.CustomResource):
     def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset.
+
+        The following supported locations for a Parquet Dataset:
         """
         return pulumi.get(self, "additional_properties")
 
@@ -692,6 +718,8 @@ class DatasetParquet(pulumi.CustomResource):
     def azure_blob_storage_location(self) -> pulumi.Output[Optional['outputs.DatasetParquetAzureBlobStorageLocation']]:
         """
         A `azure_blob_storage_location` block as defined below.
+
+        The following supported arguments are specific to Parquet Dataset:
         """
         return pulumi.get(self, "azure_blob_storage_location")
 

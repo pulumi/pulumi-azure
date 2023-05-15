@@ -26,6 +26,8 @@ public final class AppIngressTrafficWeight {
     /**
      * @return The percentage of traffic which should be sent this revision.
      * 
+     * &gt; **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
+     * 
      */
     private Integer percentage;
     /**
@@ -51,6 +53,8 @@ public final class AppIngressTrafficWeight {
     }
     /**
      * @return The percentage of traffic which should be sent this revision.
+     * 
+     * &gt; **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
      * 
      */
     public Integer percentage() {

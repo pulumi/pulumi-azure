@@ -341,7 +341,7 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
-            short_name="exampleactiongroup")
+            short_name="action")
         example_alert_processing_rule_action_group = azure.monitoring.AlertProcessingRuleActionGroup("exampleAlertProcessingRuleActionGroup",
             resource_group_name="example",
             scopes=[example_resource_group.id],
@@ -420,7 +420,7 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
         example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
-            short_name="exampleactiongroup")
+            short_name="action")
         example_alert_processing_rule_action_group = azure.monitoring.AlertProcessingRuleActionGroup("exampleAlertProcessingRuleActionGroup",
             resource_group_name="example",
             scopes=[example_resource_group.id],

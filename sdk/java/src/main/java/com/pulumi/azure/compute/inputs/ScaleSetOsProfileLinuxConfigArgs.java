@@ -35,12 +35,20 @@ public final class ScaleSetOsProfileLinuxConfigArgs extends com.pulumi.resources
     /**
      * One or more `ssh_keys` blocks as defined below.
      * 
+     * &gt; **Note:** Please note that the only allowed `path` is `/home/&lt;username&gt;/.ssh/authorized_keys` due to a limitation of Azure.
+     * 
+     * &gt; **NOTE:** At least one `ssh_keys` block is required if `disable_password_authentication` is set to `true`.
+     * 
      */
     @Import(name="sshKeys")
     private @Nullable Output<List<ScaleSetOsProfileLinuxConfigSshKeyArgs>> sshKeys;
 
     /**
      * @return One or more `ssh_keys` blocks as defined below.
+     * 
+     * &gt; **Note:** Please note that the only allowed `path` is `/home/&lt;username&gt;/.ssh/authorized_keys` due to a limitation of Azure.
+     * 
+     * &gt; **NOTE:** At least one `ssh_keys` block is required if `disable_password_authentication` is set to `true`.
      * 
      */
     public Optional<Output<List<ScaleSetOsProfileLinuxConfigSshKeyArgs>>> sshKeys() {
@@ -96,6 +104,10 @@ public final class ScaleSetOsProfileLinuxConfigArgs extends com.pulumi.resources
         /**
          * @param sshKeys One or more `ssh_keys` blocks as defined below.
          * 
+         * &gt; **Note:** Please note that the only allowed `path` is `/home/&lt;username&gt;/.ssh/authorized_keys` due to a limitation of Azure.
+         * 
+         * &gt; **NOTE:** At least one `ssh_keys` block is required if `disable_password_authentication` is set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -107,6 +119,10 @@ public final class ScaleSetOsProfileLinuxConfigArgs extends com.pulumi.resources
         /**
          * @param sshKeys One or more `ssh_keys` blocks as defined below.
          * 
+         * &gt; **Note:** Please note that the only allowed `path` is `/home/&lt;username&gt;/.ssh/authorized_keys` due to a limitation of Azure.
+         * 
+         * &gt; **NOTE:** At least one `ssh_keys` block is required if `disable_password_authentication` is set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -116,6 +132,10 @@ public final class ScaleSetOsProfileLinuxConfigArgs extends com.pulumi.resources
 
         /**
          * @param sshKeys One or more `ssh_keys` blocks as defined below.
+         * 
+         * &gt; **Note:** Please note that the only allowed `path` is `/home/&lt;username&gt;/.ssh/authorized_keys` due to a limitation of Azure.
+         * 
+         * &gt; **NOTE:** At least one `ssh_keys` block is required if `disable_password_authentication` is set to `true`.
          * 
          * @return builder
          * 

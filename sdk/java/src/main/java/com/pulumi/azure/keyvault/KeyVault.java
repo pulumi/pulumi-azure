@@ -97,12 +97,16 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
     /**
      * A list of up to 1024 objects describing access policies, as described below.
      * 
+     * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * 
      */
     @Export(name="accessPolicies", refs={List.class,KeyVaultAccessPolicy.class}, tree="[0,1]")
     private Output<List<KeyVaultAccessPolicy>> accessPolicies;
 
     /**
      * @return A list of up to 1024 objects describing access policies, as described below.
+     * 
+     * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Output<List<KeyVaultAccessPolicy>> accessPolicies() {
@@ -111,12 +115,16 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
     /**
      * One or more `contact` block as defined below.
      * 
+     * &gt; **Note:** This field can only be set once user has `managecontacts` certificate permission.
+     * 
      */
     @Export(name="contacts", refs={List.class,KeyVaultContact.class}, tree="[0,1]")
     private Output</* @Nullable */ List<KeyVaultContact>> contacts;
 
     /**
      * @return One or more `contact` block as defined below.
+     * 
+     * &gt; **Note:** This field can only be set once user has `managecontacts` certificate permission.
      * 
      */
     public Output<Optional<List<KeyVaultContact>>> contacts() {
@@ -237,12 +245,16 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
     /**
      * Is Purge Protection enabled for this Key Vault?
      * 
+     * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
+     * 
      */
     @Export(name="purgeProtectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> purgeProtectionEnabled;
 
     /**
      * @return Is Purge Protection enabled for this Key Vault?
+     * 
+     * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
      * 
      */
     public Output<Optional<Boolean>> purgeProtectionEnabled() {
@@ -279,12 +291,16 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
     /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
      * 
+     * &gt; **Note:** This field can only be configured one time and cannot be updated.
+     * 
      */
     @Export(name="softDeleteRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> softDeleteRetentionDays;
 
     /**
      * @return The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+     * 
+     * &gt; **Note:** This field can only be configured one time and cannot be updated.
      * 
      */
     public Output<Optional<Integer>> softDeleteRetentionDays() {

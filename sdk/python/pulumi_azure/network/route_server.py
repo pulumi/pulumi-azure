@@ -28,6 +28,8 @@ class RouteServerArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
         :param pulumi.Input[bool] branch_to_branch_traffic_enabled: Whether to enable route exchange between Azure Route Server and the gateway(s)
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Route Server. Changing this forces a new resource to be created.
@@ -87,6 +89,8 @@ class RouteServerArgs:
     def subnet_id(self) -> pulumi.Input[str]:
         """
         The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
+
+        > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
         """
         return pulumi.get(self, "subnet_id")
 
@@ -166,6 +170,8 @@ class _RouteServerState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if branch_to_branch_traffic_enabled is not None:
@@ -277,6 +283,8 @@ class _RouteServerState:
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
+
+        > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
         """
         return pulumi.get(self, "subnet_id")
 
@@ -381,6 +389,8 @@ class RouteServer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -518,6 +528,8 @@ class RouteServer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -595,6 +607,8 @@ class RouteServer(pulumi.CustomResource):
     def subnet_id(self) -> pulumi.Output[str]:
         """
         The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
+
+        > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
         """
         return pulumi.get(self, "subnet_id")
 

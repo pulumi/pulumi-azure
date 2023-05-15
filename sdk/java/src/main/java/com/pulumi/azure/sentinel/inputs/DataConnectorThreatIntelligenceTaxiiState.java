@@ -138,12 +138,16 @@ public final class DataConnectorThreatIntelligenceTaxiiState extends com.pulumi.
     /**
      * The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
      * 
+     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
      * @return The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
+     * 
+     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -369,6 +373,8 @@ public final class DataConnectorThreatIntelligenceTaxiiState extends com.pulumi.
         /**
          * @param tenantId The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
          * 
+         * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+         * 
          * @return builder
          * 
          */
@@ -379,6 +385,8 @@ public final class DataConnectorThreatIntelligenceTaxiiState extends com.pulumi.
 
         /**
          * @param tenantId The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
+         * 
+         * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
          * 
          * @return builder
          * 

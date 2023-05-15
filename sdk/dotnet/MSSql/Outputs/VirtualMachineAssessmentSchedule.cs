@@ -19,6 +19,8 @@ namespace Pulumi.Azure.MSSql.Outputs
         public readonly string DayOfWeek;
         /// <summary>
         /// How many months between assessment runs. Valid values are between `1` and `5`.
+        /// 
+        /// &gt; **NOTE:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
         /// </summary>
         public readonly int? MonthlyOccurrence;
         /// <summary>

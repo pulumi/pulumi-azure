@@ -73,6 +73,8 @@ namespace Pulumi.Azure.MSSql
     {
         /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+        /// 
+        /// &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
         /// </summary>
         [Output("licenseType")]
         public Output<string> LicenseType { get; private set; } = null!;
@@ -91,6 +93,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+        /// 
+        /// &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         /// </summary>
         [Output("maxSizeBytes")]
         public Output<int> MaxSizeBytes { get; private set; } = null!;
@@ -191,6 +195,8 @@ namespace Pulumi.Azure.MSSql
     {
         /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+        /// 
+        /// &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }
@@ -209,6 +215,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+        /// 
+        /// &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         /// </summary>
         [Input("maxSizeBytes")]
         public Input<int>? MaxSizeBytes { get; set; }
@@ -277,6 +285,8 @@ namespace Pulumi.Azure.MSSql
     {
         /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+        /// 
+        /// &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }
@@ -295,6 +305,8 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+        /// 
+        /// &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         /// </summary>
         [Input("maxSizeBytes")]
         public Input<int>? MaxSizeBytes { get; set; }

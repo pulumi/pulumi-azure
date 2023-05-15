@@ -92,12 +92,16 @@ public class Share extends com.pulumi.resources.CustomResource {
     /**
      * The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
      * 
+     * ~&gt;**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
+     * 
      */
     @Export(name="accessTier", refs={String.class}, tree="[0]")
     private Output<String> accessTier;
 
     /**
      * @return The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
+     * 
+     * ~&gt;**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
      * 
      */
     public Output<String> accessTier() {
@@ -120,12 +124,16 @@ public class Share extends com.pulumi.resources.CustomResource {
     /**
      * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
      * 
+     * ~&gt;**NOTE:** The `Premium` SKU of the `azure.storage.Account` is required for the `NFS` protocol.
+     * 
      */
     @Export(name="enabledProtocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enabledProtocol;
 
     /**
      * @return The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+     * 
+     * ~&gt;**NOTE:** The `Premium` SKU of the `azure.storage.Account` is required for the `NFS` protocol.
      * 
      */
     public Output<Optional<String>> enabledProtocol() {

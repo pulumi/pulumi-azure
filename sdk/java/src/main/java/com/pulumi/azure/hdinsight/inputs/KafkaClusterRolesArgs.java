@@ -36,12 +36,16 @@ public final class KafkaClusterRolesArgs extends com.pulumi.resources.ResourceAr
     /**
      * A `kafka_management_node` block as defined below.
      * 
+     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0.
+     * 
      */
     @Import(name="kafkaManagementNode")
     private @Nullable Output<KafkaClusterRolesKafkaManagementNodeArgs> kafkaManagementNode;
 
     /**
      * @return A `kafka_management_node` block as defined below.
+     * 
+     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0.
      * 
      */
     public Optional<Output<KafkaClusterRolesKafkaManagementNodeArgs>> kafkaManagementNode() {
@@ -129,6 +133,8 @@ public final class KafkaClusterRolesArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param kafkaManagementNode A `kafka_management_node` block as defined below.
          * 
+         * &gt; **Note:** This property has been deprecated and will be removed in version 4.0.
+         * 
          * @return builder
          * 
          */
@@ -139,6 +145,8 @@ public final class KafkaClusterRolesArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param kafkaManagementNode A `kafka_management_node` block as defined below.
+         * 
+         * &gt; **Note:** This property has been deprecated and will be removed in version 4.0.
          * 
          * @return builder
          * 

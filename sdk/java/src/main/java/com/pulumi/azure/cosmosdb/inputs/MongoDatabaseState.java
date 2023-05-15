@@ -35,12 +35,16 @@ public final class MongoDatabaseState extends com.pulumi.resources.ResourceArgs 
     /**
      * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
+     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     * 
      */
     @Import(name="autoscaleSettings")
     private @Nullable Output<MongoDatabaseAutoscaleSettingsArgs> autoscaleSettings;
 
     /**
      * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     * 
+     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      * 
      */
     public Optional<Output<MongoDatabaseAutoscaleSettingsArgs>> autoscaleSettings() {
@@ -80,12 +84,16 @@ public final class MongoDatabaseState extends com.pulumi.resources.ResourceArgs 
     /**
      * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
      * 
+     * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
+     * 
      */
     @Import(name="throughput")
     private @Nullable Output<Integer> throughput;
 
     /**
      * @return The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+     * 
+     * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
      * 
      */
     public Optional<Output<Integer>> throughput() {
@@ -144,6 +152,8 @@ public final class MongoDatabaseState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
          * 
+         * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+         * 
          * @return builder
          * 
          */
@@ -154,6 +164,8 @@ public final class MongoDatabaseState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+         * 
+         * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
          * 
          * @return builder
          * 
@@ -207,6 +219,8 @@ public final class MongoDatabaseState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param throughput The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
          * 
+         * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
+         * 
          * @return builder
          * 
          */
@@ -217,6 +231,8 @@ public final class MongoDatabaseState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param throughput The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+         * 
+         * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
          * 
          * @return builder
          * 

@@ -55,6 +55,8 @@ public final class ApplicationGatewayRequestRoutingRule {
     /**
      * @return Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
      * 
+     * &gt; **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+     * 
      */
     private @Nullable Integer priority;
     /**
@@ -74,6 +76,8 @@ public final class ApplicationGatewayRequestRoutingRule {
     private @Nullable String rewriteRuleSetId;
     /**
      * @return The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+     * 
+     * &gt; **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
      * 
      */
     private @Nullable String rewriteRuleSetName;
@@ -153,6 +157,8 @@ public final class ApplicationGatewayRequestRoutingRule {
     /**
      * @return Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
      * 
+     * &gt; **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+     * 
      */
     public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
@@ -180,6 +186,8 @@ public final class ApplicationGatewayRequestRoutingRule {
     }
     /**
      * @return The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+     * 
+     * &gt; **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
      * 
      */
     public Optional<String> rewriteRuleSetName() {

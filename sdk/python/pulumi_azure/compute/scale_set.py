@@ -55,6 +55,8 @@ class ScaleSetArgs:
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
         :param pulumi.Input['ScaleSetBootDiagnosticsArgs'] boot_diagnostics: A boot diagnostics profile block as referenced below.
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         :param pulumi.Input['ScaleSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -74,6 +76,8 @@ class ScaleSetArgs:
         :param pulumi.Input['ScaleSetStorageProfileImageReferenceArgs'] storage_profile_image_reference: A storage profile image reference block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+               
+               > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         pulumi.set(__self__, "network_profiles", network_profiles)
         pulumi.set(__self__, "os_profile", os_profile)
@@ -227,6 +231,8 @@ class ScaleSetArgs:
     def eviction_policy(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -455,6 +461,8 @@ class ScaleSetArgs:
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+
+        > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zones")
 
@@ -499,6 +507,8 @@ class _ScaleSetState:
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
         :param pulumi.Input['ScaleSetBootDiagnosticsArgs'] boot_diagnostics: A boot diagnostics profile block as referenced below.
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         :param pulumi.Input['ScaleSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -524,6 +534,8 @@ class _ScaleSetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+               
+               > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         if automatic_os_upgrade is not None:
             pulumi.set(__self__, "automatic_os_upgrade", automatic_os_upgrade)
@@ -611,6 +623,8 @@ class _ScaleSetState:
     def eviction_policy(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -911,6 +925,8 @@ class _ScaleSetState:
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+
+        > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zones")
 
@@ -1052,6 +1068,8 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArgs']] boot_diagnostics: A boot diagnostics profile block as referenced below.
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetExtensionArgs']]]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         :param pulumi.Input[pulumi.InputType['ScaleSetIdentityArgs']] identity: An `identity` block as defined below.
@@ -1077,6 +1095,8 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+               
+               > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         ...
     @overload
@@ -1318,6 +1338,8 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['ScaleSetBootDiagnosticsArgs']] boot_diagnostics: A boot diagnostics profile block as referenced below.
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetExtensionArgs']]]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         :param pulumi.Input[pulumi.InputType['ScaleSetIdentityArgs']] identity: An `identity` block as defined below.
@@ -1343,6 +1365,8 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+               
+               > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1399,6 +1423,8 @@ class ScaleSet(pulumi.CustomResource):
     def eviction_policy(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -1599,6 +1625,8 @@ class ScaleSet(pulumi.CustomResource):
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
+
+        > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zones")
 

@@ -19,12 +19,16 @@ public final class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs extends
     /**
      * an `allowed_audiences` block as detailed below.
      * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * 
      */
     @Import(name="allowedAudiences")
     private @Nullable Output<List<String>> allowedAudiences;
 
     /**
      * @return an `allowed_audiences` block as detailed below.
+     * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
      */
     public Optional<Output<List<String>>> allowedAudiences() {
@@ -106,6 +110,8 @@ public final class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs extends
         /**
          * @param allowedAudiences an `allowed_audiences` block as detailed below.
          * 
+         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * 
          * @return builder
          * 
          */
@@ -117,6 +123,8 @@ public final class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs extends
         /**
          * @param allowedAudiences an `allowed_audiences` block as detailed below.
          * 
+         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * 
          * @return builder
          * 
          */
@@ -126,6 +134,8 @@ public final class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs extends
 
         /**
          * @param allowedAudiences an `allowed_audiences` block as detailed below.
+         * 
+         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
          * 
          * @return builder
          * 

@@ -29,6 +29,8 @@ class InterationServiceEnvironmentArgs:
         :param pulumi.Input[str] location: The Azure Region where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] name: The name of the Integration Service Environment. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] sku_name: The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+               
+               > **NOTE** For a `sku_name` using the `Developer` `sku` the `capacity` element must be always `0`. For a `sku_name` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Integration Service Environment.
         """
         pulumi.set(__self__, "access_endpoint_type", access_endpoint_type)
@@ -108,6 +110,8 @@ class InterationServiceEnvironmentArgs:
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
         The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+
+        > **NOTE** For a `sku_name` using the `Developer` `sku` the `capacity` element must be always `0`. For a `sku_name` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -151,6 +155,8 @@ class _InterationServiceEnvironmentState:
         :param pulumi.Input[str] name: The name of the Integration Service Environment. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] sku_name: The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+               
+               > **NOTE** For a `sku_name` using the `Developer` `sku` the `capacity` element must be always `0`. For a `sku_name` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Integration Service Environment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] workflow_endpoint_ip_addresses: The list of access endpoint IP addresses of workflow.
@@ -256,6 +262,8 @@ class _InterationServiceEnvironmentState:
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
         The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+
+        > **NOTE** For a `sku_name` using the `Developer` `sku` the `capacity` element must be always `0`. For a `sku_name` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -326,6 +334,10 @@ class InterationServiceEnvironment(pulumi.CustomResource):
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Manages private and isolated Logic App instances within an Azure virtual network.
+
+        !> **NOTE:** The `logicapps.InterationServiceEnvironment` resource is deprecated and will be removed in v4.0 of the Azure Provider. The underlying Azure Service is being retired on 2024-08-31 and new instances cannot be provisioned by default after 2022-11-01. More information on the retirement and how to migrate to Logic Apps Standard [can be found here](https://aka.ms/isedeprecation).
+
         ## Example Usage
 
         ```python
@@ -390,6 +402,8 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Integration Service Environment. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] sku_name: The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+               
+               > **NOTE** For a `sku_name` using the `Developer` `sku` the `capacity` element must be always `0`. For a `sku_name` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Integration Service Environment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
         """
@@ -400,6 +414,10 @@ class InterationServiceEnvironment(pulumi.CustomResource):
                  args: InterationServiceEnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages private and isolated Logic App instances within an Azure virtual network.
+
+        !> **NOTE:** The `logicapps.InterationServiceEnvironment` resource is deprecated and will be removed in v4.0 of the Azure Provider. The underlying Azure Service is being retired on 2024-08-31 and new instances cannot be provisioned by default after 2022-11-01. More information on the retirement and how to migrate to Logic Apps Standard [can be found here](https://aka.ms/isedeprecation).
+
         ## Example Usage
 
         ```python
@@ -540,6 +558,8 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Integration Service Environment. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] sku_name: The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+               
+               > **NOTE** For a `sku_name` using the `Developer` `sku` the `capacity` element must be always `0`. For a `sku_name` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Integration Service Environment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] workflow_endpoint_ip_addresses: The list of access endpoint IP addresses of workflow.
@@ -615,6 +635,8 @@ class InterationServiceEnvironment(pulumi.CustomResource):
     def sku_name(self) -> pulumi.Output[Optional[str]]:
         """
         The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+
+        > **NOTE** For a `sku_name` using the `Developer` `sku` the `capacity` element must be always `0`. For a `sku_name` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
         """
         return pulumi.get(self, "sku_name")
 

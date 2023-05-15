@@ -20,12 +20,16 @@ public final class WindowsFunctionAppSlotBackupScheduleArgs extends com.pulumi.r
     /**
      * How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
      * 
+     * &gt; **NOTE:** Not all intervals are supported on all SKUs. Please refer to the official documentation for appropriate values.
+     * 
      */
     @Import(name="frequencyInterval", required=true)
     private Output<Integer> frequencyInterval;
 
     /**
      * @return How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+     * 
+     * &gt; **NOTE:** Not all intervals are supported on all SKUs. Please refer to the official documentation for appropriate values.
      * 
      */
     public Output<Integer> frequencyInterval() {
@@ -139,6 +143,8 @@ public final class WindowsFunctionAppSlotBackupScheduleArgs extends com.pulumi.r
         /**
          * @param frequencyInterval How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
          * 
+         * &gt; **NOTE:** Not all intervals are supported on all SKUs. Please refer to the official documentation for appropriate values.
+         * 
          * @return builder
          * 
          */
@@ -149,6 +155,8 @@ public final class WindowsFunctionAppSlotBackupScheduleArgs extends com.pulumi.r
 
         /**
          * @param frequencyInterval How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+         * 
+         * &gt; **NOTE:** Not all intervals are supported on all SKUs. Please refer to the official documentation for appropriate values.
          * 
          * @return builder
          * 

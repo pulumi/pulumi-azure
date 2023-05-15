@@ -168,6 +168,8 @@ func (o AccountCustomerManagedKeyTypePtrOutput) KeyVaultKeyId() pulumi.StringPtr
 
 type AccountIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -190,6 +192,8 @@ type AccountIdentityInput interface {
 
 type AccountIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -277,6 +281,8 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -321,6 +327,8 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountIdentity) []string {
 		if v == nil {

@@ -52,12 +52,16 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
     /**
      * Is public network access enabled for the EventHub Namespace? Defaults to `true`.
      * 
+     * &gt; **Note:** The public network access setting at the network rule sets level should be the same as it&#39;s at the namespace level.
+     * 
      */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
      * @return Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+     * 
+     * &gt; **Note:** The public network access setting at the network rule sets level should be the same as it&#39;s at the namespace level.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -177,6 +181,8 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
         /**
          * @param publicNetworkAccessEnabled Is public network access enabled for the EventHub Namespace? Defaults to `true`.
          * 
+         * &gt; **Note:** The public network access setting at the network rule sets level should be the same as it&#39;s at the namespace level.
+         * 
          * @return builder
          * 
          */
@@ -187,6 +193,8 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
 
         /**
          * @param publicNetworkAccessEnabled Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+         * 
+         * &gt; **Note:** The public network access setting at the network rule sets level should be the same as it&#39;s at the namespace level.
          * 
          * @return builder
          * 

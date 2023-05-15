@@ -252,14 +252,14 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * The Site Credentials Username used for publishing.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * @return The Site Credentials Username used for publishing.
      * 
      */
     public Optional<Output<String>> name() {
@@ -299,12 +299,16 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
     /**
      * One or more `storage_account` blocks as defined below.
      * 
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * 
      */
     @Import(name="storageAccounts")
     private @Nullable Output<List<WindowsWebAppSlotStorageAccountArgs>> storageAccounts;
 
     /**
      * @return One or more `storage_account` blocks as defined below.
+     * 
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      * 
      */
     public Optional<Output<List<WindowsWebAppSlotStorageAccountArgs>>> storageAccounts() {
@@ -326,17 +330,9 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     * 
-     */
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
-    /**
-     * @return The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     * 
-     */
     public Optional<Output<String>> virtualNetworkSubnetId() {
         return Optional.ofNullable(this.virtualNetworkSubnetId);
     }
@@ -727,7 +723,7 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         * @param name The Site Credentials Username used for publishing.
          * 
          * @return builder
          * 
@@ -738,7 +734,7 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         * @param name The Site Credentials Username used for publishing.
          * 
          * @return builder
          * 
@@ -792,6 +788,8 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param storageAccounts One or more `storage_account` blocks as defined below.
          * 
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+         * 
          * @return builder
          * 
          */
@@ -803,6 +801,8 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param storageAccounts One or more `storage_account` blocks as defined below.
          * 
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+         * 
          * @return builder
          * 
          */
@@ -812,6 +812,8 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param storageAccounts One or more `storage_account` blocks as defined below.
+         * 
+         * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
          * 
          * @return builder
          * 
@@ -841,23 +843,11 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param virtualNetworkSubnetId The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualNetworkSubnetId(@Nullable Output<String> virtualNetworkSubnetId) {
             $.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }
 
-        /**
-         * @param virtualNetworkSubnetId The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
         }

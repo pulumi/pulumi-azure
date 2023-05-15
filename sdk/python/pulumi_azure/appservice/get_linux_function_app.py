@@ -339,7 +339,7 @@ class GetLinuxFunctionAppResult:
     @pulumi.getter(name="possibleOutboundIpAddresses")
     def possible_outbound_ip_addresses(self) -> str:
         """
-        A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+        A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
 

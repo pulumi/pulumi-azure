@@ -63,6 +63,8 @@ type SqlDatabase struct {
 	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings SqlDatabaseAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -109,6 +111,8 @@ type sqlDatabaseState struct {
 	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
 	AccountName *string `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings *SqlDatabaseAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -121,6 +125,8 @@ type SqlDatabaseState struct {
 	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringPtrInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings SqlDatabaseAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -137,6 +143,8 @@ type sqlDatabaseArgs struct {
 	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings *SqlDatabaseAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -150,6 +158,8 @@ type SqlDatabaseArgs struct {
 	// The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings SqlDatabaseAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -251,6 +261,8 @@ func (o SqlDatabaseOutput) AccountName() pulumi.StringOutput {
 }
 
 // An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+//
+// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 func (o SqlDatabaseOutput) AutoscaleSettings() SqlDatabaseAutoscaleSettingsPtrOutput {
 	return o.ApplyT(func(v *SqlDatabase) SqlDatabaseAutoscaleSettingsPtrOutput { return v.AutoscaleSettings }).(SqlDatabaseAutoscaleSettingsPtrOutput)
 }

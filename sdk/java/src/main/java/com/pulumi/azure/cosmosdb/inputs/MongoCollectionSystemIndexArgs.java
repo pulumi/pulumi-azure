@@ -35,12 +35,16 @@ public final class MongoCollectionSystemIndexArgs extends com.pulumi.resources.R
     /**
      * Is the index unique or not? Defaults to `false`.
      * 
+     * &gt; **Note:** An index with an &#34;_id&#34; key must be specified.
+     * 
      */
     @Import(name="unique")
     private @Nullable Output<Boolean> unique;
 
     /**
      * @return Is the index unique or not? Defaults to `false`.
+     * 
+     * &gt; **Note:** An index with an &#34;_id&#34; key must be specified.
      * 
      */
     public Optional<Output<Boolean>> unique() {
@@ -106,6 +110,8 @@ public final class MongoCollectionSystemIndexArgs extends com.pulumi.resources.R
         /**
          * @param unique Is the index unique or not? Defaults to `false`.
          * 
+         * &gt; **Note:** An index with an &#34;_id&#34; key must be specified.
+         * 
          * @return builder
          * 
          */
@@ -116,6 +122,8 @@ public final class MongoCollectionSystemIndexArgs extends com.pulumi.resources.R
 
         /**
          * @param unique Is the index unique or not? Defaults to `false`.
+         * 
+         * &gt; **Note:** An index with an &#34;_id&#34; key must be specified.
          * 
          * @return builder
          * 

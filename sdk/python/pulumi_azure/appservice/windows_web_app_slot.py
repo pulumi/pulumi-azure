@@ -56,11 +56,12 @@ class WindowsWebAppSlotArgs:
         :param pulumi.Input['WindowsWebAppSlotIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input['WindowsWebAppSlotLogsArgs'] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        :param pulumi.Input[str] name: The Site Credentials Username used for publishing.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
+               
+               > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         pulumi.set(__self__, "app_service_id", app_service_id)
@@ -302,7 +303,7 @@ class WindowsWebAppSlotArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        The Site Credentials Username used for publishing.
         """
         return pulumi.get(self, "name")
 
@@ -327,6 +328,8 @@ class WindowsWebAppSlotArgs:
     def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotStorageAccountArgs']]]]:
         """
         One or more `storage_account` blocks as defined below.
+
+        > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         """
         return pulumi.get(self, "storage_accounts")
 
@@ -349,9 +352,6 @@ class WindowsWebAppSlotArgs:
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -426,7 +426,7 @@ class _WindowsWebAppSlotState:
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Web App Slot.
         :param pulumi.Input['WindowsWebAppSlotLogsArgs'] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        :param pulumi.Input[str] name: The Site Credentials Username used for publishing.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A `possible_outbound_ip_address_list` block as defined below.
@@ -435,8 +435,9 @@ class _WindowsWebAppSlotState:
         :param pulumi.Input['WindowsWebAppSlotSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
+               
+               > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         if app_service_id is not None:
@@ -734,7 +735,7 @@ class _WindowsWebAppSlotState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        The Site Credentials Username used for publishing.
         """
         return pulumi.get(self, "name")
 
@@ -831,6 +832,8 @@ class _WindowsWebAppSlotState:
     def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotStorageAccountArgs']]]]:
         """
         One or more `storage_account` blocks as defined below.
+
+        > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         """
         return pulumi.get(self, "storage_accounts")
 
@@ -853,9 +856,6 @@ class _WindowsWebAppSlotState:
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -953,12 +953,13 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSlotIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSlotLogsArgs']] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        :param pulumi.Input[str] name: The Site Credentials Username used for publishing.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSlotSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+               
+               > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         ...
@@ -1150,7 +1151,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Web App Slot.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSlotLogsArgs']] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        :param pulumi.Input[str] name: The Site Credentials Username used for publishing.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A `possible_outbound_ip_address_list` block as defined below.
@@ -1159,8 +1160,9 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSlotSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+               
+               > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1356,7 +1358,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        The Site Credentials Username used for publishing.
         """
         return pulumi.get(self, "name")
 
@@ -1421,6 +1423,8 @@ class WindowsWebAppSlot(pulumi.CustomResource):
     def storage_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.WindowsWebAppSlotStorageAccount']]]:
         """
         One or more `storage_account` blocks as defined below.
+
+        > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         """
         return pulumi.get(self, "storage_accounts")
 
@@ -1435,9 +1439,6 @@ class WindowsWebAppSlot(pulumi.CustomResource):
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @property

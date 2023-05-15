@@ -29,6 +29,8 @@ public final class DataCollectionRuleDataSourcesSyslog {
     /**
      * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
      * 
+     * &gt; **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `[&#34;Microsoft-Syslog&#34;]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
+     * 
      */
     private @Nullable List<String> streams;
 
@@ -56,6 +58,8 @@ public final class DataCollectionRuleDataSourcesSyslog {
     }
     /**
      * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+     * 
+     * &gt; **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `[&#34;Microsoft-Syslog&#34;]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
      * 
      */
     public List<String> streams() {

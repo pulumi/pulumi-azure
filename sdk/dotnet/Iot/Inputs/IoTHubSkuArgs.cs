@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Iot.Inputs
     {
         /// <summary>
         /// The number of provisioned IoT Hub units.
+        /// 
+        /// &gt; **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
         /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;

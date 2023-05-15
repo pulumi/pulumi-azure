@@ -20,18 +20,26 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// Specifies whether to trust a Custom CA.
+        /// 
+        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         /// </summary>
         [Input("customCaTrustEnabled")]
         public Input<bool>? CustomCaTrustEnabled { get; set; }
 
         /// <summary>
-        /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
+        /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? 
+        /// 
+        /// &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
+        /// 
+        /// &gt; **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
         /// </summary>
         [Input("enableAutoScaling")]
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
         /// Should the nodes in the Default Node Pool have host encryption enabled? Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
         /// </summary>
         [Input("enableHostEncryption")]
         public Input<bool>? EnableHostEncryption { get; set; }
@@ -104,6 +112,11 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
+        /// 
+        /// &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+        /// 
+        /// 
+        /// &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
         /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
@@ -152,6 +165,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+        /// 
+        /// &gt; **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         /// </summary>
         [Input("orchestratorVersion")]
         public Input<string>? OrchestratorVersion { get; set; }
@@ -197,6 +212,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// A mapping of tags to assign to the Node Pool.
+        /// 
+        /// &gt; At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -212,6 +229,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -230,18 +249,24 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// The size of the Virtual Machine, such as `Standard_DS2_v2`.
+        /// 
+        /// &gt; **Note:** Resizing the `default_node_pool` Virtual Machine is done by cycling the system node pool of the cluster. `temporary_name_for_rotation` must be specified when attempting a resize.
         /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
 
         /// <summary>
         /// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** A Route Table must be configured on this Subnet.
         /// </summary>
         [Input("vnetSubnetId")]
         public Input<string>? VnetSubnetId { get; set; }
 
         /// <summary>
         /// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
+        /// 
+        /// &gt; **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
         /// </summary>
         [Input("workloadRuntime")]
         public Input<string>? WorkloadRuntime { get; set; }
@@ -251,6 +276,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
+        /// 
+        /// &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets` and that `load_balancer_sku` is set to `standard`.
         /// </summary>
         public InputList<string> Zones
         {

@@ -83,6 +83,8 @@ type DatasetAzureBlob struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to Azure Blob Dataset:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
@@ -146,6 +148,8 @@ func GetDatasetAzureBlob(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DatasetAzureBlob resources.
 type datasetAzureBlobState struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to Azure Blob Dataset:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
@@ -175,6 +179,8 @@ type datasetAzureBlobState struct {
 
 type DatasetAzureBlobState struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to Azure Blob Dataset:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
@@ -208,6 +214,8 @@ func (DatasetAzureBlobState) ElementType() reflect.Type {
 
 type datasetAzureBlobArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to Azure Blob Dataset:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
@@ -238,6 +246,8 @@ type datasetAzureBlobArgs struct {
 // The set of arguments for constructing a DatasetAzureBlob resource.
 type DatasetAzureBlobArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to Azure Blob Dataset:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
@@ -353,6 +363,8 @@ func (o DatasetAzureBlobOutput) ToDatasetAzureBlobOutputWithContext(ctx context.
 }
 
 // A map of additional properties to associate with the Data Factory Dataset.
+//
+// The following supported arguments are specific to Azure Blob Dataset:
 func (o DatasetAzureBlobOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DatasetAzureBlob) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }

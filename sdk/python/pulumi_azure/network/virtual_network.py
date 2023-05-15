@@ -32,13 +32,19 @@ class VirtualNetworkArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
+               
+               > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
         :param pulumi.Input['VirtualNetworkDdosProtectionPlanArgs'] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of IP addresses of DNS servers
+               
+               > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+               
+               > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "address_spaces", address_spaces)
@@ -91,6 +97,8 @@ class VirtualNetworkArgs:
     def bgp_community(self) -> Optional[pulumi.Input[str]]:
         """
         The BGP community attribute in format `<as-number>:<community-value>`.
+
+        > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
         """
         return pulumi.get(self, "bgp_community")
 
@@ -115,6 +123,8 @@ class VirtualNetworkArgs:
     def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of IP addresses of DNS servers
+
+        > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "dns_servers")
 
@@ -175,6 +185,8 @@ class VirtualNetworkArgs:
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]]:
         """
         Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+
+        > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "subnets")
 
@@ -214,8 +226,12 @@ class _VirtualNetworkState:
         Input properties used for looking up and filtering VirtualNetwork resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
         :param pulumi.Input[str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
+               
+               > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
         :param pulumi.Input['VirtualNetworkDdosProtectionPlanArgs'] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of IP addresses of DNS servers
+               
+               > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] guid: The GUID of the virtual network.
@@ -223,6 +239,8 @@ class _VirtualNetworkState:
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+               
+               > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if address_spaces is not None:
@@ -267,6 +285,8 @@ class _VirtualNetworkState:
     def bgp_community(self) -> Optional[pulumi.Input[str]]:
         """
         The BGP community attribute in format `<as-number>:<community-value>`.
+
+        > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
         """
         return pulumi.get(self, "bgp_community")
 
@@ -291,6 +311,8 @@ class _VirtualNetworkState:
     def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of IP addresses of DNS servers
+
+        > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "dns_servers")
 
@@ -375,6 +397,8 @@ class _VirtualNetworkState:
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]]:
         """
         Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+
+        > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "subnets")
 
@@ -468,14 +492,20 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
         :param pulumi.Input[str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
+               
+               > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of IP addresses of DNS servers
+               
+               > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+               
+               > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -618,8 +648,12 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
         :param pulumi.Input[str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
+               
+               > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkDdosProtectionPlanArgs']] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of IP addresses of DNS servers
+               
+               > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
         :param pulumi.Input[int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[str] guid: The GUID of the virtual network.
@@ -627,6 +661,8 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+               
+               > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -660,6 +696,8 @@ class VirtualNetwork(pulumi.CustomResource):
     def bgp_community(self) -> pulumi.Output[Optional[str]]:
         """
         The BGP community attribute in format `<as-number>:<community-value>`.
+
+        > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
         """
         return pulumi.get(self, "bgp_community")
 
@@ -676,6 +714,8 @@ class VirtualNetwork(pulumi.CustomResource):
     def dns_servers(self) -> pulumi.Output[Sequence[str]]:
         """
         List of IP addresses of DNS servers
+
+        > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "dns_servers")
 
@@ -732,6 +772,8 @@ class VirtualNetwork(pulumi.CustomResource):
     def subnets(self) -> pulumi.Output[Sequence['outputs.VirtualNetworkSubnet']]:
         """
         Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+
+        > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "subnets")
 

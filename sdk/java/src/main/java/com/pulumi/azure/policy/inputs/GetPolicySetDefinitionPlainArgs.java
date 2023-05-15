@@ -17,12 +17,16 @@ public final class GetPolicySetDefinitionPlainArgs extends com.pulumi.resources.
     /**
      * Specifies the display name of the Policy Set Definition. Conflicts with `name`.
      * 
+     * **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
+     * 
      */
     @Import(name="displayName")
     private @Nullable String displayName;
 
     /**
      * @return Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+     * 
+     * **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
      * 
      */
     public Optional<String> displayName() {
@@ -87,6 +91,8 @@ public final class GetPolicySetDefinitionPlainArgs extends com.pulumi.resources.
 
         /**
          * @param displayName Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+         * 
+         * **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
          * 
          * @return builder
          * 

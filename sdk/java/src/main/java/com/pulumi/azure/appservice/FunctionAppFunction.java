@@ -317,12 +317,16 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
     /**
      * The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
      * 
+     * &gt; **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
+     * 
      */
     @Export(name="language", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> language;
 
     /**
      * @return The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+     * 
+     * &gt; **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
      * 
      */
     public Output<Optional<String>> language() {

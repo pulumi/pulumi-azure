@@ -77,6 +77,8 @@ export class RunBook extends pulumi.CustomResource {
     public readonly automationAccountName!: pulumi.Output<string>;
     /**
      * The desired content of the runbook.
+     *
+     * > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
      */
     public readonly content!: pulumi.Output<string>;
     /**
@@ -199,6 +201,8 @@ export interface RunBookState {
     automationAccountName?: pulumi.Input<string>;
     /**
      * The desired content of the runbook.
+     *
+     * > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
      */
     content?: pulumi.Input<string>;
     /**
@@ -258,6 +262,8 @@ export interface RunBookArgs {
     automationAccountName: pulumi.Input<string>;
     /**
      * The desired content of the runbook.
+     *
+     * > **NOTE** The Azure API requires a `publishContentLink` to be supplied even when specifying your own `content`.
      */
     content?: pulumi.Input<string>;
     /**

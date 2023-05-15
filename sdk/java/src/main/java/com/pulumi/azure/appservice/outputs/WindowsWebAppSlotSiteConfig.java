@@ -58,6 +58,8 @@ public final class WindowsWebAppSlotSiteConfig {
     /**
      * @return The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
      * 
+     * &gt; **Note:** This must be a valid slot name on the target Windows Web App Slot.
+     * 
      */
     private @Nullable String autoSwapSlotName;
     /**
@@ -81,10 +83,6 @@ public final class WindowsWebAppSlotSiteConfig {
      */
     private @Nullable List<String> defaultDocuments;
     private @Nullable Boolean detailedErrorLoggingEnabled;
-    /**
-     * @return The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
-     * 
-     */
     private @Nullable String ftpsState;
     /**
      * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
@@ -232,6 +230,8 @@ public final class WindowsWebAppSlotSiteConfig {
     /**
      * @return The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
      * 
+     * &gt; **Note:** This must be a valid slot name on the target Windows Web App Slot.
+     * 
      */
     public Optional<String> autoSwapSlotName() {
         return Optional.ofNullable(this.autoSwapSlotName);
@@ -267,10 +267,6 @@ public final class WindowsWebAppSlotSiteConfig {
     public Optional<Boolean> detailedErrorLoggingEnabled() {
         return Optional.ofNullable(this.detailedErrorLoggingEnabled);
     }
-    /**
-     * @return The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
-     * 
-     */
     public Optional<String> ftpsState() {
         return Optional.ofNullable(this.ftpsState);
     }

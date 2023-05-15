@@ -31,6 +31,8 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly Outputs.LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2? AzureStaticWebAppV2;
         /// <summary>
         /// The path to the App Auth settings.
+        /// 
+        /// * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
         /// </summary>
         public readonly string? ConfigFilePath;
         /// <summary>
@@ -39,6 +41,8 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly ImmutableArray<Outputs.LinuxWebAppSlotAuthSettingsV2CustomOidcV2> CustomOidcV2s;
         /// <summary>
         /// The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+        /// 
+        /// &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
         /// </summary>
         public readonly string? DefaultProvider;
         /// <summary>

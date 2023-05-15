@@ -25,9 +25,15 @@ class CertificateArgs:
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
         :param pulumi.Input[str] data: The base-64 encoded certificate data, which must be a PFX file.
         :param pulumi.Input[str] key_vault_identity_client_id: The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+               
+               > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+               
+               > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
         :param pulumi.Input[str] name: The name of the API Management Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password used for this certificate.
         """
@@ -61,6 +67,8 @@ class CertificateArgs:
     def resource_group_name(self) -> pulumi.Input[str]:
         """
         The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -85,6 +93,8 @@ class CertificateArgs:
     def key_vault_identity_client_id(self) -> Optional[pulumi.Input[str]]:
         """
         The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+
+        > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
         """
         return pulumi.get(self, "key_vault_identity_client_id")
 
@@ -97,6 +107,8 @@ class CertificateArgs:
     def key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+
+        > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -148,10 +160,16 @@ class _CertificateState:
         :param pulumi.Input[str] data: The base-64 encoded certificate data, which must be a PFX file.
         :param pulumi.Input[str] expiration: The Expiration Date of this Certificate, formatted as an RFC3339 string.
         :param pulumi.Input[str] key_vault_identity_client_id: The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+               
+               > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+               
+               > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
         :param pulumi.Input[str] name: The name of the API Management Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password used for this certificate.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
         :param pulumi.Input[str] subject: The Subject of this Certificate.
         :param pulumi.Input[str] thumbprint: The Thumbprint of this Certificate.
         """
@@ -217,6 +235,8 @@ class _CertificateState:
     def key_vault_identity_client_id(self) -> Optional[pulumi.Input[str]]:
         """
         The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+
+        > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
         """
         return pulumi.get(self, "key_vault_identity_client_id")
 
@@ -229,6 +249,8 @@ class _CertificateState:
     def key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+
+        > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -265,6 +287,8 @@ class _CertificateState:
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -401,10 +425,16 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data: The base-64 encoded certificate data, which must be a PFX file.
         :param pulumi.Input[str] key_vault_identity_client_id: The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+               
+               > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+               
+               > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
         :param pulumi.Input[str] name: The name of the API Management Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password used for this certificate.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
         """
         ...
     @overload
@@ -576,10 +606,16 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] data: The base-64 encoded certificate data, which must be a PFX file.
         :param pulumi.Input[str] expiration: The Expiration Date of this Certificate, formatted as an RFC3339 string.
         :param pulumi.Input[str] key_vault_identity_client_id: The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+               
+               > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+               
+               > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
         :param pulumi.Input[str] name: The name of the API Management Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password used for this certificate.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
         :param pulumi.Input[str] subject: The Subject of this Certificate.
         :param pulumi.Input[str] thumbprint: The Thumbprint of this Certificate.
         """
@@ -628,6 +664,8 @@ class Certificate(pulumi.CustomResource):
     def key_vault_identity_client_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+
+        > **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
         """
         return pulumi.get(self, "key_vault_identity_client_id")
 
@@ -636,6 +674,8 @@ class Certificate(pulumi.CustomResource):
     def key_vault_secret_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+
+        > **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -660,6 +700,8 @@ class Certificate(pulumi.CustomResource):
     def resource_group_name(self) -> pulumi.Output[str]:
         """
         The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
         """
         return pulumi.get(self, "resource_group_name")
 

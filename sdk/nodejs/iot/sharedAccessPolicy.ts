@@ -68,6 +68,8 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
 
     /**
      * Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+     *
+     * > **NOTE** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
      */
     public readonly deviceConnect!: pulumi.Output<boolean | undefined>;
     /**
@@ -92,6 +94,8 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
     public readonly registryRead!: pulumi.Output<boolean | undefined>;
     /**
      * Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+     *
+     * > **NOTE** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
      */
     public readonly registryWrite!: pulumi.Output<boolean | undefined>;
     /**
@@ -168,6 +172,8 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
 export interface SharedAccessPolicyState {
     /**
      * Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+     *
+     * > **NOTE** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
      */
     deviceConnect?: pulumi.Input<boolean>;
     /**
@@ -192,6 +198,8 @@ export interface SharedAccessPolicyState {
     registryRead?: pulumi.Input<boolean>;
     /**
      * Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+     *
+     * > **NOTE** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
      */
     registryWrite?: pulumi.Input<boolean>;
     /**
@@ -218,6 +226,8 @@ export interface SharedAccessPolicyState {
 export interface SharedAccessPolicyArgs {
     /**
      * Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+     *
+     * > **NOTE** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
      */
     deviceConnect?: pulumi.Input<boolean>;
     /**
@@ -234,6 +244,8 @@ export interface SharedAccessPolicyArgs {
     registryRead?: pulumi.Input<boolean>;
     /**
      * Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+     *
+     * > **NOTE** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
      */
     registryWrite?: pulumi.Input<boolean>;
     /**

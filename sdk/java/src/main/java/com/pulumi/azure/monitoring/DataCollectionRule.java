@@ -40,6 +40,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.operationalinsights.AnalyticsSolution;
  * import com.pulumi.azure.operationalinsights.AnalyticsSolutionArgs;
  * import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
+ * import com.pulumi.azure.eventhub.EventHubNamespace;
+ * import com.pulumi.azure.eventhub.EventHubNamespaceArgs;
  * import com.pulumi.azure.eventhub.EventHub;
  * import com.pulumi.azure.eventhub.EventHubArgs;
  * import com.pulumi.azure.storage.Account;
@@ -98,8 +100,15 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .sku(&#34;Standard&#34;)
+ *             .capacity(1)
+ *             .build());
+ * 
  *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
- *             .namespaceName(azurerm_eventhub_namespace.example().name())
+ *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .partitionCount(2)
  *             .messageRetention(1)

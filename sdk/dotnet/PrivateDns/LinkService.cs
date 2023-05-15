@@ -186,6 +186,8 @@ namespace Pulumi.Azure.PrivateDns
 
         /// <summary>
         /// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
+        /// 
+        /// &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         /// </summary>
         [Output("visibilitySubscriptionIds")]
         public Output<ImmutableArray<string>> VisibilitySubscriptionIds { get; private set; } = null!;
@@ -325,6 +327,8 @@ namespace Pulumi.Azure.PrivateDns
 
         /// <summary>
         /// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
+        /// 
+        /// &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         /// </summary>
         public InputList<string> VisibilitySubscriptionIds
         {
@@ -435,6 +439,8 @@ namespace Pulumi.Azure.PrivateDns
 
         /// <summary>
         /// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
+        /// 
+        /// &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         /// </summary>
         public InputList<string> VisibilitySubscriptionIds
         {

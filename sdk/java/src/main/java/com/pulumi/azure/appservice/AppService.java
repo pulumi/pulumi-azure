@@ -27,6 +27,12 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages an App Service (within an App Service Plan).
+ * 
+ * !&gt; **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.appservice.LinuxWebApp` resources instead.
+ * 
+ * &gt; **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
+ * 
  * ## Example Usage
  * 
  * This example provisions a Windows App Service.

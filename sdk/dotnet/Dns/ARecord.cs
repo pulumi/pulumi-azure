@@ -119,6 +119,8 @@ namespace Pulumi.Azure.Dns
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -137,6 +139,8 @@ namespace Pulumi.Azure.Dns
 
         /// <summary>
         /// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** The `zone_name` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
         /// </summary>
         [Output("zoneName")]
         public Output<string> ZoneName { get; private set; } = null!;
@@ -216,6 +220,8 @@ namespace Pulumi.Azure.Dns
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -237,6 +243,8 @@ namespace Pulumi.Azure.Dns
 
         /// <summary>
         /// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** The `zone_name` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
         /// </summary>
         [Input("zoneName", required: true)]
         public Input<string> ZoneName { get; set; } = null!;
@@ -284,6 +292,8 @@ namespace Pulumi.Azure.Dns
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// &gt; **Note:** either `records` OR `target_resource_id` must be specified, but not both.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -305,6 +315,8 @@ namespace Pulumi.Azure.Dns
 
         /// <summary>
         /// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** The `zone_name` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
         /// </summary>
         [Input("zoneName")]
         public Input<string>? ZoneName { get; set; }

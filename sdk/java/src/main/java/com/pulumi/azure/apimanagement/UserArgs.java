@@ -138,12 +138,16 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The state of this user. Possible values are `active`, `blocked` and `pending`.
      * 
+     * &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
+     * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
      * @return The state of this user. Possible values are `active`, `blocked` and `pending`.
+     * 
+     * &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
      * 
      */
     public Optional<Output<String>> state() {
@@ -369,6 +373,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param state The state of this user. Possible values are `active`, `blocked` and `pending`.
          * 
+         * &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
+         * 
          * @return builder
          * 
          */
@@ -379,6 +385,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param state The state of this user. Possible values are `active`, `blocked` and `pending`.
+         * 
+         * &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
          * 
          * @return builder
          * 

@@ -89,6 +89,8 @@ type EventHubNamespaceAuthorizationRule struct {
 	// The Primary Key for the Authorization Rule.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
 	// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the Authorization Rule.
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
@@ -159,6 +161,8 @@ type eventHubNamespaceAuthorizationRuleState struct {
 	// The Primary Key for the Authorization Rule.
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Secondary Connection String for the Authorization Rule.
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
@@ -186,6 +190,8 @@ type EventHubNamespaceAuthorizationRuleState struct {
 	// The Primary Key for the Authorization Rule.
 	PrimaryKey pulumi.StringPtrInput
 	// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Secondary Connection String for the Authorization Rule.
 	SecondaryConnectionString pulumi.StringPtrInput
@@ -211,6 +217,8 @@ type eventHubNamespaceAuthorizationRuleArgs struct {
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName string `pulumi:"namespaceName"`
 	// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send *bool `pulumi:"send"`
@@ -227,6 +235,8 @@ type EventHubNamespaceAuthorizationRuleArgs struct {
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName pulumi.StringInput
 	// The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+	//
+	// > **NOTE** At least one of the 3 permissions below needs to be set.
 	ResourceGroupName pulumi.StringInput
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send pulumi.BoolPtrInput
@@ -355,6 +365,8 @@ func (o EventHubNamespaceAuthorizationRuleOutput) PrimaryKey() pulumi.StringOutp
 }
 
 // The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+//
+// > **NOTE** At least one of the 3 permissions below needs to be set.
 func (o EventHubNamespaceAuthorizationRuleOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHubNamespaceAuthorizationRule) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

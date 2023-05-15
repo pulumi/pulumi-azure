@@ -139,12 +139,16 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
     /**
      * Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
      * 
+     * &gt; **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+     * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
      * @return Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+     * 
+     * &gt; **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -199,12 +203,16 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
     /**
      * The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
      * 
+     * &gt; **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+     * 
      */
     @Import(name="rewriteRuleSetName")
     private @Nullable Output<String> rewriteRuleSetName;
 
     /**
      * @return The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+     * 
+     * &gt; **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
      * 
      */
     public Optional<Output<String>> rewriteRuleSetName() {
@@ -466,6 +474,8 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
         /**
          * @param priority Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
          * 
+         * &gt; **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
+         * 
          * @return builder
          * 
          */
@@ -476,6 +486,8 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
 
         /**
          * @param priority Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
+         * 
+         * &gt; **NOTE:** `priority` is required when `sku.0.tier` is set to `*_v2`.
          * 
          * @return builder
          * 
@@ -550,6 +562,8 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
         /**
          * @param rewriteRuleSetName The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
          * 
+         * &gt; **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+         * 
          * @return builder
          * 
          */
@@ -560,6 +574,8 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
 
         /**
          * @param rewriteRuleSetName The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+         * 
+         * &gt; **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
          * 
          * @return builder
          * 

@@ -49,9 +49,13 @@ class AlertRuleNrtArgs:
         :param pulumi.Input[bool] enabled: Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingArgs']]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input['AlertRuleNrtEventGroupingArgs'] event_grouping: A `event_grouping` block as defined below.
+               
+               > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input['AlertRuleNrtIncidentArgs'] incident: A `incident` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtSentinelEntityMappingArgs']]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
+               
+               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         :param pulumi.Input[str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         :param pulumi.Input[bool] suppression_enabled: Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation` and `PreAttack`.
@@ -229,6 +233,8 @@ class AlertRuleNrtArgs:
     def event_grouping(self) -> Optional[pulumi.Input['AlertRuleNrtEventGroupingArgs']]:
         """
         A `event_grouping` block as defined below.
+
+        > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         """
         return pulumi.get(self, "event_grouping")
 
@@ -265,6 +271,8 @@ class AlertRuleNrtArgs:
     def sentinel_entity_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtSentinelEntityMappingArgs']]]]:
         """
         A list of `sentinel_entity_mapping` blocks as defined below.
+
+        > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         """
         return pulumi.get(self, "sentinel_entity_mappings")
 
@@ -354,11 +362,15 @@ class _AlertRuleNrtState:
         :param pulumi.Input[bool] enabled: Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingArgs']]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input['AlertRuleNrtEventGroupingArgs'] event_grouping: A `event_grouping` block as defined below.
+               
+               > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input['AlertRuleNrtIncidentArgs'] incident: A `incident` block as defined below.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[str] query: The query of this Sentinel NRT Alert Rule.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtSentinelEntityMappingArgs']]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
+               
+               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         :param pulumi.Input[str] severity: The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         :param pulumi.Input[bool] suppression_enabled: Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
@@ -505,6 +517,8 @@ class _AlertRuleNrtState:
     def event_grouping(self) -> Optional[pulumi.Input['AlertRuleNrtEventGroupingArgs']]:
         """
         A `event_grouping` block as defined below.
+
+        > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         """
         return pulumi.get(self, "event_grouping")
 
@@ -565,6 +579,8 @@ class _AlertRuleNrtState:
     def sentinel_entity_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtSentinelEntityMappingArgs']]]]:
         """
         A list of `sentinel_entity_mapping` blocks as defined below.
+
+        > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         """
         return pulumi.get(self, "sentinel_entity_mappings")
 
@@ -703,11 +719,15 @@ class AlertRuleNrt(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleNrtEntityMappingArgs']]]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['AlertRuleNrtEventGroupingArgs']] event_grouping: A `event_grouping` block as defined below.
+               
+               > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[pulumi.InputType['AlertRuleNrtIncidentArgs']] incident: A `incident` block as defined below.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[str] query: The query of this Sentinel NRT Alert Rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleNrtSentinelEntityMappingArgs']]]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
+               
+               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         :param pulumi.Input[str] severity: The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         :param pulumi.Input[bool] suppression_enabled: Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
@@ -869,11 +889,15 @@ class AlertRuleNrt(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleNrtEntityMappingArgs']]]] entity_mappings: A list of `entity_mapping` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['AlertRuleNrtEventGroupingArgs']] event_grouping: A `event_grouping` block as defined below.
+               
+               > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[pulumi.InputType['AlertRuleNrtIncidentArgs']] incident: A `incident` block as defined below.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[str] query: The query of this Sentinel NRT Alert Rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleNrtSentinelEntityMappingArgs']]]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
+               
+               > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         :param pulumi.Input[str] severity: The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         :param pulumi.Input[str] suppression_duration: If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         :param pulumi.Input[bool] suppression_enabled: Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
@@ -974,6 +998,8 @@ class AlertRuleNrt(pulumi.CustomResource):
     def event_grouping(self) -> pulumi.Output['outputs.AlertRuleNrtEventGrouping']:
         """
         A `event_grouping` block as defined below.
+
+        > **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
         """
         return pulumi.get(self, "event_grouping")
 
@@ -1014,6 +1040,8 @@ class AlertRuleNrt(pulumi.CustomResource):
     def sentinel_entity_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.AlertRuleNrtSentinelEntityMapping']]]:
         """
         A list of `sentinel_entity_mapping` blocks as defined below.
+
+        > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         """
         return pulumi.get(self, "sentinel_entity_mappings")
 

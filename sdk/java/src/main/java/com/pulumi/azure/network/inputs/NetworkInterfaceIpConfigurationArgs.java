@@ -79,12 +79,16 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
     /**
      * The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
      * 
+     * &gt; **Note:** `Dynamic` means &#34;An IP is automatically assigned during creation of this Network Interface&#34;; `Static` means &#34;User supplied IP address will be used&#34;
+     * 
      */
     @Import(name="privateIpAddressAllocation", required=true)
     private Output<String> privateIpAddressAllocation;
 
     /**
      * @return The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+     * 
+     * &gt; **Note:** `Dynamic` means &#34;An IP is automatically assigned during creation of this Network Interface&#34;; `Static` means &#34;User supplied IP address will be used&#34;
      * 
      */
     public Output<String> privateIpAddressAllocation() {
@@ -124,12 +128,16 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
     /**
      * The ID of the Subnet where this Network Interface should be located in.
      * 
+     * &gt; **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
+     * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
      * @return The ID of the Subnet where this Network Interface should be located in.
+     * 
+     * &gt; **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -254,6 +262,8 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
         /**
          * @param privateIpAddressAllocation The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
          * 
+         * &gt; **Note:** `Dynamic` means &#34;An IP is automatically assigned during creation of this Network Interface&#34;; `Static` means &#34;User supplied IP address will be used&#34;
+         * 
          * @return builder
          * 
          */
@@ -264,6 +274,8 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
 
         /**
          * @param privateIpAddressAllocation The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
+         * 
+         * &gt; **Note:** `Dynamic` means &#34;An IP is automatically assigned during creation of this Network Interface&#34;; `Static` means &#34;User supplied IP address will be used&#34;
          * 
          * @return builder
          * 
@@ -317,6 +329,8 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
         /**
          * @param subnetId The ID of the Subnet where this Network Interface should be located in.
          * 
+         * &gt; **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
+         * 
          * @return builder
          * 
          */
@@ -327,6 +341,8 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
 
         /**
          * @param subnetId The ID of the Subnet where this Network Interface should be located in.
+         * 
+         * &gt; **Note:** This is required when `private_ip_address_version` is set to `IPv4`.
          * 
          * @return builder
          * 

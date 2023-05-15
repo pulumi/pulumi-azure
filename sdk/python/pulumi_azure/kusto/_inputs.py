@@ -130,6 +130,8 @@ class ClusterIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this System Assigned Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this System Assigned Managed Service Identity.
         """
@@ -158,6 +160,8 @@ class ClusterIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -235,6 +239,9 @@ class ClusterSkuArgs:
         """
         :param pulumi.Input[str] name: The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_D16d_v5`, `Standard_D32d_v4`, `Standard_D32d_v5`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16a_v4`, `Standard_E16ads_v5`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16as_v5+3TB_PS`, `Standard_E16as_v5+4TB_PS`, `Standard_E16s_v4+3TB_PS`, `Standard_E16s_v4+4TB_PS`, `Standard_E16s_v5+3TB_PS`, `Standard_E16s_v5+4TB_PS`, `Standard_E2a_v4`, `Standard_E2ads_v5`,`Standard_E4a_v4`, `Standard_E4ads_v5`, `Standard_E64i_v3`, `Standard_E80ids_v4`, `Standard_E8a_v4`, `Standard_E8ads_v5`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8as_v5+1TB_PS`, `Standard_E8as_v5+2TB_PS`, `Standard_E8s_v4+1TB_PS`, `Standard_E8s_v4+2TB_PS`, `Standard_E8s_v5+1TB_PS`, `Standard_E8s_v5+2TB_PS`, `Standard_L16s`, `Standard_L16s_v2`, `Standard_L4s`, `Standard_L8s`, `Standard_L8s_v2`, "Standard_L8s_v3", `Standard_L16s_v3`, `Standard_L8as_v3`, `Standard_L16as_v3`, `Standard_EC8as_v5+1TB_PS`, `Standard_EC8as_v5+2TB_PS`, `Standard_EC16as_v5+3TB_PS`, `Standard_EC16as_v5+4TB_PS`, `Standard_EC8ads_v5`, `Standard_EC16ads_v5`, `Standard_E2d_v4`, `Standard_E4d_v4`, `Standard_E8d_v4`, `Standard_E16d_v4`, `Standard_E2d_v5`, `Standard_E4d_v5`, `Standard_E8d_v5` and `Standard_E16d_v5`.
         :param pulumi.Input[int] capacity: Specifies the node count for the cluster. Boundaries depend on the SKU name.
+               
+               > **NOTE:** If no `optimized_auto_scale` block is defined, then the capacity is required.
+               > **NOTE:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -257,6 +264,9 @@ class ClusterSkuArgs:
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the node count for the cluster. Boundaries depend on the SKU name.
+
+        > **NOTE:** If no `optimized_auto_scale` block is defined, then the capacity is required.
+        > **NOTE:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
         """
         return pulumi.get(self, "capacity")
 

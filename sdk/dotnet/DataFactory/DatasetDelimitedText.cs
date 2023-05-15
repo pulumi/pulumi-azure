@@ -75,6 +75,8 @@ namespace Pulumi.Azure.DataFactory
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
+        /// 
+        /// The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
         /// </summary>
         [Output("additionalProperties")]
         public Output<ImmutableDictionary<string, string>?> AdditionalProperties { get; private set; } = null!;
@@ -153,6 +155,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A `http_server_location` block as defined below.
+        /// 
+        /// The following supported arguments are specific to Delimited Text Dataset:
         /// </summary>
         [Output("httpServerLocation")]
         public Output<Outputs.DatasetDelimitedTextHttpServerLocation?> HttpServerLocation { get; private set; } = null!;
@@ -250,6 +254,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
+        /// 
+        /// The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
         /// </summary>
         public InputMap<string> AdditionalProperties
         {
@@ -337,6 +343,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A `http_server_location` block as defined below.
+        /// 
+        /// The following supported arguments are specific to Delimited Text Dataset:
         /// </summary>
         [Input("httpServerLocation")]
         public Input<Inputs.DatasetDelimitedTextHttpServerLocationArgs>? HttpServerLocation { get; set; }
@@ -408,6 +416,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
+        /// 
+        /// The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
         /// </summary>
         public InputMap<string> AdditionalProperties
         {
@@ -495,6 +505,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A `http_server_location` block as defined below.
+        /// 
+        /// The following supported arguments are specific to Delimited Text Dataset:
         /// </summary>
         [Input("httpServerLocation")]
         public Input<Inputs.DatasetDelimitedTextHttpServerLocationGetArgs>? HttpServerLocation { get; set; }

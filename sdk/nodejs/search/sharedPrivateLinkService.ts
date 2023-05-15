@@ -91,6 +91,8 @@ export class SharedPrivateLinkService extends pulumi.CustomResource {
     public readonly subresourceName!: pulumi.Output<string>;
     /**
      * Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
      */
     public readonly targetResourceId!: pulumi.Output<string>;
 
@@ -162,6 +164,8 @@ export interface SharedPrivateLinkServiceState {
     subresourceName?: pulumi.Input<string>;
     /**
      * Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
      */
     targetResourceId?: pulumi.Input<string>;
 }
@@ -188,6 +192,8 @@ export interface SharedPrivateLinkServiceArgs {
     subresourceName: pulumi.Input<string>;
     /**
      * Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
      */
     targetResourceId: pulumi.Input<string>;
 }

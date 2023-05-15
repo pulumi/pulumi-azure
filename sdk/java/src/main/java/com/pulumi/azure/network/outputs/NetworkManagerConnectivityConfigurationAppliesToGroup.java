@@ -15,6 +15,8 @@ public final class NetworkManagerConnectivityConfigurationAppliesToGroup {
     /**
      * @return Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
      * 
+     * &gt; **NOTE:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+     * 
      */
     private @Nullable Boolean globalMeshEnabled;
     /**
@@ -36,6 +38,8 @@ public final class NetworkManagerConnectivityConfigurationAppliesToGroup {
     private NetworkManagerConnectivityConfigurationAppliesToGroup() {}
     /**
      * @return Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
+     * 
+     * &gt; **NOTE:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
      * 
      */
     public Optional<Boolean> globalMeshEnabled() {

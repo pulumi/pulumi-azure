@@ -61,12 +61,16 @@ public final class AutomationSourceRuleSetRuleArgs extends com.pulumi.resources.
     /**
      * The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
      * 
+     * &gt; **NOTE:** The schema for Security Center alerts (when `event_source` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+     * 
      */
     @Import(name="propertyType", required=true)
     private Output<String> propertyType;
 
     /**
      * @return The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
+     * 
+     * &gt; **NOTE:** The schema for Security Center alerts (when `event_source` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
      * 
      */
     public Output<String> propertyType() {
@@ -166,6 +170,8 @@ public final class AutomationSourceRuleSetRuleArgs extends com.pulumi.resources.
         /**
          * @param propertyType The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
          * 
+         * &gt; **NOTE:** The schema for Security Center alerts (when `event_source` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+         * 
          * @return builder
          * 
          */
@@ -176,6 +182,8 @@ public final class AutomationSourceRuleSetRuleArgs extends com.pulumi.resources.
 
         /**
          * @param propertyType The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
+         * 
+         * &gt; **NOTE:** The schema for Security Center alerts (when `event_source` is &#34;Alerts&#34;) [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
          * 
          * @return builder
          * 

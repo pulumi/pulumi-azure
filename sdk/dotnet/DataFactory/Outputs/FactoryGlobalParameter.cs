@@ -23,6 +23,8 @@ namespace Pulumi.Azure.DataFactory.Outputs
         public readonly string Type;
         /// <summary>
         /// Specifies the global parameter value.
+        /// 
+        /// &gt; **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
         /// </summary>
         public readonly string Value;
 

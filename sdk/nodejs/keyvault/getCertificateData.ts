@@ -50,6 +50,8 @@ export interface GetCertificateDataArgs {
     name: string;
     /**
      * Specifies the version of the certificate to look up.  (Defaults to latest)
+     *
+     * > **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
      */
     version?: string;
 }
@@ -134,6 +136,8 @@ export interface GetCertificateDataOutputArgs {
     name: pulumi.Input<string>;
     /**
      * Specifies the version of the certificate to look up.  (Defaults to latest)
+     *
+     * > **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
      */
     version?: pulumi.Input<string>;
 }

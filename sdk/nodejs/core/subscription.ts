@@ -123,6 +123,10 @@ export class Subscription extends pulumi.CustomResource {
     public readonly billingScopeId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Subscription. Changing this forces a new Subscription to be created.
+     *
+     * > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+     *
+     * > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
      */
     public readonly subscriptionId!: pulumi.Output<string>;
     /**
@@ -194,6 +198,10 @@ export interface SubscriptionState {
     billingScopeId?: pulumi.Input<string>;
     /**
      * The ID of the Subscription. Changing this forces a new Subscription to be created.
+     *
+     * > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+     *
+     * > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
      */
     subscriptionId?: pulumi.Input<string>;
     /**
@@ -228,6 +236,10 @@ export interface SubscriptionArgs {
     billingScopeId?: pulumi.Input<string>;
     /**
      * The ID of the Subscription. Changing this forces a new Subscription to be created.
+     *
+     * > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+     *
+     * > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
      */
     subscriptionId?: pulumi.Input<string>;
     /**

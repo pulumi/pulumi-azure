@@ -80,6 +80,8 @@ type NamedValue struct {
 	// The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+	//
+	// > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
 	Secret pulumi.BoolPtrOutput `pulumi:"secret"`
 	// A list of tags to be applied to the API Management Named Value.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
@@ -143,6 +145,8 @@ type namedValueState struct {
 	// The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+	//
+	// > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
 	Secret *bool `pulumi:"secret"`
 	// A list of tags to be applied to the API Management Named Value.
 	Tags []string `pulumi:"tags"`
@@ -162,6 +166,8 @@ type NamedValueState struct {
 	// The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+	//
+	// > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
 	Secret pulumi.BoolPtrInput
 	// A list of tags to be applied to the API Management Named Value.
 	Tags pulumi.StringArrayInput
@@ -185,6 +191,8 @@ type namedValueArgs struct {
 	// The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+	//
+	// > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
 	Secret *bool `pulumi:"secret"`
 	// A list of tags to be applied to the API Management Named Value.
 	Tags []string `pulumi:"tags"`
@@ -205,6 +213,8 @@ type NamedValueArgs struct {
 	// The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+	//
+	// > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
 	Secret pulumi.BoolPtrInput
 	// A list of tags to be applied to the API Management Named Value.
 	Tags pulumi.StringArrayInput
@@ -322,6 +332,8 @@ func (o NamedValueOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
+//
+// > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
 func (o NamedValueOutput) Secret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NamedValue) pulumi.BoolPtrOutput { return v.Secret }).(pulumi.BoolPtrOutput)
 }

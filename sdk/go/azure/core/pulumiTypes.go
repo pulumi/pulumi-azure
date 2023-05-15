@@ -1616,6 +1616,8 @@ type ResourceGroupCostManagementExportExportDataStorageLocation struct {
 	// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
 	ContainerId string `pulumi:"containerId"`
 	// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `storage.Container` resource.
 	RootFolderPath string `pulumi:"rootFolderPath"`
 }
 
@@ -1634,6 +1636,8 @@ type ResourceGroupCostManagementExportExportDataStorageLocationArgs struct {
 	// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
 	ContainerId pulumi.StringInput `pulumi:"containerId"`
 	// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `storage.Container` resource.
 	RootFolderPath pulumi.StringInput `pulumi:"rootFolderPath"`
 }
 
@@ -1720,6 +1724,8 @@ func (o ResourceGroupCostManagementExportExportDataStorageLocationOutput) Contai
 }
 
 // The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+//
+// > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `storage.Container` resource.
 func (o ResourceGroupCostManagementExportExportDataStorageLocationOutput) RootFolderPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupCostManagementExportExportDataStorageLocation) string { return v.RootFolderPath }).(pulumi.StringOutput)
 }
@@ -1759,6 +1765,8 @@ func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) Con
 }
 
 // The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+//
+// > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `storage.Container` resource.
 func (o ResourceGroupCostManagementExportExportDataStorageLocationPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceGroupCostManagementExportExportDataStorageLocation) *string {
 		if v == nil {
@@ -2491,6 +2499,8 @@ func (o ResourceGroupCostManagementViewPivotArrayOutput) Index(i pulumi.IntInput
 
 type ResourceGroupPolicyAssignmentIdentity struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Resource Group.
 	PrincipalId *string `pulumi:"principalId"`
@@ -2513,6 +2523,8 @@ type ResourceGroupPolicyAssignmentIdentityInput interface {
 
 type ResourceGroupPolicyAssignmentIdentityArgs struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Resource Group.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -2600,6 +2612,8 @@ func (o ResourceGroupPolicyAssignmentIdentityOutput) ToResourceGroupPolicyAssign
 }
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 func (o ResourceGroupPolicyAssignmentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceGroupPolicyAssignmentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -2644,6 +2658,8 @@ func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) Elem() ResourceGroupPoli
 }
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 func (o ResourceGroupPolicyAssignmentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceGroupPolicyAssignmentIdentity) []string {
 		if v == nil {
@@ -3239,6 +3255,8 @@ func (o ResourceGroupPolicyAssignmentResourceSelectorSelectorArrayOutput) Index(
 
 type ResourcePolicyAssignmentIdentity struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Resource.
 	PrincipalId *string `pulumi:"principalId"`
@@ -3261,6 +3279,8 @@ type ResourcePolicyAssignmentIdentityInput interface {
 
 type ResourcePolicyAssignmentIdentityArgs struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Resource.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -3348,6 +3368,8 @@ func (o ResourcePolicyAssignmentIdentityOutput) ToResourcePolicyAssignmentIdenti
 }
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 func (o ResourcePolicyAssignmentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourcePolicyAssignmentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -3392,6 +3414,8 @@ func (o ResourcePolicyAssignmentIdentityPtrOutput) Elem() ResourcePolicyAssignme
 }
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 func (o ResourcePolicyAssignmentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourcePolicyAssignmentIdentity) []string {
 		if v == nil {
@@ -3984,7 +4008,7 @@ func (o ResourcePolicyAssignmentResourceSelectorSelectorArrayOutput) Index(i pul
 }
 
 type ResourceProviderRegistrationFeature struct {
-	// Specifies the name of the feature to register.
+	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Should this feature be Registered or Unregistered?
 	Registered bool `pulumi:"registered"`
@@ -4002,7 +4026,7 @@ type ResourceProviderRegistrationFeatureInput interface {
 }
 
 type ResourceProviderRegistrationFeatureArgs struct {
-	// Specifies the name of the feature to register.
+	// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Should this feature be Registered or Unregistered?
 	Registered pulumi.BoolInput `pulumi:"registered"`
@@ -4059,7 +4083,7 @@ func (o ResourceProviderRegistrationFeatureOutput) ToResourceProviderRegistratio
 	return o
 }
 
-// Specifies the name of the feature to register.
+// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
 func (o ResourceProviderRegistrationFeatureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceProviderRegistrationFeature) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4249,6 +4273,8 @@ type SubscriptionCostManagementExportExportDataStorageLocation struct {
 	// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
 	ContainerId string `pulumi:"containerId"`
 	// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `storage.Container` resource.
 	RootFolderPath string `pulumi:"rootFolderPath"`
 }
 
@@ -4267,6 +4293,8 @@ type SubscriptionCostManagementExportExportDataStorageLocationArgs struct {
 	// The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
 	ContainerId pulumi.StringInput `pulumi:"containerId"`
 	// The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `storage.Container` resource.
 	RootFolderPath pulumi.StringInput `pulumi:"rootFolderPath"`
 }
 
@@ -4353,6 +4381,8 @@ func (o SubscriptionCostManagementExportExportDataStorageLocationOutput) Contain
 }
 
 // The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+//
+// > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `storage.Container` resource.
 func (o SubscriptionCostManagementExportExportDataStorageLocationOutput) RootFolderPath() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriptionCostManagementExportExportDataStorageLocation) string { return v.RootFolderPath }).(pulumi.StringOutput)
 }
@@ -4392,6 +4422,8 @@ func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) Cont
 }
 
 // The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+//
+// > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resourceManagerId` attribute of the `storage.Container` resource.
 func (o SubscriptionCostManagementExportExportDataStorageLocationPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionCostManagementExportExportDataStorageLocation) *string {
 		if v == nil {
@@ -5124,6 +5156,8 @@ func (o SubscriptionCostManagementViewPivotArrayOutput) Index(i pulumi.IntInput)
 
 type SubscriptionPolicyAssignmentIdentity struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Subscription.
 	PrincipalId *string `pulumi:"principalId"`
@@ -5146,6 +5180,8 @@ type SubscriptionPolicyAssignmentIdentityInput interface {
 
 type SubscriptionPolicyAssignmentIdentityArgs struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID of the Policy Assignment for this Subscription.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -5233,6 +5269,8 @@ func (o SubscriptionPolicyAssignmentIdentityOutput) ToSubscriptionPolicyAssignme
 }
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 func (o SubscriptionPolicyAssignmentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SubscriptionPolicyAssignmentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -5277,6 +5315,8 @@ func (o SubscriptionPolicyAssignmentIdentityPtrOutput) Elem() SubscriptionPolicy
 }
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 func (o SubscriptionPolicyAssignmentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyAssignmentIdentity) []string {
 		if v == nil {

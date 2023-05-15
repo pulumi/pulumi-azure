@@ -22,12 +22,16 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
+     * 
      */
     @Import(name="appServiceEnvironmentId")
     private @Nullable Output<String> appServiceEnvironmentId;
 
     /**
      * @return The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
      * 
      */
     public Optional<Output<String>> appServiceEnvironmentId() {
@@ -52,12 +56,16 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
+     * 
      */
     @Import(name="kind")
     private @Nullable Output<String> kind;
 
     /**
      * @return The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
      * 
      */
     public Optional<Output<String>> kind() {
@@ -187,12 +195,16 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
+     * 
      */
     @Import(name="zoneRedundant")
     private @Nullable Output<Boolean> zoneRedundant;
 
     /**
      * @return Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
      * 
      */
     public Optional<Output<Boolean>> zoneRedundant() {
@@ -237,6 +249,8 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param appServiceEnvironmentId The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
+         * 
          * @return builder
          * 
          */
@@ -247,6 +261,8 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param appServiceEnvironmentId The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
          * 
          * @return builder
          * 
@@ -279,6 +295,8 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param kind The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
+         * 
          * @return builder
          * 
          */
@@ -289,6 +307,8 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param kind The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
          * 
          * @return builder
          * 
@@ -468,6 +488,8 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zoneRedundant Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
+         * 
          * @return builder
          * 
          */
@@ -478,6 +500,8 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param zoneRedundant Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
          * 
          * @return builder
          * 

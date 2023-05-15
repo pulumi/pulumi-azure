@@ -12,7 +12,9 @@ namespace Pulumi.Azure.MSSql
     /// <summary>
     /// Manages the transparent data encryption configuration for a MSSQL Managed Instance
     /// 
-    /// &gt; **NOTE:** Once transparent data encryption is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `key_vault_uri` for more information on how to specify the key types. As SQL Managed Instance only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
+    /// !&gt; **IMPORTANT:** This resource is obsolete and should only be used on pre-existing MS SQL Instances that are over 2 years old. By default all new MS SQL Instances are deployed with System Managed Transparent Data Encryption enabled.
+    /// 
+    /// &gt; **NOTE:** Once transparent data encryption(TDE) is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `key_vault_uri` for more information on how to specify the key types. As SQL Managed Instance only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
     /// 
     /// &gt; **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
     /// 
@@ -252,6 +254,10 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+        /// 
+        /// &gt; **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+        /// 
+        /// &gt; **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         /// </summary>
         [Output("keyVaultKeyId")]
         public Output<string?> KeyVaultKeyId { get; private set; } = null!;
@@ -316,6 +322,10 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+        /// 
+        /// &gt; **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+        /// 
+        /// &gt; **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }
@@ -342,6 +352,10 @@ namespace Pulumi.Azure.MSSql
 
         /// <summary>
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+        /// 
+        /// &gt; **NOTE:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+        /// 
+        /// &gt; **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }

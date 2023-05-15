@@ -23,9 +23,13 @@ class CustomHostnameBindingArgs:
         The set of arguments for constructing a CustomHostnameBinding resource.
         :param pulumi.Input[str] app_service_name: The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hostname: Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssl_state: The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] thumbprint: The SSL certificate thumbprint. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         """
         pulumi.set(__self__, "app_service_name", app_service_name)
         pulumi.set(__self__, "hostname", hostname)
@@ -52,6 +56,8 @@ class CustomHostnameBindingArgs:
     def hostname(self) -> pulumi.Input[str]:
         """
         Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+
+        > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
         """
         return pulumi.get(self, "hostname")
 
@@ -88,6 +94,8 @@ class CustomHostnameBindingArgs:
     def thumbprint(self) -> Optional[pulumi.Input[str]]:
         """
         The SSL certificate thumbprint. Changing this forces a new resource to be created.
+
+        > **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         """
         return pulumi.get(self, "thumbprint")
 
@@ -109,9 +117,13 @@ class _CustomHostnameBindingState:
         Input properties used for looking up and filtering CustomHostnameBinding resources.
         :param pulumi.Input[str] app_service_name: The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hostname: Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssl_state: The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] thumbprint: The SSL certificate thumbprint. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         :param pulumi.Input[str] virtual_ip: The virtual IP address assigned to the hostname if IP based SSL is enabled.
         """
         if app_service_name is not None:
@@ -144,6 +156,8 @@ class _CustomHostnameBindingState:
     def hostname(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+
+        > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
         """
         return pulumi.get(self, "hostname")
 
@@ -180,6 +194,8 @@ class _CustomHostnameBindingState:
     def thumbprint(self) -> Optional[pulumi.Input[str]]:
         """
         The SSL certificate thumbprint. Changing this forces a new resource to be created.
+
+        > **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         """
         return pulumi.get(self, "thumbprint")
 
@@ -256,9 +272,13 @@ class CustomHostnameBinding(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_name: The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hostname: Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssl_state: The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] thumbprint: The SSL certificate thumbprint. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         """
         ...
     @overload
@@ -373,9 +393,13 @@ class CustomHostnameBinding(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_name: The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
         :param pulumi.Input[str] hostname: Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssl_state: The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] thumbprint: The SSL certificate thumbprint. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         :param pulumi.Input[str] virtual_ip: The virtual IP address assigned to the hostname if IP based SSL is enabled.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -403,6 +427,8 @@ class CustomHostnameBinding(pulumi.CustomResource):
     def hostname(self) -> pulumi.Output[str]:
         """
         Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
+
+        > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
         """
         return pulumi.get(self, "hostname")
 
@@ -427,6 +453,8 @@ class CustomHostnameBinding(pulumi.CustomResource):
     def thumbprint(self) -> pulumi.Output[str]:
         """
         The SSL certificate thumbprint. Changing this forces a new resource to be created.
+
+        > **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         """
         return pulumi.get(self, "thumbprint")
 

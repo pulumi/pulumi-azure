@@ -41,6 +41,8 @@ namespace Pulumi.Azure.EventGrid.Inputs
 
         /// <summary>
         /// Evaluates if a value of an event is NULL or undefined.
+        /// 
+        /// Each nested block consists of a key and a value(s) element.
         /// </summary>
         public InputList<Inputs.SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedGetArgs> IsNullOrUndefineds
         {

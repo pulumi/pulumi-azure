@@ -102,6 +102,8 @@ type DatasetBinary struct {
 	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+	//
+	// The following supported locations for a Binary Dataset. One of these should be specified:
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// A `sftpServerLocation` block as defined below.
 	SftpServerLocation DatasetBinarySftpServerLocationPtrOutput `pulumi:"sftpServerLocation"`
@@ -163,6 +165,8 @@ type datasetBinaryState struct {
 	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+	//
+	// The following supported locations for a Binary Dataset. One of these should be specified:
 	Parameters map[string]string `pulumi:"parameters"`
 	// A `sftpServerLocation` block as defined below.
 	SftpServerLocation *DatasetBinarySftpServerLocation `pulumi:"sftpServerLocation"`
@@ -190,6 +194,8 @@ type DatasetBinaryState struct {
 	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+	//
+	// The following supported locations for a Binary Dataset. One of these should be specified:
 	Parameters pulumi.StringMapInput
 	// A `sftpServerLocation` block as defined below.
 	SftpServerLocation DatasetBinarySftpServerLocationPtrInput
@@ -221,6 +227,8 @@ type datasetBinaryArgs struct {
 	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+	//
+	// The following supported locations for a Binary Dataset. One of these should be specified:
 	Parameters map[string]string `pulumi:"parameters"`
 	// A `sftpServerLocation` block as defined below.
 	SftpServerLocation *DatasetBinarySftpServerLocation `pulumi:"sftpServerLocation"`
@@ -249,6 +257,8 @@ type DatasetBinaryArgs struct {
 	// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+	//
+	// The following supported locations for a Binary Dataset. One of these should be specified:
 	Parameters pulumi.StringMapInput
 	// A `sftpServerLocation` block as defined below.
 	SftpServerLocation DatasetBinarySftpServerLocationPtrInput
@@ -394,6 +404,8 @@ func (o DatasetBinaryOutput) Name() pulumi.StringOutput {
 }
 
 // Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+//
+// The following supported locations for a Binary Dataset. One of these should be specified:
 func (o DatasetBinaryOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DatasetBinary) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }

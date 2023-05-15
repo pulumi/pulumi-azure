@@ -122,6 +122,8 @@ type Service struct {
 	// The primary connection string for the SignalR service.
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
 	// Whether to enable public network access? Defaults to `true`.
+	//
+	// > **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The publicly accessible port of the SignalR service which is designed for browser/client use.
 	PublicPort pulumi.IntOutput `pulumi:"publicPort"`
@@ -142,6 +144,8 @@ type Service struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Whether to request client certificate during TLS handshake? Defaults to `false`.
+	//
+	// > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
 	TlsClientCertEnabled pulumi.BoolPtrOutput `pulumi:"tlsClientCertEnabled"`
 	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints ServiceUpstreamEndpointArrayOutput `pulumi:"upstreamEndpoints"`
@@ -222,6 +226,8 @@ type serviceState struct {
 	// The primary connection string for the SignalR service.
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
 	// Whether to enable public network access? Defaults to `true`.
+	//
+	// > **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The publicly accessible port of the SignalR service which is designed for browser/client use.
 	PublicPort *int `pulumi:"publicPort"`
@@ -242,6 +248,8 @@ type serviceState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether to request client certificate during TLS handshake? Defaults to `false`.
+	//
+	// > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
 	TlsClientCertEnabled *bool `pulumi:"tlsClientCertEnabled"`
 	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints []ServiceUpstreamEndpoint `pulumi:"upstreamEndpoints"`
@@ -281,6 +289,8 @@ type ServiceState struct {
 	// The primary connection string for the SignalR service.
 	PrimaryConnectionString pulumi.StringPtrInput
 	// Whether to enable public network access? Defaults to `true`.
+	//
+	// > **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The publicly accessible port of the SignalR service which is designed for browser/client use.
 	PublicPort pulumi.IntPtrInput
@@ -301,6 +311,8 @@ type ServiceState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Whether to request client certificate during TLS handshake? Defaults to `false`.
+	//
+	// > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
 	TlsClientCertEnabled pulumi.BoolPtrInput
 	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints ServiceUpstreamEndpointArrayInput
@@ -336,6 +348,8 @@ type serviceArgs struct {
 	// The name of the SignalR service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Whether to enable public network access? Defaults to `true`.
+	//
+	// > **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -348,6 +362,8 @@ type serviceArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether to request client certificate during TLS handshake? Defaults to `false`.
+	//
+	// > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
 	TlsClientCertEnabled *bool `pulumi:"tlsClientCertEnabled"`
 	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints []ServiceUpstreamEndpoint `pulumi:"upstreamEndpoints"`
@@ -380,6 +396,8 @@ type ServiceArgs struct {
 	// The name of the SignalR service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Whether to enable public network access? Defaults to `true`.
+	//
+	// > **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -392,6 +410,8 @@ type ServiceArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Whether to request client certificate during TLS handshake? Defaults to `false`.
+	//
+	// > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
 	TlsClientCertEnabled pulumi.BoolPtrInput
 	// An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
 	UpstreamEndpoints ServiceUpstreamEndpointArrayInput
@@ -562,6 +582,8 @@ func (o ServiceOutput) PrimaryConnectionString() pulumi.StringOutput {
 }
 
 // Whether to enable public network access? Defaults to `true`.
+//
+// > **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
 func (o ServiceOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -612,6 +634,8 @@ func (o ServiceOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Whether to request client certificate during TLS handshake? Defaults to `false`.
+//
+// > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
 func (o ServiceOutput) TlsClientCertEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.TlsClientCertEnabled }).(pulumi.BoolPtrOutput)
 }

@@ -7,6 +7,10 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Create a failover group of databases on a collection of Azure SQL servers.
+ *
+ * > **Note:** The `azure.sql.FailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.FailoverGroup` resource instead.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -85,6 +89,8 @@ export class FailoverGroup extends pulumi.CustomResource {
 
     /**
      * A list of database ids to add to the failover group
+     *
+     * > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
      */
     public readonly databases!: pulumi.Output<string[] | undefined>;
     /**
@@ -183,6 +189,8 @@ export class FailoverGroup extends pulumi.CustomResource {
 export interface FailoverGroupState {
     /**
      * A list of database ids to add to the failover group
+     *
+     * > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
      */
     databases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -229,6 +237,8 @@ export interface FailoverGroupState {
 export interface FailoverGroupArgs {
     /**
      * A list of database ids to add to the failover group
+     *
+     * > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
      */
     databases?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -172,12 +172,16 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
      * 
+     * &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+     * 
      */
     @Import(name="visibilitySubscriptionIds")
     private @Nullable Output<List<String>> visibilitySubscriptionIds;
 
     /**
      * @return A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
+     * 
+     * &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      * 
      */
     public Optional<Output<List<String>>> visibilitySubscriptionIds() {
@@ -471,6 +475,8 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param visibilitySubscriptionIds A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
          * 
+         * &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+         * 
          * @return builder
          * 
          */
@@ -482,6 +488,8 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param visibilitySubscriptionIds A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
          * 
+         * &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+         * 
          * @return builder
          * 
          */
@@ -491,6 +499,8 @@ public final class LinkServiceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param visibilitySubscriptionIds A list of Subscription UUID/GUID&#39;s that will be able to see this Private Link Service.
+         * 
+         * &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
          * 
          * @return builder
          * 

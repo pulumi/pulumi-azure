@@ -102,6 +102,8 @@ export class User extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The state of this user. Possible values are `active`, `blocked` and `pending`.
+     *
+     * > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
      */
     public readonly state!: pulumi.Output<string>;
     /**
@@ -208,6 +210,8 @@ export interface UserState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The state of this user. Possible values are `active`, `blocked` and `pending`.
+     *
+     * > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
      */
     state?: pulumi.Input<string>;
     /**
@@ -254,6 +258,8 @@ export interface UserArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The state of this user. Possible values are `active`, `blocked` and `pending`.
+     *
+     * > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
      */
     state?: pulumi.Input<string>;
     /**

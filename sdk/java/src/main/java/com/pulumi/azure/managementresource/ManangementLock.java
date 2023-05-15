@@ -155,12 +155,16 @@ public class ManangementLock extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can&#39;t modify or delete it.
+     * 
      */
     @Export(name="lockLevel", refs={String.class}, tree="[0]")
     private Output<String> lockLevel;
 
     /**
      * @return Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can&#39;t modify or delete it.
      * 
      */
     public Output<String> lockLevel() {

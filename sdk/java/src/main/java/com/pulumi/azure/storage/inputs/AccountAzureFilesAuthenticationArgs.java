@@ -19,12 +19,16 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
     /**
      * A `active_directory` block as defined below. Required when `directory_type` is `AD`.
      * 
+     * &gt; **Note:** If `directory_type` is set to `AADKERB`, `active_directory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
+     * 
      */
     @Import(name="activeDirectory")
     private @Nullable Output<AccountAzureFilesAuthenticationActiveDirectoryArgs> activeDirectory;
 
     /**
      * @return A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+     * 
+     * &gt; **Note:** If `directory_type` is set to `AADKERB`, `active_directory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
      * 
      */
     public Optional<Output<AccountAzureFilesAuthenticationActiveDirectoryArgs>> activeDirectory() {
@@ -74,6 +78,8 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
         /**
          * @param activeDirectory A `active_directory` block as defined below. Required when `directory_type` is `AD`.
          * 
+         * &gt; **Note:** If `directory_type` is set to `AADKERB`, `active_directory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
+         * 
          * @return builder
          * 
          */
@@ -84,6 +90,8 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
 
         /**
          * @param activeDirectory A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+         * 
+         * &gt; **Note:** If `directory_type` is set to `AADKERB`, `active_directory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
          * 
          * @return builder
          * 

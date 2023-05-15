@@ -79,12 +79,16 @@ public final class LinkServiceNatIpConfigurationArgs extends com.pulumi.resource
     /**
      * Specifies the ID of the Subnet which should be used for the Private Link Service.
      * 
+     * &gt; **NOTE:** Verify that the Subnet&#39;s `enforce_private_link_service_network_policies` attribute is set to `true`.
+     * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
      * @return Specifies the ID of the Subnet which should be used for the Private Link Service.
+     * 
+     * &gt; **NOTE:** Verify that the Subnet&#39;s `enforce_private_link_service_network_policies` attribute is set to `true`.
      * 
      */
     public Output<String> subnetId() {
@@ -206,6 +210,8 @@ public final class LinkServiceNatIpConfigurationArgs extends com.pulumi.resource
         /**
          * @param subnetId Specifies the ID of the Subnet which should be used for the Private Link Service.
          * 
+         * &gt; **NOTE:** Verify that the Subnet&#39;s `enforce_private_link_service_network_policies` attribute is set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -216,6 +222,8 @@ public final class LinkServiceNatIpConfigurationArgs extends com.pulumi.resource
 
         /**
          * @param subnetId Specifies the ID of the Subnet which should be used for the Private Link Service.
+         * 
+         * &gt; **NOTE:** Verify that the Subnet&#39;s `enforce_private_link_service_network_policies` attribute is set to `true`.
          * 
          * @return builder
          * 

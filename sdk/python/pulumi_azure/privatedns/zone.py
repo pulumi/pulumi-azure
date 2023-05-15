@@ -24,6 +24,8 @@ class ZoneArgs:
         The set of arguments for constructing a Zone resource.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
         :param pulumi.Input['ZoneSoaRecordArgs'] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -52,6 +54,8 @@ class ZoneArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
+
+        > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
         """
         return pulumi.get(self, "name")
 
@@ -101,6 +105,8 @@ class _ZoneState:
         :param pulumi.Input[int] max_number_of_virtual_network_links: The maximum number of virtual networks that can be linked to this Private DNS zone.
         :param pulumi.Input[int] max_number_of_virtual_network_links_with_registration: The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
         :param pulumi.Input[str] name: The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
         :param pulumi.Input[int] number_of_record_sets: The current number of record sets in this Private DNS zone.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['ZoneSoaRecordArgs'] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
@@ -164,6 +170,8 @@ class _ZoneState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
+
+        > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
         """
         return pulumi.get(self, "name")
 
@@ -254,6 +262,8 @@ class Zone(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ZoneSoaRecordArgs']] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -352,6 +362,8 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[int] max_number_of_virtual_network_links: The maximum number of virtual networks that can be linked to this Private DNS zone.
         :param pulumi.Input[int] max_number_of_virtual_network_links_with_registration: The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
         :param pulumi.Input[str] name: The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
         :param pulumi.Input[int] number_of_record_sets: The current number of record sets in this Private DNS zone.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ZoneSoaRecordArgs']] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
@@ -400,6 +412,8 @@ class Zone(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
+
+        > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
         """
         return pulumi.get(self, "name")
 

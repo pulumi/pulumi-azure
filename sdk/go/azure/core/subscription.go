@@ -172,6 +172,10 @@ type Subscription struct {
 	// The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
 	BillingScopeId pulumi.StringPtrOutput `pulumi:"billingScopeId"`
 	// The ID of the Subscription. Changing this forces a new Subscription to be created.
+	//
+	// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+	//
+	// > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 	// The Name of the Subscription. This is the Display Name in the portal.
 	SubscriptionName pulumi.StringOutput `pulumi:"subscriptionName"`
@@ -220,6 +224,10 @@ type subscriptionState struct {
 	// The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
 	BillingScopeId *string `pulumi:"billingScopeId"`
 	// The ID of the Subscription. Changing this forces a new Subscription to be created.
+	//
+	// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+	//
+	// > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Name of the Subscription. This is the Display Name in the portal.
 	SubscriptionName *string `pulumi:"subscriptionName"`
@@ -237,6 +245,10 @@ type SubscriptionState struct {
 	// The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
 	BillingScopeId pulumi.StringPtrInput
 	// The ID of the Subscription. Changing this forces a new Subscription to be created.
+	//
+	// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+	//
+	// > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
 	SubscriptionId pulumi.StringPtrInput
 	// The Name of the Subscription. This is the Display Name in the portal.
 	SubscriptionName pulumi.StringPtrInput
@@ -258,6 +270,10 @@ type subscriptionArgs struct {
 	// The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
 	BillingScopeId *string `pulumi:"billingScopeId"`
 	// The ID of the Subscription. Changing this forces a new Subscription to be created.
+	//
+	// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+	//
+	// > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Name of the Subscription. This is the Display Name in the portal.
 	SubscriptionName string `pulumi:"subscriptionName"`
@@ -274,6 +290,10 @@ type SubscriptionArgs struct {
 	// The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
 	BillingScopeId pulumi.StringPtrInput
 	// The ID of the Subscription. Changing this forces a new Subscription to be created.
+	//
+	// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+	//
+	// > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
 	SubscriptionId pulumi.StringPtrInput
 	// The Name of the Subscription. This is the Display Name in the portal.
 	SubscriptionName pulumi.StringInput
@@ -381,6 +401,10 @@ func (o SubscriptionOutput) BillingScopeId() pulumi.StringPtrOutput {
 }
 
 // The ID of the Subscription. Changing this forces a new Subscription to be created.
+//
+// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+//
+// > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
 func (o SubscriptionOutput) SubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
 }

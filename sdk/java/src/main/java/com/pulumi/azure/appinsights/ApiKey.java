@@ -164,12 +164,16 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** At least one read or write permission must be defined.
+     * 
      */
     @Export(name="writePermissions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> writePermissions;
 
     /**
      * @return Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** At least one read or write permission must be defined.
      * 
      */
     public Output<Optional<List<String>>> writePermissions() {

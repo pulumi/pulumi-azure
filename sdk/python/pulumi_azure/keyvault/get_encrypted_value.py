@@ -98,7 +98,7 @@ def get_encrypted_value(algorithm: Optional[str] = None,
         resource_group_name="some-resource-group")
     example_key = azure.keyvault.get_key(name="some-key",
         key_vault_id=example_key_vault.id)
-    encrypted = azure.keyvault.get_encrypted_value(key_vault_key_id=azurerm_key_vault_key["test"]["id"],
+    encrypted = azure.keyvault.get_encrypted_value(key_vault_key_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         algorithm="RSA1_5",
         plain_text_value="some-encrypted-value")
     pulumi.export("id", data["azurerm_key_vault_encrypted_value"]["example"]["encrypted_data"])
@@ -109,6 +109,8 @@ def get_encrypted_value(algorithm: Optional[str] = None,
     :param str encrypted_data: The Base64 URL Encoded Encrypted Data which should be decrypted into `plain_text_value`.
     :param str key_vault_key_id: The ID of the Key Vault Key which should be used to Decrypt/Encrypt this Value.
     :param str plain_text_value: The plain-text value which should be Encrypted into `encrypted_data`.
+           
+           > **Note:** One of either `encrypted_data` or `plain_text_value` must be specified and is used to populate the encrypted/decrypted value for the other field.
     """
     __args__ = dict()
     __args__['algorithm'] = algorithm
@@ -145,7 +147,7 @@ def get_encrypted_value_output(algorithm: Optional[pulumi.Input[str]] = None,
         resource_group_name="some-resource-group")
     example_key = azure.keyvault.get_key(name="some-key",
         key_vault_id=example_key_vault.id)
-    encrypted = azure.keyvault.get_encrypted_value(key_vault_key_id=azurerm_key_vault_key["test"]["id"],
+    encrypted = azure.keyvault.get_encrypted_value(key_vault_key_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         algorithm="RSA1_5",
         plain_text_value="some-encrypted-value")
     pulumi.export("id", data["azurerm_key_vault_encrypted_value"]["example"]["encrypted_data"])
@@ -156,5 +158,7 @@ def get_encrypted_value_output(algorithm: Optional[pulumi.Input[str]] = None,
     :param str encrypted_data: The Base64 URL Encoded Encrypted Data which should be decrypted into `plain_text_value`.
     :param str key_vault_key_id: The ID of the Key Vault Key which should be used to Decrypt/Encrypt this Value.
     :param str plain_text_value: The plain-text value which should be Encrypted into `encrypted_data`.
+           
+           > **Note:** One of either `encrypted_data` or `plain_text_value` must be specified and is used to populate the encrypted/decrypted value for the other field.
     """
     ...

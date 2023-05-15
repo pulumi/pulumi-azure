@@ -34,15 +34,27 @@ class ServiceArgs:
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] sku: The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+               
+               > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+               
+               > **NOTE:** The SKUs `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
+               
+               > **NOTE:** The `allowed_ips` are only applied if the `public_network_access_enabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowed_ips` field has been defined. When the `public_network_access_enabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
         :param pulumi.Input[str] authentication_failure_mode: Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+               
+               > **NOTE:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         :param pulumi.Input[bool] customer_managed_key_enforcement_enabled: Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
         :param pulumi.Input[str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+               
+               > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[int] partition_count: Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+               
+               > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
         :param pulumi.Input[bool] public_network_access_enabled: Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
         :param pulumi.Input[int] replica_count: Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to this Search Service.
@@ -91,6 +103,10 @@ class ServiceArgs:
     def sku(self) -> pulumi.Input[str]:
         """
         The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+
+        > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+
+        > **NOTE:** The SKUs `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
         """
         return pulumi.get(self, "sku")
 
@@ -103,6 +119,8 @@ class ServiceArgs:
     def allowed_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
+
+        > **NOTE:** The `allowed_ips` are only applied if the `public_network_access_enabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowed_ips` field has been defined. When the `public_network_access_enabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
         """
         return pulumi.get(self, "allowed_ips")
 
@@ -115,6 +133,8 @@ class ServiceArgs:
     def authentication_failure_mode(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+
+        > **NOTE:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         """
         return pulumi.get(self, "authentication_failure_mode")
 
@@ -139,6 +159,8 @@ class ServiceArgs:
     def hosting_mode(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+
+        > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         """
         return pulumi.get(self, "hosting_mode")
 
@@ -199,6 +221,8 @@ class ServiceArgs:
     def partition_count(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+
+        > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
         """
         return pulumi.get(self, "partition_count")
 
@@ -266,14 +290,22 @@ class _ServiceState:
         """
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
+               
+               > **NOTE:** The `allowed_ips` are only applied if the `public_network_access_enabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowed_ips` field has been defined. When the `public_network_access_enabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
         :param pulumi.Input[str] authentication_failure_mode: Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+               
+               > **NOTE:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         :param pulumi.Input[bool] customer_managed_key_enforcement_enabled: Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
         :param pulumi.Input[str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+               
+               > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[int] partition_count: Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+               
+               > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
         :param pulumi.Input[str] primary_key: The Primary Key used for Search Service Administration.
         :param pulumi.Input[bool] public_network_access_enabled: Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceQueryKeyArgs']]] query_keys: A `query_keys` block as defined below.
@@ -281,6 +313,10 @@ class _ServiceState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] secondary_key: The Secondary Key used for Search Service Administration.
         :param pulumi.Input[str] sku: The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+               
+               > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+               
+               > **NOTE:** The SKUs `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to this Search Service.
         """
         if allowed_ips is not None:
@@ -323,6 +359,8 @@ class _ServiceState:
     def allowed_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
+
+        > **NOTE:** The `allowed_ips` are only applied if the `public_network_access_enabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowed_ips` field has been defined. When the `public_network_access_enabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
         """
         return pulumi.get(self, "allowed_ips")
 
@@ -335,6 +373,8 @@ class _ServiceState:
     def authentication_failure_mode(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+
+        > **NOTE:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         """
         return pulumi.get(self, "authentication_failure_mode")
 
@@ -359,6 +399,8 @@ class _ServiceState:
     def hosting_mode(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+
+        > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         """
         return pulumi.get(self, "hosting_mode")
 
@@ -419,6 +461,8 @@ class _ServiceState:
     def partition_count(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+
+        > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
         """
         return pulumi.get(self, "partition_count")
 
@@ -503,6 +547,10 @@ class _ServiceState:
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
         The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+
+        > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+
+        > **NOTE:** The SKUs `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
         """
         return pulumi.get(self, "sku")
 
@@ -598,18 +646,30 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
+               
+               > **NOTE:** The `allowed_ips` are only applied if the `public_network_access_enabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowed_ips` field has been defined. When the `public_network_access_enabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
         :param pulumi.Input[str] authentication_failure_mode: Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+               
+               > **NOTE:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         :param pulumi.Input[bool] customer_managed_key_enforcement_enabled: Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
         :param pulumi.Input[str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+               
+               > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[int] partition_count: Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+               
+               > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
         :param pulumi.Input[bool] public_network_access_enabled: Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
         :param pulumi.Input[int] replica_count: Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] sku: The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+               
+               > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+               
+               > **NOTE:** The SKUs `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to this Search Service.
         """
         ...
@@ -766,14 +826,22 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_ips: Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
+               
+               > **NOTE:** The `allowed_ips` are only applied if the `public_network_access_enabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowed_ips` field has been defined. When the `public_network_access_enabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
         :param pulumi.Input[str] authentication_failure_mode: Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+               
+               > **NOTE:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         :param pulumi.Input[bool] customer_managed_key_enforcement_enabled: Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
         :param pulumi.Input[str] hosting_mode: Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+               
+               > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[int] partition_count: Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+               
+               > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
         :param pulumi.Input[str] primary_key: The Primary Key used for Search Service Administration.
         :param pulumi.Input[bool] public_network_access_enabled: Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceQueryKeyArgs']]]] query_keys: A `query_keys` block as defined below.
@@ -781,6 +849,10 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] secondary_key: The Secondary Key used for Search Service Administration.
         :param pulumi.Input[str] sku: The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+               
+               > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+               
+               > **NOTE:** The SKUs `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to this Search Service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -811,6 +883,8 @@ class Service(pulumi.CustomResource):
     def allowed_ips(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the `allowed_ips` it will be blocked by the Search Services firewall.
+
+        > **NOTE:** The `allowed_ips` are only applied if the `public_network_access_enabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowed_ips` field has been defined. When the `public_network_access_enabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
         """
         return pulumi.get(self, "allowed_ips")
 
@@ -819,6 +893,8 @@ class Service(pulumi.CustomResource):
     def authentication_failure_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
+
+        > **NOTE:** `authentication_failure_mode` can only be configured when using `local_authentication_enabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
         """
         return pulumi.get(self, "authentication_failure_mode")
 
@@ -835,6 +911,8 @@ class Service(pulumi.CustomResource):
     def hosting_mode(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
+
+        > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         """
         return pulumi.get(self, "hosting_mode")
 
@@ -875,6 +953,8 @@ class Service(pulumi.CustomResource):
     def partition_count(self) -> pulumi.Output[Optional[int]]:
         """
         Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
+
+        > **NOTE:** when `hosting_mode` is set to `highDensity` the maximum number of partitions allowed is `3`.
         """
         return pulumi.get(self, "partition_count")
 
@@ -931,6 +1011,10 @@ class Service(pulumi.CustomResource):
     def sku(self) -> pulumi.Output[str]:
         """
         The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2`. Changing this forces a new Search Service to be created.
+
+        > The `basic` and `free` SKUs provision the Search Service in a Shared Cluster - the `standard` SKUs use a Dedicated Cluster.
+
+        > **NOTE:** The SKUs `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
         """
         return pulumi.get(self, "sku")
 

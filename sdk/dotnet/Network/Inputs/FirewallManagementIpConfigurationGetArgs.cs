@@ -26,12 +26,16 @@ namespace Pulumi.Azure.Network.Inputs
 
         /// <summary>
         /// The ID of the Public IP Address associated with the firewall.
+        /// 
+        /// &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
         /// </summary>
         [Input("publicIpAddressId", required: true)]
         public Input<string> PublicIpAddressId { get; set; } = null!;
 
         /// <summary>
         /// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;

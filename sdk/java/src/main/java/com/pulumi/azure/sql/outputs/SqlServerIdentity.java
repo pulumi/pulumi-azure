@@ -24,6 +24,8 @@ public final class SqlServerIdentity {
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
      * 
+     * &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Microsoft SQL Server has been created. More details are available below.
+     * 
      */
     private String type;
 
@@ -44,6 +46,8 @@ public final class SqlServerIdentity {
     }
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
+     * 
+     * &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Microsoft SQL Server has been created. More details are available below.
      * 
      */
     public String type() {

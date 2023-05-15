@@ -43,6 +43,8 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly Outputs.WindowsWebAppSlotSiteConfigAutoHealSetting? AutoHealSetting;
         /// <summary>
         /// The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
+        /// 
+        /// &gt; **Note:** This must be a valid slot name on the target Windows Web App Slot.
         /// </summary>
         public readonly string? AutoSwapSlotName;
         /// <summary>
@@ -62,9 +64,6 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DefaultDocuments;
         public readonly bool? DetailedErrorLoggingEnabled;
-        /// <summary>
-        /// The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
-        /// </summary>
         public readonly string? FtpsState;
         /// <summary>
         /// The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.

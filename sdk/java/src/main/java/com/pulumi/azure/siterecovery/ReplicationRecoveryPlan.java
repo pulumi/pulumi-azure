@@ -28,10 +28,39 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.network.NetworkInterface;
+ * import com.pulumi.azure.network.NetworkInterfaceArgs;
+ * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+ * import com.pulumi.azure.compute.VirtualMachine;
+ * import com.pulumi.azure.compute.VirtualMachineArgs;
+ * import com.pulumi.azure.compute.inputs.VirtualMachineStorageImageReferenceArgs;
+ * import com.pulumi.azure.compute.inputs.VirtualMachineStorageOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileArgs;
+ * import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileLinuxConfigArgs;
  * import com.pulumi.azure.recoveryservices.Vault;
  * import com.pulumi.azure.recoveryservices.VaultArgs;
  * import com.pulumi.azure.siterecovery.Fabric;
  * import com.pulumi.azure.siterecovery.FabricArgs;
+ * import com.pulumi.azure.siterecovery.ProtectionContainer;
+ * import com.pulumi.azure.siterecovery.ProtectionContainerArgs;
+ * import com.pulumi.azure.siterecovery.ReplicationPolicy;
+ * import com.pulumi.azure.siterecovery.ReplicationPolicyArgs;
+ * import com.pulumi.azure.siterecovery.ProtectionContainerMapping;
+ * import com.pulumi.azure.siterecovery.ProtectionContainerMappingArgs;
+ * import com.pulumi.azure.siterecovery.NetworkMapping;
+ * import com.pulumi.azure.siterecovery.NetworkMappingArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.siterecovery.ReplicatedVM;
+ * import com.pulumi.azure.siterecovery.ReplicatedVMArgs;
+ * import com.pulumi.azure.siterecovery.inputs.ReplicatedVMManagedDiskArgs;
+ * import com.pulumi.azure.siterecovery.inputs.ReplicatedVMNetworkInterfaceArgs;
  * import com.pulumi.azure.siterecovery.ReplicationRecoveryPlan;
  * import com.pulumi.azure.siterecovery.ReplicationRecoveryPlanArgs;
  * import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanRecoveryGroupArgs;
@@ -49,42 +78,189 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var sourceResourceGroup = new ResourceGroup(&#34;sourceResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;west us&#34;)
+ *         var primaryResourceGroup = new ResourceGroup(&#34;primaryResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West US&#34;)
  *             .build());
  * 
- *         var targetResourceGroup = new ResourceGroup(&#34;targetResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;east us&#34;)
+ *         var secondaryResourceGroup = new ResourceGroup(&#34;secondaryResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;East US&#34;)
  *             .build());
  * 
- *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
- *             .location(targetResourceGroup.location())
- *             .resourceGroupName(targetResourceGroup.name())
+ *         var primaryVirtualNetwork = new VirtualNetwork(&#34;primaryVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .resourceGroupName(primaryResourceGroup.name())
+ *             .addressSpaces(&#34;192.168.1.0/24&#34;)
+ *             .location(primaryResourceGroup.location())
+ *             .build());
+ * 
+ *         var primarySubnet = new Subnet(&#34;primarySubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(primaryResourceGroup.name())
+ *             .virtualNetworkName(primaryVirtualNetwork.name())
+ *             .addressPrefixes(&#34;192.168.1.0/24&#34;)
+ *             .build());
+ * 
+ *         var primaryPublicIp = new PublicIp(&#34;primaryPublicIp&#34;, PublicIpArgs.builder()        
+ *             .allocationMethod(&#34;Static&#34;)
+ *             .location(primaryResourceGroup.location())
+ *             .resourceGroupName(primaryResourceGroup.name())
+ *             .sku(&#34;Basic&#34;)
+ *             .build());
+ * 
+ *         var vmNetworkInterface = new NetworkInterface(&#34;vmNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
+ *             .location(primaryResourceGroup.location())
+ *             .resourceGroupName(primaryResourceGroup.name())
+ *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
+ *                 .name(&#34;vm&#34;)
+ *                 .subnetId(primarySubnet.id())
+ *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .publicIpAddressId(primaryPublicIp.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var vmVirtualMachine = new VirtualMachine(&#34;vmVirtualMachine&#34;, VirtualMachineArgs.builder()        
+ *             .location(primaryResourceGroup.location())
+ *             .resourceGroupName(primaryResourceGroup.name())
+ *             .vmSize(&#34;Standard_B1s&#34;)
+ *             .networkInterfaceIds(vmNetworkInterface.id())
+ *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
+ *                 .publisher(&#34;OpenLogic&#34;)
+ *                 .offer(&#34;CentOS&#34;)
+ *                 .sku(&#34;7.5&#34;)
+ *                 .version(&#34;latest&#34;)
+ *                 .build())
+ *             .storageOsDisk(VirtualMachineStorageOsDiskArgs.builder()
+ *                 .name(&#34;vm-os-disk&#34;)
+ *                 .osType(&#34;Linux&#34;)
+ *                 .caching(&#34;ReadWrite&#34;)
+ *                 .createOption(&#34;FromImage&#34;)
+ *                 .managedDiskType(&#34;Premium_LRS&#34;)
+ *                 .build())
+ *             .osProfile(VirtualMachineOsProfileArgs.builder()
+ *                 .adminUsername(&#34;test-admin-123&#34;)
+ *                 .adminPassword(&#34;test-pwd-123&#34;)
+ *                 .computerName(&#34;vm&#34;)
+ *                 .build())
+ *             .osProfileLinuxConfig(VirtualMachineOsProfileLinuxConfigArgs.builder()
+ *                 .disablePasswordAuthentication(false)
+ *                 .build())
+ *             .build());
+ * 
+ *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
+ *             .location(secondaryResourceGroup.location())
+ *             .resourceGroupName(secondaryResourceGroup.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
- *         var sourceFabric = new Fabric(&#34;sourceFabric&#34;, FabricArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.example().name())
- *             .recoveryVaultName(exampleVault.name())
- *             .location(sourceResourceGroup.location())
+ *         var primaryFabric = new Fabric(&#34;primaryFabric&#34;, FabricArgs.builder()        
+ *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .recoveryVaultName(vault.name())
+ *             .location(primaryResourceGroup.location())
  *             .build());
  * 
- *         var targetFabric = new Fabric(&#34;targetFabric&#34;, FabricArgs.builder()        
- *             .resourceGroupName(targetResourceGroup.name())
- *             .recoveryVaultName(exampleVault.name())
- *             .location(targetResourceGroup.location())
+ *         var secondaryFabric = new Fabric(&#34;secondaryFabric&#34;, FabricArgs.builder()        
+ *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .recoveryVaultName(vault.name())
+ *             .location(secondaryResourceGroup.location())
+ *             .build());
+ * 
+ *         var primaryProtectionContainer = new ProtectionContainer(&#34;primaryProtectionContainer&#34;, ProtectionContainerArgs.builder()        
+ *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .recoveryVaultName(vault.name())
+ *             .recoveryFabricName(primaryFabric.name())
+ *             .build());
+ * 
+ *         var secondaryProtectionContainer = new ProtectionContainer(&#34;secondaryProtectionContainer&#34;, ProtectionContainerArgs.builder()        
+ *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .recoveryVaultName(vault.name())
+ *             .recoveryFabricName(secondaryFabric.name())
+ *             .build());
+ * 
+ *         var policy = new ReplicationPolicy(&#34;policy&#34;, ReplicationPolicyArgs.builder()        
+ *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .recoveryVaultName(vault.name())
+ *             .recoveryPointRetentionInMinutes(24 * 60)
+ *             .applicationConsistentSnapshotFrequencyInMinutes(4 * 60)
+ *             .build());
+ * 
+ *         var container_mapping = new ProtectionContainerMapping(&#34;container-mapping&#34;, ProtectionContainerMappingArgs.builder()        
+ *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .recoveryVaultName(vault.name())
+ *             .recoveryFabricName(primaryFabric.name())
+ *             .recoverySourceProtectionContainerName(primaryProtectionContainer.name())
+ *             .recoveryTargetProtectionContainerId(secondaryProtectionContainer.id())
+ *             .recoveryReplicationPolicyId(policy.id())
+ *             .build());
+ * 
+ *         var secondaryVirtualNetwork = new VirtualNetwork(&#34;secondaryVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .addressSpaces(&#34;192.168.2.0/24&#34;)
+ *             .location(secondaryResourceGroup.location())
+ *             .build());
+ * 
+ *         var network_mapping = new NetworkMapping(&#34;network-mapping&#34;, NetworkMappingArgs.builder()        
+ *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .recoveryVaultName(vault.name())
+ *             .sourceRecoveryFabricName(primaryFabric.name())
+ *             .targetRecoveryFabricName(secondaryFabric.name())
+ *             .sourceNetworkId(primaryVirtualNetwork.id())
+ *             .targetNetworkId(secondaryVirtualNetwork.id())
+ *             .build());
+ * 
+ *         var primaryAccount = new Account(&#34;primaryAccount&#34;, AccountArgs.builder()        
+ *             .location(primaryResourceGroup.location())
+ *             .resourceGroupName(primaryResourceGroup.name())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var secondarySubnet = new Subnet(&#34;secondarySubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .virtualNetworkName(secondaryVirtualNetwork.name())
+ *             .addressPrefixes(&#34;192.168.2.0/24&#34;)
+ *             .build());
+ * 
+ *         var secondaryPublicIp = new PublicIp(&#34;secondaryPublicIp&#34;, PublicIpArgs.builder()        
+ *             .allocationMethod(&#34;Static&#34;)
+ *             .location(secondaryResourceGroup.location())
+ *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .sku(&#34;Basic&#34;)
+ *             .build());
+ * 
+ *         var vm_replication = new ReplicatedVM(&#34;vm-replication&#34;, ReplicatedVMArgs.builder()        
+ *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .recoveryVaultName(vault.name())
+ *             .sourceRecoveryFabricName(primaryFabric.name())
+ *             .sourceVmId(vmVirtualMachine.id())
+ *             .recoveryReplicationPolicyId(policy.id())
+ *             .sourceRecoveryProtectionContainerName(primaryProtectionContainer.name())
+ *             .targetResourceGroupId(secondaryResourceGroup.id())
+ *             .targetRecoveryFabricId(secondaryFabric.id())
+ *             .targetRecoveryProtectionContainerId(secondaryProtectionContainer.id())
+ *             .managedDisks(ReplicatedVMManagedDiskArgs.builder()
+ *                 .diskId(vmVirtualMachine.storageOsDisk().applyValue(storageOsDisk -&gt; storageOsDisk.managedDiskId()))
+ *                 .stagingStorageAccountId(primaryAccount.id())
+ *                 .targetResourceGroupId(secondaryResourceGroup.id())
+ *                 .targetDiskType(&#34;Premium_LRS&#34;)
+ *                 .targetReplicaDiskType(&#34;Premium_LRS&#34;)
+ *                 .build())
+ *             .networkInterfaces(ReplicatedVMNetworkInterfaceArgs.builder()
+ *                 .sourceNetworkInterfaceId(vmNetworkInterface.id())
+ *                 .targetSubnetName(secondarySubnet.name())
+ *                 .recoveryPublicIpAddressId(secondaryPublicIp.id())
+ *                 .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(sourceFabric)
+ *                 .dependsOn(                
+ *                     container_mapping,
+ *                     network_mapping)
  *                 .build());
  * 
- *         var exampleReplicationRecoveryPlan = new ReplicationRecoveryPlan(&#34;exampleReplicationRecoveryPlan&#34;, ReplicationRecoveryPlanArgs.builder()        
- *             .recoveryVaultId(azurerm_recovery_services_vault.target().id())
- *             .sourceRecoveryFabricId(sourceFabric.id())
- *             .targetRecoveryFabricId(targetFabric.id())
+ *         var example = new ReplicationRecoveryPlan(&#34;example&#34;, ReplicationRecoveryPlanArgs.builder()        
+ *             .recoveryVaultId(vault.id())
+ *             .sourceRecoveryFabricId(primaryFabric.id())
+ *             .targetRecoveryFabricId(secondaryFabric.id())
  *             .recoveryGroups(            
  *                 ReplicationRecoveryPlanRecoveryGroupArgs.builder()
  *                     .type(&#34;Boot&#34;)
- *                     .replicatedProtectedItems(azurerm_site_recovery_replicated_vm.test().id())
+ *                     .replicatedProtectedItems(vm_replication.id())
  *                     .build(),
  *                 ReplicationRecoveryPlanRecoveryGroupArgs.builder()
  *                     .type(&#34;Failover&#34;)

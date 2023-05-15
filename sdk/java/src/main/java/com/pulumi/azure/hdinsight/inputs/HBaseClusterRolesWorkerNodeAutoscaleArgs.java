@@ -18,12 +18,16 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.r
     /**
      * A `recurrence` block as defined below.
      * 
+     * &gt; **NOTE:** Capacity based autoscaling isn&#39;t supported to HBase clusters.
+     * 
      */
     @Import(name="recurrence")
     private @Nullable Output<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs> recurrence;
 
     /**
      * @return A `recurrence` block as defined below.
+     * 
+     * &gt; **NOTE:** Capacity based autoscaling isn&#39;t supported to HBase clusters.
      * 
      */
     public Optional<Output<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs>> recurrence() {
@@ -57,6 +61,8 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.r
         /**
          * @param recurrence A `recurrence` block as defined below.
          * 
+         * &gt; **NOTE:** Capacity based autoscaling isn&#39;t supported to HBase clusters.
+         * 
          * @return builder
          * 
          */
@@ -67,6 +73,8 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.r
 
         /**
          * @param recurrence A `recurrence` block as defined below.
+         * 
+         * &gt; **NOTE:** Capacity based autoscaling isn&#39;t supported to HBase clusters.
          * 
          * @return builder
          * 

@@ -120,12 +120,16 @@ public class TriggerRecurrence extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
      * 
      */
     public Output<String> name() {

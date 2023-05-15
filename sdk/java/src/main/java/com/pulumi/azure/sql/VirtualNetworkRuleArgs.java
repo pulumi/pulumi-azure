@@ -19,12 +19,16 @@ public final class VirtualNetworkRuleArgs extends com.pulumi.resources.ResourceA
     /**
      * Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
      * 
+     * &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
+     * 
      */
     @Import(name="ignoreMissingVnetServiceEndpoint")
     private @Nullable Output<Boolean> ignoreMissingVnetServiceEndpoint;
 
     /**
      * @return Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+     * 
+     * &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
      * 
      */
     public Optional<Output<Boolean>> ignoreMissingVnetServiceEndpoint() {
@@ -34,12 +38,24 @@ public final class VirtualNetworkRuleArgs extends com.pulumi.resources.ResourceA
     /**
      * The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
      * 
+     * &gt; **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+     * 
+     * 1. Contains only alphanumeric and hyphen characters
+     * 2. Cannot start with a number or hyphen
+     * 3. Cannot end with a hyphen
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+     * 
+     * &gt; **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+     * 
+     * 1. Contains only alphanumeric and hyphen characters
+     * 2. Cannot start with a number or hyphen
+     * 3. Cannot end with a hyphen
      * 
      */
     public Optional<Output<String>> name() {
@@ -122,6 +138,8 @@ public final class VirtualNetworkRuleArgs extends com.pulumi.resources.ResourceA
         /**
          * @param ignoreMissingVnetServiceEndpoint Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
          * 
+         * &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
+         * 
          * @return builder
          * 
          */
@@ -133,6 +151,8 @@ public final class VirtualNetworkRuleArgs extends com.pulumi.resources.ResourceA
         /**
          * @param ignoreMissingVnetServiceEndpoint Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
          * 
+         * &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
+         * 
          * @return builder
          * 
          */
@@ -142,6 +162,12 @@ public final class VirtualNetworkRuleArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param name The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+         * 
+         * &gt; **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+         * 
+         * 1. Contains only alphanumeric and hyphen characters
+         * 2. Cannot start with a number or hyphen
+         * 3. Cannot end with a hyphen
          * 
          * @return builder
          * 
@@ -153,6 +179,12 @@ public final class VirtualNetworkRuleArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param name The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+         * 
+         * &gt; **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+         * 
+         * 1. Contains only alphanumeric and hyphen characters
+         * 2. Cannot start with a number or hyphen
+         * 3. Cannot end with a hyphen
          * 
          * @return builder
          * 

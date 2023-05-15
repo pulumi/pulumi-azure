@@ -35,6 +35,8 @@ namespace Pulumi.Azure.ApiManagement.Inputs
 
         /// <summary>
         /// One or more `form_parameter` block as defined above.
+        /// 
+        /// &gt; **NOTE:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         /// </summary>
         public InputList<Inputs.ApiOperationResponseRepresentationFormParameterArgs> FormParameters
         {
@@ -44,12 +46,16 @@ namespace Pulumi.Azure.ApiManagement.Inputs
 
         /// <summary>
         /// The ID of an API Management Schema which represents this Response.
+        /// 
+        /// &gt; **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         /// </summary>
         [Input("schemaId")]
         public Input<string>? SchemaId { get; set; }
 
         /// <summary>
         /// The Type Name defined by the Schema.
+        /// 
+        /// &gt; **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }

@@ -22,6 +22,67 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboarding;
+ * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
+ * import com.pulumi.azure.sentinel.SentinelFunctions;
+ * import com.pulumi.azure.sentinel.inputs.GetAlertRuleAnomalyArgs;
+ * import com.pulumi.azure.sentinel.AlertRuleAnomalyBuiltIn;
+ * import com.pulumi.azure.sentinel.AlertRuleAnomalyBuiltInArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .sku(&#34;PerGB2018&#34;)
+ *             .build());
+ * 
+ *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
+ *             .workspaceId(exampleAnalyticsWorkspace.id())
+ *             .customerManagedKeyEnabled(false)
+ *             .build());
+ * 
+ *         final var exampleAlertRuleAnomaly = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
+ *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
+ *             .displayName(&#34;Potential data staging&#34;)
+ *             .build());
+ * 
+ *         var exampleAlertRuleAnomalyBuiltIn = new AlertRuleAnomalyBuiltIn(&#34;exampleAlertRuleAnomalyBuiltIn&#34;, AlertRuleAnomalyBuiltInArgs.builder()        
+ *             .displayName(&#34;Potential data staging&#34;)
+ *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
+ *             .mode(&#34;Production&#34;)
+ *             .enabled(false)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Built In Anomaly Alert Rules can be imported using the `resource id`, e.g.
@@ -78,12 +139,16 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
     /**
      * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
      * 
+     * &gt; **Note:** One of `name` or `display_name` block must be specified.
+     * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
      * @return The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * 
+     * &gt; **Note:** One of `name` or `display_name` block must be specified.
      * 
      */
     public Output<String> displayName() {

@@ -72,6 +72,8 @@ export class DatasetHttp extends pulumi.CustomResource {
 
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported arguments are specific to HTTP Dataset:
      */
     public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -176,6 +178,8 @@ export class DatasetHttp extends pulumi.CustomResource {
 export interface DatasetHttpState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported arguments are specific to HTTP Dataset:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -230,6 +234,8 @@ export interface DatasetHttpState {
 export interface DatasetHttpArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
+     *
+     * The following supported arguments are specific to HTTP Dataset:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

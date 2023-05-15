@@ -89,6 +89,8 @@ export class SubscriptionPolicyAssignment extends pulumi.CustomResource {
     public readonly enforce!: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
+     *
+     * > **Note:** The `location` field must also be specified when `identity` is specified.
      */
     public readonly identity!: pulumi.Output<outputs.core.SubscriptionPolicyAssignmentIdentity | undefined>;
     /**
@@ -205,6 +207,8 @@ export interface SubscriptionPolicyAssignmentState {
     enforce?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
+     *
+     * > **Note:** The `location` field must also be specified when `identity` is specified.
      */
     identity?: pulumi.Input<inputs.core.SubscriptionPolicyAssignmentIdentity>;
     /**
@@ -267,6 +271,8 @@ export interface SubscriptionPolicyAssignmentArgs {
     enforce?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
+     *
+     * > **Note:** The `location` field must also be specified when `identity` is specified.
      */
     identity?: pulumi.Input<inputs.core.SubscriptionPolicyAssignmentIdentity>;
     /**

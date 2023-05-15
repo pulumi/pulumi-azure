@@ -14,6 +14,8 @@ namespace Pulumi.Azure.AppService.Inputs
     {
         /// <summary>
         /// If this Linux Web App is Always On enabled. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
         /// </summary>
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
@@ -82,6 +84,8 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// An `application_stack` block as defined above.
+        /// 
+        /// &gt; **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
         /// </summary>
         [Input("applicationStack")]
         public Input<Inputs.LinuxFunctionAppSiteConfigApplicationStackGetArgs>? ApplicationStack { get; set; }
@@ -202,6 +206,8 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// Should Scale Monitoring of the Functions Runtime be enabled?
+        /// 
+        /// &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         /// </summary>
         [Input("runtimeScaleMonitoringEnabled")]
         public Input<bool>? RuntimeScaleMonitoringEnabled { get; set; }

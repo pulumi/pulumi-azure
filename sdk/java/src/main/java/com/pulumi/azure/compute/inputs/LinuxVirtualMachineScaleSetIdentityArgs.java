@@ -19,12 +19,16 @@ public final class LinuxVirtualMachineScaleSetIdentityArgs extends com.pulumi.re
     /**
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -106,6 +110,8 @@ public final class LinuxVirtualMachineScaleSetIdentityArgs extends com.pulumi.re
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -117,6 +123,8 @@ public final class LinuxVirtualMachineScaleSetIdentityArgs extends com.pulumi.re
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -126,6 +134,8 @@ public final class LinuxVirtualMachineScaleSetIdentityArgs extends com.pulumi.re
 
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 

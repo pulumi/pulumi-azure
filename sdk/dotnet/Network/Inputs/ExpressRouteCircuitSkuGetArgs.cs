@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Network.Inputs
     {
         /// <summary>
         /// The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+        /// 
+        /// &gt; **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
         /// </summary>
         [Input("family", required: true)]
         public Input<string> Family { get; set; } = null!;

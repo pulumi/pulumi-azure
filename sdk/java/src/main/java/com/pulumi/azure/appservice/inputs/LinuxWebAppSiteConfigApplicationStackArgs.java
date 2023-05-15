@@ -78,12 +78,16 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     /**
      * The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
      * 
+     * &gt; **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
+     * 
      */
     @Import(name="javaServer")
     private @Nullable Output<String> javaServer;
 
     /**
      * @return The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+     * 
+     * &gt; **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
      * 
      */
     public Optional<Output<String>> javaServer() {
@@ -108,12 +112,16 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     /**
      * The Version of Java to use. Possible values include `8`, `11`, and `17`.
      * 
+     * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+     * 
      */
     @Import(name="javaVersion")
     private @Nullable Output<String> javaVersion;
 
     /**
      * @return The Version of Java to use. Possible values include `8`, `11`, and `17`.
+     * 
+     * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
      * 
      */
     public Optional<Output<String>> javaVersion() {
@@ -123,12 +131,16 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     /**
      * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
      * 
+     * &gt; **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
+     * 
      */
     @Import(name="nodeVersion")
     private @Nullable Output<String> nodeVersion;
 
     /**
      * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
+     * 
+     * &gt; **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
      * 
      */
     public Optional<Output<String>> nodeVersion() {
@@ -138,12 +150,16 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
     /**
      * The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
      * 
+     * &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
+     * 
      */
     @Import(name="phpVersion")
     private @Nullable Output<String> phpVersion;
 
     /**
      * @return The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+     * 
+     * &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
      * 
      */
     public Optional<Output<String>> phpVersion() {
@@ -301,6 +317,8 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         /**
          * @param javaServer The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
          * 
+         * &gt; **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
+         * 
          * @return builder
          * 
          */
@@ -311,6 +329,8 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
 
         /**
          * @param javaServer The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+         * 
+         * &gt; **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
          * 
          * @return builder
          * 
@@ -343,6 +363,8 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         /**
          * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, and `17`.
          * 
+         * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+         * 
          * @return builder
          * 
          */
@@ -354,6 +376,8 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         /**
          * @param javaVersion The Version of Java to use. Possible values include `8`, `11`, and `17`.
          * 
+         * &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+         * 
          * @return builder
          * 
          */
@@ -363,6 +387,8 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
 
         /**
          * @param nodeVersion The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
+         * 
+         * &gt; **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
          * 
          * @return builder
          * 
@@ -375,6 +401,8 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
         /**
          * @param nodeVersion The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
          * 
+         * &gt; **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
+         * 
          * @return builder
          * 
          */
@@ -384,6 +412,8 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
 
         /**
          * @param phpVersion The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+         * 
+         * &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
          * 
          * @return builder
          * 
@@ -395,6 +425,8 @@ public final class LinuxWebAppSiteConfigApplicationStackArgs extends com.pulumi.
 
         /**
          * @param phpVersion The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+         * 
+         * &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
          * 
          * @return builder
          * 

@@ -22,6 +22,10 @@ class ServerTransparentDataEncryptionArgs:
         :param pulumi.Input[str] server_id: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+               
+               > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+               
+               > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         """
         pulumi.set(__self__, "server_id", server_id)
         if auto_rotation_enabled is not None:
@@ -58,6 +62,10 @@ class ServerTransparentDataEncryptionArgs:
     def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
         """
         To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+
+        > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+
+        > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -76,6 +84,10 @@ class _ServerTransparentDataEncryptionState:
         Input properties used for looking up and filtering ServerTransparentDataEncryption resources.
         :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+               
+               > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+               
+               > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         :param pulumi.Input[str] server_id: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         """
         if auto_rotation_enabled is not None:
@@ -102,6 +114,10 @@ class _ServerTransparentDataEncryptionState:
     def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
         """
         To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+
+        > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+
+        > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -175,6 +191,10 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+               
+               > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+               
+               > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         :param pulumi.Input[str] server_id: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         """
         ...
@@ -277,6 +297,10 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_rotation_enabled: When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
         :param pulumi.Input[str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+               
+               > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+               
+               > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         :param pulumi.Input[str] server_id: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -301,6 +325,10 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
     def key_vault_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
+
+        > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+
+        > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         """
         return pulumi.get(self, "key_vault_key_id")
 

@@ -228,12 +228,16 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
+     * 
      */
     @Export(name="pfxBlob", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pfxBlob;
 
     /**
      * @return The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
      * 
      */
     public Output<Optional<String>> pfxBlob() {

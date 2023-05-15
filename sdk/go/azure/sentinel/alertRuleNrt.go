@@ -93,6 +93,8 @@ type AlertRuleNrt struct {
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings AlertRuleNrtEntityMappingArrayOutput `pulumi:"entityMappings"`
 	// A `eventGrouping` block as defined below.
+	//
+	// > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
 	EventGrouping AlertRuleNrtEventGroupingOutput `pulumi:"eventGrouping"`
 	// A `incident` block as defined below.
 	Incident AlertRuleNrtIncidentOutput `pulumi:"incident"`
@@ -103,6 +105,8 @@ type AlertRuleNrt struct {
 	// The query of this Sentinel NRT Alert Rule.
 	Query pulumi.StringOutput `pulumi:"query"`
 	// A list of `sentinelEntityMapping` blocks as defined below.
+	//
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings AlertRuleNrtSentinelEntityMappingArrayOutput `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringOutput `pulumi:"severity"`
@@ -174,6 +178,8 @@ type alertRuleNrtState struct {
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings []AlertRuleNrtEntityMapping `pulumi:"entityMappings"`
 	// A `eventGrouping` block as defined below.
+	//
+	// > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
 	EventGrouping *AlertRuleNrtEventGrouping `pulumi:"eventGrouping"`
 	// A `incident` block as defined below.
 	Incident *AlertRuleNrtIncident `pulumi:"incident"`
@@ -184,6 +190,8 @@ type alertRuleNrtState struct {
 	// The query of this Sentinel NRT Alert Rule.
 	Query *string `pulumi:"query"`
 	// A list of `sentinelEntityMapping` blocks as defined below.
+	//
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings []AlertRuleNrtSentinelEntityMapping `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity *string `pulumi:"severity"`
@@ -215,6 +223,8 @@ type AlertRuleNrtState struct {
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings AlertRuleNrtEntityMappingArrayInput
 	// A `eventGrouping` block as defined below.
+	//
+	// > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
 	EventGrouping AlertRuleNrtEventGroupingPtrInput
 	// A `incident` block as defined below.
 	Incident AlertRuleNrtIncidentPtrInput
@@ -225,6 +235,8 @@ type AlertRuleNrtState struct {
 	// The query of this Sentinel NRT Alert Rule.
 	Query pulumi.StringPtrInput
 	// A list of `sentinelEntityMapping` blocks as defined below.
+	//
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings AlertRuleNrtSentinelEntityMappingArrayInput
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringPtrInput
@@ -260,6 +272,8 @@ type alertRuleNrtArgs struct {
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings []AlertRuleNrtEntityMapping `pulumi:"entityMappings"`
 	// A `eventGrouping` block as defined below.
+	//
+	// > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
 	EventGrouping *AlertRuleNrtEventGrouping `pulumi:"eventGrouping"`
 	// A `incident` block as defined below.
 	Incident *AlertRuleNrtIncident `pulumi:"incident"`
@@ -270,6 +284,8 @@ type alertRuleNrtArgs struct {
 	// The query of this Sentinel NRT Alert Rule.
 	Query string `pulumi:"query"`
 	// A list of `sentinelEntityMapping` blocks as defined below.
+	//
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings []AlertRuleNrtSentinelEntityMapping `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity string `pulumi:"severity"`
@@ -302,6 +318,8 @@ type AlertRuleNrtArgs struct {
 	// A list of `entityMapping` blocks as defined below.
 	EntityMappings AlertRuleNrtEntityMappingArrayInput
 	// A `eventGrouping` block as defined below.
+	//
+	// > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
 	EventGrouping AlertRuleNrtEventGroupingPtrInput
 	// A `incident` block as defined below.
 	Incident AlertRuleNrtIncidentPtrInput
@@ -312,6 +330,8 @@ type AlertRuleNrtArgs struct {
 	// The query of this Sentinel NRT Alert Rule.
 	Query pulumi.StringInput
 	// A list of `sentinelEntityMapping` blocks as defined below.
+	//
+	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings AlertRuleNrtSentinelEntityMappingArrayInput
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringInput
@@ -453,6 +473,8 @@ func (o AlertRuleNrtOutput) EntityMappings() AlertRuleNrtEntityMappingArrayOutpu
 }
 
 // A `eventGrouping` block as defined below.
+//
+// > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
 func (o AlertRuleNrtOutput) EventGrouping() AlertRuleNrtEventGroupingOutput {
 	return o.ApplyT(func(v *AlertRuleNrt) AlertRuleNrtEventGroupingOutput { return v.EventGrouping }).(AlertRuleNrtEventGroupingOutput)
 }
@@ -478,6 +500,8 @@ func (o AlertRuleNrtOutput) Query() pulumi.StringOutput {
 }
 
 // A list of `sentinelEntityMapping` blocks as defined below.
+//
+// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 func (o AlertRuleNrtOutput) SentinelEntityMappings() AlertRuleNrtSentinelEntityMappingArrayOutput {
 	return o.ApplyT(func(v *AlertRuleNrt) AlertRuleNrtSentinelEntityMappingArrayOutput { return v.SentinelEntityMappings }).(AlertRuleNrtSentinelEntityMappingArrayOutput)
 }

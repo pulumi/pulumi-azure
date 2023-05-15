@@ -20,12 +20,16 @@ public final class ServerExtendedAuditingPolicyArgs extends com.pulumi.resources
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
+     * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
      * @return Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     * 
+     * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -171,6 +175,8 @@ public final class ServerExtendedAuditingPolicyArgs extends com.pulumi.resources
         /**
          * @param enabled Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
          * 
+         * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+         * 
          * @return builder
          * 
          */
@@ -181,6 +187,8 @@ public final class ServerExtendedAuditingPolicyArgs extends com.pulumi.resources
 
         /**
          * @param enabled Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+         * 
+         * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
          * 
          * @return builder
          * 

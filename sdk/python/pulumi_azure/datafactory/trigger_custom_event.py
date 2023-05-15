@@ -40,6 +40,8 @@ class TriggerCustomEventArgs:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Custom Event Trigger. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subject_begins_with: The pattern that event subject starts with for trigger to fire.
         :param pulumi.Input[str] subject_ends_with: The pattern that event subject ends with for trigger to fire.
+               
+               > **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
         pulumi.set(__self__, "eventgrid_topic_id", eventgrid_topic_id)
@@ -185,6 +187,8 @@ class TriggerCustomEventArgs:
     def subject_ends_with(self) -> Optional[pulumi.Input[str]]:
         """
         The pattern that event subject ends with for trigger to fire.
+
+        > **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
         """
         return pulumi.get(self, "subject_ends_with")
 
@@ -220,6 +224,8 @@ class _TriggerCustomEventState:
         :param pulumi.Input[Sequence[pulumi.Input['TriggerCustomEventPipelineArgs']]] pipelines: One or more `pipeline` blocks as defined below.
         :param pulumi.Input[str] subject_begins_with: The pattern that event subject starts with for trigger to fire.
         :param pulumi.Input[str] subject_ends_with: The pattern that event subject ends with for trigger to fire.
+               
+               > **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
         """
         if activated is not None:
             pulumi.set(__self__, "activated", activated)
@@ -369,6 +375,8 @@ class _TriggerCustomEventState:
     def subject_ends_with(self) -> Optional[pulumi.Input[str]]:
         """
         The pattern that event subject ends with for trigger to fire.
+
+        > **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
         """
         return pulumi.get(self, "subject_ends_with")
 
@@ -459,6 +467,8 @@ class TriggerCustomEvent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerCustomEventPipelineArgs']]]] pipelines: One or more `pipeline` blocks as defined below.
         :param pulumi.Input[str] subject_begins_with: The pattern that event subject starts with for trigger to fire.
         :param pulumi.Input[str] subject_ends_with: The pattern that event subject ends with for trigger to fire.
+               
+               > **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
         """
         ...
     @overload
@@ -611,6 +621,8 @@ class TriggerCustomEvent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerCustomEventPipelineArgs']]]] pipelines: One or more `pipeline` blocks as defined below.
         :param pulumi.Input[str] subject_begins_with: The pattern that event subject starts with for trigger to fire.
         :param pulumi.Input[str] subject_ends_with: The pattern that event subject ends with for trigger to fire.
+               
+               > **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -714,6 +726,8 @@ class TriggerCustomEvent(pulumi.CustomResource):
     def subject_ends_with(self) -> pulumi.Output[Optional[str]]:
         """
         The pattern that event subject ends with for trigger to fire.
+
+        > **Note:** At least one of `subject_begins_with` and `subject_ends_with` must be set.
         """
         return pulumi.get(self, "subject_ends_with")
 

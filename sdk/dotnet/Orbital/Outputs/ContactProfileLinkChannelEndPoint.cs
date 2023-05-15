@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Orbital.Outputs
         /// <summary>
         /// IP address of an end point.
         /// </summary>
-        public readonly string IpAddress;
+        public readonly string? IpAddress;
         /// <summary>
         /// TCP port to listen on to receive data.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Orbital.Outputs
         private ContactProfileLinkChannelEndPoint(
             string endPointName,
 
-            string ipAddress,
+            string? ipAddress,
 
             string port,
 

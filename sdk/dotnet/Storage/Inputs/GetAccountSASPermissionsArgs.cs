@@ -32,6 +32,9 @@ namespace Pulumi.Azure.Storage.Inputs
 
         /// <summary>
         /// Should Filter by Index Tags permissions be enabled for this SAS?
+        /// 
+        /// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+        /// for additional details on the fields above.
         /// </summary>
         [Input("filter", required: true)]
         public Input<bool> Filter { get; set; } = null!;

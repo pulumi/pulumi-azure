@@ -111,12 +111,16 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
     /**
      * Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
      * 
+     * &gt; **NOTE:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
+     * 
      */
     @Import(name="primary")
     private @Nullable Output<Boolean> primary;
 
     /**
      * @return Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
      * 
      */
     public Optional<Output<Boolean>> primary() {
@@ -302,6 +306,8 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
         /**
          * @param primary Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
          * 
+         * &gt; **NOTE:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
+         * 
          * @return builder
          * 
          */
@@ -312,6 +318,8 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
 
         /**
          * @param primary Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
          * 
          * @return builder
          * 

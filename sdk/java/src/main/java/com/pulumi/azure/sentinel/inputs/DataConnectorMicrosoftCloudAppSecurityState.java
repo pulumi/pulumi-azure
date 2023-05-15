@@ -34,12 +34,16 @@ public final class DataConnectorMicrosoftCloudAppSecurityState extends com.pulum
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
      * 
+     * &gt; **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+     * 
      */
     @Import(name="discoveryLogsEnabled")
     private @Nullable Output<Boolean> discoveryLogsEnabled;
 
     /**
      * @return Should the Discovery Logs be enabled? Defaults to `true`.
+     * 
+     * &gt; **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
      * 
      */
     public Optional<Output<Boolean>> discoveryLogsEnabled() {
@@ -79,12 +83,16 @@ public final class DataConnectorMicrosoftCloudAppSecurityState extends com.pulum
     /**
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      * 
+     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
      * @return The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
+     * 
+     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -143,6 +151,8 @@ public final class DataConnectorMicrosoftCloudAppSecurityState extends com.pulum
         /**
          * @param discoveryLogsEnabled Should the Discovery Logs be enabled? Defaults to `true`.
          * 
+         * &gt; **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
+         * 
          * @return builder
          * 
          */
@@ -153,6 +163,8 @@ public final class DataConnectorMicrosoftCloudAppSecurityState extends com.pulum
 
         /**
          * @param discoveryLogsEnabled Should the Discovery Logs be enabled? Defaults to `true`.
+         * 
+         * &gt; **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
          * 
          * @return builder
          * 
@@ -206,6 +218,8 @@ public final class DataConnectorMicrosoftCloudAppSecurityState extends com.pulum
         /**
          * @param tenantId The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
          * 
+         * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+         * 
          * @return builder
          * 
          */
@@ -216,6 +230,8 @@ public final class DataConnectorMicrosoftCloudAppSecurityState extends com.pulum
 
         /**
          * @param tenantId The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
+         * 
+         * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
          * 
          * @return builder
          * 

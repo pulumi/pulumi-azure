@@ -96,12 +96,16 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
     /**
      * Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
      * 
+     * &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
+     * 
      */
     @Export(name="ignoreMissingVnetServiceEndpoint", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreMissingVnetServiceEndpoint;
 
     /**
      * @return Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
      * 
      */
     public Output<Optional<Boolean>> ignoreMissingVnetServiceEndpoint() {

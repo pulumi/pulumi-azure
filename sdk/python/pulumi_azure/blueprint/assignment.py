@@ -37,7 +37,11 @@ class AssignmentArgs:
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
         :param pulumi.Input[str] name: The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
+               
+               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[str] resource_groups: a JSON string to supply the Blueprint Resource Group information.
+               
+               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         """
         pulumi.set(__self__, "identity", identity)
         pulumi.set(__self__, "target_subscription_id", target_subscription_id)
@@ -158,6 +162,8 @@ class AssignmentArgs:
     def parameter_values(self) -> Optional[pulumi.Input[str]]:
         """
         a JSON string to supply Blueprint Assignment parameter values.
+
+        > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         """
         return pulumi.get(self, "parameter_values")
 
@@ -170,6 +176,8 @@ class AssignmentArgs:
     def resource_groups(self) -> Optional[pulumi.Input[str]]:
         """
         a JSON string to supply the Blueprint Resource Group information.
+
+        > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         """
         return pulumi.get(self, "resource_groups")
 
@@ -207,7 +215,11 @@ class _AssignmentState:
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
         :param pulumi.Input[str] name: The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
+               
+               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[str] resource_groups: a JSON string to supply the Blueprint Resource Group information.
+               
+               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
         :param pulumi.Input[str] version_id: The ID of the Published Version of the blueprint to be assigned.
@@ -354,6 +366,8 @@ class _AssignmentState:
     def parameter_values(self) -> Optional[pulumi.Input[str]]:
         """
         a JSON string to supply Blueprint Assignment parameter values.
+
+        > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         """
         return pulumi.get(self, "parameter_values")
 
@@ -366,6 +380,8 @@ class _AssignmentState:
     def resource_groups(self) -> Optional[pulumi.Input[str]]:
         """
         a JSON string to supply the Blueprint Resource Group information.
+
+        > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         """
         return pulumi.get(self, "resource_groups")
 
@@ -507,7 +523,11 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
         :param pulumi.Input[str] name: The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
+               
+               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[str] resource_groups: a JSON string to supply the Blueprint Resource Group information.
+               
+               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version_id: The ID of the Published Version of the blueprint to be assigned.
         """
@@ -684,7 +704,11 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] lock_mode: The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
         :param pulumi.Input[str] name: The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
+               
+               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[str] resource_groups: a JSON string to supply the Blueprint Resource Group information.
+               
+               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Blueprint. Only possible value is `UserAssigned`.
         :param pulumi.Input[str] version_id: The ID of the Published Version of the blueprint to be assigned.
@@ -786,6 +810,8 @@ class Assignment(pulumi.CustomResource):
     def parameter_values(self) -> pulumi.Output[Optional[str]]:
         """
         a JSON string to supply Blueprint Assignment parameter values.
+
+        > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         """
         return pulumi.get(self, "parameter_values")
 
@@ -794,6 +820,8 @@ class Assignment(pulumi.CustomResource):
     def resource_groups(self) -> pulumi.Output[Optional[str]]:
         """
         a JSON string to supply the Blueprint Resource Group information.
+
+        > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         """
         return pulumi.get(self, "resource_groups")
 

@@ -1969,6 +1969,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_network_watcher":                              {Tok: azureResource(azureNetwork, "NetworkWatcher")},
 			"azurerm_network_watcher_flow_log":                     {Tok: azureResource(azureNetwork, "NetworkWatcherFlowLog")},
 			"azurerm_network_manager":                              {Tok: azureResource(azureNetwork, "NetworkManager")},
+			"azurerm_network_manager_deployment":                   {Tok: azureResource(azureNetwork, "NetworkManagerDeployment")},
 			"azurerm_network_manager_network_group":                {Tok: azureResource(azureNetwork, "NetworkManagerNetworkGroup")},
 			"azurerm_network_manager_management_group_connection":  {Tok: azureResource(azureNetwork, "NetworkManagerManagementGroupConnection")},
 			"azurerm_network_manager_subscription_connection":      {Tok: azureResource(azureNetwork, "NetworkManagerSubscriptionConnection")},

@@ -76,6 +76,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// One or more `action_playbook` blocks as defined below.
+        /// 
+        /// &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
         /// </summary>
         [Output("actionPlaybooks")]
         public Output<ImmutableArray<Outputs.AutomationRuleActionPlaybook>> ActionPlaybooks { get; private set; } = null!;
@@ -88,6 +90,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// One or more `condition` blocks as defined below.
+        /// 
+        /// &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
         /// </summary>
         [Output("conditions")]
         public Output<ImmutableArray<Outputs.AutomationRuleCondition>> Conditions { get; private set; } = null!;
@@ -207,6 +211,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// One or more `action_playbook` blocks as defined below.
+        /// 
+        /// &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
         /// </summary>
         public InputList<Inputs.AutomationRuleActionPlaybookArgs> ActionPlaybooks
         {
@@ -225,6 +231,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// One or more `condition` blocks as defined below.
+        /// 
+        /// &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
         /// </summary>
         [Obsolete(@"This is deprecated in favor of `condition_json`")]
         public InputList<Inputs.AutomationRuleConditionArgs> Conditions
@@ -306,6 +314,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// One or more `action_playbook` blocks as defined below.
+        /// 
+        /// &gt; **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
         /// </summary>
         public InputList<Inputs.AutomationRuleActionPlaybookGetArgs> ActionPlaybooks
         {
@@ -324,6 +334,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// One or more `condition` blocks as defined below.
+        /// 
+        /// &gt; **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `condition_json` if you want other condition types.
         /// </summary>
         [Obsolete(@"This is deprecated in favor of `condition_json`")]
         public InputList<Inputs.AutomationRuleConditionGetArgs> Conditions

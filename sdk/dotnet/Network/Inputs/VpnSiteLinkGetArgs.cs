@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Network.Inputs
     {
         /// <summary>
         /// A `bgp` block as defined above.
+        /// 
+        /// &gt; **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
         /// </summary>
         [Input("bgp")]
         public Input<Inputs.VpnSiteLinkBgpGetArgs>? Bgp { get; set; }
@@ -32,6 +34,8 @@ namespace Pulumi.Azure.Network.Inputs
 
         /// <summary>
         /// The IP address of this VPN Site Link.
+        /// 
+        /// &gt; **NOTE:** Either `fqdn` or `ip_address` should be specified.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }

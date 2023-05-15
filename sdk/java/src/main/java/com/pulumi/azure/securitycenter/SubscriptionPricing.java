@@ -78,12 +78,16 @@ public class SubscriptionPricing extends com.pulumi.resources.CustomResource {
     /**
      * Resource type pricing subplan. Contact your MSFT representative for possible values.
      * 
+     * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+     * 
      */
     @Export(name="subplan", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subplan;
 
     /**
      * @return Resource type pricing subplan. Contact your MSFT representative for possible values.
+     * 
+     * &gt; **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
      * 
      */
     public Output<Optional<String>> subplan() {

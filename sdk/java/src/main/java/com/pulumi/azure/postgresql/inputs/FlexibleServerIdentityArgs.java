@@ -19,12 +19,16 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
     /**
      * A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -41,12 +45,20 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
     /**
      * The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
      * 
+     * &gt; **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+     * 
+     * &gt; **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
+     * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
      * @return The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
+     * 
+     * &gt; **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+     * 
+     * &gt; **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -98,6 +110,8 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -109,6 +123,8 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -118,6 +134,8 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
 
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -138,6 +156,10 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         /**
          * @param tenantId The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
          * 
+         * &gt; **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+         * 
+         * &gt; **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
+         * 
          * @return builder
          * 
          */
@@ -148,6 +170,10 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
 
         /**
          * @param tenantId The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
+         * 
+         * &gt; **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+         * 
+         * &gt; **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
          * 
          * @return builder
          * 

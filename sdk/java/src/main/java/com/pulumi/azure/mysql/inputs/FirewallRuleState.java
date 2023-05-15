@@ -18,12 +18,16 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the End IP Address associated with this Firewall Rule.
      * 
+     * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+     * 
      */
     @Import(name="endIpAddress")
     private @Nullable Output<String> endIpAddress;
 
     /**
      * @return Specifies the End IP Address associated with this Firewall Rule.
+     * 
+     * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
      * 
      */
     public Optional<Output<String>> endIpAddress() {
@@ -121,6 +125,8 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param endIpAddress Specifies the End IP Address associated with this Firewall Rule.
          * 
+         * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+         * 
          * @return builder
          * 
          */
@@ -131,6 +137,8 @@ public final class FirewallRuleState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param endIpAddress Specifies the End IP Address associated with this Firewall Rule.
+         * 
+         * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
          * 
          * @return builder
          * 

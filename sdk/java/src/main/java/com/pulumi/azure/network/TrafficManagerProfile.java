@@ -125,12 +125,16 @@ public class TrafficManagerProfile extends com.pulumi.resources.CustomResource {
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      * 
+     * &gt; **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+     * 
      */
     @Export(name="maxReturn", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxReturn;
 
     /**
      * @return The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+     * 
+     * &gt; **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
      * 
      */
     public Output<Optional<Integer>> maxReturn() {

@@ -24,8 +24,12 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] bing_safety_phishing_url_lookback_date: The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] microsoft_emerging_threat_feed_lookback_date: The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+               
+               > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         :param pulumi.Input[str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+               
+               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if bing_safety_phishing_url_lookback_date is not None:
@@ -66,6 +70,8 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
     def microsoft_emerging_threat_feed_lookback_date(self) -> Optional[pulumi.Input[str]]:
         """
         The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+
+        > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         """
         return pulumi.get(self, "microsoft_emerging_threat_feed_lookback_date")
 
@@ -90,6 +96,8 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+
+        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -111,8 +119,12 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
         :param pulumi.Input[str] bing_safety_phishing_url_lookback_date: The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] microsoft_emerging_threat_feed_lookback_date: The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+               
+               > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         :param pulumi.Input[str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+               
+               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         if bing_safety_phishing_url_lookback_date is not None:
             pulumi.set(__self__, "bing_safety_phishing_url_lookback_date", bing_safety_phishing_url_lookback_date)
@@ -154,6 +166,8 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
     def microsoft_emerging_threat_feed_lookback_date(self) -> Optional[pulumi.Input[str]]:
         """
         The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+
+        > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         """
         return pulumi.get(self, "microsoft_emerging_threat_feed_lookback_date")
 
@@ -178,6 +192,8 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+
+        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -231,8 +247,12 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         :param pulumi.Input[str] bing_safety_phishing_url_lookback_date: The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] microsoft_emerging_threat_feed_lookback_date: The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+               
+               > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         :param pulumi.Input[str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+               
+               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         ...
     @overload
@@ -330,8 +350,12 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         :param pulumi.Input[str] bing_safety_phishing_url_lookback_date: The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
         :param pulumi.Input[str] microsoft_emerging_threat_feed_lookback_date: The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+               
+               > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         :param pulumi.Input[str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+               
+               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -365,6 +389,8 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
     def microsoft_emerging_threat_feed_lookback_date(self) -> pulumi.Output[Optional[str]]:
         """
         The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+
+        > **NOTE:** At least one of `bing_safety_phishing_url_lookback_date` and `microsoft_emerging_threat_feed_lookback_date` must be specified.
         """
         return pulumi.get(self, "microsoft_emerging_threat_feed_lookback_date")
 
@@ -381,6 +407,8 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
     def tenant_id(self) -> pulumi.Output[str]:
         """
         The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+
+        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 

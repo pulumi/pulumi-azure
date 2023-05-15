@@ -83,6 +83,8 @@ type AuthorizationRule struct {
 	// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
 	Listen pulumi.BoolPtrOutput `pulumi:"listen"`
 	// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+	//
+	// > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
 	Manage pulumi.BoolPtrOutput `pulumi:"manage"`
 	// The name to use for this Authorization Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -141,6 +143,8 @@ type authorizationRuleState struct {
 	// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
 	Listen *bool `pulumi:"listen"`
 	// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+	//
+	// > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
 	Manage *bool `pulumi:"manage"`
 	// The name to use for this Authorization Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -162,6 +166,8 @@ type AuthorizationRuleState struct {
 	// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
 	Listen pulumi.BoolPtrInput
 	// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+	//
+	// > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
 	Manage pulumi.BoolPtrInput
 	// The name to use for this Authorization Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -187,6 +193,8 @@ type authorizationRuleArgs struct {
 	// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
 	Listen *bool `pulumi:"listen"`
 	// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+	//
+	// > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
 	Manage *bool `pulumi:"manage"`
 	// The name to use for this Authorization Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -205,6 +213,8 @@ type AuthorizationRuleArgs struct {
 	// Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
 	Listen pulumi.BoolPtrInput
 	// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+	//
+	// > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
 	Manage pulumi.BoolPtrInput
 	// The name to use for this Authorization Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -311,6 +321,8 @@ func (o AuthorizationRuleOutput) Listen() pulumi.BoolPtrOutput {
 }
 
 // Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+//
+// > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
 func (o AuthorizationRuleOutput) Manage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AuthorizationRule) pulumi.BoolPtrOutput { return v.Manage }).(pulumi.BoolPtrOutput)
 }

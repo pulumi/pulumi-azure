@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Network.Inputs
     {
         /// <summary>
         /// Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
+        /// 
+        /// &gt; **NOTE:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
         /// </summary>
         [Input("globalMeshEnabled")]
         public Input<bool>? GlobalMeshEnabled { get; set; }

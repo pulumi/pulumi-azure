@@ -36,6 +36,8 @@ class PolicyFileShareArgs:
         :param pulumi.Input['PolicyFileShareRetentionWeeklyArgs'] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below.
         :param pulumi.Input['PolicyFileShareRetentionYearlyArgs'] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+               
+               > **NOTE:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
         """
         pulumi.set(__self__, "backup", backup)
         pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
@@ -153,6 +155,8 @@ class PolicyFileShareArgs:
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+
+        > **NOTE:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
         """
         return pulumi.get(self, "timezone")
 
@@ -184,6 +188,8 @@ class _PolicyFileShareState:
         :param pulumi.Input['PolicyFileShareRetentionWeeklyArgs'] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below.
         :param pulumi.Input['PolicyFileShareRetentionYearlyArgs'] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+               
+               > **NOTE:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
         """
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
@@ -305,6 +311,8 @@ class _PolicyFileShareState:
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+
+        > **NOTE:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
         """
         return pulumi.get(self, "timezone")
 
@@ -400,6 +408,8 @@ class PolicyFileShare(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PolicyFileShareRetentionWeeklyArgs']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below.
         :param pulumi.Input[pulumi.InputType['PolicyFileShareRetentionYearlyArgs']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+               
+               > **NOTE:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
         """
         ...
     @overload
@@ -553,6 +563,8 @@ class PolicyFileShare(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PolicyFileShareRetentionWeeklyArgs']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below.
         :param pulumi.Input[pulumi.InputType['PolicyFileShareRetentionYearlyArgs']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+               
+               > **NOTE:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -638,6 +650,8 @@ class PolicyFileShare(pulumi.CustomResource):
     def timezone(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+
+        > **NOTE:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
         """
         return pulumi.get(self, "timezone")
 

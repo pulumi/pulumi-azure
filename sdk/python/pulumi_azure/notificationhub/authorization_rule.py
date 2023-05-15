@@ -28,6 +28,8 @@ class AuthorizationRuleArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] listen: Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
         :param pulumi.Input[bool] manage: Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+               
+               > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         :param pulumi.Input[str] name: The name to use for this Authorization Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
         """
@@ -96,6 +98,8 @@ class AuthorizationRuleArgs:
     def manage(self) -> Optional[pulumi.Input[bool]]:
         """
         Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+
+        > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         """
         return pulumi.get(self, "manage")
 
@@ -144,6 +148,8 @@ class _AuthorizationRuleState:
         Input properties used for looking up and filtering AuthorizationRule resources.
         :param pulumi.Input[bool] listen: Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
         :param pulumi.Input[bool] manage: Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+               
+               > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         :param pulumi.Input[str] name: The name to use for this Authorization Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_hub_name: The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
@@ -188,6 +194,8 @@ class _AuthorizationRuleState:
     def manage(self) -> Optional[pulumi.Input[bool]]:
         """
         Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+
+        > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         """
         return pulumi.get(self, "manage")
 
@@ -333,6 +341,8 @@ class AuthorizationRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] listen: Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
         :param pulumi.Input[bool] manage: Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+               
+               > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         :param pulumi.Input[str] name: The name to use for this Authorization Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_hub_name: The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
@@ -455,6 +465,8 @@ class AuthorizationRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] listen: Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
         :param pulumi.Input[bool] manage: Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+               
+               > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         :param pulumi.Input[str] name: The name to use for this Authorization Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_hub_name: The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
@@ -491,6 +503,8 @@ class AuthorizationRule(pulumi.CustomResource):
     def manage(self) -> pulumi.Output[Optional[bool]]:
         """
         Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+
+        > **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         """
         return pulumi.get(self, "manage")
 

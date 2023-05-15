@@ -598,6 +598,8 @@ class ActionGroupEventHubReceiverArgs:
         :param pulumi.Input[str] event_hub_name: The name of the specific Event Hub queue.
         :param pulumi.Input[str] event_hub_namespace: The namespace name of the Event Hub.
         :param pulumi.Input[str] subscription_id: The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+               
+               > **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the subscription containing this Event Hub.
         :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
         """
@@ -671,6 +673,8 @@ class ActionGroupEventHubReceiverArgs:
     def subscription_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+
+        > **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
         """
         return pulumi.get(self, "subscription_id")
 
@@ -715,6 +719,8 @@ class ActionGroupItsmReceiverArgs:
         :param pulumi.Input[str] connection_id: The unique connection identifier of the ITSM connection.
         :param pulumi.Input[str] name: The name of the ITSM receiver.
         :param pulumi.Input[str] region: The region of the workspace.
+               
+               > **NOTE** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\\"PayloadRevision\\":0,\\"WorkItemType\\":\\"Incident\\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
         :param pulumi.Input[str] ticket_configuration: A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
         :param pulumi.Input[str] workspace_id: The Azure Log Analytics workspace ID where this connection is defined. Format is `<subscription id>|<workspace id>`, for example `00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000`.
         """
@@ -753,6 +759,8 @@ class ActionGroupItsmReceiverArgs:
     def region(self) -> pulumi.Input[str]:
         """
         The region of the workspace.
+
+        > **NOTE** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\\"PayloadRevision\\":0,\\"WorkItemType\\":\\"Incident\\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
         """
         return pulumi.get(self, "region")
 
@@ -968,6 +976,8 @@ class ActionGroupWebhookReceiverArgs:
         :param pulumi.Input[str] name: The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         :param pulumi.Input[str] service_uri: The URI where webhooks should be sent.
         :param pulumi.Input['ActionGroupWebhookReceiverAadAuthArgs'] aad_auth: The `aad_auth` block as defined below
+               
+               > **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
         :param pulumi.Input[bool] use_common_alert_schema: Enables or disables the common alert schema.
         """
         pulumi.set(__self__, "name", name)
@@ -1006,6 +1016,8 @@ class ActionGroupWebhookReceiverArgs:
     def aad_auth(self) -> Optional[pulumi.Input['ActionGroupWebhookReceiverAadAuthArgs']]:
         """
         The `aad_auth` block as defined below
+
+        > **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
         """
         return pulumi.get(self, "aad_auth")
 
@@ -2437,6 +2449,8 @@ class AlertProcessingRuleActionGroupConditionArgs:
         :param pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceArgs'] target_resource: A `target_resource` block as defined below.
         :param pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs'] target_resource_group: A `target_resource_group` block as defined below.
         :param pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs'] target_resource_type: A `target_resource_type` block as defined below.
+               
+               > **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
         """
         if alert_context is not None:
             pulumi.set(__self__, "alert_context", alert_context)
@@ -2586,6 +2600,8 @@ class AlertProcessingRuleActionGroupConditionArgs:
     def target_resource_type(self) -> Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs']]:
         """
         A `target_resource_type` block as defined below.
+
+        > **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
         """
         return pulumi.get(self, "target_resource_type")
 
@@ -4359,6 +4375,8 @@ class AutoscaleSettingProfileCapacityArgs:
         """
         :param pulumi.Input[int] default: The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
         :param pulumi.Input[int] maximum: The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+               
+               > **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
         :param pulumi.Input[int] minimum: The minimum number of instances for this resource. Valid values are between `0` and `1000`.
         """
         pulumi.set(__self__, "default", default)
@@ -4382,6 +4400,8 @@ class AutoscaleSettingProfileCapacityArgs:
     def maximum(self) -> pulumi.Input[int]:
         """
         The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+
+        > **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
         """
         return pulumi.get(self, "maximum")
 
@@ -4576,6 +4596,8 @@ class AutoscaleSettingProfileRuleMetricTriggerArgs:
                  metric_namespace: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] metric_name: The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+               
+               > **NOTE:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
         :param pulumi.Input[str] metric_resource_id: The ID of the Resource which the Rule monitors.
         :param pulumi.Input[str] operator: Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
         :param pulumi.Input[str] statistic: Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
@@ -4607,6 +4629,8 @@ class AutoscaleSettingProfileRuleMetricTriggerArgs:
     def metric_name(self) -> pulumi.Input[str]:
         """
         The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+
+        > **NOTE:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
         """
         return pulumi.get(self, "metric_name")
 
@@ -5651,6 +5675,8 @@ class DataCollectionRuleDataSourcesSyslogArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_levels: Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
         :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+               
+               > **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `["Microsoft-Syslog"]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
         """
         pulumi.set(__self__, "facility_names", facility_names)
         pulumi.set(__self__, "log_levels", log_levels)
@@ -5699,6 +5725,8 @@ class DataCollectionRuleDataSourcesSyslogArgs:
     def streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+
+        > **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `["Microsoft-Syslog"]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
         """
         return pulumi.get(self, "streams")
 
@@ -5816,6 +5844,10 @@ class DataCollectionRuleDestinationsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageBlobDirectArgs']]] storage_blob_directs: One or more `storage_blob_direct` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageBlobArgs']]] storage_blobs: One or more `storage_blob` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageTableDirectArgs']]] storage_table_directs: One or more `storage_table_direct` blocks as defined below.
+               
+               > **NOTE** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+               
+               > **NOTE** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
         """
         if azure_monitor_metrics is not None:
             pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)
@@ -5923,6 +5955,10 @@ class DataCollectionRuleDestinationsArgs:
     def storage_table_directs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageTableDirectArgs']]]]:
         """
         One or more `storage_table_direct` blocks as defined below.
+
+        > **NOTE** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+
+        > **NOTE** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
         """
         return pulumi.get(self, "storage_table_directs")
 
@@ -6267,6 +6303,8 @@ class DataCollectionRuleIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are `SystemAssigned` and `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -6295,6 +6333,8 @@ class DataCollectionRuleIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -6409,7 +6449,11 @@ class DiagnosticSettingEnabledLogArgs:
                  retention_policy: Optional[pulumi.Input['DiagnosticSettingEnabledLogRetentionPolicyArgs']] = None):
         """
         :param pulumi.Input[str] category: The name of a Diagnostic Log Category for this Resource.
+               
+               > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
         :param pulumi.Input[str] category_group: The name of a Diagnostic Log Category Group for this Resource.
+               
+               > **NOTE:** Not all resources have category groups available.****
         :param pulumi.Input['DiagnosticSettingEnabledLogRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
         """
         if category is not None:
@@ -6424,6 +6468,8 @@ class DiagnosticSettingEnabledLogArgs:
     def category(self) -> Optional[pulumi.Input[str]]:
         """
         The name of a Diagnostic Log Category for this Resource.
+
+        > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
         """
         return pulumi.get(self, "category")
 
@@ -6436,6 +6482,8 @@ class DiagnosticSettingEnabledLogArgs:
     def category_group(self) -> Optional[pulumi.Input[str]]:
         """
         The name of a Diagnostic Log Category Group for this Resource.
+
+        > **NOTE:** Not all resources have category groups available.****
         """
         return pulumi.get(self, "category_group")
 
@@ -6464,6 +6512,8 @@ class DiagnosticSettingEnabledLogRetentionPolicyArgs:
         """
         :param pulumi.Input[bool] enabled: Is this Retention Policy enabled?
         :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply.
+               
+               > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
         pulumi.set(__self__, "enabled", enabled)
         if days is not None:
@@ -6486,6 +6536,8 @@ class DiagnosticSettingEnabledLogRetentionPolicyArgs:
     def days(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days for which this Retention Policy should apply.
+
+        > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
         return pulumi.get(self, "days")
 
@@ -6503,7 +6555,11 @@ class DiagnosticSettingLogArgs:
                  retention_policy: Optional[pulumi.Input['DiagnosticSettingLogRetentionPolicyArgs']] = None):
         """
         :param pulumi.Input[str] category: The name of a Diagnostic Log Category for this Resource.
+               
+               > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
         :param pulumi.Input[str] category_group: The name of a Diagnostic Log Category Group for this Resource.
+               
+               > **NOTE:** Not all resources have category groups available.
         :param pulumi.Input[bool] enabled: Is this Diagnostic Log enabled? Defaults to `true`.
         :param pulumi.Input['DiagnosticSettingLogRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
         """
@@ -6521,6 +6577,8 @@ class DiagnosticSettingLogArgs:
     def category(self) -> Optional[pulumi.Input[str]]:
         """
         The name of a Diagnostic Log Category for this Resource.
+
+        > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
         """
         return pulumi.get(self, "category")
 
@@ -6533,6 +6591,8 @@ class DiagnosticSettingLogArgs:
     def category_group(self) -> Optional[pulumi.Input[str]]:
         """
         The name of a Diagnostic Log Category Group for this Resource.
+
+        > **NOTE:** Not all resources have category groups available.
         """
         return pulumi.get(self, "category_group")
 
@@ -6573,6 +6633,8 @@ class DiagnosticSettingLogRetentionPolicyArgs:
         """
         :param pulumi.Input[bool] enabled: Is this Retention Policy enabled?
         :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply.
+               
+               > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
         pulumi.set(__self__, "enabled", enabled)
         if days is not None:
@@ -6595,6 +6657,8 @@ class DiagnosticSettingLogRetentionPolicyArgs:
     def days(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days for which this Retention Policy should apply.
+
+        > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
         return pulumi.get(self, "days")
 
@@ -6611,6 +6675,8 @@ class DiagnosticSettingMetricArgs:
                  retention_policy: Optional[pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgs']] = None):
         """
         :param pulumi.Input[str] category: The name of a Diagnostic Metric Category for this Resource.
+               
+               > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
         :param pulumi.Input[bool] enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
         :param pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
         """
@@ -6625,6 +6691,8 @@ class DiagnosticSettingMetricArgs:
     def category(self) -> pulumi.Input[str]:
         """
         The name of a Diagnostic Metric Category for this Resource.
+
+        > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
         """
         return pulumi.get(self, "category")
 
@@ -6665,6 +6733,8 @@ class DiagnosticSettingMetricRetentionPolicyArgs:
         """
         :param pulumi.Input[bool] enabled: Is this Retention Policy enabled?
         :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply.
+               
+               > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
         pulumi.set(__self__, "enabled", enabled)
         if days is not None:
@@ -6687,6 +6757,8 @@ class DiagnosticSettingMetricRetentionPolicyArgs:
     def days(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days for which this Retention Policy should apply.
+
+        > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
         return pulumi.get(self, "days")
 
@@ -6810,6 +6882,8 @@ class LogzMonitorUserArgs:
                  phone_number: pulumi.Input[str]):
         """
         :param pulumi.Input[str] email: Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+               
+               > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
         :param pulumi.Input[str] first_name: First Name of the user. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] last_name: Last Name of the user. Changing this forces a new logz Monitor to be created.
         :param pulumi.Input[str] phone_number: Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
@@ -6824,6 +6898,8 @@ class LogzMonitorUserArgs:
     def email(self) -> pulumi.Input[str]:
         """
         Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+
+        > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
         """
         return pulumi.get(self, "email")
 
@@ -6930,6 +7006,8 @@ class LogzSubAccountUserArgs:
                  phone_number: pulumi.Input[str]):
         """
         :param pulumi.Input[str] email: Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+               
+               > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
         :param pulumi.Input[str] first_name: First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
         :param pulumi.Input[str] last_name: Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
         :param pulumi.Input[str] phone_number: Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
@@ -6944,6 +7022,8 @@ class LogzSubAccountUserArgs:
     def email(self) -> pulumi.Input[str]:
         """
         Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+
+        > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
         """
         return pulumi.get(self, "email")
 
@@ -7916,6 +7996,10 @@ class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs:
         """
         :param pulumi.Input[int] minimum_failing_periods_to_trigger_alert: Specifies the number of violations to trigger an alert. Should be smaller or equal to `number_of_evaluation_periods`. Possible value is integer between 1 and 6.
         :param pulumi.Input[int] number_of_evaluation_periods: Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `window_duration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+               
+               > **Note** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
+               
+               > **Note** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
         """
         pulumi.set(__self__, "minimum_failing_periods_to_trigger_alert", minimum_failing_periods_to_trigger_alert)
         pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
@@ -7937,6 +8021,10 @@ class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs:
     def number_of_evaluation_periods(self) -> pulumi.Input[int]:
         """
         Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `window_duration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+
+        > **Note** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
+
+        > **Note** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
         """
         return pulumi.get(self, "number_of_evaluation_periods")
 

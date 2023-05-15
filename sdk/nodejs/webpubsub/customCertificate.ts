@@ -49,6 +49,8 @@ export class CustomCertificate extends pulumi.CustomResource {
     public /*out*/ readonly certificateVersion!: pulumi.Output<string>;
     /**
      * The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      */
     public readonly customCertificateId!: pulumi.Output<string>;
     /**
@@ -57,6 +59,8 @@ export class CustomCertificate extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      */
     public readonly webPubsubId!: pulumi.Output<string>;
 
@@ -105,6 +109,8 @@ export interface CustomCertificateState {
     certificateVersion?: pulumi.Input<string>;
     /**
      * The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      */
     customCertificateId?: pulumi.Input<string>;
     /**
@@ -113,6 +119,8 @@ export interface CustomCertificateState {
     name?: pulumi.Input<string>;
     /**
      * The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      */
     webPubsubId?: pulumi.Input<string>;
 }
@@ -123,6 +131,8 @@ export interface CustomCertificateState {
 export interface CustomCertificateArgs {
     /**
      * The certificate id of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      */
     customCertificateId: pulumi.Input<string>;
     /**
@@ -131,6 +141,8 @@ export interface CustomCertificateArgs {
     name?: pulumi.Input<string>;
     /**
      * The Web Pubsub ID of the Web Pubsub Custom Certificate. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Custom Certificate is only available for Web Pubsub Premium tier. Please enable managed identity in the corresponding Web Pubsub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      */
     webPubsubId: pulumi.Input<string>;
 }

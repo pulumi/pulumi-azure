@@ -26,6 +26,8 @@ class DefinitionArgs:
         The set of arguments for constructing a Definition resource.
         :param pulumi.Input[str] scope: The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+               
+               > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
         :param pulumi.Input[str] description: A description of the Role Definition.
         :param pulumi.Input[str] name: The name of the Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionPermissionArgs']]] permissions: A `permissions` block as defined below.
@@ -60,6 +62,8 @@ class DefinitionArgs:
     def assignable_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+
+        > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
         """
         return pulumi.get(self, "assignable_scopes")
 
@@ -129,6 +133,8 @@ class _DefinitionState:
         """
         Input properties used for looking up and filtering Definition resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+               
+               > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
         :param pulumi.Input[str] description: A description of the Role Definition.
         :param pulumi.Input[str] name: The name of the Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionPermissionArgs']]] permissions: A `permissions` block as defined below.
@@ -156,6 +162,8 @@ class _DefinitionState:
     def assignable_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+
+        > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
         """
         return pulumi.get(self, "assignable_scopes")
 
@@ -284,6 +292,8 @@ class Definition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+               
+               > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
         :param pulumi.Input[str] description: A description of the Role Definition.
         :param pulumi.Input[str] name: The name of the Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionPermissionArgs']]]] permissions: A `permissions` block as defined below.
@@ -389,6 +399,8 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+               
+               > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
         :param pulumi.Input[str] description: A description of the Role Definition.
         :param pulumi.Input[str] name: The name of the Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionPermissionArgs']]]] permissions: A `permissions` block as defined below.
@@ -414,6 +426,8 @@ class Definition(pulumi.CustomResource):
     def assignable_scopes(self) -> pulumi.Output[Sequence[str]]:
         """
         One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+
+        > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
         """
         return pulumi.get(self, "assignable_scopes")
 

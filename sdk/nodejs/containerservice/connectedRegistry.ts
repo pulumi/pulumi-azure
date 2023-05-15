@@ -94,6 +94,8 @@ export class ConnectedRegistry extends pulumi.CustomResource {
     public readonly clientTokenIds!: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+     *
+     * > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
      */
     public readonly containerRegistryId!: pulumi.Output<string>;
     /**
@@ -198,6 +200,8 @@ export interface ConnectedRegistryState {
     clientTokenIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+     *
+     * > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
      */
     containerRegistryId?: pulumi.Input<string>;
     /**
@@ -252,6 +256,8 @@ export interface ConnectedRegistryArgs {
     clientTokenIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+     *
+     * > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
      */
     containerRegistryId: pulumi.Input<string>;
     /**

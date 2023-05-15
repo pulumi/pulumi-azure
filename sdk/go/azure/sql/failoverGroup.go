@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Create a failover group of databases on a collection of Azure SQL servers.
+//
+// > **Note:** The `sql.FailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.FailoverGroup` resource instead.
+//
 // ## Example Usage
 //
 // ```go
@@ -98,6 +102,8 @@ type FailoverGroup struct {
 	pulumi.CustomResourceState
 
 	// A list of database ids to add to the failover group
+	//
+	// > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
 	Databases pulumi.StringArrayOutput `pulumi:"databases"`
 	// the location of the failover group.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -161,6 +167,8 @@ func GetFailoverGroup(ctx *pulumi.Context,
 // Input properties used for looking up and filtering FailoverGroup resources.
 type failoverGroupState struct {
 	// A list of database ids to add to the failover group
+	//
+	// > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
 	Databases []string `pulumi:"databases"`
 	// the location of the failover group.
 	Location *string `pulumi:"location"`
@@ -184,6 +192,8 @@ type failoverGroupState struct {
 
 type FailoverGroupState struct {
 	// A list of database ids to add to the failover group
+	//
+	// > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
 	Databases pulumi.StringArrayInput
 	// the location of the failover group.
 	Location pulumi.StringPtrInput
@@ -211,6 +221,8 @@ func (FailoverGroupState) ElementType() reflect.Type {
 
 type failoverGroupArgs struct {
 	// A list of database ids to add to the failover group
+	//
+	// > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
 	Databases []string `pulumi:"databases"`
 	// The name of the failover group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -231,6 +243,8 @@ type failoverGroupArgs struct {
 // The set of arguments for constructing a FailoverGroup resource.
 type FailoverGroupArgs struct {
 	// A list of database ids to add to the failover group
+	//
+	// > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
 	Databases pulumi.StringArrayInput
 	// The name of the failover group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -336,6 +350,8 @@ func (o FailoverGroupOutput) ToFailoverGroupOutputWithContext(ctx context.Contex
 }
 
 // A list of database ids to add to the failover group
+//
+// > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
 func (o FailoverGroupOutput) Databases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FailoverGroup) pulumi.StringArrayOutput { return v.Databases }).(pulumi.StringArrayOutput)
 }

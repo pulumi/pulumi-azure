@@ -21,12 +21,16 @@ public final class CassandraTableState extends com.pulumi.resources.ResourceArgs
     /**
      * Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+     * 
      */
     @Import(name="analyticalStorageTtl")
     private @Nullable Output<Integer> analyticalStorageTtl;
 
     /**
      * @return Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      * 
      */
     public Optional<Output<Integer>> analyticalStorageTtl() {
@@ -140,6 +144,8 @@ public final class CassandraTableState extends com.pulumi.resources.ResourceArgs
         /**
          * @param analyticalStorageTtl Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
+         * 
          * @return builder
          * 
          */
@@ -150,6 +156,8 @@ public final class CassandraTableState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param analyticalStorageTtl Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
          * 
          * @return builder
          * 

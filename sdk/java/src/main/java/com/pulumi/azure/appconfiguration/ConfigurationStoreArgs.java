@@ -38,12 +38,16 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     /**
      * An `identity` block as defined below.
      * 
+     * &gt; **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
+     * 
      */
     @Import(name="identity")
     private @Nullable Output<ConfigurationStoreIdentityArgs> identity;
 
     /**
      * @return An `identity` block as defined below.
+     * 
+     * &gt; **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
      * 
      */
     public Optional<Output<ConfigurationStoreIdentityArgs>> identity() {
@@ -98,12 +102,16 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
+     * &gt; **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+     * 
      */
     @Import(name="publicNetworkAccess")
     private @Nullable Output<String> publicNetworkAccess;
 
     /**
      * @return The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
+     * 
+     * &gt; **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      * 
      */
     public Optional<Output<String>> publicNetworkAccess() {
@@ -113,12 +121,16 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     /**
      * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
      * 
+     * !&gt; **Note:** Once Purge Protection has been enabled it&#39;s not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+     * 
      */
     @Import(name="purgeProtectionEnabled")
     private @Nullable Output<Boolean> purgeProtectionEnabled;
 
     /**
      * @return Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+     * 
+     * !&gt; **Note:** Once Purge Protection has been enabled it&#39;s not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      * 
      */
     public Optional<Output<Boolean>> purgeProtectionEnabled() {
@@ -141,14 +153,14 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The SKU name of the App Configuration. Possible values are `free` and `standard`.
+     * The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The SKU name of the App Configuration. Possible values are `free` and `standard`.
+     * @return The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -158,12 +170,16 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     /**
      * The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
+     * 
      */
     @Import(name="softDeleteRetentionDays")
     private @Nullable Output<Integer> softDeleteRetentionDays;
 
     /**
      * @return The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
      * 
      */
     public Optional<Output<Integer>> softDeleteRetentionDays() {
@@ -243,6 +259,8 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         /**
          * @param identity An `identity` block as defined below.
          * 
+         * &gt; **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
+         * 
          * @return builder
          * 
          */
@@ -253,6 +271,8 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param identity An `identity` block as defined below.
+         * 
+         * &gt; **NOTE:** Azure does not allow a downgrade from `standard` to `free`.
          * 
          * @return builder
          * 
@@ -327,6 +347,8 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         /**
          * @param publicNetworkAccess The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
          * 
+         * &gt; **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+         * 
          * @return builder
          * 
          */
@@ -338,6 +360,8 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         /**
          * @param publicNetworkAccess The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
          * 
+         * &gt; **NOTE:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
+         * 
          * @return builder
          * 
          */
@@ -347,6 +371,8 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param purgeProtectionEnabled Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+         * 
+         * !&gt; **Note:** Once Purge Protection has been enabled it&#39;s not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
          * 
          * @return builder
          * 
@@ -358,6 +384,8 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param purgeProtectionEnabled Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+         * 
+         * !&gt; **Note:** Once Purge Protection has been enabled it&#39;s not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
          * 
          * @return builder
          * 
@@ -388,7 +416,7 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sku The SKU name of the App Configuration. Possible values are `free` and `standard`.
+         * @param sku The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
          * 
          * @return builder
          * 
@@ -399,7 +427,7 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sku The SKU name of the App Configuration. Possible values are `free` and `standard`.
+         * @param sku The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`.
          * 
          * @return builder
          * 
@@ -411,6 +439,8 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         /**
          * @param softDeleteRetentionDays The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
+         * 
          * @return builder
          * 
          */
@@ -421,6 +451,8 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param softDeleteRetentionDays The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
          * 
          * @return builder
          * 

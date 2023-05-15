@@ -52,6 +52,8 @@ public final class ApplicationGatewayHttpListener {
     /**
      * @return A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
      * 
+     * &gt; **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+     * 
      */
     private @Nullable List<String> hostNames;
     /**
@@ -147,6 +149,8 @@ public final class ApplicationGatewayHttpListener {
     }
     /**
      * @return A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+     * 
+     * &gt; **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
      * 
      */
     public List<String> hostNames() {

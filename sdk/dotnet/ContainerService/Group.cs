@@ -103,6 +103,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** DNS label/name is not supported when deploying to virtual networks.
         /// </summary>
         [Output("dnsNameLabel")]
         public Output<string?> DnsNameLabel { get; private set; } = null!;
@@ -115,6 +117,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
         /// </summary>
         [Output("exposedPorts")]
         public Output<ImmutableArray<Outputs.GroupExposedPort>> ExposedPorts { get; private set; } = null!;
@@ -151,6 +155,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+        /// 
+        /// &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         /// </summary>
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;
@@ -178,6 +184,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         /// </summary>
         [Output("osType")]
         public Output<string> OsType { get; private set; } = null!;
@@ -284,6 +292,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** DNS label/name is not supported when deploying to virtual networks.
         /// </summary>
         [Input("dnsNameLabel")]
         public Input<string>? DnsNameLabel { get; set; }
@@ -299,6 +309,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
         /// </summary>
         public InputList<Inputs.GroupExposedPortArgs> ExposedPorts
         {
@@ -338,6 +350,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+        /// 
+        /// &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -365,6 +379,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         /// </summary>
         [Input("osType", required: true)]
         public Input<string> OsType { get; set; } = null!;
@@ -445,6 +461,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** DNS label/name is not supported when deploying to virtual networks.
         /// </summary>
         [Input("dnsNameLabel")]
         public Input<string>? DnsNameLabel { get; set; }
@@ -460,6 +478,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
         /// </summary>
         public InputList<Inputs.GroupExposedPortGetArgs> ExposedPorts
         {
@@ -511,6 +531,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+        /// 
+        /// &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -538,6 +560,8 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }

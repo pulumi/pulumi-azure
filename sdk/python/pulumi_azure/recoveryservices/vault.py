@@ -35,7 +35,11 @@ class VaultArgs:
         :param pulumi.Input[str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
         :param pulumi.Input[bool] classic_vmware_replication_enabled: Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+               
+               > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         :param pulumi.Input['VaultEncryptionArgs'] encryption: An `encryption` block as defined below. Required with `identity`.
+               
+               !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -111,6 +115,8 @@ class VaultArgs:
     def cross_region_restore_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+
+        > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         """
         return pulumi.get(self, "cross_region_restore_enabled")
 
@@ -123,6 +129,8 @@ class VaultArgs:
     def encryption(self) -> Optional[pulumi.Input['VaultEncryptionArgs']]:
         """
         An `encryption` block as defined below. Required with `identity`.
+
+        !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         """
         return pulumi.get(self, "encryption")
 
@@ -247,7 +255,11 @@ class _VaultState:
         Input properties used for looking up and filtering Vault resources.
         :param pulumi.Input[bool] classic_vmware_replication_enabled: Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+               
+               > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         :param pulumi.Input['VaultEncryptionArgs'] encryption: An `encryption` block as defined below. Required with `identity`.
+               
+               !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -303,6 +315,8 @@ class _VaultState:
     def cross_region_restore_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+
+        > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         """
         return pulumi.get(self, "cross_region_restore_enabled")
 
@@ -315,6 +329,8 @@ class _VaultState:
     def encryption(self) -> Optional[pulumi.Input['VaultEncryptionArgs']]:
         """
         An `encryption` block as defined below. Required with `identity`.
+
+        !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         """
         return pulumi.get(self, "encryption")
 
@@ -491,7 +507,11 @@ class Vault(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] classic_vmware_replication_enabled: Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+               
+               > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         :param pulumi.Input[pulumi.InputType['VaultEncryptionArgs']] encryption: An `encryption` block as defined below. Required with `identity`.
+               
+               !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         :param pulumi.Input[pulumi.InputType['VaultIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -620,7 +640,11 @@ class Vault(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] classic_vmware_replication_enabled: Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+               
+               > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         :param pulumi.Input[pulumi.InputType['VaultEncryptionArgs']] encryption: An `encryption` block as defined below. Required with `identity`.
+               
+               !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         :param pulumi.Input[pulumi.InputType['VaultIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -664,6 +688,8 @@ class Vault(pulumi.CustomResource):
     def cross_region_restore_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
+
+        > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         """
         return pulumi.get(self, "cross_region_restore_enabled")
 
@@ -672,6 +698,8 @@ class Vault(pulumi.CustomResource):
     def encryption(self) -> pulumi.Output[Optional['outputs.VaultEncryption']]:
         """
         An `encryption` block as defined below. Required with `identity`.
+
+        !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         """
         return pulumi.get(self, "encryption")
 

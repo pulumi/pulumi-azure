@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Core.Inputs
     public sealed class ResourceProviderRegistrationFeatureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the feature to register.
+        /// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

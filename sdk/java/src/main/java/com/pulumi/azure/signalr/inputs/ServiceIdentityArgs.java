@@ -19,12 +19,16 @@ public final class ServiceIdentityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+     * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -90,6 +94,8 @@ public final class ServiceIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+         * 
          * @return builder
          * 
          */
@@ -101,6 +107,8 @@ public final class ServiceIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+         * 
          * @return builder
          * 
          */
@@ -110,6 +118,8 @@ public final class ServiceIdentityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
          * 
          * @return builder
          * 

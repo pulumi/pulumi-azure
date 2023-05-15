@@ -15,14 +15,14 @@ public final class ResourceProviderRegistrationFeatureArgs extends com.pulumi.re
     public static final ResourceProviderRegistrationFeatureArgs Empty = new ResourceProviderRegistrationFeatureArgs();
 
     /**
-     * Specifies the name of the feature to register.
+     * The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the feature to register.
+     * @return The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class ResourceProviderRegistrationFeatureArgs extends com.pulumi.re
         }
 
         /**
-         * @param name Specifies the name of the feature to register.
+         * @param name The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ResourceProviderRegistrationFeatureArgs extends com.pulumi.re
         }
 
         /**
-         * @param name Specifies the name of the feature to register.
+         * @param name The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

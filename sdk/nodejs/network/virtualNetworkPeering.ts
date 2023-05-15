@@ -100,9 +100,14 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+     */
     public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+     *
+     * > **NOTE:** `useRemoteGateways` must be set to `false` if using Global Virtual Network Peerings.
      */
     public readonly useRemoteGateways!: pulumi.Output<boolean | undefined>;
     /**
@@ -186,9 +191,14 @@ export interface VirtualNetworkPeeringState {
      * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+     */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+     *
+     * > **NOTE:** `useRemoteGateways` must be set to `false` if using Global Virtual Network Peerings.
      */
     useRemoteGateways?: pulumi.Input<boolean>;
     /**
@@ -225,9 +235,14 @@ export interface VirtualNetworkPeeringArgs {
      * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+     */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+     *
+     * > **NOTE:** `useRemoteGateways` must be set to `false` if using Global Virtual Network Peerings.
      */
     useRemoteGateways?: pulumi.Input<boolean>;
     /**

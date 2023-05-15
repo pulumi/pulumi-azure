@@ -76,6 +76,8 @@ export class Rule extends pulumi.CustomResource {
 
     /**
      * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+     *
+     * > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
      */
     public readonly backendAddressPoolIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -198,6 +200,8 @@ export class Rule extends pulumi.CustomResource {
 export interface RuleState {
     /**
      * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+     *
+     * > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
      */
     backendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -257,6 +261,8 @@ export interface RuleState {
 export interface RuleArgs {
     /**
      * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
+     *
+     * > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backendAddressPoolIds`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backendAddressPoolIds`.
      */
     backendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

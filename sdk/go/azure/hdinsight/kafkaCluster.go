@@ -118,6 +118,8 @@ type KafkaCluster struct {
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation KafkaClusterComputeIsolationPtrOutput `pulumi:"computeIsolation"`
 	// One or more `diskEncryption` block as defined below.
+	//
+	// > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	DiskEncryptions KafkaClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrOutput `pulumi:"encryptionInTransitEnabled"`
@@ -217,6 +219,8 @@ type kafkaClusterState struct {
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation *KafkaClusterComputeIsolation `pulumi:"computeIsolation"`
 	// One or more `diskEncryption` block as defined below.
+	//
+	// > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	DiskEncryptions []KafkaClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
@@ -270,6 +274,8 @@ type KafkaClusterState struct {
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation KafkaClusterComputeIsolationPtrInput
 	// One or more `diskEncryption` block as defined below.
+	//
+	// > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	DiskEncryptions KafkaClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
@@ -327,6 +333,8 @@ type kafkaClusterArgs struct {
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation *KafkaClusterComputeIsolation `pulumi:"computeIsolation"`
 	// One or more `diskEncryption` block as defined below.
+	//
+	// > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	DiskEncryptions []KafkaClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
@@ -375,6 +383,8 @@ type KafkaClusterArgs struct {
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation KafkaClusterComputeIsolationPtrInput
 	// One or more `diskEncryption` block as defined below.
+	//
+	// > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	DiskEncryptions KafkaClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
@@ -517,6 +527,8 @@ func (o KafkaClusterOutput) ComputeIsolation() KafkaClusterComputeIsolationPtrOu
 }
 
 // One or more `diskEncryption` block as defined below.
+//
+// > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 func (o KafkaClusterOutput) DiskEncryptions() KafkaClusterDiskEncryptionArrayOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterDiskEncryptionArrayOutput { return v.DiskEncryptions }).(KafkaClusterDiskEncryptionArrayOutput)
 }

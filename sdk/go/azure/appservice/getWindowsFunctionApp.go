@@ -102,13 +102,13 @@ type LookupWindowsFunctionAppResult struct {
 	Location string `pulumi:"location"`
 	// The Site Credentials Username used for publishing.
 	Name string `pulumi:"name"`
-	// A list of outbound IP addresses.
+	// A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
 	OutboundIpAddresses string `pulumi:"outboundIpAddresses"`
-	// AA list of possible outbound IP addresses, not all of which are necessarily in use.
-	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
+	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
+	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
 	ResourceGroupName           string `pulumi:"resourceGroupName"`
 	// The ID of the App Service Plan.
@@ -285,7 +285,7 @@ func (o LookupWindowsFunctionAppResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWindowsFunctionAppResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of outbound IP addresses.
+// A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
 func (o LookupWindowsFunctionAppResultOutput) OutboundIpAddressLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWindowsFunctionAppResult) []string { return v.OutboundIpAddressLists }).(pulumi.StringArrayOutput)
 }
@@ -295,12 +295,12 @@ func (o LookupWindowsFunctionAppResultOutput) OutboundIpAddresses() pulumi.Strin
 	return o.ApplyT(func(v LookupWindowsFunctionAppResult) string { return v.OutboundIpAddresses }).(pulumi.StringOutput)
 }
 
-// AA list of possible outbound IP addresses, not all of which are necessarily in use.
+// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
 func (o LookupWindowsFunctionAppResultOutput) PossibleOutboundIpAddressLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWindowsFunctionAppResult) []string { return v.PossibleOutboundIpAddressLists }).(pulumi.StringArrayOutput)
 }
 
-// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
+// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
 func (o LookupWindowsFunctionAppResultOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWindowsFunctionAppResult) string { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }

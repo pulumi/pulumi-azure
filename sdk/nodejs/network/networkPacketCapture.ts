@@ -164,6 +164,8 @@ export class NetworkPacketCapture extends pulumi.CustomResource {
     public readonly storageLocation!: pulumi.Output<outputs.network.NetworkPacketCaptureStorageLocation>;
     /**
      * The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Currently only Virtual Machines IDs are supported.
      */
     public readonly targetResourceId!: pulumi.Output<string>;
 
@@ -256,6 +258,8 @@ export interface NetworkPacketCaptureState {
     storageLocation?: pulumi.Input<inputs.network.NetworkPacketCaptureStorageLocation>;
     /**
      * The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Currently only Virtual Machines IDs are supported.
      */
     targetResourceId?: pulumi.Input<string>;
 }
@@ -298,6 +302,8 @@ export interface NetworkPacketCaptureArgs {
     storageLocation: pulumi.Input<inputs.network.NetworkPacketCaptureStorageLocation>;
     /**
      * The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Currently only Virtual Machines IDs are supported.
      */
     targetResourceId: pulumi.Input<string>;
 }

@@ -109,6 +109,8 @@ namespace Pulumi.Azure.DevTest
 
         /// <summary>
         /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         /// </summary>
         [Output("inboundNatRules")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineInboundNatRule>> InboundNatRules { get; private set; } = null!;
@@ -139,6 +141,8 @@ namespace Pulumi.Azure.DevTest
 
         /// <summary>
         /// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -264,6 +268,8 @@ namespace Pulumi.Azure.DevTest
 
         /// <summary>
         /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineInboundNatRuleArgs> InboundNatRules
         {
@@ -297,6 +303,8 @@ namespace Pulumi.Azure.DevTest
 
         /// <summary>
         /// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -396,6 +404,8 @@ namespace Pulumi.Azure.DevTest
 
         /// <summary>
         /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineInboundNatRuleGetArgs> InboundNatRules
         {
@@ -429,6 +439,8 @@ namespace Pulumi.Azure.DevTest
 
         /// <summary>
         /// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

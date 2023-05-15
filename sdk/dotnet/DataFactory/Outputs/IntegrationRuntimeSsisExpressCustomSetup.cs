@@ -27,6 +27,8 @@ namespace Pulumi.Azure.DataFactory.Outputs
         public readonly ImmutableDictionary<string, string>? Environment;
         /// <summary>
         /// The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+        /// 
+        /// &gt; **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
         /// </summary>
         public readonly string? PowershellVersion;
 

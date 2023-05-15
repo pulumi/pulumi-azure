@@ -14,6 +14,8 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
     {
         /// <summary>
         /// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
         /// </summary>
         [Input("fabricLocation")]
         public Input<string>? FabricLocation { get; set; }
@@ -44,6 +46,8 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
 
         /// <summary>
         /// Instructions of manual action.
+        /// 
+        /// &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
         /// </summary>
         [Input("manualActionInstruction")]
         public Input<string>? ManualActionInstruction { get; set; }
@@ -56,12 +60,16 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
 
         /// <summary>
         /// Id of runbook.
+        /// 
+        /// &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
         /// </summary>
         [Input("runbookId")]
         public Input<string>? RunbookId { get; set; }
 
         /// <summary>
         /// Path of action script.
+        /// 
+        /// &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         /// </summary>
         [Input("scriptPath")]
         public Input<string>? ScriptPath { get; set; }

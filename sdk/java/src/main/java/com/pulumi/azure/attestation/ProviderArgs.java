@@ -85,12 +85,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+     * 
      */
     @Import(name="policySigningCertificateData")
     private @Nullable Output<String> policySigningCertificateData;
 
     /**
      * @return A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
      * 
      */
     public Optional<Output<String>> policySigningCertificateData() {
@@ -145,12 +149,16 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
      * 
+     * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+     * 
      */
     @Import(name="tpmPolicyBase64")
     private @Nullable Output<String> tpmPolicyBase64;
 
     /**
      * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+     * 
+     * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
      * 
      */
     public Optional<Output<String>> tpmPolicyBase64() {
@@ -292,6 +300,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param policySigningCertificateData A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+         * 
          * @return builder
          * 
          */
@@ -302,6 +312,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param policySigningCertificateData A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
          * 
          * @return builder
          * 
@@ -376,6 +388,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tpmPolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
          * 
+         * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+         * 
          * @return builder
          * 
          */
@@ -386,6 +400,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tpmPolicyBase64 Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the TPM Policy.
+         * 
+         * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
          * 
          * @return builder
          * 

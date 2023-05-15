@@ -114,12 +114,16 @@ public class LinkedServiceCosmosDb extends com.pulumi.resources.CustomResource {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
+     * The following supported arguments are specific to CosmosDB Linked Service:
+     * 
      */
     @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Linked Service.
+     * 
+     * The following supported arguments are specific to CosmosDB Linked Service:
      * 
      */
     public Output<Optional<Map<String,String>>> additionalProperties() {

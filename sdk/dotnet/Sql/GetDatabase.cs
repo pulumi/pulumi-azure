@@ -12,6 +12,10 @@ namespace Pulumi.Azure.Sql
     public static class GetDatabase
     {
         /// <summary>
+        /// Use this data source to access information about an existing SQL Azure Database.
+        /// 
+        /// &gt; **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -44,6 +48,10 @@ namespace Pulumi.Azure.Sql
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to access information about an existing SQL Azure Database.
+        /// 
+        /// &gt; **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

@@ -25,8 +25,12 @@ class EnvironmentArgs:
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+               
+               > **NOTE:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -72,7 +76,9 @@ class EnvironmentArgs:
     @pulumi.getter(name="infrastructureSubnetId")
     def infrastructure_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+
+        > **NOTE:** The Subnet must have a `/21` or larger address space.
         """
         return pulumi.get(self, "infrastructure_subnet_id")
 
@@ -85,6 +91,8 @@ class EnvironmentArgs:
     def internal_load_balancer_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         """
         return pulumi.get(self, "internal_load_balancer_enabled")
 
@@ -148,8 +156,12 @@ class _EnvironmentState:
         Input properties used for looking up and filtering Environment resources.
         :param pulumi.Input[str] default_domain: The default, publicly resolvable, name of this Container App Environment.
         :param pulumi.Input[str] docker_bridge_cidr: The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
-        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+               
+               > **NOTE:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
@@ -212,7 +224,9 @@ class _EnvironmentState:
     @pulumi.getter(name="infrastructureSubnetId")
     def infrastructure_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+
+        > **NOTE:** The Subnet must have a `/21` or larger address space.
         """
         return pulumi.get(self, "infrastructure_subnet_id")
 
@@ -225,6 +239,8 @@ class _EnvironmentState:
     def internal_load_balancer_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         """
         return pulumi.get(self, "internal_load_balancer_enabled")
 
@@ -373,8 +389,12 @@ class Environment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+               
+               > **NOTE:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
@@ -494,8 +514,12 @@ class Environment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_domain: The default, publicly resolvable, name of this Container App Environment.
         :param pulumi.Input[str] docker_bridge_cidr: The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
-        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+               
+               > **NOTE:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+               
+               > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
@@ -543,7 +567,9 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="infrastructureSubnetId")
     def infrastructure_subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+
+        > **NOTE:** The Subnet must have a `/21` or larger address space.
         """
         return pulumi.get(self, "infrastructure_subnet_id")
 
@@ -552,6 +578,8 @@ class Environment(pulumi.CustomResource):
     def internal_load_balancer_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         """
         return pulumi.get(self, "internal_load_balancer_enabled")
 

@@ -618,9 +618,9 @@ class ActionGroup(pulumi.CustomResource):
             )],
             automation_runbook_receivers=[azure.monitoring.ActionGroupAutomationRunbookReceiverArgs(
                 name="action_name_1",
-                automation_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001",
+                automation_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001",
                 runbook_name="my runbook",
-                webhook_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001/webhooks/webhook_alert",
+                webhook_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001/webHooks/webhook_alert",
                 is_global_runbook=True,
                 service_uri="https://s13events.azure-automation.net/webhooks?token=randomtoken",
                 use_common_alert_schema=True,
@@ -742,9 +742,9 @@ class ActionGroup(pulumi.CustomResource):
             )],
             automation_runbook_receivers=[azure.monitoring.ActionGroupAutomationRunbookReceiverArgs(
                 name="action_name_1",
-                automation_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001",
+                automation_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001",
                 runbook_name="my runbook",
-                webhook_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-runbooks/providers/microsoft.automation/automationaccounts/aaa001/webhooks/webhook_alert",
+                webhook_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-runbooks/providers/Microsoft.Automation/automationAccounts/aaa001/webHooks/webhook_alert",
                 is_global_runbook=True,
                 service_uri="https://s13events.azure-automation.net/webhooks?token=randomtoken",
                 use_common_alert_schema=True,

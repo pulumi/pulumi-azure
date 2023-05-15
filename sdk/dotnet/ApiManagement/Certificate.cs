@@ -180,12 +180,16 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+        /// 
+        /// &gt; **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
         /// </summary>
         [Output("keyVaultIdentityClientId")]
         public Output<string?> KeyVaultIdentityClientId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+        /// 
+        /// &gt; **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
         /// </summary>
         [Output("keyVaultSecretId")]
         public Output<string?> KeyVaultSecretId { get; private set; } = null!;
@@ -204,6 +208,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -295,12 +301,16 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+        /// 
+        /// &gt; **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
         /// </summary>
         [Input("keyVaultIdentityClientId")]
         public Input<string>? KeyVaultIdentityClientId { get; set; }
 
         /// <summary>
         /// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+        /// 
+        /// &gt; **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
         /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }
@@ -329,6 +339,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -371,12 +383,16 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+        /// 
+        /// &gt; **NOTE:** If not specified, will use System Assigned identity of the API Management Service.
         /// </summary>
         [Input("keyVaultIdentityClientId")]
         public Input<string>? KeyVaultIdentityClientId { get; set; }
 
         /// <summary>
         /// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+        /// 
+        /// &gt; **NOTE:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
         /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }
@@ -405,6 +421,8 @@ namespace Pulumi.Azure.ApiManagement
 
         /// <summary>
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Either `data` or `key_vault_secret_id` must be specified - but not both.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsWebAppSlotSiteCredential {
     /**
-     * @return The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * @return The Site Credentials Username used for publishing.
      * 
      */
     private @Nullable String name;
@@ -24,7 +24,7 @@ public final class WindowsWebAppSlotSiteCredential {
 
     private WindowsWebAppSlotSiteCredential() {}
     /**
-     * @return The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * @return The Site Credentials Username used for publishing.
      * 
      */
     public Optional<String> name() {

@@ -75,6 +75,8 @@ type EmailTemplate struct {
 	// The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// The body of the Email. Its format has to be a well-formed HTML document.
+	//
+	// > **NOTE:** In `subject` and `body` predefined parameters can be used. The available parameters depend on the template. Schema to use a parameter: `$` followed by the `parameter.name` - `$<parameter.name>`. The available parameters can be seen in the Notification templates section of the API-Management Service instance within the Azure Portal.
 	Body pulumi.StringOutput `pulumi:"body"`
 	// The description of the Email Template.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -135,6 +137,8 @@ type emailTemplateState struct {
 	// The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
 	ApiManagementName *string `pulumi:"apiManagementName"`
 	// The body of the Email. Its format has to be a well-formed HTML document.
+	//
+	// > **NOTE:** In `subject` and `body` predefined parameters can be used. The available parameters depend on the template. Schema to use a parameter: `$` followed by the `parameter.name` - `$<parameter.name>`. The available parameters can be seen in the Notification templates section of the API-Management Service instance within the Azure Portal.
 	Body *string `pulumi:"body"`
 	// The description of the Email Template.
 	Description *string `pulumi:"description"`
@@ -152,6 +156,8 @@ type EmailTemplateState struct {
 	// The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
 	ApiManagementName pulumi.StringPtrInput
 	// The body of the Email. Its format has to be a well-formed HTML document.
+	//
+	// > **NOTE:** In `subject` and `body` predefined parameters can be used. The available parameters depend on the template. Schema to use a parameter: `$` followed by the `parameter.name` - `$<parameter.name>`. The available parameters can be seen in the Notification templates section of the API-Management Service instance within the Azure Portal.
 	Body pulumi.StringPtrInput
 	// The description of the Email Template.
 	Description pulumi.StringPtrInput
@@ -173,6 +179,8 @@ type emailTemplateArgs struct {
 	// The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// The body of the Email. Its format has to be a well-formed HTML document.
+	//
+	// > **NOTE:** In `subject` and `body` predefined parameters can be used. The available parameters depend on the template. Schema to use a parameter: `$` followed by the `parameter.name` - `$<parameter.name>`. The available parameters can be seen in the Notification templates section of the API-Management Service instance within the Azure Portal.
 	Body string `pulumi:"body"`
 	// The name of the Resource Group where the API Management Email Template should exist. Changing this forces a new API Management Email Template to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -187,6 +195,8 @@ type EmailTemplateArgs struct {
 	// The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
 	ApiManagementName pulumi.StringInput
 	// The body of the Email. Its format has to be a well-formed HTML document.
+	//
+	// > **NOTE:** In `subject` and `body` predefined parameters can be used. The available parameters depend on the template. Schema to use a parameter: `$` followed by the `parameter.name` - `$<parameter.name>`. The available parameters can be seen in the Notification templates section of the API-Management Service instance within the Azure Portal.
 	Body pulumi.StringInput
 	// The name of the Resource Group where the API Management Email Template should exist. Changing this forces a new API Management Email Template to be created.
 	ResourceGroupName pulumi.StringInput
@@ -289,6 +299,8 @@ func (o EmailTemplateOutput) ApiManagementName() pulumi.StringOutput {
 }
 
 // The body of the Email. Its format has to be a well-formed HTML document.
+//
+// > **NOTE:** In `subject` and `body` predefined parameters can be used. The available parameters depend on the template. Schema to use a parameter: `$` followed by the `parameter.name` - `$<parameter.name>`. The available parameters can be seen in the Notification templates section of the API-Management Service instance within the Azure Portal.
 func (o EmailTemplateOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.Body }).(pulumi.StringOutput)
 }

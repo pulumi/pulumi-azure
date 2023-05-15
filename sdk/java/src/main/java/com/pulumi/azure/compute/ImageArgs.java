@@ -38,12 +38,16 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * 
      */
     @Import(name="hyperVGeneration")
     private @Nullable Output<String> hyperVGeneration;
 
     /**
      * @return The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
      * 
      */
     public Optional<Output<String>> hyperVGeneration() {
@@ -225,6 +229,8 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param hyperVGeneration The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+         * 
          * @return builder
          * 
          */
@@ -235,6 +241,8 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param hyperVGeneration The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
          * 
          * @return builder
          * 

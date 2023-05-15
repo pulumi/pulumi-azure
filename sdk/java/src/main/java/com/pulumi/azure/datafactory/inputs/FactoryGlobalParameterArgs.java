@@ -46,12 +46,16 @@ public final class FactoryGlobalParameterArgs extends com.pulumi.resources.Resou
     /**
      * Specifies the global parameter value.
      * 
+     * &gt; **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
+     * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
      * @return Specifies the global parameter value.
+     * 
+     * &gt; **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
      * 
      */
     public Output<String> value() {
@@ -129,6 +133,8 @@ public final class FactoryGlobalParameterArgs extends com.pulumi.resources.Resou
         /**
          * @param value Specifies the global parameter value.
          * 
+         * &gt; **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
+         * 
          * @return builder
          * 
          */
@@ -139,6 +145,8 @@ public final class FactoryGlobalParameterArgs extends com.pulumi.resources.Resou
 
         /**
          * @param value Specifies the global parameter value.
+         * 
+         * &gt; **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
          * 
          * @return builder
          * 

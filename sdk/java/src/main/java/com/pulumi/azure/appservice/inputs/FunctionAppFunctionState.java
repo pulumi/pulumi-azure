@@ -111,12 +111,16 @@ public final class FunctionAppFunctionState extends com.pulumi.resources.Resourc
     /**
      * The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
      * 
+     * &gt; **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
+     * 
      */
     @Import(name="language")
     private @Nullable Output<String> language;
 
     /**
      * @return The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+     * 
+     * &gt; **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
      * 
      */
     public Optional<Output<String>> language() {
@@ -404,6 +408,8 @@ public final class FunctionAppFunctionState extends com.pulumi.resources.Resourc
         /**
          * @param language The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
          * 
+         * &gt; **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
+         * 
          * @return builder
          * 
          */
@@ -414,6 +420,8 @@ public final class FunctionAppFunctionState extends com.pulumi.resources.Resourc
 
         /**
          * @param language The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
+         * 
+         * &gt; **NOTE:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
          * 
          * @return builder
          * 

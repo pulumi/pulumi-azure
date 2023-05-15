@@ -117,6 +117,8 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
 
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      */
     public readonly eventhubAuthorizationRuleId!: pulumi.Output<string | undefined>;
     /**
@@ -129,6 +131,8 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
     /**
      * One or more `log` blocks as defined below.
+     *
+     * > **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
      */
     public readonly logs!: pulumi.Output<outputs.monitoring.AadDiagnosticSettingLog[]>;
     /**
@@ -137,6 +141,8 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
 
@@ -182,6 +188,8 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
 export interface AadDiagnosticSettingState {
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      */
     eventhubAuthorizationRuleId?: pulumi.Input<string>;
     /**
@@ -194,6 +202,8 @@ export interface AadDiagnosticSettingState {
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * One or more `log` blocks as defined below.
+     *
+     * > **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
      */
     logs?: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingLog>[]>;
     /**
@@ -202,6 +212,8 @@ export interface AadDiagnosticSettingState {
     name?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
      */
     storageAccountId?: pulumi.Input<string>;
 }
@@ -212,6 +224,8 @@ export interface AadDiagnosticSettingState {
 export interface AadDiagnosticSettingArgs {
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      */
     eventhubAuthorizationRuleId?: pulumi.Input<string>;
     /**
@@ -224,6 +238,8 @@ export interface AadDiagnosticSettingArgs {
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * One or more `log` blocks as defined below.
+     *
+     * > **Note:** At least one of the `log` blocks must have the `enabled` property set to `true`.
      */
     logs: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingLog>[]>;
     /**
@@ -232,6 +248,8 @@ export interface AadDiagnosticSettingArgs {
     name?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
      */
     storageAccountId?: pulumi.Input<string>;
 }

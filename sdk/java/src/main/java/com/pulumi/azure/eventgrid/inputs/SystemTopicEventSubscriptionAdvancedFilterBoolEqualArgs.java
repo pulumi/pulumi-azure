@@ -32,12 +32,16 @@ public final class SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs exten
     /**
      * Specifies a single value to compare to when using a single value operator.
      * 
+     * OR
+     * 
      */
     @Import(name="value", required=true)
     private Output<Boolean> value;
 
     /**
      * @return Specifies a single value to compare to when using a single value operator.
+     * 
+     * OR
      * 
      */
     public Output<Boolean> value() {
@@ -93,6 +97,8 @@ public final class SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs exten
         /**
          * @param value Specifies a single value to compare to when using a single value operator.
          * 
+         * OR
+         * 
          * @return builder
          * 
          */
@@ -103,6 +109,8 @@ public final class SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs exten
 
         /**
          * @param value Specifies a single value to compare to when using a single value operator.
+         * 
+         * OR
          * 
          * @return builder
          * 

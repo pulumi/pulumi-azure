@@ -237,12 +237,16 @@ public class DatasetBinary extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of parameters to associate with the Data Factory Binary Dataset.
      * 
+     * The following supported locations for a Binary Dataset. One of these should be specified:
+     * 
      */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
      * @return Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+     * 
+     * The following supported locations for a Binary Dataset. One of these should be specified:
      * 
      */
     public Output<Optional<Map<String,String>>> parameters() {

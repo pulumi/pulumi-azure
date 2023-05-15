@@ -19,12 +19,16 @@ public final class VirtualMachineIdentityArgs extends com.pulumi.resources.Resou
     /**
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -49,12 +53,20 @@ public final class VirtualMachineIdentityArgs extends com.pulumi.resources.Resou
     /**
      * Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
+     * &gt; **NOTE:** Managed Service Identity previously required the installation of a VM Extension, but this information [is now available via the Azure Instance Metadata Service](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview#how-does-it-work).
+     * 
+     * &gt; **NOTE:** When `type` is set to `SystemAssigned`, identity the Principal ID can be retrieved after the virtual machine has been created. More details are available below. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for additional information.
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * 
+     * &gt; **NOTE:** Managed Service Identity previously required the installation of a VM Extension, but this information [is now available via the Azure Instance Metadata Service](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview#how-does-it-work).
+     * 
+     * &gt; **NOTE:** When `type` is set to `SystemAssigned`, identity the Principal ID can be retrieved after the virtual machine has been created. More details are available below. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for additional information.
      * 
      */
     public Output<String> type() {
@@ -90,6 +102,8 @@ public final class VirtualMachineIdentityArgs extends com.pulumi.resources.Resou
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -101,6 +115,8 @@ public final class VirtualMachineIdentityArgs extends com.pulumi.resources.Resou
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -110,6 +126,8 @@ public final class VirtualMachineIdentityArgs extends com.pulumi.resources.Resou
 
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -142,6 +160,10 @@ public final class VirtualMachineIdentityArgs extends com.pulumi.resources.Resou
         /**
          * @param type Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
+         * &gt; **NOTE:** Managed Service Identity previously required the installation of a VM Extension, but this information [is now available via the Azure Instance Metadata Service](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview#how-does-it-work).
+         * 
+         * &gt; **NOTE:** When `type` is set to `SystemAssigned`, identity the Principal ID can be retrieved after the virtual machine has been created. More details are available below. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for additional information.
+         * 
          * @return builder
          * 
          */
@@ -152,6 +174,10 @@ public final class VirtualMachineIdentityArgs extends com.pulumi.resources.Resou
 
         /**
          * @param type Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * 
+         * &gt; **NOTE:** Managed Service Identity previously required the installation of a VM Extension, but this information [is now available via the Azure Instance Metadata Service](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview#how-does-it-work).
+         * 
+         * &gt; **NOTE:** When `type` is set to `SystemAssigned`, identity the Principal ID can be retrieved after the virtual machine has been created. More details are available below. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for additional information.
          * 
          * @return builder
          * 

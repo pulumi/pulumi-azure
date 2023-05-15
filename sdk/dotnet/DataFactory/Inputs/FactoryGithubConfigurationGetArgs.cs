@@ -38,6 +38,8 @@ namespace Pulumi.Azure.DataFactory.Inputs
 
         /// <summary>
         /// Specifies the root folder within the repository. Set to `/` for the top level.
+        /// 
+        /// &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
         /// </summary>
         [Input("rootFolder", required: true)]
         public Input<string> RootFolder { get; set; } = null!;

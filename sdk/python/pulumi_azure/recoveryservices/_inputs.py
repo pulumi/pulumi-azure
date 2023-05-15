@@ -25,6 +25,10 @@ class VaultEncryptionArgs:
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Enabling/Disabling the Double Encryption state.
         :param pulumi.Input[str] key_id: The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
         :param pulumi.Input[bool] use_system_assigned_identity: Indicate that system assigned identity should be used or not. Defaults to `true`.
+               
+               !> **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+               
+               !> **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
         :param pulumi.Input[str] user_assigned_identity_id: Specifies the user assigned identity ID to be used.
         """
         pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
@@ -63,6 +67,10 @@ class VaultEncryptionArgs:
     def use_system_assigned_identity(self) -> Optional[pulumi.Input[bool]]:
         """
         Indicate that system assigned identity should be used or not. Defaults to `true`.
+
+        !> **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+
+        !> **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
         """
         return pulumi.get(self, "use_system_assigned_identity")
 
@@ -93,6 +101,8 @@ class VaultIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+               
+               > **NOTE:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -121,6 +131,8 @@ class VaultIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+
+        > **NOTE:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

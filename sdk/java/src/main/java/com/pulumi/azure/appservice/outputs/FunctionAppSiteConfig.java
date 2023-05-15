@@ -30,6 +30,8 @@ public final class FunctionAppSiteConfig {
     /**
      * @return The name of the slot to automatically swap to during deployment
      * 
+     * &gt; **NOTE:** This attribute is only used for slots.
+     * 
      */
     private @Nullable String autoSwapSlotName;
     /**
@@ -65,6 +67,8 @@ public final class FunctionAppSiteConfig {
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     private @Nullable List<FunctionAppSiteConfigIpRestriction> ipRestrictions;
     /**
@@ -95,27 +99,31 @@ public final class FunctionAppSiteConfig {
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     private @Nullable List<FunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
     /**
      * @return The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+     * 
+     * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
      * 
      */
     private @Nullable String scmType;
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
+     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * 
      */
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
      * @return Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
-     */
-    private @Nullable Boolean use32BitWorkerProcess;
-    /**
-     * @return Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
      * 
      */
+    private @Nullable Boolean use32BitWorkerProcess;
     private @Nullable Boolean vnetRouteAllEnabled;
     /**
      * @return Should WebSockets be enabled?
@@ -140,6 +148,8 @@ public final class FunctionAppSiteConfig {
     }
     /**
      * @return The name of the slot to automatically swap to during deployment
+     * 
+     * &gt; **NOTE:** This attribute is only used for slots.
      * 
      */
     public Optional<String> autoSwapSlotName() {
@@ -190,6 +200,8 @@ public final class FunctionAppSiteConfig {
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     public List<FunctionAppSiteConfigIpRestriction> ipRestrictions() {
         return this.ipRestrictions == null ? List.of() : this.ipRestrictions;
@@ -232,12 +244,16 @@ public final class FunctionAppSiteConfig {
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     public List<FunctionAppSiteConfigScmIpRestriction> scmIpRestrictions() {
         return this.scmIpRestrictions == null ? List.of() : this.scmIpRestrictions;
     }
     /**
      * @return The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+     * 
+     * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
      * 
      */
     public Optional<String> scmType() {
@@ -246,6 +262,8 @@ public final class FunctionAppSiteConfig {
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
+     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * 
      */
     public Optional<Boolean> scmUseMainIpRestriction() {
         return Optional.ofNullable(this.scmUseMainIpRestriction);
@@ -253,14 +271,12 @@ public final class FunctionAppSiteConfig {
     /**
      * @return Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * 
      */
     public Optional<Boolean> use32BitWorkerProcess() {
         return Optional.ofNullable(this.use32BitWorkerProcess);
     }
-    /**
-     * @return Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> vnetRouteAllEnabled() {
         return Optional.ofNullable(this.vnetRouteAllEnabled);
     }

@@ -45,6 +45,8 @@ public final class FirewallNatRuleCollectionRule {
     /**
      * @return A list of source IP Group IDs for the rule.
      * 
+     * &gt; **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+     * 
      */
     private @Nullable List<String> sourceIpGroups;
     /**
@@ -103,6 +105,8 @@ public final class FirewallNatRuleCollectionRule {
     }
     /**
      * @return A list of source IP Group IDs for the rule.
+     * 
+     * &gt; **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
      * 
      */
     public List<String> sourceIpGroups() {

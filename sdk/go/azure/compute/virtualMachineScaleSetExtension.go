@@ -102,26 +102,52 @@ type VirtualMachineScaleSetExtension struct {
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled pulumi.BoolPtrOutput `pulumi:"automaticUpgradeEnabled"`
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
 	FailureSuppressionEnabled pulumi.BoolPtrOutput `pulumi:"failureSuppressionEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag pulumi.StringPtrOutput `pulumi:"forceUpdateTag"`
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+	//
+	// > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 	ProtectedSettings pulumi.StringPtrOutput `pulumi:"protectedSettings"`
 	// A `protectedSettingsFromKeyVault` block as defined below.
+	//
+	// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
 	ProtectedSettingsFromKeyVault VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput `pulumi:"protectedSettingsFromKeyVault"`
 	// An ordered list of Extension names which this should be provisioned after.
 	ProvisionAfterExtensions pulumi.StringArrayOutput `pulumi:"provisionAfterExtensions"`
 	// Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
 	Publisher pulumi.StringOutput `pulumi:"publisher"`
 	// A JSON String which specifies Settings for the Extension.
+	//
+	// > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 	Settings pulumi.StringPtrOutput `pulumi:"settings"`
 	// Specifies the Type of the Extension. Changing this forces a new resource to be created.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+	//
+	// > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	TypeHandlerVersion pulumi.StringOutput `pulumi:"typeHandlerVersion"`
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
 	VirtualMachineScaleSetId pulumi.StringOutput `pulumi:"virtualMachineScaleSetId"`
 }
 
@@ -178,26 +204,52 @@ type virtualMachineScaleSetExtensionState struct {
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
 	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+	//
+	// > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 	ProtectedSettings *string `pulumi:"protectedSettings"`
 	// A `protectedSettingsFromKeyVault` block as defined below.
+	//
+	// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
 	ProtectedSettingsFromKeyVault *VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
 	// An ordered list of Extension names which this should be provisioned after.
 	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
 	// Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
 	Publisher *string `pulumi:"publisher"`
 	// A JSON String which specifies Settings for the Extension.
+	//
+	// > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 	Settings *string `pulumi:"settings"`
 	// Specifies the Type of the Extension. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+	//
+	// > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 }
 
@@ -207,26 +259,52 @@ type VirtualMachineScaleSetExtensionState struct {
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
 	FailureSuppressionEnabled pulumi.BoolPtrInput
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag pulumi.StringPtrInput
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+	//
+	// > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 	ProtectedSettings pulumi.StringPtrInput
 	// A `protectedSettingsFromKeyVault` block as defined below.
+	//
+	// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
 	ProtectedSettingsFromKeyVault VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput
 	// An ordered list of Extension names which this should be provisioned after.
 	ProvisionAfterExtensions pulumi.StringArrayInput
 	// Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
 	Publisher pulumi.StringPtrInput
 	// A JSON String which specifies Settings for the Extension.
+	//
+	// > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 	Settings pulumi.StringPtrInput
 	// Specifies the Type of the Extension. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+	//
+	// > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	TypeHandlerVersion pulumi.StringPtrInput
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
 	VirtualMachineScaleSetId pulumi.StringPtrInput
 }
 
@@ -240,26 +318,52 @@ type virtualMachineScaleSetExtensionArgs struct {
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
 	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+	//
+	// > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 	ProtectedSettings *string `pulumi:"protectedSettings"`
 	// A `protectedSettingsFromKeyVault` block as defined below.
+	//
+	// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
 	ProtectedSettingsFromKeyVault *VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
 	// An ordered list of Extension names which this should be provisioned after.
 	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
 	// Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
 	// A JSON String which specifies Settings for the Extension.
+	//
+	// > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 	Settings *string `pulumi:"settings"`
 	// Specifies the Type of the Extension. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+	//
+	// > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
 	VirtualMachineScaleSetId string `pulumi:"virtualMachineScaleSetId"`
 }
 
@@ -270,26 +374,52 @@ type VirtualMachineScaleSetExtensionArgs struct {
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
 	FailureSuppressionEnabled pulumi.BoolPtrInput
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag pulumi.StringPtrInput
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+	//
+	// > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 	ProtectedSettings pulumi.StringPtrInput
 	// A `protectedSettingsFromKeyVault` block as defined below.
+	//
+	// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
 	ProtectedSettingsFromKeyVault VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput
 	// An ordered list of Extension names which this should be provisioned after.
 	ProvisionAfterExtensions pulumi.StringArrayInput
 	// Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput
 	// A JSON String which specifies Settings for the Extension.
+	//
+	// > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 	Settings pulumi.StringPtrInput
 	// Specifies the Type of the Extension. Changing this forces a new resource to be created.
 	Type pulumi.StringInput
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+	//
+	// > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	TypeHandlerVersion pulumi.StringInput
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
 	VirtualMachineScaleSetId pulumi.StringInput
 }
 
@@ -391,6 +521,8 @@ func (o VirtualMachineScaleSetExtensionOutput) AutomaticUpgradeEnabled() pulumi.
 }
 
 // Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+//
+// > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
 func (o VirtualMachineScaleSetExtensionOutput) FailureSuppressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.BoolPtrOutput { return v.FailureSuppressionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -406,11 +538,15 @@ func (o VirtualMachineScaleSetExtensionOutput) Name() pulumi.StringOutput {
 }
 
 // A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+//
+// > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 func (o VirtualMachineScaleSetExtensionOutput) ProtectedSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.StringPtrOutput { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
 }
 
 // A `protectedSettingsFromKeyVault` block as defined below.
+//
+// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
 func (o VirtualMachineScaleSetExtensionOutput) ProtectedSettingsFromKeyVault() VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
 		return v.ProtectedSettingsFromKeyVault
@@ -428,6 +564,8 @@ func (o VirtualMachineScaleSetExtensionOutput) Publisher() pulumi.StringOutput {
 }
 
 // A JSON String which specifies Settings for the Extension.
+//
+// > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 func (o VirtualMachineScaleSetExtensionOutput) Settings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.StringPtrOutput { return v.Settings }).(pulumi.StringPtrOutput)
 }
@@ -438,11 +576,32 @@ func (o VirtualMachineScaleSetExtensionOutput) Type() pulumi.StringOutput {
 }
 
 // Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+//
+// > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o VirtualMachineScaleSetExtensionOutput) TypeHandlerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.StringOutput { return v.TypeHandlerVersion }).(pulumi.StringOutput)
 }
 
 // The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+//
+// > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
 func (o VirtualMachineScaleSetExtensionOutput) VirtualMachineScaleSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.StringOutput { return v.VirtualMachineScaleSetId }).(pulumi.StringOutput)
 }

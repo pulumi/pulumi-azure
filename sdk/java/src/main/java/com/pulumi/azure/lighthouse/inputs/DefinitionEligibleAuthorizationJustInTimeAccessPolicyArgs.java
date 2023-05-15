@@ -50,12 +50,16 @@ public final class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs ext
     /**
      * The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
      * 
+     * &gt; **Note:** When this property isn&#39;t set, it would be set to `None`.
+     * 
      */
     @Import(name="multiFactorAuthProvider")
     private @Nullable Output<String> multiFactorAuthProvider;
 
     /**
      * @return The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+     * 
+     * &gt; **Note:** When this property isn&#39;t set, it would be set to `None`.
      * 
      */
     public Optional<Output<String>> multiFactorAuthProvider() {
@@ -143,6 +147,8 @@ public final class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs ext
         /**
          * @param multiFactorAuthProvider The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
          * 
+         * &gt; **Note:** When this property isn&#39;t set, it would be set to `None`.
+         * 
          * @return builder
          * 
          */
@@ -153,6 +159,8 @@ public final class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs ext
 
         /**
          * @param multiFactorAuthProvider The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+         * 
+         * &gt; **Note:** When this property isn&#39;t set, it would be set to `None`.
          * 
          * @return builder
          * 

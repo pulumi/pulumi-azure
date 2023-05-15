@@ -471,8 +471,13 @@ class DataCollectionRule(pulumi.CustomResource):
                 publisher="Microsoft",
                 product="OMSGallery/WindowsEventForwarding",
             ))
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            capacity=1)
         example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=azurerm_eventhub_namespace["example"]["name"],
+            namespace_name=example_event_hub_namespace.name,
             resource_group_name=example_resource_group.name,
             partition_count=2,
             message_retention=1)
@@ -660,8 +665,13 @@ class DataCollectionRule(pulumi.CustomResource):
                 publisher="Microsoft",
                 product="OMSGallery/WindowsEventForwarding",
             ))
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            capacity=1)
         example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=azurerm_eventhub_namespace["example"]["name"],
+            namespace_name=example_event_hub_namespace.name,
             resource_group_name=example_resource_group.name,
             partition_count=2,
             message_retention=1)

@@ -26,6 +26,8 @@ class AccessConnectorIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include `SystemAssigned` or `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+               
+               > **NOTE:** `identity_ids` are required when `type` is set to `UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         """
@@ -54,6 +56,8 @@ class AccessConnectorIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+
+        > **NOTE:** `identity_ids` are required when `type` is set to `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -105,6 +109,8 @@ class WorkspaceCustomParametersArgs:
         :param pulumi.Input[str] machine_learning_workspace_id: The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] no_public_ip: Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+               
+               > **NOTE** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
         :param pulumi.Input[str] private_subnet_name: The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_subnet_network_security_group_association_id: The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
         :param pulumi.Input[str] public_ip_name: Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
@@ -114,6 +120,8 @@ class WorkspaceCustomParametersArgs:
         :param pulumi.Input[str] storage_account_sku_name: Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_address_prefix: Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
+               
+               > **NOTE** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
         """
         if machine_learning_workspace_id is not None:
             pulumi.set(__self__, "machine_learning_workspace_id", machine_learning_workspace_id)
@@ -169,6 +177,8 @@ class WorkspaceCustomParametersArgs:
     def no_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
         Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
+
+        > **NOTE** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
         """
         return pulumi.get(self, "no_public_ip")
 
@@ -277,6 +287,8 @@ class WorkspaceCustomParametersArgs:
     def vnet_address_prefix(self) -> Optional[pulumi.Input[str]]:
         """
         Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
+
+        > **NOTE** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
         """
         return pulumi.get(self, "vnet_address_prefix")
 

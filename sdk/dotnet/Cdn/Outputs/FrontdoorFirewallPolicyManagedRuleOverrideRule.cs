@@ -15,6 +15,8 @@ namespace Pulumi.Azure.Cdn.Outputs
     {
         /// <summary>
         /// The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
+        /// 
+        /// -&gt;**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
         /// </summary>
         public readonly string Action;
         /// <summary>

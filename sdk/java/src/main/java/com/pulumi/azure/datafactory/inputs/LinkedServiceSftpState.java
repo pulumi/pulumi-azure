@@ -22,12 +22,16 @@ public final class LinkedServiceSftpState extends com.pulumi.resources.ResourceA
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
+     * The following supported arguments are specific to SFTP Linked Service:
+     * 
      */
     @Import(name="additionalProperties")
     private @Nullable Output<Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Linked Service.
+     * 
+     * The following supported arguments are specific to SFTP Linked Service:
      * 
      */
     public Optional<Output<Map<String,String>>> additionalProperties() {
@@ -269,6 +273,8 @@ public final class LinkedServiceSftpState extends com.pulumi.resources.ResourceA
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Linked Service.
          * 
+         * The following supported arguments are specific to SFTP Linked Service:
+         * 
          * @return builder
          * 
          */
@@ -279,6 +285,8 @@ public final class LinkedServiceSftpState extends com.pulumi.resources.ResourceA
 
         /**
          * @param additionalProperties A map of additional properties to associate with the Data Factory Linked Service.
+         * 
+         * The following supported arguments are specific to SFTP Linked Service:
          * 
          * @return builder
          * 

@@ -16,12 +16,16 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusionArgs extends com.p
     /**
      * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
      * 
+     * &gt; **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+     * 
      */
     @Import(name="matchVariable", required=true)
     private Output<String> matchVariable;
 
     /**
      * @return The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+     * 
+     * &gt; **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
      * 
      */
     public Output<String> matchVariable() {
@@ -87,6 +91,8 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusionArgs extends com.p
         /**
          * @param matchVariable The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
          * 
+         * &gt; **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+         * 
          * @return builder
          * 
          */
@@ -97,6 +103,8 @@ public final class FrontdoorFirewallPolicyManagedRuleExclusionArgs extends com.p
 
         /**
          * @param matchVariable The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+         * 
+         * &gt; **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
          * 
          * @return builder
          * 

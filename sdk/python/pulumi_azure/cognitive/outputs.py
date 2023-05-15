@@ -100,6 +100,8 @@ class AccountIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -124,6 +126,8 @@ class AccountIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

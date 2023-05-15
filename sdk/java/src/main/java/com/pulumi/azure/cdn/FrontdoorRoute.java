@@ -34,12 +34,16 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
     /**
      * A `cache` block as defined below.
      * 
+     * &gt; **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+     * 
      */
     @Export(name="cache", refs={FrontdoorRouteCache.class}, tree="[0]")
     private Output</* @Nullable */ FrontdoorRouteCache> cache;
 
     /**
      * @return A `cache` block as defined below.
+     * 
+     * &gt; **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
      * 
      */
     public Output<Optional<FrontdoorRouteCache>> cache() {
@@ -160,12 +164,16 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
     /**
      * Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
      * 
+     * &gt; **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
+     * 
      */
     @Export(name="httpsRedirectEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> httpsRedirectEnabled;
 
     /**
      * @return Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
+     * 
+     * &gt; **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
      * 
      */
     public Output<Optional<Boolean>> httpsRedirectEnabled() {
@@ -216,12 +224,16 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
     /**
      * One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
      * 
+     * &gt; **NOTE:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
+     * 
      */
     @Export(name="supportedProtocols", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> supportedProtocols;
 
     /**
      * @return One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
+     * 
+     * &gt; **NOTE:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
      * 
      */
     public Output<List<String>> supportedProtocols() {

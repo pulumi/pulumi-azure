@@ -53,6 +53,8 @@ export class PortalDashboard extends pulumi.CustomResource {
     public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+     *
+     * > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -115,6 +117,8 @@ export interface PortalDashboardState {
     location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+     *
+     * > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      */
     name?: pulumi.Input<string>;
     /**
@@ -141,6 +145,8 @@ export interface PortalDashboardArgs {
     location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+     *
+     * > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      */
     name?: pulumi.Input<string>;
     /**

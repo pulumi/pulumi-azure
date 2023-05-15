@@ -72,12 +72,16 @@ public final class FrontdoorArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `backend_pool` block as defined below.
      * 
+     * &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
+     * 
      */
     @Import(name="backendPools", required=true)
     private Output<List<FrontdoorBackendPoolArgs>> backendPools;
 
     /**
      * @return A `backend_pool` block as defined below.
+     * 
+     * &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
      * 
      */
     public Output<List<FrontdoorBackendPoolArgs>> backendPools() {
@@ -319,6 +323,8 @@ public final class FrontdoorArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param backendPools A `backend_pool` block as defined below.
          * 
+         * &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
+         * 
          * @return builder
          * 
          */
@@ -330,6 +336,8 @@ public final class FrontdoorArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param backendPools A `backend_pool` block as defined below.
          * 
+         * &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
+         * 
          * @return builder
          * 
          */
@@ -339,6 +347,8 @@ public final class FrontdoorArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param backendPools A `backend_pool` block as defined below.
+         * 
+         * &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
          * 
          * @return builder
          * 

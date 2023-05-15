@@ -197,6 +197,8 @@ type IoTHub struct {
 	// The event hub retention to use in days. Must be between `1` and `7`.
 	EventHubRetentionInDays pulumi.IntOutput `pulumi:"eventHubRetentionInDays"`
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+	//
+	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute IoTHubFallbackRouteOutput `pulumi:"fallbackRoute"`
 	// A `fileUpload` block as defined below.
 	FileUpload IoTHubFileUploadPtrOutput `pulumi:"fileUpload"`
@@ -284,6 +286,8 @@ type ioTHubState struct {
 	// The event hub retention to use in days. Must be between `1` and `7`.
 	EventHubRetentionInDays *int `pulumi:"eventHubRetentionInDays"`
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+	//
+	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute *IoTHubFallbackRoute `pulumi:"fallbackRoute"`
 	// A `fileUpload` block as defined below.
 	FileUpload *IoTHubFileUpload `pulumi:"fileUpload"`
@@ -337,6 +341,8 @@ type IoTHubState struct {
 	// The event hub retention to use in days. Must be between `1` and `7`.
 	EventHubRetentionInDays pulumi.IntPtrInput
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+	//
+	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute IoTHubFallbackRoutePtrInput
 	// A `fileUpload` block as defined below.
 	FileUpload IoTHubFileUploadPtrInput
@@ -384,6 +390,8 @@ type ioTHubArgs struct {
 	// The event hub retention to use in days. Must be between `1` and `7`.
 	EventHubRetentionInDays *int `pulumi:"eventHubRetentionInDays"`
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+	//
+	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute *IoTHubFallbackRoute `pulumi:"fallbackRoute"`
 	// A `fileUpload` block as defined below.
 	FileUpload *IoTHubFileUpload `pulumi:"fileUpload"`
@@ -422,6 +430,8 @@ type IoTHubArgs struct {
 	// The event hub retention to use in days. Must be between `1` and `7`.
 	EventHubRetentionInDays pulumi.IntPtrInput
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+	//
+	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute IoTHubFallbackRoutePtrInput
 	// A `fileUpload` block as defined below.
 	FileUpload IoTHubFileUploadPtrInput
@@ -585,6 +595,8 @@ func (o IoTHubOutput) EventHubRetentionInDays() pulumi.IntOutput {
 }
 
 // A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+//
+// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 func (o IoTHubOutput) FallbackRoute() IoTHubFallbackRouteOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubFallbackRouteOutput { return v.FallbackRoute }).(IoTHubFallbackRouteOutput)
 }

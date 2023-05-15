@@ -48,12 +48,16 @@ public final class NetappVolumeAttachmentArgs extends com.pulumi.resources.Resou
     /**
      * The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
      * 
+     * &gt; **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
+     * 
      */
     @Import(name="vmwareClusterId", required=true)
     private Output<String> vmwareClusterId;
 
     /**
      * @return The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+     * 
+     * &gt; **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
      * 
      */
     public Output<String> vmwareClusterId() {
@@ -131,6 +135,8 @@ public final class NetappVolumeAttachmentArgs extends com.pulumi.resources.Resou
         /**
          * @param vmwareClusterId The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
          * 
+         * &gt; **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
+         * 
          * @return builder
          * 
          */
@@ -141,6 +147,8 @@ public final class NetappVolumeAttachmentArgs extends com.pulumi.resources.Resou
 
         /**
          * @param vmwareClusterId The vmware cluster for this VMware Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new VMware Private Cloud Netapp File Volume Attachment to be created.
+         * 
+         * &gt; **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the vmware solution hosts.
          * 
          * @return builder
          * 

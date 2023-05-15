@@ -734,6 +734,10 @@ class Database(pulumi.CustomResource):
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        Allows you to manage an Azure SQL Database
+
+        > **Note:** The `sql.Database` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.Database` resource instead.
+
         ## Example Usage
 
         ```python
@@ -802,6 +806,10 @@ class Database(pulumi.CustomResource):
                  args: DatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Allows you to manage an Azure SQL Database
+
+        > **Note:** The `sql.Database` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.Database` resource instead.
+
         ## Example Usage
 
         ```python

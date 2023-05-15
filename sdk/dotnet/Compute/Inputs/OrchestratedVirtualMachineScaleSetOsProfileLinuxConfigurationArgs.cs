@@ -54,19 +54,20 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** Either `admin_password` or `admin_ssh_key` must be specified.
         /// </summary>
         [Input("disablePasswordAuthentication")]
         public Input<bool>? DisablePasswordAuthentication { get; set; }
 
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        /// 
+        /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         /// </summary>
         [Input("patchAssessmentMode")]
         public Input<string>? PatchAssessmentMode { get; set; }
 
-        /// <summary>
-        /// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
-        /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
 

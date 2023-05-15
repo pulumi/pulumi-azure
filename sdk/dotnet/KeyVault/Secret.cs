@@ -129,6 +129,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Specifies the value of the Key Vault Secret.
+        /// 
+        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -242,6 +244,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Specifies the value of the Key Vault Secret.
+        /// 
+        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
         /// </summary>
         public Input<string>? Value
         {
@@ -320,6 +324,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Specifies the value of the Key Vault Secret.
+        /// 
+        /// &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
         /// </summary>
         public Input<string>? Value
         {

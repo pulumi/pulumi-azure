@@ -97,10 +97,14 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      */
     public readonly subresourceName!: pulumi.Output<string>;
     /**
      * The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
      */
     public readonly synapseWorkspaceId!: pulumi.Output<string>;
     /**
@@ -156,10 +160,14 @@ export interface ManagedPrivateEndpointState {
     name?: pulumi.Input<string>;
     /**
      * Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      */
     subresourceName?: pulumi.Input<string>;
     /**
      * The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
      */
     synapseWorkspaceId?: pulumi.Input<string>;
     /**
@@ -178,10 +186,14 @@ export interface ManagedPrivateEndpointArgs {
     name?: pulumi.Input<string>;
     /**
      * Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      */
     subresourceName: pulumi.Input<string>;
     /**
      * The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
      */
     synapseWorkspaceId: pulumi.Input<string>;
     /**

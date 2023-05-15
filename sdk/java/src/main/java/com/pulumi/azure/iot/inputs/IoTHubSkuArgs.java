@@ -17,12 +17,16 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The number of provisioned IoT Hub units.
      * 
+     * &gt; **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
+     * 
      */
     @Import(name="capacity", required=true)
     private Output<Integer> capacity;
 
     /**
      * @return The number of provisioned IoT Hub units.
+     * 
+     * &gt; **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
      * 
      */
     public Output<Integer> capacity() {
@@ -72,6 +76,8 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param capacity The number of provisioned IoT Hub units.
          * 
+         * &gt; **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
+         * 
          * @return builder
          * 
          */
@@ -82,6 +88,8 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param capacity The number of provisioned IoT Hub units.
+         * 
+         * &gt; **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
          * 
          * @return builder
          * 

@@ -132,6 +132,8 @@ type LinkedServiceSynapse struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Linked Service Synapse.
+	//
+	// The following supported arguments are specific to Data Factory Synapse Linked Service:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service Synapse.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
@@ -187,6 +189,8 @@ func GetLinkedServiceSynapse(ctx *pulumi.Context,
 // Input properties used for looking up and filtering LinkedServiceSynapse resources.
 type linkedServiceSynapseState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service Synapse.
+	//
+	// The following supported arguments are specific to Data Factory Synapse Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service Synapse.
 	Annotations []string `pulumi:"annotations"`
@@ -208,6 +212,8 @@ type linkedServiceSynapseState struct {
 
 type LinkedServiceSynapseState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service Synapse.
+	//
+	// The following supported arguments are specific to Data Factory Synapse Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service Synapse.
 	Annotations pulumi.StringArrayInput
@@ -233,6 +239,8 @@ func (LinkedServiceSynapseState) ElementType() reflect.Type {
 
 type linkedServiceSynapseArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service Synapse.
+	//
+	// The following supported arguments are specific to Data Factory Synapse Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service Synapse.
 	Annotations []string `pulumi:"annotations"`
@@ -255,6 +263,8 @@ type linkedServiceSynapseArgs struct {
 // The set of arguments for constructing a LinkedServiceSynapse resource.
 type LinkedServiceSynapseArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service Synapse.
+	//
+	// The following supported arguments are specific to Data Factory Synapse Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service Synapse.
 	Annotations pulumi.StringArrayInput
@@ -362,6 +372,8 @@ func (o LinkedServiceSynapseOutput) ToLinkedServiceSynapseOutputWithContext(ctx 
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service Synapse.
+//
+// The following supported arguments are specific to Data Factory Synapse Linked Service:
 func (o LinkedServiceSynapseOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinkedServiceSynapse) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }

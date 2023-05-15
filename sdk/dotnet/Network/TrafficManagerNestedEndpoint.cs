@@ -125,6 +125,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
+        /// 
+        /// ~&gt;**NOTE:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won't have any effect.
         /// </summary>
         [Output("minimumChildEndpoints")]
         public Output<int> MinimumChildEndpoints { get; private set; } = null!;
@@ -261,6 +263,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
+        /// 
+        /// ~&gt;**NOTE:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won't have any effect.
         /// </summary>
         [Input("minimumChildEndpoints", required: true)]
         public Input<int> MinimumChildEndpoints { get; set; } = null!;
@@ -365,6 +369,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
+        /// 
+        /// ~&gt;**NOTE:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won't have any effect.
         /// </summary>
         [Input("minimumChildEndpoints")]
         public Input<int>? MinimumChildEndpoints { get; set; }

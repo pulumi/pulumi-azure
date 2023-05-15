@@ -14,6 +14,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     /**
      * @return One or more `certificate` blocks as defined below.
      * 
+     * &gt; **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
+     * 
      */
     private List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate> certificates;
     /**
@@ -25,6 +27,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     private OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret() {}
     /**
      * @return One or more `certificate` blocks as defined below.
+     * 
+     * &gt; **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
      * 
      */
     public List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate> certificates() {

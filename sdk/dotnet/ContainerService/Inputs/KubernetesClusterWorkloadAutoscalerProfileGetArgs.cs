@@ -14,6 +14,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
     {
         /// <summary>
         /// Specifies whether KEDA Autoscaler can be used for workloads.
+        /// 
+        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
         /// </summary>
         [Input("kedaEnabled")]
         public Input<bool>? KedaEnabled { get; set; }
@@ -26,6 +28,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// Specifies whether Vertical Pod Autoscaler should be enabled.
+        /// 
+        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
         /// </summary>
         [Input("verticalPodAutoscalerEnabled")]
         public Input<bool>? VerticalPodAutoscalerEnabled { get; set; }

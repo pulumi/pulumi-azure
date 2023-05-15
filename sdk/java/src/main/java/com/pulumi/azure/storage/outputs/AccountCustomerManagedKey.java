@@ -17,6 +17,8 @@ public final class AccountCustomerManagedKey {
     /**
      * @return The ID of a user assigned identity.
      * 
+     * &gt; **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+     * 
      */
     private String userAssignedIdentityId;
 
@@ -30,6 +32,8 @@ public final class AccountCustomerManagedKey {
     }
     /**
      * @return The ID of a user assigned identity.
+     * 
+     * &gt; **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
      * 
      */
     public String userAssignedIdentityId() {

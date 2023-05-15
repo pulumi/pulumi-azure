@@ -75,6 +75,8 @@ export class AutomationRule extends pulumi.CustomResource {
     public readonly actionIncidents!: pulumi.Output<outputs.sentinel.AutomationRuleActionIncident[] | undefined>;
     /**
      * One or more `actionPlaybook` blocks as defined below.
+     *
+     * > **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
      */
     public readonly actionPlaybooks!: pulumi.Output<outputs.sentinel.AutomationRuleActionPlaybook[] | undefined>;
     /**
@@ -83,6 +85,8 @@ export class AutomationRule extends pulumi.CustomResource {
     public readonly conditionJson!: pulumi.Output<string>;
     /**
      * One or more `condition` blocks as defined below.
+     *
+     * > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
      *
      * @deprecated This is deprecated in favor of `condition_json`
      */
@@ -186,6 +190,8 @@ export interface AutomationRuleState {
     actionIncidents?: pulumi.Input<pulumi.Input<inputs.sentinel.AutomationRuleActionIncident>[]>;
     /**
      * One or more `actionPlaybook` blocks as defined below.
+     *
+     * > **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
      */
     actionPlaybooks?: pulumi.Input<pulumi.Input<inputs.sentinel.AutomationRuleActionPlaybook>[]>;
     /**
@@ -194,6 +200,8 @@ export interface AutomationRuleState {
     conditionJson?: pulumi.Input<string>;
     /**
      * One or more `condition` blocks as defined below.
+     *
+     * > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
      *
      * @deprecated This is deprecated in favor of `condition_json`
      */
@@ -242,6 +250,8 @@ export interface AutomationRuleArgs {
     actionIncidents?: pulumi.Input<pulumi.Input<inputs.sentinel.AutomationRuleActionIncident>[]>;
     /**
      * One or more `actionPlaybook` blocks as defined below.
+     *
+     * > **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
      */
     actionPlaybooks?: pulumi.Input<pulumi.Input<inputs.sentinel.AutomationRuleActionPlaybook>[]>;
     /**
@@ -250,6 +260,8 @@ export interface AutomationRuleArgs {
     conditionJson?: pulumi.Input<string>;
     /**
      * One or more `condition` blocks as defined below.
+     *
+     * > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
      *
      * @deprecated This is deprecated in favor of `condition_json`
      */

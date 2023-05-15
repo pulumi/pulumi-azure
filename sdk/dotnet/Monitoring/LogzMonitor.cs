@@ -74,6 +74,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+        /// 
+        /// &gt; **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
         /// </summary>
         [Output("enterpriseAppId")]
         public Output<string?> EnterpriseAppId { get; private set; } = null!;
@@ -186,6 +188,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+        /// 
+        /// &gt; **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
         /// </summary>
         [Input("enterpriseAppId")]
         public Input<string>? EnterpriseAppId { get; set; }
@@ -254,6 +258,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+        /// 
+        /// &gt; **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
         /// </summary>
         [Input("enterpriseAppId")]
         public Input<string>? EnterpriseAppId { get; set; }

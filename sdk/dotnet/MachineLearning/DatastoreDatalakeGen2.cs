@@ -135,7 +135,6 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-        /// ---
         /// </summary>
         [Output("storageContainerId")]
         public Output<string> StorageContainerId { get; private set; } = null!;
@@ -256,7 +255,6 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-        /// ---
         /// </summary>
         [Input("storageContainerId", required: true)]
         public Input<string> StorageContainerId { get; set; } = null!;
@@ -347,7 +345,6 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-        /// ---
         /// </summary>
         [Input("storageContainerId")]
         public Input<string>? StorageContainerId { get; set; }

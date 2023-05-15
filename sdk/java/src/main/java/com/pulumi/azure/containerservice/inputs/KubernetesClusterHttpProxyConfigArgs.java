@@ -46,17 +46,9 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
         return Optional.ofNullable(this.httpsProxy);
     }
 
-    /**
-     * The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="noProxies")
     private @Nullable Output<List<String>> noProxies;
 
-    /**
-     * @return The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<List<String>>> noProxies() {
         return Optional.ofNullable(this.noProxies);
     }
@@ -145,33 +137,15 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
             return httpsProxy(Output.of(httpsProxy));
         }
 
-        /**
-         * @param noProxies The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder noProxies(@Nullable Output<List<String>> noProxies) {
             $.noProxies = noProxies;
             return this;
         }
 
-        /**
-         * @param noProxies The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder noProxies(List<String> noProxies) {
             return noProxies(Output.of(noProxies));
         }
 
-        /**
-         * @param noProxies The list of domains that will not use the proxy for communication. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder noProxies(String... noProxies) {
             return noProxies(List.of(noProxies));
         }

@@ -50,6 +50,8 @@ func GetPolicyDefintionBuiltIn(ctx *pulumi.Context, args *GetPolicyDefintionBuil
 // A collection of arguments for invoking getPolicyDefintionBuiltIn.
 type GetPolicyDefintionBuiltInArgs struct {
 	// Specifies the display name of the Policy Definition. Conflicts with `name`.
+	//
+	// > **NOTE** As `displayName` is not unique errors may occur when there are multiple policy definitions with same display name.
 	DisplayName *string `pulumi:"displayName"`
 	// Only retrieve Policy Definitions from this Management Group.
 	ManagementGroupName *string `pulumi:"managementGroupName"`
@@ -98,6 +100,8 @@ func GetPolicyDefintionBuiltInOutput(ctx *pulumi.Context, args GetPolicyDefintio
 // A collection of arguments for invoking getPolicyDefintionBuiltIn.
 type GetPolicyDefintionBuiltInOutputArgs struct {
 	// Specifies the display name of the Policy Definition. Conflicts with `name`.
+	//
+	// > **NOTE** As `displayName` is not unique errors may occur when there are multiple policy definitions with same display name.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// Only retrieve Policy Definitions from this Management Group.
 	ManagementGroupName pulumi.StringPtrInput `pulumi:"managementGroupName"`

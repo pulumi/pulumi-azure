@@ -178,6 +178,8 @@ namespace Pulumi.Azure.SignalR
 
         /// <summary>
         /// Whether to enable public network access? Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -238,6 +240,8 @@ namespace Pulumi.Azure.SignalR
 
         /// <summary>
         /// Whether to request client certificate during TLS handshake? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
         /// </summary>
         [Output("tlsClientCertEnabled")]
         public Output<bool?> TlsClientCertEnabled { get; private set; } = null!;
@@ -375,6 +379,8 @@ namespace Pulumi.Azure.SignalR
 
         /// <summary>
         /// Whether to enable public network access? Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -417,6 +423,8 @@ namespace Pulumi.Azure.SignalR
 
         /// <summary>
         /// Whether to request client certificate during TLS handshake? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
         /// </summary>
         [Input("tlsClientCertEnabled")]
         public Input<bool>? TlsClientCertEnabled { get; set; }
@@ -559,6 +567,8 @@ namespace Pulumi.Azure.SignalR
 
         /// <summary>
         /// Whether to enable public network access? Defaults to `true`.
+        /// 
+        /// &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -645,6 +655,8 @@ namespace Pulumi.Azure.SignalR
 
         /// <summary>
         /// Whether to request client certificate during TLS handshake? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
         /// </summary>
         [Input("tlsClientCertEnabled")]
         public Input<bool>? TlsClientCertEnabled { get; set; }

@@ -80,6 +80,8 @@ export class CassandraKeyspace extends pulumi.CustomResource {
     public readonly accountName!: pulumi.Output<string>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.CassandraKeyspaceAutoscaleSettings | undefined>;
     /**
@@ -142,6 +144,8 @@ export interface CassandraKeyspaceState {
     accountName?: pulumi.Input<string>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraKeyspaceAutoscaleSettings>;
     /**
@@ -168,6 +172,8 @@ export interface CassandraKeyspaceArgs {
     accountName: pulumi.Input<string>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraKeyspaceAutoscaleSettings>;
     /**

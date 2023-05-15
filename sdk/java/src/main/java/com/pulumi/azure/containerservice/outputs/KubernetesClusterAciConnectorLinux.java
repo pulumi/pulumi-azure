@@ -20,6 +20,46 @@ public final class KubernetesClusterAciConnectorLinux {
     /**
      * @return The subnet name for the virtual nodes to run.
      * 
+     * &gt; **Note:** At this time ACI Connectors are not supported in Azure China.
+     * 
+     * &gt; **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.Subnet;
+     * import com.pulumi.azure.network.SubnetArgs;
+     * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
+     * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var virtual = new Subnet(&#34;virtual&#34;, SubnetArgs.builder()        
+     *             .delegations(SubnetDelegationArgs.builder()
+     *                 .name(&#34;aciDelegation&#34;)
+     *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+     *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
+     *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     private String subnetName;
 
@@ -33,6 +73,46 @@ public final class KubernetesClusterAciConnectorLinux {
     }
     /**
      * @return The subnet name for the virtual nodes to run.
+     * 
+     * &gt; **Note:** At this time ACI Connectors are not supported in Azure China.
+     * 
+     * &gt; **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.Subnet;
+     * import com.pulumi.azure.network.SubnetArgs;
+     * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
+     * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var virtual = new Subnet(&#34;virtual&#34;, SubnetArgs.builder()        
+     *             .delegations(SubnetDelegationArgs.builder()
+     *                 .name(&#34;aciDelegation&#34;)
+     *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+     *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
+     *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public String subnetName() {

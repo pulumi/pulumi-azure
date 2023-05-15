@@ -18,12 +18,16 @@ public final class LockState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can&#39;t modify or delete it.
+     * 
      */
     @Import(name="lockLevel")
     private @Nullable Output<String> lockLevel;
 
     /**
      * @return Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can&#39;t modify or delete it.
      * 
      */
     public Optional<Output<String>> lockLevel() {
@@ -105,6 +109,8 @@ public final class LockState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param lockLevel Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can&#39;t modify or delete it.
+         * 
          * @return builder
          * 
          */
@@ -115,6 +121,8 @@ public final class LockState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param lockLevel Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can&#39;t modify or delete it.
          * 
          * @return builder
          * 

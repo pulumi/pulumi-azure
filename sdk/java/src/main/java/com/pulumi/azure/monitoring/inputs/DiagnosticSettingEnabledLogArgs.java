@@ -19,12 +19,16 @@ public final class DiagnosticSettingEnabledLogArgs extends com.pulumi.resources.
     /**
      * The name of a Diagnostic Log Category for this Resource.
      * 
+     * &gt; **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
+     * 
      */
     @Import(name="category")
     private @Nullable Output<String> category;
 
     /**
      * @return The name of a Diagnostic Log Category for this Resource.
+     * 
+     * &gt; **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
      * 
      */
     public Optional<Output<String>> category() {
@@ -34,12 +38,16 @@ public final class DiagnosticSettingEnabledLogArgs extends com.pulumi.resources.
     /**
      * The name of a Diagnostic Log Category Group for this Resource.
      * 
+     * &gt; **NOTE:** Not all resources have category groups available.****
+     * 
      */
     @Import(name="categoryGroup")
     private @Nullable Output<String> categoryGroup;
 
     /**
      * @return The name of a Diagnostic Log Category Group for this Resource.
+     * 
+     * &gt; **NOTE:** Not all resources have category groups available.****
      * 
      */
     public Optional<Output<String>> categoryGroup() {
@@ -90,6 +98,8 @@ public final class DiagnosticSettingEnabledLogArgs extends com.pulumi.resources.
         /**
          * @param category The name of a Diagnostic Log Category for this Resource.
          * 
+         * &gt; **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
+         * 
          * @return builder
          * 
          */
@@ -101,6 +111,8 @@ public final class DiagnosticSettingEnabledLogArgs extends com.pulumi.resources.
         /**
          * @param category The name of a Diagnostic Log Category for this Resource.
          * 
+         * &gt; **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
+         * 
          * @return builder
          * 
          */
@@ -110,6 +122,8 @@ public final class DiagnosticSettingEnabledLogArgs extends com.pulumi.resources.
 
         /**
          * @param categoryGroup The name of a Diagnostic Log Category Group for this Resource.
+         * 
+         * &gt; **NOTE:** Not all resources have category groups available.****
          * 
          * @return builder
          * 
@@ -121,6 +135,8 @@ public final class DiagnosticSettingEnabledLogArgs extends com.pulumi.resources.
 
         /**
          * @param categoryGroup The name of a Diagnostic Log Category Group for this Resource.
+         * 
+         * &gt; **NOTE:** Not all resources have category groups available.****
          * 
          * @return builder
          * 

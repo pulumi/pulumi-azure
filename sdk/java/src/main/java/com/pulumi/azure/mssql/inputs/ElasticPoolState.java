@@ -24,12 +24,16 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      * 
+     * &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
+     * 
      */
     @Import(name="licenseType")
     private @Nullable Output<String> licenseType;
 
     /**
      * @return Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+     * 
+     * &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
      * 
      */
     public Optional<Output<String>> licenseType() {
@@ -69,12 +73,16 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
      * 
+     * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+     * 
      */
     @Import(name="maxSizeBytes")
     private @Nullable Output<Integer> maxSizeBytes;
 
     /**
      * @return The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+     * 
+     * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
      * 
      */
     public Optional<Output<Integer>> maxSizeBytes() {
@@ -239,6 +247,8 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param licenseType Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
          * 
+         * &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
+         * 
          * @return builder
          * 
          */
@@ -249,6 +259,8 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param licenseType Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+         * 
+         * &gt; **Note:** `license_type` can only be configured when `sku.0.tier` is set to `GeneralPurpose` or `BusinessCritical`
          * 
          * @return builder
          * 
@@ -302,6 +314,8 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param maxSizeBytes The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
          * 
+         * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -312,6 +326,8 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param maxSizeBytes The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+         * 
+         * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
          * 
          * @return builder
          * 

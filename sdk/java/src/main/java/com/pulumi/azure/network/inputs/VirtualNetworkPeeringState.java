@@ -107,9 +107,17 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.resourceGroupName);
     }
 
+    /**
+     * A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+     * 
+     */
     @Import(name="triggers")
     private @Nullable Output<Map<String,String>> triggers;
 
+    /**
+     * @return A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+     * 
+     */
     public Optional<Output<Map<String,String>>> triggers() {
         return Optional.ofNullable(this.triggers);
     }
@@ -117,12 +125,16 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      * 
+     * &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
+     * 
      */
     @Import(name="useRemoteGateways")
     private @Nullable Output<Boolean> useRemoteGateways;
 
     /**
      * @return Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
      * 
      */
     public Optional<Output<Boolean>> useRemoteGateways() {
@@ -302,17 +314,31 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
+        /**
+         * @param triggers A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder triggers(@Nullable Output<Map<String,String>> triggers) {
             $.triggers = triggers;
             return this;
         }
 
+        /**
+         * @param triggers A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder triggers(Map<String,String> triggers) {
             return triggers(Output.of(triggers));
         }
 
         /**
          * @param useRemoteGateways Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
          * 
          * @return builder
          * 
@@ -324,6 +350,8 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
 
         /**
          * @param useRemoteGateways Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
          * 
          * @return builder
          * 

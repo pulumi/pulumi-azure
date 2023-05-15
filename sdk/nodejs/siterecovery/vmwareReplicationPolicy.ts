@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "eastus"});
  * const exampleVault = new azure.recoveryservices.Vault("exampleVault", {
- *     location: azurerm_resource_group.test.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     classicVmwareReplicationEnabled: true,
  *     softDeleteEnabled: false,

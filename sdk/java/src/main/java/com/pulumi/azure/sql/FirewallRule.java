@@ -14,6 +14,10 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Allows you to manage an Azure SQL Firewall Rule.
+ * 
+ * &gt; **Note:** The `azure.sql.FirewallRule` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.FirewallRule` resource instead.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -77,12 +81,16 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
     /**
      * The ending IP address to allow through the firewall for this rule.
      * 
+     * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+     * 
      */
     @Export(name="endIpAddress", refs={String.class}, tree="[0]")
     private Output<String> endIpAddress;
 
     /**
      * @return The ending IP address to allow through the firewall for this rule.
+     * 
+     * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
      * 
      */
     public Output<String> endIpAddress() {

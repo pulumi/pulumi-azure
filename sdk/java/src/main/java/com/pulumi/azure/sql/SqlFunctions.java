@@ -21,6 +21,10 @@ import java.util.concurrent.CompletableFuture;
 
 public final class SqlFunctions {
     /**
+     * Use this data source to access information about an existing SQL Azure Database.
+     * 
+     * &gt; **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -59,6 +63,10 @@ public final class SqlFunctions {
         return getDatabase(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing SQL Azure Database.
+     * 
+     * &gt; **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -97,6 +105,10 @@ public final class SqlFunctions {
         return getDatabasePlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing SQL Azure Database.
+     * 
+     * &gt; **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -135,6 +147,10 @@ public final class SqlFunctions {
         return Deployment.getInstance().invoke("azure:sql/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing SQL Azure Database.
+     * 
+     * &gt; **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -173,6 +189,10 @@ public final class SqlFunctions {
         return Deployment.getInstance().invokeAsync("azure:sql/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing SQL Azure Database Server.
+     * 
+     * &gt; **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -210,6 +230,10 @@ public final class SqlFunctions {
         return getServer(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing SQL Azure Database Server.
+     * 
+     * &gt; **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -247,6 +271,10 @@ public final class SqlFunctions {
         return getServerPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing SQL Azure Database Server.
+     * 
+     * &gt; **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -284,6 +312,10 @@ public final class SqlFunctions {
         return Deployment.getInstance().invoke("azure:sql/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing SQL Azure Database Server.
+     * 
+     * &gt; **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -321,6 +353,10 @@ public final class SqlFunctions {
         return Deployment.getInstance().invokeAsync("azure:sql/getServer:getServer", TypeShape.of(GetServerResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing SQL Managed Instance.
+     * 
+     * &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -358,6 +394,10 @@ public final class SqlFunctions {
         return getSqlManagedInstance(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing SQL Managed Instance.
+     * 
+     * &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -395,6 +435,10 @@ public final class SqlFunctions {
         return getSqlManagedInstancePlain(args, InvokeOptions.Empty);
     }
     /**
+     * Use this data source to access information about an existing SQL Managed Instance.
+     * 
+     * &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;
@@ -432,6 +476,10 @@ public final class SqlFunctions {
         return Deployment.getInstance().invoke("azure:sql/getSqlManagedInstance:getSqlManagedInstance", TypeShape.of(GetSqlManagedInstanceResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing SQL Managed Instance.
+     * 
+     * &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
+     * 
      * ## Example Usage
      * ```java
      * package generated_program;

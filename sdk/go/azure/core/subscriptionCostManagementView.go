@@ -13,6 +13,46 @@ import (
 
 // Manages an Azure Cost Management View for a Subscription.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewSubscriptionCostManagementView(ctx, "example", &core.SubscriptionCostManagementViewArgs{
+//				Accumulated: pulumi.Bool(false),
+//				ChartType:   pulumi.String("StackedColumn"),
+//				Dataset: &core.SubscriptionCostManagementViewDatasetArgs{
+//					Aggregations: core.SubscriptionCostManagementViewDatasetAggregationArray{
+//						&core.SubscriptionCostManagementViewDatasetAggregationArgs{
+//							ColumnName: pulumi.String("Cost"),
+//							Name:       pulumi.String("totalCost"),
+//						},
+//					},
+//					Granularity: pulumi.String("Monthly"),
+//				},
+//				DisplayName:    pulumi.String("Cost View per Month"),
+//				ReportType:     pulumi.String("Usage"),
+//				SubscriptionId: pulumi.String("/subscription/00000000-0000-0000-0000-000000000000"),
+//				Timeframe:      pulumi.String("MonthToDate"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Cost Management View for a Subscriptions can be imported using the `resource id`, e.g.

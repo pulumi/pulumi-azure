@@ -50,6 +50,8 @@ namespace Pulumi.Azure.DataFactory.Inputs
 
         /// <summary>
         /// The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+        /// 
+        /// &gt; **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
         /// </summary>
         [Input("powershellVersion")]
         public Input<string>? PowershellVersion { get; set; }

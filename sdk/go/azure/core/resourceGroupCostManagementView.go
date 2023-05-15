@@ -13,6 +13,52 @@ import (
 
 // Manages an Azure Cost Management View for a Resource Group.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewResourceGroupCostManagementView(ctx, "exampleResourceGroupCostManagementView", &core.ResourceGroupCostManagementViewArgs{
+//				DisplayName:     pulumi.String("Cost View per Month"),
+//				ChartType:       pulumi.String("StackedColumn"),
+//				Accumulated:     pulumi.Bool(false),
+//				ResourceGroupId: exampleResourceGroup.ID(),
+//				ReportType:      pulumi.String("Usage"),
+//				Timeframe:       pulumi.String("MonthToDate"),
+//				Dataset: &core.ResourceGroupCostManagementViewDatasetArgs{
+//					Granularity: pulumi.String("Monthly"),
+//					Aggregations: core.ResourceGroupCostManagementViewDatasetAggregationArray{
+//						&core.ResourceGroupCostManagementViewDatasetAggregationArgs{
+//							Name:       pulumi.String("totalCost"),
+//							ColumnName: pulumi.String("Cost"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Cost Management View for a Resource Groups can be imported using the `resource id`, e.g.

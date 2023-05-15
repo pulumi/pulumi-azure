@@ -27,7 +27,6 @@ namespace Pulumi.Azure.DataFactory.Outputs
         public readonly string Filename;
         /// <summary>
         /// The folder path to the file on the web server.
-        /// ---
         /// </summary>
         public readonly string? Path;
         /// <summary>

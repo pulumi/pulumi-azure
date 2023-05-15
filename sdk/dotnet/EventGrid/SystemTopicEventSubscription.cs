@@ -97,6 +97,8 @@ namespace Pulumi.Azure.EventGrid
 
         /// <summary>
         /// A `dead_letter_identity` block as defined below.
+        /// 
+        /// &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
         /// </summary>
         [Output("deadLetterIdentity")]
         public Output<Outputs.SystemTopicEventSubscriptionDeadLetterIdentity?> DeadLetterIdentity { get; private set; } = null!;
@@ -205,6 +207,8 @@ namespace Pulumi.Azure.EventGrid
 
         /// <summary>
         /// A `webhook_endpoint` block as defined below.
+        /// 
+        /// &gt; **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
         /// </summary>
         [Output("webhookEndpoint")]
         public Output<Outputs.SystemTopicEventSubscriptionWebhookEndpoint?> WebhookEndpoint { get; private set; } = null!;
@@ -275,6 +279,8 @@ namespace Pulumi.Azure.EventGrid
 
         /// <summary>
         /// A `dead_letter_identity` block as defined below.
+        /// 
+        /// &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
         /// </summary>
         [Input("deadLetterIdentity")]
         public Input<Inputs.SystemTopicEventSubscriptionDeadLetterIdentityArgs>? DeadLetterIdentity { get; set; }
@@ -401,6 +407,8 @@ namespace Pulumi.Azure.EventGrid
 
         /// <summary>
         /// A `webhook_endpoint` block as defined below.
+        /// 
+        /// &gt; **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
         /// </summary>
         [Input("webhookEndpoint")]
         public Input<Inputs.SystemTopicEventSubscriptionWebhookEndpointArgs>? WebhookEndpoint { get; set; }
@@ -433,6 +441,8 @@ namespace Pulumi.Azure.EventGrid
 
         /// <summary>
         /// A `dead_letter_identity` block as defined below.
+        /// 
+        /// &gt; **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
         /// </summary>
         [Input("deadLetterIdentity")]
         public Input<Inputs.SystemTopicEventSubscriptionDeadLetterIdentityGetArgs>? DeadLetterIdentity { get; set; }
@@ -559,6 +569,8 @@ namespace Pulumi.Azure.EventGrid
 
         /// <summary>
         /// A `webhook_endpoint` block as defined below.
+        /// 
+        /// &gt; **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
         /// </summary>
         [Input("webhookEndpoint")]
         public Input<Inputs.SystemTopicEventSubscriptionWebhookEndpointGetArgs>? WebhookEndpoint { get; set; }

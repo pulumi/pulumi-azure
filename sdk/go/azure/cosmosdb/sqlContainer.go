@@ -99,6 +99,8 @@ type SqlContainer struct {
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrOutput `pulumi:"analyticalStorageTtl"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy SqlContainerConflictResolutionPolicyOutput `pulumi:"conflictResolutionPolicy"`
@@ -168,6 +170,8 @@ type sqlContainerState struct {
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy *SqlContainerConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
@@ -197,6 +201,8 @@ type SqlContainerState struct {
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrInput
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy SqlContainerConflictResolutionPolicyPtrInput
@@ -230,6 +236,8 @@ type sqlContainerArgs struct {
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy *SqlContainerConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
@@ -260,6 +268,8 @@ type SqlContainerArgs struct {
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrInput
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy SqlContainerConflictResolutionPolicyPtrInput
@@ -381,6 +391,8 @@ func (o SqlContainerOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 }
 
 // An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+//
+// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 func (o SqlContainerOutput) AutoscaleSettings() SqlContainerAutoscaleSettingsPtrOutput {
 	return o.ApplyT(func(v *SqlContainer) SqlContainerAutoscaleSettingsPtrOutput { return v.AutoscaleSettings }).(SqlContainerAutoscaleSettingsPtrOutput)
 }

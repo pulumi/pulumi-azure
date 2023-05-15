@@ -31,6 +31,8 @@ class NetworkPacketCaptureArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
         :param pulumi.Input['NetworkPacketCaptureStorageLocationArgs'] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Currently only Virtual Machines IDs are supported.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkPacketCaptureFilterArgs']]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
@@ -93,6 +95,8 @@ class NetworkPacketCaptureArgs:
     def target_resource_id(self) -> pulumi.Input[str]:
         """
         The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+
+        > **NOTE:** Currently only Virtual Machines IDs are supported.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -184,6 +188,8 @@ class _NetworkPacketCaptureState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
         :param pulumi.Input['NetworkPacketCaptureStorageLocationArgs'] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Currently only Virtual Machines IDs are supported.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -305,6 +311,8 @@ class _NetworkPacketCaptureState:
     def target_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+
+        > **NOTE:** Currently only Virtual Machines IDs are supported.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -426,6 +434,8 @@ class NetworkPacketCapture(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['NetworkPacketCaptureStorageLocationArgs']] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Currently only Virtual Machines IDs are supported.
         """
         ...
     @overload
@@ -605,6 +615,8 @@ class NetworkPacketCapture(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['NetworkPacketCaptureStorageLocationArgs']] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Currently only Virtual Machines IDs are supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -690,6 +702,8 @@ class NetworkPacketCapture(pulumi.CustomResource):
     def target_resource_id(self) -> pulumi.Output[str]:
         """
         The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+
+        > **NOTE:** Currently only Virtual Machines IDs are supported.
         """
         return pulumi.get(self, "target_resource_id")
 

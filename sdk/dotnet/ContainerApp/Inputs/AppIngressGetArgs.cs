@@ -47,6 +47,8 @@ namespace Pulumi.Azure.ContainerApp.Inputs
 
         /// <summary>
         /// A `traffic_weight` block as detailed below.
+        /// 
+        /// &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
         /// </summary>
         public InputList<Inputs.AppIngressTrafficWeightGetArgs> TrafficWeights
         {

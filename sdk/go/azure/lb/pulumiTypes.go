@@ -275,6 +275,8 @@ type LoadBalancerFrontendIpConfiguration struct {
 	// The ID of the Subnet which should be associated with the IP Configuration.
 	SubnetId *string `pulumi:"subnetId"`
 	// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
+	//
+	// > **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -315,6 +317,8 @@ type LoadBalancerFrontendIpConfigurationArgs struct {
 	// The ID of the Subnet which should be associated with the IP Configuration.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
+	//
+	// > **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
 	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
@@ -432,6 +436,8 @@ func (o LoadBalancerFrontendIpConfigurationOutput) SubnetId() pulumi.StringPtrOu
 }
 
 // Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
+//
+// > **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
 func (o LoadBalancerFrontendIpConfigurationOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }

@@ -31,6 +31,8 @@ class LinkServiceNatIpConfigurationArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] primary: Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: Specifies the ID of the Subnet which should be used for the Private Link Service.
+               
+               > **NOTE:** Verify that the Subnet's `enforce_private_link_service_network_policies` attribute is set to `true`.
         :param pulumi.Input[str] private_ip_address: Specifies a Private Static IP Address for this IP Configuration.
         :param pulumi.Input[str] private_ip_address_version: The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
         """
@@ -71,6 +73,8 @@ class LinkServiceNatIpConfigurationArgs:
     def subnet_id(self) -> pulumi.Input[str]:
         """
         Specifies the ID of the Subnet which should be used for the Private Link Service.
+
+        > **NOTE:** Verify that the Subnet's `enforce_private_link_service_network_policies` attribute is set to `true`.
         """
         return pulumi.get(self, "subnet_id")
 

@@ -108,7 +108,7 @@ type LookupLinuxFunctionAppResult struct {
 	OutboundIpAddresses string `pulumi:"outboundIpAddresses"`
 	// A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
-	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
 	ResourceGroupName           string `pulumi:"resourceGroupName"`
 	// The ID of the App Service Plan within which this Function App has been created.
@@ -298,7 +298,7 @@ func (o LookupLinuxFunctionAppResultOutput) PossibleOutboundIpAddressLists() pul
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) []string { return v.PossibleOutboundIpAddressLists }).(pulumi.StringArrayOutput)
 }
 
-// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
 func (o LookupLinuxFunctionAppResultOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) string { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }

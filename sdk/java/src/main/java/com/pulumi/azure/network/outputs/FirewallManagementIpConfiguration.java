@@ -24,10 +24,14 @@ public final class FirewallManagementIpConfiguration {
     /**
      * @return The ID of the Public IP Address associated with the firewall.
      * 
+     * &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+     * 
      */
     private String publicIpAddressId;
     /**
      * @return Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
      * 
      */
     private String subnetId;
@@ -50,12 +54,16 @@ public final class FirewallManagementIpConfiguration {
     /**
      * @return The ID of the Public IP Address associated with the firewall.
      * 
+     * &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+     * 
      */
     public String publicIpAddressId() {
         return this.publicIpAddressId;
     }
     /**
      * @return Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
      * 
      */
     public String subnetId() {

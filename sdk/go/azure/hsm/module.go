@@ -163,6 +163,8 @@ type Module struct {
 	// The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A `managementNetworkProfile` block as defined below.
+	//
+	// ->**NOTE:**  The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
 	ManagementNetworkProfile ModuleManagementNetworkProfilePtrOutput `pulumi:"managementNetworkProfile"`
 	// The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -221,6 +223,8 @@ type moduleState struct {
 	// The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Location *string `pulumi:"location"`
 	// A `managementNetworkProfile` block as defined below.
+	//
+	// ->**NOTE:**  The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
 	ManagementNetworkProfile *ModuleManagementNetworkProfile `pulumi:"managementNetworkProfile"`
 	// The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Name *string `pulumi:"name"`
@@ -242,6 +246,8 @@ type ModuleState struct {
 	// The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Location pulumi.StringPtrInput
 	// A `managementNetworkProfile` block as defined below.
+	//
+	// ->**NOTE:**  The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
 	ManagementNetworkProfile ModuleManagementNetworkProfilePtrInput
 	// The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Name pulumi.StringPtrInput
@@ -267,6 +273,8 @@ type moduleArgs struct {
 	// The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Location *string `pulumi:"location"`
 	// A `managementNetworkProfile` block as defined below.
+	//
+	// ->**NOTE:**  The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
 	ManagementNetworkProfile *ModuleManagementNetworkProfile `pulumi:"managementNetworkProfile"`
 	// The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Name *string `pulumi:"name"`
@@ -289,6 +297,8 @@ type ModuleArgs struct {
 	// The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Location pulumi.StringPtrInput
 	// A `managementNetworkProfile` block as defined below.
+	//
+	// ->**NOTE:**  The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
 	ManagementNetworkProfile ModuleManagementNetworkProfilePtrInput
 	// The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
 	Name pulumi.StringPtrInput
@@ -399,6 +409,8 @@ func (o ModuleOutput) Location() pulumi.StringOutput {
 }
 
 // A `managementNetworkProfile` block as defined below.
+//
+// ->**NOTE:**  The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
 func (o ModuleOutput) ManagementNetworkProfile() ModuleManagementNetworkProfilePtrOutput {
 	return o.ApplyT(func(v *Module) ModuleManagementNetworkProfilePtrOutput { return v.ManagementNetworkProfile }).(ModuleManagementNetworkProfilePtrOutput)
 }

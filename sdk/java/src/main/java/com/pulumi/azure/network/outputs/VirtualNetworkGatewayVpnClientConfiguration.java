@@ -59,6 +59,8 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
      * @return List of the vpn authentication types for the virtual network gateway.
      * The supported values are `AAD`, `Radius` and `Certificate`.
      * 
+     * &gt; **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+     * 
      */
     private @Nullable List<String> vpnAuthTypes;
     /**
@@ -131,6 +133,8 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
     /**
      * @return List of the vpn authentication types for the virtual network gateway.
      * The supported values are `AAD`, `Radius` and `Certificate`.
+     * 
+     * &gt; **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
      * 
      */
     public List<String> vpnAuthTypes() {

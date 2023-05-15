@@ -184,6 +184,8 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
     public readonly managedRules!: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyManagedRule[] | undefined>;
     /**
      * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+     *
+     * > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
      */
     public readonly mode!: pulumi.Output<string>;
     /**
@@ -200,6 +202,8 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -291,6 +295,8 @@ export interface FrontdoorFirewallPolicyState {
     managedRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRule>[]>;
     /**
      * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+     *
+     * > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
      */
     mode?: pulumi.Input<string>;
     /**
@@ -307,6 +313,8 @@ export interface FrontdoorFirewallPolicyState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -341,6 +349,8 @@ export interface FrontdoorFirewallPolicyArgs {
     managedRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRule>[]>;
     /**
      * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+     *
+     * > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
      */
     mode: pulumi.Input<string>;
     /**
@@ -357,6 +367,8 @@ export interface FrontdoorFirewallPolicyArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
      */
     skuName: pulumi.Input<string>;
     /**

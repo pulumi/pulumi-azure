@@ -199,6 +199,8 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicy(dict):
         :param Sequence['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs'] approvers: An `approver` block as defined below.
         :param str maximum_activation_duration: The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to `PT8H`.
         :param str multi_factor_auth_provider: The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+               
+               > **Note:** When this property isn't set, it would be set to `None`.
         """
         if approvers is not None:
             pulumi.set(__self__, "approvers", approvers)
@@ -228,6 +230,8 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicy(dict):
     def multi_factor_auth_provider(self) -> Optional[str]:
         """
         The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+
+        > **Note:** When this property isn't set, it would be set to `None`.
         """
         return pulumi.get(self, "multi_factor_auth_provider")
 

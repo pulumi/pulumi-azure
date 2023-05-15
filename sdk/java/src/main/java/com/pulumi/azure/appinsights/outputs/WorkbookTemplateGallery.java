@@ -35,6 +35,8 @@ public final class WorkbookTemplateGallery {
     /**
      * @return Type of workbook supported by the workbook template. Defaults to `workbook`.
      * 
+     * &gt; **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
+     * 
      */
     private @Nullable String type;
 
@@ -69,6 +71,8 @@ public final class WorkbookTemplateGallery {
     }
     /**
      * @return Type of workbook supported by the workbook template. Defaults to `workbook`.
+     * 
+     * &gt; **Note:** See [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-automate#galleries) for more information of `resource_type` and `type`.
      * 
      */
     public Optional<String> type() {

@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
  *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .mobileCountryCode(&#34;001&#34;)
  *             .mobileNetworkCode(&#34;01&#34;)
  *             .build());

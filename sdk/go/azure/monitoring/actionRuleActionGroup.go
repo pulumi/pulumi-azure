@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Monitor Action Rule which type is action group.
+//
+// !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `monitoring.AlertProcessingRuleActionGroup` resource instead.
+//
 // ## Example Usage
 //
 // ```go

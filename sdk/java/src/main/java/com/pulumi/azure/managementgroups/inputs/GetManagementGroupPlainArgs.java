@@ -17,12 +17,16 @@ public final class GetManagementGroupPlainArgs extends com.pulumi.resources.Invo
     /**
      * Specifies the display name of this Management Group.
      * 
+     * &gt; **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
+     * 
      */
     @Import(name="displayName")
     private @Nullable String displayName;
 
     /**
      * @return Specifies the display name of this Management Group.
+     * 
+     * &gt; **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
      * 
      */
     public Optional<String> displayName() {
@@ -71,6 +75,8 @@ public final class GetManagementGroupPlainArgs extends com.pulumi.resources.Invo
 
         /**
          * @param displayName Specifies the display name of this Management Group.
+         * 
+         * &gt; **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
          * 
          * @return builder
          * 

@@ -47,6 +47,8 @@ export class FrontdoorRoute extends pulumi.CustomResource {
 
     /**
      * A `cache` block as defined below.
+     *
+     * > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
      */
     public readonly cache!: pulumi.Output<outputs.cdn.FrontdoorRouteCache | undefined>;
     /**
@@ -83,6 +85,8 @@ export class FrontdoorRoute extends pulumi.CustomResource {
     public readonly forwardingProtocol!: pulumi.Output<string | undefined>;
     /**
      * Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
+     *
+     * > **NOTE:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
      */
     public readonly httpsRedirectEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -99,6 +103,8 @@ export class FrontdoorRoute extends pulumi.CustomResource {
     public readonly patternsToMatches!: pulumi.Output<string[]>;
     /**
      * One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
+     *
+     * > **NOTE:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
      */
     public readonly supportedProtocols!: pulumi.Output<string[]>;
 
@@ -172,6 +178,8 @@ export class FrontdoorRoute extends pulumi.CustomResource {
 export interface FrontdoorRouteState {
     /**
      * A `cache` block as defined below.
+     *
+     * > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
      */
     cache?: pulumi.Input<inputs.cdn.FrontdoorRouteCache>;
     /**
@@ -208,6 +216,8 @@ export interface FrontdoorRouteState {
     forwardingProtocol?: pulumi.Input<string>;
     /**
      * Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
+     *
+     * > **NOTE:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
      */
     httpsRedirectEnabled?: pulumi.Input<boolean>;
     /**
@@ -224,6 +234,8 @@ export interface FrontdoorRouteState {
     patternsToMatches?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
+     *
+     * > **NOTE:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
      */
     supportedProtocols?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -234,6 +246,8 @@ export interface FrontdoorRouteState {
 export interface FrontdoorRouteArgs {
     /**
      * A `cache` block as defined below.
+     *
+     * > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
      */
     cache?: pulumi.Input<inputs.cdn.FrontdoorRouteCache>;
     /**
@@ -270,6 +284,8 @@ export interface FrontdoorRouteArgs {
     forwardingProtocol?: pulumi.Input<string>;
     /**
      * Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
+     *
+     * > **NOTE:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
      */
     httpsRedirectEnabled?: pulumi.Input<boolean>;
     /**
@@ -286,6 +302,8 @@ export interface FrontdoorRouteArgs {
     patternsToMatches: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
+     *
+     * > **NOTE:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
      */
     supportedProtocols: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -62,6 +62,8 @@ export class PortalTenantConfiguration extends pulumi.CustomResource {
 
     /**
      * Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+     *
+     * > **Note:** When `privateMarkdownStorageEnforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
      */
     public readonly privateMarkdownStorageEnforced!: pulumi.Output<boolean>;
 
@@ -97,6 +99,8 @@ export class PortalTenantConfiguration extends pulumi.CustomResource {
 export interface PortalTenantConfigurationState {
     /**
      * Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+     *
+     * > **Note:** When `privateMarkdownStorageEnforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
      */
     privateMarkdownStorageEnforced?: pulumi.Input<boolean>;
 }
@@ -107,6 +111,8 @@ export interface PortalTenantConfigurationState {
 export interface PortalTenantConfigurationArgs {
     /**
      * Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+     *
+     * > **Note:** When `privateMarkdownStorageEnforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
      */
     privateMarkdownStorageEnforced: pulumi.Input<boolean>;
 }

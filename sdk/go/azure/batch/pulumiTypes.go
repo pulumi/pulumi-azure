@@ -149,6 +149,8 @@ func (o AccountEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 
 type AccountIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -171,6 +173,8 @@ type AccountIdentityInput interface {
 
 type AccountIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -258,6 +262,8 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -302,6 +308,8 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountIdentity) []string {
 		if v == nil {
@@ -657,6 +665,8 @@ type PoolCertificate struct {
 	// The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
 	Id string `pulumi:"id"`
 	// The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
+	//
+	// > **NOTE:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
 	StoreLocation string `pulumi:"storeLocation"`
 	// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
 	StoreName *string `pulumi:"storeName"`
@@ -679,6 +689,8 @@ type PoolCertificateArgs struct {
 	// The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
+	//
+	// > **NOTE:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
 	StoreLocation pulumi.StringInput `pulumi:"storeLocation"`
 	// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
 	StoreName pulumi.StringPtrInput `pulumi:"storeName"`
@@ -743,6 +755,8 @@ func (o PoolCertificateOutput) Id() pulumi.StringOutput {
 }
 
 // The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
+//
+// > **NOTE:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
 func (o PoolCertificateOutput) StoreLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolCertificate) string { return v.StoreLocation }).(pulumi.StringOutput)
 }
@@ -3521,6 +3535,8 @@ type PoolStartTaskContainerRegistry struct {
 	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
 	RegistryServer string `pulumi:"registryServer"`
 	// An identity reference from pool's user assigned managed identity list.
+	//
+	// > **Please Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 	// The username to be used by the Batch pool start task.
 	UserName *string `pulumi:"userName"`
@@ -3543,6 +3559,8 @@ type PoolStartTaskContainerRegistryArgs struct {
 	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
 	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
 	// An identity reference from pool's user assigned managed identity list.
+	//
+	// > **Please Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 	// The username to be used by the Batch pool start task.
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
@@ -3610,6 +3628,8 @@ func (o PoolStartTaskContainerRegistryOutput) RegistryServer() pulumi.StringOutp
 }
 
 // An identity reference from pool's user assigned managed identity list.
+//
+// > **Please Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
 func (o PoolStartTaskContainerRegistryOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskContainerRegistry) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -3653,6 +3673,8 @@ type PoolStartTaskResourceFile struct {
 	// The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
 	StorageContainerUrl *string `pulumi:"storageContainerUrl"`
 	// An identity reference from pool's user assigned managed identity list.
+	//
+	// > **Please Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -3681,6 +3703,8 @@ type PoolStartTaskResourceFileArgs struct {
 	// The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
 	StorageContainerUrl pulumi.StringPtrInput `pulumi:"storageContainerUrl"`
 	// An identity reference from pool's user assigned managed identity list.
+	//
+	// > **Please Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -3766,6 +3790,8 @@ func (o PoolStartTaskResourceFileOutput) StorageContainerUrl() pulumi.StringPtrO
 }
 
 // An identity reference from pool's user assigned managed identity list.
+//
+// > **Please Note:** Exactly one of `autoStorageContainerName`, `storageContainerUrl` and `autoUser` must be specified.
 func (o PoolStartTaskResourceFileOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -3792,6 +3818,8 @@ func (o PoolStartTaskResourceFileArrayOutput) Index(i pulumi.IntInput) PoolStart
 
 type PoolStartTaskUserIdentity struct {
 	// A `autoUser` block that describes the user identity under which the start task runs as defined below.
+	//
+	// > **Please Note:** `userName` and `autoUser` blocks cannot be used both at the same time, but you need to define one or the other.
 	AutoUser *PoolStartTaskUserIdentityAutoUser `pulumi:"autoUser"`
 	// The username to be used by the Batch pool start task.
 	UserName *string `pulumi:"userName"`
@@ -3810,6 +3838,8 @@ type PoolStartTaskUserIdentityInput interface {
 
 type PoolStartTaskUserIdentityArgs struct {
 	// A `autoUser` block that describes the user identity under which the start task runs as defined below.
+	//
+	// > **Please Note:** `userName` and `autoUser` blocks cannot be used both at the same time, but you need to define one or the other.
 	AutoUser PoolStartTaskUserIdentityAutoUserPtrInput `pulumi:"autoUser"`
 	// The username to be used by the Batch pool start task.
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
@@ -3893,6 +3923,8 @@ func (o PoolStartTaskUserIdentityOutput) ToPoolStartTaskUserIdentityPtrOutputWit
 }
 
 // A `autoUser` block that describes the user identity under which the start task runs as defined below.
+//
+// > **Please Note:** `userName` and `autoUser` blocks cannot be used both at the same time, but you need to define one or the other.
 func (o PoolStartTaskUserIdentityOutput) AutoUser() PoolStartTaskUserIdentityAutoUserPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskUserIdentity) *PoolStartTaskUserIdentityAutoUser { return v.AutoUser }).(PoolStartTaskUserIdentityAutoUserPtrOutput)
 }
@@ -3927,6 +3959,8 @@ func (o PoolStartTaskUserIdentityPtrOutput) Elem() PoolStartTaskUserIdentityOutp
 }
 
 // A `autoUser` block that describes the user identity under which the start task runs as defined below.
+//
+// > **Please Note:** `userName` and `autoUser` blocks cannot be used both at the same time, but you need to define one or the other.
 func (o PoolStartTaskUserIdentityPtrOutput) AutoUser() PoolStartTaskUserIdentityAutoUserPtrOutput {
 	return o.ApplyT(func(v *PoolStartTaskUserIdentity) *PoolStartTaskUserIdentityAutoUser {
 		if v == nil {
@@ -4112,6 +4146,8 @@ type PoolStorageImageReference struct {
 	// Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+	//
+	// To provision a Custom Image, the following fields are applicable:
 	Version *string `pulumi:"version"`
 }
 
@@ -4136,6 +4172,8 @@ type PoolStorageImageReferenceArgs struct {
 	// Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput `pulumi:"sku"`
 	// Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+	//
+	// To provision a Custom Image, the following fields are applicable:
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -4237,6 +4275,8 @@ func (o PoolStorageImageReferenceOutput) Sku() pulumi.StringPtrOutput {
 }
 
 // Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+//
+// To provision a Custom Image, the following fields are applicable:
 func (o PoolStorageImageReferenceOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStorageImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -4306,6 +4346,8 @@ func (o PoolStorageImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
 }
 
 // Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+//
+// To provision a Custom Image, the following fields are applicable:
 func (o PoolStorageImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PoolStorageImageReference) *string {
 		if v == nil {

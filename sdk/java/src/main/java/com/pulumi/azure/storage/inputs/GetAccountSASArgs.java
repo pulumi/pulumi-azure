@@ -37,12 +37,16 @@ public final class GetAccountSASArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
      * 
+     * &gt; **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+     * 
      */
     @Import(name="expiry", required=true)
     private Output<String> expiry;
 
     /**
      * @return The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
+     * 
+     * &gt; **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
      * 
      */
     public Output<String> expiry() {
@@ -210,6 +214,8 @@ public final class GetAccountSASArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param expiry The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
          * 
+         * &gt; **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+         * 
          * @return builder
          * 
          */
@@ -220,6 +226,8 @@ public final class GetAccountSASArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param expiry The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
+         * 
+         * &gt; **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
          * 
          * @return builder
          * 

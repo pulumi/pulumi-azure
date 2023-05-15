@@ -79,6 +79,8 @@ export class LogzMonitor extends pulumi.CustomResource {
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+     *
+     * > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
      */
     public readonly enterpriseAppId!: pulumi.Output<string | undefined>;
     /**
@@ -180,6 +182,8 @@ export interface LogzMonitorState {
     enabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+     *
+     * > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
      */
     enterpriseAppId?: pulumi.Input<string>;
     /**
@@ -230,6 +234,8 @@ export interface LogzMonitorArgs {
     enabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Enterprise App. Changing this forces a new logz Monitor to be created.
+     *
+     * > **NOTE** Please follow [Set up Logz.io single sign-on](https://docs.microsoft.com/azure/partner-solutions/logzio/setup-sso) to create the ID of the Enterprise App.
      */
     enterpriseAppId?: pulumi.Input<string>;
     /**

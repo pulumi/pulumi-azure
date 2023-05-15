@@ -234,6 +234,8 @@ class ClusterCertificateCommonNamesCommonName(dict):
         """
         :param str certificate_common_name: The common or subject name of the certificate.
         :param str certificate_issuer_thumbprint: The Issuer Thumbprint of the Certificate.
+               
+               > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
         """
         pulumi.set(__self__, "certificate_common_name", certificate_common_name)
         if certificate_issuer_thumbprint is not None:
@@ -252,6 +254,8 @@ class ClusterCertificateCommonNamesCommonName(dict):
     def certificate_issuer_thumbprint(self) -> Optional[str]:
         """
         The Issuer Thumbprint of the Certificate.
+
+        > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
         """
         return pulumi.get(self, "certificate_issuer_thumbprint")
 
@@ -287,6 +291,8 @@ class ClusterClientCertificateCommonName(dict):
         :param str common_name: The common or subject name of the certificate.
         :param bool is_admin: Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
         :param str issuer_thumbprint: The Issuer Thumbprint of the Certificate.
+               
+               > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
         """
         pulumi.set(__self__, "common_name", common_name)
         pulumi.set(__self__, "is_admin", is_admin)
@@ -314,6 +320,8 @@ class ClusterClientCertificateCommonName(dict):
     def issuer_thumbprint(self) -> Optional[str]:
         """
         The Issuer Thumbprint of the Certificate.
+
+        > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
         """
         return pulumi.get(self, "issuer_thumbprint")
 
@@ -907,6 +915,8 @@ class ClusterReverseProxyCertificateCommonNamesCommonName(dict):
         """
         :param str certificate_common_name: The common or subject name of the certificate.
         :param str certificate_issuer_thumbprint: The Issuer Thumbprint of the Certificate.
+               
+               > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
         """
         pulumi.set(__self__, "certificate_common_name", certificate_common_name)
         if certificate_issuer_thumbprint is not None:
@@ -925,6 +935,8 @@ class ClusterReverseProxyCertificateCommonNamesCommonName(dict):
     def certificate_issuer_thumbprint(self) -> Optional[str]:
         """
         The Issuer Thumbprint of the Certificate.
+
+        > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
         """
         return pulumi.get(self, "certificate_issuer_thumbprint")
 

@@ -14,10 +14,16 @@ public final class ScaleSetOsProfileLinuxConfigSshKey {
     /**
      * @return The Public SSH Key which should be written to the `path` defined above.
      * 
+     * &gt; **Note:** Azure only supports RSA SSH2 key signatures of at least 2048 bits in length
+     * 
+     * &gt; **NOTE:** Rather than defining this in-line you can source this from a local file using the `file` function - for example `key_data = file(&#34;~/.ssh/id_rsa.pub&#34;)`.
+     * 
      */
     private @Nullable String keyData;
     /**
      * @return The path of the destination file on the virtual machine
+     * 
+     * &gt; **NOTE:** Due to a limitation in the Azure VM Agent the only allowed `path` is `/home/{username}/.ssh/authorized_keys`.
      * 
      */
     private String path;
@@ -26,12 +32,18 @@ public final class ScaleSetOsProfileLinuxConfigSshKey {
     /**
      * @return The Public SSH Key which should be written to the `path` defined above.
      * 
+     * &gt; **Note:** Azure only supports RSA SSH2 key signatures of at least 2048 bits in length
+     * 
+     * &gt; **NOTE:** Rather than defining this in-line you can source this from a local file using the `file` function - for example `key_data = file(&#34;~/.ssh/id_rsa.pub&#34;)`.
+     * 
      */
     public Optional<String> keyData() {
         return Optional.ofNullable(this.keyData);
     }
     /**
      * @return The path of the destination file on the virtual machine
+     * 
+     * &gt; **NOTE:** Due to a limitation in the Azure VM Agent the only allowed `path` is `/home/{username}/.ssh/authorized_keys`.
      * 
      */
     public String path() {

@@ -581,6 +581,8 @@ type AccountConsistencyPolicy struct {
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistencyLevel` is set to `BoundedStaleness`.
 	MaxIntervalInSeconds *int `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
+	//
+	// > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to custom values when `consistencyLevel` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
 	MaxStalenessPrefix *int `pulumi:"maxStalenessPrefix"`
 }
 
@@ -601,6 +603,8 @@ type AccountConsistencyPolicyArgs struct {
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistencyLevel` is set to `BoundedStaleness`.
 	MaxIntervalInSeconds pulumi.IntPtrInput `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
+	//
+	// > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to custom values when `consistencyLevel` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
 	MaxStalenessPrefix pulumi.IntPtrInput `pulumi:"maxStalenessPrefix"`
 }
 
@@ -692,6 +696,8 @@ func (o AccountConsistencyPolicyOutput) MaxIntervalInSeconds() pulumi.IntPtrOutp
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
+//
+// > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to custom values when `consistencyLevel` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
 func (o AccountConsistencyPolicyOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountConsistencyPolicy) *int { return v.MaxStalenessPrefix }).(pulumi.IntPtrOutput)
 }
@@ -741,6 +747,8 @@ func (o AccountConsistencyPolicyPtrOutput) MaxIntervalInSeconds() pulumi.IntPtrO
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
+//
+// > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to custom values when `consistencyLevel` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
 func (o AccountConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountConsistencyPolicy) *int {
 		if v == nil {
@@ -1287,6 +1295,8 @@ type AccountRestore struct {
 	// The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
 	RestoreTimestampInUtc string `pulumi:"restoreTimestampInUtc"`
 	// The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
 	SourceCosmosdbAccountId string `pulumi:"sourceCosmosdbAccountId"`
 }
 
@@ -1307,6 +1317,8 @@ type AccountRestoreArgs struct {
 	// The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
 	RestoreTimestampInUtc pulumi.StringInput `pulumi:"restoreTimestampInUtc"`
 	// The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
 	SourceCosmosdbAccountId pulumi.StringInput `pulumi:"sourceCosmosdbAccountId"`
 }
 
@@ -1398,6 +1410,8 @@ func (o AccountRestoreOutput) RestoreTimestampInUtc() pulumi.StringOutput {
 }
 
 // The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
 func (o AccountRestoreOutput) SourceCosmosdbAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountRestore) string { return v.SourceCosmosdbAccountId }).(pulumi.StringOutput)
 }
@@ -1447,6 +1461,8 @@ func (o AccountRestorePtrOutput) RestoreTimestampInUtc() pulumi.StringPtrOutput 
 }
 
 // The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
 func (o AccountRestorePtrOutput) SourceCosmosdbAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountRestore) *string {
 		if v == nil {
@@ -3820,6 +3836,8 @@ type MongoCollectionIndex struct {
 	// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
 	Keys []string `pulumi:"keys"`
 	// Is the index unique or not? Defaults to `false`.
+	//
+	// > **Note:** An index with an "_id" key must be specified.
 	Unique *bool `pulumi:"unique"`
 }
 
@@ -3838,6 +3856,8 @@ type MongoCollectionIndexArgs struct {
 	// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
 	// Is the index unique or not? Defaults to `false`.
+	//
+	// > **Note:** An index with an "_id" key must be specified.
 	Unique pulumi.BoolPtrInput `pulumi:"unique"`
 }
 
@@ -3898,6 +3918,8 @@ func (o MongoCollectionIndexOutput) Keys() pulumi.StringArrayOutput {
 }
 
 // Is the index unique or not? Defaults to `false`.
+//
+// > **Note:** An index with an "_id" key must be specified.
 func (o MongoCollectionIndexOutput) Unique() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MongoCollectionIndex) *bool { return v.Unique }).(pulumi.BoolPtrOutput)
 }
@@ -3926,6 +3948,8 @@ type MongoCollectionSystemIndex struct {
 	// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
 	Keys []string `pulumi:"keys"`
 	// Is the index unique or not? Defaults to `false`.
+	//
+	// > **Note:** An index with an "_id" key must be specified.
 	Unique *bool `pulumi:"unique"`
 }
 
@@ -3944,6 +3968,8 @@ type MongoCollectionSystemIndexArgs struct {
 	// Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
 	// Is the index unique or not? Defaults to `false`.
+	//
+	// > **Note:** An index with an "_id" key must be specified.
 	Unique pulumi.BoolPtrInput `pulumi:"unique"`
 }
 
@@ -4004,6 +4030,8 @@ func (o MongoCollectionSystemIndexOutput) Keys() pulumi.StringArrayOutput {
 }
 
 // Is the index unique or not? Defaults to `false`.
+//
+// > **Note:** An index with an "_id" key must be specified.
 func (o MongoCollectionSystemIndexOutput) Unique() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MongoCollectionSystemIndex) *bool { return v.Unique }).(pulumi.BoolPtrOutput)
 }

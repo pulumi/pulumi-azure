@@ -78,10 +78,6 @@ import javax.annotation.Nullable;
  *             .apiManagementId(exampleService.id())
  *             .build());
  * 
- *         var exampleApimanagement_tagTag = new Tag(&#34;exampleApimanagement/tagTag&#34;, TagArgs.builder()        
- *             .apiManagementId(exampleService.id())
- *             .build());
- * 
  *         var exampleApiTagDescription = new ApiTagDescription(&#34;exampleApiTagDescription&#34;, ApiTagDescriptionArgs.builder()        
  *             .apiTagId(exampleTag.id())
  *             .description(&#34;This is an example description&#34;)

@@ -29,6 +29,8 @@ public final class ServicePlanDefaultAutoShutdown {
     /**
      * @return Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified. No need to set `idle_delay` when `shutdown_on_idle` isn&#39;t specified.
+     * 
      */
     private @Nullable String shutdownOnIdle;
 
@@ -56,6 +58,8 @@ public final class ServicePlanDefaultAutoShutdown {
     }
     /**
      * @return Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified. No need to set `idle_delay` when `shutdown_on_idle` isn&#39;t specified.
      * 
      */
     public Optional<String> shutdownOnIdle() {

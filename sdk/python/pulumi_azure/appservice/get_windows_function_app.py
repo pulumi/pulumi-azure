@@ -315,7 +315,7 @@ class GetWindowsFunctionAppResult:
     @pulumi.getter(name="outboundIpAddressLists")
     def outbound_ip_address_lists(self) -> Sequence[str]:
         """
-        A list of outbound IP addresses.
+        A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
         """
         return pulumi.get(self, "outbound_ip_address_lists")
 
@@ -331,7 +331,7 @@ class GetWindowsFunctionAppResult:
     @pulumi.getter(name="possibleOutboundIpAddressLists")
     def possible_outbound_ip_address_lists(self) -> Sequence[str]:
         """
-        AA list of possible outbound IP addresses, not all of which are necessarily in use.
+        A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
         """
         return pulumi.get(self, "possible_outbound_ip_address_lists")
 
@@ -339,7 +339,7 @@ class GetWindowsFunctionAppResult:
     @pulumi.getter(name="possibleOutboundIpAddresses")
     def possible_outbound_ip_addresses(self) -> str:
         """
-        A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
+        A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
 

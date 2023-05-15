@@ -77,6 +77,9 @@ type ManagedDiskSasToken struct {
 	pulumi.CustomResourceState
 
 	// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+	//
+	// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+	// for additional details on the fields above.
 	AccessLevel pulumi.StringOutput `pulumi:"accessLevel"`
 	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
 	DurationInSeconds pulumi.IntOutput `pulumi:"durationInSeconds"`
@@ -129,6 +132,9 @@ func GetManagedDiskSasToken(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ManagedDiskSasToken resources.
 type managedDiskSasTokenState struct {
 	// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+	//
+	// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+	// for additional details on the fields above.
 	AccessLevel *string `pulumi:"accessLevel"`
 	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
 	DurationInSeconds *int `pulumi:"durationInSeconds"`
@@ -140,6 +146,9 @@ type managedDiskSasTokenState struct {
 
 type ManagedDiskSasTokenState struct {
 	// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+	//
+	// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+	// for additional details on the fields above.
 	AccessLevel pulumi.StringPtrInput
 	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
 	DurationInSeconds pulumi.IntPtrInput
@@ -155,6 +164,9 @@ func (ManagedDiskSasTokenState) ElementType() reflect.Type {
 
 type managedDiskSasTokenArgs struct {
 	// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+	//
+	// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+	// for additional details on the fields above.
 	AccessLevel string `pulumi:"accessLevel"`
 	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
 	DurationInSeconds int `pulumi:"durationInSeconds"`
@@ -165,6 +177,9 @@ type managedDiskSasTokenArgs struct {
 // The set of arguments for constructing a ManagedDiskSasToken resource.
 type ManagedDiskSasTokenArgs struct {
 	// The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+	//
+	// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+	// for additional details on the fields above.
 	AccessLevel pulumi.StringInput
 	// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
 	DurationInSeconds pulumi.IntInput
@@ -260,6 +275,9 @@ func (o ManagedDiskSasTokenOutput) ToManagedDiskSasTokenOutputWithContext(ctx co
 }
 
 // The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
+//
+// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
+// for additional details on the fields above.
 func (o ManagedDiskSasTokenOutput) AccessLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDiskSasToken) pulumi.StringOutput { return v.AccessLevel }).(pulumi.StringOutput)
 }

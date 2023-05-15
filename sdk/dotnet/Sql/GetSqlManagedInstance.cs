@@ -12,6 +12,10 @@ namespace Pulumi.Azure.Sql
     public static class GetSqlManagedInstance
     {
         /// <summary>
+        /// Use this data source to access information about an existing SQL Managed Instance.
+        /// 
+        /// &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -43,6 +47,10 @@ namespace Pulumi.Azure.Sql
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlManagedInstanceResult>("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args ?? new GetSqlManagedInstanceArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to access information about an existing SQL Managed Instance.
+        /// 
+        /// &gt; **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

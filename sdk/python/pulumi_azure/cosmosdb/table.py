@@ -26,8 +26,12 @@ class TableArgs:
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
         :param pulumi.Input['TableAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+               
+               > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -67,6 +71,8 @@ class TableArgs:
     def autoscale_settings(self) -> Optional[pulumi.Input['TableAutoscaleSettingsArgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+
+        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         """
         return pulumi.get(self, "autoscale_settings")
 
@@ -91,6 +97,8 @@ class TableArgs:
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
         The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+
+        > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         return pulumi.get(self, "throughput")
 
@@ -111,9 +119,13 @@ class _TableState:
         Input properties used for looking up and filtering Table resources.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input['TableAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+               
+               > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -143,6 +155,8 @@ class _TableState:
     def autoscale_settings(self) -> Optional[pulumi.Input['TableAutoscaleSettingsArgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+
+        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         """
         return pulumi.get(self, "autoscale_settings")
 
@@ -179,6 +193,8 @@ class _TableState:
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
         The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+
+        > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         return pulumi.get(self, "throughput")
 
@@ -227,9 +243,13 @@ class Table(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['TableAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+               
+               > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         ...
     @overload
@@ -324,9 +344,13 @@ class Table(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['TableAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+               
+               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+               
+               > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -352,6 +376,8 @@ class Table(pulumi.CustomResource):
     def autoscale_settings(self) -> pulumi.Output[Optional['outputs.TableAutoscaleSettings']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+
+        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         """
         return pulumi.get(self, "autoscale_settings")
 
@@ -376,6 +402,8 @@ class Table(pulumi.CustomResource):
     def throughput(self) -> pulumi.Output[int]:
         """
         The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+
+        > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         return pulumi.get(self, "throughput")
 

@@ -139,6 +139,10 @@ def get_server(name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
+    Use this data source to access information about an existing SQL Azure Database Server.
+
+    > **Note:** The `sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.Server` data source instead.
+
     ## Example Usage
 
     ```python
@@ -177,6 +181,10 @@ def get_server_output(name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
+    Use this data source to access information about an existing SQL Azure Database Server.
+
+    > **Note:** The `sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.Server` data source instead.
+
     ## Example Usage
 
     ```python

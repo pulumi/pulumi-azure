@@ -205,6 +205,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Currently only Virtual Machines IDs are supported.
         /// </summary>
         [Output("targetResourceId")]
         public Output<string> TargetResourceId { get; private set; } = null!;
@@ -311,6 +313,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Currently only Virtual Machines IDs are supported.
         /// </summary>
         [Input("targetResourceId", required: true)]
         public Input<string> TargetResourceId { get; set; } = null!;
@@ -379,6 +383,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Currently only Virtual Machines IDs are supported.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }

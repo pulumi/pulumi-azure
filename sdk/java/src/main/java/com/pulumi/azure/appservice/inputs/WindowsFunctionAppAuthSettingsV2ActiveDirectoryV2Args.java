@@ -36,12 +36,20 @@ public final class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args extends
     /**
      * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
      */
     @Import(name="allowedAudiences")
     private @Nullable Output<List<String>> allowedAudiences;
 
     /**
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+     * 
+     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     public Optional<Output<List<String>>> allowedAudiences() {
@@ -96,12 +104,16 @@ public final class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args extends
     /**
      * The thumbprint of the certificate used for signing purposes.
      * 
+     * &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
+     * 
      */
     @Import(name="clientSecretCertificateThumbprint")
     private @Nullable Output<String> clientSecretCertificateThumbprint;
 
     /**
      * @return The thumbprint of the certificate used for signing purposes.
+     * 
+     * &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
      * 
      */
     public Optional<Output<String>> clientSecretCertificateThumbprint() {
@@ -111,12 +123,32 @@ public final class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args extends
     /**
      * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
      */
     @Import(name="clientSecretSettingName")
     private @Nullable Output<String> clientSecretSettingName;
 
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Optional<Output<String>> clientSecretSettingName() {
@@ -267,6 +299,10 @@ public final class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args extends
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
+         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * 
          * @return builder
          * 
          */
@@ -278,6 +314,10 @@ public final class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args extends
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
+         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * 
          * @return builder
          * 
          */
@@ -287,6 +327,10 @@ public final class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args extends
 
         /**
          * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+         * 
+         * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 
@@ -381,6 +425,8 @@ public final class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args extends
         /**
          * @param clientSecretCertificateThumbprint The thumbprint of the certificate used for signing purposes.
          * 
+         * &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -392,6 +438,8 @@ public final class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args extends
         /**
          * @param clientSecretCertificateThumbprint The thumbprint of the certificate used for signing purposes.
          * 
+         * &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -401,6 +449,16 @@ public final class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args extends
 
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -412,6 +470,16 @@ public final class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args extends
 
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 

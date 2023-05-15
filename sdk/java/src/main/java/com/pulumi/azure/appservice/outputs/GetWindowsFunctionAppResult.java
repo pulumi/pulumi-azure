@@ -132,7 +132,7 @@ public final class GetWindowsFunctionAppResult {
      */
     private String name;
     /**
-     * @return A list of outbound IP addresses.
+     * @return A list of outbound IP addresses. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`
      * 
      */
     private List<String> outboundIpAddressLists;
@@ -142,12 +142,12 @@ public final class GetWindowsFunctionAppResult {
      */
     private String outboundIpAddresses;
     /**
-     * @return AA list of possible outbound IP addresses, not all of which are necessarily in use.
+     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     private List<String> possibleOutboundIpAddressLists;
     /**
-     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
      * 
      */
     private String possibleOutboundIpAddresses;
@@ -359,7 +359,7 @@ public final class GetWindowsFunctionAppResult {
         return this.name;
     }
     /**
-     * @return A list of outbound IP addresses.
+     * @return A list of outbound IP addresses. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`
      * 
      */
     public List<String> outboundIpAddressLists() {
@@ -373,14 +373,14 @@ public final class GetWindowsFunctionAppResult {
         return this.outboundIpAddresses;
     }
     /**
-     * @return AA list of possible outbound IP addresses, not all of which are necessarily in use.
+     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
      * 
      */
     public List<String> possibleOutboundIpAddressLists() {
         return this.possibleOutboundIpAddressLists;
     }
     /**
-     * @return A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`.
+     * @return A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
      * 
      */
     public String possibleOutboundIpAddresses() {

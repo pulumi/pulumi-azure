@@ -43,7 +43,6 @@ class ServicesCommunicationsGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] emergency_dial_strings: A list of dial strings used for emergency calling.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_teams_voicemail_pilot_number: This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-               ---
         :param pulumi.Input[str] name: Specifies the name which should be used for this Voice Services Communications Gateways. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] on_prem_mcp_enabled: Whether an on-premises Mobile Control Point is in use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Voice Services Communications Gateways.
@@ -196,7 +195,6 @@ class ServicesCommunicationsGatewayArgs:
     def microsoft_teams_voicemail_pilot_number(self) -> Optional[pulumi.Input[str]]:
         """
         This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-        ---
         """
         return pulumi.get(self, "microsoft_teams_voicemail_pilot_number")
 
@@ -268,7 +266,6 @@ class _ServicesCommunicationsGatewayState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] emergency_dial_strings: A list of dial strings used for emergency calling.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_teams_voicemail_pilot_number: This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-               ---
         :param pulumi.Input[str] name: Specifies the name which should be used for this Voice Services Communications Gateways. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] on_prem_mcp_enabled: Whether an on-premises Mobile Control Point is in use.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] platforms: The Voice Services Communications GatewaysAvailable supports platform types. Possible values are `OperatorConnect`, `TeamsPhoneMobile`.
@@ -394,7 +391,6 @@ class _ServicesCommunicationsGatewayState:
     def microsoft_teams_voicemail_pilot_number(self) -> Optional[pulumi.Input[str]]:
         """
         This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-        ---
         """
         return pulumi.get(self, "microsoft_teams_voicemail_pilot_number")
 
@@ -567,7 +563,6 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] emergency_dial_strings: A list of dial strings used for emergency calling.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_teams_voicemail_pilot_number: This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-               ---
         :param pulumi.Input[str] name: Specifies the name which should be used for this Voice Services Communications Gateways. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] on_prem_mcp_enabled: Whether an on-premises Mobile Control Point is in use.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] platforms: The Voice Services Communications GatewaysAvailable supports platform types. Possible values are `OperatorConnect`, `TeamsPhoneMobile`.
@@ -746,7 +741,6 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] emergency_dial_strings: A list of dial strings used for emergency calling.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_teams_voicemail_pilot_number: This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-               ---
         :param pulumi.Input[str] name: Specifies the name which should be used for this Voice Services Communications Gateways. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] on_prem_mcp_enabled: Whether an on-premises Mobile Control Point is in use.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] platforms: The Voice Services Communications GatewaysAvailable supports platform types. Possible values are `OperatorConnect`, `TeamsPhoneMobile`.
@@ -835,7 +829,6 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
     def microsoft_teams_voicemail_pilot_number(self) -> pulumi.Output[Optional[str]]:
         """
         This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-        ---
         """
         return pulumi.get(self, "microsoft_teams_voicemail_pilot_number")
 

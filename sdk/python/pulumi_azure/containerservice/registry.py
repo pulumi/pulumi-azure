@@ -44,7 +44,15 @@ class RegistryArgs:
         :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+               
+               > **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
+               
+               > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+               
+               > **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+               
+               > **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
         :param pulumi.Input['RegistryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
@@ -171,6 +179,8 @@ class RegistryArgs:
     def export_policy_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+
+        > **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         """
         return pulumi.get(self, "export_policy_enabled")
 
@@ -183,6 +193,12 @@ class RegistryArgs:
     def georeplications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]:
         """
         A `georeplications` block as documented below.
+
+        > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+
+        > **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+
+        > **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
         """
         return pulumi.get(self, "georeplications")
 
@@ -357,7 +373,15 @@ class _RegistryState:
         :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+               
+               > **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
+               
+               > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+               
+               > **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+               
+               > **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
         :param pulumi.Input['RegistryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] login_server: The URL that can be used to log into the container registry.
@@ -495,6 +519,8 @@ class _RegistryState:
     def export_policy_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+
+        > **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         """
         return pulumi.get(self, "export_policy_enabled")
 
@@ -507,6 +533,12 @@ class _RegistryState:
     def georeplications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]:
         """
         A `georeplications` block as documented below.
+
+        > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+
+        > **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+
+        > **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
         """
         return pulumi.get(self, "georeplications")
 
@@ -747,7 +779,7 @@ class Registry(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
         example_key = azure.keyvault.get_key(name="super-secret",
-            key_vault_id=data["azurerm_key_vault"]["existing"]["id"])
+            key_vault_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
         acr = azure.containerservice.Registry("acr",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -810,7 +842,15 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+               
+               > **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]] georeplications: A `georeplications` block as documented below.
+               
+               > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+               
+               > **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+               
+               > **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
         :param pulumi.Input[pulumi.InputType['RegistryIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
@@ -870,7 +910,7 @@ class Registry(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
         example_key = azure.keyvault.get_key(name="super-secret",
-            key_vault_id=data["azurerm_key_vault"]["existing"]["id"])
+            key_vault_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
         acr = azure.containerservice.Registry("acr",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -1043,7 +1083,15 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[pulumi.InputType['RegistryEncryptionArgs']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+               
+               > **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]] georeplications: A `georeplications` block as documented below.
+               
+               > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+               
+               > **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+               
+               > **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
         :param pulumi.Input[pulumi.InputType['RegistryIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] login_server: The URL that can be used to log into the container registry.
@@ -1140,6 +1188,8 @@ class Registry(pulumi.CustomResource):
     def export_policy_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
+
+        > **NOTE:** `quarantine_policy_enabled`, `retention_policy`, `trust_policy`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         """
         return pulumi.get(self, "export_policy_enabled")
 
@@ -1148,6 +1198,12 @@ class Registry(pulumi.CustomResource):
     def georeplications(self) -> pulumi.Output[Optional[Sequence['outputs.RegistryGeoreplication']]]:
         """
         A `georeplications` block as documented below.
+
+        > **NOTE:** The `georeplications` is only supported on new resources with the `Premium` SKU.
+
+        > **NOTE:** The `georeplications` list cannot contain the location where the Container Registry exists.
+
+        > **NOTE:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
         """
         return pulumi.get(self, "georeplications")
 

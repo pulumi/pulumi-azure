@@ -21,12 +21,16 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `apns_credential` block as defined below.
      * 
+     * &gt; **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+     * 
      */
     @Import(name="apnsCredential")
     private @Nullable Output<HubApnsCredentialArgs> apnsCredential;
 
     /**
      * @return A `apns_credential` block as defined below.
+     * 
+     * &gt; **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
      * 
      */
     public Optional<Output<HubApnsCredentialArgs>> apnsCredential() {
@@ -36,12 +40,16 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `gcm_credential` block as defined below.
      * 
+     * &gt; **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+     * 
      */
     @Import(name="gcmCredential")
     private @Nullable Output<HubGcmCredentialArgs> gcmCredential;
 
     /**
      * @return A `gcm_credential` block as defined below.
+     * 
+     * &gt; **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
      * 
      */
     public Optional<Output<HubGcmCredentialArgs>> gcmCredential() {
@@ -156,6 +164,8 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param apnsCredential A `apns_credential` block as defined below.
          * 
+         * &gt; **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+         * 
          * @return builder
          * 
          */
@@ -167,6 +177,8 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param apnsCredential A `apns_credential` block as defined below.
          * 
+         * &gt; **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
+         * 
          * @return builder
          * 
          */
@@ -176,6 +188,8 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param gcmCredential A `gcm_credential` block as defined below.
+         * 
+         * &gt; **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
          * 
          * @return builder
          * 
@@ -187,6 +201,8 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param gcmCredential A `gcm_credential` block as defined below.
+         * 
+         * &gt; **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we&#39;ll remove this limitation when the SDK bug is fixed.
          * 
          * @return builder
          * 

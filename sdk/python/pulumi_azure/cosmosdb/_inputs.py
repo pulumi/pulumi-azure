@@ -201,6 +201,8 @@ class AccountConsistencyPolicyArgs:
         :param pulumi.Input[str] consistency_level: The Consistency Level to use for this CosmosDB Account - can be either `BoundedStaleness`, `Eventual`, `Session`, `Strong` or `ConsistentPrefix`.
         :param pulumi.Input[int] max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
         :param pulumi.Input[int] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
+               
+               > **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to custom values when `consistency_level` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
         """
         pulumi.set(__self__, "consistency_level", consistency_level)
         if max_interval_in_seconds is not None:
@@ -237,6 +239,8 @@ class AccountConsistencyPolicyArgs:
     def max_staleness_prefix(self) -> Optional[pulumi.Input[int]]:
         """
         When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
+
+        > **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to custom values when `consistency_level` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
         """
         return pulumi.get(self, "max_staleness_prefix")
 
@@ -475,6 +479,8 @@ class AccountRestoreArgs:
         """
         :param pulumi.Input[str] restore_timestamp_in_utc: The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_cosmosdb_account_id: The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb_get_restorable_database_accounts`.
         :param pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]] databases: A `database` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
@@ -499,6 +505,8 @@ class AccountRestoreArgs:
     def source_cosmosdb_account_id(self) -> pulumi.Input[str]:
         """
         The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
+
+        > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb_get_restorable_database_accounts`.
         """
         return pulumi.get(self, "source_cosmosdb_account_id")
 
@@ -1184,6 +1192,8 @@ class MongoCollectionIndexArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
         :param pulumi.Input[bool] unique: Is the index unique or not? Defaults to `false`.
+               
+               > **Note:** An index with an "_id" key must be specified.
         """
         pulumi.set(__self__, "keys", keys)
         if unique is not None:
@@ -1206,6 +1216,8 @@ class MongoCollectionIndexArgs:
     def unique(self) -> Optional[pulumi.Input[bool]]:
         """
         Is the index unique or not? Defaults to `false`.
+
+        > **Note:** An index with an "_id" key must be specified.
         """
         return pulumi.get(self, "unique")
 
@@ -1222,6 +1234,8 @@ class MongoCollectionSystemIndexArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
         :param pulumi.Input[bool] unique: Is the index unique or not? Defaults to `false`.
+               
+               > **Note:** An index with an "_id" key must be specified.
         """
         if keys is not None:
             pulumi.set(__self__, "keys", keys)
@@ -1245,6 +1259,8 @@ class MongoCollectionSystemIndexArgs:
     def unique(self) -> Optional[pulumi.Input[bool]]:
         """
         Is the index unique or not? Defaults to `false`.
+
+        > **Note:** An index with an "_id" key must be specified.
         """
         return pulumi.get(self, "unique")
 

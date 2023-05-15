@@ -100,7 +100,9 @@ namespace Pulumi.Azure.DevTest
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
+        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
+        /// 
+        /// &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
         /// </summary>
         [Output("storageType")]
         public Output<string?> StorageType { get; private set; } = null!;
@@ -182,7 +184,9 @@ namespace Pulumi.Azure.DevTest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
+        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
+        /// 
+        /// &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -256,7 +260,9 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
+        /// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. 
+        /// 
+        /// &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }

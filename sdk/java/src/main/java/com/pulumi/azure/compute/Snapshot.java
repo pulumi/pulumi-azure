@@ -84,12 +84,16 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
     /**
      * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
      * 
+     * &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+     * 
      */
     @Export(name="createOption", refs={String.class}, tree="[0]")
     private Output<String> createOption;
 
     /**
      * @return Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+     * 
+     * &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
      * 
      */
     public Output<String> createOption() {
@@ -112,12 +116,16 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
     /**
      * A `encryption_settings` block as defined below.
      * 
+     * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+     * 
      */
     @Export(name="encryptionSettings", refs={SnapshotEncryptionSettings.class}, tree="[0]")
     private Output</* @Nullable */ SnapshotEncryptionSettings> encryptionSettings;
 
     /**
      * @return A `encryption_settings` block as defined below.
+     * 
+     * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
      * 
      */
     public Output<Optional<SnapshotEncryptionSettings>> encryptionSettings() {

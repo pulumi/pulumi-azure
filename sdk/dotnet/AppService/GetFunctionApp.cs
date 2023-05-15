@@ -12,6 +12,10 @@ namespace Pulumi.Azure.AppService
     public static class GetFunctionApp
     {
         /// <summary>
+        /// Use this data source to access information about a Function App.
+        /// 
+        /// !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -39,6 +43,10 @@ namespace Pulumi.Azure.AppService
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionAppResult>("azure:appservice/getFunctionApp:getFunctionApp", args ?? new GetFunctionAppArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to access information about a Function App.
+        /// 
+        /// !&gt; **Note:** The `azure.appservice.FunctionApp` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxFunctionApp` data sources instead.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

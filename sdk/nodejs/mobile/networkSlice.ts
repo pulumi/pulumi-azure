@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     mobileNetworkCode: "01",
  * });
  * const exampleNetworkSlice = new azure.mobile.NetworkSlice("exampleNetworkSlice", {
- *     mobileNetworkId: azurerm_mobile_network.test.id,
+ *     mobileNetworkId: exampleNetwork.id,
  *     location: exampleResourceGroup.location,
  *     description: "an example slice",
  *     singleNetworkSliceSelectionAssistanceInformation: {

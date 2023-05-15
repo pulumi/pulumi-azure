@@ -89,6 +89,8 @@ namespace Pulumi.Azure.PostgreSql
     {
         /// <summary>
         /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>
         [Output("endIpAddress")]
         public Output<string> EndIpAddress { get; private set; } = null!;
@@ -165,6 +167,8 @@ namespace Pulumi.Azure.PostgreSql
     {
         /// <summary>
         /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>
         [Input("endIpAddress", required: true)]
         public Input<string> EndIpAddress { get; set; } = null!;
@@ -203,6 +207,8 @@ namespace Pulumi.Azure.PostgreSql
     {
         /// <summary>
         /// Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>
         [Input("endIpAddress")]
         public Input<string>? EndIpAddress { get; set; }

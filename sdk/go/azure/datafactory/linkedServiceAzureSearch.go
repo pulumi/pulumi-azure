@@ -26,6 +26,8 @@ type LinkedServiceAzureSearch struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Search Linked Service:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
@@ -86,6 +88,8 @@ func GetLinkedServiceAzureSearch(ctx *pulumi.Context,
 // Input properties used for looking up and filtering LinkedServiceAzureSearch resources.
 type linkedServiceAzureSearchState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Search Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -109,6 +113,8 @@ type linkedServiceAzureSearchState struct {
 
 type LinkedServiceAzureSearchState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Search Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -136,6 +142,8 @@ func (LinkedServiceAzureSearchState) ElementType() reflect.Type {
 
 type linkedServiceAzureSearchArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Search Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -158,6 +166,8 @@ type linkedServiceAzureSearchArgs struct {
 // The set of arguments for constructing a LinkedServiceAzureSearch resource.
 type LinkedServiceAzureSearchArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Search Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -265,6 +275,8 @@ func (o LinkedServiceAzureSearchOutput) ToLinkedServiceAzureSearchOutputWithCont
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
+//
+// The following supported arguments are specific to Azure Search Linked Service:
 func (o LinkedServiceAzureSearchOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureSearch) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }

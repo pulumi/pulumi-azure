@@ -34,12 +34,16 @@ public final class FrontdoorBackendPoolSettingArgs extends com.pulumi.resources.
     /**
      * Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
      * 
+     * &gt; **NOTE:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
+     * 
      */
     @Import(name="enforceBackendPoolsCertificateNameCheck", required=true)
     private Output<Boolean> enforceBackendPoolsCertificateNameCheck;
 
     /**
      * @return Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+     * 
+     * &gt; **NOTE:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
      * 
      */
     public Output<Boolean> enforceBackendPoolsCertificateNameCheck() {
@@ -95,6 +99,8 @@ public final class FrontdoorBackendPoolSettingArgs extends com.pulumi.resources.
         /**
          * @param enforceBackendPoolsCertificateNameCheck Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
          * 
+         * &gt; **NOTE:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class FrontdoorBackendPoolSettingArgs extends com.pulumi.resources.
 
         /**
          * @param enforceBackendPoolsCertificateNameCheck Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+         * 
+         * &gt; **NOTE:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
          * 
          * @return builder
          * 

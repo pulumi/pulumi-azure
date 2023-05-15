@@ -70,6 +70,8 @@ type LinkedServiceCosmosDbMongoApi struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to CosmosDB Linked Service:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
@@ -131,6 +133,8 @@ func GetLinkedServiceCosmosDbMongoApi(ctx *pulumi.Context,
 // Input properties used for looking up and filtering LinkedServiceCosmosDbMongoApi resources.
 type linkedServiceCosmosDbMongoApiState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to CosmosDB Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -154,6 +158,8 @@ type linkedServiceCosmosDbMongoApiState struct {
 
 type LinkedServiceCosmosDbMongoApiState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to CosmosDB Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -181,6 +187,8 @@ func (LinkedServiceCosmosDbMongoApiState) ElementType() reflect.Type {
 
 type linkedServiceCosmosDbMongoApiArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to CosmosDB Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -205,6 +213,8 @@ type linkedServiceCosmosDbMongoApiArgs struct {
 // The set of arguments for constructing a LinkedServiceCosmosDbMongoApi resource.
 type LinkedServiceCosmosDbMongoApiArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to CosmosDB Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -314,6 +324,8 @@ func (o LinkedServiceCosmosDbMongoApiOutput) ToLinkedServiceCosmosDbMongoApiOutp
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
+//
+// The following supported arguments are specific to CosmosDB Linked Service:
 func (o LinkedServiceCosmosDbMongoApiOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinkedServiceCosmosDbMongoApi) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }

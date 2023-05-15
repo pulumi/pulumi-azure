@@ -115,6 +115,8 @@ type LinuxVirtualMachine struct {
 	// A `galleryImageReference` block as defined below.
 	GalleryImageReference LinuxVirtualMachineGalleryImageReferenceOutput `pulumi:"galleryImageReference"`
 	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
 	InboundNatRules LinuxVirtualMachineInboundNatRuleArrayOutput `pulumi:"inboundNatRules"`
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
 	LabName pulumi.StringOutput `pulumi:"labName"`
@@ -125,6 +127,8 @@ type LinuxVirtualMachine struct {
 	// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Any notes about the Virtual Machine.
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
@@ -135,6 +139,8 @@ type LinuxVirtualMachine struct {
 	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
 	Size pulumi.StringOutput `pulumi:"size"`
 	// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One or either `password` or `sshKey` must be specified.
 	SshKey pulumi.StringPtrOutput `pulumi:"sshKey"`
 	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
@@ -215,6 +221,8 @@ type linuxVirtualMachineState struct {
 	// A `galleryImageReference` block as defined below.
 	GalleryImageReference *LinuxVirtualMachineGalleryImageReference `pulumi:"galleryImageReference"`
 	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
 	InboundNatRules []LinuxVirtualMachineInboundNatRule `pulumi:"inboundNatRules"`
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
 	LabName *string `pulumi:"labName"`
@@ -225,6 +233,8 @@ type linuxVirtualMachineState struct {
 	// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
 	Name *string `pulumi:"name"`
 	// Any notes about the Virtual Machine.
 	Notes *string `pulumi:"notes"`
@@ -235,6 +245,8 @@ type linuxVirtualMachineState struct {
 	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
 	Size *string `pulumi:"size"`
 	// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One or either `password` or `sshKey` must be specified.
 	SshKey *string `pulumi:"sshKey"`
 	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
 	StorageType *string `pulumi:"storageType"`
@@ -256,6 +268,8 @@ type LinuxVirtualMachineState struct {
 	// A `galleryImageReference` block as defined below.
 	GalleryImageReference LinuxVirtualMachineGalleryImageReferencePtrInput
 	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
 	InboundNatRules LinuxVirtualMachineInboundNatRuleArrayInput
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
 	LabName pulumi.StringPtrInput
@@ -266,6 +280,8 @@ type LinuxVirtualMachineState struct {
 	// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
 	Name pulumi.StringPtrInput
 	// Any notes about the Virtual Machine.
 	Notes pulumi.StringPtrInput
@@ -276,6 +292,8 @@ type LinuxVirtualMachineState struct {
 	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
 	Size pulumi.StringPtrInput
 	// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One or either `password` or `sshKey` must be specified.
 	SshKey pulumi.StringPtrInput
 	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
 	StorageType pulumi.StringPtrInput
@@ -299,6 +317,8 @@ type linuxVirtualMachineArgs struct {
 	// A `galleryImageReference` block as defined below.
 	GalleryImageReference LinuxVirtualMachineGalleryImageReference `pulumi:"galleryImageReference"`
 	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
 	InboundNatRules []LinuxVirtualMachineInboundNatRule `pulumi:"inboundNatRules"`
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
 	LabName string `pulumi:"labName"`
@@ -309,6 +329,8 @@ type linuxVirtualMachineArgs struct {
 	// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
 	Name *string `pulumi:"name"`
 	// Any notes about the Virtual Machine.
 	Notes *string `pulumi:"notes"`
@@ -319,6 +341,8 @@ type linuxVirtualMachineArgs struct {
 	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
 	Size string `pulumi:"size"`
 	// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One or either `password` or `sshKey` must be specified.
 	SshKey *string `pulumi:"sshKey"`
 	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
 	StorageType string `pulumi:"storageType"`
@@ -337,6 +361,8 @@ type LinuxVirtualMachineArgs struct {
 	// A `galleryImageReference` block as defined below.
 	GalleryImageReference LinuxVirtualMachineGalleryImageReferenceInput
 	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
 	InboundNatRules LinuxVirtualMachineInboundNatRuleArrayInput
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
 	LabName pulumi.StringInput
@@ -347,6 +373,8 @@ type LinuxVirtualMachineArgs struct {
 	// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
 	Name pulumi.StringPtrInput
 	// Any notes about the Virtual Machine.
 	Notes pulumi.StringPtrInput
@@ -357,6 +385,8 @@ type LinuxVirtualMachineArgs struct {
 	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
 	Size pulumi.StringInput
 	// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One or either `password` or `sshKey` must be specified.
 	SshKey pulumi.StringPtrInput
 	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
 	StorageType pulumi.StringInput
@@ -476,6 +506,8 @@ func (o LinuxVirtualMachineOutput) GalleryImageReference() LinuxVirtualMachineGa
 }
 
 // One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
+//
+// > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
 func (o LinuxVirtualMachineOutput) InboundNatRules() LinuxVirtualMachineInboundNatRuleArrayOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) LinuxVirtualMachineInboundNatRuleArrayOutput { return v.InboundNatRules }).(LinuxVirtualMachineInboundNatRuleArrayOutput)
 }
@@ -501,6 +533,8 @@ func (o LinuxVirtualMachineOutput) Location() pulumi.StringOutput {
 }
 
 // Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
 func (o LinuxVirtualMachineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -526,6 +560,8 @@ func (o LinuxVirtualMachineOutput) Size() pulumi.StringOutput {
 }
 
 // The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+//
+// > **NOTE:** One or either `password` or `sshKey` must be specified.
 func (o LinuxVirtualMachineOutput) SshKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.SshKey }).(pulumi.StringPtrOutput)
 }

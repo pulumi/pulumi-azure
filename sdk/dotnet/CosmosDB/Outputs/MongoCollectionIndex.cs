@@ -19,6 +19,8 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         public readonly ImmutableArray<string> Keys;
         /// <summary>
         /// Is the index unique or not? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** An index with an "_id" key must be specified.
         /// </summary>
         public readonly bool? Unique;
 

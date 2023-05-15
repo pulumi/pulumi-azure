@@ -51,6 +51,8 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
     public readonly debugLevel!: pulumi.Output<string | undefined>;
     /**
      * The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+     *
+     * > **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
      */
     public readonly deploymentMode!: pulumi.Output<string>;
     /**
@@ -63,6 +65,8 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
     public /*out*/ readonly outputContent!: pulumi.Output<string>;
     /**
      * The contents of the ARM Template parameters file - containing a JSON list of parameters.
+     *
+     * > An example of how to pass variables into an ARM Template can be seen in the example.
      */
     public readonly parametersContent!: pulumi.Output<string>;
     /**
@@ -137,6 +141,8 @@ export interface ResourceGroupTemplateDeploymentState {
     debugLevel?: pulumi.Input<string>;
     /**
      * The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+     *
+     * > **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
      */
     deploymentMode?: pulumi.Input<string>;
     /**
@@ -149,6 +155,8 @@ export interface ResourceGroupTemplateDeploymentState {
     outputContent?: pulumi.Input<string>;
     /**
      * The contents of the ARM Template parameters file - containing a JSON list of parameters.
+     *
+     * > An example of how to pass variables into an ARM Template can be seen in the example.
      */
     parametersContent?: pulumi.Input<string>;
     /**
@@ -179,6 +187,8 @@ export interface ResourceGroupTemplateDeploymentArgs {
     debugLevel?: pulumi.Input<string>;
     /**
      * The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+     *
+     * > **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
      */
     deploymentMode: pulumi.Input<string>;
     /**
@@ -187,6 +197,8 @@ export interface ResourceGroupTemplateDeploymentArgs {
     name?: pulumi.Input<string>;
     /**
      * The contents of the ARM Template parameters file - containing a JSON list of parameters.
+     *
+     * > An example of how to pass variables into an ARM Template can be seen in the example.
      */
     parametersContent?: pulumi.Input<string>;
     /**

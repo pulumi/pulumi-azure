@@ -51,12 +51,16 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      * 
+     * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+     * 
      */
     @Import(name="failureSuppressionEnabled")
     private @Nullable Output<Boolean> failureSuppressionEnabled;
 
     /**
      * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
      * 
      */
     public Optional<Output<Boolean>> failureSuppressionEnabled() {
@@ -81,12 +85,16 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
+     * &gt; **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * 
      */
     @Import(name="protectedSettings")
     private @Nullable Output<String> protectedSettings;
 
     /**
      * @return The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
+     * 
+     * &gt; **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      * 
      */
     public Optional<Output<String>> protectedSettings() {
@@ -96,12 +104,16 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `protected_settings_from_key_vault` block as defined below.
      * 
+     * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+     * 
      */
     @Import(name="protectedSettingsFromKeyVault")
     private @Nullable Output<ExtensionProtectedSettingsFromKeyVaultArgs> protectedSettingsFromKeyVault;
 
     /**
      * @return A `protected_settings_from_key_vault` block as defined below.
+     * 
+     * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
      * 
      */
     public Optional<Output<ExtensionProtectedSettingsFromKeyVaultArgs>> protectedSettingsFromKeyVault() {
@@ -126,12 +138,16 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The settings passed to the extension, these are specified as a JSON object in a string.
      * 
+     * &gt; **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * 
      */
     @Import(name="settings")
     private @Nullable Output<String> settings;
 
     /**
      * @return The settings passed to the extension, these are specified as a JSON object in a string.
+     * 
+     * &gt; **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      * 
      */
     public Optional<Output<String>> settings() {
@@ -156,12 +172,60 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The type of extension, available types for a publisher can be found using the Azure CLI.
      * 
+     * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
      * @return The type of extension, available types for a publisher can be found using the Azure CLI.
+     * 
+     * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * 
      */
     public Output<String> type() {
@@ -278,6 +342,8 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
          * 
+         * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+         * 
          * @return builder
          * 
          */
@@ -288,6 +354,8 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
          * 
          * @return builder
          * 
@@ -320,6 +388,8 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protectedSettings The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
          * 
+         * &gt; **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+         * 
          * @return builder
          * 
          */
@@ -331,6 +401,8 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protectedSettings The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
          * 
+         * &gt; **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+         * 
          * @return builder
          * 
          */
@@ -340,6 +412,8 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param protectedSettingsFromKeyVault A `protected_settings_from_key_vault` block as defined below.
+         * 
+         * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
          * 
          * @return builder
          * 
@@ -351,6 +425,8 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param protectedSettingsFromKeyVault A `protected_settings_from_key_vault` block as defined below.
+         * 
+         * &gt; **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
          * 
          * @return builder
          * 
@@ -383,6 +459,8 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param settings The settings passed to the extension, these are specified as a JSON object in a string.
          * 
+         * &gt; **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+         * 
          * @return builder
          * 
          */
@@ -393,6 +471,8 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param settings The settings passed to the extension, these are specified as a JSON object in a string.
+         * 
+         * &gt; **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
          * 
          * @return builder
          * 
@@ -425,6 +505,30 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type The type of extension, available types for a publisher can be found using the Azure CLI.
          * 
+         * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
+         * 
          * @return builder
          * 
          */
@@ -435,6 +539,30 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param type The type of extension, available types for a publisher can be found using the Azure CLI.
+         * 
+         * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 

@@ -236,6 +236,8 @@ export class ApplicationGateway extends pulumi.CustomResource {
     public readonly sslPolicy!: pulumi.Output<outputs.network.ApplicationGatewaySslPolicy>;
     /**
      * One or more `sslProfile` blocks as defined below.
+     *
+     * > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
      */
     public readonly sslProfiles!: pulumi.Output<outputs.network.ApplicationGatewaySslProfile[] | undefined>;
     /**
@@ -493,6 +495,8 @@ export interface ApplicationGatewayState {
     sslPolicy?: pulumi.Input<inputs.network.ApplicationGatewaySslPolicy>;
     /**
      * One or more `sslProfile` blocks as defined below.
+     *
+     * > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
      */
     sslProfiles?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslProfile>[]>;
     /**
@@ -631,6 +635,8 @@ export interface ApplicationGatewayArgs {
     sslPolicy?: pulumi.Input<inputs.network.ApplicationGatewaySslPolicy>;
     /**
      * One or more `sslProfile` blocks as defined below.
+     *
+     * > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
      */
     sslProfiles?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslProfile>[]>;
     /**

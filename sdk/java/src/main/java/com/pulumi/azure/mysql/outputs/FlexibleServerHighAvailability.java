@@ -14,10 +14,14 @@ public final class FlexibleServerHighAvailability {
     /**
      * @return The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
      * 
+     * &gt; **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
+     * 
      */
     private String mode;
     /**
      * @return Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
+     * 
+     * &gt; **NOTE:** The `standby_availability_zone` will be omitted when mode is `SameZone`, for the `standby_availability_zone` will be the same as `zone`.
      * 
      */
     private @Nullable String standbyAvailabilityZone;
@@ -26,12 +30,16 @@ public final class FlexibleServerHighAvailability {
     /**
      * @return The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
      * 
+     * &gt; **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
+     * 
      */
     public String mode() {
         return this.mode;
     }
     /**
      * @return Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are `1`, `2` and `3`.
+     * 
+     * &gt; **NOTE:** The `standby_availability_zone` will be omitted when mode is `SameZone`, for the `standby_availability_zone` will be the same as `zone`.
      * 
      */
     public Optional<String> standbyAvailabilityZone() {

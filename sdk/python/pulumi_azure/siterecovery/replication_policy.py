@@ -22,6 +22,8 @@ class ReplicationPolicyArgs:
         """
         The set of arguments for constructing a ReplicationPolicy resource.
         :param pulumi.Input[int] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency(in minutes) at which to create application consistent recovery points.
+               
+               > **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
         :param pulumi.Input[int] recovery_point_retention_in_minutes: The duration in minutes for which the recovery points need to be stored.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
@@ -39,6 +41,8 @@ class ReplicationPolicyArgs:
     def application_consistent_snapshot_frequency_in_minutes(self) -> pulumi.Input[int]:
         """
         Specifies the frequency(in minutes) at which to create application consistent recovery points.
+
+        > **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
         """
         return pulumi.get(self, "application_consistent_snapshot_frequency_in_minutes")
 
@@ -106,6 +110,8 @@ class _ReplicationPolicyState:
         """
         Input properties used for looking up and filtering ReplicationPolicy resources.
         :param pulumi.Input[int] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency(in minutes) at which to create application consistent recovery points.
+               
+               > **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
         :param pulumi.Input[str] name: The name of the replication policy. Changing this forces a new resource to be created.
         :param pulumi.Input[int] recovery_point_retention_in_minutes: The duration in minutes for which the recovery points need to be stored.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
@@ -127,6 +133,8 @@ class _ReplicationPolicyState:
     def application_consistent_snapshot_frequency_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the frequency(in minutes) at which to create application consistent recovery points.
+
+        > **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
         """
         return pulumi.get(self, "application_consistent_snapshot_frequency_in_minutes")
 
@@ -226,6 +234,8 @@ class ReplicationPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency(in minutes) at which to create application consistent recovery points.
+               
+               > **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
         :param pulumi.Input[str] name: The name of the replication policy. Changing this forces a new resource to be created.
         :param pulumi.Input[int] recovery_point_retention_in_minutes: The duration in minutes for which the recovery points need to be stored.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
@@ -331,6 +341,8 @@ class ReplicationPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] application_consistent_snapshot_frequency_in_minutes: Specifies the frequency(in minutes) at which to create application consistent recovery points.
+               
+               > **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
         :param pulumi.Input[str] name: The name of the replication policy. Changing this forces a new resource to be created.
         :param pulumi.Input[int] recovery_point_retention_in_minutes: The duration in minutes for which the recovery points need to be stored.
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
@@ -352,6 +364,8 @@ class ReplicationPolicy(pulumi.CustomResource):
     def application_consistent_snapshot_frequency_in_minutes(self) -> pulumi.Output[int]:
         """
         Specifies the frequency(in minutes) at which to create application consistent recovery points.
+
+        > **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
         """
         return pulumi.get(self, "application_consistent_snapshot_frequency_in_minutes")
 

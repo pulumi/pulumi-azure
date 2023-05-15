@@ -34,6 +34,8 @@ public final class KubernetesClusterExtensionPlan {
     /**
      * @return Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
      * 
+     * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+     * 
      */
     private @Nullable String version;
 
@@ -68,6 +70,8 @@ public final class KubernetesClusterExtensionPlan {
     }
     /**
      * @return Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
+     * 
+     * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
      * 
      */
     public Optional<String> version() {

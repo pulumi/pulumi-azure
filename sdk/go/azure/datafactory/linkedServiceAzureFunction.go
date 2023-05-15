@@ -77,6 +77,8 @@ type LinkedServiceAzureFunction struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Function Linked Service:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
@@ -141,6 +143,8 @@ func GetLinkedServiceAzureFunction(ctx *pulumi.Context,
 // Input properties used for looking up and filtering LinkedServiceAzureFunction resources.
 type linkedServiceAzureFunctionState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Function Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -164,6 +168,8 @@ type linkedServiceAzureFunctionState struct {
 
 type LinkedServiceAzureFunctionState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Function Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -191,6 +197,8 @@ func (LinkedServiceAzureFunctionState) ElementType() reflect.Type {
 
 type linkedServiceAzureFunctionArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Function Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -215,6 +223,8 @@ type linkedServiceAzureFunctionArgs struct {
 // The set of arguments for constructing a LinkedServiceAzureFunction resource.
 type LinkedServiceAzureFunctionArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Azure Function Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -324,6 +334,8 @@ func (o LinkedServiceAzureFunctionOutput) ToLinkedServiceAzureFunctionOutputWith
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
+//
+// The following supported arguments are specific to Azure Function Linked Service:
 func (o LinkedServiceAzureFunctionOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureFunction) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }

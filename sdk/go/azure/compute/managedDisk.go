@@ -122,8 +122,14 @@ type ManagedDisk struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption pulumi.StringOutput `pulumi:"createOption"`
 	// The ID of the disk access resource for using private endpoints on disks.
+	//
+	// > **Note:** `diskAccessId` is only supported when `networkAccessPolicy` is set to `AllowPrivate`.
 	DiskAccessId pulumi.StringPtrOutput `pulumi:"diskAccessId"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+	//
+	// > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+	//
+	// > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
 	DiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"diskEncryptionSetId"`
 	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly pulumi.IntOutput `pulumi:"diskIopsReadOnly"`
@@ -133,11 +139,12 @@ type ManagedDisk struct {
 	DiskMbpsReadOnly pulumi.IntOutput `pulumi:"diskMbpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntOutput `pulumi:"diskMbpsReadWrite"`
-	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
-	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
+	DiskSizeGb        pulumi.IntOutput `pulumi:"diskSizeGb"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// A `encryptionSettings` block as defined below.
+	//
+	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrOutput `pulumi:"encryptionSettings"`
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId pulumi.StringPtrOutput `pulumi:"galleryImageReferenceId"`
@@ -148,24 +155,40 @@ type ManagedDisk struct {
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
 	LogicalSectorSize pulumi.IntOutput `pulumi:"logicalSectorSize"`
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+	//
+	// > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `maxShares` minimum value is 1 and the maximum is 5.
 	MaxShares pulumi.IntOutput `pulumi:"maxShares"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy pulumi.StringPtrOutput `pulumi:"networkAccessPolicy"`
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
+	//
+	// > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
 	OnDemandBurstingEnabled pulumi.BoolPtrOutput `pulumi:"onDemandBurstingEnabled"`
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
+	//
+	// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
 	SecureVmDiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"secureVmDiskEncryptionSetId"`
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `createOption` must be one of `FromImage` or `ImportSecure`.
+	//
+	// > **NOTE:** `securityType` cannot be specified when `trustedLaunchEnabled` is set to true.
+	//
+	// > **NOTE:** `secureVmDiskEncryptionSetId` must be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
 	SecurityType pulumi.StringPtrOutput `pulumi:"securityType"`
 	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrOutput `pulumi:"sourceResourceId"`
@@ -174,16 +197,21 @@ type ManagedDisk struct {
 	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+	//
+	// > **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
 	StorageAccountType pulumi.StringOutput `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
-	Tier pulumi.StringOutput `pulumi:"tier"`
+	Tier pulumi.StringOutput    `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Trusted Launch can only be enabled when `createOption` is `FromImage` or `Import`.
 	TrustedLaunchEnabled pulumi.BoolPtrOutput `pulumi:"trustedLaunchEnabled"`
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes pulumi.IntPtrOutput `pulumi:"uploadSizeBytes"`
 	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+	//
+	// > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
 
@@ -228,8 +256,14 @@ type managedDiskState struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption *string `pulumi:"createOption"`
 	// The ID of the disk access resource for using private endpoints on disks.
+	//
+	// > **Note:** `diskAccessId` is only supported when `networkAccessPolicy` is set to `AllowPrivate`.
 	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+	//
+	// > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+	//
+	// > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly *int `pulumi:"diskIopsReadOnly"`
@@ -239,11 +273,12 @@ type managedDiskState struct {
 	DiskMbpsReadOnly *int `pulumi:"diskMbpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
-	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
-	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	DiskSizeGb        *int `pulumi:"diskSizeGb"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// A `encryptionSettings` block as defined below.
+	//
+	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings *ManagedDiskEncryptionSettings `pulumi:"encryptionSettings"`
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId *string `pulumi:"galleryImageReferenceId"`
@@ -254,24 +289,40 @@ type managedDiskState struct {
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
 	LogicalSectorSize *int `pulumi:"logicalSectorSize"`
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+	//
+	// > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `maxShares` minimum value is 1 and the maximum is 5.
 	MaxShares *int `pulumi:"maxShares"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
+	//
+	// > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
 	OnDemandBurstingEnabled *bool `pulumi:"onDemandBurstingEnabled"`
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
+	//
+	// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
 	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `createOption` must be one of `FromImage` or `ImportSecure`.
+	//
+	// > **NOTE:** `securityType` cannot be specified when `trustedLaunchEnabled` is set to true.
+	//
+	// > **NOTE:** `secureVmDiskEncryptionSetId` must be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
 	SecurityType *string `pulumi:"securityType"`
 	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
@@ -280,16 +331,21 @@ type managedDiskState struct {
 	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+	//
+	// > **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
-	Tier *string `pulumi:"tier"`
+	Tier *string           `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Trusted Launch can only be enabled when `createOption` is `FromImage` or `Import`.
 	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes *int `pulumi:"uploadSizeBytes"`
 	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+	//
+	// > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zone *string `pulumi:"zone"`
 }
 
@@ -297,8 +353,14 @@ type ManagedDiskState struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption pulumi.StringPtrInput
 	// The ID of the disk access resource for using private endpoints on disks.
+	//
+	// > **Note:** `diskAccessId` is only supported when `networkAccessPolicy` is set to `AllowPrivate`.
 	DiskAccessId pulumi.StringPtrInput
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+	//
+	// > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+	//
+	// > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly pulumi.IntPtrInput
@@ -308,11 +370,12 @@ type ManagedDiskState struct {
 	DiskMbpsReadOnly pulumi.IntPtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntPtrInput
-	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
-	DiskSizeGb pulumi.IntPtrInput
+	DiskSizeGb        pulumi.IntPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone pulumi.StringPtrInput
 	// A `encryptionSettings` block as defined below.
+	//
+	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrInput
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId pulumi.StringPtrInput
@@ -323,24 +386,40 @@ type ManagedDiskState struct {
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
 	LogicalSectorSize pulumi.IntPtrInput
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+	//
+	// > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `maxShares` minimum value is 1 and the maximum is 5.
 	MaxShares pulumi.IntPtrInput
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
+	//
+	// > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
 	OnDemandBurstingEnabled pulumi.BoolPtrInput
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
+	//
+	// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
 	SecureVmDiskEncryptionSetId pulumi.StringPtrInput
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `createOption` must be one of `FromImage` or `ImportSecure`.
+	//
+	// > **NOTE:** `securityType` cannot be specified when `trustedLaunchEnabled` is set to true.
+	//
+	// > **NOTE:** `secureVmDiskEncryptionSetId` must be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
 	SecurityType pulumi.StringPtrInput
 	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrInput
@@ -349,16 +428,21 @@ type ManagedDiskState struct {
 	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+	//
+	// > **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
 	StorageAccountType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier pulumi.StringPtrInput
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Trusted Launch can only be enabled when `createOption` is `FromImage` or `Import`.
 	TrustedLaunchEnabled pulumi.BoolPtrInput
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes pulumi.IntPtrInput
 	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+	//
+	// > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zone pulumi.StringPtrInput
 }
 
@@ -370,8 +454,14 @@ type managedDiskArgs struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption string `pulumi:"createOption"`
 	// The ID of the disk access resource for using private endpoints on disks.
+	//
+	// > **Note:** `diskAccessId` is only supported when `networkAccessPolicy` is set to `AllowPrivate`.
 	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+	//
+	// > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+	//
+	// > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly *int `pulumi:"diskIopsReadOnly"`
@@ -381,11 +471,12 @@ type managedDiskArgs struct {
 	DiskMbpsReadOnly *int `pulumi:"diskMbpsReadOnly"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
-	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
-	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	DiskSizeGb        *int `pulumi:"diskSizeGb"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// A `encryptionSettings` block as defined below.
+	//
+	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings *ManagedDiskEncryptionSettings `pulumi:"encryptionSettings"`
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId *string `pulumi:"galleryImageReferenceId"`
@@ -396,24 +487,40 @@ type managedDiskArgs struct {
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
 	LogicalSectorSize *int `pulumi:"logicalSectorSize"`
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+	//
+	// > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `maxShares` minimum value is 1 and the maximum is 5.
 	MaxShares *int `pulumi:"maxShares"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
+	//
+	// > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
 	OnDemandBurstingEnabled *bool `pulumi:"onDemandBurstingEnabled"`
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
+	//
+	// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
 	SecureVmDiskEncryptionSetId *string `pulumi:"secureVmDiskEncryptionSetId"`
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `createOption` must be one of `FromImage` or `ImportSecure`.
+	//
+	// > **NOTE:** `securityType` cannot be specified when `trustedLaunchEnabled` is set to true.
+	//
+	// > **NOTE:** `secureVmDiskEncryptionSetId` must be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
 	SecurityType *string `pulumi:"securityType"`
 	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
@@ -422,16 +529,21 @@ type managedDiskArgs struct {
 	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+	//
+	// > **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
-	Tier *string `pulumi:"tier"`
+	Tier *string           `pulumi:"tier"`
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Trusted Launch can only be enabled when `createOption` is `FromImage` or `Import`.
 	TrustedLaunchEnabled *bool `pulumi:"trustedLaunchEnabled"`
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes *int `pulumi:"uploadSizeBytes"`
 	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+	//
+	// > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zone *string `pulumi:"zone"`
 }
 
@@ -440,8 +552,14 @@ type ManagedDiskArgs struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
 	CreateOption pulumi.StringInput
 	// The ID of the disk access resource for using private endpoints on disks.
+	//
+	// > **Note:** `diskAccessId` is only supported when `networkAccessPolicy` is set to `AllowPrivate`.
 	DiskAccessId pulumi.StringPtrInput
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+	//
+	// > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+	//
+	// > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
 	DiskIopsReadOnly pulumi.IntPtrInput
@@ -451,11 +569,12 @@ type ManagedDiskArgs struct {
 	DiskMbpsReadOnly pulumi.IntPtrInput
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
 	DiskMbpsReadWrite pulumi.IntPtrInput
-	// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
-	DiskSizeGb pulumi.IntPtrInput
+	DiskSizeGb        pulumi.IntPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
 	EdgeZone pulumi.StringPtrInput
 	// A `encryptionSettings` block as defined below.
+	//
+	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings ManagedDiskEncryptionSettingsPtrInput
 	// ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
 	GalleryImageReferenceId pulumi.StringPtrInput
@@ -466,24 +585,40 @@ type ManagedDiskArgs struct {
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
 	LogicalSectorSize pulumi.IntPtrInput
 	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+	//
+	// > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `maxShares` minimum value is 1 and the maximum is 5.
 	MaxShares pulumi.IntPtrInput
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// Specifies if On-Demand Bursting is enabled for the Managed Disk.
+	//
+	// > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
 	OnDemandBurstingEnabled pulumi.BoolPtrInput
 	// Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
 	// Whether it is allowed to access the disk via public network. Defaults to `true`.
+	//
+	// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
 	SecureVmDiskEncryptionSetId pulumi.StringPtrInput
 	// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `createOption` must be one of `FromImage` or `ImportSecure`.
+	//
+	// > **NOTE:** `securityType` cannot be specified when `trustedLaunchEnabled` is set to true.
+	//
+	// > **NOTE:** `secureVmDiskEncryptionSetId` must be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
 	SecurityType pulumi.StringPtrInput
 	// The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrInput
@@ -492,16 +627,21 @@ type ManagedDiskArgs struct {
 	// The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+	//
+	// > **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
 	StorageAccountType pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 	Tier pulumi.StringPtrInput
 	// Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Trusted Launch can only be enabled when `createOption` is `FromImage` or `Import`.
 	TrustedLaunchEnabled pulumi.BoolPtrInput
 	// Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
 	UploadSizeBytes pulumi.IntPtrInput
 	// Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+	//
+	// > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zone pulumi.StringPtrInput
 }
 
@@ -598,11 +738,17 @@ func (o ManagedDiskOutput) CreateOption() pulumi.StringOutput {
 }
 
 // The ID of the disk access resource for using private endpoints on disks.
+//
+// > **Note:** `diskAccessId` is only supported when `networkAccessPolicy` is set to `AllowPrivate`.
 func (o ManagedDiskOutput) DiskAccessId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.DiskAccessId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
+//
+// > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+//
+// > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
 func (o ManagedDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -627,7 +773,6 @@ func (o ManagedDiskOutput) DiskMbpsReadWrite() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.IntOutput { return v.DiskMbpsReadWrite }).(pulumi.IntOutput)
 }
 
-// (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
 func (o ManagedDiskOutput) DiskSizeGb() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.IntOutput { return v.DiskSizeGb }).(pulumi.IntOutput)
 }
@@ -638,6 +783,8 @@ func (o ManagedDiskOutput) EdgeZone() pulumi.StringPtrOutput {
 }
 
 // A `encryptionSettings` block as defined below.
+//
+// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 func (o ManagedDiskOutput) EncryptionSettings() ManagedDiskEncryptionSettingsPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) ManagedDiskEncryptionSettingsPtrOutput { return v.EncryptionSettings }).(ManagedDiskEncryptionSettingsPtrOutput)
 }
@@ -663,11 +810,15 @@ func (o ManagedDiskOutput) Location() pulumi.StringOutput {
 }
 
 // Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
 func (o ManagedDiskOutput) LogicalSectorSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.IntOutput { return v.LogicalSectorSize }).(pulumi.IntOutput)
 }
 
 // The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+//
+// > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `maxShares` minimum value is 1 and the maximum is 5.
 func (o ManagedDiskOutput) MaxShares() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.IntOutput { return v.MaxShares }).(pulumi.IntOutput)
 }
@@ -683,6 +834,8 @@ func (o ManagedDiskOutput) NetworkAccessPolicy() pulumi.StringPtrOutput {
 }
 
 // Specifies if On-Demand Bursting is enabled for the Managed Disk.
+//
+// > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
 func (o ManagedDiskOutput) OnDemandBurstingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.BoolPtrOutput { return v.OnDemandBurstingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -693,6 +846,8 @@ func (o ManagedDiskOutput) OsType() pulumi.StringPtrOutput {
 }
 
 // Whether it is allowed to access the disk via public network. Defaults to `true`.
+//
+// For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
 func (o ManagedDiskOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -703,11 +858,19 @@ func (o ManagedDiskOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
 func (o ManagedDiskOutput) SecureVmDiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.SecureVmDiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
 // Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** When `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `createOption` must be one of `FromImage` or `ImportSecure`.
+//
+// > **NOTE:** `securityType` cannot be specified when `trustedLaunchEnabled` is set to true.
+//
+// > **NOTE:** `secureVmDiskEncryptionSetId` must be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
 func (o ManagedDiskOutput) SecurityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.SecurityType }).(pulumi.StringPtrOutput)
 }
@@ -728,6 +891,8 @@ func (o ManagedDiskOutput) StorageAccountId() pulumi.StringPtrOutput {
 }
 
 // The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+//
+// > **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
 func (o ManagedDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringOutput { return v.StorageAccountType }).(pulumi.StringOutput)
 }
@@ -737,12 +902,13 @@ func (o ManagedDiskOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
 func (o ManagedDiskOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringOutput { return v.Tier }).(pulumi.StringOutput)
 }
 
 // Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
+//
+// > **Note:** Trusted Launch can only be enabled when `createOption` is `FromImage` or `Import`.
 func (o ManagedDiskOutput) TrustedLaunchEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.BoolPtrOutput { return v.TrustedLaunchEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -753,6 +919,8 @@ func (o ManagedDiskOutput) UploadSizeBytes() pulumi.IntPtrOutput {
 }
 
 // Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
+//
+// > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 func (o ManagedDiskOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDisk) pulumi.StringPtrOutput { return v.Zone }).(pulumi.StringPtrOutput)
 }

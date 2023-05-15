@@ -19,6 +19,8 @@ namespace Pulumi.Azure.Media.Outputs
         public readonly Outputs.TransformOutputCustomPresetFormatMp4? Mp4;
         /// <summary>
         /// A `transport_stream` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Each format can only have one type: `mp4` or `transport_stream`. If you need to apply different type you must create one format for each one.
         /// </summary>
         public readonly Outputs.TransformOutputCustomPresetFormatTransportStream? TransportStream;
 

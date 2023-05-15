@@ -46,11 +46,17 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
         :param pulumi.Input[bool] disallow_public_ip_address: Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         :param pulumi.Input[str] notes: Any notes about the Virtual Machine.
         :param pulumi.Input[str] password: The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_key: The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One or either `password` or `ssh_key` must be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "gallery_image_reference", gallery_image_reference)
@@ -205,6 +211,8 @@ class LinuxVirtualMachineArgs:
     def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]]:
         """
         One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+
+        > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         """
         return pulumi.get(self, "inbound_nat_rules")
 
@@ -229,6 +237,8 @@ class LinuxVirtualMachineArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+
+        > **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         """
         return pulumi.get(self, "name")
 
@@ -265,6 +275,8 @@ class LinuxVirtualMachineArgs:
     def ssh_key(self) -> Optional[pulumi.Input[str]]:
         """
         The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+
+        > **NOTE:** One or either `password` or `ssh_key` must be specified.
         """
         return pulumi.get(self, "ssh_key")
 
@@ -314,16 +326,22 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[str] fqdn: The FQDN of the Virtual Machine.
         :param pulumi.Input['LinuxVirtualMachineGalleryImageReferenceArgs'] gallery_image_reference: A `gallery_image_reference` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lab_subnet_name: The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lab_virtual_network_id: The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         :param pulumi.Input[str] notes: Any notes about the Virtual Machine.
         :param pulumi.Input[str] password: The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_key: The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One or either `password` or `ssh_key` must be specified.
         :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of the Virtual Machine.
@@ -421,6 +439,8 @@ class _LinuxVirtualMachineState:
     def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineInboundNatRuleArgs']]]]:
         """
         One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+
+        > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         """
         return pulumi.get(self, "inbound_nat_rules")
 
@@ -481,6 +501,8 @@ class _LinuxVirtualMachineState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+
+        > **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         """
         return pulumi.get(self, "name")
 
@@ -541,6 +563,8 @@ class _LinuxVirtualMachineState:
     def ssh_key(self) -> Optional[pulumi.Input[str]]:
         """
         The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+
+        > **NOTE:** One or either `password` or `ssh_key` must be specified.
         """
         return pulumi.get(self, "ssh_key")
 
@@ -676,16 +700,22 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[bool] disallow_public_ip_address: Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArgs']] gallery_image_reference: A `gallery_image_reference` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArgs']]]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lab_subnet_name: The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lab_virtual_network_id: The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         :param pulumi.Input[str] notes: Any notes about the Virtual Machine.
         :param pulumi.Input[str] password: The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_key: The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One or either `password` or `ssh_key` must be specified.
         :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
@@ -865,16 +895,22 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] fqdn: The FQDN of the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['LinuxVirtualMachineGalleryImageReferenceArgs']] gallery_image_reference: A `gallery_image_reference` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxVirtualMachineInboundNatRuleArgs']]]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lab_subnet_name: The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] lab_virtual_network_id: The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         :param pulumi.Input[str] notes: Any notes about the Virtual Machine.
         :param pulumi.Input[str] password: The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_key: The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One or either `password` or `ssh_key` must be specified.
         :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of the Virtual Machine.
@@ -942,6 +978,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     def inbound_nat_rules(self) -> pulumi.Output[Optional[Sequence['outputs.LinuxVirtualMachineInboundNatRule']]]:
         """
         One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+
+        > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         """
         return pulumi.get(self, "inbound_nat_rules")
 
@@ -982,6 +1020,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+
+        > **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         """
         return pulumi.get(self, "name")
 
@@ -1022,6 +1062,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     def ssh_key(self) -> pulumi.Output[Optional[str]]:
         """
         The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+
+        > **NOTE:** One or either `password` or `ssh_key` must be specified.
         """
         return pulumi.get(self, "ssh_key")
 

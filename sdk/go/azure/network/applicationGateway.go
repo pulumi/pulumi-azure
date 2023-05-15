@@ -230,6 +230,8 @@ type ApplicationGateway struct {
 	// a `sslPolicy` block as defined below.
 	SslPolicy ApplicationGatewaySslPolicyOutput `pulumi:"sslPolicy"`
 	// One or more `sslProfile` blocks as defined below.
+	//
+	// > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 	SslProfiles ApplicationGatewaySslProfileArrayOutput `pulumi:"sslProfiles"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -356,6 +358,8 @@ type applicationGatewayState struct {
 	// a `sslPolicy` block as defined below.
 	SslPolicy *ApplicationGatewaySslPolicy `pulumi:"sslPolicy"`
 	// One or more `sslProfile` blocks as defined below.
+	//
+	// > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 	SslProfiles []ApplicationGatewaySslProfile `pulumi:"sslProfiles"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -427,6 +431,8 @@ type ApplicationGatewayState struct {
 	// a `sslPolicy` block as defined below.
 	SslPolicy ApplicationGatewaySslPolicyPtrInput
 	// One or more `sslProfile` blocks as defined below.
+	//
+	// > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 	SslProfiles ApplicationGatewaySslProfileArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -500,6 +506,8 @@ type applicationGatewayArgs struct {
 	// a `sslPolicy` block as defined below.
 	SslPolicy *ApplicationGatewaySslPolicy `pulumi:"sslPolicy"`
 	// One or more `sslProfile` blocks as defined below.
+	//
+	// > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 	SslProfiles []ApplicationGatewaySslProfile `pulumi:"sslProfiles"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -570,6 +578,8 @@ type ApplicationGatewayArgs struct {
 	// a `sslPolicy` block as defined below.
 	SslPolicy ApplicationGatewaySslPolicyPtrInput
 	// One or more `sslProfile` blocks as defined below.
+	//
+	// > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 	SslProfiles ApplicationGatewaySslProfileArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -830,6 +840,8 @@ func (o ApplicationGatewayOutput) SslPolicy() ApplicationGatewaySslPolicyOutput 
 }
 
 // One or more `sslProfile` blocks as defined below.
+//
+// > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 func (o ApplicationGatewayOutput) SslProfiles() ApplicationGatewaySslProfileArrayOutput {
 	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewaySslProfileArrayOutput { return v.SslProfiles }).(ApplicationGatewaySslProfileArrayOutput)
 }

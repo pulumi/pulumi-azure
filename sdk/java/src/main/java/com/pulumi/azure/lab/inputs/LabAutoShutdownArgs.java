@@ -18,12 +18,16 @@ public final class LabAutoShutdownArgs extends com.pulumi.resources.ResourceArgs
     /**
      * The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
      * 
+     * &gt; **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnect_delay` isn&#39;t specified.
+     * 
      */
     @Import(name="disconnectDelay")
     private @Nullable Output<String> disconnectDelay;
 
     /**
      * @return The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+     * 
+     * &gt; **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnect_delay` isn&#39;t specified.
      * 
      */
     public Optional<Output<String>> disconnectDelay() {
@@ -48,12 +52,16 @@ public final class LabAutoShutdownArgs extends com.pulumi.resources.ResourceArgs
     /**
      * The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
      * 
+     * &gt; **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `no_connect_delay` isn&#39;t specified.
+     * 
      */
     @Import(name="noConnectDelay")
     private @Nullable Output<String> noConnectDelay;
 
     /**
      * @return The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+     * 
+     * &gt; **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `no_connect_delay` isn&#39;t specified.
      * 
      */
     public Optional<Output<String>> noConnectDelay() {
@@ -63,12 +71,16 @@ public final class LabAutoShutdownArgs extends com.pulumi.resources.ResourceArgs
     /**
      * A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
      * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified. No need to set `idle_delay` when `shutdown_on_idle` isn&#39;t specified.
+     * 
      */
     @Import(name="shutdownOnIdle")
     private @Nullable Output<String> shutdownOnIdle;
 
     /**
      * @return A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+     * 
+     * &gt; **NOTE:** This property is `None` when it isn&#39;t specified. No need to set `idle_delay` when `shutdown_on_idle` isn&#39;t specified.
      * 
      */
     public Optional<Output<String>> shutdownOnIdle() {
@@ -105,6 +117,8 @@ public final class LabAutoShutdownArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param disconnectDelay The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
          * 
+         * &gt; **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnect_delay` isn&#39;t specified.
+         * 
          * @return builder
          * 
          */
@@ -115,6 +129,8 @@ public final class LabAutoShutdownArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param disconnectDelay The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+         * 
+         * &gt; **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnect_delay` isn&#39;t specified.
          * 
          * @return builder
          * 
@@ -147,6 +163,8 @@ public final class LabAutoShutdownArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param noConnectDelay The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
          * 
+         * &gt; **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `no_connect_delay` isn&#39;t specified.
+         * 
          * @return builder
          * 
          */
@@ -158,6 +176,8 @@ public final class LabAutoShutdownArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param noConnectDelay The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
          * 
+         * &gt; **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `no_connect_delay` isn&#39;t specified.
+         * 
          * @return builder
          * 
          */
@@ -167,6 +187,8 @@ public final class LabAutoShutdownArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param shutdownOnIdle A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+         * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified. No need to set `idle_delay` when `shutdown_on_idle` isn&#39;t specified.
          * 
          * @return builder
          * 
@@ -178,6 +200,8 @@ public final class LabAutoShutdownArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param shutdownOnIdle A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+         * 
+         * &gt; **NOTE:** This property is `None` when it isn&#39;t specified. No need to set `idle_delay` when `shutdown_on_idle` isn&#39;t specified.
          * 
          * @return builder
          * 

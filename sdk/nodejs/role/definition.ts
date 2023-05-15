@@ -68,6 +68,8 @@ export class Definition extends pulumi.CustomResource {
 
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+     *
+     * > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
      */
     public readonly assignableScopes!: pulumi.Output<string[]>;
     /**
@@ -142,6 +144,8 @@ export class Definition extends pulumi.CustomResource {
 export interface DefinitionState {
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+     *
+     * > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
      */
     assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -176,6 +180,8 @@ export interface DefinitionState {
 export interface DefinitionArgs {
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+     *
+     * > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
      */
     assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

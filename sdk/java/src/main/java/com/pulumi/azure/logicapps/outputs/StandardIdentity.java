@@ -15,6 +15,10 @@ public final class StandardIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
      * 
+     * &gt; **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
+     * 
+     * &gt; **NOTE:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     private @Nullable List<String> identityIds;
     /**
@@ -36,6 +40,10 @@ public final class StandardIdentity {
     private StandardIdentity() {}
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
+     * 
+     * &gt; **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
+     * 
+     * &gt; **NOTE:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public List<String> identityIds() {

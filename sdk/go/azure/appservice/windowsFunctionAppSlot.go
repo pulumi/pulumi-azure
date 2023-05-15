@@ -154,12 +154,17 @@ type WindowsFunctionAppSlot struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts WindowsFunctionAppSlotStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId pulumi.StringPtrOutput `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App Slot use its Managed Identity to access storage.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrOutput `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -272,13 +277,18 @@ type windowsFunctionAppSlotState struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []WindowsFunctionAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId *string `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App Slot use its Managed Identity to access storage.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity *bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
-	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
 }
 
 type WindowsFunctionAppSlotState struct {
@@ -347,12 +357,17 @@ type WindowsFunctionAppSlotState struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts WindowsFunctionAppSlotStorageAccountArrayInput
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId pulumi.StringPtrInput
 	// Should the Function App Slot use its Managed Identity to access storage.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
-	Tags pulumi.StringMapInput
-	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
@@ -408,13 +423,18 @@ type windowsFunctionAppSlotArgs struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []WindowsFunctionAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId *string `pulumi:"storageKeyVaultSecretId"`
 	// Should the Function App Slot use its Managed Identity to access storage.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity *bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
-	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
 }
 
 // The set of arguments for constructing a WindowsFunctionAppSlot resource.
@@ -466,12 +486,17 @@ type WindowsFunctionAppSlotArgs struct {
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts WindowsFunctionAppSlotStorageAccountArrayInput
 	// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+	//
+	// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 	StorageKeyVaultSecretId pulumi.StringPtrInput
 	// Should the Function App Slot use its Managed Identity to access storage.
+	//
+	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
-	Tags pulumi.StringMapInput
-	// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
@@ -729,11 +754,17 @@ func (o WindowsFunctionAppSlotOutput) StorageAccounts() WindowsFunctionAppSlotSt
 }
 
 // The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
+//
+// > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+//
+// > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
 func (o WindowsFunctionAppSlotOutput) StorageKeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringPtrOutput { return v.StorageKeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
 
 // Should the Function App Slot use its Managed Identity to access storage.
+//
+// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 func (o WindowsFunctionAppSlotOutput) StorageUsesManagedIdentity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.BoolPtrOutput { return v.StorageUsesManagedIdentity }).(pulumi.BoolPtrOutput)
 }
@@ -743,7 +774,6 @@ func (o WindowsFunctionAppSlotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 func (o WindowsFunctionAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }

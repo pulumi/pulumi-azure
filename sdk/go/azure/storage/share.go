@@ -83,10 +83,14 @@ type Share struct {
 	pulumi.CustomResourceState
 
 	// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
+	//
+	// ~>**NOTE:** The `FileStorage` `accountKind` of the `storage.Account` requires `Premium` `accessTier`.
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayOutput `pulumi:"acls"`
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	//
+	// ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
 	EnabledProtocol pulumi.StringPtrOutput `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
@@ -138,10 +142,14 @@ func GetShare(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Share resources.
 type shareState struct {
 	// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
+	//
+	// ~>**NOTE:** The `FileStorage` `accountKind` of the `storage.Account` requires `Premium` `accessTier`.
 	AccessTier *string `pulumi:"accessTier"`
 	// One or more `acl` blocks as defined below.
 	Acls []ShareAcl `pulumi:"acls"`
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	//
+	// ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
 	EnabledProtocol *string `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -159,10 +167,14 @@ type shareState struct {
 
 type ShareState struct {
 	// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
+	//
+	// ~>**NOTE:** The `FileStorage` `accountKind` of the `storage.Account` requires `Premium` `accessTier`.
 	AccessTier pulumi.StringPtrInput
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayInput
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	//
+	// ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
 	EnabledProtocol pulumi.StringPtrInput
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapInput
@@ -184,10 +196,14 @@ func (ShareState) ElementType() reflect.Type {
 
 type shareArgs struct {
 	// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
+	//
+	// ~>**NOTE:** The `FileStorage` `accountKind` of the `storage.Account` requires `Premium` `accessTier`.
 	AccessTier *string `pulumi:"accessTier"`
 	// One or more `acl` blocks as defined below.
 	Acls []ShareAcl `pulumi:"acls"`
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	//
+	// ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
 	EnabledProtocol *string `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -202,10 +218,14 @@ type shareArgs struct {
 // The set of arguments for constructing a Share resource.
 type ShareArgs struct {
 	// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
+	//
+	// ~>**NOTE:** The `FileStorage` `accountKind` of the `storage.Account` requires `Premium` `accessTier`.
 	AccessTier pulumi.StringPtrInput
 	// One or more `acl` blocks as defined below.
 	Acls ShareAclArrayInput
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+	//
+	// ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
 	EnabledProtocol pulumi.StringPtrInput
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapInput
@@ -305,6 +325,8 @@ func (o ShareOutput) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 }
 
 // The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
+//
+// ~>**NOTE:** The `FileStorage` `accountKind` of the `storage.Account` requires `Premium` `accessTier`.
 func (o ShareOutput) AccessTier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.AccessTier }).(pulumi.StringOutput)
 }
@@ -315,6 +337,8 @@ func (o ShareOutput) Acls() ShareAclArrayOutput {
 }
 
 // The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
+//
+// ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
 func (o ShareOutput) EnabledProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.EnabledProtocol }).(pulumi.StringPtrOutput)
 }

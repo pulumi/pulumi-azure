@@ -130,6 +130,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+        /// 
+        /// The following supported locations for a Binary Dataset. One of these should be specified:
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
@@ -263,6 +265,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+        /// 
+        /// The following supported locations for a Binary Dataset. One of these should be specified:
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -361,6 +365,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
+        /// 
+        /// The following supported locations for a Binary Dataset. One of these should be specified:
         /// </summary>
         public InputMap<string> Parameters
         {

@@ -7,6 +7,10 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Use this data source to access information about an existing SQL Managed Instance.
+ *
+ * > **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -128,6 +132,10 @@ export interface GetSqlManagedInstanceResult {
     readonly vcores: number;
 }
 /**
+ * Use this data source to access information about an existing SQL Managed Instance.
+ *
+ * > **Note:** The `azure.sql.ManagedInstance` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstance` data source instead.
+ *
  * ## Example Usage
  *
  * ```typescript

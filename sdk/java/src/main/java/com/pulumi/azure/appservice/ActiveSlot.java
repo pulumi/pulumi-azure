@@ -14,6 +14,12 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Promotes an App Service Slot to Production within an App Service.
+ * 
+ * !&gt; **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `azure.appservice.WebAppActiveSlot` resource instead.
+ * 
+ * &gt; **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

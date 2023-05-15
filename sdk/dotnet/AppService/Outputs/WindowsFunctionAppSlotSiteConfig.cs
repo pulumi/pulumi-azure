@@ -115,6 +115,8 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string? RemoteDebuggingVersion;
         /// <summary>
         /// Should Scale Monitoring of the Functions Runtime be enabled?
+        /// 
+        /// &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         /// </summary>
         public readonly bool? RuntimeScaleMonitoringEnabled;
         /// <summary>

@@ -106,6 +106,8 @@ export class EndpointCustomDomain extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * A `userManagedHttps` block as defined below.
+     *
+     * > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
      */
     public readonly userManagedHttps!: pulumi.Output<outputs.cdn.EndpointCustomDomainUserManagedHttps | undefined>;
 
@@ -168,6 +170,8 @@ export interface EndpointCustomDomainState {
     name?: pulumi.Input<string>;
     /**
      * A `userManagedHttps` block as defined below.
+     *
+     * > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
      */
     userManagedHttps?: pulumi.Input<inputs.cdn.EndpointCustomDomainUserManagedHttps>;
 }
@@ -194,6 +198,8 @@ export interface EndpointCustomDomainArgs {
     name?: pulumi.Input<string>;
     /**
      * A `userManagedHttps` block as defined below.
+     *
+     * > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
      */
     userManagedHttps?: pulumi.Input<inputs.cdn.EndpointCustomDomainUserManagedHttps>;
 }

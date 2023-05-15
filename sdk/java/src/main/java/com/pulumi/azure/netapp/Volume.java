@@ -291,12 +291,16 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

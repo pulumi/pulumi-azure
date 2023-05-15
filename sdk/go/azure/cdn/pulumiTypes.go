@@ -191,6 +191,8 @@ type EndpointCustomDomainUserManagedHttps struct {
 	// Deprecated: This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
 	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
 	// The ID of the Key Vault Secret that contains the HTTPS certificate.
+	//
+	// > **NOTE** Either `keyVaultCertificateId` or `keyVaultSecretId` has to be specified.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 	TlsVersion *string `pulumi:"tlsVersion"`
@@ -213,6 +215,8 @@ type EndpointCustomDomainUserManagedHttpsArgs struct {
 	// Deprecated: This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
 	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
 	// The ID of the Key Vault Secret that contains the HTTPS certificate.
+	//
+	// > **NOTE** Either `keyVaultCertificateId` or `keyVaultSecretId` has to be specified.
 	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
 	// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 	TlsVersion pulumi.StringPtrInput `pulumi:"tlsVersion"`
@@ -303,6 +307,8 @@ func (o EndpointCustomDomainUserManagedHttpsOutput) KeyVaultCertificateId() pulu
 }
 
 // The ID of the Key Vault Secret that contains the HTTPS certificate.
+//
+// > **NOTE** Either `keyVaultCertificateId` or `keyVaultSecretId` has to be specified.
 func (o EndpointCustomDomainUserManagedHttpsOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointCustomDomainUserManagedHttps) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
@@ -349,6 +355,8 @@ func (o EndpointCustomDomainUserManagedHttpsPtrOutput) KeyVaultCertificateId() p
 }
 
 // The ID of the Key Vault Secret that contains the HTTPS certificate.
+//
+// > **NOTE** Either `keyVaultCertificateId` or `keyVaultSecretId` has to be specified.
 func (o EndpointCustomDomainUserManagedHttpsPtrOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointCustomDomainUserManagedHttps) *string {
 		if v == nil {
@@ -4963,6 +4971,8 @@ type FrontdoorCustomDomainTls struct {
 	// Resource ID of the Front Door Secret.
 	CdnFrontdoorSecretId *string `pulumi:"cdnFrontdoorSecretId"`
 	// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+	//
+	// ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
 	CertificateType *string `pulumi:"certificateType"`
 	// TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
@@ -4983,6 +4993,8 @@ type FrontdoorCustomDomainTlsArgs struct {
 	// Resource ID of the Front Door Secret.
 	CdnFrontdoorSecretId pulumi.StringPtrInput `pulumi:"cdnFrontdoorSecretId"`
 	// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+	//
+	// ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
 	CertificateType pulumi.StringPtrInput `pulumi:"certificateType"`
 	// TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
 	MinimumTlsVersion pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
@@ -5071,6 +5083,8 @@ func (o FrontdoorCustomDomainTlsOutput) CdnFrontdoorSecretId() pulumi.StringPtrO
 }
 
 // Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+//
+// ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
 func (o FrontdoorCustomDomainTlsOutput) CertificateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorCustomDomainTls) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
 }
@@ -5115,6 +5129,8 @@ func (o FrontdoorCustomDomainTlsPtrOutput) CdnFrontdoorSecretId() pulumi.StringP
 }
 
 // Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+//
+// ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
 func (o FrontdoorCustomDomainTlsPtrOutput) CertificateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *string {
 		if v == nil {
@@ -5577,6 +5593,8 @@ func (o FrontdoorFirewallPolicyManagedRuleArrayOutput) Index(i pulumi.IntInput) 
 
 type FrontdoorFirewallPolicyManagedRuleExclusion struct {
 	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+	//
+	// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 	MatchVariable string `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
@@ -5597,6 +5615,8 @@ type FrontdoorFirewallPolicyManagedRuleExclusionInput interface {
 
 type FrontdoorFirewallPolicyManagedRuleExclusionArgs struct {
 	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+	//
+	// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -5656,6 +5676,8 @@ func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) ToFrontdoorFirewallPo
 }
 
 // The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+//
+// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
@@ -5811,6 +5833,8 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput) Index(i pulumi.In
 
 type FrontdoorFirewallPolicyManagedRuleOverrideExclusion struct {
 	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+	//
+	// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 	MatchVariable string `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
@@ -5831,6 +5855,8 @@ type FrontdoorFirewallPolicyManagedRuleOverrideExclusionInput interface {
 
 type FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs struct {
 	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+	//
+	// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -5890,6 +5916,8 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) ToFrontdoorFi
 }
 
 // The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+//
+// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
@@ -5926,6 +5954,8 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput) Index(i 
 
 type FrontdoorFirewallPolicyManagedRuleOverrideRule struct {
 	// The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
+	//
+	// ->**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
 	Action string `pulumi:"action"`
 	// Is the managed rule override enabled or disabled. Defaults to `false`
 	Enabled *bool `pulumi:"enabled"`
@@ -5948,6 +5978,8 @@ type FrontdoorFirewallPolicyManagedRuleOverrideRuleInput interface {
 
 type FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs struct {
 	// The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
+	//
+	// ->**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
 	Action pulumi.StringInput `pulumi:"action"`
 	// Is the managed rule override enabled or disabled. Defaults to `false`
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -6009,6 +6041,8 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput) ToFrontdoorFirewal
 }
 
 // The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
+//
+// ->**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
 func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRule) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -6052,6 +6086,8 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput) Index(i pulum
 
 type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion struct {
 	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+	//
+	// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 	MatchVariable string `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator string `pulumi:"operator"`
@@ -6072,6 +6108,8 @@ type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionInput interface {
 
 type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs struct {
 	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+	//
+	// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
 	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -6131,6 +6169,8 @@ func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) ToFrontdo
 }
 
 // The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+//
+// > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
 func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
@@ -6169,6 +6209,8 @@ type FrontdoorOriginGroupHealthProbe struct {
 	// Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
 	IntervalInSeconds int `pulumi:"intervalInSeconds"`
 	// Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+	//
+	// > **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `healthProbe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
 	Path *string `pulumi:"path"`
 	// Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
 	Protocol string `pulumi:"protocol"`
@@ -6191,6 +6233,8 @@ type FrontdoorOriginGroupHealthProbeArgs struct {
 	// Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
 	IntervalInSeconds pulumi.IntInput `pulumi:"intervalInSeconds"`
 	// Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+	//
+	// > **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `healthProbe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
@@ -6281,6 +6325,8 @@ func (o FrontdoorOriginGroupHealthProbeOutput) IntervalInSeconds() pulumi.IntOut
 }
 
 // Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+//
+// > **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `healthProbe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
 func (o FrontdoorOriginGroupHealthProbeOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorOriginGroupHealthProbe) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -6330,6 +6376,8 @@ func (o FrontdoorOriginGroupHealthProbePtrOutput) IntervalInSeconds() pulumi.Int
 }
 
 // Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+//
+// > **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `healthProbe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
 func (o FrontdoorOriginGroupHealthProbePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorOriginGroupHealthProbe) *string {
 		if v == nil {
@@ -6538,10 +6586,14 @@ type FrontdoorOriginPrivateLink struct {
 	// Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
 	Location string `pulumi:"location"`
 	// The ID of the Azure Resource to connect to via the Private Link.
+	//
+	// > **Note:** the `privateLinkTargetId` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
 	PrivateLinkTargetId string `pulumi:"privateLinkTargetId"`
 	// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
 	RequestMessage *string `pulumi:"requestMessage"`
 	// Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
+	//
+	// > **NOTE:** `targetType` cannot be specified when using a Load Balancer as an Origin.
 	TargetType *string `pulumi:"targetType"`
 }
 
@@ -6560,10 +6612,14 @@ type FrontdoorOriginPrivateLinkArgs struct {
 	// Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringInput `pulumi:"location"`
 	// The ID of the Azure Resource to connect to via the Private Link.
+	//
+	// > **Note:** the `privateLinkTargetId` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
 	PrivateLinkTargetId pulumi.StringInput `pulumi:"privateLinkTargetId"`
 	// Specifies the request message that will be submitted to the `privateLinkTargetId` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
 	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
 	// Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
+	//
+	// > **NOTE:** `targetType` cannot be specified when using a Load Balancer as an Origin.
 	TargetType pulumi.StringPtrInput `pulumi:"targetType"`
 }
 
@@ -6650,6 +6706,8 @@ func (o FrontdoorOriginPrivateLinkOutput) Location() pulumi.StringOutput {
 }
 
 // The ID of the Azure Resource to connect to via the Private Link.
+//
+// > **Note:** the `privateLinkTargetId` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
 func (o FrontdoorOriginPrivateLinkOutput) PrivateLinkTargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorOriginPrivateLink) string { return v.PrivateLinkTargetId }).(pulumi.StringOutput)
 }
@@ -6660,6 +6718,8 @@ func (o FrontdoorOriginPrivateLinkOutput) RequestMessage() pulumi.StringPtrOutpu
 }
 
 // Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
+//
+// > **NOTE:** `targetType` cannot be specified when using a Load Balancer as an Origin.
 func (o FrontdoorOriginPrivateLinkOutput) TargetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorOriginPrivateLink) *string { return v.TargetType }).(pulumi.StringPtrOutput)
 }
@@ -6699,6 +6759,8 @@ func (o FrontdoorOriginPrivateLinkPtrOutput) Location() pulumi.StringPtrOutput {
 }
 
 // The ID of the Azure Resource to connect to via the Private Link.
+//
+// > **Note:** the `privateLinkTargetId` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
 func (o FrontdoorOriginPrivateLinkPtrOutput) PrivateLinkTargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorOriginPrivateLink) *string {
 		if v == nil {
@@ -6719,6 +6781,8 @@ func (o FrontdoorOriginPrivateLinkPtrOutput) RequestMessage() pulumi.StringPtrOu
 }
 
 // Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
+//
+// > **NOTE:** `targetType` cannot be specified when using a Load Balancer as an Origin.
 func (o FrontdoorOriginPrivateLinkPtrOutput) TargetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorOriginPrivateLink) *string {
 		if v == nil {
@@ -6730,10 +6794,14 @@ func (o FrontdoorOriginPrivateLinkPtrOutput) TargetType() pulumi.StringPtrOutput
 
 type FrontdoorRouteCache struct {
 	// Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** Content won't be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
 	CompressionEnabled *bool `pulumi:"compressionEnabled"`
 	// A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
 	ContentTypesToCompresses []string `pulumi:"contentTypesToCompresses"`
 	// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+	//
+	// > **NOTE:** The value of the `queryStringCachingBehavior` determines if the `queryStrings` field will be used as an include list or an ignore list.
 	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// Query strings to include or ignore.
 	QueryStrings []string `pulumi:"queryStrings"`
@@ -6752,10 +6820,14 @@ type FrontdoorRouteCacheInput interface {
 
 type FrontdoorRouteCacheArgs struct {
 	// Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** Content won't be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
 	CompressionEnabled pulumi.BoolPtrInput `pulumi:"compressionEnabled"`
 	// A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
 	ContentTypesToCompresses pulumi.StringArrayInput `pulumi:"contentTypesToCompresses"`
 	// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+	//
+	// > **NOTE:** The value of the `queryStringCachingBehavior` determines if the `queryStrings` field will be used as an include list or an ignore list.
 	QueryStringCachingBehavior pulumi.StringPtrInput `pulumi:"queryStringCachingBehavior"`
 	// Query strings to include or ignore.
 	QueryStrings pulumi.StringArrayInput `pulumi:"queryStrings"`
@@ -6839,6 +6911,8 @@ func (o FrontdoorRouteCacheOutput) ToFrontdoorRouteCachePtrOutputWithContext(ctx
 }
 
 // Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
+//
+// > **NOTE:** Content won't be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
 func (o FrontdoorRouteCacheOutput) CompressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FrontdoorRouteCache) *bool { return v.CompressionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -6849,6 +6923,8 @@ func (o FrontdoorRouteCacheOutput) ContentTypesToCompresses() pulumi.StringArray
 }
 
 // Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+//
+// > **NOTE:** The value of the `queryStringCachingBehavior` determines if the `queryStrings` field will be used as an include list or an ignore list.
 func (o FrontdoorRouteCacheOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRouteCache) *string { return v.QueryStringCachingBehavior }).(pulumi.StringPtrOutput)
 }
@@ -6883,6 +6959,8 @@ func (o FrontdoorRouteCachePtrOutput) Elem() FrontdoorRouteCacheOutput {
 }
 
 // Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
+//
+// > **NOTE:** Content won't be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
 func (o FrontdoorRouteCachePtrOutput) CompressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRouteCache) *bool {
 		if v == nil {
@@ -6903,6 +6981,8 @@ func (o FrontdoorRouteCachePtrOutput) ContentTypesToCompresses() pulumi.StringAr
 }
 
 // Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+//
+// > **NOTE:** The value of the `queryStringCachingBehavior` determines if the `queryStrings` field will be used as an include list or an ignore list.
 func (o FrontdoorRouteCachePtrOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRouteCache) *string {
 		if v == nil {
@@ -7141,10 +7221,14 @@ func (o FrontdoorRuleActionsPtrOutput) UrlRewriteAction() FrontdoorRuleActionsUr
 
 type FrontdoorRuleActionsRequestHeaderAction struct {
 	// The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
+	//
+	// > **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
 	HeaderAction string `pulumi:"headerAction"`
 	// The name of the header to modify.
 	HeaderName string `pulumi:"headerName"`
 	// The value to append or overwrite.
+	//
+	// ->**NOTE:** `value` is required if the `headerAction` is set to `Append` or `Overwrite`.
 	Value *string `pulumi:"value"`
 }
 
@@ -7161,10 +7245,14 @@ type FrontdoorRuleActionsRequestHeaderActionInput interface {
 
 type FrontdoorRuleActionsRequestHeaderActionArgs struct {
 	// The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
+	//
+	// > **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
 	HeaderAction pulumi.StringInput `pulumi:"headerAction"`
 	// The name of the header to modify.
 	HeaderName pulumi.StringInput `pulumi:"headerName"`
 	// The value to append or overwrite.
+	//
+	// ->**NOTE:** `value` is required if the `headerAction` is set to `Append` or `Overwrite`.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -7220,6 +7308,8 @@ func (o FrontdoorRuleActionsRequestHeaderActionOutput) ToFrontdoorRuleActionsReq
 }
 
 // The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
+//
+// > **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
 func (o FrontdoorRuleActionsRequestHeaderActionOutput) HeaderAction() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsRequestHeaderAction) string { return v.HeaderAction }).(pulumi.StringOutput)
 }
@@ -7230,6 +7320,8 @@ func (o FrontdoorRuleActionsRequestHeaderActionOutput) HeaderName() pulumi.Strin
 }
 
 // The value to append or overwrite.
+//
+// ->**NOTE:** `value` is required if the `headerAction` is set to `Append` or `Overwrite`.
 func (o FrontdoorRuleActionsRequestHeaderActionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsRequestHeaderAction) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -7256,10 +7348,14 @@ func (o FrontdoorRuleActionsRequestHeaderActionArrayOutput) Index(i pulumi.IntIn
 
 type FrontdoorRuleActionsResponseHeaderAction struct {
 	// The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
+	//
+	// > **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
 	HeaderAction string `pulumi:"headerAction"`
 	// The name of the header to modify.
 	HeaderName string `pulumi:"headerName"`
 	// The value to append or overwrite.
+	//
+	// ->**NOTE:** `value` is required if the `headerAction` is set to `Append` or `Overwrite`.
 	Value *string `pulumi:"value"`
 }
 
@@ -7276,10 +7372,14 @@ type FrontdoorRuleActionsResponseHeaderActionInput interface {
 
 type FrontdoorRuleActionsResponseHeaderActionArgs struct {
 	// The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
+	//
+	// > **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
 	HeaderAction pulumi.StringInput `pulumi:"headerAction"`
 	// The name of the header to modify.
 	HeaderName pulumi.StringInput `pulumi:"headerName"`
 	// The value to append or overwrite.
+	//
+	// ->**NOTE:** `value` is required if the `headerAction` is set to `Append` or `Overwrite`.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -7335,6 +7435,8 @@ func (o FrontdoorRuleActionsResponseHeaderActionOutput) ToFrontdoorRuleActionsRe
 }
 
 // The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
+//
+// > **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
 func (o FrontdoorRuleActionsResponseHeaderActionOutput) HeaderAction() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsResponseHeaderAction) string { return v.HeaderAction }).(pulumi.StringOutput)
 }
@@ -7345,6 +7447,8 @@ func (o FrontdoorRuleActionsResponseHeaderActionOutput) HeaderName() pulumi.Stri
 }
 
 // The value to append or overwrite.
+//
+// ->**NOTE:** `value` is required if the `headerAction` is set to `Append` or `Overwrite`.
 func (o FrontdoorRuleActionsResponseHeaderActionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsResponseHeaderAction) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -7377,12 +7481,18 @@ type FrontdoorRuleActionsRouteConfigurationOverrideAction struct {
 	// The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
 	CdnFrontdoorOriginGroupId *string `pulumi:"cdnFrontdoorOriginGroupId"`
 	// Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
+	//
+	// ->**NOTE:** Content won't be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
 	CompressionEnabled *bool `pulumi:"compressionEnabled"`
 	// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
+	//
+	// ->**NOTE:** If the `cdnFrontdoorOriginGroupId` is not defined you cannot set the `forwardingProtocol`.
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
 	// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
 	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// A list of query string parameter names.
+	//
+	// ->**NOTE:** `queryStringParameters` is a required field when the `queryStringCachingBehavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
 	QueryStringParameters []string `pulumi:"queryStringParameters"`
 }
 
@@ -7405,12 +7515,18 @@ type FrontdoorRuleActionsRouteConfigurationOverrideActionArgs struct {
 	// The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
 	CdnFrontdoorOriginGroupId pulumi.StringPtrInput `pulumi:"cdnFrontdoorOriginGroupId"`
 	// Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
+	//
+	// ->**NOTE:** Content won't be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
 	CompressionEnabled pulumi.BoolPtrInput `pulumi:"compressionEnabled"`
 	// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
+	//
+	// ->**NOTE:** If the `cdnFrontdoorOriginGroupId` is not defined you cannot set the `forwardingProtocol`.
 	ForwardingProtocol pulumi.StringPtrInput `pulumi:"forwardingProtocol"`
 	// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
 	QueryStringCachingBehavior pulumi.StringPtrInput `pulumi:"queryStringCachingBehavior"`
 	// A list of query string parameter names.
+	//
+	// ->**NOTE:** `queryStringParameters` is a required field when the `queryStringCachingBehavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
 	QueryStringParameters pulumi.StringArrayInput `pulumi:"queryStringParameters"`
 }
 
@@ -7509,11 +7625,15 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CdnFrontdoor
 }
 
 // Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
+//
+// ->**NOTE:** Content won't be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CompressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *bool { return v.CompressionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
+//
+// ->**NOTE:** If the `cdnFrontdoorOriginGroupId` is not defined you cannot set the `forwardingProtocol`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) ForwardingProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
 }
@@ -7526,6 +7646,8 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) QueryStringC
 }
 
 // A list of query string parameter names.
+//
+// ->**NOTE:** `queryStringParameters` is a required field when the `queryStringCachingBehavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) QueryStringParameters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) []string { return v.QueryStringParameters }).(pulumi.StringArrayOutput)
 }
@@ -7585,6 +7707,8 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CdnFrontd
 }
 
 // Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
+//
+// ->**NOTE:** Content won't be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CompressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *bool {
 		if v == nil {
@@ -7595,6 +7719,8 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) Compressi
 }
 
 // The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
+//
+// ->**NOTE:** If the `cdnFrontdoorOriginGroupId` is not defined you cannot set the `forwardingProtocol`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) ForwardingProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
 		if v == nil {
@@ -7615,6 +7741,8 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) QueryStri
 }
 
 // A list of query string parameter names.
+//
+// ->**NOTE:** `queryStringParameters` is a required field when the `queryStringCachingBehavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
 func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) QueryStringParameters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) []string {
 		if v == nil {
@@ -9405,6 +9533,8 @@ func (o FrontdoorRuleConditionsQueryStringConditionArrayOutput) Index(i pulumi.I
 
 type FrontdoorRuleConditionsRemoteAddressCondition struct {
 	// For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
+	//
+	// ->**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `matchValues` field.
 	MatchValues []string `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -9425,6 +9555,8 @@ type FrontdoorRuleConditionsRemoteAddressConditionInput interface {
 
 type FrontdoorRuleConditionsRemoteAddressConditionArgs struct {
 	// For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
+	//
+	// ->**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `matchValues` field.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -9484,6 +9616,8 @@ func (o FrontdoorRuleConditionsRemoteAddressConditionOutput) ToFrontdoorRuleCond
 }
 
 // For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
+//
+// ->**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `matchValues` field.
 func (o FrontdoorRuleConditionsRemoteAddressConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsRemoteAddressCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
@@ -10246,10 +10380,14 @@ func (o FrontdoorRuleConditionsServerPortConditionArrayOutput) Index(i pulumi.In
 
 type FrontdoorRuleConditionsSocketAddressCondition struct {
 	// Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
+	//
+	// ->**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `matchValues` field.
 	MatchValues []string `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
+	//
+	// ->**NOTE:** If the value of the `operator` field is set to `IpMatch` then the `matchValues` field is also required.
 	Operator *string `pulumi:"operator"`
 }
 
@@ -10266,10 +10404,14 @@ type FrontdoorRuleConditionsSocketAddressConditionInput interface {
 
 type FrontdoorRuleConditionsSocketAddressConditionArgs struct {
 	// Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
+	//
+	// ->**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `matchValues` field.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
+	//
+	// ->**NOTE:** If the value of the `operator` field is set to `IpMatch` then the `matchValues` field is also required.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
 }
 
@@ -10325,6 +10467,8 @@ func (o FrontdoorRuleConditionsSocketAddressConditionOutput) ToFrontdoorRuleCond
 }
 
 // Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
+//
+// ->**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `matchValues` field.
 func (o FrontdoorRuleConditionsSocketAddressConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsSocketAddressCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }
@@ -10335,6 +10479,8 @@ func (o FrontdoorRuleConditionsSocketAddressConditionOutput) NegateCondition() p
 }
 
 // The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
+//
+// ->**NOTE:** If the value of the `operator` field is set to `IpMatch` then the `matchValues` field is also required.
 func (o FrontdoorRuleConditionsSocketAddressConditionOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsSocketAddressCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
@@ -10987,6 +11133,8 @@ func (o FrontdoorSecretSecretPtrOutput) CustomerCertificates() FrontdoorSecretSe
 
 type FrontdoorSecretSecretCustomerCertificate struct {
 	// The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
+	//
+	// ->**NOTE:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionlessId` attribute as the `keyVaultCertificateId` fields value(e.g. `keyVaultCertificateId = azurerm_key_vault_certificate.example.versionless_id`).
 	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
 	// One or more `subject alternative names` contained within the key vault certificate.
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
@@ -11005,6 +11153,8 @@ type FrontdoorSecretSecretCustomerCertificateInput interface {
 
 type FrontdoorSecretSecretCustomerCertificateArgs struct {
 	// The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
+	//
+	// ->**NOTE:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionlessId` attribute as the `keyVaultCertificateId` fields value(e.g. `keyVaultCertificateId = azurerm_key_vault_certificate.example.versionless_id`).
 	KeyVaultCertificateId pulumi.StringInput `pulumi:"keyVaultCertificateId"`
 	// One or more `subject alternative names` contained within the key vault certificate.
 	SubjectAlternativeNames pulumi.StringArrayInput `pulumi:"subjectAlternativeNames"`
@@ -11062,6 +11212,8 @@ func (o FrontdoorSecretSecretCustomerCertificateOutput) ToFrontdoorSecretSecretC
 }
 
 // The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
+//
+// ->**NOTE:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionlessId` attribute as the `keyVaultCertificateId` fields value(e.g. `keyVaultCertificateId = azurerm_key_vault_certificate.example.versionless_id`).
 func (o FrontdoorSecretSecretCustomerCertificateOutput) KeyVaultCertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorSecretSecretCustomerCertificate) string { return v.KeyVaultCertificateId }).(pulumi.StringOutput)
 }

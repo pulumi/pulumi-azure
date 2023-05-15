@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
  * const exampleNetwork = new azure.mobile.Network("exampleNetwork", {
  *     location: exampleResourceGroup.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     mobileCountryCode: "001",
  *     mobileNetworkCode: "01",
  * });

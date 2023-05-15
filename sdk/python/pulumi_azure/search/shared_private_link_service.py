@@ -24,6 +24,8 @@ class SharedPrivateLinkServiceArgs:
         :param pulumi.Input[str] search_service_id: Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subresource_name: Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
         :param pulumi.Input[str] name: Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] request_message: Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         """
@@ -64,6 +66,8 @@ class SharedPrivateLinkServiceArgs:
     def target_resource_id(self) -> pulumi.Input[str]:
         """
         Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+
+        > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -113,6 +117,8 @@ class _SharedPrivateLinkServiceState:
         :param pulumi.Input[str] status: The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
         :param pulumi.Input[str] subresource_name: Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -192,6 +198,8 @@ class _SharedPrivateLinkServiceState:
     def target_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+
+        > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -252,6 +260,8 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         :param pulumi.Input[str] search_service_id: Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subresource_name: Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         ...
     @overload
@@ -363,6 +373,8 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
         :param pulumi.Input[str] subresource_name: Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -421,6 +433,8 @@ class SharedPrivateLinkService(pulumi.CustomResource):
     def target_resource_id(self) -> pulumi.Output[str]:
         """
         Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
+
+        > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
         """
         return pulumi.get(self, "target_resource_id")
 

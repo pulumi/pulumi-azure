@@ -19,12 +19,16 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
     /**
      * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+     * 
      */
     @Import(name="fabricLocation")
     private @Nullable Output<String> fabricLocation;
 
     /**
      * @return The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
      * 
      */
     public Optional<Output<String>> fabricLocation() {
@@ -64,12 +68,16 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
     /**
      * Instructions of manual action.
      * 
+     * &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+     * 
      */
     @Import(name="manualActionInstruction")
     private @Nullable Output<String> manualActionInstruction;
 
     /**
      * @return Instructions of manual action.
+     * 
+     * &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
      * 
      */
     public Optional<Output<String>> manualActionInstruction() {
@@ -94,12 +102,16 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
     /**
      * Id of runbook.
      * 
+     * &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+     * 
      */
     @Import(name="runbookId")
     private @Nullable Output<String> runbookId;
 
     /**
      * @return Id of runbook.
+     * 
+     * &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
      * 
      */
     public Optional<Output<String>> runbookId() {
@@ -109,12 +121,16 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
     /**
      * Path of action script.
      * 
+     * &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+     * 
      */
     @Import(name="scriptPath")
     private @Nullable Output<String> scriptPath;
 
     /**
      * @return Path of action script.
+     * 
+     * &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
      * 
      */
     public Optional<Output<String>> scriptPath() {
@@ -170,6 +186,8 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
         /**
          * @param fabricLocation The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
          * 
+         * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         * 
          * @return builder
          * 
          */
@@ -180,6 +198,8 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
 
         /**
          * @param fabricLocation The fabric location of runbook or script. Possible values are `Primary` and `Recovery`.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
          * 
          * @return builder
          * 
@@ -253,6 +273,8 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
         /**
          * @param manualActionInstruction Instructions of manual action.
          * 
+         * &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         * 
          * @return builder
          * 
          */
@@ -263,6 +285,8 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
 
         /**
          * @param manualActionInstruction Instructions of manual action.
+         * 
+         * &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
          * 
          * @return builder
          * 
@@ -295,6 +319,8 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
         /**
          * @param runbookId Id of runbook.
          * 
+         * &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         * 
          * @return builder
          * 
          */
@@ -306,6 +332,8 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
         /**
          * @param runbookId Id of runbook.
          * 
+         * &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         * 
          * @return builder
          * 
          */
@@ -315,6 +343,8 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
 
         /**
          * @param scriptPath Path of action script.
+         * 
+         * &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
          * 
          * @return builder
          * 
@@ -326,6 +356,8 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
 
         /**
          * @param scriptPath Path of action script.
+         * 
+         * &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
          * 
          * @return builder
          * 

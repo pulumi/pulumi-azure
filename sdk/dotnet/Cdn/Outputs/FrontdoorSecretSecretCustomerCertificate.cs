@@ -15,6 +15,8 @@ namespace Pulumi.Azure.Cdn.Outputs
     {
         /// <summary>
         /// The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
+        /// 
+        /// -&gt;**NOTE:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionless_id` attribute as the `key_vault_certificate_id` fields value(e.g. `key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id`).
         /// </summary>
         public readonly string KeyVaultCertificateId;
         /// <summary>

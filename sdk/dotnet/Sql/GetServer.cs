@@ -12,6 +12,10 @@ namespace Pulumi.Azure.Sql
     public static class GetServer
     {
         /// <summary>
+        /// Use this data source to access information about an existing SQL Azure Database Server.
+        /// 
+        /// &gt; **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -43,6 +47,10 @@ namespace Pulumi.Azure.Sql
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:sql/getServer:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to access information about an existing SQL Azure Database Server.
+        /// 
+        /// &gt; **Note:** The `azure.sql.SqlServer` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Server` data source instead.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

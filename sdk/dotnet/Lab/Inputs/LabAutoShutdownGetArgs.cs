@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Lab.Inputs
     {
         /// <summary>
         /// The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+        /// 
+        /// &gt; **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnect_delay` isn't specified.
         /// </summary>
         [Input("disconnectDelay")]
         public Input<string>? DisconnectDelay { get; set; }
@@ -26,12 +28,16 @@ namespace Pulumi.Azure.Lab.Inputs
 
         /// <summary>
         /// The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+        /// 
+        /// &gt; **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `no_connect_delay` isn't specified.
         /// </summary>
         [Input("noConnectDelay")]
         public Input<string>? NoConnectDelay { get; set; }
 
         /// <summary>
         /// A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+        /// 
+        /// &gt; **NOTE:** This property is `None` when it isn't specified. No need to set `idle_delay` when `shutdown_on_idle` isn't specified.
         /// </summary>
         [Input("shutdownOnIdle")]
         public Input<string>? ShutdownOnIdle { get; set; }

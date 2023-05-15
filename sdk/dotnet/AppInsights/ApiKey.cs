@@ -130,6 +130,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** At least one read or write permission must be defined.
         /// </summary>
         [Output("writePermissions")]
         public Output<ImmutableArray<string>> WritePermissions { get; private set; } = null!;
@@ -213,6 +215,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** At least one read or write permission must be defined.
         /// </summary>
         public InputList<string> WritePermissions
         {
@@ -273,6 +277,8 @@ namespace Pulumi.Azure.AppInsights
 
         /// <summary>
         /// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** At least one read or write permission must be defined.
         /// </summary>
         public InputList<string> WritePermissions
         {

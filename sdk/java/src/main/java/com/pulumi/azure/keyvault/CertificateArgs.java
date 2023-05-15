@@ -36,12 +36,16 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+     * 
      */
     @Import(name="certificatePolicy")
     private @Nullable Output<CertificateCertificatePolicyArgs> certificatePolicy;
 
     /**
      * @return A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
      * 
      */
     public Optional<Output<CertificateCertificatePolicyArgs>> certificatePolicy() {
@@ -145,6 +149,8 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param certificatePolicy A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+         * 
          * @return builder
          * 
          */
@@ -155,6 +161,8 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param certificatePolicy A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
          * 
          * @return builder
          * 

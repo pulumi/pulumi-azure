@@ -112,6 +112,8 @@ type OutputServiceBusQueue struct {
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringOutput `pulumi:"streamAnalyticsJobName"`
 	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+	//
+	// > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
 	SystemPropertyColumns pulumi.StringMapOutput `pulumi:"systemPropertyColumns"`
 }
 
@@ -187,6 +189,8 @@ type outputServiceBusQueueState struct {
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName *string `pulumi:"streamAnalyticsJobName"`
 	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+	//
+	// > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
 	SystemPropertyColumns map[string]string `pulumi:"systemPropertyColumns"`
 }
 
@@ -212,6 +216,8 @@ type OutputServiceBusQueueState struct {
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringPtrInput
 	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+	//
+	// > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
 	SystemPropertyColumns pulumi.StringMapInput
 }
 
@@ -241,6 +247,8 @@ type outputServiceBusQueueArgs struct {
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName string `pulumi:"streamAnalyticsJobName"`
 	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+	//
+	// > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
 	SystemPropertyColumns map[string]string `pulumi:"systemPropertyColumns"`
 }
 
@@ -267,6 +275,8 @@ type OutputServiceBusQueueArgs struct {
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringInput
 	// A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+	//
+	// > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
 	SystemPropertyColumns pulumi.StringMapInput
 }
 
@@ -408,6 +418,8 @@ func (o OutputServiceBusQueueOutput) StreamAnalyticsJobName() pulumi.StringOutpu
 }
 
 // A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
+//
+// > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
 func (o OutputServiceBusQueueOutput) SystemPropertyColumns() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OutputServiceBusQueue) pulumi.StringMapOutput { return v.SystemPropertyColumns }).(pulumi.StringMapOutput)
 }

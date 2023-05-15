@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Backup.Inputs
     {
         /// <summary>
         /// Sets the backup frequency. Currently, only `Daily` is supported
+        /// 
+        /// &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
         /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;

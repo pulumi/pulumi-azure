@@ -43,15 +43,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
      * 
      */
     private String storageAccountType;
-    /**
-     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-     * 
-     */
     private @Nullable Integer ultraSsdDiskIopsReadWrite;
-    /**
-     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
-     * 
-     */
     private @Nullable Integer ultraSsdDiskMbpsReadWrite;
     /**
      * @return Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
@@ -102,17 +94,9 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
     public String storageAccountType() {
         return this.storageAccountType;
     }
-    /**
-     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable for UltraSSD disks.
-     * 
-     */
     public Optional<Integer> ultraSsdDiskIopsReadWrite() {
         return Optional.ofNullable(this.ultraSsdDiskIopsReadWrite);
     }
-    /**
-     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable for UltraSSD disks.
-     * 
-     */
     public Optional<Integer> ultraSsdDiskMbpsReadWrite() {
         return Optional.ofNullable(this.ultraSsdDiskMbpsReadWrite);
     }

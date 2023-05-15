@@ -68,6 +68,8 @@ export class Configuration extends pulumi.CustomResource {
     public readonly inGuestUserPatchMode!: pulumi.Output<string | undefined>;
     /**
      * An `installPatches` block as defined below.
+     *
+     * > **NOTE:** `installPatches` must be specified when `scope` is `InGuestPatch`.
      */
     public readonly installPatches!: pulumi.Output<outputs.maintenance.ConfigurationInstallPatches | undefined>;
     /**
@@ -160,6 +162,8 @@ export interface ConfigurationState {
     inGuestUserPatchMode?: pulumi.Input<string>;
     /**
      * An `installPatches` block as defined below.
+     *
+     * > **NOTE:** `installPatches` must be specified when `scope` is `InGuestPatch`.
      */
     installPatches?: pulumi.Input<inputs.maintenance.ConfigurationInstallPatches>;
     /**
@@ -206,6 +210,8 @@ export interface ConfigurationArgs {
     inGuestUserPatchMode?: pulumi.Input<string>;
     /**
      * An `installPatches` block as defined below.
+     *
+     * > **NOTE:** `installPatches` must be specified when `scope` is `InGuestPatch`.
      */
     installPatches?: pulumi.Input<inputs.maintenance.ConfigurationInstallPatches>;
     /**

@@ -41,6 +41,8 @@ public final class VirtualMachineStorageOsDisk {
     /**
      * @return Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
      * 
+     * The following properties apply when using Unmanaged Disks:
+     * 
      */
     private @Nullable String managedDiskType;
     /**
@@ -60,6 +62,8 @@ public final class VirtualMachineStorageOsDisk {
     private @Nullable String vhdUri;
     /**
      * @return Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+     * 
+     * The following properties apply when using Managed Disks:
      * 
      */
     private @Nullable Boolean writeAcceleratorEnabled;
@@ -103,6 +107,8 @@ public final class VirtualMachineStorageOsDisk {
     /**
      * @return Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
      * 
+     * The following properties apply when using Unmanaged Disks:
+     * 
      */
     public Optional<String> managedDiskType() {
         return Optional.ofNullable(this.managedDiskType);
@@ -130,6 +136,8 @@ public final class VirtualMachineStorageOsDisk {
     }
     /**
      * @return Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+     * 
+     * The following properties apply when using Managed Disks:
      * 
      */
     public Optional<Boolean> writeAcceleratorEnabled() {

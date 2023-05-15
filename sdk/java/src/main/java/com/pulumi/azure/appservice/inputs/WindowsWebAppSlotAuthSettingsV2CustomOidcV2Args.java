@@ -79,12 +79,32 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.p
     /**
      * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
      */
     @Import(name="clientSecretSettingName")
     private @Nullable Output<String> clientSecretSettingName;
 
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Optional<Output<String>> clientSecretSettingName() {
@@ -107,14 +127,14 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.p
     }
 
     /**
-     * The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * The Site Credentials Username used for publishing.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * @return The Site Credentials Username used for publishing.
      * 
      */
     public Output<String> name() {
@@ -302,6 +322,16 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.p
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
          * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
          * @return builder
          * 
          */
@@ -312,6 +342,16 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.p
 
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -342,7 +382,7 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.p
         }
 
         /**
-         * @param name The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         * @param name The Site Credentials Username used for publishing.
          * 
          * @return builder
          * 
@@ -353,7 +393,7 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.p
         }
 
         /**
-         * @param name The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         * @param name The Site Credentials Username used for publishing.
          * 
          * @return builder
          * 

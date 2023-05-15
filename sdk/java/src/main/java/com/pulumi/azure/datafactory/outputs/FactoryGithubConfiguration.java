@@ -32,6 +32,8 @@ public final class FactoryGithubConfiguration {
     /**
      * @return Specifies the root folder within the repository. Set to `/` for the top level.
      * 
+     * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+     * 
      */
     private String rootFolder;
 
@@ -66,6 +68,8 @@ public final class FactoryGithubConfiguration {
     }
     /**
      * @return Specifies the root folder within the repository. Set to `/` for the top level.
+     * 
+     * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
      * 
      */
     public String rootFolder() {

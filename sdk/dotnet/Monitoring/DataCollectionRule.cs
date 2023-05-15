@@ -54,9 +54,17 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Capacity = 1,
+    ///     });
+    /// 
     ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
     ///     {
-    ///         NamespaceName = azurerm_eventhub_namespace.Example.Name,
+    ///         NamespaceName = exampleEventHubNamespace.Name,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         PartitionCount = 2,
     ///         MessageRetention = 1,

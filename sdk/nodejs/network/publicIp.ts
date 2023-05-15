@@ -64,6 +64,8 @@ export class PublicIp extends pulumi.CustomResource {
 
     /**
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+     *
+     * > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
      */
     public readonly allocationMethod!: pulumi.Output<string>;
     /**
@@ -71,7 +73,9 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public readonly ddosProtectionMode!: pulumi.Output<string | undefined>;
     /**
-     * The ID of DDoS protection plan associated with the public IP.
+     * The ID of DDoS protection plan associated with the public IP. 
+     *
+     * > **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
      */
     public readonly ddosProtectionPlanId!: pulumi.Output<string | undefined>;
     /**
@@ -96,10 +100,14 @@ export class PublicIp extends pulumi.CustomResource {
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
      * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
+     *
+     * > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
      */
     public readonly ipTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+     *
+     * > **Note** Only `static` IP address allocation is supported for IPv6.
      */
     public readonly ipVersion!: pulumi.Output<string | undefined>;
     /**
@@ -124,10 +132,14 @@ export class PublicIp extends pulumi.CustomResource {
     public readonly reverseFqdn!: pulumi.Output<string | undefined>;
     /**
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+     *
+     * > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     *
+     * > **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      */
     public readonly skuTier!: pulumi.Output<string | undefined>;
     /**
@@ -136,6 +148,8 @@ export class PublicIp extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -210,6 +224,8 @@ export class PublicIp extends pulumi.CustomResource {
 export interface PublicIpState {
     /**
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+     *
+     * > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
      */
     allocationMethod?: pulumi.Input<string>;
     /**
@@ -217,7 +233,9 @@ export interface PublicIpState {
      */
     ddosProtectionMode?: pulumi.Input<string>;
     /**
-     * The ID of DDoS protection plan associated with the public IP.
+     * The ID of DDoS protection plan associated with the public IP. 
+     *
+     * > **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
      */
     ddosProtectionPlanId?: pulumi.Input<string>;
     /**
@@ -242,10 +260,14 @@ export interface PublicIpState {
     ipAddress?: pulumi.Input<string>;
     /**
      * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
+     *
+     * > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
      */
     ipTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+     *
+     * > **Note** Only `static` IP address allocation is supported for IPv6.
      */
     ipVersion?: pulumi.Input<string>;
     /**
@@ -270,10 +292,14 @@ export interface PublicIpState {
     reverseFqdn?: pulumi.Input<string>;
     /**
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+     *
+     * > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
      */
     sku?: pulumi.Input<string>;
     /**
      * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     *
+     * > **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      */
     skuTier?: pulumi.Input<string>;
     /**
@@ -282,6 +308,8 @@ export interface PublicIpState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -292,6 +320,8 @@ export interface PublicIpState {
 export interface PublicIpArgs {
     /**
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+     *
+     * > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
      */
     allocationMethod: pulumi.Input<string>;
     /**
@@ -299,7 +329,9 @@ export interface PublicIpArgs {
      */
     ddosProtectionMode?: pulumi.Input<string>;
     /**
-     * The ID of DDoS protection plan associated with the public IP.
+     * The ID of DDoS protection plan associated with the public IP. 
+     *
+     * > **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
      */
     ddosProtectionPlanId?: pulumi.Input<string>;
     /**
@@ -316,10 +348,14 @@ export interface PublicIpArgs {
     idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
+     *
+     * > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
      */
     ipTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+     *
+     * > **Note** Only `static` IP address allocation is supported for IPv6.
      */
     ipVersion?: pulumi.Input<string>;
     /**
@@ -344,10 +380,14 @@ export interface PublicIpArgs {
     reverseFqdn?: pulumi.Input<string>;
     /**
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. Changing this forces a new resource to be created.
+     *
+     * > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
      */
     sku?: pulumi.Input<string>;
     /**
      * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
+     *
+     * > **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      */
     skuTier?: pulumi.Input<string>;
     /**
@@ -356,6 +396,8 @@ export interface PublicIpArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

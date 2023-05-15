@@ -90,6 +90,10 @@ class DomainIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               
+               > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -118,6 +122,10 @@ class DomainIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Domain has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -372,6 +380,8 @@ class EventSubscriptionAdvancedFilterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgs']]] bool_equals: Compares a value of an event using a single boolean value.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgs']]] is_not_nulls: Evaluates if a value of an event isn't NULL or undefined.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]] is_null_or_undefineds: Evaluates if a value of an event is NULL or undefined.
+               
+               Each nested block consists of a key and a value(s) element.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs']]] number_greater_than_or_equals: Compares a value of an event using a single floating point number.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanArgs']]] number_greater_thans: Compares a value of an event using a single floating point number.
         :param pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgs']]] number_in_ranges: Compares a value of an event using multiple floating point number ranges.
@@ -457,6 +467,8 @@ class EventSubscriptionAdvancedFilterArgs:
     def is_null_or_undefineds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]]]:
         """
         Evaluates if a value of an event is NULL or undefined.
+
+        Each nested block consists of a key and a value(s) element.
         """
         return pulumi.get(self, "is_null_or_undefineds")
 
@@ -665,6 +677,8 @@ class EventSubscriptionAdvancedFilterBoolEqualArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[bool] value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -686,6 +700,8 @@ class EventSubscriptionAdvancedFilterBoolEqualArgs:
     def value(self) -> pulumi.Input[bool]:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -746,6 +762,8 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[float] value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -767,6 +785,8 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanArgs:
     def value(self) -> pulumi.Input[float]:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -783,6 +803,8 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[float] value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -804,6 +826,8 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs:
     def value(self) -> pulumi.Input[float]:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -820,6 +844,8 @@ class EventSubscriptionAdvancedFilterNumberInArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[float]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -841,6 +867,8 @@ class EventSubscriptionAdvancedFilterNumberInArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[float]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -857,6 +885,8 @@ class EventSubscriptionAdvancedFilterNumberInRangeArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -878,6 +908,8 @@ class EventSubscriptionAdvancedFilterNumberInRangeArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -894,6 +926,8 @@ class EventSubscriptionAdvancedFilterNumberLessThanArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[float] value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -915,6 +949,8 @@ class EventSubscriptionAdvancedFilterNumberLessThanArgs:
     def value(self) -> pulumi.Input[float]:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -931,6 +967,8 @@ class EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[float] value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -952,6 +990,8 @@ class EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs:
     def value(self) -> pulumi.Input[float]:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -968,6 +1008,8 @@ class EventSubscriptionAdvancedFilterNumberNotInArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[float]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -989,6 +1031,8 @@ class EventSubscriptionAdvancedFilterNumberNotInArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[float]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1005,6 +1049,8 @@ class EventSubscriptionAdvancedFilterNumberNotInRangeArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1026,6 +1072,8 @@ class EventSubscriptionAdvancedFilterNumberNotInRangeArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1042,6 +1090,8 @@ class EventSubscriptionAdvancedFilterStringBeginsWithArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1063,6 +1113,8 @@ class EventSubscriptionAdvancedFilterStringBeginsWithArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1079,6 +1131,8 @@ class EventSubscriptionAdvancedFilterStringContainArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1100,6 +1154,8 @@ class EventSubscriptionAdvancedFilterStringContainArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1116,6 +1172,8 @@ class EventSubscriptionAdvancedFilterStringEndsWithArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1137,6 +1195,8 @@ class EventSubscriptionAdvancedFilterStringEndsWithArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1153,6 +1213,8 @@ class EventSubscriptionAdvancedFilterStringInArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1174,6 +1236,8 @@ class EventSubscriptionAdvancedFilterStringInArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1190,6 +1254,8 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1211,6 +1277,8 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1227,6 +1295,8 @@ class EventSubscriptionAdvancedFilterStringNotContainArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1248,6 +1318,8 @@ class EventSubscriptionAdvancedFilterStringNotContainArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1264,6 +1336,8 @@ class EventSubscriptionAdvancedFilterStringNotEndsWithArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1285,6 +1359,8 @@ class EventSubscriptionAdvancedFilterStringNotEndsWithArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1301,6 +1377,8 @@ class EventSubscriptionAdvancedFilterStringNotInArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -1322,6 +1400,8 @@ class EventSubscriptionAdvancedFilterStringNotInArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -1855,6 +1935,8 @@ class SystemTopicEventSubscriptionAdvancedFilterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs']]] bool_equals: Compares a value of an event using a single boolean value.
         :param pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterIsNotNullArgs']]] is_not_nulls: Evaluates if a value of an event isn't NULL or undefined.
         :param pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]] is_null_or_undefineds: Evaluates if a value of an event is NULL or undefined.
+               
+               Each nested block consists of a key and a value(s) element.
         :param pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs']]] number_greater_than_or_equals: Compares a value of an event using a single floating point number.
         :param pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs']]] number_greater_thans: Compares a value of an event using a single floating point number.
         :param pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArgs']]] number_in_ranges: Compares a value of an event using multiple floating point number ranges.
@@ -1940,6 +2022,8 @@ class SystemTopicEventSubscriptionAdvancedFilterArgs:
     def is_null_or_undefineds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]]]:
         """
         Evaluates if a value of an event is NULL or undefined.
+
+        Each nested block consists of a key and a value(s) element.
         """
         return pulumi.get(self, "is_null_or_undefineds")
 
@@ -2148,6 +2232,8 @@ class SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[bool] value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -2169,6 +2255,8 @@ class SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs:
     def value(self) -> pulumi.Input[bool]:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -2229,6 +2317,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[float] value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -2250,6 +2340,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs:
     def value(self) -> pulumi.Input[float]:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -2266,6 +2358,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[float] value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -2287,6 +2381,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs:
     def value(self) -> pulumi.Input[float]:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -2303,6 +2399,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberInArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[float]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2324,6 +2422,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberInArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[float]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2340,6 +2440,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2361,6 +2463,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2377,6 +2481,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[float] value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -2398,6 +2504,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs:
     def value(self) -> pulumi.Input[float]:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -2414,6 +2522,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[float] value: Specifies a single value to compare to when using a single value operator.
+               
+               OR
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -2435,6 +2545,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs:
     def value(self) -> pulumi.Input[float]:
         """
         Specifies a single value to compare to when using a single value operator.
+
+        OR
         """
         return pulumi.get(self, "value")
 
@@ -2451,6 +2563,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[float]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2472,6 +2586,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[float]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2488,6 +2604,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2509,6 +2627,8 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2525,6 +2645,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2546,6 +2668,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2562,6 +2686,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringContainArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2583,6 +2709,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringContainArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2599,6 +2727,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2620,6 +2750,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2636,6 +2768,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringInArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2657,6 +2791,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringInArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2673,6 +2809,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2694,6 +2832,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2710,6 +2850,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotContainArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2731,6 +2873,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotContainArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2747,6 +2891,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2768,6 +2914,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -2784,6 +2932,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs:
         """
         :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -2805,6 +2955,8 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         """
         return pulumi.get(self, "values")
 
@@ -3322,6 +3474,10 @@ class SystemTopicIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               
+               > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -3350,6 +3506,10 @@ class SystemTopicIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -3392,6 +3552,10 @@ class TopicIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are `SystemAssigned`, `UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`
+               
+               > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -3420,6 +3584,10 @@ class TopicIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid Topic has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 

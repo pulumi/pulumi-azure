@@ -36,6 +36,8 @@ export function getPolicyDefintionBuiltIn(args?: GetPolicyDefintionBuiltInArgs, 
 export interface GetPolicyDefintionBuiltInArgs {
     /**
      * Specifies the display name of the Policy Definition. Conflicts with `name`.
+     *
+     * > **NOTE** As `displayName` is not unique errors may occur when there are multiple policy definitions with same display name.
      */
     displayName?: string;
     /**
@@ -117,6 +119,8 @@ export function getPolicyDefintionBuiltInOutput(args?: GetPolicyDefintionBuiltIn
 export interface GetPolicyDefintionBuiltInOutputArgs {
     /**
      * Specifies the display name of the Policy Definition. Conflicts with `name`.
+     *
+     * > **NOTE** As `displayName` is not unique errors may occur when there are multiple policy definitions with same display name.
      */
     displayName?: pulumi.Input<string>;
     /**

@@ -51,10 +51,14 @@ class ServiceArgs:
         :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable public network access? Defaults to `true`.
+               
+               > **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
         :param pulumi.Input[int] serverless_connection_timeout_in_seconds: Specifies the client connection timeout. Defaults to `30`.
         :param pulumi.Input[str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
+               
+               > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -258,6 +262,8 @@ class ServiceArgs:
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to enable public network access? Defaults to `true`.
+
+        > **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -306,6 +312,8 @@ class ServiceArgs:
     def tls_client_cert_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to request client certificate during TLS handshake? Defaults to `false`.
+
+        > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
         """
         return pulumi.get(self, "tls_client_cert_enabled")
 
@@ -374,6 +382,8 @@ class _ServiceState:
         :param pulumi.Input[str] primary_access_key: The primary access key for the SignalR service.
         :param pulumi.Input[str] primary_connection_string: The primary connection string for the SignalR service.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable public network access? Defaults to `true`.
+               
+               > **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
         :param pulumi.Input[int] public_port: The publicly accessible port of the SignalR service which is designed for browser/client use.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The secondary access key for the SignalR service.
@@ -384,6 +394,8 @@ class _ServiceState:
         :param pulumi.Input['ServiceSkuArgs'] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
+               
+               > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         if aad_auth_enabled is not None:
@@ -629,6 +641,8 @@ class _ServiceState:
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to enable public network access? Defaults to `true`.
+
+        > **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -749,6 +763,8 @@ class _ServiceState:
     def tls_client_cert_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to request client certificate during TLS handshake? Defaults to `false`.
+
+        > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
         """
         return pulumi.get(self, "tls_client_cert_enabled")
 
@@ -851,12 +867,16 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable public network access? Defaults to `true`.
+               
+               > **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[int] serverless_connection_timeout_in_seconds: Specifies the client connection timeout. Defaults to `30`.
         :param pulumi.Input[str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         :param pulumi.Input[pulumi.InputType['ServiceSkuArgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
+               
+               > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceUpstreamEndpointArgs']]]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         ...
@@ -1047,6 +1067,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] primary_access_key: The primary access key for the SignalR service.
         :param pulumi.Input[str] primary_connection_string: The primary connection string for the SignalR service.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable public network access? Defaults to `true`.
+               
+               > **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
         :param pulumi.Input[int] public_port: The publicly accessible port of the SignalR service which is designed for browser/client use.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The secondary access key for the SignalR service.
@@ -1057,6 +1079,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceSkuArgs']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
+               
+               > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceUpstreamEndpointArgs']]]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1217,6 +1241,8 @@ class Service(pulumi.CustomResource):
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable public network access? Defaults to `true`.
+
+        > **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -1297,6 +1323,8 @@ class Service(pulumi.CustomResource):
     def tls_client_cert_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to request client certificate during TLS handshake? Defaults to `false`.
+
+        > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
         """
         return pulumi.get(self, "tls_client_cert_enabled")
 

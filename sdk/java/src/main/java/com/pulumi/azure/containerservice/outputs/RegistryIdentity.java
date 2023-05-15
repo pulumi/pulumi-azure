@@ -15,6 +15,8 @@ public final class RegistryIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     private @Nullable List<String> identityIds;
     /**
@@ -36,6 +38,8 @@ public final class RegistryIdentity {
     private RegistryIdentity() {}
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public List<String> identityIds() {

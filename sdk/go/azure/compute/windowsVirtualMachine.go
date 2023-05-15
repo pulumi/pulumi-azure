@@ -139,6 +139,8 @@ type WindowsVirtualMachine struct {
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
 	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringOutput `pulumi:"computerName"`
@@ -155,13 +157,14 @@ type WindowsVirtualMachine struct {
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrOutput `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications WindowsVirtualMachineGalleryApplicationArrayOutput `pulumi:"galleryApplications"`
-	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
-	HotpatchingEnabled pulumi.BoolPtrOutput `pulumi:"hotpatchingEnabled"`
+	HotpatchingEnabled  pulumi.BoolPtrOutput                               `pulumi:"hotpatchingEnabled"`
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -169,6 +172,8 @@ type WindowsVirtualMachine struct {
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	MaxBidPrice pulumi.Float64PtrOutput `pulumi:"maxBidPrice"`
 	// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -177,8 +182,12 @@ type WindowsVirtualMachine struct {
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskOutput `pulumi:"osDisk"`
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	//
+	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 	PatchAssessmentMode pulumi.StringPtrOutput `pulumi:"patchAssessmentMode"`
 	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	//
+	// > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patchMode` must always be set to `AutomaticByPlatform`.
 	PatchMode pulumi.StringPtrOutput `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan WindowsVirtualMachinePlanPtrOutput `pulumi:"plan"`
@@ -191,6 +200,8 @@ type WindowsVirtualMachine struct {
 	// A list of Private IP Addresses assigned to this Virtual Machine.
 	PrivateIpAddresses pulumi.StringArrayOutput `pulumi:"privateIpAddresses"`
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
 	ProvisionVmAgent pulumi.BoolPtrOutput `pulumi:"provisionVmAgent"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
@@ -207,8 +218,12 @@ type WindowsVirtualMachine struct {
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringOutput `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageId pulumi.StringPtrOutput `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageReference WindowsVirtualMachineSourceImageReferencePtrOutput `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -221,6 +236,8 @@ type WindowsVirtualMachine struct {
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId pulumi.StringOutput `pulumi:"virtualMachineId"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId pulumi.StringPtrOutput `pulumi:"virtualMachineScaleSetId"`
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
@@ -303,6 +320,8 @@ type windowsVirtualMachineState struct {
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *WindowsVirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName *string `pulumi:"computerName"`
@@ -319,13 +338,14 @@ type windowsVirtualMachineState struct {
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications []WindowsVirtualMachineGalleryApplication `pulumi:"galleryApplications"`
-	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
-	HotpatchingEnabled *bool `pulumi:"hotpatchingEnabled"`
+	HotpatchingEnabled  *bool                                     `pulumi:"hotpatchingEnabled"`
 	// An `identity` block as defined below.
 	Identity *WindowsVirtualMachineIdentity `pulumi:"identity"`
 	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -333,6 +353,8 @@ type windowsVirtualMachineState struct {
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	MaxBidPrice *float64 `pulumi:"maxBidPrice"`
 	// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -341,8 +363,12 @@ type windowsVirtualMachineState struct {
 	// A `osDisk` block as defined below.
 	OsDisk *WindowsVirtualMachineOsDisk `pulumi:"osDisk"`
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	//
+	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 	PatchAssessmentMode *string `pulumi:"patchAssessmentMode"`
 	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	//
+	// > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patchMode` must always be set to `AutomaticByPlatform`.
 	PatchMode *string `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *WindowsVirtualMachinePlan `pulumi:"plan"`
@@ -355,6 +381,8 @@ type windowsVirtualMachineState struct {
 	// A list of Private IP Addresses assigned to this Virtual Machine.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
@@ -371,8 +399,12 @@ type windowsVirtualMachineState struct {
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size *string `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageReference *WindowsVirtualMachineSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags map[string]string `pulumi:"tags"`
@@ -385,6 +417,8 @@ type windowsVirtualMachineState struct {
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
@@ -410,6 +444,8 @@ type WindowsVirtualMachineState struct {
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
 	CapacityReservationGroupId pulumi.StringPtrInput
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringPtrInput
@@ -426,13 +462,14 @@ type WindowsVirtualMachineState struct {
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	EvictionPolicy pulumi.StringPtrInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications WindowsVirtualMachineGalleryApplicationArrayInput
-	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
-	HotpatchingEnabled pulumi.BoolPtrInput
+	HotpatchingEnabled  pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineIdentityPtrInput
 	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -440,6 +477,8 @@ type WindowsVirtualMachineState struct {
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	MaxBidPrice pulumi.Float64PtrInput
 	// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -448,8 +487,12 @@ type WindowsVirtualMachineState struct {
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskPtrInput
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	//
+	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 	PatchAssessmentMode pulumi.StringPtrInput
 	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	//
+	// > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patchMode` must always be set to `AutomaticByPlatform`.
 	PatchMode pulumi.StringPtrInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan WindowsVirtualMachinePlanPtrInput
@@ -462,6 +505,8 @@ type WindowsVirtualMachineState struct {
 	// A list of Private IP Addresses assigned to this Virtual Machine.
 	PrivateIpAddresses pulumi.StringArrayInput
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
 	ProvisionVmAgent pulumi.BoolPtrInput
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId pulumi.StringPtrInput
@@ -478,8 +523,12 @@ type WindowsVirtualMachineState struct {
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringPtrInput
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageReference WindowsVirtualMachineSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags pulumi.StringMapInput
@@ -492,6 +541,8 @@ type WindowsVirtualMachineState struct {
 	// A 128-bit identifier which uniquely identifies this Virtual Machine.
 	VirtualMachineId pulumi.StringPtrInput
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
@@ -521,6 +572,8 @@ type windowsVirtualMachineArgs struct {
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *WindowsVirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName *string `pulumi:"computerName"`
@@ -537,13 +590,14 @@ type windowsVirtualMachineArgs struct {
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications []WindowsVirtualMachineGalleryApplication `pulumi:"galleryApplications"`
-	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
-	HotpatchingEnabled *bool `pulumi:"hotpatchingEnabled"`
+	HotpatchingEnabled  *bool                                     `pulumi:"hotpatchingEnabled"`
 	// An `identity` block as defined below.
 	Identity *WindowsVirtualMachineIdentity `pulumi:"identity"`
 	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -551,6 +605,8 @@ type windowsVirtualMachineArgs struct {
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	MaxBidPrice *float64 `pulumi:"maxBidPrice"`
 	// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -559,8 +615,12 @@ type windowsVirtualMachineArgs struct {
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDisk `pulumi:"osDisk"`
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	//
+	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 	PatchAssessmentMode *string `pulumi:"patchAssessmentMode"`
 	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	//
+	// > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patchMode` must always be set to `AutomaticByPlatform`.
 	PatchMode *string `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *WindowsVirtualMachinePlan `pulumi:"plan"`
@@ -569,6 +629,8 @@ type windowsVirtualMachineArgs struct {
 	// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
@@ -581,8 +643,12 @@ type windowsVirtualMachineArgs struct {
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size string `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageReference *WindowsVirtualMachineSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags map[string]string `pulumi:"tags"`
@@ -593,6 +659,8 @@ type windowsVirtualMachineArgs struct {
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
 	UserData *string `pulumi:"userData"`
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
@@ -619,6 +687,8 @@ type WindowsVirtualMachineArgs struct {
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
 	CapacityReservationGroupId pulumi.StringPtrInput
 	// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
 	ComputerName pulumi.StringPtrInput
@@ -635,13 +705,14 @@ type WindowsVirtualMachineArgs struct {
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	EvictionPolicy pulumi.StringPtrInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications WindowsVirtualMachineGalleryApplicationArrayInput
-	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
-	HotpatchingEnabled pulumi.BoolPtrInput
+	HotpatchingEnabled  pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineIdentityPtrInput
 	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -649,6 +720,8 @@ type WindowsVirtualMachineArgs struct {
 	// The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+	//
+	// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 	MaxBidPrice pulumi.Float64PtrInput
 	// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -657,8 +730,12 @@ type WindowsVirtualMachineArgs struct {
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskInput
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	//
+	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 	PatchAssessmentMode pulumi.StringPtrInput
 	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	//
+	// > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patchMode` must always be set to `AutomaticByPlatform`.
 	PatchMode pulumi.StringPtrInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan WindowsVirtualMachinePlanPtrInput
@@ -667,6 +744,8 @@ type WindowsVirtualMachineArgs struct {
 	// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
 	ProvisionVmAgent pulumi.BoolPtrInput
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId pulumi.StringPtrInput
@@ -679,8 +758,12 @@ type WindowsVirtualMachineArgs struct {
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringInput
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 	SourceImageReference WindowsVirtualMachineSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine.
 	Tags pulumi.StringMapInput
@@ -691,6 +774,8 @@ type WindowsVirtualMachineArgs struct {
 	// The Base64-Encoded User Data which should be used for this Virtual Machine.
 	UserData pulumi.StringPtrInput
 	// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
@@ -827,6 +912,8 @@ func (o WindowsVirtualMachineOutput) BootDiagnostics() WindowsVirtualMachineBoot
 }
 
 // Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+//
+// > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
 func (o WindowsVirtualMachineOutput) CapacityReservationGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringPtrOutput { return v.CapacityReservationGroupId }).(pulumi.StringPtrOutput)
 }
@@ -867,6 +954,8 @@ func (o WindowsVirtualMachineOutput) EncryptionAtHostEnabled() pulumi.BoolPtrOut
 }
 
 // Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 func (o WindowsVirtualMachineOutput) EvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }
@@ -883,7 +972,6 @@ func (o WindowsVirtualMachineOutput) GalleryApplications() WindowsVirtualMachine
 	}).(WindowsVirtualMachineGalleryApplicationArrayOutput)
 }
 
-// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 func (o WindowsVirtualMachineOutput) HotpatchingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.BoolPtrOutput { return v.HotpatchingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -904,6 +992,8 @@ func (o WindowsVirtualMachineOutput) Location() pulumi.StringOutput {
 }
 
 // The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+//
+// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
 func (o WindowsVirtualMachineOutput) MaxBidPrice() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.Float64PtrOutput { return v.MaxBidPrice }).(pulumi.Float64PtrOutput)
 }
@@ -924,11 +1014,15 @@ func (o WindowsVirtualMachineOutput) OsDisk() WindowsVirtualMachineOsDiskOutput 
 }
 
 // Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+//
+// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 func (o WindowsVirtualMachineOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringPtrOutput { return v.PatchAssessmentMode }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+//
+// > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patchMode` must always be set to `AutomaticByPlatform`.
 func (o WindowsVirtualMachineOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringPtrOutput { return v.PatchMode }).(pulumi.StringPtrOutput)
 }
@@ -959,6 +1053,8 @@ func (o WindowsVirtualMachineOutput) PrivateIpAddresses() pulumi.StringArrayOutp
 }
 
 // Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
 func (o WindowsVirtualMachineOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.BoolPtrOutput { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
@@ -999,11 +1095,15 @@ func (o WindowsVirtualMachineOutput) Size() pulumi.StringOutput {
 }
 
 // The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+//
+// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 func (o WindowsVirtualMachineOutput) SourceImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringPtrOutput { return v.SourceImageId }).(pulumi.StringPtrOutput)
 }
 
 // A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
+//
+// > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
 func (o WindowsVirtualMachineOutput) SourceImageReference() WindowsVirtualMachineSourceImageReferencePtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) WindowsVirtualMachineSourceImageReferencePtrOutput {
 		return v.SourceImageReference
@@ -1038,6 +1138,8 @@ func (o WindowsVirtualMachineOutput) VirtualMachineId() pulumi.StringOutput {
 }
 
 // Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+//
+// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 func (o WindowsVirtualMachineOutput) VirtualMachineScaleSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringPtrOutput { return v.VirtualMachineScaleSetId }).(pulumi.StringPtrOutput)
 }

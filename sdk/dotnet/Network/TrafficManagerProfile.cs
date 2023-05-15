@@ -89,6 +89,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+        /// 
+        /// &gt; **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         /// </summary>
         [Output("maxReturn")]
         public Output<int?> MaxReturn { get; private set; } = null!;
@@ -193,6 +195,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+        /// 
+        /// &gt; **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         /// </summary>
         [Input("maxReturn")]
         public Input<int>? MaxReturn { get; set; }
@@ -267,6 +271,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+        /// 
+        /// &gt; **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         /// </summary>
         [Input("maxReturn")]
         public Input<int>? MaxReturn { get; set; }

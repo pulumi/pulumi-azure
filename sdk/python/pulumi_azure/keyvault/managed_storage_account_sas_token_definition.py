@@ -292,8 +292,8 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             tenant_id=data["azurerm_client_config"]["current"]["tenant_id"],
             sku_name="standard",
             access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=data["azurerm_client_config"]["current"]["tenant_id"],
-                object_id=data["azurerm_client_config"]["current"]["object_id"],
+                tenant_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                object_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 secret_permissions=[
                     "Get",
                     "Delete",
@@ -394,8 +394,8 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             tenant_id=data["azurerm_client_config"]["current"]["tenant_id"],
             sku_name="standard",
             access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=data["azurerm_client_config"]["current"]["tenant_id"],
-                object_id=data["azurerm_client_config"]["current"]["object_id"],
+                tenant_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                object_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 secret_permissions=[
                     "Get",
                     "Delete",

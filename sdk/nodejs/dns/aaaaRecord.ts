@@ -96,6 +96,8 @@ export class AaaaRecord extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -179,6 +181,8 @@ export interface AaaaRecordState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -213,6 +217,8 @@ export interface AaaaRecordArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

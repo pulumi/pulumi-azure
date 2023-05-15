@@ -132,6 +132,10 @@ class ManagedDatabase(pulumi.CustomResource):
                  sql_managed_instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages a SQL Azure Managed Database.
+
+        > **Note:** The `sql.ManagedDatabase` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedDatabase` resource instead.
+
         ## Example Usage
 
         ```python
@@ -183,6 +187,10 @@ class ManagedDatabase(pulumi.CustomResource):
                  args: ManagedDatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a SQL Azure Managed Database.
+
+        > **Note:** The `sql.ManagedDatabase` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedDatabase` resource instead.
+
         ## Example Usage
 
         ```python

@@ -15,6 +15,8 @@ public final class ManagedInstanceIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
      * 
+     * &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
+     * 
      */
     private @Nullable List<String> identityIds;
     /**
@@ -36,6 +38,8 @@ public final class ManagedInstanceIdentity {
     private ManagedInstanceIdentity() {}
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+     * 
+     * &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
      * 
      */
     public List<String> identityIds() {

@@ -51,12 +51,16 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
     /**
      * The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
      * 
+     * &gt; If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
+     * 
      */
     @Import(name="containerRegistryId")
     private @Nullable Output<String> containerRegistryId;
 
     /**
      * @return The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+     * 
+     * &gt; If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
      * 
      */
     public Optional<Output<String>> containerRegistryId() {
@@ -288,6 +292,8 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
         /**
          * @param containerRegistryId The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
          * 
+         * &gt; If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
+         * 
          * @return builder
          * 
          */
@@ -298,6 +304,8 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
 
         /**
          * @param containerRegistryId The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+         * 
+         * &gt; If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
          * 
          * @return builder
          * 

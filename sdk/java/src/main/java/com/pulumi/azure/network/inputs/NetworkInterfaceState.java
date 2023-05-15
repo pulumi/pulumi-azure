@@ -37,12 +37,16 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     /**
      * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
      * 
+     * &gt; **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
+     * 
      */
     @Import(name="dnsServers")
     private @Nullable Output<List<String>> dnsServers;
 
     /**
      * @return A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+     * 
+     * &gt; **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
      * 
      */
     public Optional<Output<List<String>>> dnsServers() {
@@ -67,12 +71,20 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     /**
      * Should Accelerated Networking be enabled? Defaults to `false`.
      * 
+     * &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+     * 
+     * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+     * 
      */
     @Import(name="enableAcceleratedNetworking")
     private @Nullable Output<Boolean> enableAcceleratedNetworking;
 
     /**
      * @return Should Accelerated Networking be enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+     * 
+     * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
      * 
      */
     public Optional<Output<Boolean>> enableAcceleratedNetworking() {
@@ -332,6 +344,8 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         /**
          * @param dnsServers A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
          * 
+         * &gt; **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
+         * 
          * @return builder
          * 
          */
@@ -343,6 +357,8 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         /**
          * @param dnsServers A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
          * 
+         * &gt; **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
+         * 
          * @return builder
          * 
          */
@@ -352,6 +368,8 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param dnsServers A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+         * 
+         * &gt; **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
          * 
          * @return builder
          * 
@@ -384,6 +402,10 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         /**
          * @param enableAcceleratedNetworking Should Accelerated Networking be enabled? Defaults to `false`.
          * 
+         * &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+         * 
+         * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+         * 
          * @return builder
          * 
          */
@@ -394,6 +416,10 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param enableAcceleratedNetworking Should Accelerated Networking be enabled? Defaults to `false`.
+         * 
+         * &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+         * 
+         * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
          * 
          * @return builder
          * 

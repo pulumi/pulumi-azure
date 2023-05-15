@@ -17,6 +17,8 @@ public final class KafkaClusterRestProxy {
     /**
      * @return The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** The `security_group_name` property will be Required in version 3.0 of the AzureRM Provider.
+     * 
      */
     private String securityGroupName;
 
@@ -30,6 +32,8 @@ public final class KafkaClusterRestProxy {
     }
     /**
      * @return The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** The `security_group_name` property will be Required in version 3.0 of the AzureRM Provider.
      * 
      */
     public String securityGroupName() {

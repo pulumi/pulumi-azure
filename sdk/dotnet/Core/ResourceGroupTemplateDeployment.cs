@@ -33,6 +33,8 @@ namespace Pulumi.Azure.Core
 
         /// <summary>
         /// The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+        /// 
+        /// &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
         /// </summary>
         [Output("deploymentMode")]
         public Output<string> DeploymentMode { get; private set; } = null!;
@@ -51,6 +53,8 @@ namespace Pulumi.Azure.Core
 
         /// <summary>
         /// The contents of the ARM Template parameters file - containing a JSON list of parameters.
+        /// 
+        /// &gt; An example of how to pass variables into an ARM Template can be seen in the example.
         /// </summary>
         [Output("parametersContent")]
         public Output<string> ParametersContent { get; private set; } = null!;
@@ -133,6 +137,8 @@ namespace Pulumi.Azure.Core
 
         /// <summary>
         /// The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+        /// 
+        /// &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
         /// </summary>
         [Input("deploymentMode", required: true)]
         public Input<string> DeploymentMode { get; set; } = null!;
@@ -145,6 +151,8 @@ namespace Pulumi.Azure.Core
 
         /// <summary>
         /// The contents of the ARM Template parameters file - containing a JSON list of parameters.
+        /// 
+        /// &gt; An example of how to pass variables into an ARM Template can be seen in the example.
         /// </summary>
         [Input("parametersContent")]
         public Input<string>? ParametersContent { get; set; }
@@ -195,6 +203,8 @@ namespace Pulumi.Azure.Core
 
         /// <summary>
         /// The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+        /// 
+        /// &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
         /// </summary>
         [Input("deploymentMode")]
         public Input<string>? DeploymentMode { get; set; }
@@ -213,6 +223,8 @@ namespace Pulumi.Azure.Core
 
         /// <summary>
         /// The contents of the ARM Template parameters file - containing a JSON list of parameters.
+        /// 
+        /// &gt; An example of how to pass variables into an ARM Template can be seen in the example.
         /// </summary>
         [Input("parametersContent")]
         public Input<string>? ParametersContent { get; set; }

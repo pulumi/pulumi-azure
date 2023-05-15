@@ -65,12 +65,16 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
     /**
      * The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
      * 
+     * &gt; **Note:** `managed_outbound_ipv6_count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+     * 
      */
     @Import(name="managedOutboundIpv6Count")
     private @Nullable Output<Integer> managedOutboundIpv6Count;
 
     /**
      * @return The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+     * 
+     * &gt; **Note:** `managed_outbound_ipv6_count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
      * 
      */
     public Optional<Output<Integer>> managedOutboundIpv6Count() {
@@ -80,12 +84,16 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
     /**
      * The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
      * 
+     * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+     * 
      */
     @Import(name="outboundIpAddressIds")
     private @Nullable Output<List<String>> outboundIpAddressIds;
 
     /**
      * @return The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+     * 
+     * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
      * 
      */
     public Optional<Output<List<String>>> outboundIpAddressIds() {
@@ -95,12 +103,16 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
     /**
      * The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
      * 
+     * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
+     * 
      */
     @Import(name="outboundIpPrefixIds")
     private @Nullable Output<List<String>> outboundIpPrefixIds;
 
     /**
      * @return The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+     * 
+     * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
      * 
      */
     public Optional<Output<List<String>>> outboundIpPrefixIds() {
@@ -228,6 +240,8 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
         /**
          * @param managedOutboundIpv6Count The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
          * 
+         * &gt; **Note:** `managed_outbound_ipv6_count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+         * 
          * @return builder
          * 
          */
@@ -239,6 +253,8 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
         /**
          * @param managedOutboundIpv6Count The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
          * 
+         * &gt; **Note:** `managed_outbound_ipv6_count` requires dual-stack networking. To enable dual-stack networking the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+         * 
          * @return builder
          * 
          */
@@ -248,6 +264,8 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
 
         /**
          * @param outboundIpAddressIds The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+         * 
+         * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
          * 
          * @return builder
          * 
@@ -260,6 +278,8 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
         /**
          * @param outboundIpAddressIds The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
          * 
+         * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+         * 
          * @return builder
          * 
          */
@@ -270,6 +290,8 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
         /**
          * @param outboundIpAddressIds The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
          * 
+         * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+         * 
          * @return builder
          * 
          */
@@ -279,6 +301,8 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
 
         /**
          * @param outboundIpPrefixIds The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+         * 
+         * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
          * 
          * @return builder
          * 
@@ -291,6 +315,8 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
         /**
          * @param outboundIpPrefixIds The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
          * 
+         * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
+         * 
          * @return builder
          * 
          */
@@ -300,6 +326,8 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfileArgs extend
 
         /**
          * @param outboundIpPrefixIds The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+         * 
+         * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
          * 
          * @return builder
          * 

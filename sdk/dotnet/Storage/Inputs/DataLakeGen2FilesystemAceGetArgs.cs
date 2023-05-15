@@ -20,6 +20,8 @@ namespace Pulumi.Azure.Storage.Inputs
 
         /// <summary>
         /// Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+        /// 
+        /// More details on ACLs can be found here: &lt;https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories&gt;
         /// </summary>
         [Input("permissions", required: true)]
         public Input<string> Permissions { get; set; } = null!;

@@ -16,14 +16,14 @@ public final class WindowsWebAppSlotSiteCredentialArgs extends com.pulumi.resour
     public static final WindowsWebAppSlotSiteCredentialArgs Empty = new WindowsWebAppSlotSiteCredentialArgs();
 
     /**
-     * The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * The Site Credentials Username used for publishing.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+     * @return The Site Credentials Username used for publishing.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class WindowsWebAppSlotSiteCredentialArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         * @param name The Site Credentials Username used for publishing.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class WindowsWebAppSlotSiteCredentialArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+         * @param name The Site Credentials Username used for publishing.
          * 
          * @return builder
          * 

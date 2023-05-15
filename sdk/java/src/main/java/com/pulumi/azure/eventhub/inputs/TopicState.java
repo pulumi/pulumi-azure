@@ -97,6 +97,8 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
      * the topic to be partitioned across multiple message brokers. Defaults to false.
      * Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+     * 
      */
     @Import(name="enablePartitioning")
     private @Nullable Output<Boolean> enablePartitioning;
@@ -105,6 +107,8 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
      * @return Boolean flag which controls whether to enable Changing this forces a new resource to be created.
      * the topic to be partitioned across multiple message brokers. Defaults to false.
      * Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
      * 
      */
     public Optional<Output<Boolean>> enablePartitioning() {
@@ -384,6 +388,8 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
          * the topic to be partitioned across multiple message brokers. Defaults to false.
          * Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+         * 
          * @return builder
          * 
          */
@@ -396,6 +402,8 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
          * @param enablePartitioning Boolean flag which controls whether to enable Changing this forces a new resource to be created.
          * the topic to be partitioned across multiple message brokers. Defaults to false.
          * Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
          * 
          * @return builder
          * 

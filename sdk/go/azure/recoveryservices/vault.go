@@ -64,8 +64,12 @@ type Vault struct {
 	// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
 	ClassicVmwareReplicationEnabled pulumi.BoolOutput `pulumi:"classicVmwareReplicationEnabled"`
 	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+	//
+	// > **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
 	CrossRegionRestoreEnabled pulumi.BoolPtrOutput `pulumi:"crossRegionRestoreEnabled"`
 	// An `encryption` block as defined below. Required with `identity`.
+	//
+	// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
 	Encryption VaultEncryptionPtrOutput `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrOutput `pulumi:"identity"`
@@ -127,8 +131,12 @@ type vaultState struct {
 	// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
 	ClassicVmwareReplicationEnabled *bool `pulumi:"classicVmwareReplicationEnabled"`
 	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+	//
+	// > **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
 	CrossRegionRestoreEnabled *bool `pulumi:"crossRegionRestoreEnabled"`
 	// An `encryption` block as defined below. Required with `identity`.
+	//
+	// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
 	Encryption *VaultEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *VaultIdentity `pulumi:"identity"`
@@ -156,8 +164,12 @@ type VaultState struct {
 	// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
 	ClassicVmwareReplicationEnabled pulumi.BoolPtrInput
 	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+	//
+	// > **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
 	CrossRegionRestoreEnabled pulumi.BoolPtrInput
 	// An `encryption` block as defined below. Required with `identity`.
+	//
+	// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
 	Encryption VaultEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrInput
@@ -189,8 +201,12 @@ type vaultArgs struct {
 	// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
 	ClassicVmwareReplicationEnabled *bool `pulumi:"classicVmwareReplicationEnabled"`
 	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+	//
+	// > **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
 	CrossRegionRestoreEnabled *bool `pulumi:"crossRegionRestoreEnabled"`
 	// An `encryption` block as defined below. Required with `identity`.
+	//
+	// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
 	Encryption *VaultEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *VaultIdentity `pulumi:"identity"`
@@ -219,8 +235,12 @@ type VaultArgs struct {
 	// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
 	ClassicVmwareReplicationEnabled pulumi.BoolPtrInput
 	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+	//
+	// > **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
 	CrossRegionRestoreEnabled pulumi.BoolPtrInput
 	// An `encryption` block as defined below. Required with `identity`.
+	//
+	// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
 	Encryption VaultEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrInput
@@ -337,11 +357,15 @@ func (o VaultOutput) ClassicVmwareReplicationEnabled() pulumi.BoolOutput {
 }
 
 // Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
+//
+// > **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
 func (o VaultOutput) CrossRegionRestoreEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Vault) pulumi.BoolPtrOutput { return v.CrossRegionRestoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // An `encryption` block as defined below. Required with `identity`.
+//
+// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
 func (o VaultOutput) Encryption() VaultEncryptionPtrOutput {
 	return o.ApplyT(func(v *Vault) VaultEncryptionPtrOutput { return v.Encryption }).(VaultEncryptionPtrOutput)
 }

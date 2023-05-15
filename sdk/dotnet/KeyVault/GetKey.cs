@@ -83,6 +83,8 @@ namespace Pulumi.Azure.KeyVault
     {
         /// <summary>
         /// Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+        /// 
+        /// **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
         /// </summary>
         [Input("keyVaultId", required: true)]
         public string KeyVaultId { get; set; } = null!;
@@ -103,6 +105,8 @@ namespace Pulumi.Azure.KeyVault
     {
         /// <summary>
         /// Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
+        /// 
+        /// **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
         /// </summary>
         [Input("keyVaultId", required: true)]
         public Input<string> KeyVaultId { get; set; } = null!;

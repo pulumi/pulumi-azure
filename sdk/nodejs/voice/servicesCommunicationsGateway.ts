@@ -126,7 +126,6 @@ export class ServicesCommunicationsGateway extends pulumi.CustomResource {
     public readonly location!: pulumi.Output<string>;
     /**
      * This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-     * ---
      */
     public readonly microsoftTeamsVoicemailPilotNumber!: pulumi.Output<string | undefined>;
     /**
@@ -255,7 +254,6 @@ export interface ServicesCommunicationsGatewayState {
     location?: pulumi.Input<string>;
     /**
      * This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-     * ---
      */
     microsoftTeamsVoicemailPilotNumber?: pulumi.Input<string>;
     /**
@@ -318,7 +316,6 @@ export interface ServicesCommunicationsGatewayArgs {
     location?: pulumi.Input<string>;
     /**
      * This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-     * ---
      */
     microsoftTeamsVoicemailPilotNumber?: pulumi.Input<string>;
     /**

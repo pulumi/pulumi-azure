@@ -266,8 +266,12 @@ class ResolverForwardingRule(pulumi.CustomResource):
             tags={
                 "key": "value",
             })
+        example_resolver_dns_forwarding_ruleset = azure.privatedns.ResolverDnsForwardingRuleset("exampleResolverDnsForwardingRuleset",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            private_dns_resolver_outbound_endpoint_ids=[example_resolver_outbound_endpoint.id])
         example_resolver_forwarding_rule = azure.privatedns.ResolverForwardingRule("exampleResolverForwardingRule",
-            dns_forwarding_ruleset_id=azurerm_private_dns_resolver_dns_forwarding_ruleset["example"]["id"],
+            dns_forwarding_ruleset_id=example_resolver_dns_forwarding_ruleset.id,
             domain_name="onprem.local.",
             enabled=True,
             target_dns_servers=[azure.privatedns.ResolverForwardingRuleTargetDnsServerArgs(
@@ -338,8 +342,12 @@ class ResolverForwardingRule(pulumi.CustomResource):
             tags={
                 "key": "value",
             })
+        example_resolver_dns_forwarding_ruleset = azure.privatedns.ResolverDnsForwardingRuleset("exampleResolverDnsForwardingRuleset",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            private_dns_resolver_outbound_endpoint_ids=[example_resolver_outbound_endpoint.id])
         example_resolver_forwarding_rule = azure.privatedns.ResolverForwardingRule("exampleResolverForwardingRule",
-            dns_forwarding_ruleset_id=azurerm_private_dns_resolver_dns_forwarding_ruleset["example"]["id"],
+            dns_forwarding_ruleset_id=example_resolver_dns_forwarding_ruleset.id,
             domain_name="onprem.local.",
             enabled=True,
             target_dns_servers=[azure.privatedns.ResolverForwardingRuleTargetDnsServerArgs(

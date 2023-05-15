@@ -22,6 +22,8 @@ public final class FactoryGlobalParameter {
     /**
      * @return Specifies the global parameter value.
      * 
+     * &gt; **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
+     * 
      */
     private String value;
 
@@ -42,6 +44,8 @@ public final class FactoryGlobalParameter {
     }
     /**
      * @return Specifies the global parameter value.
+     * 
+     * &gt; **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
      * 
      */
     public String value() {

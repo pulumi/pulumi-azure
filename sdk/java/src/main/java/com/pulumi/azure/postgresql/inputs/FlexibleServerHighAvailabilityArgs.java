@@ -30,17 +30,9 @@ public final class FlexibleServerHighAvailabilityArgs extends com.pulumi.resourc
         return this.mode;
     }
 
-    /**
-     * Specifies the Availability Zone in which the standby Flexible Server should be located.
-     * 
-     */
     @Import(name="standbyAvailabilityZone")
     private @Nullable Output<String> standbyAvailabilityZone;
 
-    /**
-     * @return Specifies the Availability Zone in which the standby Flexible Server should be located.
-     * 
-     */
     public Optional<Output<String>> standbyAvailabilityZone() {
         return Optional.ofNullable(this.standbyAvailabilityZone);
     }
@@ -91,23 +83,11 @@ public final class FlexibleServerHighAvailabilityArgs extends com.pulumi.resourc
             return mode(Output.of(mode));
         }
 
-        /**
-         * @param standbyAvailabilityZone Specifies the Availability Zone in which the standby Flexible Server should be located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder standbyAvailabilityZone(@Nullable Output<String> standbyAvailabilityZone) {
             $.standbyAvailabilityZone = standbyAvailabilityZone;
             return this;
         }
 
-        /**
-         * @param standbyAvailabilityZone Specifies the Availability Zone in which the standby Flexible Server should be located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder standbyAvailabilityZone(String standbyAvailabilityZone) {
             return standbyAvailabilityZone(Output.of(standbyAvailabilityZone));
         }

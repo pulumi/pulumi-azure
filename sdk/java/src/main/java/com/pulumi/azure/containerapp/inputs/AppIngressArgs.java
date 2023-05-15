@@ -98,12 +98,16 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `traffic_weight` block as detailed below.
      * 
+     * &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
+     * 
      */
     @Import(name="trafficWeights", required=true)
     private Output<List<AppIngressTrafficWeightArgs>> trafficWeights;
 
     /**
      * @return A `traffic_weight` block as detailed below.
+     * 
+     * &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
      * 
      */
     public Output<List<AppIngressTrafficWeightArgs>> trafficWeights() {
@@ -263,6 +267,8 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param trafficWeights A `traffic_weight` block as detailed below.
          * 
+         * &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
+         * 
          * @return builder
          * 
          */
@@ -274,6 +280,8 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param trafficWeights A `traffic_weight` block as detailed below.
          * 
+         * &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
+         * 
          * @return builder
          * 
          */
@@ -283,6 +291,8 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param trafficWeights A `traffic_weight` block as detailed below.
+         * 
+         * &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
          * 
          * @return builder
          * 

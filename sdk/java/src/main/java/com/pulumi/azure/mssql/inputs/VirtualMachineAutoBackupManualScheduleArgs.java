@@ -20,12 +20,16 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
     /**
      * A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
      * 
+     * &gt; **NOTE:** `days_of_week` can only be specified when `manual_schedule` is set to `Weekly`
+     * 
      */
     @Import(name="daysOfWeeks")
     private @Nullable Output<List<String>> daysOfWeeks;
 
     /**
      * @return A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+     * 
+     * &gt; **NOTE:** `days_of_week` can only be specified when `manual_schedule` is set to `Weekly`
      * 
      */
     public Optional<Output<List<String>>> daysOfWeeks() {
@@ -123,6 +127,8 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
         /**
          * @param daysOfWeeks A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
          * 
+         * &gt; **NOTE:** `days_of_week` can only be specified when `manual_schedule` is set to `Weekly`
+         * 
          * @return builder
          * 
          */
@@ -134,6 +140,8 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
         /**
          * @param daysOfWeeks A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
          * 
+         * &gt; **NOTE:** `days_of_week` can only be specified when `manual_schedule` is set to `Weekly`
+         * 
          * @return builder
          * 
          */
@@ -143,6 +151,8 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
 
         /**
          * @param daysOfWeeks A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+         * 
+         * &gt; **NOTE:** `days_of_week` can only be specified when `manual_schedule` is set to `Weekly`
          * 
          * @return builder
          * 

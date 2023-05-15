@@ -23,6 +23,8 @@ class SmartDetectionRuleArgs:
         The set of arguments for constructing a SmartDetectionRule resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_email_recipients: Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+               
+               > **Note:** At least one read or write permission must be defined.
         :param pulumi.Input[bool] enabled: Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Potential memory leak detected`, `Potential security issue detected` and `Abnormal rise in daily data volume`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Potential memory leak detected`, `Potential security issue detected`, `Abnormal rise in daily data volume`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send_emails_to_subscription_owners: Do emails get sent to subscription owners? Defaults to `true`.
@@ -54,6 +56,8 @@ class SmartDetectionRuleArgs:
     def additional_email_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+
+        > **Note:** At least one read or write permission must be defined.
         """
         return pulumi.get(self, "additional_email_recipients")
 
@@ -109,6 +113,8 @@ class _SmartDetectionRuleState:
         """
         Input properties used for looking up and filtering SmartDetectionRule resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_email_recipients: Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+               
+               > **Note:** At least one read or write permission must be defined.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Potential memory leak detected`, `Potential security issue detected` and `Abnormal rise in daily data volume`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Potential memory leak detected`, `Potential security issue detected`, `Abnormal rise in daily data volume`. Changing this forces a new resource to be created.
@@ -130,6 +136,8 @@ class _SmartDetectionRuleState:
     def additional_email_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+
+        > **Note:** At least one read or write permission must be defined.
         """
         return pulumi.get(self, "additional_email_recipients")
 
@@ -227,6 +235,8 @@ class SmartDetectionRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_email_recipients: Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+               
+               > **Note:** At least one read or write permission must be defined.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Potential memory leak detected`, `Potential security issue detected` and `Abnormal rise in daily data volume`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Potential memory leak detected`, `Potential security issue detected`, `Abnormal rise in daily data volume`. Changing this forces a new resource to be created.
@@ -324,6 +334,8 @@ class SmartDetectionRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_email_recipients: Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+               
+               > **Note:** At least one read or write permission must be defined.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enabled: Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Potential memory leak detected`, `Potential security issue detected` and `Abnormal rise in daily data volume`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Potential memory leak detected`, `Potential security issue detected`, `Abnormal rise in daily data volume`. Changing this forces a new resource to be created.
@@ -345,6 +357,8 @@ class SmartDetectionRule(pulumi.CustomResource):
     def additional_email_recipients(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+
+        > **Note:** At least one read or write permission must be defined.
         """
         return pulumi.get(self, "additional_email_recipients")
 

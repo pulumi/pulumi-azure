@@ -99,6 +99,8 @@ export class SqlContainer extends pulumi.CustomResource {
     public readonly analyticalStorageTtl!: pulumi.Output<number | undefined>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.SqlContainerAutoscaleSettings | undefined>;
     /**
@@ -215,6 +217,8 @@ export interface SqlContainerState {
     analyticalStorageTtl?: pulumi.Input<number>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
     /**
@@ -273,6 +277,8 @@ export interface SqlContainerArgs {
     analyticalStorageTtl?: pulumi.Input<number>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
+     *
+     * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
     /**

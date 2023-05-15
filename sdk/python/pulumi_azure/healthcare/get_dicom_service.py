@@ -142,7 +142,7 @@ def get_dicom_service(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.healthcare.get_dicom_service(name="example-healthcare_dicom_service",
-        workspace_id=data["azurerm_healthcare_workspace"]["example"]["id"])
+        workspace_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("azurermHealthcareDicomService", example.id)
     ```
 
@@ -182,7 +182,7 @@ def get_dicom_service_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.healthcare.get_dicom_service(name="example-healthcare_dicom_service",
-        workspace_id=data["azurerm_healthcare_workspace"]["example"]["id"])
+        workspace_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("azurermHealthcareDicomService", example.id)
     ```
 

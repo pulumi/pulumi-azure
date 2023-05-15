@@ -108,12 +108,16 @@ public class Environment extends com.pulumi.resources.CustomResource {
     /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
+     * 
      */
     @Export(name="infrastructureSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> infrastructureSubnetId;
 
     /**
      * @return The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
      * 
      */
     public Output<Optional<String>> infrastructureSubnetId() {
@@ -122,12 +126,16 @@ public class Environment extends com.pulumi.resources.CustomResource {
     /**
      * Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
+     * 
      */
     @Export(name="internalLoadBalancerEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> internalLoadBalancerEnabled;
 
     /**
      * @return Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
      * 
      */
     public Output<Optional<Boolean>> internalLoadBalancerEnabled() {

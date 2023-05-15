@@ -65,6 +65,8 @@ type JobSchedule struct {
 	// (Optional) The UUID identifying the Automation Job Schedule.
 	JobScheduleId pulumi.StringOutput `pulumi:"jobScheduleId"`
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -122,6 +124,8 @@ type jobScheduleState struct {
 	// (Optional) The UUID identifying the Automation Job Schedule.
 	JobScheduleId *string `pulumi:"jobScheduleId"`
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -139,6 +143,8 @@ type JobScheduleState struct {
 	// (Optional) The UUID identifying the Automation Job Schedule.
 	JobScheduleId pulumi.StringPtrInput
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
 	Parameters pulumi.StringMapInput
 	// The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -160,6 +166,8 @@ type jobScheduleArgs struct {
 	// (Optional) The UUID identifying the Automation Job Schedule.
 	JobScheduleId *string `pulumi:"jobScheduleId"`
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -178,6 +186,8 @@ type JobScheduleArgs struct {
 	// (Optional) The UUID identifying the Automation Job Schedule.
 	JobScheduleId pulumi.StringPtrInput
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
 	Parameters pulumi.StringMapInput
 	// The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -287,6 +297,8 @@ func (o JobScheduleOutput) JobScheduleId() pulumi.StringOutput {
 }
 
 // A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
 func (o JobScheduleOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobSchedule) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }

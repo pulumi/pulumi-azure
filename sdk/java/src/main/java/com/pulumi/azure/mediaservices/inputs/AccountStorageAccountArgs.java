@@ -35,12 +35,16 @@ public final class AccountStorageAccountArgs extends com.pulumi.resources.Resour
     /**
      * Specifies whether the storage account should be the primary account or not. Defaults to `false`.
      * 
+     * &gt; **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
+     * 
      */
     @Import(name="isPrimary")
     private @Nullable Output<Boolean> isPrimary;
 
     /**
      * @return Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
      * 
      */
     public Optional<Output<Boolean>> isPrimary() {
@@ -112,6 +116,8 @@ public final class AccountStorageAccountArgs extends com.pulumi.resources.Resour
         /**
          * @param isPrimary Specifies whether the storage account should be the primary account or not. Defaults to `false`.
          * 
+         * &gt; **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
+         * 
          * @return builder
          * 
          */
@@ -122,6 +128,8 @@ public final class AccountStorageAccountArgs extends com.pulumi.resources.Resour
 
         /**
          * @param isPrimary Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
          * 
          * @return builder
          * 

@@ -12,12 +12,16 @@ public final class StreamingPolicyCommonEncryptionCencClearKeyEncryption {
     /**
      * @return The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
      * 
+     * &gt; **Note** Either `clear_key_encryption` or `drm` must be specified.
+     * 
      */
     private String customKeysAcquisitionUrlTemplate;
 
     private StreamingPolicyCommonEncryptionCencClearKeyEncryption() {}
     /**
      * @return The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+     * 
+     * &gt; **Note** Either `clear_key_encryption` or `drm` must be specified.
      * 
      */
     public String customKeysAcquisitionUrlTemplate() {

@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AuthorizationFunctions;
  * import com.pulumi.azure.authorization.inputs.GetUserAssignedIdentityArgs;
  * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+ * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
  * import com.pulumi.azure.keyvault.inputs.GetKeyArgs;
  * import com.pulumi.azure.mobile.NetworkSimGroup;
  * import com.pulumi.azure.mobile.NetworkSimGroupArgs;
@@ -62,12 +63,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var exampleUserAssignedIdentity = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
- *             .name(&#34;example-identity&#34;)
+ *             .name(&#34;name_of_user_assigned_identity&#34;)
+ *             .resourceGroupName(&#34;name_of_resource_group&#34;)
+ *             .build());
+ * 
+ *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+ *             .name(&#34;example-kv&#34;)
+ *             .resourceGroupName(&#34;some-resource-group&#34;)
  *             .build());
  * 
  *         final var exampleKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
- *             .name(&#34;some-key&#34;)
- *             .keyVaultId(data.azurerm_key_vault().example().id())
+ *             .name(&#34;example-key&#34;)
+ *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
  *             .build());
  * 
  *         var exampleNetworkSimGroup = new NetworkSimGroup(&#34;exampleNetworkSimGroup&#34;, NetworkSimGroupArgs.builder()        
@@ -113,12 +120,16 @@ public class NetworkSimGroup extends com.pulumi.resources.CustomResource {
     /**
      * An `identity` block as defined below.
      * 
+     * &gt; **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
+     * 
      */
     @Export(name="identity", refs={NetworkSimGroupIdentity.class}, tree="[0]")
     private Output</* @Nullable */ NetworkSimGroupIdentity> identity;
 
     /**
      * @return An `identity` block as defined below.
+     * 
+     * &gt; **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
      * 
      */
     public Output<Optional<NetworkSimGroupIdentity>> identity() {

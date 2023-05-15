@@ -7,6 +7,10 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Use this data source to access information about an existing App Service.
+ *
+ * !> **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -127,6 +131,10 @@ export interface GetAppServiceResult {
     readonly tags: {[key: string]: string};
 }
 /**
+ * Use this data source to access information about an existing App Service.
+ *
+ * !> **Note:** The `azure.appservice.AppService` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.LinuxWebApp` data sources instead.
+ *
  * ## Example Usage
  *
  * ```typescript

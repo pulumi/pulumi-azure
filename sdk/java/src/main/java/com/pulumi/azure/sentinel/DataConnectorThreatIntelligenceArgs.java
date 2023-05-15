@@ -63,12 +63,16 @@ public final class DataConnectorThreatIntelligenceArgs extends com.pulumi.resour
     /**
      * The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
      * 
+     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
      * @return The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
+     * 
+     * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -168,6 +172,8 @@ public final class DataConnectorThreatIntelligenceArgs extends com.pulumi.resour
         /**
          * @param tenantId The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
          * 
+         * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+         * 
          * @return builder
          * 
          */
@@ -178,6 +184,8 @@ public final class DataConnectorThreatIntelligenceArgs extends com.pulumi.resour
 
         /**
          * @param tenantId The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
+         * 
+         * &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
          * 
          * @return builder
          * 

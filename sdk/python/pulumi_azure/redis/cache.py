@@ -43,6 +43,8 @@ class CacheArgs:
         :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+               
+               > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The location of the resource group. Changing this forces a new resource to be created.
@@ -54,12 +56,16 @@ class CacheArgs:
         :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
+               
+               > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
         :param pulumi.Input[int] replicas_per_primary: Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
         :param pulumi.Input[int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+               
+               > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "family", family)
@@ -141,6 +147,8 @@ class CacheArgs:
     def sku_name(self) -> pulumi.Input[str]:
         """
         The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+
+        > **Note** Downgrading the SKU will force a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -273,6 +281,8 @@ class CacheArgs:
     def replicas_per_master(self) -> Optional[pulumi.Input[int]]:
         """
         Amount of replicas to create per master for this Redis Cache.
+
+        > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
         """
         return pulumi.get(self, "replicas_per_master")
 
@@ -345,6 +355,8 @@ class CacheArgs:
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+
+        > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
         return pulumi.get(self, "zones")
 
@@ -403,17 +415,23 @@ class _CacheState:
         :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
+               
+               > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
         :param pulumi.Input[int] replicas_per_primary: Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Instance
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Redis Instance.
         :param pulumi.Input[int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+               
+               > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[int] ssl_port: The SSL Port of the Redis Instance
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+               
+               > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -669,6 +687,8 @@ class _CacheState:
     def replicas_per_master(self) -> Optional[pulumi.Input[int]]:
         """
         Amount of replicas to create per master for this Redis Cache.
+
+        > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
         """
         return pulumi.get(self, "replicas_per_master")
 
@@ -741,6 +761,8 @@ class _CacheState:
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
         The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+
+        > **Note** Downgrading the SKU will force a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -801,6 +823,8 @@ class _CacheState:
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+
+        > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
         return pulumi.get(self, "zones")
 
@@ -889,14 +913,20 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
+               
+               > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
         :param pulumi.Input[int] replicas_per_primary: Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+               
+               > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+               
+               > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
         ...
     @overload
@@ -1087,17 +1117,23 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
+               
+               > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
         :param pulumi.Input[int] replicas_per_primary: Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Instance
         :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Redis Instance.
         :param pulumi.Input[int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+               
+               > **Note** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[int] ssl_port: The SSL Port of the Redis Instance
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+               
+               > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1266,6 +1302,8 @@ class Cache(pulumi.CustomResource):
     def replicas_per_master(self) -> pulumi.Output[int]:
         """
         Amount of replicas to create per master for this Redis Cache.
+
+        > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
         """
         return pulumi.get(self, "replicas_per_master")
 
@@ -1314,6 +1352,8 @@ class Cache(pulumi.CustomResource):
     def sku_name(self) -> pulumi.Output[str]:
         """
         The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+
+        > **Note** Downgrading the SKU will force a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -1354,6 +1394,8 @@ class Cache(pulumi.CustomResource):
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
+
+        > **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
         return pulumi.get(self, "zones")
 

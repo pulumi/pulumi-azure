@@ -12,10 +12,14 @@ public final class VirtualMachineOsProfileLinuxConfigSshKey {
     /**
      * @return The Public SSH Key which should be written to the `path` defined above.
      * 
+     * &gt; **Note:** Azure only supports RSA SSH2 key signatures of at least 2048 bits in length
+     * 
      */
     private String keyData;
     /**
      * @return The path of the destination file on the virtual machine
+     * 
+     * &gt; **NOTE:** Due to a limitation in the Azure VM Agent the only allowed `path` is `/home/{username}/.ssh/authorized_keys`.
      * 
      */
     private String path;
@@ -24,12 +28,16 @@ public final class VirtualMachineOsProfileLinuxConfigSshKey {
     /**
      * @return The Public SSH Key which should be written to the `path` defined above.
      * 
+     * &gt; **Note:** Azure only supports RSA SSH2 key signatures of at least 2048 bits in length
+     * 
      */
     public String keyData() {
         return this.keyData;
     }
     /**
      * @return The path of the destination file on the virtual machine
+     * 
+     * &gt; **NOTE:** Due to a limitation in the Azure VM Agent the only allowed `path` is `/home/{username}/.ssh/authorized_keys`.
      * 
      */
     public String path() {

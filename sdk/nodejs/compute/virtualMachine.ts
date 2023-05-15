@@ -127,10 +127,14 @@ export class VirtualMachine extends pulumi.CustomResource {
     public readonly bootDiagnostics!: pulumi.Output<outputs.compute.VirtualMachineBootDiagnostics | undefined>;
     /**
      * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+     *
+     * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
      */
     public readonly deleteDataDisksOnTermination!: pulumi.Output<boolean | undefined>;
     /**
      * Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+     *
+     * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
      */
     public readonly deleteOsDiskOnTermination!: pulumi.Output<boolean | undefined>;
     /**
@@ -187,6 +191,8 @@ export class VirtualMachine extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * One or more `storageDataDisk` blocks as defined below.
+     *
+     * > **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      */
     public readonly storageDataDisks!: pulumi.Output<outputs.compute.VirtualMachineStorageDataDisk[]>;
     /**
@@ -207,6 +213,10 @@ export class VirtualMachine extends pulumi.CustomResource {
     public readonly vmSize!: pulumi.Output<string>;
     /**
      * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
+     *
+     * > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     *
+     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
      */
     public readonly zones!: pulumi.Output<string | undefined>;
 
@@ -309,10 +319,14 @@ export interface VirtualMachineState {
     bootDiagnostics?: pulumi.Input<inputs.compute.VirtualMachineBootDiagnostics>;
     /**
      * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+     *
+     * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
      */
     deleteDataDisksOnTermination?: pulumi.Input<boolean>;
     /**
      * Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+     *
+     * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
      */
     deleteOsDiskOnTermination?: pulumi.Input<boolean>;
     /**
@@ -369,6 +383,8 @@ export interface VirtualMachineState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * One or more `storageDataDisk` blocks as defined below.
+     *
+     * > **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      */
     storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[]>;
     /**
@@ -389,6 +405,10 @@ export interface VirtualMachineState {
     vmSize?: pulumi.Input<string>;
     /**
      * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
+     *
+     * > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     *
+     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
      */
     zones?: pulumi.Input<string>;
 }
@@ -411,10 +431,14 @@ export interface VirtualMachineArgs {
     bootDiagnostics?: pulumi.Input<inputs.compute.VirtualMachineBootDiagnostics>;
     /**
      * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+     *
+     * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
      */
     deleteDataDisksOnTermination?: pulumi.Input<boolean>;
     /**
      * Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+     *
+     * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
      */
     deleteOsDiskOnTermination?: pulumi.Input<boolean>;
     /**
@@ -471,6 +495,8 @@ export interface VirtualMachineArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * One or more `storageDataDisk` blocks as defined below.
+     *
+     * > **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      */
     storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[]>;
     /**
@@ -491,6 +517,10 @@ export interface VirtualMachineArgs {
     vmSize: pulumi.Input<string>;
     /**
      * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
+     *
+     * > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     *
+     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
      */
     zones?: pulumi.Input<string>;
 }

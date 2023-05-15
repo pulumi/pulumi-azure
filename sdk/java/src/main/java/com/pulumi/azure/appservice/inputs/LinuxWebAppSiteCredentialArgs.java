@@ -16,14 +16,14 @@ public final class LinuxWebAppSiteCredentialArgs extends com.pulumi.resources.Re
     public static final LinuxWebAppSiteCredentialArgs Empty = new LinuxWebAppSiteCredentialArgs();
 
     /**
-     * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * The Site Credentials Username used for publishing.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * @return The Site Credentials Username used for publishing.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class LinuxWebAppSiteCredentialArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         * @param name The Site Credentials Username used for publishing.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class LinuxWebAppSiteCredentialArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         * @param name The Site Credentials Username used for publishing.
          * 
          * @return builder
          * 

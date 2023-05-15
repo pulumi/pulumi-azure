@@ -133,12 +133,16 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
      * 
+     * &gt; If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
+     * 
      */
     @Export(name="containerRegistryId", refs={String.class}, tree="[0]")
     private Output<String> containerRegistryId;
 
     /**
      * @return The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
+     * 
+     * &gt; If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
      * 
      */
     public Output<String> containerRegistryId() {

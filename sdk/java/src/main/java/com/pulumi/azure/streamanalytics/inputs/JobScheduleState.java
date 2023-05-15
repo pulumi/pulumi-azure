@@ -33,12 +33,16 @@ public final class JobScheduleState extends com.pulumi.resources.ResourceArgs {
     /**
      * The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
      * 
+     * &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
+     * 
      */
     @Import(name="startMode")
     private @Nullable Output<String> startMode;
 
     /**
      * @return The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+     * 
+     * &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
      * 
      */
     public Optional<Output<String>> startMode() {
@@ -126,6 +130,8 @@ public final class JobScheduleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param startMode The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
          * 
+         * &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
+         * 
          * @return builder
          * 
          */
@@ -136,6 +142,8 @@ public final class JobScheduleState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param startMode The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+         * 
+         * &gt; **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
          * 
          * @return builder
          * 

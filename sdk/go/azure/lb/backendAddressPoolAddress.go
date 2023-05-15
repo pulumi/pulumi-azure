@@ -99,6 +99,8 @@ type BackendAddressPoolAddress struct {
 	pulumi.CustomResourceState
 
 	// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+	//
+	// > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
 	BackendAddressIpConfigurationId pulumi.StringPtrOutput `pulumi:"backendAddressIpConfigurationId"`
 	// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 	BackendAddressPoolId pulumi.StringOutput `pulumi:"backendAddressPoolId"`
@@ -145,6 +147,8 @@ func GetBackendAddressPoolAddress(ctx *pulumi.Context,
 // Input properties used for looking up and filtering BackendAddressPoolAddress resources.
 type backendAddressPoolAddressState struct {
 	// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+	//
+	// > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
 	BackendAddressIpConfigurationId *string `pulumi:"backendAddressIpConfigurationId"`
 	// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`
@@ -160,6 +164,8 @@ type backendAddressPoolAddressState struct {
 
 type BackendAddressPoolAddressState struct {
 	// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+	//
+	// > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
 	BackendAddressIpConfigurationId pulumi.StringPtrInput
 	// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 	BackendAddressPoolId pulumi.StringPtrInput
@@ -179,6 +185,8 @@ func (BackendAddressPoolAddressState) ElementType() reflect.Type {
 
 type backendAddressPoolAddressArgs struct {
 	// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+	//
+	// > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
 	BackendAddressIpConfigurationId *string `pulumi:"backendAddressIpConfigurationId"`
 	// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 	BackendAddressPoolId string `pulumi:"backendAddressPoolId"`
@@ -193,6 +201,8 @@ type backendAddressPoolAddressArgs struct {
 // The set of arguments for constructing a BackendAddressPoolAddress resource.
 type BackendAddressPoolAddressArgs struct {
 	// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+	//
+	// > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
 	BackendAddressIpConfigurationId pulumi.StringPtrInput
 	// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 	BackendAddressPoolId pulumi.StringInput
@@ -292,6 +302,8 @@ func (o BackendAddressPoolAddressOutput) ToBackendAddressPoolAddressOutputWithCo
 }
 
 // The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+//
+// > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
 func (o BackendAddressPoolAddressOutput) BackendAddressIpConfigurationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendAddressPoolAddress) pulumi.StringPtrOutput { return v.BackendAddressIpConfigurationId }).(pulumi.StringPtrOutput)
 }

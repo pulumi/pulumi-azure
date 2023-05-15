@@ -60,6 +60,8 @@ public final class StandardSiteConfig {
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     private @Nullable List<StandardSiteConfigIpRestriction> ipRestrictions;
     /**
@@ -85,6 +87,8 @@ public final class StandardSiteConfig {
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     private @Nullable List<StandardSiteConfigScmIpRestriction> scmIpRestrictions;
     /**
@@ -104,6 +108,8 @@ public final class StandardSiteConfig {
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
      * @return Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+     * 
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
      * 
      */
     private @Nullable Boolean use32BitWorkerProcess;
@@ -178,6 +184,8 @@ public final class StandardSiteConfig {
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     public List<StandardSiteConfigIpRestriction> ipRestrictions() {
         return this.ipRestrictions == null ? List.of() : this.ipRestrictions;
@@ -213,6 +221,8 @@ public final class StandardSiteConfig {
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     public List<StandardSiteConfigScmIpRestriction> scmIpRestrictions() {
         return this.scmIpRestrictions == null ? List.of() : this.scmIpRestrictions;
@@ -240,6 +250,8 @@ public final class StandardSiteConfig {
     }
     /**
      * @return Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+     * 
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
      * 
      */
     public Optional<Boolean> use32BitWorkerProcess() {

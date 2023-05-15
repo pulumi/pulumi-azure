@@ -89,6 +89,8 @@ export class FrontdoorOriginGroup extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+     *
+     * > **NOTE:** This property is currently not used, but will be in the near future.
      */
     public readonly restoreTrafficTimeToHealedOrNewEndpointInMinutes!: pulumi.Output<number | undefined>;
     /**
@@ -157,6 +159,8 @@ export interface FrontdoorOriginGroupState {
     name?: pulumi.Input<string>;
     /**
      * Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+     *
+     * > **NOTE:** This property is currently not used, but will be in the near future.
      */
     restoreTrafficTimeToHealedOrNewEndpointInMinutes?: pulumi.Input<number>;
     /**
@@ -187,6 +191,8 @@ export interface FrontdoorOriginGroupArgs {
     name?: pulumi.Input<string>;
     /**
      * Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+     *
+     * > **NOTE:** This property is currently not used, but will be in the near future.
      */
     restoreTrafficTimeToHealedOrNewEndpointInMinutes?: pulumi.Input<number>;
     /**

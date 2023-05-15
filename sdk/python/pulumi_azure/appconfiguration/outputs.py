@@ -246,6 +246,8 @@ class ConfigurationStoreIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -270,6 +272,8 @@ class ConfigurationStoreIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

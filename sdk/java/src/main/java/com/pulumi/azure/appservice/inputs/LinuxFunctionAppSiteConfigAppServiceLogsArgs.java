@@ -33,12 +33,16 @@ public final class LinuxFunctionAppSiteConfigAppServiceLogsArgs extends com.pulu
     /**
      * The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
      * 
+     * &gt; **NOTE:** This block is not supported on Consumption plans.
+     * 
      */
     @Import(name="retentionPeriodDays")
     private @Nullable Output<Integer> retentionPeriodDays;
 
     /**
      * @return The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
+     * 
+     * &gt; **NOTE:** This block is not supported on Consumption plans.
      * 
      */
     public Optional<Output<Integer>> retentionPeriodDays() {
@@ -94,6 +98,8 @@ public final class LinuxFunctionAppSiteConfigAppServiceLogsArgs extends com.pulu
         /**
          * @param retentionPeriodDays The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
          * 
+         * &gt; **NOTE:** This block is not supported on Consumption plans.
+         * 
          * @return builder
          * 
          */
@@ -104,6 +110,8 @@ public final class LinuxFunctionAppSiteConfigAppServiceLogsArgs extends com.pulu
 
         /**
          * @param retentionPeriodDays The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
+         * 
+         * &gt; **NOTE:** This block is not supported on Consumption plans.
          * 
          * @return builder
          * 

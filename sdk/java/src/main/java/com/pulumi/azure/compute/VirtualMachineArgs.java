@@ -77,12 +77,16 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      * 
+     * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
+     * 
      */
     @Import(name="deleteDataDisksOnTermination")
     private @Nullable Output<Boolean> deleteDataDisksOnTermination;
 
     /**
      * @return Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+     * 
+     * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
      * 
      */
     public Optional<Output<Boolean>> deleteDataDisksOnTermination() {
@@ -92,12 +96,16 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      * 
+     * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
+     * 
      */
     @Import(name="deleteOsDiskOnTermination")
     private @Nullable Output<Boolean> deleteOsDiskOnTermination;
 
     /**
      * @return Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+     * 
+     * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
      * 
      */
     public Optional<Output<Boolean>> deleteOsDiskOnTermination() {
@@ -302,12 +310,16 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * One or more `storage_data_disk` blocks as defined below.
      * 
+     * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
+     * 
      */
     @Import(name="storageDataDisks")
     private @Nullable Output<List<VirtualMachineStorageDataDiskArgs>> storageDataDisks;
 
     /**
      * @return One or more `storage_data_disk` blocks as defined below.
+     * 
+     * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      * 
      */
     public Optional<Output<List<VirtualMachineStorageDataDiskArgs>>> storageDataDisks() {
@@ -377,12 +389,20 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      * 
+     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * 
+     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+     * 
      */
     @Import(name="zones")
     private @Nullable Output<String> zones;
 
     /**
      * @return A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * 
+     * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
      * 
      */
     public Optional<Output<String>> zones() {
@@ -502,6 +522,8 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param deleteDataDisksOnTermination Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
          * 
+         * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
+         * 
          * @return builder
          * 
          */
@@ -513,6 +535,8 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param deleteDataDisksOnTermination Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
          * 
+         * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
+         * 
          * @return builder
          * 
          */
@@ -522,6 +546,8 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param deleteOsDiskOnTermination Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+         * 
+         * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
          * 
          * @return builder
          * 
@@ -533,6 +559,8 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param deleteOsDiskOnTermination Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
+         * 
+         * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
          * 
          * @return builder
          * 
@@ -837,6 +865,8 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param storageDataDisks One or more `storage_data_disk` blocks as defined below.
          * 
+         * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
+         * 
          * @return builder
          * 
          */
@@ -848,6 +878,8 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param storageDataDisks One or more `storage_data_disk` blocks as defined below.
          * 
+         * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
+         * 
          * @return builder
          * 
          */
@@ -857,6 +889,8 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param storageDataDisks One or more `storage_data_disk` blocks as defined below.
+         * 
+         * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
          * 
          * @return builder
          * 
@@ -952,6 +986,10 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param zones A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
          * 
+         * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+         * 
+         * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
+         * 
          * @return builder
          * 
          */
@@ -962,6 +1000,10 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param zones A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+         * 
+         * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
          * 
          * @return builder
          * 

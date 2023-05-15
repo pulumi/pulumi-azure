@@ -79,12 +79,16 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** At least one read or write permission must be defined.
+     * 
      */
     @Import(name="writePermissions")
     private @Nullable Output<List<String>> writePermissions;
 
     /**
      * @return Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** At least one read or write permission must be defined.
      * 
      */
     public Optional<Output<List<String>>> writePermissions() {
@@ -216,6 +220,8 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param writePermissions Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** At least one read or write permission must be defined.
+         * 
          * @return builder
          * 
          */
@@ -227,6 +233,8 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param writePermissions Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** At least one read or write permission must be defined.
+         * 
          * @return builder
          * 
          */
@@ -236,6 +244,8 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param writePermissions Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** At least one read or write permission must be defined.
          * 
          * @return builder
          * 

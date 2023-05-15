@@ -15,6 +15,8 @@ namespace Pulumi.Azure.Backup.Outputs
     {
         /// <summary>
         /// The number of daily backups to keep. Must be between `7` and `9999`.
+        /// 
+        /// &gt; **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
         /// </summary>
         public readonly int Count;
 

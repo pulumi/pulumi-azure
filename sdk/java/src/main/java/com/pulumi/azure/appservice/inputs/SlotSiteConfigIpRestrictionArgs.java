@@ -110,12 +110,16 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
     /**
      * The Virtual Network Subnet ID used for this IP Restriction.
      * 
+     * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+     * 
      */
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
+     * 
+     * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
      * 
      */
     public Optional<Output<String>> virtualNetworkSubnetId() {
@@ -281,6 +285,8 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
          * 
+         * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+         * 
          * @return builder
          * 
          */
@@ -291,6 +297,8 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
 
         /**
          * @param virtualNetworkSubnetId The Virtual Network Subnet ID used for this IP Restriction.
+         * 
+         * &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
          * 
          * @return builder
          * 

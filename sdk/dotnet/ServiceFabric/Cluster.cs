@@ -89,6 +89,8 @@ namespace Pulumi.Azure.ServiceFabric
 
         /// <summary>
         /// A `client_certificate_common_name` block as defined below.
+        /// 
+        /// &gt; **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
         /// </summary>
         [Output("clientCertificateCommonNames")]
         public Output<ImmutableArray<Outputs.ClusterClientCertificateCommonName>> ClientCertificateCommonNames { get; private set; } = null!;
@@ -149,6 +151,8 @@ namespace Pulumi.Azure.ServiceFabric
 
         /// <summary>
         /// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
+        /// 
+        /// &gt; **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
         /// </summary>
         [Output("reliabilityLevel")]
         public Output<string> ReliabilityLevel { get; private set; } = null!;
@@ -288,6 +292,8 @@ namespace Pulumi.Azure.ServiceFabric
 
         /// <summary>
         /// A `client_certificate_common_name` block as defined below.
+        /// 
+        /// &gt; **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
         /// </summary>
         public InputList<Inputs.ClusterClientCertificateCommonNameArgs> ClientCertificateCommonNames
         {
@@ -363,6 +369,8 @@ namespace Pulumi.Azure.ServiceFabric
 
         /// <summary>
         /// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
+        /// 
+        /// &gt; **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
         /// </summary>
         [Input("reliabilityLevel", required: true)]
         public Input<string> ReliabilityLevel { get; set; } = null!;
@@ -470,6 +478,8 @@ namespace Pulumi.Azure.ServiceFabric
 
         /// <summary>
         /// A `client_certificate_common_name` block as defined below.
+        /// 
+        /// &gt; **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
         /// </summary>
         public InputList<Inputs.ClusterClientCertificateCommonNameGetArgs> ClientCertificateCommonNames
         {
@@ -551,6 +561,8 @@ namespace Pulumi.Azure.ServiceFabric
 
         /// <summary>
         /// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
+        /// 
+        /// &gt; **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
         /// </summary>
         [Input("reliabilityLevel")]
         public Input<string>? ReliabilityLevel { get; set; }

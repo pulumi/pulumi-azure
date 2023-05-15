@@ -148,20 +148,44 @@ type Extension struct {
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled pulumi.BoolPtrOutput `pulumi:"automaticUpgradeEnabled"`
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
 	FailureSuppressionEnabled pulumi.BoolPtrOutput `pulumi:"failureSuppressionEnabled"`
 	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
+	//
+	// > **Please Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
 	ProtectedSettings pulumi.StringPtrOutput `pulumi:"protectedSettings"`
 	// A `protectedSettingsFromKeyVault` block as defined below.
+	//
+	// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
 	ProtectedSettingsFromKeyVault ExtensionProtectedSettingsFromKeyVaultPtrOutput `pulumi:"protectedSettingsFromKeyVault"`
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher pulumi.StringOutput `pulumi:"publisher"`
 	// The settings passed to the extension, these are specified as a JSON object in a string.
+	//
+	// > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
 	Settings pulumi.StringPtrOutput `pulumi:"settings"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
+	//
+	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringOutput `pulumi:"typeHandlerVersion"`
@@ -222,20 +246,44 @@ type extensionState struct {
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
 	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
 	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
+	//
+	// > **Please Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
 	ProtectedSettings *string `pulumi:"protectedSettings"`
 	// A `protectedSettingsFromKeyVault` block as defined below.
+	//
+	// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
 	ProtectedSettingsFromKeyVault *ExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher *string `pulumi:"publisher"`
 	// The settings passed to the extension, these are specified as a JSON object in a string.
+	//
+	// > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
 	Settings *string `pulumi:"settings"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
+	//
+	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Type *string `pulumi:"type"`
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
@@ -249,20 +297,44 @@ type ExtensionState struct {
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
 	FailureSuppressionEnabled pulumi.BoolPtrInput
 	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
+	//
+	// > **Please Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
 	ProtectedSettings pulumi.StringPtrInput
 	// A `protectedSettingsFromKeyVault` block as defined below.
+	//
+	// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
 	ProtectedSettingsFromKeyVault ExtensionProtectedSettingsFromKeyVaultPtrInput
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher pulumi.StringPtrInput
 	// The settings passed to the extension, these are specified as a JSON object in a string.
+	//
+	// > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
 	Settings pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
+	//
+	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Type pulumi.StringPtrInput
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringPtrInput
@@ -280,20 +352,44 @@ type extensionArgs struct {
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
 	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
 	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
+	//
+	// > **Please Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
 	ProtectedSettings *string `pulumi:"protectedSettings"`
 	// A `protectedSettingsFromKeyVault` block as defined below.
+	//
+	// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
 	ProtectedSettingsFromKeyVault *ExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher string `pulumi:"publisher"`
 	// The settings passed to the extension, these are specified as a JSON object in a string.
+	//
+	// > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
 	Settings *string `pulumi:"settings"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
+	//
+	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Type string `pulumi:"type"`
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
@@ -308,20 +404,44 @@ type ExtensionArgs struct {
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	//
+	// > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
 	FailureSuppressionEnabled pulumi.BoolPtrInput
 	// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
+	//
+	// > **Please Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
 	ProtectedSettings pulumi.StringPtrInput
 	// A `protectedSettingsFromKeyVault` block as defined below.
+	//
+	// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
 	ProtectedSettingsFromKeyVault ExtensionProtectedSettingsFromKeyVaultPtrInput
 	// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
 	Publisher pulumi.StringInput
 	// The settings passed to the extension, these are specified as a JSON object in a string.
+	//
+	// > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
 	Settings pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
+	//
+	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Type pulumi.StringInput
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringInput
@@ -427,6 +547,8 @@ func (o ExtensionOutput) AutomaticUpgradeEnabled() pulumi.BoolPtrOutput {
 }
 
 // Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+//
+// > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
 func (o ExtensionOutput) FailureSuppressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.BoolPtrOutput { return v.FailureSuppressionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -437,11 +559,15 @@ func (o ExtensionOutput) Name() pulumi.StringOutput {
 }
 
 // The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
+//
+// > **Please Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
 func (o ExtensionOutput) ProtectedSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
 }
 
 // A `protectedSettingsFromKeyVault` block as defined below.
+//
+// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
 func (o ExtensionOutput) ProtectedSettingsFromKeyVault() ExtensionProtectedSettingsFromKeyVaultPtrOutput {
 	return o.ApplyT(func(v *Extension) ExtensionProtectedSettingsFromKeyVaultPtrOutput {
 		return v.ProtectedSettingsFromKeyVault
@@ -454,6 +580,8 @@ func (o ExtensionOutput) Publisher() pulumi.StringOutput {
 }
 
 // The settings passed to the extension, these are specified as a JSON object in a string.
+//
+// > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
 func (o ExtensionOutput) Settings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.Settings }).(pulumi.StringPtrOutput)
 }
@@ -464,6 +592,25 @@ func (o ExtensionOutput) Tags() pulumi.StringMapOutput {
 }
 
 // The type of extension, available types for a publisher can be found using the Azure CLI.
+//
+// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o ExtensionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

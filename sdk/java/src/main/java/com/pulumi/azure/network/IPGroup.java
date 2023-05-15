@@ -72,17 +72,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:network/iPGroup:IPGroup")
 public class IPGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * A list of CIDRs or IP addresses.
-     * 
-     */
     @Export(name="cidrs", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> cidrs;
 
-    /**
-     * @return A list of CIDRs or IP addresses.
-     * 
-     */
     public Output<Optional<List<String>>> cidrs() {
         return Codegen.optional(this.cidrs);
     }

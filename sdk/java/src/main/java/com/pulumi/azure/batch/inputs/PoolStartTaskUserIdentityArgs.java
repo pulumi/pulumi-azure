@@ -19,12 +19,16 @@ public final class PoolStartTaskUserIdentityArgs extends com.pulumi.resources.Re
     /**
      * A `auto_user` block that describes the user identity under which the start task runs as defined below.
      * 
+     * &gt; **Please Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
+     * 
      */
     @Import(name="autoUser")
     private @Nullable Output<PoolStartTaskUserIdentityAutoUserArgs> autoUser;
 
     /**
      * @return A `auto_user` block that describes the user identity under which the start task runs as defined below.
+     * 
+     * &gt; **Please Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
      * 
      */
     public Optional<Output<PoolStartTaskUserIdentityAutoUserArgs>> autoUser() {
@@ -74,6 +78,8 @@ public final class PoolStartTaskUserIdentityArgs extends com.pulumi.resources.Re
         /**
          * @param autoUser A `auto_user` block that describes the user identity under which the start task runs as defined below.
          * 
+         * &gt; **Please Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
+         * 
          * @return builder
          * 
          */
@@ -84,6 +90,8 @@ public final class PoolStartTaskUserIdentityArgs extends com.pulumi.resources.Re
 
         /**
          * @param autoUser A `auto_user` block that describes the user identity under which the start task runs as defined below.
+         * 
+         * &gt; **Please Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
          * 
          * @return builder
          * 

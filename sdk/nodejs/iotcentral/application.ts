@@ -67,6 +67,8 @@ export class Application extends pulumi.CustomResource {
 
     /**
      * A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
+     *
+     * > **NOTE:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -159,6 +161,8 @@ export class Application extends pulumi.CustomResource {
 export interface ApplicationState {
     /**
      * A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
+     *
+     * > **NOTE:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -205,6 +209,8 @@ export interface ApplicationState {
 export interface ApplicationArgs {
     /**
      * A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
+     *
+     * > **NOTE:** Due to a bug in the provider, the default value of `displayName` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `displayName` explicitly.
      */
     displayName?: pulumi.Input<string>;
     /**

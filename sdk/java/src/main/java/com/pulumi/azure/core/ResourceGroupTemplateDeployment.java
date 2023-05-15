@@ -48,12 +48,16 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
     /**
      * The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
      * 
+     * &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
+     * 
      */
     @Export(name="deploymentMode", refs={String.class}, tree="[0]")
     private Output<String> deploymentMode;
 
     /**
      * @return The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
+     * 
+     * &gt; **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
      * 
      */
     public Output<String> deploymentMode() {
@@ -90,12 +94,16 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
     /**
      * The contents of the ARM Template parameters file - containing a JSON list of parameters.
      * 
+     * &gt; An example of how to pass variables into an ARM Template can be seen in the example.
+     * 
      */
     @Export(name="parametersContent", refs={String.class}, tree="[0]")
     private Output<String> parametersContent;
 
     /**
      * @return The contents of the ARM Template parameters file - containing a JSON list of parameters.
+     * 
+     * &gt; An example of how to pass variables into an ARM Template can be seen in the example.
      * 
      */
     public Output<String> parametersContent() {

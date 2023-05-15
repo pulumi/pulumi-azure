@@ -267,12 +267,18 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
+        /// 
+        /// &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        /// 
+        /// &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         /// </summary>
         [Output("storageKeyVaultSecretId")]
         public Output<string?> StorageKeyVaultSecretId { get; private set; } = null!;
 
         /// <summary>
         /// Should the Function App Slot use its Managed Identity to access storage.
+        /// 
+        /// &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         /// </summary>
         [Output("storageUsesManagedIdentity")]
         public Output<bool?> StorageUsesManagedIdentity { get; private set; } = null!;
@@ -283,9 +289,6 @@ namespace Pulumi.Azure.AppService
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
@@ -509,12 +512,18 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
+        /// 
+        /// &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        /// 
+        /// &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         /// </summary>
         [Input("storageKeyVaultSecretId")]
         public Input<string>? StorageKeyVaultSecretId { get; set; }
 
         /// <summary>
         /// Should the Function App Slot use its Managed Identity to access storage.
+        /// 
+        /// &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         /// </summary>
         [Input("storageUsesManagedIdentity")]
         public Input<bool>? StorageUsesManagedIdentity { get; set; }
@@ -531,9 +540,6 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
@@ -799,12 +805,18 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
+        /// 
+        /// &gt; **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        /// 
+        /// &gt; **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         /// </summary>
         [Input("storageKeyVaultSecretId")]
         public Input<string>? StorageKeyVaultSecretId { get; set; }
 
         /// <summary>
         /// Should the Function App Slot use its Managed Identity to access storage.
+        /// 
+        /// &gt; **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         /// </summary>
         [Input("storageUsesManagedIdentity")]
         public Input<bool>? StorageUsesManagedIdentity { get; set; }
@@ -821,9 +833,6 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 

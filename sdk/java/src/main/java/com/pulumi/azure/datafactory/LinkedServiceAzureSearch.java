@@ -33,12 +33,16 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      * 
+     * The following supported arguments are specific to Azure Search Linked Service:
+     * 
      */
     @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Linked Service.
+     * 
+     * The following supported arguments are specific to Azure Search Linked Service:
      * 
      */
     public Output<Optional<Map<String,String>>> additionalProperties() {

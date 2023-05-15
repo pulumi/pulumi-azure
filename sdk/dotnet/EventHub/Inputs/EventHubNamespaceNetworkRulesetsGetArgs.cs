@@ -32,6 +32,8 @@ namespace Pulumi.Azure.EventHub.Inputs
 
         /// <summary>
         /// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+        /// 
+        /// &gt; **Note:** The public network access setting at the network rule sets level should be the same as it's at the namespace level.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

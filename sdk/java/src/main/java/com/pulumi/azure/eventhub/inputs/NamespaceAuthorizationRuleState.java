@@ -64,12 +64,16 @@ public final class NamespaceAuthorizationRuleState extends com.pulumi.resources.
     /**
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * 
      */
     @Import(name="namespaceId")
     private @Nullable Output<String> namespaceId;
 
     /**
      * @return Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
      * 
      */
     public Optional<Output<String>> namespaceId() {
@@ -281,6 +285,8 @@ public final class NamespaceAuthorizationRuleState extends com.pulumi.resources.
         /**
          * @param namespaceId Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+         * 
          * @return builder
          * 
          */
@@ -291,6 +297,8 @@ public final class NamespaceAuthorizationRuleState extends com.pulumi.resources.
 
         /**
          * @param namespaceId Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
          * 
          * @return builder
          * 

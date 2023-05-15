@@ -49,8 +49,12 @@ class CustomHttpsConfigurationCustomHttpsConfigurationArgs:
         """
         :param pulumi.Input[str] azure_key_vault_certificate_secret_name: The name of the Key Vault secret representing the full certificate PFX.
         :param pulumi.Input[str] azure_key_vault_certificate_secret_version: The version of the Key Vault secret representing the full certificate PFX.
+               
+               > **Note:** In order to enable the use of your own custom `HTTPS certificate` you must grant `Azure Front Door Service` access to your key vault. For instructions on how to configure your `Key Vault` correctly please refer to the [product documentation](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https#option-2-use-your-own-certificate).
         :param pulumi.Input[str] azure_key_vault_certificate_vault_id: The ID of the Key Vault containing the SSL certificate.
         :param pulumi.Input[str] certificate_source: Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+               
+               The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
         :param pulumi.Input[str] minimum_tls_version: Minimum client TLS version supported.
         """
         if azure_key_vault_certificate_secret_name is not None:
@@ -85,6 +89,8 @@ class CustomHttpsConfigurationCustomHttpsConfigurationArgs:
     def azure_key_vault_certificate_secret_version(self) -> Optional[pulumi.Input[str]]:
         """
         The version of the Key Vault secret representing the full certificate PFX.
+
+        > **Note:** In order to enable the use of your own custom `HTTPS certificate` you must grant `Azure Front Door Service` access to your key vault. For instructions on how to configure your `Key Vault` correctly please refer to the [product documentation](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https#option-2-use-your-own-certificate).
         """
         return pulumi.get(self, "azure_key_vault_certificate_secret_version")
 
@@ -109,6 +115,8 @@ class CustomHttpsConfigurationCustomHttpsConfigurationArgs:
     def certificate_source(self) -> Optional[pulumi.Input[str]]:
         """
         Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
+
+        The following attributes are only valid if `certificate_source` is set to `AzureKeyVault`:
         """
         return pulumi.get(self, "certificate_source")
 
@@ -942,6 +950,8 @@ class FrontdoorBackendPoolHealthProbeArgs:
         :param pulumi.Input[int] interval_in_seconds: The number of seconds between each Health Probe. Defaults to `120`.
         :param pulumi.Input[str] path: The path to use for the Health Probe. Default is `/`.
         :param pulumi.Input[str] probe_method: Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
+               
+               > **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
         :param pulumi.Input[str] protocol: Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
         """
         pulumi.set(__self__, "name", name)
@@ -1023,6 +1033,8 @@ class FrontdoorBackendPoolHealthProbeArgs:
     def probe_method(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
+
+        > **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
         """
         return pulumi.get(self, "probe_method")
 
@@ -1136,6 +1148,8 @@ class FrontdoorBackendPoolSettingArgs:
                  backend_pools_send_receive_timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[bool] enforce_backend_pools_certificate_name_check: Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+               
+               > **NOTE:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
         :param pulumi.Input[int] backend_pools_send_receive_timeout_seconds: Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
         """
         pulumi.set(__self__, "enforce_backend_pools_certificate_name_check", enforce_backend_pools_certificate_name_check)
@@ -1147,6 +1161,8 @@ class FrontdoorBackendPoolSettingArgs:
     def enforce_backend_pools_certificate_name_check(self) -> pulumi.Input[bool]:
         """
         Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+
+        > **NOTE:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
         """
         return pulumi.get(self, "enforce_backend_pools_certificate_name_check")
 

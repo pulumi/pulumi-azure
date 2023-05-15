@@ -32,9 +32,13 @@ class ProductArgs:
         :param pulumi.Input[bool] published: Is this Product Published?
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] approval_required: Do subscribers need to be approved prior to being able to use the Product?
+               
+               > **NOTE:** `approval_required` can only be set when `subscription_required` is set to `true`.
         :param pulumi.Input[str] description: A description of this Product, which may include HTML formatting tags.
         :param pulumi.Input[bool] subscription_required: Is a Subscription required to access API's included in this Product? Defaults to `true`.
         :param pulumi.Input[int] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
+               
+               > **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
         :param pulumi.Input[str] terms: The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         """
         pulumi.set(__self__, "api_management_name", api_management_name)
@@ -118,6 +122,8 @@ class ProductArgs:
     def approval_required(self) -> Optional[pulumi.Input[bool]]:
         """
         Do subscribers need to be approved prior to being able to use the Product?
+
+        > **NOTE:** `approval_required` can only be set when `subscription_required` is set to `true`.
         """
         return pulumi.get(self, "approval_required")
 
@@ -154,6 +160,8 @@ class ProductArgs:
     def subscriptions_limit(self) -> Optional[pulumi.Input[int]]:
         """
         The number of subscriptions a user can have to this Product at the same time.
+
+        > **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
         """
         return pulumi.get(self, "subscriptions_limit")
 
@@ -191,6 +199,8 @@ class _ProductState:
         Input properties used for looking up and filtering Product resources.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] approval_required: Do subscribers need to be approved prior to being able to use the Product?
+               
+               > **NOTE:** `approval_required` can only be set when `subscription_required` is set to `true`.
         :param pulumi.Input[str] description: A description of this Product, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The Display Name for this API Management Product.
         :param pulumi.Input[str] product_id: The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
@@ -198,6 +208,8 @@ class _ProductState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] subscription_required: Is a Subscription required to access API's included in this Product? Defaults to `true`.
         :param pulumi.Input[int] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
+               
+               > **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
         :param pulumi.Input[str] terms: The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         """
         if api_management_name is not None:
@@ -238,6 +250,8 @@ class _ProductState:
     def approval_required(self) -> Optional[pulumi.Input[bool]]:
         """
         Do subscribers need to be approved prior to being able to use the Product?
+
+        > **NOTE:** `approval_required` can only be set when `subscription_required` is set to `true`.
         """
         return pulumi.get(self, "approval_required")
 
@@ -322,6 +336,8 @@ class _ProductState:
     def subscriptions_limit(self) -> Optional[pulumi.Input[int]]:
         """
         The number of subscriptions a user can have to this Product at the same time.
+
+        > **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
         """
         return pulumi.get(self, "subscriptions_limit")
 
@@ -396,6 +412,8 @@ class Product(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] approval_required: Do subscribers need to be approved prior to being able to use the Product?
+               
+               > **NOTE:** `approval_required` can only be set when `subscription_required` is set to `true`.
         :param pulumi.Input[str] description: A description of this Product, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The Display Name for this API Management Product.
         :param pulumi.Input[str] product_id: The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
@@ -403,6 +421,8 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] subscription_required: Is a Subscription required to access API's included in this Product? Defaults to `true`.
         :param pulumi.Input[int] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
+               
+               > **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
         :param pulumi.Input[str] terms: The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         """
         ...
@@ -528,6 +548,8 @@ class Product(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] approval_required: Do subscribers need to be approved prior to being able to use the Product?
+               
+               > **NOTE:** `approval_required` can only be set when `subscription_required` is set to `true`.
         :param pulumi.Input[str] description: A description of this Product, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The Display Name for this API Management Product.
         :param pulumi.Input[str] product_id: The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
@@ -535,6 +557,8 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] subscription_required: Is a Subscription required to access API's included in this Product? Defaults to `true`.
         :param pulumi.Input[int] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
+               
+               > **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
         :param pulumi.Input[str] terms: The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -566,6 +590,8 @@ class Product(pulumi.CustomResource):
     def approval_required(self) -> pulumi.Output[Optional[bool]]:
         """
         Do subscribers need to be approved prior to being able to use the Product?
+
+        > **NOTE:** `approval_required` can only be set when `subscription_required` is set to `true`.
         """
         return pulumi.get(self, "approval_required")
 
@@ -622,6 +648,8 @@ class Product(pulumi.CustomResource):
     def subscriptions_limit(self) -> pulumi.Output[Optional[int]]:
         """
         The number of subscriptions a user can have to this Product at the same time.
+
+        > **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
         """
         return pulumi.get(self, "subscriptions_limit")
 

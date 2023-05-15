@@ -96,6 +96,8 @@ type Connection struct {
 	ServiceProviderName pulumi.StringOutput `pulumi:"serviceProviderName"`
 	// A mapping of tags to assign to the resource.
 	//
+	// > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
 	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -171,6 +173,8 @@ type connectionState struct {
 	ServiceProviderName *string `pulumi:"serviceProviderName"`
 	// A mapping of tags to assign to the resource.
 	//
+	// > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
 	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -195,6 +199,8 @@ type ConnectionState struct {
 	// The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
 	ServiceProviderName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	//
 	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
 	Tags pulumi.StringMapInput
@@ -225,6 +231,8 @@ type connectionArgs struct {
 	ServiceProviderName string `pulumi:"serviceProviderName"`
 	// A mapping of tags to assign to the resource.
 	//
+	// > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
 	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -250,6 +258,8 @@ type ConnectionArgs struct {
 	// The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
 	ServiceProviderName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	//
 	// Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
 	Tags pulumi.StringMapInput
@@ -388,6 +398,8 @@ func (o ConnectionOutput) ServiceProviderName() pulumi.StringOutput {
 }
 
 // A mapping of tags to assign to the resource.
+//
+// > **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 //
 // Deprecated: This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
 func (o ConnectionOutput) Tags() pulumi.StringMapOutput {

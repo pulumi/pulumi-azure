@@ -94,10 +94,14 @@ export class Blob extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
      */
     public readonly parallelism!: pulumi.Output<number | undefined>;
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `size` is required if `sourceUri` is not set.
      */
     public readonly size!: pulumi.Output<number | undefined>;
     /**
@@ -220,10 +224,14 @@ export interface BlobState {
     name?: pulumi.Input<string>;
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
      */
     parallelism?: pulumi.Input<number>;
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `size` is required if `sourceUri` is not set.
      */
     size?: pulumi.Input<number>;
     /**
@@ -287,10 +295,14 @@ export interface BlobArgs {
     name?: pulumi.Input<string>;
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
      */
     parallelism?: pulumi.Input<number>;
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `size` is required if `sourceUri` is not set.
      */
     size?: pulumi.Input<number>;
     /**

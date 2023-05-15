@@ -968,8 +968,7 @@ type VolumeDataProtectionReplication struct {
 	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
 	// Resource ID of the primary volume.
 	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
-	// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
-	ReplicationFrequency string `pulumi:"replicationFrequency"`
+	ReplicationFrequency   string `pulumi:"replicationFrequency"`
 }
 
 // VolumeDataProtectionReplicationInput is an input type that accepts VolumeDataProtectionReplicationArgs and VolumeDataProtectionReplicationOutput values.
@@ -990,8 +989,7 @@ type VolumeDataProtectionReplicationArgs struct {
 	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
 	// Resource ID of the primary volume.
 	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
-	// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
-	ReplicationFrequency pulumi.StringInput `pulumi:"replicationFrequency"`
+	ReplicationFrequency   pulumi.StringInput `pulumi:"replicationFrequency"`
 }
 
 func (VolumeDataProtectionReplicationArgs) ElementType() reflect.Type {
@@ -1086,7 +1084,6 @@ func (o VolumeDataProtectionReplicationOutput) RemoteVolumeResourceId() pulumi.S
 	return o.ApplyT(func(v VolumeDataProtectionReplication) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
 }
 
-// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
 func (o VolumeDataProtectionReplicationOutput) ReplicationFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeDataProtectionReplication) string { return v.ReplicationFrequency }).(pulumi.StringOutput)
 }
@@ -1145,7 +1142,6 @@ func (o VolumeDataProtectionReplicationPtrOutput) RemoteVolumeResourceId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
 func (o VolumeDataProtectionReplicationPtrOutput) ReplicationFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeDataProtectionReplication) *string {
 		if v == nil {
@@ -1156,7 +1152,6 @@ func (o VolumeDataProtectionReplicationPtrOutput) ReplicationFrequency() pulumi.
 }
 
 type VolumeDataProtectionSnapshotPolicy struct {
-	// Resource ID of the snapshot policy to apply to the volume.
 	SnapshotPolicyId string `pulumi:"snapshotPolicyId"`
 }
 
@@ -1172,7 +1167,6 @@ type VolumeDataProtectionSnapshotPolicyInput interface {
 }
 
 type VolumeDataProtectionSnapshotPolicyArgs struct {
-	// Resource ID of the snapshot policy to apply to the volume.
 	SnapshotPolicyId pulumi.StringInput `pulumi:"snapshotPolicyId"`
 }
 
@@ -1253,7 +1247,6 @@ func (o VolumeDataProtectionSnapshotPolicyOutput) ToVolumeDataProtectionSnapshot
 	}).(VolumeDataProtectionSnapshotPolicyPtrOutput)
 }
 
-// Resource ID of the snapshot policy to apply to the volume.
 func (o VolumeDataProtectionSnapshotPolicyOutput) SnapshotPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeDataProtectionSnapshotPolicy) string { return v.SnapshotPolicyId }).(pulumi.StringOutput)
 }
@@ -1282,7 +1275,6 @@ func (o VolumeDataProtectionSnapshotPolicyPtrOutput) Elem() VolumeDataProtection
 	}).(VolumeDataProtectionSnapshotPolicyOutput)
 }
 
-// Resource ID of the snapshot policy to apply to the volume.
 func (o VolumeDataProtectionSnapshotPolicyPtrOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeDataProtectionSnapshotPolicy) *string {
 		if v == nil {

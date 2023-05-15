@@ -18,6 +18,54 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ScaleSet;
+     * import com.pulumi.azure.compute.ScaleSetArgs;
+     * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
+     * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
+     * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new ScaleSet(&#34;example&#34;, ScaleSetArgs.builder()        
+     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .location(azurerm_resource_group.example().location())
+     *             .sku(ScaleSetSkuArgs.builder()
+     *                 .name(var_.vm_sku())
+     *                 .tier(&#34;Standard&#34;)
+     *                 .capacity(var_.instance_count())
+     *                 .build())
+     *             .identity(ScaleSetIdentityArgs.builder()
+     *                 .type(&#34;SystemAssigned&#34;)
+     *                 .build())
+     *             .extensions(ScaleSetExtensionArgs.builder()
+     *                 .name(&#34;MSILinuxExtension&#34;)
+     *                 .publisher(&#34;Microsoft.ManagedIdentity&#34;)
+     *                 .type(&#34;ManagedIdentityExtensionForLinux&#34;)
+     *                 .typeHandlerVersion(&#34;1.0&#34;)
+     *                 .settings(&#34;{\&#34;port\&#34;: 50342}&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;principalId&#34;, example.identity().applyValue(identity -&gt; identity.principalId()));
+     *     }
+     * }
+     * ```
      * 
      */
     @Import(name="identityIds")
@@ -25,6 +73,54 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * @return Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ScaleSet;
+     * import com.pulumi.azure.compute.ScaleSetArgs;
+     * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
+     * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
+     * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new ScaleSet(&#34;example&#34;, ScaleSetArgs.builder()        
+     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .location(azurerm_resource_group.example().location())
+     *             .sku(ScaleSetSkuArgs.builder()
+     *                 .name(var_.vm_sku())
+     *                 .tier(&#34;Standard&#34;)
+     *                 .capacity(var_.instance_count())
+     *                 .build())
+     *             .identity(ScaleSetIdentityArgs.builder()
+     *                 .type(&#34;SystemAssigned&#34;)
+     *                 .build())
+     *             .extensions(ScaleSetExtensionArgs.builder()
+     *                 .name(&#34;MSILinuxExtension&#34;)
+     *                 .publisher(&#34;Microsoft.ManagedIdentity&#34;)
+     *                 .type(&#34;ManagedIdentityExtensionForLinux&#34;)
+     *                 .typeHandlerVersion(&#34;1.0&#34;)
+     *                 .settings(&#34;{\&#34;port\&#34;: 50342}&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *         ctx.export(&#34;principalId&#34;, example.identity().applyValue(identity -&gt; identity.principalId()));
+     *     }
+     * }
+     * ```
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -81,6 +177,54 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param identityIds Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.azure.compute.ScaleSet;
+         * import com.pulumi.azure.compute.ScaleSetArgs;
+         * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
+         * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
+         * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var example = new ScaleSet(&#34;example&#34;, ScaleSetArgs.builder()        
+         *             .resourceGroupName(azurerm_resource_group.example().name())
+         *             .location(azurerm_resource_group.example().location())
+         *             .sku(ScaleSetSkuArgs.builder()
+         *                 .name(var_.vm_sku())
+         *                 .tier(&#34;Standard&#34;)
+         *                 .capacity(var_.instance_count())
+         *                 .build())
+         *             .identity(ScaleSetIdentityArgs.builder()
+         *                 .type(&#34;SystemAssigned&#34;)
+         *                 .build())
+         *             .extensions(ScaleSetExtensionArgs.builder()
+         *                 .name(&#34;MSILinuxExtension&#34;)
+         *                 .publisher(&#34;Microsoft.ManagedIdentity&#34;)
+         *                 .type(&#34;ManagedIdentityExtensionForLinux&#34;)
+         *                 .typeHandlerVersion(&#34;1.0&#34;)
+         *                 .settings(&#34;{\&#34;port\&#34;: 50342}&#34;)
+         *                 .build())
+         *             .build());
+         * 
+         *         ctx.export(&#34;principalId&#34;, example.identity().applyValue(identity -&gt; identity.principalId()));
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 
@@ -92,6 +236,54 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param identityIds Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.azure.compute.ScaleSet;
+         * import com.pulumi.azure.compute.ScaleSetArgs;
+         * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
+         * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
+         * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var example = new ScaleSet(&#34;example&#34;, ScaleSetArgs.builder()        
+         *             .resourceGroupName(azurerm_resource_group.example().name())
+         *             .location(azurerm_resource_group.example().location())
+         *             .sku(ScaleSetSkuArgs.builder()
+         *                 .name(var_.vm_sku())
+         *                 .tier(&#34;Standard&#34;)
+         *                 .capacity(var_.instance_count())
+         *                 .build())
+         *             .identity(ScaleSetIdentityArgs.builder()
+         *                 .type(&#34;SystemAssigned&#34;)
+         *                 .build())
+         *             .extensions(ScaleSetExtensionArgs.builder()
+         *                 .name(&#34;MSILinuxExtension&#34;)
+         *                 .publisher(&#34;Microsoft.ManagedIdentity&#34;)
+         *                 .type(&#34;ManagedIdentityExtensionForLinux&#34;)
+         *                 .typeHandlerVersion(&#34;1.0&#34;)
+         *                 .settings(&#34;{\&#34;port\&#34;: 50342}&#34;)
+         *                 .build())
+         *             .build());
+         * 
+         *         ctx.export(&#34;principalId&#34;, example.identity().applyValue(identity -&gt; identity.principalId()));
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 
@@ -102,6 +294,54 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param identityIds Specifies a list of user managed identity ids to be assigned to the VMSS. Required if `type` is `UserAssigned`.
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.azure.compute.ScaleSet;
+         * import com.pulumi.azure.compute.ScaleSetArgs;
+         * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
+         * import com.pulumi.azure.compute.inputs.ScaleSetIdentityArgs;
+         * import com.pulumi.azure.compute.inputs.ScaleSetExtensionArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var example = new ScaleSet(&#34;example&#34;, ScaleSetArgs.builder()        
+         *             .resourceGroupName(azurerm_resource_group.example().name())
+         *             .location(azurerm_resource_group.example().location())
+         *             .sku(ScaleSetSkuArgs.builder()
+         *                 .name(var_.vm_sku())
+         *                 .tier(&#34;Standard&#34;)
+         *                 .capacity(var_.instance_count())
+         *                 .build())
+         *             .identity(ScaleSetIdentityArgs.builder()
+         *                 .type(&#34;SystemAssigned&#34;)
+         *                 .build())
+         *             .extensions(ScaleSetExtensionArgs.builder()
+         *                 .name(&#34;MSILinuxExtension&#34;)
+         *                 .publisher(&#34;Microsoft.ManagedIdentity&#34;)
+         *                 .type(&#34;ManagedIdentityExtensionForLinux&#34;)
+         *                 .typeHandlerVersion(&#34;1.0&#34;)
+         *                 .settings(&#34;{\&#34;port\&#34;: 50342}&#34;)
+         *                 .build())
+         *             .build());
+         * 
+         *         ctx.export(&#34;principalId&#34;, example.identity().applyValue(identity -&gt; identity.principalId()));
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 

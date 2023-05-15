@@ -15,6 +15,8 @@ namespace Pulumi.Azure.Network.Outputs
     {
         /// <summary>
         /// A `bgp` block as defined above.
+        /// 
+        /// &gt; **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
         /// </summary>
         public readonly Outputs.VpnSiteLinkBgp? Bgp;
         /// <summary>
@@ -27,6 +29,8 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly string? Id;
         /// <summary>
         /// The IP address of this VPN Site Link.
+        /// 
+        /// &gt; **NOTE:** Either `fqdn` or `ip_address` should be specified.
         /// </summary>
         public readonly string? IpAddress;
         /// <summary>

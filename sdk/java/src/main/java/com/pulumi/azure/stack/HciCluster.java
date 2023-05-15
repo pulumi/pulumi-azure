@@ -150,12 +150,16 @@ public class HciCluster extends com.pulumi.resources.CustomResource {
     /**
      * The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
+     * 
      */
     @Export(name="tenantId", refs={String.class}, tree="[0]")
     private Output<String> tenantId;
 
     /**
      * @return The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
      * 
      */
     public Output<String> tenantId() {

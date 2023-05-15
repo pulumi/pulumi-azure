@@ -15,6 +15,8 @@ namespace Pulumi.Azure.AppService.Outputs
     {
         /// <summary>
         /// The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
+        /// 
+        /// &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
         /// </summary>
         public readonly string? CurrentStack;
         /// <summary>
@@ -45,14 +47,20 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly bool? JavaEmbeddedServerEnabled;
         /// <summary>
         /// The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
+        /// 
+        /// &gt; **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>
         /// The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, and `~18`.
+        /// 
+        /// &gt; **NOTE:** This property conflicts with `java_version`.
         /// </summary>
         public readonly string? NodeVersion;
         /// <summary>
         /// The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
+        /// 
+        /// &gt; **NOTE:** The value `Off` is used to signify latest supported by the service.
         /// </summary>
         public readonly string? PhpVersion;
         /// <summary>
@@ -62,6 +70,8 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string? PythonVersion;
         /// <summary>
         /// The version of Tomcat the Java App should use.
+        /// 
+        /// &gt; **NOTE:** See the official documentation for current supported versions.
         /// </summary>
         public readonly string? TomcatVersion;
 

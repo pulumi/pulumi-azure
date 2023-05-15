@@ -67,6 +67,8 @@ export class DataConnectorMicrosoftCloudAppSecurity extends pulumi.CustomResourc
     public readonly alertsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
+     *
+     * > **NOTE:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
      */
     public readonly discoveryLogsEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -79,6 +81,8 @@ export class DataConnectorMicrosoftCloudAppSecurity extends pulumi.CustomResourc
     public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
+     *
+     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     public readonly tenantId!: pulumi.Output<string>;
 
@@ -126,6 +130,8 @@ export interface DataConnectorMicrosoftCloudAppSecurityState {
     alertsEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
+     *
+     * > **NOTE:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
      */
     discoveryLogsEnabled?: pulumi.Input<boolean>;
     /**
@@ -138,6 +144,8 @@ export interface DataConnectorMicrosoftCloudAppSecurityState {
     name?: pulumi.Input<string>;
     /**
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
+     *
+     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
 }
@@ -152,6 +160,8 @@ export interface DataConnectorMicrosoftCloudAppSecurityArgs {
     alertsEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
+     *
+     * > **NOTE:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
      */
     discoveryLogsEnabled?: pulumi.Input<boolean>;
     /**
@@ -164,6 +174,8 @@ export interface DataConnectorMicrosoftCloudAppSecurityArgs {
     name?: pulumi.Input<string>;
     /**
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
+     *
+     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
 }

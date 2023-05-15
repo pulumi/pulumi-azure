@@ -18,12 +18,16 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     /**
      * The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+     * 
      */
     @Import(name="certificateUrl")
     private @Nullable Output<String> certificateUrl;
 
     /**
      * @return The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
      * 
      */
     public Optional<Output<String>> certificateUrl() {
@@ -73,6 +77,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         /**
          * @param certificateUrl The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+         * 
          * @return builder
          * 
          */
@@ -83,6 +89,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
 
         /**
          * @param certificateUrl The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
          * 
          * @return builder
          * 

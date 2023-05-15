@@ -313,12 +313,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Whether to enable public network access? Defaults to `true`.
      * 
+     * &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
+     * 
      */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
     /**
      * @return Whether to enable public network access? Defaults to `true`.
+     * 
+     * &gt; **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
@@ -453,12 +457,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Whether to request client certificate during TLS handshake? Defaults to `false`.
      * 
+     * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
+     * 
      */
     @Export(name="tlsClientCertEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> tlsClientCertEnabled;
 
     /**
      * @return Whether to request client certificate during TLS handshake? Defaults to `false`.
+     * 
+     * &gt; **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
      * 
      */
     public Output<Optional<Boolean>> tlsClientCertEnabled() {

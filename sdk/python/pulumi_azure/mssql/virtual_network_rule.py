@@ -23,6 +23,8 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input[str] server_id: The resource ID of the SQL Server to which this SQL virtual network rule will be applied. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet from which the SQL server will accept communications.
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+               
+               > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         :param pulumi.Input[str] name: The name of the SQL virtual network rule. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "server_id", server_id)
@@ -61,6 +63,8 @@ class VirtualNetworkRuleArgs:
     def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
         Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+
+        > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
@@ -91,6 +95,8 @@ class _VirtualNetworkRuleState:
         """
         Input properties used for looking up and filtering VirtualNetworkRule resources.
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+               
+               > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         :param pulumi.Input[str] name: The name of the SQL virtual network rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_id: The resource ID of the SQL Server to which this SQL virtual network rule will be applied. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet from which the SQL server will accept communications.
@@ -109,6 +115,8 @@ class _VirtualNetworkRuleState:
     def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
         Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+
+        > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
@@ -204,6 +212,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+               
+               > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         :param pulumi.Input[str] name: The name of the SQL virtual network rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_id: The resource ID of the SQL Server to which this SQL virtual network rule will be applied. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet from which the SQL server will accept communications.
@@ -310,6 +320,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+               
+               > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         :param pulumi.Input[str] name: The name of the SQL virtual network rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_id: The resource ID of the SQL Server to which this SQL virtual network rule will be applied. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet from which the SQL server will accept communications.
@@ -329,6 +341,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
     def ignore_missing_vnet_service_endpoint(self) -> pulumi.Output[Optional[bool]]:
         """
         Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+
+        > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 

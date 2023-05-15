@@ -281,12 +281,16 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -762,6 +766,8 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
+         * &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
+         * 
          * @return builder
          * 
          */
@@ -772,6 +778,8 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags A mapping of tags to assign to the resource.
+         * 
+         * &gt; **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
          * 
          * @return builder
          * 

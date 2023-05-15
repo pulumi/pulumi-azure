@@ -155,12 +155,16 @@ public final class WorkbookArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
      * 
+     * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
+     * 
      */
     @Import(name="storageContainerId")
     private @Nullable Output<String> storageContainerId;
 
     /**
      * @return Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+     * 
+     * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
      * 
      */
     public Optional<Output<String>> storageContainerId() {
@@ -408,6 +412,8 @@ public final class WorkbookArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageContainerId Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
          * 
+         * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
+         * 
          * @return builder
          * 
          */
@@ -418,6 +424,8 @@ public final class WorkbookArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageContainerId Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
+         * 
+         * &gt; **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
          * 
          * @return builder
          * 

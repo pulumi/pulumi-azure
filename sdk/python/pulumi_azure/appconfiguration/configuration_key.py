@@ -36,6 +36,8 @@ class ConfigurationKeyArgs:
         :param pulumi.Input[str] type: The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
         :param pulumi.Input[str] value: The value of the App Configuration Key. This should only be set when type is set to `kv`.
         :param pulumi.Input[str] vault_key_reference: The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+               
+               > **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         """
         pulumi.set(__self__, "configuration_store_id", configuration_store_id)
         pulumi.set(__self__, "key", key)
@@ -169,6 +171,8 @@ class ConfigurationKeyArgs:
     def vault_key_reference(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+
+        > **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         """
         return pulumi.get(self, "vault_key_reference")
 
@@ -202,6 +206,8 @@ class _ConfigurationKeyState:
         :param pulumi.Input[str] type: The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
         :param pulumi.Input[str] value: The value of the App Configuration Key. This should only be set when type is set to `kv`.
         :param pulumi.Input[str] vault_key_reference: The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+               
+               > **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         """
         if configuration_store_id is not None:
             pulumi.set(__self__, "configuration_store_id", configuration_store_id)
@@ -337,6 +343,8 @@ class _ConfigurationKeyState:
     def vault_key_reference(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+
+        > **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         """
         return pulumi.get(self, "vault_key_reference")
 
@@ -463,6 +471,8 @@ class ConfigurationKey(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
         :param pulumi.Input[str] value: The value of the App Configuration Key. This should only be set when type is set to `kv`.
         :param pulumi.Input[str] vault_key_reference: The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+               
+               > **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         """
         ...
     @overload
@@ -645,6 +655,8 @@ class ConfigurationKey(pulumi.CustomResource):
         :param pulumi.Input[str] type: The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
         :param pulumi.Input[str] value: The value of the App Configuration Key. This should only be set when type is set to `kv`.
         :param pulumi.Input[str] vault_key_reference: The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+               
+               > **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -739,6 +751,8 @@ class ConfigurationKey(pulumi.CustomResource):
     def vault_key_reference(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+
+        > **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         """
         return pulumi.get(self, "vault_key_reference")
 

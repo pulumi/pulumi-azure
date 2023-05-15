@@ -146,6 +146,8 @@ export class Assignment extends pulumi.CustomResource {
     public readonly conditionVersion!: pulumi.Output<string | undefined>;
     /**
      * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** this field is only used in cross tenant scenario.
      */
     public readonly delegatedManagedIdentityResourceId!: pulumi.Output<string | undefined>;
     /**
@@ -158,6 +160,8 @@ export class Assignment extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
@@ -178,6 +182,8 @@ export class Assignment extends pulumi.CustomResource {
     public readonly scope!: pulumi.Output<string>;
     /**
      * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
+     *
+     * > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      */
     public readonly skipServicePrincipalAadCheck!: pulumi.Output<boolean>;
 
@@ -246,6 +252,8 @@ export interface AssignmentState {
     conditionVersion?: pulumi.Input<string>;
     /**
      * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** this field is only used in cross tenant scenario.
      */
     delegatedManagedIdentityResourceId?: pulumi.Input<string>;
     /**
@@ -258,6 +266,8 @@ export interface AssignmentState {
     name?: pulumi.Input<string>;
     /**
      * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
      */
     principalId?: pulumi.Input<string>;
     /**
@@ -278,6 +288,8 @@ export interface AssignmentState {
     scope?: pulumi.Input<string>;
     /**
      * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
+     *
+     * > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      */
     skipServicePrincipalAadCheck?: pulumi.Input<boolean>;
 }
@@ -296,6 +308,8 @@ export interface AssignmentArgs {
     conditionVersion?: pulumi.Input<string>;
     /**
      * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** this field is only used in cross tenant scenario.
      */
     delegatedManagedIdentityResourceId?: pulumi.Input<string>;
     /**
@@ -308,6 +322,8 @@ export interface AssignmentArgs {
     name?: pulumi.Input<string>;
     /**
      * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
      */
     principalId: pulumi.Input<string>;
     /**
@@ -324,6 +340,8 @@ export interface AssignmentArgs {
     scope: pulumi.Input<string>;
     /**
      * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
+     *
+     * > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      */
     skipServicePrincipalAadCheck?: pulumi.Input<boolean>;
 }

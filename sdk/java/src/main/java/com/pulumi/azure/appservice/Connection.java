@@ -144,12 +144,16 @@ public class Connection extends com.pulumi.resources.CustomResource {
     /**
      * The authentication info. An `authentication` block as defined below.
      * 
+     * &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
+     * 
      */
     @Export(name="authentication", refs={ConnectionAuthentication.class}, tree="[0]")
     private Output<ConnectionAuthentication> authentication;
 
     /**
      * @return The authentication info. An `authentication` block as defined below.
+     * 
+     * &gt; **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
      * 
      */
     public Output<ConnectionAuthentication> authentication() {

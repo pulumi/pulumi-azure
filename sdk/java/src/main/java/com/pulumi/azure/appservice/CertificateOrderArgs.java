@@ -51,12 +51,16 @@ public final class CertificateOrderArgs extends com.pulumi.resources.ResourceArg
     /**
      * The Distinguished Name for the App Service Certificate Order.
      * 
+     * &gt; **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
+     * 
      */
     @Import(name="distinguishedName")
     private @Nullable Output<String> distinguishedName;
 
     /**
      * @return The Distinguished Name for the App Service Certificate Order.
+     * 
+     * &gt; **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
      * 
      */
     public Optional<Output<String>> distinguishedName() {
@@ -246,6 +250,8 @@ public final class CertificateOrderArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param distinguishedName The Distinguished Name for the App Service Certificate Order.
          * 
+         * &gt; **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
+         * 
          * @return builder
          * 
          */
@@ -256,6 +262,8 @@ public final class CertificateOrderArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param distinguishedName The Distinguished Name for the App Service Certificate Order.
+         * 
+         * &gt; **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
          * 
          * @return builder
          * 

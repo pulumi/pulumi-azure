@@ -70,6 +70,8 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
+        /// 
+        /// &gt; **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
         /// </summary>
         [Output("group")]
         public Output<string> Group { get; private set; } = null!;
@@ -158,6 +160,8 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
+        /// 
+        /// &gt; **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
         /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }
@@ -214,6 +218,8 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
+        /// 
+        /// &gt; **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
         /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }

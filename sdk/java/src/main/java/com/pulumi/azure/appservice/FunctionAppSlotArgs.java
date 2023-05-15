@@ -41,12 +41,24 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
     /**
      * A key-value pair of App Settings.
      * 
+     * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
+     * 
+     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+     * 
+     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * 
      */
     @Import(name="appSettings")
     private @Nullable Output<Map<String,String>> appSettings;
 
     /**
      * @return A key-value pair of App Settings.
+     * 
+     * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
+     * 
+     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+     * 
+     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
      * 
      */
     public Optional<Output<Map<String,String>>> appSettings() {
@@ -206,12 +218,16 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
     /**
      * A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+     * 
      */
     @Import(name="osType")
     private @Nullable Output<String> osType;
 
     /**
      * @return A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
      * 
      */
     public Optional<Output<String>> osType() {
@@ -374,6 +390,12 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param appSettings A key-value pair of App Settings.
          * 
+         * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
+         * 
+         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+         * 
+         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -384,6 +406,12 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param appSettings A key-value pair of App Settings.
+         * 
+         * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
+         * 
+         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+         * 
+         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
          * 
          * @return builder
          * 
@@ -615,6 +643,8 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param osType A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+         * 
          * @return builder
          * 
          */
@@ -625,6 +655,8 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param osType A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
          * 
          * @return builder
          * 

@@ -136,6 +136,8 @@ type ExpressRouteCircuitConnection struct {
 	// The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
 	AddressPrefixIpv4 pulumi.StringOutput `pulumi:"addressPrefixIpv4"`
 	// The IPv6 address space from which to allocate customer addresses for global reach.
+	//
+	// > **NOTE:** `addressPrefixIpv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
 	AddressPrefixIpv6 pulumi.StringPtrOutput `pulumi:"addressPrefixIpv6"`
 	// The authorization key which is associated with the Express Route Circuit Connection.
 	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
@@ -195,6 +197,8 @@ type expressRouteCircuitConnectionState struct {
 	// The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
 	AddressPrefixIpv4 *string `pulumi:"addressPrefixIpv4"`
 	// The IPv6 address space from which to allocate customer addresses for global reach.
+	//
+	// > **NOTE:** `addressPrefixIpv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
 	AddressPrefixIpv6 *string `pulumi:"addressPrefixIpv6"`
 	// The authorization key which is associated with the Express Route Circuit Connection.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
@@ -210,6 +214,8 @@ type ExpressRouteCircuitConnectionState struct {
 	// The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
 	AddressPrefixIpv4 pulumi.StringPtrInput
 	// The IPv6 address space from which to allocate customer addresses for global reach.
+	//
+	// > **NOTE:** `addressPrefixIpv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
 	AddressPrefixIpv6 pulumi.StringPtrInput
 	// The authorization key which is associated with the Express Route Circuit Connection.
 	AuthorizationKey pulumi.StringPtrInput
@@ -229,6 +235,8 @@ type expressRouteCircuitConnectionArgs struct {
 	// The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
 	AddressPrefixIpv4 string `pulumi:"addressPrefixIpv4"`
 	// The IPv6 address space from which to allocate customer addresses for global reach.
+	//
+	// > **NOTE:** `addressPrefixIpv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
 	AddressPrefixIpv6 *string `pulumi:"addressPrefixIpv6"`
 	// The authorization key which is associated with the Express Route Circuit Connection.
 	AuthorizationKey *string `pulumi:"authorizationKey"`
@@ -245,6 +253,8 @@ type ExpressRouteCircuitConnectionArgs struct {
 	// The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
 	AddressPrefixIpv4 pulumi.StringInput
 	// The IPv6 address space from which to allocate customer addresses for global reach.
+	//
+	// > **NOTE:** `addressPrefixIpv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
 	AddressPrefixIpv6 pulumi.StringPtrInput
 	// The authorization key which is associated with the Express Route Circuit Connection.
 	AuthorizationKey pulumi.StringPtrInput
@@ -349,6 +359,8 @@ func (o ExpressRouteCircuitConnectionOutput) AddressPrefixIpv4() pulumi.StringOu
 }
 
 // The IPv6 address space from which to allocate customer addresses for global reach.
+//
+// > **NOTE:** `addressPrefixIpv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port.
 func (o ExpressRouteCircuitConnectionOutput) AddressPrefixIpv6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitConnection) pulumi.StringPtrOutput { return v.AddressPrefixIpv6 }).(pulumi.StringPtrOutput)
 }

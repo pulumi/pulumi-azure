@@ -19,12 +19,16 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * The ID of the User Assigned Identity which should be assigned to this Automation Account.
      * 
+     * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
      * @return The ID of the User Assigned Identity which should be assigned to this Automation Account.
+     * 
+     * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -106,6 +110,8 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param identityIds The ID of the User Assigned Identity which should be assigned to this Automation Account.
          * 
+         * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -117,6 +123,8 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param identityIds The ID of the User Assigned Identity which should be assigned to this Automation Account.
          * 
+         * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -126,6 +134,8 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param identityIds The ID of the User Assigned Identity which should be assigned to this Automation Account.
+         * 
+         * &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 

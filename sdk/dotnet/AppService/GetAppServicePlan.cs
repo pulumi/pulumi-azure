@@ -12,6 +12,10 @@ namespace Pulumi.Azure.AppService
     public static class GetAppServicePlan
     {
         /// <summary>
+        /// Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
+        /// 
+        /// !&gt; **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
@@ -43,6 +47,10 @@ namespace Pulumi.Azure.AppService
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithDefaults());
 
         /// <summary>
+        /// Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
+        /// 
+        /// !&gt; **Note:** The `azure.appservice.Plan` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.appservice.ServicePlan` data source instead.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

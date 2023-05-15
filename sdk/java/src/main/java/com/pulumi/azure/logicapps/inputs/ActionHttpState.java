@@ -81,12 +81,16 @@ public final class ActionHttpState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
      * 
      */
     public Optional<Output<String>> name() {
@@ -256,6 +260,8 @@ public final class ActionHttpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+         * 
          * @return builder
          * 
          */
@@ -266,6 +272,8 @@ public final class ActionHttpState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
          * 
          * @return builder
          * 

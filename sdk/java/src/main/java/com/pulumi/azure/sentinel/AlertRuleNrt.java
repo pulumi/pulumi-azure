@@ -209,12 +209,16 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
     /**
      * A `event_grouping` block as defined below.
      * 
+     * &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
+     * 
      */
     @Export(name="eventGrouping", refs={AlertRuleNrtEventGrouping.class}, tree="[0]")
     private Output<AlertRuleNrtEventGrouping> eventGrouping;
 
     /**
      * @return A `event_grouping` block as defined below.
+     * 
+     * &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
      * 
      */
     public Output<AlertRuleNrtEventGrouping> eventGrouping() {
@@ -279,12 +283,16 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
     /**
      * A list of `sentinel_entity_mapping` blocks as defined below.
      * 
+     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+     * 
      */
     @Export(name="sentinelEntityMappings", refs={List.class,AlertRuleNrtSentinelEntityMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AlertRuleNrtSentinelEntityMapping>> sentinelEntityMappings;
 
     /**
      * @return A list of `sentinel_entity_mapping` blocks as defined below.
+     * 
+     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
      * 
      */
     public Output<Optional<List<AlertRuleNrtSentinelEntityMapping>>> sentinelEntityMappings() {

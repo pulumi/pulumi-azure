@@ -211,12 +211,16 @@ public class Server extends com.pulumi.resources.CustomResource {
     /**
      * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This property is currently still in development and not supported by Microsoft. If the `infrastructure_encryption_enabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
+     * 
      */
     @Export(name="infrastructureEncryptionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> infrastructureEncryptionEnabled;
 
     /**
      * @return Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This property is currently still in development and not supported by Microsoft. If the `infrastructure_encryption_enabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
      * 
      */
     public Output<Optional<Boolean>> infrastructureEncryptionEnabled() {
@@ -295,12 +299,16 @@ public class Server extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
      * 
+     * &gt; **NOTE:** When replication is set up and `sku_name` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
+     * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
      * @return Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
+     * 
+     * &gt; **NOTE:** When replication is set up and `sku_name` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
      * 
      */
     public Output<String> skuName() {
@@ -309,12 +317,16 @@ public class Server extends com.pulumi.resources.CustomResource {
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      * 
+     * &gt; **NOTE:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
+     * 
      */
     @Export(name="sslEnforcementEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> sslEnforcementEnabled;
 
     /**
      * @return Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+     * 
+     * &gt; **NOTE:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`.
      * 
      */
     public Output<Boolean> sslEnforcementEnabled() {

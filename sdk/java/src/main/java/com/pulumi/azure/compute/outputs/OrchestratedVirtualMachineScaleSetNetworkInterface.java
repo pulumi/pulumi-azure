@@ -47,6 +47,8 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
     /**
      * @return Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
      * 
+     * &gt; **NOTE:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
+     * 
      */
     private @Nullable Boolean primary;
 
@@ -95,6 +97,8 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
     }
     /**
      * @return Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
      * 
      */
     public Optional<Boolean> primary() {

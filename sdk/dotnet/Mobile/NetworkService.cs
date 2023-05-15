@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Mobile
     ///     var exampleNetwork = new Azure.Mobile.Network("exampleNetwork", new()
     ///     {
     ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         MobileCountryCode = "001",
     ///         MobileNetworkCode = "01",
     ///     });

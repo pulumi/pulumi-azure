@@ -36,6 +36,8 @@ class AlertRuleAnomalyDuplicateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]] single_select_observations: A list of `single_select_observation` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]] threshold_observations: A list of `threshold_observation` blocks as defined below.
+               
+               > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
         pulumi.set(__self__, "built_in_rule_id", built_in_rule_id)
         pulumi.set(__self__, "display_name", display_name)
@@ -152,6 +154,8 @@ class AlertRuleAnomalyDuplicateArgs:
     def threshold_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]]:
         """
         A list of `threshold_observation` blocks as defined below.
+
+        > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "threshold_observations")
 
@@ -203,6 +207,8 @@ class _AlertRuleAnomalyDuplicateState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] techniques: A list of techniques of attacks by which to classify the rule.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]] threshold_observations: A list of `threshold_observation` blocks as defined below.
+               
+               > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
         if anomaly_settings_version is not None:
             pulumi.set(__self__, "anomaly_settings_version", anomaly_settings_version)
@@ -464,6 +470,8 @@ class _AlertRuleAnomalyDuplicateState:
     def threshold_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]]:
         """
         A list of `threshold_observation` blocks as defined below.
+
+        > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "threshold_observations")
 
@@ -490,6 +498,34 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         """
         Manages a Duplicated Anomaly Alert Rule.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding",
+            workspace_id=example_analytics_workspace.id,
+            customer_managed_key_enabled=False)
+        example_alert_rule_anomaly = azure.sentinel.get_alert_rule_anomaly_output(log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
+            display_name="UEBA Anomalous Sign In")
+        example_alert_rule_anomaly_duplicate = azure.sentinel.AlertRuleAnomalyDuplicate("exampleAlertRuleAnomalyDuplicate",
+            display_name="example duplicated UEBA Anomalous Sign In",
+            log_analytics_workspace_id=example_analytics_workspace.id,
+            built_in_rule_id=example_alert_rule_anomaly.id,
+            enabled=True,
+            mode="Flighting",
+            threshold_observations=[azure.sentinel.AlertRuleAnomalyDuplicateThresholdObservationArgs(
+                name="Anomaly score threshold",
+                value="0.6",
+            )])
+        ```
+
         ## Import
 
         Built In Anomaly Alert Rules can be imported using the `resource id`, e.g.
@@ -509,6 +545,8 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]]] single_select_observations: A list of `single_select_observation` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]] threshold_observations: A list of `threshold_observation` blocks as defined below.
+               
+               > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
         ...
     @overload
@@ -518,6 +556,34 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Duplicated Anomaly Alert Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding",
+            workspace_id=example_analytics_workspace.id,
+            customer_managed_key_enabled=False)
+        example_alert_rule_anomaly = azure.sentinel.get_alert_rule_anomaly_output(log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
+            display_name="UEBA Anomalous Sign In")
+        example_alert_rule_anomaly_duplicate = azure.sentinel.AlertRuleAnomalyDuplicate("exampleAlertRuleAnomalyDuplicate",
+            display_name="example duplicated UEBA Anomalous Sign In",
+            log_analytics_workspace_id=example_analytics_workspace.id,
+            built_in_rule_id=example_alert_rule_anomaly.id,
+            enabled=True,
+            mode="Flighting",
+            threshold_observations=[azure.sentinel.AlertRuleAnomalyDuplicateThresholdObservationArgs(
+                name="Anomaly score threshold",
+                value="0.6",
+            )])
+        ```
 
         ## Import
 
@@ -644,6 +710,8 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] techniques: A list of techniques of attacks by which to classify the rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]] threshold_observations: A list of `threshold_observation` blocks as defined below.
+               
+               > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -819,6 +887,8 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
     def threshold_observations(self) -> pulumi.Output[Sequence['outputs.AlertRuleAnomalyDuplicateThresholdObservation']]:
         """
         A list of `threshold_observation` blocks as defined below.
+
+        > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "threshold_observations")
 

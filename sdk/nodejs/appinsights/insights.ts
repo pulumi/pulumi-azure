@@ -151,6 +151,8 @@ export class Insights extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the id of a log analytics workspace resource.
+     *
+     * > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
      */
     public readonly workspaceId!: pulumi.Output<string | undefined>;
 
@@ -293,6 +295,8 @@ export interface InsightsState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the id of a log analytics workspace resource.
+     *
+     * > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -359,6 +363,8 @@ export interface InsightsArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the id of a log analytics workspace resource.
+     *
+     * > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
      */
     workspaceId?: pulumi.Input<string>;
 }

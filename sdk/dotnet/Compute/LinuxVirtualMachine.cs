@@ -131,12 +131,17 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+        /// &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         /// </summary>
         [Output("adminPassword")]
         public Output<string?> AdminPassword { get; private set; } = null!;
 
         /// <summary>
         /// One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         /// </summary>
         [Output("adminSshKeys")]
         public Output<ImmutableArray<Outputs.LinuxVirtualMachineAdminSshKey>> AdminSshKeys { get; private set; } = null!;
@@ -167,6 +172,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+        /// 
+        /// &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
         /// </summary>
         [Output("capacityReservationGroupId")]
         public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
@@ -197,6 +204,10 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        /// 
+        /// &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         /// </summary>
         [Output("disablePasswordAuthentication")]
         public Output<bool?> DisablePasswordAuthentication { get; private set; } = null!;
@@ -215,6 +226,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
         /// </summary>
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
@@ -251,6 +264,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+        /// 
+        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
         /// </summary>
         [Output("maxBidPrice")]
         public Output<double?> MaxBidPrice { get; private set; } = null!;
@@ -275,12 +290,16 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        /// 
+        /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         /// </summary>
         [Output("patchAssessmentMode")]
         public Output<string?> PatchAssessmentMode { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        /// 
+        /// &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
         /// </summary>
         [Output("patchMode")]
         public Output<string?> PatchMode { get; private set; } = null!;
@@ -317,6 +336,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         /// </summary>
         [Output("provisionVmAgent")]
         public Output<bool?> ProvisionVmAgent { get; private set; } = null!;
@@ -365,12 +386,16 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+        /// 
+        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
         /// </summary>
         [Output("sourceImageId")]
         public Output<string?> SourceImageId { get; private set; } = null!;
 
         /// <summary>
         /// A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
         /// </summary>
         [Output("sourceImageReference")]
         public Output<Outputs.LinuxVirtualMachineSourceImageReference?> SourceImageReference { get; private set; } = null!;
@@ -401,6 +426,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         /// </summary>
         [Output("virtualMachineScaleSetId")]
         public Output<string?> VirtualMachineScaleSetId { get; private set; } = null!;
@@ -479,6 +506,9 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+        /// &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         /// </summary>
         public Input<string>? AdminPassword
         {
@@ -495,6 +525,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         /// </summary>
         public InputList<Inputs.LinuxVirtualMachineAdminSshKeyArgs> AdminSshKeys
         {
@@ -528,6 +560,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+        /// 
+        /// &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
@@ -568,6 +602,10 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        /// 
+        /// &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         /// </summary>
         [Input("disablePasswordAuthentication")]
         public Input<bool>? DisablePasswordAuthentication { get; set; }
@@ -586,6 +624,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
@@ -628,6 +668,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+        /// 
+        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
         /// </summary>
         [Input("maxBidPrice")]
         public Input<double>? MaxBidPrice { get; set; }
@@ -658,12 +700,16 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        /// 
+        /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         /// </summary>
         [Input("patchAssessmentMode")]
         public Input<string>? PatchAssessmentMode { get; set; }
 
         /// <summary>
         /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        /// 
+        /// &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
         /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
@@ -688,6 +734,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
@@ -730,12 +778,16 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+        /// 
+        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
         /// </summary>
         [Input("sourceImageId")]
         public Input<string>? SourceImageId { get; set; }
 
         /// <summary>
         /// A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
         /// </summary>
         [Input("sourceImageReference")]
         public Input<Inputs.LinuxVirtualMachineSourceImageReferenceArgs>? SourceImageReference { get; set; }
@@ -766,6 +818,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         /// </summary>
         [Input("virtualMachineScaleSetId")]
         public Input<string>? VirtualMachineScaleSetId { get; set; }
@@ -801,6 +855,9 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+        /// &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         /// </summary>
         public Input<string>? AdminPassword
         {
@@ -817,6 +874,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         /// </summary>
         public InputList<Inputs.LinuxVirtualMachineAdminSshKeyGetArgs> AdminSshKeys
         {
@@ -850,6 +909,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+        /// 
+        /// &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
@@ -890,6 +951,10 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        /// 
+        /// &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         /// </summary>
         [Input("disablePasswordAuthentication")]
         public Input<bool>? DisablePasswordAuthentication { get; set; }
@@ -908,6 +973,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
@@ -950,6 +1017,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+        /// 
+        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
         /// </summary>
         [Input("maxBidPrice")]
         public Input<double>? MaxBidPrice { get; set; }
@@ -980,12 +1049,16 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        /// 
+        /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         /// </summary>
         [Input("patchAssessmentMode")]
         public Input<string>? PatchAssessmentMode { get; set; }
 
         /// <summary>
         /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        /// 
+        /// &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
         /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
@@ -1028,6 +1101,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
@@ -1088,12 +1163,16 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+        /// 
+        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
         /// </summary>
         [Input("sourceImageId")]
         public Input<string>? SourceImageId { get; set; }
 
         /// <summary>
         /// A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
         /// </summary>
         [Input("sourceImageReference")]
         public Input<Inputs.LinuxVirtualMachineSourceImageReferenceGetArgs>? SourceImageReference { get; set; }
@@ -1130,6 +1209,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         /// </summary>
         [Input("virtualMachineScaleSetId")]
         public Input<string>? VirtualMachineScaleSetId { get; set; }

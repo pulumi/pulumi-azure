@@ -54,12 +54,16 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     /**
      * The name of the slot to automatically swap to during deployment
      * 
+     * &gt; **NOTE:** This attribute is only used for slots.
+     * 
      */
     @Import(name="autoSwapSlotName")
     private @Nullable Output<String> autoSwapSlotName;
 
     /**
      * @return The name of the slot to automatically swap to during deployment
+     * 
+     * &gt; **NOTE:** This attribute is only used for slots.
      * 
      */
     public Optional<Output<String>> autoSwapSlotName() {
@@ -159,12 +163,16 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     /**
      * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     @Import(name="ipRestrictions")
     private @Nullable Output<List<FunctionAppSiteConfigIpRestrictionArgs>> ipRestrictions;
 
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+     * 
+     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<FunctionAppSiteConfigIpRestrictionArgs>>> ipRestrictions() {
@@ -249,12 +257,16 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     /**
      * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
      * 
+     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * 
      */
     @Import(name="scmIpRestrictions")
     private @Nullable Output<List<FunctionAppSiteConfigScmIpRestrictionArgs>> scmIpRestrictions;
 
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+     * 
+     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<FunctionAppSiteConfigScmIpRestrictionArgs>>> scmIpRestrictions() {
@@ -264,12 +276,16 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     /**
      * The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
      * 
+     * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+     * 
      */
     @Import(name="scmType")
     private @Nullable Output<String> scmType;
 
     /**
      * @return The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+     * 
+     * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
      * 
      */
     public Optional<Output<String>> scmType() {
@@ -279,12 +295,16 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     /**
      * IP security restrictions for scm to use main. Defaults to `false`.
      * 
+     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * 
      */
     @Import(name="scmUseMainIpRestriction")
     private @Nullable Output<Boolean> scmUseMainIpRestriction;
 
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
+     * 
+     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     public Optional<Output<Boolean>> scmUseMainIpRestriction() {
@@ -294,6 +314,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     /**
      * Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * 
      */
     @Import(name="use32BitWorkerProcess")
     private @Nullable Output<Boolean> use32BitWorkerProcess;
@@ -301,22 +323,16 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
     /**
      * @return Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * 
      */
     public Optional<Output<Boolean>> use32BitWorkerProcess() {
         return Optional.ofNullable(this.use32BitWorkerProcess);
     }
 
-    /**
-     * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
-     * 
-     */
     @Import(name="vnetRouteAllEnabled")
     private @Nullable Output<Boolean> vnetRouteAllEnabled;
 
-    /**
-     * @return Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> vnetRouteAllEnabled() {
         return Optional.ofNullable(this.vnetRouteAllEnabled);
     }
@@ -425,6 +441,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param autoSwapSlotName The name of the slot to automatically swap to during deployment
          * 
+         * &gt; **NOTE:** This attribute is only used for slots.
+         * 
          * @return builder
          * 
          */
@@ -435,6 +453,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param autoSwapSlotName The name of the slot to automatically swap to during deployment
+         * 
+         * &gt; **NOTE:** This attribute is only used for slots.
          * 
          * @return builder
          * 
@@ -572,6 +592,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param ipRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
          * 
+         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * 
          * @return builder
          * 
          */
@@ -583,6 +605,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param ipRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
          * 
+         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * 
          * @return builder
          * 
          */
@@ -592,6 +616,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param ipRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+         * 
+         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -708,6 +734,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
          * 
+         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * 
          * @return builder
          * 
          */
@@ -719,6 +747,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
          * 
+         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * 
          * @return builder
          * 
          */
@@ -729,6 +759,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
          * 
+         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * 
          * @return builder
          * 
          */
@@ -738,6 +770,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param scmType The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+         * 
+         * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
          * 
          * @return builder
          * 
@@ -750,6 +784,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param scmType The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
          * 
+         * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+         * 
          * @return builder
          * 
          */
@@ -759,6 +795,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
+         * 
+         * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          * 
          * @return builder
          * 
@@ -771,6 +809,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
          * 
+         * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+         * 
          * @return builder
          * 
          */
@@ -780,6 +820,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
 
         /**
          * @param use32BitWorkerProcess Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+         * 
+         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
          * 
          * @return builder
          * 
@@ -792,6 +834,8 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
         /**
          * @param use32BitWorkerProcess Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
          * 
+         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * 
          * @return builder
          * 
          */
@@ -799,23 +843,11 @@ public final class FunctionAppSiteConfigArgs extends com.pulumi.resources.Resour
             return use32BitWorkerProcess(Output.of(use32BitWorkerProcess));
         }
 
-        /**
-         * @param vnetRouteAllEnabled Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vnetRouteAllEnabled(@Nullable Output<Boolean> vnetRouteAllEnabled) {
             $.vnetRouteAllEnabled = vnetRouteAllEnabled;
             return this;
         }
 
-        /**
-         * @param vnetRouteAllEnabled Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vnetRouteAllEnabled(Boolean vnetRouteAllEnabled) {
             return vnetRouteAllEnabled(Output.of(vnetRouteAllEnabled));
         }

@@ -102,6 +102,8 @@ class AccountAzureFilesAuthentication(dict):
         """
         :param str directory_type: Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
         :param 'AccountAzureFilesAuthenticationActiveDirectoryArgs' active_directory: A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+               
+               > **Note:** If `directory_type` is set to `AADKERB`, `active_directory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
         """
         pulumi.set(__self__, "directory_type", directory_type)
         if active_directory is not None:
@@ -120,6 +122,8 @@ class AccountAzureFilesAuthentication(dict):
     def active_directory(self) -> Optional['outputs.AccountAzureFilesAuthenticationActiveDirectory']:
         """
         A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+
+        > **Note:** If `directory_type` is set to `AADKERB`, `active_directory` is not supported. Use [icals](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-azure-active-directory-enable?tabs=azure-portal#configure-directory-and-file-level-permissions) to configure directory and file level permissions.
         """
         return pulumi.get(self, "active_directory")
 
@@ -591,6 +595,8 @@ class AccountCustomerManagedKey(dict):
         """
         :param str key_vault_key_id: The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
         :param str user_assigned_identity_id: The ID of a user assigned identity.
+               
+               > **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
@@ -608,6 +614,8 @@ class AccountCustomerManagedKey(dict):
     def user_assigned_identity_id(self) -> str:
         """
         The ID of a user assigned identity.
+
+        > **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -643,6 +651,10 @@ class AccountIdentity(dict):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               
+               > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this Storage Account.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
         """
@@ -667,6 +679,10 @@ class AccountIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+
+        > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -782,6 +798,14 @@ class AccountNetworkRules(dict):
         :param Sequence[str] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         :param Sequence[str] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
         :param Sequence['AccountNetworkRulesPrivateLinkAccessArgs'] private_link_accesses: One or More `private_link_access` block as defined below.
+               
+               > **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
+               
+               > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
+               
+               > **Note:** The prefix of `ip_rules` must be between 0 and 30 and only supports public IP addresses.
+               
+               > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
         :param Sequence[str] virtual_network_subnet_ids: A list of resource ids for subnets.
         """
         pulumi.set(__self__, "default_action", default_action)
@@ -823,6 +847,14 @@ class AccountNetworkRules(dict):
     def private_link_accesses(self) -> Optional[Sequence['outputs.AccountNetworkRulesPrivateLinkAccess']]:
         """
         One or More `private_link_access` block as defined below.
+
+        > **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
+
+        > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
+
+        > **Note:** The prefix of `ip_rules` must be between 0 and 30 and only supports public IP addresses.
+
+        > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
         """
         return pulumi.get(self, "private_link_accesses")
 
@@ -1885,10 +1917,18 @@ class BlobInventoryPolicyRuleFilter(dict):
                  prefix_matches: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] blob_types: A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
+               
+               > **NOTE**: The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
         :param Sequence[str] exclude_prefixes: A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
         :param bool include_blob_versions: Includes blob versions in blob inventory or not? Defaults to `false`.
+               
+               > **NOTE**: The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
         :param bool include_deleted: Includes deleted blobs in blob inventory or not? Defaults to `false`.
+               
+               > **NOTE:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
         :param bool include_snapshots: Includes blob snapshots in blob inventory or not? Defaults to `false`.
+               
+               > **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
         :param Sequence[str] prefix_matches: A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
         """
         pulumi.set(__self__, "blob_types", blob_types)
@@ -1908,6 +1948,8 @@ class BlobInventoryPolicyRuleFilter(dict):
     def blob_types(self) -> Sequence[str]:
         """
         A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
+
+        > **NOTE**: The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
         """
         return pulumi.get(self, "blob_types")
 
@@ -1924,6 +1966,8 @@ class BlobInventoryPolicyRuleFilter(dict):
     def include_blob_versions(self) -> Optional[bool]:
         """
         Includes blob versions in blob inventory or not? Defaults to `false`.
+
+        > **NOTE**: The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
         """
         return pulumi.get(self, "include_blob_versions")
 
@@ -1932,6 +1976,8 @@ class BlobInventoryPolicyRuleFilter(dict):
     def include_deleted(self) -> Optional[bool]:
         """
         Includes deleted blobs in blob inventory or not? Defaults to `false`.
+
+        > **NOTE:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
         """
         return pulumi.get(self, "include_deleted")
 
@@ -1940,6 +1986,8 @@ class BlobInventoryPolicyRuleFilter(dict):
     def include_snapshots(self) -> Optional[bool]:
         """
         Includes blob snapshots in blob inventory or not? Defaults to `false`.
+
+        > **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
         """
         return pulumi.get(self, "include_snapshots")
 
@@ -1961,6 +2009,8 @@ class DataLakeGen2FilesystemAce(dict):
                  scope: Optional[str] = None):
         """
         :param str permissions: Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+               
+               More details on ACLs can be found here: <https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories>
         :param str type: Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
         :param str id: Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
         :param str scope: Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
@@ -1977,6 +2027,8 @@ class DataLakeGen2FilesystemAce(dict):
     def permissions(self) -> str:
         """
         Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+
+        More details on ACLs can be found here: <https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories>
         """
         return pulumi.get(self, "permissions")
 
@@ -2013,7 +2065,6 @@ class DataLakeGen2PathAce(dict):
                  id: Optional[str] = None,
                  scope: Optional[str] = None):
         """
-        :param str permissions: Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
         :param str type: Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
         :param str id: Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
         :param str scope: Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
@@ -2028,9 +2079,6 @@ class DataLakeGen2PathAce(dict):
     @property
     @pulumi.getter
     def permissions(self) -> str:
-        """
-        Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
-        """
         return pulumi.get(self, "permissions")
 
     @property
@@ -2376,14 +2424,24 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
                  tier_to_cool_after_days_since_modification_greater_than: Optional[int] = None):
         """
         :param bool auto_tier_to_hot_from_cool_enabled: Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+               
+               > **Note:** The `auto_tier_to_hot_from_cool_enabled` must be used together with `tier_to_cool_after_days_since_last_access_time_greater_than`.
         :param int delete_after_days_since_creation_greater_than: The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
+               
+               > **Note:** The `delete_after_days_since_modification_greater_than`, `delete_after_days_since_last_access_time_greater_than` and `delete_after_days_since_creation_greater_than` can not be set at the same time.
+               
+               > **Note:** The `last_access_time_enabled` must be set to `true` in the `storage.Account` in order to use `tier_to_cool_after_days_since_last_access_time_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `delete_after_days_since_last_access_time_greater_than`.
         :param int delete_after_days_since_last_access_time_greater_than: The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
         :param int delete_after_days_since_modification_greater_than: The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
         :param int tier_to_archive_after_days_since_creation_greater_than: The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+               
+               > **Note:** The `tier_to_archive_after_days_since_modification_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `tier_to_archive_after_days_since_creation_greater_than` can not be set at the same time.
         :param int tier_to_archive_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
         :param int tier_to_archive_after_days_since_last_tier_change_greater_than: The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
         :param int tier_to_archive_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
         :param int tier_to_cool_after_days_since_creation_greater_than: The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+               
+               > **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
         :param int tier_to_cool_after_days_since_last_access_time_greater_than: The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         :param int tier_to_cool_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
         """
@@ -2415,6 +2473,8 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
     def auto_tier_to_hot_from_cool_enabled(self) -> Optional[bool]:
         """
         Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+
+        > **Note:** The `auto_tier_to_hot_from_cool_enabled` must be used together with `tier_to_cool_after_days_since_last_access_time_greater_than`.
         """
         return pulumi.get(self, "auto_tier_to_hot_from_cool_enabled")
 
@@ -2423,6 +2483,10 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
     def delete_after_days_since_creation_greater_than(self) -> Optional[int]:
         """
         The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
+
+        > **Note:** The `delete_after_days_since_modification_greater_than`, `delete_after_days_since_last_access_time_greater_than` and `delete_after_days_since_creation_greater_than` can not be set at the same time.
+
+        > **Note:** The `last_access_time_enabled` must be set to `true` in the `storage.Account` in order to use `tier_to_cool_after_days_since_last_access_time_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `delete_after_days_since_last_access_time_greater_than`.
         """
         return pulumi.get(self, "delete_after_days_since_creation_greater_than")
 
@@ -2447,6 +2511,8 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
     def tier_to_archive_after_days_since_creation_greater_than(self) -> Optional[int]:
         """
         The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+
+        > **Note:** The `tier_to_archive_after_days_since_modification_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `tier_to_archive_after_days_since_creation_greater_than` can not be set at the same time.
         """
         return pulumi.get(self, "tier_to_archive_after_days_since_creation_greater_than")
 
@@ -2479,6 +2545,8 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
     def tier_to_cool_after_days_since_creation_greater_than(self) -> Optional[int]:
         """
         The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+
+        > **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
         """
         return pulumi.get(self, "tier_to_cool_after_days_since_creation_greater_than")
 
@@ -2685,6 +2753,8 @@ class ManagementPolicyRuleFilters(dict):
         """
         :param Sequence[str] blob_types: An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
         :param Sequence['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs'] match_blob_index_tags: A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+               
+               > **NOTE:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
         :param Sequence[str] prefix_matches: An array of strings for prefixes to be matched.
         """
         pulumi.set(__self__, "blob_types", blob_types)
@@ -2706,6 +2776,8 @@ class ManagementPolicyRuleFilters(dict):
     def match_blob_index_tags(self) -> Optional[Sequence['outputs.ManagementPolicyRuleFiltersMatchBlobIndexTag']]:
         """
         A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+
+        > **NOTE:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
         """
         return pulumi.get(self, "match_blob_index_tags")
 
@@ -2898,6 +2970,8 @@ class ShareAclAccessPolicy(dict):
                  start: Optional[str] = None):
         """
         :param str permissions: The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+               
+               > **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
         :param str expiry: The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         :param str start: The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
         """
@@ -2912,6 +2986,8 @@ class ShareAclAccessPolicy(dict):
     def permissions(self) -> str:
         """
         The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+
+        > **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
         """
         return pulumi.get(self, "permissions")
 
@@ -3135,6 +3211,9 @@ class GetAccountBlobContainerSASPermissionsResult(dict):
         :param bool create: Should Create permissions be enabled for this SAS?
         :param bool delete: Should Delete permissions be enabled for this SAS?
         :param bool list: Should List permissions be enabled for this SAS?
+               
+               Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
+               for additional details on the fields above.
         :param bool read: Should Read permissions be enabled for this SAS?
         :param bool write: Should Write permissions be enabled for this SAS?
         """
@@ -3174,6 +3253,9 @@ class GetAccountBlobContainerSASPermissionsResult(dict):
     def list(self) -> bool:
         """
         Should List permissions be enabled for this SAS?
+
+        Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
+        for additional details on the fields above.
         """
         return pulumi.get(self, "list")
 
@@ -3281,6 +3363,9 @@ class GetAccountSASPermissionsResult(dict):
         :param bool create: Should Create permissions be enabled for this SAS?
         :param bool delete: Should Delete permissions be enabled for this SAS?
         :param bool filter: Should Filter by Index Tags permissions be enabled for this SAS?
+               
+               Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+               for additional details on the fields above.
         :param bool list: Should List permissions be enabled for this SAS?
         :param bool process: Should Process permissions be enabled for this SAS?
         :param bool read: Should Read permissions be enabled for this SAS?
@@ -3328,6 +3413,9 @@ class GetAccountSASPermissionsResult(dict):
     def filter(self) -> bool:
         """
         Should Filter by Index Tags permissions be enabled for this SAS?
+
+        Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+        for additional details on the fields above.
         """
         return pulumi.get(self, "filter")
 

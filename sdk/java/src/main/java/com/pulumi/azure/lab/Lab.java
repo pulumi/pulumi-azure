@@ -24,6 +24,68 @@ import javax.annotation.Nullable;
 /**
  * Manages a Lab Service Lab.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.lab.Lab;
+ * import com.pulumi.azure.lab.LabArgs;
+ * import com.pulumi.azure.lab.inputs.LabSecurityArgs;
+ * import com.pulumi.azure.lab.inputs.LabVirtualMachineArgs;
+ * import com.pulumi.azure.lab.inputs.LabVirtualMachineAdminUserArgs;
+ * import com.pulumi.azure.lab.inputs.LabVirtualMachineImageReferenceArgs;
+ * import com.pulumi.azure.lab.inputs.LabVirtualMachineSkuArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleLab = new Lab(&#34;exampleLab&#34;, LabArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .title(&#34;Test Title&#34;)
+ *             .security(LabSecurityArgs.builder()
+ *                 .openAccessEnabled(false)
+ *                 .build())
+ *             .virtualMachine(LabVirtualMachineArgs.builder()
+ *                 .adminUser(LabVirtualMachineAdminUserArgs.builder()
+ *                     .username(&#34;testadmin&#34;)
+ *                     .password(&#34;Password1234!&#34;)
+ *                     .build())
+ *                 .imageReference(LabVirtualMachineImageReferenceArgs.builder()
+ *                     .offer(&#34;0001-com-ubuntu-server-focal&#34;)
+ *                     .publisher(&#34;canonical&#34;)
+ *                     .sku(&#34;20_04-lts&#34;)
+ *                     .version(&#34;latest&#34;)
+ *                     .build())
+ *                 .sku(LabVirtualMachineSkuArgs.builder()
+ *                     .name(&#34;Classic_Fsv2_2_4GB_128_S_SSD&#34;)
+ *                     .capacity(0)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Lab Service Labs can be imported using the `resource id`, e.g.

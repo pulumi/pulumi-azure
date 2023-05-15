@@ -31,6 +31,22 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string ClientId;
         /// <summary>
         /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// 
+        /// 
+        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>
@@ -38,7 +54,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? IssuerEndpoint;
         /// <summary>
-        /// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        /// The Site Credentials Username used for publishing.
         /// </summary>
         public readonly string Name;
         /// <summary>

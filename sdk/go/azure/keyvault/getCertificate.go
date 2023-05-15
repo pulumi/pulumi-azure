@@ -62,6 +62,8 @@ type LookupCertificateArgs struct {
 	// Specifies the name of the Key Vault Certificate.
 	Name string `pulumi:"name"`
 	// Specifies the version of the certificate to look up.  (Defaults to latest)
+	//
+	// **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
 	Version *string `pulumi:"version"`
 }
 
@@ -120,6 +122,8 @@ type LookupCertificateOutputArgs struct {
 	// Specifies the name of the Key Vault Certificate.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the version of the certificate to look up.  (Defaults to latest)
+	//
+	// **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 

@@ -82,6 +82,8 @@ type Cluster struct {
 	// A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
 	CertificateCommonNames ClusterCertificateCommonNamesPtrOutput `pulumi:"certificateCommonNames"`
 	// A `clientCertificateCommonName` block as defined below.
+	//
+	// > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
 	ClientCertificateCommonNames ClusterClientCertificateCommonNameArrayOutput `pulumi:"clientCertificateCommonNames"`
 	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints ClusterClientCertificateThumbprintArrayOutput `pulumi:"clientCertificateThumbprints"`
@@ -102,6 +104,8 @@ type Cluster struct {
 	// One or more `nodeType` blocks as defined below.
 	NodeTypes ClusterNodeTypeArrayOutput `pulumi:"nodeTypes"`
 	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
+	//
+	// > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
 	ReliabilityLevel pulumi.StringOutput `pulumi:"reliabilityLevel"`
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -179,6 +183,8 @@ type clusterState struct {
 	// A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
 	CertificateCommonNames *ClusterCertificateCommonNames `pulumi:"certificateCommonNames"`
 	// A `clientCertificateCommonName` block as defined below.
+	//
+	// > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
 	ClientCertificateCommonNames []ClusterClientCertificateCommonName `pulumi:"clientCertificateCommonNames"`
 	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints []ClusterClientCertificateThumbprint `pulumi:"clientCertificateThumbprints"`
@@ -199,6 +205,8 @@ type clusterState struct {
 	// One or more `nodeType` blocks as defined below.
 	NodeTypes []ClusterNodeType `pulumi:"nodeTypes"`
 	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
+	//
+	// > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
 	ReliabilityLevel *string `pulumi:"reliabilityLevel"`
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -230,6 +238,8 @@ type ClusterState struct {
 	// A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
 	CertificateCommonNames ClusterCertificateCommonNamesPtrInput
 	// A `clientCertificateCommonName` block as defined below.
+	//
+	// > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
 	ClientCertificateCommonNames ClusterClientCertificateCommonNameArrayInput
 	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints ClusterClientCertificateThumbprintArrayInput
@@ -250,6 +260,8 @@ type ClusterState struct {
 	// One or more `nodeType` blocks as defined below.
 	NodeTypes ClusterNodeTypeArrayInput
 	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
+	//
+	// > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
 	ReliabilityLevel pulumi.StringPtrInput
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -285,6 +297,8 @@ type clusterArgs struct {
 	// A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
 	CertificateCommonNames *ClusterCertificateCommonNames `pulumi:"certificateCommonNames"`
 	// A `clientCertificateCommonName` block as defined below.
+	//
+	// > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
 	ClientCertificateCommonNames []ClusterClientCertificateCommonName `pulumi:"clientCertificateCommonNames"`
 	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints []ClusterClientCertificateThumbprint `pulumi:"clientCertificateThumbprints"`
@@ -303,6 +317,8 @@ type clusterArgs struct {
 	// One or more `nodeType` blocks as defined below.
 	NodeTypes []ClusterNodeType `pulumi:"nodeTypes"`
 	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
+	//
+	// > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
 	ReliabilityLevel string `pulumi:"reliabilityLevel"`
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -335,6 +351,8 @@ type ClusterArgs struct {
 	// A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
 	CertificateCommonNames ClusterCertificateCommonNamesPtrInput
 	// A `clientCertificateCommonName` block as defined below.
+	//
+	// > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
 	ClientCertificateCommonNames ClusterClientCertificateCommonNameArrayInput
 	// One or more `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints ClusterClientCertificateThumbprintArrayInput
@@ -353,6 +371,8 @@ type ClusterArgs struct {
 	// One or more `nodeType` blocks as defined below.
 	NodeTypes ClusterNodeTypeArrayInput
 	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
+	//
+	// > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
 	ReliabilityLevel pulumi.StringInput
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -482,6 +502,8 @@ func (o ClusterOutput) CertificateCommonNames() ClusterCertificateCommonNamesPtr
 }
 
 // A `clientCertificateCommonName` block as defined below.
+//
+// > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
 func (o ClusterOutput) ClientCertificateCommonNames() ClusterClientCertificateCommonNameArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterClientCertificateCommonNameArrayOutput { return v.ClientCertificateCommonNames }).(ClusterClientCertificateCommonNameArrayOutput)
 }
@@ -532,6 +554,8 @@ func (o ClusterOutput) NodeTypes() ClusterNodeTypeArrayOutput {
 }
 
 // Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
+//
+// > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
 func (o ClusterOutput) ReliabilityLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ReliabilityLevel }).(pulumi.StringOutput)
 }

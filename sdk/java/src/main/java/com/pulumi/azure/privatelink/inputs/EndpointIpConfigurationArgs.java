@@ -18,12 +18,16 @@ public final class EndpointIpConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
+     * 
      */
     @Import(name="memberName")
     private @Nullable Output<String> memberName;
 
     /**
      * @return Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
      * 
      */
     public Optional<Output<String>> memberName() {
@@ -105,6 +109,8 @@ public final class EndpointIpConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param memberName Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
+         * 
          * @return builder
          * 
          */
@@ -115,6 +121,8 @@ public final class EndpointIpConfigurationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param memberName Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
          * 
          * @return builder
          * 

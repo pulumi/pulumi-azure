@@ -131,6 +131,8 @@ export class JobSchedule extends pulumi.CustomResource {
     public /*out*/ readonly lastOutputTime!: pulumi.Output<string>;
     /**
      * The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+     *
+     * > **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
      */
     public readonly startMode!: pulumi.Output<string>;
     /**
@@ -187,6 +189,8 @@ export interface JobScheduleState {
     lastOutputTime?: pulumi.Input<string>;
     /**
      * The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+     *
+     * > **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
      */
     startMode?: pulumi.Input<string>;
     /**
@@ -205,6 +209,8 @@ export interface JobScheduleState {
 export interface JobScheduleArgs {
     /**
      * The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
+     *
+     * > **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
      */
     startMode: pulumi.Input<string>;
     /**

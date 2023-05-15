@@ -96,6 +96,8 @@ export class ARecord extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -108,6 +110,8 @@ export class ARecord extends pulumi.CustomResource {
     public readonly ttl!: pulumi.Output<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     *
+     * > **Note:** The `zoneName` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
      */
     public readonly zoneName!: pulumi.Output<string>;
 
@@ -179,6 +183,8 @@ export interface ARecordState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -191,6 +197,8 @@ export interface ARecordState {
     ttl?: pulumi.Input<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     *
+     * > **Note:** The `zoneName` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
      */
     zoneName?: pulumi.Input<string>;
 }
@@ -213,6 +221,8 @@ export interface ARecordArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * > **Note:** either `records` OR `targetResourceId` must be specified, but not both.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -225,6 +235,8 @@ export interface ARecordArgs {
     ttl: pulumi.Input<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     *
+     * > **Note:** The `zoneName` should be the name of resource `azure.dns.Zone` instead of `azure.privatedns.Zone`.
      */
     zoneName: pulumi.Input<string>;
 }

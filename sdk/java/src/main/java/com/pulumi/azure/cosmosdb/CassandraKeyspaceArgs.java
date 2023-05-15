@@ -35,12 +35,16 @@ public final class CassandraKeyspaceArgs extends com.pulumi.resources.ResourceAr
     /**
      * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      * 
+     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     * 
      */
     @Import(name="autoscaleSettings")
     private @Nullable Output<CassandraKeyspaceAutoscaleSettingsArgs> autoscaleSettings;
 
     /**
      * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+     * 
+     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      * 
      */
     public Optional<Output<CassandraKeyspaceAutoscaleSettingsArgs>> autoscaleSettings() {
@@ -144,6 +148,8 @@ public final class CassandraKeyspaceArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
          * 
+         * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+         * 
          * @return builder
          * 
          */
@@ -154,6 +160,8 @@ public final class CassandraKeyspaceArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+         * 
+         * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
          * 
          * @return builder
          * 

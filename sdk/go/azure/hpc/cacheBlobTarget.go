@@ -145,6 +145,8 @@ type CacheBlobTarget struct {
 	// The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId pulumi.StringOutput `pulumi:"storageContainerId"`
 }
 
@@ -200,6 +202,8 @@ type cacheBlobTargetState struct {
 	// The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId *string `pulumi:"storageContainerId"`
 }
 
@@ -215,6 +219,8 @@ type CacheBlobTargetState struct {
 	// The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId pulumi.StringPtrInput
 }
 
@@ -234,6 +240,8 @@ type cacheBlobTargetArgs struct {
 	// The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId string `pulumi:"storageContainerId"`
 }
 
@@ -250,6 +258,8 @@ type CacheBlobTargetArgs struct {
 	// The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 	StorageContainerId pulumi.StringInput
 }
 
@@ -366,6 +376,8 @@ func (o CacheBlobTargetOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
+//
+// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resourceManagerId`.
 func (o CacheBlobTargetOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CacheBlobTarget) pulumi.StringOutput { return v.StorageContainerId }).(pulumi.StringOutput)
 }

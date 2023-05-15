@@ -141,12 +141,16 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
     /**
      * Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The available sub resource can be retrieved by using `azure.webpubsub.getPrivateLinkResource` data source.
+     * 
      */
     @Export(name="subresourceName", refs={String.class}, tree="[0]")
     private Output<String> subresourceName;
 
     /**
      * @return Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The available sub resource can be retrieved by using `azure.webpubsub.getPrivateLinkResource` data source.
      * 
      */
     public Output<String> subresourceName() {
@@ -155,12 +159,16 @@ public class SharedPrivateLinkResource extends com.pulumi.resources.CustomResour
     /**
      * Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The sub resource name should match with the type of the target resource id that&#39;s being specified.
+     * 
      */
     @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**
      * @return Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The sub resource name should match with the type of the target resource id that&#39;s being specified.
      * 
      */
     public Output<String> targetResourceId() {

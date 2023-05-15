@@ -73,8 +73,12 @@ type TriggerHttpRequest struct {
 	// Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
 	Method pulumi.StringPtrOutput `pulumi:"method"`
 	// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the Relative Path used for this Request.
+	//
+	// > **NOTE:** When `relativePath` is set a `method` must also be set.
 	RelativePath pulumi.StringPtrOutput `pulumi:"relativePath"`
 	// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
 	Schema pulumi.StringOutput `pulumi:"schema"`
@@ -122,8 +126,12 @@ type triggerHttpRequestState struct {
 	// Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
 	Method *string `pulumi:"method"`
 	// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 	// Specifies the Relative Path used for this Request.
+	//
+	// > **NOTE:** When `relativePath` is set a `method` must also be set.
 	RelativePath *string `pulumi:"relativePath"`
 	// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
 	Schema *string `pulumi:"schema"`
@@ -137,8 +145,12 @@ type TriggerHttpRequestState struct {
 	// Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
 	Method pulumi.StringPtrInput
 	// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 	// Specifies the Relative Path used for this Request.
+	//
+	// > **NOTE:** When `relativePath` is set a `method` must also be set.
 	RelativePath pulumi.StringPtrInput
 	// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
 	Schema pulumi.StringPtrInput
@@ -154,8 +166,12 @@ type triggerHttpRequestArgs struct {
 	// Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
 	Method *string `pulumi:"method"`
 	// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 	// Specifies the Relative Path used for this Request.
+	//
+	// > **NOTE:** When `relativePath` is set a `method` must also be set.
 	RelativePath *string `pulumi:"relativePath"`
 	// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
 	Schema string `pulumi:"schema"`
@@ -168,8 +184,12 @@ type TriggerHttpRequestArgs struct {
 	// Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
 	Method pulumi.StringPtrInput
 	// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 	// Specifies the Relative Path used for this Request.
+	//
+	// > **NOTE:** When `relativePath` is set a `method` must also be set.
 	RelativePath pulumi.StringPtrInput
 	// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
 	Schema pulumi.StringInput
@@ -278,11 +298,15 @@ func (o TriggerHttpRequestOutput) Method() pulumi.StringPtrOutput {
 }
 
 // Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+//
+// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
 func (o TriggerHttpRequestOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TriggerHttpRequest) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies the Relative Path used for this Request.
+//
+// > **NOTE:** When `relativePath` is set a `method` must also be set.
 func (o TriggerHttpRequestOutput) RelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TriggerHttpRequest) pulumi.StringPtrOutput { return v.RelativePath }).(pulumi.StringPtrOutput)
 }

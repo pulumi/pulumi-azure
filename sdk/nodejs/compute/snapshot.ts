@@ -68,7 +68,9 @@ export class Snapshot extends pulumi.CustomResource {
     }
 
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+     *
+     * > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
      */
     public readonly createOption!: pulumi.Output<string>;
     /**
@@ -77,6 +79,8 @@ export class Snapshot extends pulumi.CustomResource {
     public readonly diskSizeGb!: pulumi.Output<number>;
     /**
      * A `encryptionSettings` block as defined below.
+     *
+     * > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
      */
     public readonly encryptionSettings!: pulumi.Output<outputs.compute.SnapshotEncryptionSettings | undefined>;
     /**
@@ -172,7 +176,9 @@ export class Snapshot extends pulumi.CustomResource {
  */
 export interface SnapshotState {
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+     *
+     * > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
      */
     createOption?: pulumi.Input<string>;
     /**
@@ -181,6 +187,8 @@ export interface SnapshotState {
     diskSizeGb?: pulumi.Input<number>;
     /**
      * A `encryptionSettings` block as defined below.
+     *
+     * > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
      */
     encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings>;
     /**
@@ -226,7 +234,9 @@ export interface SnapshotState {
  */
 export interface SnapshotArgs {
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+     *
+     * > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
      */
     createOption: pulumi.Input<string>;
     /**
@@ -235,6 +245,8 @@ export interface SnapshotArgs {
     diskSizeGb?: pulumi.Input<number>;
     /**
      * A `encryptionSettings` block as defined below.
+     *
+     * > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
      */
     encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings>;
     /**

@@ -63,12 +63,16 @@ type Table struct {
 	// The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings TableAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
 	Throughput pulumi.IntOutput `pulumi:"throughput"`
 }
 
@@ -110,12 +114,16 @@ type tableState struct {
 	// The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
 	AccountName *string `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings *TableAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
 	Throughput *int `pulumi:"throughput"`
 }
 
@@ -123,12 +131,16 @@ type TableState struct {
 	// The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringPtrInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings TableAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
 	Throughput pulumi.IntPtrInput
 }
 
@@ -140,12 +152,16 @@ type tableArgs struct {
 	// The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings *TableAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
 	Throughput *int `pulumi:"throughput"`
 }
 
@@ -154,12 +170,16 @@ type TableArgs struct {
 	// The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+	//
+	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 	AutoscaleSettings TableAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+	//
+	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
 	Throughput pulumi.IntPtrInput
 }
 
@@ -256,6 +276,8 @@ func (o TableOutput) AccountName() pulumi.StringOutput {
 }
 
 // An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+//
+// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 func (o TableOutput) AutoscaleSettings() TableAutoscaleSettingsPtrOutput {
 	return o.ApplyT(func(v *Table) TableAutoscaleSettingsPtrOutput { return v.AutoscaleSettings }).(TableAutoscaleSettingsPtrOutput)
 }
@@ -271,6 +293,8 @@ func (o TableOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
+//
+// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
 func (o TableOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v *Table) pulumi.IntOutput { return v.Throughput }).(pulumi.IntOutput)
 }

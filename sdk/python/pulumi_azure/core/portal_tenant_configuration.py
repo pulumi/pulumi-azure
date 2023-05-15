@@ -18,6 +18,8 @@ class PortalTenantConfigurationArgs:
         """
         The set of arguments for constructing a PortalTenantConfiguration resource.
         :param pulumi.Input[bool] private_markdown_storage_enforced: Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+               
+               > **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
         """
         pulumi.set(__self__, "private_markdown_storage_enforced", private_markdown_storage_enforced)
 
@@ -26,6 +28,8 @@ class PortalTenantConfigurationArgs:
     def private_markdown_storage_enforced(self) -> pulumi.Input[bool]:
         """
         Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+
+        > **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
         """
         return pulumi.get(self, "private_markdown_storage_enforced")
 
@@ -41,6 +45,8 @@ class _PortalTenantConfigurationState:
         """
         Input properties used for looking up and filtering PortalTenantConfiguration resources.
         :param pulumi.Input[bool] private_markdown_storage_enforced: Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+               
+               > **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
         """
         if private_markdown_storage_enforced is not None:
             pulumi.set(__self__, "private_markdown_storage_enforced", private_markdown_storage_enforced)
@@ -50,6 +56,8 @@ class _PortalTenantConfigurationState:
     def private_markdown_storage_enforced(self) -> Optional[pulumi.Input[bool]]:
         """
         Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+
+        > **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
         """
         return pulumi.get(self, "private_markdown_storage_enforced")
 
@@ -96,6 +104,8 @@ class PortalTenantConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] private_markdown_storage_enforced: Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+               
+               > **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
         """
         ...
     @overload
@@ -178,6 +188,8 @@ class PortalTenantConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] private_markdown_storage_enforced: Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+               
+               > **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -191,6 +203,8 @@ class PortalTenantConfiguration(pulumi.CustomResource):
     def private_markdown_storage_enforced(self) -> pulumi.Output[bool]:
         """
         Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+
+        > **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
         """
         return pulumi.get(self, "private_markdown_storage_enforced")
 

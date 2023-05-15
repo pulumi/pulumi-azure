@@ -3656,8 +3656,12 @@ func (o AlertRuleScheduledSentinelEntityMappingArrayOutput) Index(i pulumi.IntIn
 
 type AuthomationRuleActionIncident struct {
 	// The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+	//
+	// > **Note:** The `classification` is required when `status` is `Closed`.
 	Classification *string `pulumi:"classification"`
 	// The comment why the incident is to be closed.
+	//
+	// > **Note:** The `classificationComment` is allowed to set only when `status` is `Closed`.
 	ClassificationComment *string `pulumi:"classificationComment"`
 	// Specifies a list of labels to add to the incident.
 	Labels []string `pulumi:"labels"`
@@ -3666,6 +3670,8 @@ type AuthomationRuleActionIncident struct {
 	// The object ID of the entity this incident is assigned to.
 	OwnerId *string `pulumi:"ownerId"`
 	// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+	//
+	// > **Note:**: At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
 	Severity *string `pulumi:"severity"`
 	// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
 	Status *string `pulumi:"status"`
@@ -3684,8 +3690,12 @@ type AuthomationRuleActionIncidentInput interface {
 
 type AuthomationRuleActionIncidentArgs struct {
 	// The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+	//
+	// > **Note:** The `classification` is required when `status` is `Closed`.
 	Classification pulumi.StringPtrInput `pulumi:"classification"`
 	// The comment why the incident is to be closed.
+	//
+	// > **Note:** The `classificationComment` is allowed to set only when `status` is `Closed`.
 	ClassificationComment pulumi.StringPtrInput `pulumi:"classificationComment"`
 	// Specifies a list of labels to add to the incident.
 	Labels pulumi.StringArrayInput `pulumi:"labels"`
@@ -3694,6 +3704,8 @@ type AuthomationRuleActionIncidentArgs struct {
 	// The object ID of the entity this incident is assigned to.
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
 	// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+	//
+	// > **Note:**: At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -3751,11 +3763,15 @@ func (o AuthomationRuleActionIncidentOutput) ToAuthomationRuleActionIncidentOutp
 }
 
 // The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+//
+// > **Note:** The `classification` is required when `status` is `Closed`.
 func (o AuthomationRuleActionIncidentOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthomationRuleActionIncident) *string { return v.Classification }).(pulumi.StringPtrOutput)
 }
 
 // The comment why the incident is to be closed.
+//
+// > **Note:** The `classificationComment` is allowed to set only when `status` is `Closed`.
 func (o AuthomationRuleActionIncidentOutput) ClassificationComment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthomationRuleActionIncident) *string { return v.ClassificationComment }).(pulumi.StringPtrOutput)
 }
@@ -3776,6 +3792,8 @@ func (o AuthomationRuleActionIncidentOutput) OwnerId() pulumi.StringPtrOutput {
 }
 
 // The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+//
+// > **Note:**: At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
 func (o AuthomationRuleActionIncidentOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthomationRuleActionIncident) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }
@@ -4037,8 +4055,12 @@ func (o AuthomationRuleConditionArrayOutput) Index(i pulumi.IntInput) Authomatio
 
 type AutomationRuleActionIncident struct {
 	// The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+	//
+	// > **Note:** The `classification` is required when `status` is `Closed`.
 	Classification *string `pulumi:"classification"`
 	// The comment why the incident is to be closed.
+	//
+	// > **Note:** The `classificationComment` is allowed to set only when `status` is `Closed`.
 	ClassificationComment *string `pulumi:"classificationComment"`
 	// Specifies a list of labels to add to the incident.
 	Labels []string `pulumi:"labels"`
@@ -4047,6 +4069,8 @@ type AutomationRuleActionIncident struct {
 	// The object ID of the entity this incident is assigned to.
 	OwnerId *string `pulumi:"ownerId"`
 	// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+	//
+	// > **Note:**: At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
 	Severity *string `pulumi:"severity"`
 	// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
 	Status *string `pulumi:"status"`
@@ -4065,8 +4089,12 @@ type AutomationRuleActionIncidentInput interface {
 
 type AutomationRuleActionIncidentArgs struct {
 	// The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+	//
+	// > **Note:** The `classification` is required when `status` is `Closed`.
 	Classification pulumi.StringPtrInput `pulumi:"classification"`
 	// The comment why the incident is to be closed.
+	//
+	// > **Note:** The `classificationComment` is allowed to set only when `status` is `Closed`.
 	ClassificationComment pulumi.StringPtrInput `pulumi:"classificationComment"`
 	// Specifies a list of labels to add to the incident.
 	Labels pulumi.StringArrayInput `pulumi:"labels"`
@@ -4075,6 +4103,8 @@ type AutomationRuleActionIncidentArgs struct {
 	// The object ID of the entity this incident is assigned to.
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
 	// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+	//
+	// > **Note:**: At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -4132,11 +4162,15 @@ func (o AutomationRuleActionIncidentOutput) ToAutomationRuleActionIncidentOutput
 }
 
 // The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
+//
+// > **Note:** The `classification` is required when `status` is `Closed`.
 func (o AutomationRuleActionIncidentOutput) Classification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleActionIncident) *string { return v.Classification }).(pulumi.StringPtrOutput)
 }
 
 // The comment why the incident is to be closed.
+//
+// > **Note:** The `classificationComment` is allowed to set only when `status` is `Closed`.
 func (o AutomationRuleActionIncidentOutput) ClassificationComment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleActionIncident) *string { return v.ClassificationComment }).(pulumi.StringPtrOutput)
 }
@@ -4157,6 +4191,8 @@ func (o AutomationRuleActionIncidentOutput) OwnerId() pulumi.StringPtrOutput {
 }
 
 // The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
+//
+// > **Note:**: At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
 func (o AutomationRuleActionIncidentOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleActionIncident) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }

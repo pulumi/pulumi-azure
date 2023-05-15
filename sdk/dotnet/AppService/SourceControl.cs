@@ -66,6 +66,8 @@ namespace Pulumi.Azure.AppService
     {
         /// <summary>
         /// The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Function apps are not supported at this time.
         /// </summary>
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
@@ -90,6 +92,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
         /// </summary>
         [Output("rollbackEnabled")]
         public Output<bool?> RollbackEnabled { get; private set; } = null!;
@@ -172,6 +176,8 @@ namespace Pulumi.Azure.AppService
     {
         /// <summary>
         /// The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Function apps are not supported at this time.
         /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
@@ -196,6 +202,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
         /// </summary>
         [Input("rollbackEnabled")]
         public Input<bool>? RollbackEnabled { get; set; }
@@ -228,6 +236,8 @@ namespace Pulumi.Azure.AppService
     {
         /// <summary>
         /// The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Function apps are not supported at this time.
         /// </summary>
         [Input("appId")]
         public Input<string>? AppId { get; set; }
@@ -252,6 +262,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
         /// </summary>
         [Input("rollbackEnabled")]
         public Input<bool>? RollbackEnabled { get; set; }

@@ -37,14 +37,26 @@ class SharedImageVersionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]] target_regions: One or more `target_region` blocks as documented below.
         :param pulumi.Input[str] blob_uri: URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+               
+               > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+               
+               > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image Version.
         :param pulumi.Input[bool] exclude_from_latest: Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] location: The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_image_id: The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The ID can be sourced from the `compute.Image` data source or resource
+               
+               > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         :param pulumi.Input[str] name: The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_snapshot_id: The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+               
+               > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         :param pulumi.Input[str] replication_mode: Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A collection of tags which should be applied to this resource.
         """
         pulumi.set(__self__, "gallery_name", gallery_name)
@@ -125,6 +137,10 @@ class SharedImageVersionArgs:
     def blob_uri(self) -> Optional[pulumi.Input[str]]:
         """
         URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+
+        > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+
+        > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         """
         return pulumi.get(self, "blob_uri")
 
@@ -173,6 +189,10 @@ class SharedImageVersionArgs:
     def managed_image_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+
+        > **NOTE:** The ID can be sourced from the `compute.Image` data source or resource
+
+        > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         """
         return pulumi.get(self, "managed_image_id")
 
@@ -197,6 +217,8 @@ class SharedImageVersionArgs:
     def os_disk_snapshot_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+
+        > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         """
         return pulumi.get(self, "os_disk_snapshot_id")
 
@@ -221,6 +243,8 @@ class SharedImageVersionArgs:
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+
+        > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -261,17 +285,29 @@ class _SharedImageVersionState:
         """
         Input properties used for looking up and filtering SharedImageVersion resources.
         :param pulumi.Input[str] blob_uri: URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+               
+               > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+               
+               > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image Version.
         :param pulumi.Input[bool] exclude_from_latest: Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_name: The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_image_id: The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The ID can be sourced from the `compute.Image` data source or resource
+               
+               > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         :param pulumi.Input[str] name: The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_snapshot_id: The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+               
+               > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         :param pulumi.Input[str] replication_mode: Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A collection of tags which should be applied to this resource.
         :param pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]] target_regions: One or more `target_region` blocks as documented below.
         """
@@ -309,6 +345,10 @@ class _SharedImageVersionState:
     def blob_uri(self) -> Optional[pulumi.Input[str]]:
         """
         URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+
+        > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+
+        > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         """
         return pulumi.get(self, "blob_uri")
 
@@ -381,6 +421,10 @@ class _SharedImageVersionState:
     def managed_image_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+
+        > **NOTE:** The ID can be sourced from the `compute.Image` data source or resource
+
+        > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         """
         return pulumi.get(self, "managed_image_id")
 
@@ -405,6 +449,8 @@ class _SharedImageVersionState:
     def os_disk_snapshot_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+
+        > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         """
         return pulumi.get(self, "os_disk_snapshot_id")
 
@@ -441,6 +487,8 @@ class _SharedImageVersionState:
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+
+        > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -531,17 +579,29 @@ class SharedImageVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blob_uri: URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+               
+               > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+               
+               > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image Version.
         :param pulumi.Input[bool] exclude_from_latest: Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_name: The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_image_id: The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The ID can be sourced from the `compute.Image` data source or resource
+               
+               > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         :param pulumi.Input[str] name: The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_snapshot_id: The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+               
+               > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         :param pulumi.Input[str] replication_mode: Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A collection of tags which should be applied to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArgs']]]] target_regions: One or more `target_region` blocks as documented below.
         """
@@ -678,17 +738,29 @@ class SharedImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blob_uri: URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+               
+               > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+               
+               > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image Version.
         :param pulumi.Input[bool] exclude_from_latest: Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_name: The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_image_id: The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The ID can be sourced from the `compute.Image` data source or resource
+               
+               > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         :param pulumi.Input[str] name: The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_disk_snapshot_id: The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+               
+               > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         :param pulumi.Input[str] replication_mode: Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+               
+               > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A collection of tags which should be applied to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArgs']]]] target_regions: One or more `target_region` blocks as documented below.
         """
@@ -717,6 +789,10 @@ class SharedImageVersion(pulumi.CustomResource):
     def blob_uri(self) -> pulumi.Output[Optional[str]]:
         """
         URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+
+        > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+
+        > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         """
         return pulumi.get(self, "blob_uri")
 
@@ -765,6 +841,10 @@ class SharedImageVersion(pulumi.CustomResource):
     def managed_image_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+
+        > **NOTE:** The ID can be sourced from the `compute.Image` data source or resource
+
+        > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         """
         return pulumi.get(self, "managed_image_id")
 
@@ -781,6 +861,8 @@ class SharedImageVersion(pulumi.CustomResource):
     def os_disk_snapshot_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+
+        > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         """
         return pulumi.get(self, "os_disk_snapshot_id")
 
@@ -805,6 +887,8 @@ class SharedImageVersion(pulumi.CustomResource):
     def storage_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+
+        > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         """
         return pulumi.get(self, "storage_account_id")
 

@@ -17,6 +17,8 @@ namespace Pulumi.Azure.MSSql.Inputs
 
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+        /// 
+        /// &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
         /// </summary>
         public InputList<string> IdentityIds
         {

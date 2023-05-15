@@ -14,6 +14,8 @@ namespace Pulumi.Azure.AppService.Inputs
     {
         /// <summary>
         /// If this Windows Web App is Always On enabled. Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
         /// </summary>
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
@@ -87,9 +89,6 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("detailedErrorLoggingEnabled")]
         public Input<bool>? DetailedErrorLoggingEnabled { get; set; }
 
-        /// <summary>
-        /// The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
-        /// </summary>
         [Input("ftpsState")]
         public Input<string>? FtpsState { get; set; }
 

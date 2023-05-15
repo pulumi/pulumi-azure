@@ -12,6 +12,8 @@ import (
 
 type HostPoolScheduledAgentUpdates struct {
 	// Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
+	//
+	// > **NOTE:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
 	Enabled *bool `pulumi:"enabled"`
 	// A `schedule` block as defined below. A maximum of two blocks can be added.
 	Schedules []HostPoolScheduledAgentUpdatesSchedule `pulumi:"schedules"`
@@ -34,6 +36,8 @@ type HostPoolScheduledAgentUpdatesInput interface {
 
 type HostPoolScheduledAgentUpdatesArgs struct {
 	// Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
+	//
+	// > **NOTE:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// A `schedule` block as defined below. A maximum of two blocks can be added.
 	Schedules HostPoolScheduledAgentUpdatesScheduleArrayInput `pulumi:"schedules"`
@@ -121,6 +125,8 @@ func (o HostPoolScheduledAgentUpdatesOutput) ToHostPoolScheduledAgentUpdatesPtrO
 }
 
 // Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
+//
+// > **NOTE:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
 func (o HostPoolScheduledAgentUpdatesOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HostPoolScheduledAgentUpdates) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -165,6 +171,8 @@ func (o HostPoolScheduledAgentUpdatesPtrOutput) Elem() HostPoolScheduledAgentUpd
 }
 
 // Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
+//
+// > **NOTE:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
 func (o HostPoolScheduledAgentUpdatesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HostPoolScheduledAgentUpdates) *bool {
 		if v == nil {

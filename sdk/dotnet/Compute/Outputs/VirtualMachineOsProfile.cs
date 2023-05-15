@@ -15,6 +15,8 @@ namespace Pulumi.Azure.Compute.Outputs
     {
         /// <summary>
         /// (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
+        /// 
+        /// &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
         /// </summary>
         public readonly string? AdminPassword;
         /// <summary>

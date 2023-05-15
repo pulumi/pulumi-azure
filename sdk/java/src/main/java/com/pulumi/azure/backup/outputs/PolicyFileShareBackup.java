@@ -12,6 +12,8 @@ public final class PolicyFileShareBackup {
     /**
      * @return Sets the backup frequency. Currently, only `Daily` is supported
      * 
+     * &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
+     * 
      */
     private String frequency;
     /**
@@ -23,6 +25,8 @@ public final class PolicyFileShareBackup {
     private PolicyFileShareBackup() {}
     /**
      * @return Sets the backup frequency. Currently, only `Daily` is supported
+     * 
+     * &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
      * 
      */
     public String frequency() {

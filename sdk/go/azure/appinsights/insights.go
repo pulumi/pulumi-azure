@@ -144,6 +144,8 @@ type Insights struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the id of a log analytics workspace resource.
+	//
+	// > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
 	WorkspaceId pulumi.StringPtrOutput `pulumi:"workspaceId"`
 }
 
@@ -222,6 +224,8 @@ type insightsState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the id of a log analytics workspace resource.
+	//
+	// > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -261,6 +265,8 @@ type InsightsState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the id of a log analytics workspace resource.
+	//
+	// > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -298,6 +304,8 @@ type insightsArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the id of a log analytics workspace resource.
+	//
+	// > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -332,6 +340,8 @@ type InsightsArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the id of a log analytics workspace resource.
+	//
+	// > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -508,6 +518,8 @@ func (o InsightsOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Specifies the id of a log analytics workspace resource.
+//
+// > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
 func (o InsightsOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Insights) pulumi.StringPtrOutput { return v.WorkspaceId }).(pulumi.StringPtrOutput)
 }

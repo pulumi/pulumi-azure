@@ -51,7 +51,8 @@ class WindowsFunctionAppArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input['WindowsFunctionAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App
+               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsV2Args'] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input['WindowsFunctionAppBackupArgs'] backup: A `backup` block as defined below.
@@ -74,10 +75,17 @@ class WindowsFunctionAppArgs:
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+               
+               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               
+               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+               
+               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+               
+               > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_plan_id", service_plan_id)
@@ -177,7 +185,8 @@ class WindowsFunctionAppArgs:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App
+        Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 
@@ -442,6 +451,10 @@ class WindowsFunctionAppArgs:
     def storage_key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
         """
         The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+
+        > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+
+        > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         """
         return pulumi.get(self, "storage_key_vault_secret_id")
 
@@ -454,6 +467,8 @@ class WindowsFunctionAppArgs:
     def storage_uses_managed_identity(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+
+        > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         """
         return pulumi.get(self, "storage_uses_managed_identity")
 
@@ -476,9 +491,6 @@ class WindowsFunctionAppArgs:
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -490,6 +502,8 @@ class WindowsFunctionAppArgs:
     def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
         """
         The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+
+        > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         """
         return pulumi.get(self, "zip_deploy_file")
 
@@ -542,7 +556,8 @@ class _WindowsFunctionAppState:
                  zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WindowsFunctionApp resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App
+               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsV2Args'] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input['WindowsFunctionAppBackupArgs'] backup: A `backup` block as defined below.
@@ -567,7 +582,7 @@ class _WindowsFunctionAppState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
-        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input['WindowsFunctionAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
@@ -577,10 +592,17 @@ class _WindowsFunctionAppState:
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+               
+               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               
+               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+               
+               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+               
+               > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         """
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
@@ -665,7 +687,8 @@ class _WindowsFunctionAppState:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App
+        Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 
@@ -965,7 +988,7 @@ class _WindowsFunctionAppState:
     @pulumi.getter(name="possibleOutboundIpAddresses")
     def possible_outbound_ip_addresses(self) -> Optional[pulumi.Input[str]]:
         """
-        A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+        A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
 
@@ -1074,6 +1097,10 @@ class _WindowsFunctionAppState:
     def storage_key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
         """
         The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+
+        > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+
+        > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         """
         return pulumi.get(self, "storage_key_vault_secret_id")
 
@@ -1086,6 +1113,8 @@ class _WindowsFunctionAppState:
     def storage_uses_managed_identity(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+
+        > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         """
         return pulumi.get(self, "storage_uses_managed_identity")
 
@@ -1108,9 +1137,6 @@ class _WindowsFunctionAppState:
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -1122,6 +1148,8 @@ class _WindowsFunctionAppState:
     def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
         """
         The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+
+        > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         """
         return pulumi.get(self, "zip_deploy_file")
 
@@ -1205,7 +1233,8 @@ class WindowsFunctionApp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App
+               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsV2Args']] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppBackupArgs']] backup: A `backup` block as defined below.
@@ -1231,10 +1260,17 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+               
+               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               
+               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+               
+               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+               
+               > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         """
         ...
     @overload
@@ -1436,7 +1472,8 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App
+               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppAuthSettingsV2Args']] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppBackupArgs']] backup: A `backup` block as defined below.
@@ -1461,7 +1498,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
-        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
@@ -1471,10 +1508,17 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+               
+               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               
+               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[bool] storage_uses_managed_identity: Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+               
+               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+               
+               > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1525,7 +1569,8 @@ class WindowsFunctionApp(pulumi.CustomResource):
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App
+        Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 
@@ -1725,7 +1770,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
     @pulumi.getter(name="possibleOutboundIpAddresses")
     def possible_outbound_ip_addresses(self) -> pulumi.Output[str]:
         """
-        A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
+        A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
 
@@ -1798,6 +1843,10 @@ class WindowsFunctionApp(pulumi.CustomResource):
     def storage_key_vault_secret_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
+
+        > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+
+        > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         """
         return pulumi.get(self, "storage_key_vault_secret_id")
 
@@ -1806,6 +1855,8 @@ class WindowsFunctionApp(pulumi.CustomResource):
     def storage_uses_managed_identity(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+
+        > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         """
         return pulumi.get(self, "storage_uses_managed_identity")
 
@@ -1820,9 +1871,6 @@ class WindowsFunctionApp(pulumi.CustomResource):
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @property
@@ -1830,6 +1878,8 @@ class WindowsFunctionApp(pulumi.CustomResource):
     def zip_deploy_file(self) -> pulumi.Output[str]:
         """
         The local path and filename of the Zip packaged application to deploy to this Windows Function App.
+
+        > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
         """
         return pulumi.get(self, "zip_deploy_file")
 

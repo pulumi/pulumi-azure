@@ -383,6 +383,8 @@ type AppIngress struct {
 	// The target port on the container for the Ingress traffic.
 	TargetPort int `pulumi:"targetPort"`
 	// A `trafficWeight` block as detailed below.
+	//
+	// > **Note:** `trafficWeight` can only be specified when `revisionMode` is set to `Multiple`.
 	TrafficWeights []AppIngressTrafficWeight `pulumi:"trafficWeights"`
 	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
 	Transport *string `pulumi:"transport"`
@@ -411,6 +413,8 @@ type AppIngressArgs struct {
 	// The target port on the container for the Ingress traffic.
 	TargetPort pulumi.IntInput `pulumi:"targetPort"`
 	// A `trafficWeight` block as detailed below.
+	//
+	// > **Note:** `trafficWeight` can only be specified when `revisionMode` is set to `Multiple`.
 	TrafficWeights AppIngressTrafficWeightArrayInput `pulumi:"trafficWeights"`
 	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
 	Transport pulumi.StringPtrInput `pulumi:"transport"`
@@ -519,6 +523,8 @@ func (o AppIngressOutput) TargetPort() pulumi.IntOutput {
 }
 
 // A `trafficWeight` block as detailed below.
+//
+// > **Note:** `trafficWeight` can only be specified when `revisionMode` is set to `Multiple`.
 func (o AppIngressOutput) TrafficWeights() AppIngressTrafficWeightArrayOutput {
 	return o.ApplyT(func(v AppIngress) []AppIngressTrafficWeight { return v.TrafficWeights }).(AppIngressTrafficWeightArrayOutput)
 }
@@ -603,6 +609,8 @@ func (o AppIngressPtrOutput) TargetPort() pulumi.IntPtrOutput {
 }
 
 // A `trafficWeight` block as detailed below.
+//
+// > **Note:** `trafficWeight` can only be specified when `revisionMode` is set to `Multiple`.
 func (o AppIngressPtrOutput) TrafficWeights() AppIngressTrafficWeightArrayOutput {
 	return o.ApplyT(func(v *AppIngress) []AppIngressTrafficWeight {
 		if v == nil {
@@ -803,6 +811,8 @@ type AppIngressTrafficWeight struct {
 	// This traffic Weight relates to the latest stable Container Revision.
 	LatestRevision *bool `pulumi:"latestRevision"`
 	// The percentage of traffic which should be sent this revision.
+	//
+	// > **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
 	Percentage int `pulumi:"percentage"`
 	// The suffix string to which this `trafficWeight` applies.
 	RevisionSuffix *string `pulumi:"revisionSuffix"`
@@ -825,6 +835,8 @@ type AppIngressTrafficWeightArgs struct {
 	// This traffic Weight relates to the latest stable Container Revision.
 	LatestRevision pulumi.BoolPtrInput `pulumi:"latestRevision"`
 	// The percentage of traffic which should be sent this revision.
+	//
+	// > **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
 	Percentage pulumi.IntInput `pulumi:"percentage"`
 	// The suffix string to which this `trafficWeight` applies.
 	RevisionSuffix pulumi.StringPtrInput `pulumi:"revisionSuffix"`
@@ -892,6 +904,8 @@ func (o AppIngressTrafficWeightOutput) LatestRevision() pulumi.BoolPtrOutput {
 }
 
 // The percentage of traffic which should be sent this revision.
+//
+// > **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
 func (o AppIngressTrafficWeightOutput) Percentage() pulumi.IntOutput {
 	return o.ApplyT(func(v AppIngressTrafficWeight) int { return v.Percentage }).(pulumi.IntOutput)
 }
@@ -927,6 +941,8 @@ type AppRegistry struct {
 	// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
 	PasswordSecretName *string `pulumi:"passwordSecretName"`
 	// The hostname for the Container Registry.
+	//
+	// The authentication details must also be supplied, `identity` and `username`/`passwordSecretName` are mutually exclusive.
 	Server string `pulumi:"server"`
 	// The username to use for this Container Registry, `passwordSecretName` must also be supplied..
 	Username *string `pulumi:"username"`
@@ -949,6 +965,8 @@ type AppRegistryArgs struct {
 	// The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
 	PasswordSecretName pulumi.StringPtrInput `pulumi:"passwordSecretName"`
 	// The hostname for the Container Registry.
+	//
+	// The authentication details must also be supplied, `identity` and `username`/`passwordSecretName` are mutually exclusive.
 	Server pulumi.StringInput `pulumi:"server"`
 	// The username to use for this Container Registry, `passwordSecretName` must also be supplied..
 	Username pulumi.StringPtrInput `pulumi:"username"`
@@ -1016,6 +1034,8 @@ func (o AppRegistryOutput) PasswordSecretName() pulumi.StringPtrOutput {
 }
 
 // The hostname for the Container Registry.
+//
+// The authentication details must also be supplied, `identity` and `username`/`passwordSecretName` are mutually exclusive.
 func (o AppRegistryOutput) Server() pulumi.StringOutput {
 	return o.ApplyT(func(v AppRegistry) string { return v.Server }).(pulumi.StringOutput)
 }
@@ -1049,6 +1069,8 @@ type AppSecret struct {
 	// The Secret name.
 	Name string `pulumi:"name"`
 	// The value for this secret.
+	//
+	// !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
 	Value string `pulumi:"value"`
 }
 
@@ -1067,6 +1089,8 @@ type AppSecretArgs struct {
 	// The Secret name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value for this secret.
+	//
+	// !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1127,6 +1151,8 @@ func (o AppSecretOutput) Name() pulumi.StringOutput {
 }
 
 // The value for this secret.
+//
+// !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
 func (o AppSecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AppSecret) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1370,16 +1396,22 @@ type AppTemplateContainer struct {
 	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands []string `pulumi:"commands"`
 	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 	Cpu float64 `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs []AppTemplateContainerEnv `pulumi:"envs"`
 	// The amount of ephemeral storage available to the Container App.
+	//
+	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
 	EphemeralStorage *string `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image string `pulumi:"image"`
 	// A `livenessProbe` block as detailed below.
 	LivenessProbes []AppTemplateContainerLivenessProbe `pulumi:"livenessProbes"`
 	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory string `pulumi:"memory"`
 	// The name of the container
 	Name string `pulumi:"name"`
@@ -1408,16 +1440,22 @@ type AppTemplateContainerArgs struct {
 	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 	Cpu pulumi.Float64Input `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs AppTemplateContainerEnvArrayInput `pulumi:"envs"`
 	// The amount of ephemeral storage available to the Container App.
+	//
+	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
 	EphemeralStorage pulumi.StringPtrInput `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image pulumi.StringInput `pulumi:"image"`
 	// A `livenessProbe` block as detailed below.
 	LivenessProbes AppTemplateContainerLivenessProbeArrayInput `pulumi:"livenessProbes"`
 	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory pulumi.StringInput `pulumi:"memory"`
 	// The name of the container
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1491,6 +1529,8 @@ func (o AppTemplateContainerOutput) Commands() pulumi.StringArrayOutput {
 }
 
 // The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+//
+// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 func (o AppTemplateContainerOutput) Cpu() pulumi.Float64Output {
 	return o.ApplyT(func(v AppTemplateContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
 }
@@ -1501,6 +1541,8 @@ func (o AppTemplateContainerOutput) Envs() AppTemplateContainerEnvArrayOutput {
 }
 
 // The amount of ephemeral storage available to the Container App.
+//
+// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
 func (o AppTemplateContainerOutput) EphemeralStorage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateContainer) *string { return v.EphemeralStorage }).(pulumi.StringPtrOutput)
 }
@@ -1516,6 +1558,8 @@ func (o AppTemplateContainerOutput) LivenessProbes() AppTemplateContainerLivenes
 }
 
 // The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+//
+// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 func (o AppTemplateContainerOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v AppTemplateContainer) string { return v.Memory }).(pulumi.StringOutput)
 }
@@ -1566,6 +1610,8 @@ type AppTemplateContainerEnv struct {
 	// The name of the secret that contains the value for this environment variable.
 	SecretName *string `pulumi:"secretName"`
 	// The value for this environment variable.
+	//
+	// > **NOTE:** This value is ignored if `secretName` is used
 	Value *string `pulumi:"value"`
 }
 
@@ -1586,6 +1632,8 @@ type AppTemplateContainerEnvArgs struct {
 	// The name of the secret that contains the value for this environment variable.
 	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
 	// The value for this environment variable.
+	//
+	// > **NOTE:** This value is ignored if `secretName` is used
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1651,6 +1699,8 @@ func (o AppTemplateContainerEnvOutput) SecretName() pulumi.StringPtrOutput {
 }
 
 // The value for this environment variable.
+//
+// > **NOTE:** This value is ignored if `secretName` is used
 func (o AppTemplateContainerEnvOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateContainerEnv) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

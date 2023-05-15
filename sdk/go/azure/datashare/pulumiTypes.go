@@ -16,6 +16,8 @@ type AccountIdentity struct {
 	// The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Data Share Account has been created. More details are available below.
 	Type string `pulumi:"type"`
 }
 
@@ -36,6 +38,8 @@ type AccountIdentityArgs struct {
 	// The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Data Share Account has been created. More details are available below.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -127,6 +131,8 @@ func (o AccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Data Share Account has been created. More details are available below.
 func (o AccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -176,6 +182,8 @@ func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Data Share Account has been created. More details are available below.
 func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentity) *string {
 		if v == nil {

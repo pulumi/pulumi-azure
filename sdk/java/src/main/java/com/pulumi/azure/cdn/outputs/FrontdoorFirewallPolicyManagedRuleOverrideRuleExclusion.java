@@ -12,6 +12,8 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion {
     /**
      * @return The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
      * 
+     * &gt; **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+     * 
      */
     private String matchVariable;
     /**
@@ -28,6 +30,8 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion {
     private FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion() {}
     /**
      * @return The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+     * 
+     * &gt; **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
      * 
      */
     public String matchVariable() {

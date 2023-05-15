@@ -81,12 +81,16 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Relative Path used for this Request.
+        /// 
+        /// &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
         /// </summary>
         [Output("relativePath")]
         public Output<string?> RelativePath { get; private set; } = null!;
@@ -157,12 +161,16 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Specifies the Relative Path used for this Request.
+        /// 
+        /// &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
         /// </summary>
         [Input("relativePath")]
         public Input<string>? RelativePath { get; set; }
@@ -201,12 +209,16 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Specifies the Relative Path used for this Request.
+        /// 
+        /// &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
         /// </summary>
         [Input("relativePath")]
         public Input<string>? RelativePath { get; set; }

@@ -15,6 +15,10 @@ namespace Pulumi.Azure.Compute.Outputs
     {
         /// <summary>
         /// The Secret URL of a Key Vault Certificate.
+        /// 
+        /// &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
+        /// 
+        /// &gt; **NOTE:** The certificate must have been uploaded/created in PFX format, PEM certificates are not currently supported by Azure.
         /// </summary>
         public readonly string Url;
 

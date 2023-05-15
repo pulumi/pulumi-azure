@@ -39,6 +39,8 @@ public final class ActionGroupEventHubReceiver {
     /**
      * @return The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
      * 
+     * &gt; **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
+     * 
      */
     private @Nullable String subscriptionId;
     /**
@@ -87,6 +89,8 @@ public final class ActionGroupEventHubReceiver {
     }
     /**
      * @return The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+     * 
+     * &gt; **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
      * 
      */
     public Optional<String> subscriptionId() {

@@ -65,6 +65,8 @@ namespace Pulumi.Azure.DataFactory
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
+        /// 
+        /// The following supported arguments are specific to HTTP Dataset:
         /// </summary>
         [Output("additionalProperties")]
         public Output<ImmutableDictionary<string, string>?> AdditionalProperties { get; private set; } = null!;
@@ -186,6 +188,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
+        /// 
+        /// The following supported arguments are specific to HTTP Dataset:
         /// </summary>
         public InputMap<string> AdditionalProperties
         {
@@ -290,6 +294,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
+        /// 
+        /// The following supported arguments are specific to HTTP Dataset:
         /// </summary>
         public InputMap<string> AdditionalProperties
         {

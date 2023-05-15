@@ -286,6 +286,8 @@ type Certificate struct {
 	// The Base64 encoded Key Vault Certificate data.
 	CertificateDataBase64 pulumi.StringOutput `pulumi:"certificateDataBase64"`
 	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy CertificateCertificatePolicyOutput `pulumi:"certificatePolicy"`
 	// The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
@@ -356,6 +358,8 @@ type certificateState struct {
 	// The Base64 encoded Key Vault Certificate data.
 	CertificateDataBase64 *string `pulumi:"certificateDataBase64"`
 	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy *CertificateCertificatePolicy `pulumi:"certificatePolicy"`
 	// The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
 	KeyVaultId *string `pulumi:"keyVaultId"`
@@ -389,6 +393,8 @@ type CertificateState struct {
 	// The Base64 encoded Key Vault Certificate data.
 	CertificateDataBase64 pulumi.StringPtrInput
 	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy CertificateCertificatePolicyPtrInput
 	// The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringPtrInput
@@ -420,6 +426,8 @@ type certificateArgs struct {
 	// A `certificate` block as defined below, used to Import an existing certificate.
 	Certificate *CertificateCertificate `pulumi:"certificate"`
 	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy *CertificateCertificatePolicy `pulumi:"certificatePolicy"`
 	// The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -434,6 +442,8 @@ type CertificateArgs struct {
 	// A `certificate` block as defined below, used to Import an existing certificate.
 	Certificate CertificateCertificatePtrInput
 	// A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 	CertificatePolicy CertificateCertificatePolicyPtrInput
 	// The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringInput
@@ -551,6 +561,8 @@ func (o CertificateOutput) CertificateDataBase64() pulumi.StringOutput {
 }
 
 // A `certificatePolicy` block as defined below. Changing this forces a new resource to be created.
+//
+// > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
 func (o CertificateOutput) CertificatePolicy() CertificateCertificatePolicyOutput {
 	return o.ApplyT(func(v *Certificate) CertificateCertificatePolicyOutput { return v.CertificatePolicy }).(CertificateCertificatePolicyOutput)
 }

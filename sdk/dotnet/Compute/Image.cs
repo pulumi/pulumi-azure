@@ -147,6 +147,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         /// </summary>
         [Output("hyperVGeneration")]
         public Output<string?> HyperVGeneration { get; private set; } = null!;
@@ -255,6 +257,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         /// </summary>
         [Input("hyperVGeneration")]
         public Input<string>? HyperVGeneration { get; set; }
@@ -331,6 +335,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         /// </summary>
         [Input("hyperVGeneration")]
         public Input<string>? HyperVGeneration { get; set; }

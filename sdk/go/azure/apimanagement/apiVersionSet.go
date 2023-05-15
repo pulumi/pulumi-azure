@@ -82,8 +82,12 @@ type ApiVersionSet struct {
 	// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The name of the Header which should be read from Inbound Requests which defines the API Version.
+	//
+	// > **NOTE:** This must be specified when `versioningScheme` is set to `Header`.
 	VersionHeaderName pulumi.StringPtrOutput `pulumi:"versionHeaderName"`
 	// The name of the Query String which should be read from Inbound Requests which defines the API Version.
+	//
+	// > **NOTE:** This must be specified when `versioningScheme` is set to `Query`.
 	VersionQueryName pulumi.StringPtrOutput `pulumi:"versionQueryName"`
 	// Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
 	VersioningScheme pulumi.StringOutput `pulumi:"versioningScheme"`
@@ -141,8 +145,12 @@ type apiVersionSetState struct {
 	// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The name of the Header which should be read from Inbound Requests which defines the API Version.
+	//
+	// > **NOTE:** This must be specified when `versioningScheme` is set to `Header`.
 	VersionHeaderName *string `pulumi:"versionHeaderName"`
 	// The name of the Query String which should be read from Inbound Requests which defines the API Version.
+	//
+	// > **NOTE:** This must be specified when `versioningScheme` is set to `Query`.
 	VersionQueryName *string `pulumi:"versionQueryName"`
 	// Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
 	VersioningScheme *string `pulumi:"versioningScheme"`
@@ -160,8 +168,12 @@ type ApiVersionSetState struct {
 	// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The name of the Header which should be read from Inbound Requests which defines the API Version.
+	//
+	// > **NOTE:** This must be specified when `versioningScheme` is set to `Header`.
 	VersionHeaderName pulumi.StringPtrInput
 	// The name of the Query String which should be read from Inbound Requests which defines the API Version.
+	//
+	// > **NOTE:** This must be specified when `versioningScheme` is set to `Query`.
 	VersionQueryName pulumi.StringPtrInput
 	// Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
 	VersioningScheme pulumi.StringPtrInput
@@ -183,8 +195,12 @@ type apiVersionSetArgs struct {
 	// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Header which should be read from Inbound Requests which defines the API Version.
+	//
+	// > **NOTE:** This must be specified when `versioningScheme` is set to `Header`.
 	VersionHeaderName *string `pulumi:"versionHeaderName"`
 	// The name of the Query String which should be read from Inbound Requests which defines the API Version.
+	//
+	// > **NOTE:** This must be specified when `versioningScheme` is set to `Query`.
 	VersionQueryName *string `pulumi:"versionQueryName"`
 	// Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
 	VersioningScheme string `pulumi:"versioningScheme"`
@@ -203,8 +219,12 @@ type ApiVersionSetArgs struct {
 	// The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Header which should be read from Inbound Requests which defines the API Version.
+	//
+	// > **NOTE:** This must be specified when `versioningScheme` is set to `Header`.
 	VersionHeaderName pulumi.StringPtrInput
 	// The name of the Query String which should be read from Inbound Requests which defines the API Version.
+	//
+	// > **NOTE:** This must be specified when `versioningScheme` is set to `Query`.
 	VersionQueryName pulumi.StringPtrInput
 	// Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
 	VersioningScheme pulumi.StringInput
@@ -323,11 +343,15 @@ func (o ApiVersionSetOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The name of the Header which should be read from Inbound Requests which defines the API Version.
+//
+// > **NOTE:** This must be specified when `versioningScheme` is set to `Header`.
 func (o ApiVersionSetOutput) VersionHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSet) pulumi.StringPtrOutput { return v.VersionHeaderName }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Query String which should be read from Inbound Requests which defines the API Version.
+//
+// > **NOTE:** This must be specified when `versioningScheme` is set to `Query`.
 func (o ApiVersionSetOutput) VersionQueryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSet) pulumi.StringPtrOutput { return v.VersionQueryName }).(pulumi.StringPtrOutput)
 }

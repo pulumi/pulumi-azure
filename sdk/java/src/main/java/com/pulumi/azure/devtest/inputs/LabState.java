@@ -139,6 +139,8 @@ public final class LabState extends com.pulumi.resources.ResourceArgs {
     /**
      * The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
      * 
+     * &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
+     * 
      * @deprecated
      * `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
      * 
@@ -149,6 +151,8 @@ public final class LabState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
+     * 
+     * &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
      * 
      * @deprecated
      * `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
@@ -394,6 +398,8 @@ public final class LabState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageType The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
          * 
+         * &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -408,6 +414,8 @@ public final class LabState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageType The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`.
+         * 
+         * &gt; **Note:** `storage_type` has been deprecated as the API no longer supports it and will be removed in Version 4.0 of the provider.
          * 
          * @return builder
          * 

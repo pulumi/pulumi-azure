@@ -20,6 +20,8 @@ namespace Pulumi.Azure.EventHub.Inputs
 
         /// <summary>
         /// Specifies a single value to compare to when using a single value operator.
+        /// 
+        /// OR
         /// </summary>
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;

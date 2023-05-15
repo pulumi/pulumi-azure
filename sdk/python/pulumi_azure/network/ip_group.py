@@ -22,7 +22,6 @@ class IPGroupArgs:
         """
         The set of arguments for constructing a IPGroup resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the IP group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidrs: A list of CIDRs or IP addresses.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IP group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -52,9 +51,6 @@ class IPGroupArgs:
     @property
     @pulumi.getter
     def cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of CIDRs or IP addresses.
-        """
         return pulumi.get(self, "cidrs")
 
     @cidrs.setter
@@ -110,7 +106,6 @@ class _IPGroupState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering IPGroup resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidrs: A list of CIDRs or IP addresses.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_ids: A `firewall_ids` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_policy_ids: A `firewall_policy_ids` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -136,9 +131,6 @@ class _IPGroupState:
     @property
     @pulumi.getter
     def cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of CIDRs or IP addresses.
-        """
         return pulumi.get(self, "cidrs")
 
     @cidrs.setter
@@ -262,7 +254,6 @@ class IPGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidrs: A list of CIDRs or IP addresses.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IP group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the IP group. Changing this forces a new resource to be created.
@@ -367,7 +358,6 @@ class IPGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidrs: A list of CIDRs or IP addresses.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_ids: A `firewall_ids` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_policy_ids: A `firewall_policy_ids` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -391,9 +381,6 @@ class IPGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def cidrs(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        A list of CIDRs or IP addresses.
-        """
         return pulumi.get(self, "cidrs")
 
     @property

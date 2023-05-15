@@ -95,12 +95,16 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
     /**
      * Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
      * 
+     * The following properties apply when using Unmanaged Disks:
+     * 
      */
     @Import(name="managedDiskType")
     private @Nullable Output<String> managedDiskType;
 
     /**
      * @return Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+     * 
+     * The following properties apply when using Unmanaged Disks:
      * 
      */
     public Optional<Output<String>> managedDiskType() {
@@ -155,12 +159,16 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
     /**
      * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
      * 
+     * The following properties apply when using Managed Disks:
+     * 
      */
     @Import(name="writeAcceleratorEnabled")
     private @Nullable Output<Boolean> writeAcceleratorEnabled;
 
     /**
      * @return Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+     * 
+     * The following properties apply when using Managed Disks:
      * 
      */
     public Optional<Output<Boolean>> writeAcceleratorEnabled() {
@@ -308,6 +316,8 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
         /**
          * @param managedDiskType Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
          * 
+         * The following properties apply when using Unmanaged Disks:
+         * 
          * @return builder
          * 
          */
@@ -318,6 +328,8 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
 
         /**
          * @param managedDiskType Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+         * 
+         * The following properties apply when using Unmanaged Disks:
          * 
          * @return builder
          * 
@@ -392,6 +404,8 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
         /**
          * @param writeAcceleratorEnabled Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
          * 
+         * The following properties apply when using Managed Disks:
+         * 
          * @return builder
          * 
          */
@@ -402,6 +416,8 @@ public final class VirtualMachineStorageOsDiskArgs extends com.pulumi.resources.
 
         /**
          * @param writeAcceleratorEnabled Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+         * 
+         * The following properties apply when using Managed Disks:
          * 
          * @return builder
          * 

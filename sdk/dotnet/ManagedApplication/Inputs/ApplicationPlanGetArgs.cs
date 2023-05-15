@@ -26,6 +26,8 @@ namespace Pulumi.Azure.ManagedApplication.Inputs
 
         /// <summary>
         /// Specifies the promotion code to use with the plan.
+        /// 
+        /// &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         /// </summary>
         [Input("promotionCode")]
         public Input<string>? PromotionCode { get; set; }

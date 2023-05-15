@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkSlice = new NetworkSlice(&#34;exampleNetworkSlice&#34;, NetworkSliceArgs.builder()        
- *             .mobileNetworkId(azurerm_mobile_network.test().id())
+ *             .mobileNetworkId(exampleNetwork.id())
  *             .location(exampleResourceGroup.location())
  *             .description(&#34;an example slice&#34;)
  *             .singleNetworkSliceSelectionAssistanceInformation(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs.builder()

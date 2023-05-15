@@ -26,10 +26,6 @@ public final class VolumeDataProtectionReplication {
      * 
      */
     private String remoteVolumeResourceId;
-    /**
-     * @return Replication frequency, supported values are &#39;10minutes&#39;, &#39;hourly&#39;, &#39;daily&#39;, values are case sensitive.
-     * 
-     */
     private String replicationFrequency;
 
     private VolumeDataProtectionReplication() {}
@@ -54,10 +50,6 @@ public final class VolumeDataProtectionReplication {
     public String remoteVolumeResourceId() {
         return this.remoteVolumeResourceId;
     }
-    /**
-     * @return Replication frequency, supported values are &#39;10minutes&#39;, &#39;hourly&#39;, &#39;daily&#39;, values are case sensitive.
-     * 
-     */
     public String replicationFrequency() {
         return this.replicationFrequency;
     }

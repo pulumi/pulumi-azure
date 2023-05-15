@@ -216,12 +216,16 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
     /**
      * The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
      * 
+     * &gt; **Note:** To disable this feature, set this property to `0`.
+     * 
      */
     @Export(name="hoursBetweenBackups", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> hoursBetweenBackups;
 
     /**
      * @return The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+     * 
+     * &gt; **Note:** To disable this feature, set this property to `0`.
      * 
      */
     public Output<Optional<Integer>> hoursBetweenBackups() {

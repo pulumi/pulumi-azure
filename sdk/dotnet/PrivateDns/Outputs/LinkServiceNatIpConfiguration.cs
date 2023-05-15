@@ -31,6 +31,8 @@ namespace Pulumi.Azure.PrivateDns.Outputs
         public readonly string? PrivateIpAddressVersion;
         /// <summary>
         /// Specifies the ID of the Subnet which should be used for the Private Link Service.
+        /// 
+        /// &gt; **NOTE:** Verify that the Subnet's `enforce_private_link_service_network_policies` attribute is set to `true`.
         /// </summary>
         public readonly string SubnetId;
 

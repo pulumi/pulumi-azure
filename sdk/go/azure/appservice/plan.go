@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an App Service Plan component.
+//
+// !> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use `appservice.ServicePlan` resource instead.
+//
 // ## Example Usage
 // ### Dedicated)
 //
@@ -179,10 +183,14 @@ type Plan struct {
 	pulumi.CustomResourceState
 
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+	//
+	// > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
 	AppServiceEnvironmentId pulumi.StringPtrOutput `pulumi:"appServiceEnvironmentId"`
 	// Whether to create a xenon App Service Plan.
 	IsXenon pulumi.BoolPtrOutput `pulumi:"isXenon"`
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -203,6 +211,8 @@ type Plan struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
 	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
@@ -242,10 +252,14 @@ func GetPlan(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Plan resources.
 type planState struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+	//
+	// > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
 	AppServiceEnvironmentId *string `pulumi:"appServiceEnvironmentId"`
 	// Whether to create a xenon App Service Plan.
 	IsXenon *bool `pulumi:"isXenon"`
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
 	Kind interface{} `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -266,15 +280,21 @@ type planState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type PlanState struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+	//
+	// > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
 	AppServiceEnvironmentId pulumi.StringPtrInput
 	// Whether to create a xenon App Service Plan.
 	IsXenon pulumi.BoolPtrInput
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
 	Kind pulumi.Input
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -295,6 +315,8 @@ type PlanState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -304,10 +326,14 @@ func (PlanState) ElementType() reflect.Type {
 
 type planArgs struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+	//
+	// > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
 	AppServiceEnvironmentId *string `pulumi:"appServiceEnvironmentId"`
 	// Whether to create a xenon App Service Plan.
 	IsXenon *bool `pulumi:"isXenon"`
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
 	Kind interface{} `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -326,16 +352,22 @@ type planArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a Plan resource.
 type PlanArgs struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+	//
+	// > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
 	AppServiceEnvironmentId pulumi.StringPtrInput
 	// Whether to create a xenon App Service Plan.
 	IsXenon pulumi.BoolPtrInput
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
 	Kind pulumi.Input
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -354,6 +386,8 @@ type PlanArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -445,6 +479,8 @@ func (o PlanOutput) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 }
 
 // The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+//
+// > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
 func (o PlanOutput) AppServiceEnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringPtrOutput { return v.AppServiceEnvironmentId }).(pulumi.StringPtrOutput)
 }
@@ -455,6 +491,8 @@ func (o PlanOutput) IsXenon() pulumi.BoolPtrOutput {
 }
 
 // The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
 func (o PlanOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
 }
@@ -505,6 +543,8 @@ func (o PlanOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
+//
+// > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
 func (o PlanOutput) ZoneRedundant() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Plan) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
 }

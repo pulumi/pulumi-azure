@@ -309,6 +309,8 @@ export class Workspace extends pulumi.CustomResource {
     public readonly applicationInsightsId!: pulumi.Output<string>;
     /**
      * The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
      */
     public readonly containerRegistryId!: pulumi.Output<string | undefined>;
     /**
@@ -363,6 +365,8 @@ export class Workspace extends pulumi.CustomResource {
     public readonly publicAccessBehindVirtualNetworkEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet.
+     *
+     * > **NOTE:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean>;
     /**
@@ -375,6 +379,8 @@ export class Workspace extends pulumi.CustomResource {
     public readonly skuName!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
      */
     public readonly storageAccountId!: pulumi.Output<string>;
     /**
@@ -385,6 +391,10 @@ export class Workspace extends pulumi.CustomResource {
      * Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
      */
     public readonly v1LegacyModeEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The immutable id associated with this workspace.
+     */
+    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -419,6 +429,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["v1LegacyModeEnabled"] = state ? state.v1LegacyModeEnabled : undefined;
+            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
             if ((!args || args.applicationInsightsId === undefined) && !opts.urn) {
@@ -456,6 +467,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["v1LegacyModeEnabled"] = args ? args.v1LegacyModeEnabled : undefined;
             resourceInputs["discoveryUrl"] = undefined /*out*/;
+            resourceInputs["workspaceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
@@ -472,6 +484,8 @@ export interface WorkspaceState {
     applicationInsightsId?: pulumi.Input<string>;
     /**
      * The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
      */
     containerRegistryId?: pulumi.Input<string>;
     /**
@@ -526,6 +540,8 @@ export interface WorkspaceState {
     publicAccessBehindVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet.
+     *
+     * > **NOTE:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -538,6 +554,8 @@ export interface WorkspaceState {
     skuName?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
      */
     storageAccountId?: pulumi.Input<string>;
     /**
@@ -548,6 +566,10 @@ export interface WorkspaceState {
      * Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
      */
     v1LegacyModeEnabled?: pulumi.Input<boolean>;
+    /**
+     * The immutable id associated with this workspace.
+     */
+    workspaceId?: pulumi.Input<string>;
 }
 
 /**
@@ -560,6 +582,8 @@ export interface WorkspaceArgs {
     applicationInsightsId: pulumi.Input<string>;
     /**
      * The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
      */
     containerRegistryId?: pulumi.Input<string>;
     /**
@@ -610,6 +634,8 @@ export interface WorkspaceArgs {
     publicAccessBehindVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet.
+     *
+     * > **NOTE:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -622,6 +648,8 @@ export interface WorkspaceArgs {
     skuName?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
      */
     storageAccountId: pulumi.Input<string>;
     /**

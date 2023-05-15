@@ -91,6 +91,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkManagerAdminRuleCollection{}
 	case "azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration":
 		r = &NetworkManagerConnectivityConfiguration{}
+	case "azure:network/networkManagerDeployment:NetworkManagerDeployment":
+		r = &NetworkManagerDeployment{}
 	case "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection":
 		r = &NetworkManagerManagementGroupConnection{}
 	case "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup":
@@ -375,6 +377,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/networkManagerConnectivityConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/networkManagerDeployment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

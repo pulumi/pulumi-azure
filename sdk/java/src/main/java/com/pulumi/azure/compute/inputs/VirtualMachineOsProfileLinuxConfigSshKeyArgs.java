@@ -16,12 +16,16 @@ public final class VirtualMachineOsProfileLinuxConfigSshKeyArgs extends com.pulu
     /**
      * The Public SSH Key which should be written to the `path` defined above.
      * 
+     * &gt; **Note:** Azure only supports RSA SSH2 key signatures of at least 2048 bits in length
+     * 
      */
     @Import(name="keyData", required=true)
     private Output<String> keyData;
 
     /**
      * @return The Public SSH Key which should be written to the `path` defined above.
+     * 
+     * &gt; **Note:** Azure only supports RSA SSH2 key signatures of at least 2048 bits in length
      * 
      */
     public Output<String> keyData() {
@@ -31,12 +35,16 @@ public final class VirtualMachineOsProfileLinuxConfigSshKeyArgs extends com.pulu
     /**
      * The path of the destination file on the virtual machine
      * 
+     * &gt; **NOTE:** Due to a limitation in the Azure VM Agent the only allowed `path` is `/home/{username}/.ssh/authorized_keys`.
+     * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
      * @return The path of the destination file on the virtual machine
+     * 
+     * &gt; **NOTE:** Due to a limitation in the Azure VM Agent the only allowed `path` is `/home/{username}/.ssh/authorized_keys`.
      * 
      */
     public Output<String> path() {
@@ -71,6 +79,8 @@ public final class VirtualMachineOsProfileLinuxConfigSshKeyArgs extends com.pulu
         /**
          * @param keyData The Public SSH Key which should be written to the `path` defined above.
          * 
+         * &gt; **Note:** Azure only supports RSA SSH2 key signatures of at least 2048 bits in length
+         * 
          * @return builder
          * 
          */
@@ -82,6 +92,8 @@ public final class VirtualMachineOsProfileLinuxConfigSshKeyArgs extends com.pulu
         /**
          * @param keyData The Public SSH Key which should be written to the `path` defined above.
          * 
+         * &gt; **Note:** Azure only supports RSA SSH2 key signatures of at least 2048 bits in length
+         * 
          * @return builder
          * 
          */
@@ -91,6 +103,8 @@ public final class VirtualMachineOsProfileLinuxConfigSshKeyArgs extends com.pulu
 
         /**
          * @param path The path of the destination file on the virtual machine
+         * 
+         * &gt; **NOTE:** Due to a limitation in the Azure VM Agent the only allowed `path` is `/home/{username}/.ssh/authorized_keys`.
          * 
          * @return builder
          * 
@@ -102,6 +116,8 @@ public final class VirtualMachineOsProfileLinuxConfigSshKeyArgs extends com.pulu
 
         /**
          * @param path The path of the destination file on the virtual machine
+         * 
+         * &gt; **NOTE:** Due to a limitation in the Azure VM Agent the only allowed `path` is `/home/{username}/.ssh/authorized_keys`.
          * 
          * @return builder
          * 

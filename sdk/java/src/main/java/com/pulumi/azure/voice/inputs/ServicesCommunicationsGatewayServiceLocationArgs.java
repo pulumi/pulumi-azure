@@ -49,12 +49,16 @@ public final class ServicesCommunicationsGatewayServiceLocationArgs extends com.
     /**
      * IP address to use to contact the ESRP from this region.
      * 
+     * !&gt; **NOTE:** The `esrp_addresses` must be specified for each `service_location` when the`e911_type` is set to `DirectToEsrp`.  The `esrp_addresses` must not be specified for each `service_location` when the`e911_type` is set to `Standard`.
+     * 
      */
     @Import(name="esrpAddresses")
     private @Nullable Output<List<String>> esrpAddresses;
 
     /**
      * @return IP address to use to contact the ESRP from this region.
+     * 
+     * !&gt; **NOTE:** The `esrp_addresses` must be specified for each `service_location` when the`e911_type` is set to `DirectToEsrp`.  The `esrp_addresses` must not be specified for each `service_location` when the`e911_type` is set to `Standard`.
      * 
      */
     public Optional<Output<List<String>>> esrpAddresses() {
@@ -184,6 +188,8 @@ public final class ServicesCommunicationsGatewayServiceLocationArgs extends com.
         /**
          * @param esrpAddresses IP address to use to contact the ESRP from this region.
          * 
+         * !&gt; **NOTE:** The `esrp_addresses` must be specified for each `service_location` when the`e911_type` is set to `DirectToEsrp`.  The `esrp_addresses` must not be specified for each `service_location` when the`e911_type` is set to `Standard`.
+         * 
          * @return builder
          * 
          */
@@ -195,6 +201,8 @@ public final class ServicesCommunicationsGatewayServiceLocationArgs extends com.
         /**
          * @param esrpAddresses IP address to use to contact the ESRP from this region.
          * 
+         * !&gt; **NOTE:** The `esrp_addresses` must be specified for each `service_location` when the`e911_type` is set to `DirectToEsrp`.  The `esrp_addresses` must not be specified for each `service_location` when the`e911_type` is set to `Standard`.
+         * 
          * @return builder
          * 
          */
@@ -204,6 +212,8 @@ public final class ServicesCommunicationsGatewayServiceLocationArgs extends com.
 
         /**
          * @param esrpAddresses IP address to use to contact the ESRP from this region.
+         * 
+         * !&gt; **NOTE:** The `esrp_addresses` must be specified for each `service_location` when the`e911_type` is set to `DirectToEsrp`.  The `esrp_addresses` must not be specified for each `service_location` when the`e911_type` is set to `Standard`.
          * 
          * @return builder
          * 

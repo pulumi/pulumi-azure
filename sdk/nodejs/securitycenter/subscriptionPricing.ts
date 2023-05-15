@@ -63,6 +63,8 @@ export class SubscriptionPricing extends pulumi.CustomResource {
     public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
      * Resource type pricing subplan. Contact your MSFT representative for possible values.
+     *
+     * > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
      */
     public readonly subplan!: pulumi.Output<string | undefined>;
     /**
@@ -110,6 +112,8 @@ export interface SubscriptionPricingState {
     resourceType?: pulumi.Input<string>;
     /**
      * Resource type pricing subplan. Contact your MSFT representative for possible values.
+     *
+     * > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
      */
     subplan?: pulumi.Input<string>;
     /**
@@ -128,6 +132,8 @@ export interface SubscriptionPricingArgs {
     resourceType?: pulumi.Input<string>;
     /**
      * Resource type pricing subplan. Contact your MSFT representative for possible values.
+     *
+     * > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
      */
     subplan?: pulumi.Input<string>;
     /**

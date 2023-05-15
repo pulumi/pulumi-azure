@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Portal
 {
     /// <summary>
+    /// Manages a shared dashboard in the Azure Portal.
+    /// 
+    /// !&gt; **Note:** The `azure.portal.Dashboard` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.portal.PortalDashboard` resource instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -182,6 +186,8 @@ namespace Pulumi.Azure.Portal
 
         /// <summary>
         /// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -262,6 +268,8 @@ namespace Pulumi.Azure.Portal
 
         /// <summary>
         /// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -306,6 +314,8 @@ namespace Pulumi.Azure.Portal
 
         /// <summary>
         /// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

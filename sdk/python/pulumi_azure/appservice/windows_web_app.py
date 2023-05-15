@@ -63,9 +63,12 @@ class WindowsWebAppArgs:
         :param pulumi.Input[str] name: The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input['WindowsWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
+               
+               > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+               
+               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_plan_id", service_plan_id)
@@ -358,6 +361,8 @@ class WindowsWebAppArgs:
     def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]]]:
         """
         One or more `storage_account` blocks as defined below.
+
+        > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         """
         return pulumi.get(self, "storage_accounts")
 
@@ -380,9 +385,6 @@ class WindowsWebAppArgs:
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -394,6 +396,8 @@ class WindowsWebAppArgs:
     def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
         """
         The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+
+        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         """
         return pulumi.get(self, "zip_deploy_file")
 
@@ -470,9 +474,12 @@ class _WindowsWebAppState:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input['WindowsWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
+               
+               > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+               
+               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         """
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
@@ -894,6 +901,8 @@ class _WindowsWebAppState:
     def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]]]:
         """
         One or more `storage_account` blocks as defined below.
+
+        > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         """
         return pulumi.get(self, "storage_accounts")
 
@@ -916,9 +925,6 @@ class _WindowsWebAppState:
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @virtual_network_subnet_id.setter
@@ -930,6 +936,8 @@ class _WindowsWebAppState:
     def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
         """
         The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+
+        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         """
         return pulumi.get(self, "zip_deploy_file")
 
@@ -1021,9 +1029,12 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+               
+               > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+               
+               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         """
         ...
     @overload
@@ -1230,9 +1241,12 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+               
+               > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
-        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+               
+               > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1510,6 +1524,8 @@ class WindowsWebApp(pulumi.CustomResource):
     def storage_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.WindowsWebAppStorageAccount']]]:
         """
         One or more `storage_account` blocks as defined below.
+
+        > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         """
         return pulumi.get(self, "storage_accounts")
 
@@ -1524,9 +1540,6 @@ class WindowsWebApp(pulumi.CustomResource):
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        """
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @property
@@ -1534,6 +1547,8 @@ class WindowsWebApp(pulumi.CustomResource):
     def zip_deploy_file(self) -> pulumi.Output[str]:
         """
         The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+
+        > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         """
         return pulumi.get(self, "zip_deploy_file")
 

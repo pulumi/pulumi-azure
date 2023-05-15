@@ -363,12 +363,16 @@ public class Insights extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the id of a log analytics workspace resource.
      * 
+     * &gt; **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
+     * 
      */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workspaceId;
 
     /**
      * @return Specifies the id of a log analytics workspace resource.
+     * 
+     * &gt; **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
      * 
      */
     public Output<Optional<String>> workspaceId() {

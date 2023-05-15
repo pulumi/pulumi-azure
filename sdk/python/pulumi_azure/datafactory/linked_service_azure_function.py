@@ -31,6 +31,8 @@ class LinkedServiceAzureFunctionArgs:
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] url: The url of the Azure Function.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
+               
+               The following supported arguments are specific to Azure Function Linked Service:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
@@ -87,6 +89,8 @@ class LinkedServiceAzureFunctionArgs:
     def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of additional properties to associate with the Data Factory Linked Service.
+
+        The following supported arguments are specific to Azure Function Linked Service:
         """
         return pulumi.get(self, "additional_properties")
 
@@ -195,6 +199,8 @@ class _LinkedServiceAzureFunctionState:
         """
         Input properties used for looking up and filtering LinkedServiceAzureFunction resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
+               
+               The following supported arguments are specific to Azure Function Linked Service:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
@@ -231,6 +237,8 @@ class _LinkedServiceAzureFunctionState:
     def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of additional properties to associate with the Data Factory Linked Service.
+
+        The following supported arguments are specific to Azure Function Linked Service:
         """
         return pulumi.get(self, "additional_properties")
 
@@ -395,6 +403,8 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
+               
+               The following supported arguments are specific to Azure Function Linked Service:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
@@ -518,6 +528,8 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
+               
+               The following supported arguments are specific to Azure Function Linked Service:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
@@ -549,6 +561,8 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
     def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of additional properties to associate with the Data Factory Linked Service.
+
+        The following supported arguments are specific to Azure Function Linked Service:
         """
         return pulumi.get(self, "additional_properties")
 

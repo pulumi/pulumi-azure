@@ -54,12 +54,16 @@ public final class SqlContainerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
      * 
+     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+     * 
      */
     @Import(name="autoscaleSettings")
     private @Nullable Output<SqlContainerAutoscaleSettingsArgs> autoscaleSettings;
 
     /**
      * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+     * 
+     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      * 
      */
     public Optional<Output<SqlContainerAutoscaleSettingsArgs>> autoscaleSettings() {
@@ -297,6 +301,8 @@ public final class SqlContainerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
          * 
+         * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+         * 
          * @return builder
          * 
          */
@@ -307,6 +313,8 @@ public final class SqlContainerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+         * 
+         * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
          * 
          * @return builder
          * 

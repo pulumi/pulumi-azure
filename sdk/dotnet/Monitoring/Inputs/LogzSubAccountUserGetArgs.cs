@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Monitoring.Inputs
     {
         /// <summary>
         /// Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+        /// 
+        /// &gt; **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
         /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;

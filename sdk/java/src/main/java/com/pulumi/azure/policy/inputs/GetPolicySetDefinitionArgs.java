@@ -18,12 +18,16 @@ public final class GetPolicySetDefinitionArgs extends com.pulumi.resources.Invok
     /**
      * Specifies the display name of the Policy Set Definition. Conflicts with `name`.
      * 
+     * **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
+     * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
      * @return Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+     * 
+     * **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -89,6 +93,8 @@ public final class GetPolicySetDefinitionArgs extends com.pulumi.resources.Invok
         /**
          * @param displayName Specifies the display name of the Policy Set Definition. Conflicts with `name`.
          * 
+         * **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
+         * 
          * @return builder
          * 
          */
@@ -99,6 +105,8 @@ public final class GetPolicySetDefinitionArgs extends com.pulumi.resources.Invok
 
         /**
          * @param displayName Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+         * 
+         * **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
          * 
          * @return builder
          * 

@@ -49,12 +49,20 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Subscription. Changing this forces a new Subscription to be created.
      * 
+     * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+     * 
+     * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+     * 
      */
     @Import(name="subscriptionId")
     private @Nullable Output<String> subscriptionId;
 
     /**
      * @return The ID of the Subscription. Changing this forces a new Subscription to be created.
+     * 
+     * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+     * 
+     * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
      * 
      */
     public Optional<Output<String>> subscriptionId() {
@@ -196,6 +204,10 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subscriptionId The ID of the Subscription. Changing this forces a new Subscription to be created.
          * 
+         * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+         * 
+         * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+         * 
          * @return builder
          * 
          */
@@ -206,6 +218,10 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subscriptionId The ID of the Subscription. Changing this forces a new Subscription to be created.
+         * 
+         * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+         * 
+         * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
          * 
          * @return builder
          * 

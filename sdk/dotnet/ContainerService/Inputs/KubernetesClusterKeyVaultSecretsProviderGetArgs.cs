@@ -32,6 +32,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
+        /// 
+        /// &gt; **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
         /// </summary>
         [Input("secretRotationInterval")]
         public Input<string>? SecretRotationInterval { get; set; }

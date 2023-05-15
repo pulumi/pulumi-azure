@@ -193,6 +193,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Should Storage Account access key be regenerated periodically?
+        /// 
+        /// &gt; **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
         /// </summary>
         [Output("regenerateKeyAutomatically")]
         public Output<bool?> RegenerateKeyAutomatically { get; private set; } = null!;
@@ -281,6 +283,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Should Storage Account access key be regenerated periodically?
+        /// 
+        /// &gt; **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
         /// </summary>
         [Input("regenerateKeyAutomatically")]
         public Input<bool>? RegenerateKeyAutomatically { get; set; }
@@ -337,6 +341,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Should Storage Account access key be regenerated periodically?
+        /// 
+        /// &gt; **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
         /// </summary>
         [Input("regenerateKeyAutomatically")]
         public Input<bool>? RegenerateKeyAutomatically { get; set; }

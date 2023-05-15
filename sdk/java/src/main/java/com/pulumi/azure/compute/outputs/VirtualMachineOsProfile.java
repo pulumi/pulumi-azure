@@ -14,6 +14,8 @@ public final class VirtualMachineOsProfile {
     /**
      * @return (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
      * 
+     * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
+     * 
      */
     private @Nullable String adminPassword;
     /**
@@ -35,6 +37,8 @@ public final class VirtualMachineOsProfile {
     private VirtualMachineOsProfile() {}
     /**
      * @return (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
+     * 
+     * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
      * 
      */
     public Optional<String> adminPassword() {

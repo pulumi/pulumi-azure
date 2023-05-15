@@ -104,6 +104,12 @@ type VirtualNetworkRule struct {
 	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrOutput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -154,6 +160,12 @@ type virtualNetworkRuleState struct {
 	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name *string `pulumi:"name"`
 	// The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -167,6 +179,12 @@ type VirtualNetworkRuleState struct {
 	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name pulumi.StringPtrInput
 	// The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -184,6 +202,12 @@ type virtualNetworkRuleArgs struct {
 	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name *string `pulumi:"name"`
 	// The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -198,6 +222,12 @@ type VirtualNetworkRuleArgs struct {
 	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name pulumi.StringPtrInput
 	// The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -300,6 +330,12 @@ func (o VirtualNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.Bool
 }
 
 // The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+//
+// 1. Contains only alphanumeric and hyphen characters
+// 2. Cannot start with a number or hyphen
+// 3. Cannot end with a hyphen
 func (o VirtualNetworkRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -69,6 +69,10 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+        /// 
+        /// &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         /// </summary>
         [Output("blobUri")]
         public Output<string?> BlobUri { get; private set; } = null!;
@@ -105,6 +109,10 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+        /// 
+        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         /// </summary>
         [Output("managedImageId")]
         public Output<string?> ManagedImageId { get; private set; } = null!;
@@ -117,6 +125,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         /// </summary>
         [Output("osDiskSnapshotId")]
         public Output<string?> OsDiskSnapshotId { get; private set; } = null!;
@@ -135,6 +145,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -199,6 +211,10 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+        /// 
+        /// &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         /// </summary>
         [Input("blobUri")]
         public Input<string>? BlobUri { get; set; }
@@ -235,6 +251,10 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+        /// 
+        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         /// </summary>
         [Input("managedImageId")]
         public Input<string>? ManagedImageId { get; set; }
@@ -247,6 +267,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         /// </summary>
         [Input("osDiskSnapshotId")]
         public Input<string>? OsDiskSnapshotId { get; set; }
@@ -265,6 +287,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -303,6 +327,10 @@ namespace Pulumi.Azure.Compute
     {
         /// <summary>
         /// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+        /// 
+        /// &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         /// </summary>
         [Input("blobUri")]
         public Input<string>? BlobUri { get; set; }
@@ -339,6 +367,10 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+        /// 
+        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         /// </summary>
         [Input("managedImageId")]
         public Input<string>? ManagedImageId { get; set; }
@@ -351,6 +383,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         /// </summary>
         [Input("osDiskSnapshotId")]
         public Input<string>? OsDiskSnapshotId { get; set; }
@@ -369,6 +403,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

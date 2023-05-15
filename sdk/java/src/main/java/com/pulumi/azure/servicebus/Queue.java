@@ -151,12 +151,16 @@ public class Queue extends com.pulumi.resources.CustomResource {
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
      * 
+     * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
+     * 
      */
     @Export(name="enableExpress", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableExpress;
 
     /**
      * @return Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
+     * 
+     * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
      * 
      */
     public Output<Optional<Boolean>> enableExpress() {
@@ -165,12 +169,16 @@ public class Queue extends com.pulumi.resources.CustomResource {
     /**
      * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
      * 
+     * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+     * 
      */
     @Export(name="enablePartitioning", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePartitioning;
 
     /**
      * @return Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
+     * 
+     * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
      * 
      */
     public Output<Optional<Boolean>> enablePartitioning() {

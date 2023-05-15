@@ -151,12 +151,16 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+        /// 
+        /// &gt; **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
         /// </summary>
         [Output("queryPeriod")]
         public Output<string?> QueryPeriod { get; private set; } = null!;
 
         /// <summary>
         /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// 
+        /// &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         /// </summary>
         [Output("sentinelEntityMappings")]
         public Output<ImmutableArray<Outputs.AlertRuleScheduledSentinelEntityMapping>> SentinelEntityMappings { get; private set; } = null!;
@@ -169,6 +173,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+        /// 
+        /// &gt; **NOTE** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
         /// </summary>
         [Output("suppressionDuration")]
         public Output<string?> SuppressionDuration { get; private set; } = null!;
@@ -353,6 +359,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+        /// 
+        /// &gt; **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
         /// </summary>
         [Input("queryPeriod")]
         public Input<string>? QueryPeriod { get; set; }
@@ -362,6 +370,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// 
+        /// &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         /// </summary>
         public InputList<Inputs.AlertRuleScheduledSentinelEntityMappingArgs> SentinelEntityMappings
         {
@@ -377,6 +387,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+        /// 
+        /// &gt; **NOTE** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
         /// </summary>
         [Input("suppressionDuration")]
         public Input<string>? SuppressionDuration { get; set; }
@@ -535,6 +547,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
+        /// 
+        /// &gt; **NOTE** `query_period` must larger than or equal to `query_frequency`, which ensures there is no gaps in the overall query coverage.
         /// </summary>
         [Input("queryPeriod")]
         public Input<string>? QueryPeriod { get; set; }
@@ -544,6 +558,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// A list of `sentinel_entity_mapping` blocks as defined below.
+        /// 
+        /// &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         /// </summary>
         public InputList<Inputs.AlertRuleScheduledSentinelEntityMappingGetArgs> SentinelEntityMappings
         {
@@ -559,6 +575,8 @@ namespace Pulumi.Azure.Sentinel
 
         /// <summary>
         /// If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
+        /// 
+        /// &gt; **NOTE** `suppression_duration` must larger than or equal to `query_frequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
         /// </summary>
         [Input("suppressionDuration")]
         public Input<string>? SuppressionDuration { get; set; }

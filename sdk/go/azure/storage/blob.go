@@ -90,8 +90,12 @@ type Blob struct {
 	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
 	Parallelism pulumi.IntPtrOutput `pulumi:"parallelism"`
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `size` is required if `sourceUri` is not set.
 	Size pulumi.IntPtrOutput `pulumi:"size"`
 	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchiveOutput `pulumi:"source"`
@@ -161,8 +165,12 @@ type blobState struct {
 	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
 	Parallelism *int `pulumi:"parallelism"`
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `size` is required if `sourceUri` is not set.
 	Size *int `pulumi:"size"`
 	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchive `pulumi:"source"`
@@ -195,8 +203,12 @@ type BlobState struct {
 	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
 	Parallelism pulumi.IntPtrInput
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `size` is required if `sourceUri` is not set.
 	Size pulumi.IntPtrInput
 	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchiveInput
@@ -233,8 +245,12 @@ type blobArgs struct {
 	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
 	Parallelism *int `pulumi:"parallelism"`
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `size` is required if `sourceUri` is not set.
 	Size *int `pulumi:"size"`
 	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchive `pulumi:"source"`
@@ -266,8 +282,12 @@ type BlobArgs struct {
 	// The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
 	Parallelism pulumi.IntPtrInput
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `size` is required if `sourceUri` is not set.
 	Size pulumi.IntPtrInput
 	// An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
 	Source pulumi.AssetOrArchiveInput
@@ -402,11 +422,15 @@ func (o BlobOutput) Name() pulumi.StringOutput {
 }
 
 // The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15).
 func (o BlobOutput) Parallelism() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Blob) pulumi.IntPtrOutput { return v.Parallelism }).(pulumi.IntPtrOutput)
 }
 
 // Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
+//
+// > **Note:** `size` is required if `sourceUri` is not set.
 func (o BlobOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Blob) pulumi.IntPtrOutput { return v.Size }).(pulumi.IntPtrOutput)
 }

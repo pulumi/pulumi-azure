@@ -84,10 +84,14 @@ type AutomationRule struct {
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents AutomationRuleActionIncidentArrayOutput `pulumi:"actionIncidents"`
 	// One or more `actionPlaybook` blocks as defined below.
+	//
+	// > **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
 	ActionPlaybooks AutomationRuleActionPlaybookArrayOutput `pulumi:"actionPlaybooks"`
 	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
 	ConditionJson pulumi.StringOutput `pulumi:"conditionJson"`
 	// One or more `condition` blocks as defined below.
+	//
+	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
 	//
 	// Deprecated: This is deprecated in favor of `condition_json`
 	Conditions AutomationRuleConditionArrayOutput `pulumi:"conditions"`
@@ -156,10 +160,14 @@ type automationRuleState struct {
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents []AutomationRuleActionIncident `pulumi:"actionIncidents"`
 	// One or more `actionPlaybook` blocks as defined below.
+	//
+	// > **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
 	ActionPlaybooks []AutomationRuleActionPlaybook `pulumi:"actionPlaybooks"`
 	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
 	ConditionJson *string `pulumi:"conditionJson"`
 	// One or more `condition` blocks as defined below.
+	//
+	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
 	//
 	// Deprecated: This is deprecated in favor of `condition_json`
 	Conditions []AutomationRuleCondition `pulumi:"conditions"`
@@ -185,10 +193,14 @@ type AutomationRuleState struct {
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents AutomationRuleActionIncidentArrayInput
 	// One or more `actionPlaybook` blocks as defined below.
+	//
+	// > **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
 	ActionPlaybooks AutomationRuleActionPlaybookArrayInput
 	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
 	ConditionJson pulumi.StringPtrInput
 	// One or more `condition` blocks as defined below.
+	//
+	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
 	//
 	// Deprecated: This is deprecated in favor of `condition_json`
 	Conditions AutomationRuleConditionArrayInput
@@ -218,10 +230,14 @@ type automationRuleArgs struct {
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents []AutomationRuleActionIncident `pulumi:"actionIncidents"`
 	// One or more `actionPlaybook` blocks as defined below.
+	//
+	// > **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
 	ActionPlaybooks []AutomationRuleActionPlaybook `pulumi:"actionPlaybooks"`
 	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
 	ConditionJson *string `pulumi:"conditionJson"`
 	// One or more `condition` blocks as defined below.
+	//
+	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
 	//
 	// Deprecated: This is deprecated in favor of `condition_json`
 	Conditions []AutomationRuleCondition `pulumi:"conditions"`
@@ -248,10 +264,14 @@ type AutomationRuleArgs struct {
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents AutomationRuleActionIncidentArrayInput
 	// One or more `actionPlaybook` blocks as defined below.
+	//
+	// > **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
 	ActionPlaybooks AutomationRuleActionPlaybookArrayInput
 	// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
 	ConditionJson pulumi.StringPtrInput
 	// One or more `condition` blocks as defined below.
+	//
+	// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
 	//
 	// Deprecated: This is deprecated in favor of `condition_json`
 	Conditions AutomationRuleConditionArrayInput
@@ -366,6 +386,8 @@ func (o AutomationRuleOutput) ActionIncidents() AutomationRuleActionIncidentArra
 }
 
 // One or more `actionPlaybook` blocks as defined below.
+//
+// > **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
 func (o AutomationRuleOutput) ActionPlaybooks() AutomationRuleActionPlaybookArrayOutput {
 	return o.ApplyT(func(v *AutomationRule) AutomationRuleActionPlaybookArrayOutput { return v.ActionPlaybooks }).(AutomationRuleActionPlaybookArrayOutput)
 }
@@ -376,6 +398,8 @@ func (o AutomationRuleOutput) ConditionJson() pulumi.StringOutput {
 }
 
 // One or more `condition` blocks as defined below.
+//
+// > **Note:** `condition` only supports the [`Property` condition type](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#propertyconditionproperties). Please use `conditionJson` if you want other condition types.
 //
 // Deprecated: This is deprecated in favor of `condition_json`
 func (o AutomationRuleOutput) Conditions() AutomationRuleConditionArrayOutput {

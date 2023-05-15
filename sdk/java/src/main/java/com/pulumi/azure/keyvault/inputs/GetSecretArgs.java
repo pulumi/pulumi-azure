@@ -48,12 +48,16 @@ public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
      * 
+     * **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+     * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
      * @return Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+     * 
+     * **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
      * 
      */
     public Optional<Output<String>> version() {
@@ -131,6 +135,8 @@ public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param version Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
          * 
+         * **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+         * 
          * @return builder
          * 
          */
@@ -141,6 +147,8 @@ public final class GetSecretArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param version Specifies the version of the Key Vault Secret. Defaults to the current version of the Key Vault Secret.
+         * 
+         * **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
          * 
          * @return builder
          * 

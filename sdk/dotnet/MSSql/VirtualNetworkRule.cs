@@ -82,6 +82,8 @@ namespace Pulumi.Azure.MSSql
     {
         /// <summary>
         /// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         /// </summary>
         [Output("ignoreMissingVnetServiceEndpoint")]
         public Output<bool?> IgnoreMissingVnetServiceEndpoint { get; private set; } = null!;
@@ -152,6 +154,8 @@ namespace Pulumi.Azure.MSSql
     {
         /// <summary>
         /// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         /// </summary>
         [Input("ignoreMissingVnetServiceEndpoint")]
         public Input<bool>? IgnoreMissingVnetServiceEndpoint { get; set; }
@@ -184,6 +188,8 @@ namespace Pulumi.Azure.MSSql
     {
         /// <summary>
         /// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         /// </summary>
         [Input("ignoreMissingVnetServiceEndpoint")]
         public Input<bool>? IgnoreMissingVnetServiceEndpoint { get; set; }

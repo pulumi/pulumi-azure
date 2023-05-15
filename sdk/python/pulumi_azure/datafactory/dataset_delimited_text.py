@@ -42,6 +42,8 @@ class DatasetDelimitedTextArgs:
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
+               
+               The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs'] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
         :param pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs'] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
@@ -54,6 +56,8 @@ class DatasetDelimitedTextArgs:
         :param pulumi.Input[bool] first_row_as_header: When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs'] http_server_location: A `http_server_location` block as defined below.
+               
+               The following supported arguments are specific to Delimited Text Dataset:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string. Defaults to `""`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
@@ -131,6 +135,8 @@ class DatasetDelimitedTextArgs:
     def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset.
+
+        The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
         """
         return pulumi.get(self, "additional_properties")
 
@@ -275,6 +281,8 @@ class DatasetDelimitedTextArgs:
     def http_server_location(self) -> Optional[pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs']]:
         """
         A `http_server_location` block as defined below.
+
+        The following supported arguments are specific to Delimited Text Dataset:
         """
         return pulumi.get(self, "http_server_location")
 
@@ -382,6 +390,8 @@ class _DatasetDelimitedTextState:
         """
         Input properties used for looking up and filtering DatasetDelimitedText resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
+               
+               The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs'] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
         :param pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs'] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
@@ -395,6 +405,8 @@ class _DatasetDelimitedTextState:
         :param pulumi.Input[bool] first_row_as_header: When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs'] http_server_location: A `http_server_location` block as defined below.
+               
+               The following supported arguments are specific to Delimited Text Dataset:
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string. Defaults to `""`.
@@ -451,6 +463,8 @@ class _DatasetDelimitedTextState:
     def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset.
+
+        The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
         """
         return pulumi.get(self, "additional_properties")
 
@@ -607,6 +621,8 @@ class _DatasetDelimitedTextState:
     def http_server_location(self) -> Optional[pulumi.Input['DatasetDelimitedTextHttpServerLocationArgs']]:
         """
         A `http_server_location` block as defined below.
+
+        The following supported arguments are specific to Delimited Text Dataset:
         """
         return pulumi.get(self, "http_server_location")
 
@@ -771,6 +787,8 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
+               
+               The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
@@ -784,6 +802,8 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[bool] first_row_as_header: When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
+               
+               The following supported arguments are specific to Delimited Text Dataset:
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string. Defaults to `""`.
@@ -949,6 +969,8 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
+               
+               The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
@@ -962,6 +984,8 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[bool] first_row_as_header: When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
+               
+               The following supported arguments are specific to Delimited Text Dataset:
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] null_value: The null value string. Defaults to an empty string. Defaults to `""`.
@@ -1002,6 +1026,8 @@ class DatasetDelimitedText(pulumi.CustomResource):
     def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of additional properties to associate with the Data Factory Dataset.
+
+        The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
         """
         return pulumi.get(self, "additional_properties")
 
@@ -1106,6 +1132,8 @@ class DatasetDelimitedText(pulumi.CustomResource):
     def http_server_location(self) -> pulumi.Output[Optional['outputs.DatasetDelimitedTextHttpServerLocation']]:
         """
         A `http_server_location` block as defined below.
+
+        The following supported arguments are specific to Delimited Text Dataset:
         """
         return pulumi.get(self, "http_server_location")
 

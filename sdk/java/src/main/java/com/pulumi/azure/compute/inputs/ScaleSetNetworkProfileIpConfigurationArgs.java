@@ -51,12 +51,16 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
     /**
      * Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
      * 
+     * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+     * 
      */
     @Import(name="loadBalancerBackendAddressPoolIds")
     private @Nullable Output<List<String>> loadBalancerBackendAddressPoolIds;
 
     /**
      * @return Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+     * 
+     * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
      * 
      */
     public Optional<Output<List<String>>> loadBalancerBackendAddressPoolIds() {
@@ -66,12 +70,16 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
     /**
      * Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
      * 
+     * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+     * 
      */
     @Import(name="loadBalancerInboundNatRulesIds")
     private @Nullable Output<List<String>> loadBalancerInboundNatRulesIds;
 
     /**
      * @return Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+     * 
+     * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
      * 
      */
     public Optional<Output<List<String>>> loadBalancerInboundNatRulesIds() {
@@ -234,6 +242,8 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
         /**
          * @param loadBalancerBackendAddressPoolIds Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
          * 
+         * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+         * 
          * @return builder
          * 
          */
@@ -245,6 +255,8 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
         /**
          * @param loadBalancerBackendAddressPoolIds Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
          * 
+         * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+         * 
          * @return builder
          * 
          */
@@ -255,6 +267,8 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
         /**
          * @param loadBalancerBackendAddressPoolIds Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
          * 
+         * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+         * 
          * @return builder
          * 
          */
@@ -264,6 +278,8 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
 
         /**
          * @param loadBalancerInboundNatRulesIds Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+         * 
+         * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
          * 
          * @return builder
          * 
@@ -276,6 +292,8 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
         /**
          * @param loadBalancerInboundNatRulesIds Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
          * 
+         * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+         * 
          * @return builder
          * 
          */
@@ -285,6 +303,8 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
 
         /**
          * @param loadBalancerInboundNatRulesIds Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+         * 
+         * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
          * 
          * @return builder
          * 

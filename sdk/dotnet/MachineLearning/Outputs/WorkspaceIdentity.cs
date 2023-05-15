@@ -15,6 +15,8 @@ namespace Pulumi.Azure.MachineLearning.Outputs
     {
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

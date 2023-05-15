@@ -23,10 +23,14 @@ func LookupRoleDefinition(ctx *pulumi.Context, args *LookupRoleDefinitionArgs, o
 // A collection of arguments for invoking getRoleDefinition.
 type LookupRoleDefinitionArgs struct {
 	// Specifies the Name of either a built-in or custom Role Definition.
+	//
+	// > You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the Role Definition as a UUID/GUID.
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
 	// Specifies the Scope at which the Custom Role Definition exists.
+	//
+	// > **Note:** One of `name` or `roleDefinitionId` must be specified.
 	Scope *string `pulumi:"scope"`
 }
 
@@ -63,10 +67,14 @@ func LookupRoleDefinitionOutput(ctx *pulumi.Context, args LookupRoleDefinitionOu
 // A collection of arguments for invoking getRoleDefinition.
 type LookupRoleDefinitionOutputArgs struct {
 	// Specifies the Name of either a built-in or custom Role Definition.
+	//
+	// > You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Specifies the ID of the Role Definition as a UUID/GUID.
 	RoleDefinitionId pulumi.StringPtrInput `pulumi:"roleDefinitionId"`
 	// Specifies the Scope at which the Custom Role Definition exists.
+	//
+	// > **Note:** One of `name` or `roleDefinitionId` must be specified.
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
 }
 

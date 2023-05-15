@@ -15,6 +15,8 @@ namespace Pulumi.Azure.LogicApps.Outputs
     {
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

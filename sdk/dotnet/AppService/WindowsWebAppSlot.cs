@@ -178,7 +178,7 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.WindowsWebAppSlotLogs?> Logs { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        /// The Site Credentials Username used for publishing.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -227,6 +227,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// One or more `storage_account` blocks as defined below.
+        /// 
+        /// &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         /// </summary>
         [Output("storageAccounts")]
         public Output<ImmutableArray<Outputs.WindowsWebAppSlotStorageAccount>> StorageAccounts { get; private set; } = null!;
@@ -237,9 +239,6 @@ namespace Pulumi.Azure.AppService
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
@@ -403,7 +402,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.WindowsWebAppSlotLogsArgs>? Logs { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        /// The Site Credentials Username used for publishing.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -425,6 +424,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// One or more `storage_account` blocks as defined below.
+        /// 
+        /// &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         /// </summary>
         public InputList<Inputs.WindowsWebAppSlotStorageAccountArgs> StorageAccounts
         {
@@ -444,9 +445,6 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
@@ -601,7 +599,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.WindowsWebAppSlotLogsGetArgs>? Logs { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+        /// The Site Credentials Username used for publishing.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -675,6 +673,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// One or more `storage_account` blocks as defined below.
+        /// 
+        /// &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         /// </summary>
         public InputList<Inputs.WindowsWebAppSlotStorageAccountGetArgs> StorageAccounts
         {
@@ -694,9 +694,6 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 

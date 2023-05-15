@@ -15,6 +15,8 @@ namespace Pulumi.Azure.Iot.Outputs
     {
         /// <summary>
         /// The number of provisioned IoT Hub units.
+        /// 
+        /// &gt; **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
         /// </summary>
         public readonly int Capacity;
         /// <summary>

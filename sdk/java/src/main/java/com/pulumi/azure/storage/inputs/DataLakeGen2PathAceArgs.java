@@ -30,17 +30,9 @@ public final class DataLakeGen2PathAceArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
-     * 
-     */
     @Import(name="permissions", required=true)
     private Output<String> permissions;
 
-    /**
-     * @return Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
-     * 
-     */
     public Output<String> permissions() {
         return this.permissions;
     }
@@ -123,23 +115,11 @@ public final class DataLakeGen2PathAceArgs extends com.pulumi.resources.Resource
             return id(Output.of(id));
         }
 
-        /**
-         * @param permissions Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(Output<String> permissions) {
             $.permissions = permissions;
             return this;
         }
 
-        /**
-         * @param permissions Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissions(String permissions) {
             return permissions(Output.of(permissions));
         }

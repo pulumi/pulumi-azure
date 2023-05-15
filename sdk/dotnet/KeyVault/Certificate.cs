@@ -294,6 +294,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         /// </summary>
         [Output("certificatePolicy")]
         public Output<Outputs.CertificateCertificatePolicy> CertificatePolicy { get; private set; } = null!;
@@ -416,6 +418,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         /// </summary>
         [Input("certificatePolicy")]
         public Input<Inputs.CertificateCertificatePolicyArgs>? CertificatePolicy { get; set; }
@@ -484,6 +488,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// A `certificate_policy` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         /// </summary>
         [Input("certificatePolicy")]
         public Input<Inputs.CertificateCertificatePolicyGetArgs>? CertificatePolicy { get; set; }

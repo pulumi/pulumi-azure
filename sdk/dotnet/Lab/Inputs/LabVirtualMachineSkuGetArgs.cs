@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Lab.Inputs
     {
         /// <summary>
         /// The capacity for the SKU. Possible values are between `0` and `400`.
+        /// 
+        /// &gt; **NOTE:** Once `active_directory_group_id` is enabled, `capacity` wouldn't take effect, and it would be automatically set to the number of members in AAD Group by service API. So it has to use `ignore_changes` to avoid the difference of tf plan.
         /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;

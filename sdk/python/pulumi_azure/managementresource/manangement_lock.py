@@ -21,6 +21,8 @@ class ManangementLockArgs:
         """
         The set of arguments for constructing a ManangementLock resource.
         :param pulumi.Input[str] lock_level: Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+               
+               > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[str] scope: Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Management Lock. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notes: Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
@@ -37,6 +39,8 @@ class ManangementLockArgs:
     def lock_level(self) -> pulumi.Input[str]:
         """
         Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+
+        > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
         """
         return pulumi.get(self, "lock_level")
 
@@ -91,6 +95,8 @@ class _ManangementLockState:
         """
         Input properties used for looking up and filtering ManangementLock resources.
         :param pulumi.Input[str] lock_level: Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+               
+               > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[str] name: Specifies the name of the Management Lock. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notes: Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
@@ -109,6 +115,8 @@ class _ManangementLockState:
     def lock_level(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+
+        > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
         """
         return pulumi.get(self, "lock_level")
 
@@ -225,6 +233,8 @@ class ManangementLock(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] lock_level: Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+               
+               > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[str] name: Specifies the name of the Management Lock. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notes: Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
@@ -348,6 +358,8 @@ class ManangementLock(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] lock_level: Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+               
+               > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[str] name: Specifies the name of the Management Lock. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notes: Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
@@ -367,6 +379,8 @@ class ManangementLock(pulumi.CustomResource):
     def lock_level(self) -> pulumi.Output[str]:
         """
         Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+
+        > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
         """
         return pulumi.get(self, "lock_level")
 

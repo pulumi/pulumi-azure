@@ -130,6 +130,8 @@ export class Module extends pulumi.CustomResource {
     public readonly location!: pulumi.Output<string>;
     /**
      * A `managementNetworkProfile` block as defined below.
+     *
+     * ->**NOTE:**  The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
      */
     public readonly managementNetworkProfile!: pulumi.Output<outputs.hsm.ModuleManagementNetworkProfile | undefined>;
     /**
@@ -219,6 +221,8 @@ export interface ModuleState {
     location?: pulumi.Input<string>;
     /**
      * A `managementNetworkProfile` block as defined below.
+     *
+     * ->**NOTE:**  The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
      */
     managementNetworkProfile?: pulumi.Input<inputs.hsm.ModuleManagementNetworkProfile>;
     /**
@@ -261,6 +265,8 @@ export interface ModuleArgs {
     location?: pulumi.Input<string>;
     /**
      * A `managementNetworkProfile` block as defined below.
+     *
+     * ->**NOTE:**  The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
      */
     managementNetworkProfile?: pulumi.Input<inputs.hsm.ModuleManagementNetworkProfile>;
     /**

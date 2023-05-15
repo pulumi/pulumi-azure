@@ -141,10 +141,14 @@ type ServiceCustomCertificate struct {
 	// The certificate version of the SignalR Custom Certificate service.
 	CertificateVersion pulumi.StringOutput `pulumi:"certificateVersion"`
 	// The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
 	CustomCertificateId pulumi.StringOutput `pulumi:"customCertificateId"`
 	// The name of the SignalR Custom Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
 	SignalrServiceId pulumi.StringOutput `pulumi:"signalrServiceId"`
 }
 
@@ -186,10 +190,14 @@ type serviceCustomCertificateState struct {
 	// The certificate version of the SignalR Custom Certificate service.
 	CertificateVersion *string `pulumi:"certificateVersion"`
 	// The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
 	CustomCertificateId *string `pulumi:"customCertificateId"`
 	// The name of the SignalR Custom Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
 	SignalrServiceId *string `pulumi:"signalrServiceId"`
 }
 
@@ -197,10 +205,14 @@ type ServiceCustomCertificateState struct {
 	// The certificate version of the SignalR Custom Certificate service.
 	CertificateVersion pulumi.StringPtrInput
 	// The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
 	CustomCertificateId pulumi.StringPtrInput
 	// The name of the SignalR Custom Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
 	SignalrServiceId pulumi.StringPtrInput
 }
 
@@ -210,20 +222,28 @@ func (ServiceCustomCertificateState) ElementType() reflect.Type {
 
 type serviceCustomCertificateArgs struct {
 	// The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
 	CustomCertificateId string `pulumi:"customCertificateId"`
 	// The name of the SignalR Custom Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
 	SignalrServiceId string `pulumi:"signalrServiceId"`
 }
 
 // The set of arguments for constructing a ServiceCustomCertificate resource.
 type ServiceCustomCertificateArgs struct {
 	// The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
 	CustomCertificateId pulumi.StringInput
 	// The name of the SignalR Custom Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
 	SignalrServiceId pulumi.StringInput
 }
 
@@ -320,6 +340,8 @@ func (o ServiceCustomCertificateOutput) CertificateVersion() pulumi.StringOutput
 }
 
 // The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+//
+// > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
 func (o ServiceCustomCertificateOutput) CustomCertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceCustomCertificate) pulumi.StringOutput { return v.CustomCertificateId }).(pulumi.StringOutput)
 }
@@ -330,6 +352,8 @@ func (o ServiceCustomCertificateOutput) Name() pulumi.StringOutput {
 }
 
 // The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+//
+// > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
 func (o ServiceCustomCertificateOutput) SignalrServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceCustomCertificate) pulumi.StringOutput { return v.SignalrServiceId }).(pulumi.StringOutput)
 }

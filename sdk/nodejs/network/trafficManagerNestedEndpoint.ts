@@ -117,6 +117,8 @@ export class TrafficManagerNestedEndpoint extends pulumi.CustomResource {
     public readonly geoMappings!: pulumi.Output<string[] | undefined>;
     /**
      * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
+     *
+     * ~>**NOTE:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
      */
     public readonly minimumChildEndpoints!: pulumi.Output<number>;
     /**
@@ -230,6 +232,8 @@ export interface TrafficManagerNestedEndpointState {
     geoMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
+     *
+     * ~>**NOTE:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
      */
     minimumChildEndpoints?: pulumi.Input<number>;
     /**
@@ -288,6 +292,8 @@ export interface TrafficManagerNestedEndpointArgs {
     geoMappings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
+     *
+     * ~>**NOTE:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
      */
     minimumChildEndpoints: pulumi.Input<number>;
     /**

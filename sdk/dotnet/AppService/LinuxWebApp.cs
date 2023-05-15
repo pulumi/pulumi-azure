@@ -172,7 +172,7 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.LinuxWebAppLogs?> Logs { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        /// The Site Credentials Username used for publishing.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -243,14 +243,13 @@ namespace Pulumi.Azure.AppService
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+        /// 
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         /// </summary>
         [Output("zipDeployFile")]
         public Output<string> ZipDeployFile { get; private set; } = null!;
@@ -409,7 +408,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.LinuxWebAppLogsArgs>? Logs { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        /// The Site Credentials Username used for publishing.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -462,14 +461,13 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+        /// 
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         /// </summary>
         [Input("zipDeployFile")]
         public Input<string>? ZipDeployFile { get; set; }
@@ -619,7 +617,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.LinuxWebAppLogsGetArgs>? Logs { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        /// The Site Credentials Username used for publishing.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -724,14 +722,13 @@ namespace Pulumi.Azure.AppService
             set => _tags = value;
         }
 
-        /// <summary>
-        /// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-        /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
         /// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
+        /// 
+        /// &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
         /// </summary>
         [Input("zipDeployFile")]
         public Input<string>? ZipDeployFile { get; set; }

@@ -146,12 +146,16 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
     /**
      * A `event_grouping` block as defined below.
      * 
+     * &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
+     * 
      */
     @Import(name="eventGrouping")
     private @Nullable Output<AlertRuleNrtEventGroupingArgs> eventGrouping;
 
     /**
      * @return A `event_grouping` block as defined below.
+     * 
+     * &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
      * 
      */
     public Optional<Output<AlertRuleNrtEventGroupingArgs>> eventGrouping() {
@@ -221,12 +225,16 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of `sentinel_entity_mapping` blocks as defined below.
      * 
+     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+     * 
      */
     @Import(name="sentinelEntityMappings")
     private @Nullable Output<List<AlertRuleNrtSentinelEntityMappingArgs>> sentinelEntityMappings;
 
     /**
      * @return A list of `sentinel_entity_mapping` blocks as defined below.
+     * 
+     * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
      * 
      */
     public Optional<Output<List<AlertRuleNrtSentinelEntityMappingArgs>>> sentinelEntityMappings() {
@@ -541,6 +549,8 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param eventGrouping A `event_grouping` block as defined below.
          * 
+         * &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
+         * 
          * @return builder
          * 
          */
@@ -551,6 +561,8 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param eventGrouping A `event_grouping` block as defined below.
+         * 
+         * &gt; **NOTE:** `event_grouping` will be required in the next major version of the AzureRM Provider.
          * 
          * @return builder
          * 
@@ -646,6 +658,8 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
          * 
+         * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+         * 
          * @return builder
          * 
          */
@@ -657,6 +671,8 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
          * 
+         * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
+         * 
          * @return builder
          * 
          */
@@ -666,6 +682,8 @@ public final class AlertRuleNrtState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param sentinelEntityMappings A list of `sentinel_entity_mapping` blocks as defined below.
+         * 
+         * &gt; **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can&#39;t exceed 5.
          * 
          * @return builder
          * 

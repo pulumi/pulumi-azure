@@ -36,14 +36,20 @@ class CacheArgs:
         """
         The set of arguments for constructing a Cache resource.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input['CacheDirectoryActiveDirectoryArgs'] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input['CacheDirectoryFlatFileArgs'] directory_flat_file: A `directory_flat_file` block as defined below.
         :param pulumi.Input['CacheDirectoryLdapArgs'] directory_ldap: A `directory_ldap` block as defined below.
+               
+               > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
         :param pulumi.Input['CacheDnsArgs'] dns: A `dns` block as defined below.
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
@@ -89,6 +95,8 @@ class CacheArgs:
     def cache_size_in_gb(self) -> pulumi.Input[int]:
         """
         The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         """
         return pulumi.get(self, "cache_size_in_gb")
 
@@ -113,6 +121,8 @@ class CacheArgs:
     def sku_name(self) -> pulumi.Input[str]:
         """
         The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+
+        > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -185,6 +195,8 @@ class CacheArgs:
     def directory_ldap(self) -> Optional[pulumi.Input['CacheDirectoryLdapArgs']]:
         """
         A `directory_ldap` block as defined below.
+
+        > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
         """
         return pulumi.get(self, "directory_ldap")
 
@@ -314,10 +326,14 @@ class _CacheState:
         Input properties used for looking up and filtering Cache resources.
         :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input['CacheDirectoryActiveDirectoryArgs'] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input['CacheDirectoryFlatFileArgs'] directory_flat_file: A `directory_flat_file` block as defined below.
         :param pulumi.Input['CacheDirectoryLdapArgs'] directory_ldap: A `directory_ldap` block as defined below.
+               
+               > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
         :param pulumi.Input['CacheDnsArgs'] dns: A `dns` block as defined below.
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
@@ -328,6 +344,8 @@ class _CacheState:
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the HPC Cache.
         """
@@ -385,6 +403,8 @@ class _CacheState:
     def cache_size_in_gb(self) -> Optional[pulumi.Input[int]]:
         """
         The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         """
         return pulumi.get(self, "cache_size_in_gb")
 
@@ -433,6 +453,8 @@ class _CacheState:
     def directory_ldap(self) -> Optional[pulumi.Input['CacheDirectoryLdapArgs']]:
         """
         A `directory_ldap` block as defined below.
+
+        > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
         """
         return pulumi.get(self, "directory_ldap")
 
@@ -553,6 +575,8 @@ class _CacheState:
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
         The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+
+        > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -648,10 +672,14 @@ class Cache(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']] directory_flat_file: A `directory_flat_file` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']] directory_ldap: A `directory_ldap` block as defined below.
+               
+               > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
         :param pulumi.Input[pulumi.InputType['CacheDnsArgs']] dns: A `dns` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
@@ -661,6 +689,8 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the HPC Cache.
         """
@@ -810,10 +840,14 @@ class Cache(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']] directory_flat_file: A `directory_flat_file` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']] directory_ldap: A `directory_ldap` block as defined below.
+               
+               > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
         :param pulumi.Input[pulumi.InputType['CacheDnsArgs']] dns: A `dns` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
@@ -824,6 +858,8 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the HPC Cache.
         """
@@ -864,6 +900,8 @@ class Cache(pulumi.CustomResource):
     def cache_size_in_gb(self) -> pulumi.Output[int]:
         """
         The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         """
         return pulumi.get(self, "cache_size_in_gb")
 
@@ -896,6 +934,8 @@ class Cache(pulumi.CustomResource):
     def directory_ldap(self) -> pulumi.Output[Optional['outputs.CacheDirectoryLdap']]:
         """
         A `directory_ldap` block as defined below.
+
+        > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
         """
         return pulumi.get(self, "directory_ldap")
 
@@ -976,6 +1016,8 @@ class Cache(pulumi.CustomResource):
     def sku_name(self) -> pulumi.Output[str]:
         """
         The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
+
+        > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         """
         return pulumi.get(self, "sku_name")
 

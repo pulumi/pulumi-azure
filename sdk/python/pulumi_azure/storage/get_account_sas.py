@@ -206,6 +206,8 @@ def get_account_sas(connection_string: Optional[str] = None,
 
     :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `storage.Account` resource.
     :param str expiry: The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
+           
+           > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
     :param bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
     :param str ip_addresses: IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
     :param pulumi.InputType['GetAccountSASPermissionsArgs'] permissions: A `permissions` block as defined below.
@@ -309,6 +311,8 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
 
     :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `storage.Account` resource.
     :param str expiry: The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
+           
+           > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
     :param bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
     :param str ip_addresses: IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
     :param pulumi.InputType['GetAccountSASPermissionsArgs'] permissions: A `permissions` block as defined below.

@@ -99,12 +99,20 @@ type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 
 	// The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group where the MariaDB server resides. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The name of the SQL Server to which this MariaDB virtual network rule will be applied to. Changing this forces a new resource to be created.
 	ServerName pulumi.StringOutput `pulumi:"serverName"`
 	// The ID of the subnet that the MariaDB server will be connected to.
+	//
+	// > **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignoreMissingVnetServiceEndpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
 
@@ -147,23 +155,39 @@ func GetVirtualNetworkRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VirtualNetworkRule resources.
 type virtualNetworkRuleState struct {
 	// The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name *string `pulumi:"name"`
 	// The name of the resource group where the MariaDB server resides. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The name of the SQL Server to which this MariaDB virtual network rule will be applied to. Changing this forces a new resource to be created.
 	ServerName *string `pulumi:"serverName"`
 	// The ID of the subnet that the MariaDB server will be connected to.
+	//
+	// > **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignoreMissingVnetServiceEndpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
 	SubnetId *string `pulumi:"subnetId"`
 }
 
 type VirtualNetworkRuleState struct {
 	// The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name pulumi.StringPtrInput
 	// The name of the resource group where the MariaDB server resides. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The name of the SQL Server to which this MariaDB virtual network rule will be applied to. Changing this forces a new resource to be created.
 	ServerName pulumi.StringPtrInput
 	// The ID of the subnet that the MariaDB server will be connected to.
+	//
+	// > **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignoreMissingVnetServiceEndpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
 	SubnetId pulumi.StringPtrInput
 }
 
@@ -173,24 +197,40 @@ func (VirtualNetworkRuleState) ElementType() reflect.Type {
 
 type virtualNetworkRuleArgs struct {
 	// The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name *string `pulumi:"name"`
 	// The name of the resource group where the MariaDB server resides. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SQL Server to which this MariaDB virtual network rule will be applied to. Changing this forces a new resource to be created.
 	ServerName string `pulumi:"serverName"`
 	// The ID of the subnet that the MariaDB server will be connected to.
+	//
+	// > **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignoreMissingVnetServiceEndpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
 	SubnetId string `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a VirtualNetworkRule resource.
 type VirtualNetworkRuleArgs struct {
 	// The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+	//
+	// 1. Contains only alphanumeric and hyphen characters
+	// 2. Cannot start with a number or hyphen
+	// 3. Cannot end with a hyphen
 	Name pulumi.StringPtrInput
 	// The name of the resource group where the MariaDB server resides. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The name of the SQL Server to which this MariaDB virtual network rule will be applied to. Changing this forces a new resource to be created.
 	ServerName pulumi.StringInput
 	// The ID of the subnet that the MariaDB server will be connected to.
+	//
+	// > **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignoreMissingVnetServiceEndpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
 	SubnetId pulumi.StringInput
 }
 
@@ -282,6 +322,12 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 }
 
 // The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
+//
+// 1. Contains only alphanumeric and hyphen characters
+// 2. Cannot start with a number or hyphen
+// 3. Cannot end with a hyphen
 func (o VirtualNetworkRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -297,6 +343,8 @@ func (o VirtualNetworkRuleOutput) ServerName() pulumi.StringOutput {
 }
 
 // The ID of the subnet that the MariaDB server will be connected to.
+//
+// > **NOTE:** Due to [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/3719) this resource currently doesn't expose the `ignoreMissingVnetServiceEndpoint` field and defaults this to `false`. This provider will check during the provisioning of the Virtual Network Rule that the Subnet contains the Service Rule to verify that the Virtual Network Rule can be created.
 func (o VirtualNetworkRuleOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

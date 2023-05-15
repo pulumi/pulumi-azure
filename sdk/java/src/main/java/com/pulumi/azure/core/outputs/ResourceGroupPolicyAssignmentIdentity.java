@@ -15,6 +15,8 @@ public final class ResourceGroupPolicyAssignmentIdentity {
     /**
      * @return A list of User Managed Identity IDs which should be assigned to the Policy Definition.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * 
      */
     private @Nullable List<String> identityIds;
     /**
@@ -36,6 +38,8 @@ public final class ResourceGroupPolicyAssignmentIdentity {
     private ResourceGroupPolicyAssignmentIdentity() {}
     /**
      * @return A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     public List<String> identityIds() {

@@ -6,6 +6,8 @@ package com.pulumi.azure.orbital.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ContactProfileLinkChannelEndPoint {
@@ -18,7 +20,7 @@ public final class ContactProfileLinkChannelEndPoint {
      * @return IP address of an end point.
      * 
      */
-    private String ipAddress;
+    private @Nullable String ipAddress;
     /**
      * @return TCP port to listen on to receive data.
      * 
@@ -42,8 +44,8 @@ public final class ContactProfileLinkChannelEndPoint {
      * @return IP address of an end point.
      * 
      */
-    public String ipAddress() {
-        return this.ipAddress;
+    public Optional<String> ipAddress() {
+        return Optional.ofNullable(this.ipAddress);
     }
     /**
      * @return TCP port to listen on to receive data.
@@ -70,7 +72,7 @@ public final class ContactProfileLinkChannelEndPoint {
     @CustomType.Builder
     public static final class Builder {
         private String endPointName;
-        private String ipAddress;
+        private @Nullable String ipAddress;
         private String port;
         private String protocol;
         public Builder() {}
@@ -88,8 +90,8 @@ public final class ContactProfileLinkChannelEndPoint {
             return this;
         }
         @CustomType.Setter
-        public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+        public Builder ipAddress(@Nullable String ipAddress) {
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter

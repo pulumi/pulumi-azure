@@ -25,7 +25,15 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this SQL virtual network rule will be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet that the SQL server will be connected to.
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+               
+               > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         :param pulumi.Input[str] name: The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+               
+               > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+               
+               1. Contains only alphanumeric and hyphen characters
+               2. Cannot start with a number or hyphen
+               3. Cannot end with a hyphen
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
@@ -76,6 +84,8 @@ class VirtualNetworkRuleArgs:
     def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
         Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+
+        > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
@@ -88,6 +98,12 @@ class VirtualNetworkRuleArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+
+        > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+
+        1. Contains only alphanumeric and hyphen characters
+        2. Cannot start with a number or hyphen
+        3. Cannot end with a hyphen
         """
         return pulumi.get(self, "name")
 
@@ -107,7 +123,15 @@ class _VirtualNetworkRuleState:
         """
         Input properties used for looking up and filtering VirtualNetworkRule resources.
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+               
+               > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         :param pulumi.Input[str] name: The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+               
+               > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+               
+               1. Contains only alphanumeric and hyphen characters
+               2. Cannot start with a number or hyphen
+               3. Cannot end with a hyphen
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this SQL virtual network rule will be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet that the SQL server will be connected to.
@@ -128,6 +152,8 @@ class _VirtualNetworkRuleState:
     def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
         Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+
+        > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
@@ -140,6 +166,12 @@ class _VirtualNetworkRuleState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+
+        > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+
+        1. Contains only alphanumeric and hyphen characters
+        2. Cannot start with a number or hyphen
+        3. Cannot end with a hyphen
         """
         return pulumi.get(self, "name")
 
@@ -196,6 +228,10 @@ class VirtualNetworkRule(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
+
+        > **Note:** The `sql.VirtualNetworkRule` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.VirtualNetworkRule` resource instead.
+
         ## Example Usage
 
         ```python
@@ -235,7 +271,15 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+               
+               > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         :param pulumi.Input[str] name: The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+               
+               > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+               
+               1. Contains only alphanumeric and hyphen characters
+               2. Cannot start with a number or hyphen
+               3. Cannot end with a hyphen
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this SQL virtual network rule will be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet that the SQL server will be connected to.
@@ -247,6 +291,10 @@ class VirtualNetworkRule(pulumi.CustomResource):
                  args: VirtualNetworkRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
+
+        > **Note:** The `sql.VirtualNetworkRule` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.VirtualNetworkRule` resource instead.
+
         ## Example Usage
 
         ```python
@@ -346,7 +394,15 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+               
+               > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         :param pulumi.Input[str] name: The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+               
+               > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+               
+               1. Contains only alphanumeric and hyphen characters
+               2. Cannot start with a number or hyphen
+               3. Cannot end with a hyphen
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this SQL virtual network rule will be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet that the SQL server will be connected to.
@@ -367,6 +423,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
     def ignore_missing_vnet_service_endpoint(self) -> pulumi.Output[Optional[bool]]:
         """
         Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
+
+        > **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
@@ -375,6 +433,12 @@ class VirtualNetworkRule(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
+
+        > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
+
+        1. Contains only alphanumeric and hyphen characters
+        2. Cannot start with a number or hyphen
+        3. Cannot end with a hyphen
         """
         return pulumi.get(self, "name")
 

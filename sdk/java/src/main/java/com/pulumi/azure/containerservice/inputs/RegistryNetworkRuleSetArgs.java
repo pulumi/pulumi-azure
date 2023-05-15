@@ -51,12 +51,20 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
     /**
      * One or more `virtual_network` blocks as defined below.
      * 
+     * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+     * 
+     * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+     * 
      */
     @Import(name="virtualNetworks")
     private @Nullable Output<List<RegistryNetworkRuleSetVirtualNetworkArgs>> virtualNetworks;
 
     /**
      * @return One or more `virtual_network` blocks as defined below.
+     * 
+     * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+     * 
+     * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
      * 
      */
     public Optional<Output<List<RegistryNetworkRuleSetVirtualNetworkArgs>>> virtualNetworks() {
@@ -144,6 +152,10 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
         /**
          * @param virtualNetworks One or more `virtual_network` blocks as defined below.
          * 
+         * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+         * 
+         * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+         * 
          * @return builder
          * 
          */
@@ -155,6 +167,10 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
         /**
          * @param virtualNetworks One or more `virtual_network` blocks as defined below.
          * 
+         * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+         * 
+         * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+         * 
          * @return builder
          * 
          */
@@ -164,6 +180,10 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
 
         /**
          * @param virtualNetworks One or more `virtual_network` blocks as defined below.
+         * 
+         * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+         * 
+         * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
          * 
          * @return builder
          * 

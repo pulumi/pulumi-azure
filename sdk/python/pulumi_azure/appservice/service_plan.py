@@ -30,7 +30,13 @@ class ServicePlanArgs:
         :param pulumi.Input[str] os_type: The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
         :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+               
+               > **NOTE:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I2v2`, and `I3v2`) can only be used with App Service Environments
+               
+               > **NOTE:** Elastic and Consumption SKUs (`Y1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment to create this Service Plan in.
+               
+               > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         :param pulumi.Input[str] location: The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
         :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
         :param pulumi.Input[str] name: The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
@@ -38,6 +44,8 @@ class ServicePlanArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[int] worker_count: The number of Workers (instances) to be allocated.
         :param pulumi.Input[bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         """
         pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -88,6 +96,10 @@ class ServicePlanArgs:
     def sku_name(self) -> pulumi.Input[str]:
         """
         The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+
+        > **NOTE:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I2v2`, and `I3v2`) can only be used with App Service Environments
+
+        > **NOTE:** Elastic and Consumption SKUs (`Y1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         """
         return pulumi.get(self, "sku_name")
 
@@ -100,6 +112,8 @@ class ServicePlanArgs:
     def app_service_environment_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the App Service Environment to create this Service Plan in.
+
+        > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         """
         return pulumi.get(self, "app_service_environment_id")
 
@@ -184,6 +198,8 @@ class ServicePlanArgs:
     def zone_balancing_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+
+        > **NOTE:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         """
         return pulumi.get(self, "zone_balancing_enabled")
 
@@ -211,6 +227,8 @@ class _ServicePlanState:
         """
         Input properties used for looking up and filtering ServicePlan resources.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment to create this Service Plan in.
+               
+               > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         :param pulumi.Input[str] kind: A string representing the Kind of Service Plan.
         :param pulumi.Input[str] location: The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
         :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
@@ -220,9 +238,15 @@ class _ServicePlanState:
         :param pulumi.Input[bool] reserved: Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
         :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+               
+               > **NOTE:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I2v2`, and `I3v2`) can only be used with App Service Environments
+               
+               > **NOTE:** Elastic and Consumption SKUs (`Y1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[int] worker_count: The number of Workers (instances) to be allocated.
         :param pulumi.Input[bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         """
         if app_service_environment_id is not None:
             pulumi.set(__self__, "app_service_environment_id", app_service_environment_id)
@@ -256,6 +280,8 @@ class _ServicePlanState:
     def app_service_environment_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the App Service Environment to create this Service Plan in.
+
+        > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         """
         return pulumi.get(self, "app_service_environment_id")
 
@@ -364,6 +390,10 @@ class _ServicePlanState:
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
         The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+
+        > **NOTE:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I2v2`, and `I3v2`) can only be used with App Service Environments
+
+        > **NOTE:** Elastic and Consumption SKUs (`Y1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         """
         return pulumi.get(self, "sku_name")
 
@@ -400,6 +430,8 @@ class _ServicePlanState:
     def zone_balancing_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+
+        > **NOTE:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         """
         return pulumi.get(self, "zone_balancing_enabled")
 
@@ -453,6 +485,8 @@ class ServicePlan(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment to create this Service Plan in.
+               
+               > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         :param pulumi.Input[str] location: The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
         :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
         :param pulumi.Input[str] name: The name which should be used for this Service Plan. Changing this forces a new AppService to be created.
@@ -460,9 +494,15 @@ class ServicePlan(pulumi.CustomResource):
         :param pulumi.Input[bool] per_site_scaling_enabled: Should Per Site Scaling be enabled. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
         :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+               
+               > **NOTE:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I2v2`, and `I3v2`) can only be used with App Service Environments
+               
+               > **NOTE:** Elastic and Consumption SKUs (`Y1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[int] worker_count: The number of Workers (instances) to be allocated.
         :param pulumi.Input[bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         """
         ...
     @overload
@@ -580,6 +620,8 @@ class ServicePlan(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment to create this Service Plan in.
+               
+               > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         :param pulumi.Input[str] kind: A string representing the Kind of Service Plan.
         :param pulumi.Input[str] location: The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
         :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
@@ -589,9 +631,15 @@ class ServicePlan(pulumi.CustomResource):
         :param pulumi.Input[bool] reserved: Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
         :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+               
+               > **NOTE:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I2v2`, and `I3v2`) can only be used with App Service Environments
+               
+               > **NOTE:** Elastic and Consumption SKUs (`Y1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[int] worker_count: The number of Workers (instances) to be allocated.
         :param pulumi.Input[bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -617,6 +665,8 @@ class ServicePlan(pulumi.CustomResource):
     def app_service_environment_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the App Service Environment to create this Service Plan in.
+
+        > **NOTE:** Requires an Isolated SKU. Use one of `I1`, `I2`, `I3` for `appservice.Environment`, or `I1v2`, `I2v2`, `I3v2` for `appservice.EnvironmentV3`
         """
         return pulumi.get(self, "app_service_environment_id")
 
@@ -689,6 +739,10 @@ class ServicePlan(pulumi.CustomResource):
     def sku_name(self) -> pulumi.Output[str]:
         """
         The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `I4v2`, `I5v2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+
+        > **NOTE:** Isolated SKUs (`I1`, `I2`, `I3`, `I1v2`, `I2v2`, and `I3v2`) can only be used with App Service Environments
+
+        > **NOTE:** Elastic and Consumption SKUs (`Y1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         """
         return pulumi.get(self, "sku_name")
 
@@ -713,6 +767,8 @@ class ServicePlan(pulumi.CustomResource):
     def zone_balancing_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+
+        > **NOTE:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         """
         return pulumi.get(self, "zone_balancing_enabled")
 

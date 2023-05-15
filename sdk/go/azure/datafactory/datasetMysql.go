@@ -74,6 +74,8 @@ type DatasetMysql struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Dataset MySQL.
+	//
+	// The following supported arguments are specific to MySQL Dataset:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset MySQL.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
@@ -131,6 +133,8 @@ func GetDatasetMysql(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DatasetMysql resources.
 type datasetMysqlState struct {
 	// A map of additional properties to associate with the Data Factory Dataset MySQL.
+	//
+	// The following supported arguments are specific to MySQL Dataset:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset MySQL.
 	Annotations []string `pulumi:"annotations"`
@@ -154,6 +158,8 @@ type datasetMysqlState struct {
 
 type DatasetMysqlState struct {
 	// A map of additional properties to associate with the Data Factory Dataset MySQL.
+	//
+	// The following supported arguments are specific to MySQL Dataset:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset MySQL.
 	Annotations pulumi.StringArrayInput
@@ -181,6 +187,8 @@ func (DatasetMysqlState) ElementType() reflect.Type {
 
 type datasetMysqlArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset MySQL.
+	//
+	// The following supported arguments are specific to MySQL Dataset:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset MySQL.
 	Annotations []string `pulumi:"annotations"`
@@ -205,6 +213,8 @@ type datasetMysqlArgs struct {
 // The set of arguments for constructing a DatasetMysql resource.
 type DatasetMysqlArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset MySQL.
+	//
+	// The following supported arguments are specific to MySQL Dataset:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset MySQL.
 	Annotations pulumi.StringArrayInput
@@ -314,6 +324,8 @@ func (o DatasetMysqlOutput) ToDatasetMysqlOutputWithContext(ctx context.Context)
 }
 
 // A map of additional properties to associate with the Data Factory Dataset MySQL.
+//
+// The following supported arguments are specific to MySQL Dataset:
 func (o DatasetMysqlOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DatasetMysql) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }

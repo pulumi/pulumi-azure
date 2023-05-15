@@ -21,7 +21,10 @@ from .mongo_collection import *
 from .mongo_database import *
 from .notebook_workspace import *
 from .postgresql_cluster import *
+from .postgresql_coordinator_configuration import *
 from .postgresql_firewall_rule import *
+from .postgresql_node_configuration import *
+from .postgresql_role import *
 from .sql_container import *
 from .sql_database import *
 from .sql_dedicated_gateway import *

@@ -27,6 +27,9 @@ public final class GetAccountSASPermissions {
     /**
      * @return Should Filter by Index Tags permissions be enabled for this SAS?
      * 
+     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+     * for additional details on the fields above.
+     * 
      */
     private Boolean filter;
     /**
@@ -84,6 +87,9 @@ public final class GetAccountSASPermissions {
     }
     /**
      * @return Should Filter by Index Tags permissions be enabled for this SAS?
+     * 
+     * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+     * for additional details on the fields above.
      * 
      */
     public Boolean filter() {

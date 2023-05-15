@@ -80,6 +80,8 @@ class NamespaceIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         """
@@ -108,6 +110,8 @@ class NamespaceIdentityArgs:
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -186,6 +190,8 @@ class SubscriptionClientScopedSubscriptionArgs:
                  is_client_scoped_subscription_shareable: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] client_id: Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
         :param pulumi.Input[bool] is_client_scoped_subscription_durable: Whether the client scoped subscription is durable. This property can only be controlled from the application side.
         :param pulumi.Input[bool] is_client_scoped_subscription_shareable: Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
         """
@@ -201,6 +207,8 @@ class SubscriptionClientScopedSubscriptionArgs:
     def client_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
+
+        > **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
         """
         return pulumi.get(self, "client_id")
 
@@ -251,6 +259,8 @@ class SubscriptionRuleCorrelationFilterArgs:
         :param pulumi.Input[str] label: Application specific label.
         :param pulumi.Input[str] message_id: Identifier of the message.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+               
+               > **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
         :param pulumi.Input[str] reply_to: Address of the queue to reply to.
         :param pulumi.Input[str] reply_to_session_id: Session identifier to reply to.
         :param pulumi.Input[str] session_id: Session identifier.
@@ -328,6 +338,8 @@ class SubscriptionRuleCorrelationFilterArgs:
     def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+
+        > **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
         """
         return pulumi.get(self, "properties")
 

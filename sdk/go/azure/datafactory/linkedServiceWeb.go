@@ -68,6 +68,8 @@ type LinkedServiceWeb struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Web Linked Service:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
@@ -137,6 +139,8 @@ func GetLinkedServiceWeb(ctx *pulumi.Context,
 // Input properties used for looking up and filtering LinkedServiceWeb resources.
 type linkedServiceWebState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Web Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -162,6 +166,8 @@ type linkedServiceWebState struct {
 
 type LinkedServiceWebState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Web Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -191,6 +197,8 @@ func (LinkedServiceWebState) ElementType() reflect.Type {
 
 type linkedServiceWebArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Web Linked Service:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
@@ -217,6 +225,8 @@ type linkedServiceWebArgs struct {
 // The set of arguments for constructing a LinkedServiceWeb resource.
 type LinkedServiceWebArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service.
+	//
+	// The following supported arguments are specific to Web Linked Service:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
@@ -328,6 +338,8 @@ func (o LinkedServiceWebOutput) ToLinkedServiceWebOutputWithContext(ctx context.
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
+//
+// The following supported arguments are specific to Web Linked Service:
 func (o LinkedServiceWebOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinkedServiceWeb) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }

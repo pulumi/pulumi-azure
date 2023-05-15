@@ -69,6 +69,10 @@ type LogAnalyticsWorkspaceOnboarding struct {
 	pulumi.CustomResourceState
 
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+	//
+	// > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
 	CustomerManagedKeyEnabled pulumi.BoolPtrOutput `pulumi:"customerManagedKeyEnabled"`
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
 	//
@@ -111,6 +115,10 @@ func GetLogAnalyticsWorkspaceOnboarding(ctx *pulumi.Context,
 // Input properties used for looking up and filtering LogAnalyticsWorkspaceOnboarding resources.
 type logAnalyticsWorkspaceOnboardingState struct {
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+	//
+	// > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
 	//
@@ -125,6 +133,10 @@ type logAnalyticsWorkspaceOnboardingState struct {
 
 type LogAnalyticsWorkspaceOnboardingState struct {
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+	//
+	// > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
 	//
@@ -143,6 +155,10 @@ func (LogAnalyticsWorkspaceOnboardingState) ElementType() reflect.Type {
 
 type logAnalyticsWorkspaceOnboardingArgs struct {
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+	//
+	// > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
 	//
@@ -158,6 +174,10 @@ type logAnalyticsWorkspaceOnboardingArgs struct {
 // The set of arguments for constructing a LogAnalyticsWorkspaceOnboarding resource.
 type LogAnalyticsWorkspaceOnboardingArgs struct {
 	// Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+	//
+	// > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
 	//
@@ -258,6 +278,10 @@ func (o LogAnalyticsWorkspaceOnboardingOutput) ToLogAnalyticsWorkspaceOnboarding
 }
 
 // Specifies if the Workspace is using Customer managed key. Defaults to `false`. Changing this forces a new resource to be created.
+//
+// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
+//
+// > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
 func (o LogAnalyticsWorkspaceOnboardingOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogAnalyticsWorkspaceOnboarding) pulumi.BoolPtrOutput { return v.CustomerManagedKeyEnabled }).(pulumi.BoolPtrOutput)
 }

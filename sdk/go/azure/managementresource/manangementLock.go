@@ -140,6 +140,8 @@ type ManangementLock struct {
 	pulumi.CustomResourceState
 
 	// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
 	LockLevel pulumi.StringOutput `pulumi:"lockLevel"`
 	// Specifies the name of the Management Lock. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -185,6 +187,8 @@ func GetManangementLock(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ManangementLock resources.
 type manangementLockState struct {
 	// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
 	LockLevel *string `pulumi:"lockLevel"`
 	// Specifies the name of the Management Lock. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -196,6 +200,8 @@ type manangementLockState struct {
 
 type ManangementLockState struct {
 	// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
 	LockLevel pulumi.StringPtrInput
 	// Specifies the name of the Management Lock. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -211,6 +217,8 @@ func (ManangementLockState) ElementType() reflect.Type {
 
 type manangementLockArgs struct {
 	// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
 	LockLevel string `pulumi:"lockLevel"`
 	// Specifies the name of the Management Lock. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -223,6 +231,8 @@ type manangementLockArgs struct {
 // The set of arguments for constructing a ManangementLock resource.
 type ManangementLockArgs struct {
 	// Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
 	LockLevel pulumi.StringInput
 	// Specifies the name of the Management Lock. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -320,6 +330,8 @@ func (o ManangementLockOutput) ToManangementLockOutputWithContext(ctx context.Co
 }
 
 // Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+//
+// > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
 func (o ManangementLockOutput) LockLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManangementLock) pulumi.StringOutput { return v.LockLevel }).(pulumi.StringOutput)
 }

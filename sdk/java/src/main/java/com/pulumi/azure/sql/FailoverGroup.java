@@ -20,6 +20,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Create a failover group of databases on a collection of Azure SQL servers.
+ * 
+ * &gt; **Note:** The `azure.sql.FailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.FailoverGroup` resource instead.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -107,12 +111,16 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
     /**
      * A list of database ids to add to the failover group
      * 
+     * &gt; **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
+     * 
      */
     @Export(name="databases", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> databases;
 
     /**
      * @return A list of database ids to add to the failover group
+     * 
+     * &gt; **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
      * 
      */
     public Output<Optional<List<String>>> databases() {

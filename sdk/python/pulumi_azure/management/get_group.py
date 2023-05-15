@@ -140,6 +140,8 @@ def get_group(display_name: Optional[str] = None,
 
 
     :param str display_name: Specifies the display name of this Management Group.
+           
+           > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
     :param str name: Specifies the name or UUID of this Management Group.
     """
     __args__ = dict()
@@ -178,6 +180,8 @@ def get_group_output(display_name: Optional[pulumi.Input[Optional[str]]] = None,
 
 
     :param str display_name: Specifies the display name of this Management Group.
+           
+           > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
     :param str name: Specifies the name or UUID of this Management Group.
     """
     ...

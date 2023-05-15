@@ -42,6 +42,8 @@ class DefinitionArgs:
         :param pulumi.Input[bool] package_enabled: Is the package enabled? Defaults to `true`.
         :param pulumi.Input[str] package_file_uri: Specifies the managed application definition package file Uri.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               > **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "lock_level", lock_level)
@@ -202,6 +204,8 @@ class DefinitionArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
+
+        > **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
         """
         return pulumi.get(self, "tags")
 
@@ -239,6 +243,8 @@ class _DefinitionState:
         :param pulumi.Input[str] package_file_uri: Specifies the managed application definition package file Uri.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               > **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
         """
         if authorizations is not None:
             pulumi.set(__self__, "authorizations", authorizations)
@@ -402,6 +408,8 @@ class _DefinitionState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
+
+        > **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
         """
         return pulumi.get(self, "tags")
 
@@ -474,6 +482,8 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] package_file_uri: Specifies the managed application definition package file Uri.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               > **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
         """
         ...
     @overload
@@ -608,6 +618,8 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] package_file_uri: Specifies the managed application definition package file Uri.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               > **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -720,6 +732,8 @@ class Definition(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
+
+        > **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
         """
         return pulumi.get(self, "tags")
 

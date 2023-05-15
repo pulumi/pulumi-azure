@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Use this data source to access information about an existing SQL Azure Database.
+ *
+ * > **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -106,6 +110,10 @@ export interface GetDatabaseResult {
     readonly tags?: {[key: string]: string};
 }
 /**
+ * Use this data source to access information about an existing SQL Azure Database.
+ *
+ * > **Note:** The `azure.sql.Database` data source is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` data source instead.
+ *
  * ## Example Usage
  *
  * ```typescript

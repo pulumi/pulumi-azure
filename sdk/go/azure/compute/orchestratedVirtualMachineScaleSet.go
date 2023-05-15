@@ -72,10 +72,16 @@ type OrchestratedVirtualMachineScaleSet struct {
 	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput `pulumi:"additionalCapabilities"`
 	// An `automaticInstanceRepair` block as defined below.
+	//
+	// > **NOTE:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput `pulumi:"automaticInstanceRepair"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+	//
+	// > **NOTE:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
 	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks OrchestratedVirtualMachineScaleSetDataDiskArrayOutput `pulumi:"dataDisks"`
@@ -84,6 +90,8 @@ type OrchestratedVirtualMachineScaleSet struct {
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+	//
+	// > **NOTE:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
 	ExtensionOperationsEnabled pulumi.BoolOutput `pulumi:"extensionOperationsEnabled"`
 	// One or more `extension` blocks as defined below
 	Extensions OrchestratedVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
@@ -110,6 +118,8 @@ type OrchestratedVirtualMachineScaleSet struct {
 	// A `plan` block as documented below. Changing this forces a new resource to be created.
 	Plan OrchestratedVirtualMachineScaleSetPlanPtrOutput `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
 	PlatformFaultDomainCount pulumi.IntOutput `pulumi:"platformFaultDomainCount"`
 	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
@@ -136,8 +146,12 @@ type OrchestratedVirtualMachineScaleSet struct {
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 pulumi.StringPtrOutput `pulumi:"userDataBase64"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance pulumi.BoolPtrOutput `pulumi:"zoneBalance"`
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+	//
+	// > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -186,10 +200,16 @@ type orchestratedVirtualMachineScaleSetState struct {
 	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities *OrchestratedVirtualMachineScaleSetAdditionalCapabilities `pulumi:"additionalCapabilities"`
 	// An `automaticInstanceRepair` block as defined below.
+	//
+	// > **NOTE:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair `pulumi:"automaticInstanceRepair"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *OrchestratedVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+	//
+	// > **NOTE:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
@@ -198,6 +218,8 @@ type orchestratedVirtualMachineScaleSetState struct {
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+	//
+	// > **NOTE:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
 	ExtensionOperationsEnabled *bool `pulumi:"extensionOperationsEnabled"`
 	// One or more `extension` blocks as defined below
 	Extensions []OrchestratedVirtualMachineScaleSetExtension `pulumi:"extensions"`
@@ -224,6 +246,8 @@ type orchestratedVirtualMachineScaleSetState struct {
 	// A `plan` block as documented below. Changing this forces a new resource to be created.
 	Plan *OrchestratedVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
 	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority *string `pulumi:"priority"`
@@ -250,8 +274,12 @@ type orchestratedVirtualMachineScaleSetState struct {
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+	//
+	// > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -259,10 +287,16 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrInput
 	// An `automaticInstanceRepair` block as defined below.
+	//
+	// > **NOTE:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+	//
+	// > **NOTE:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
 	CapacityReservationGroupId pulumi.StringPtrInput
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks OrchestratedVirtualMachineScaleSetDataDiskArrayInput
@@ -271,6 +305,8 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+	//
+	// > **NOTE:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
 	ExtensionOperationsEnabled pulumi.BoolPtrInput
 	// One or more `extension` blocks as defined below
 	Extensions OrchestratedVirtualMachineScaleSetExtensionArrayInput
@@ -297,6 +333,8 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	// A `plan` block as documented below. Changing this forces a new resource to be created.
 	Plan OrchestratedVirtualMachineScaleSetPlanPtrInput
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
 	PlatformFaultDomainCount pulumi.IntPtrInput
 	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority pulumi.StringPtrInput
@@ -323,8 +361,12 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 pulumi.StringPtrInput
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance pulumi.BoolPtrInput
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+	//
+	// > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
 	Zones pulumi.StringArrayInput
 }
 
@@ -336,10 +378,16 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities *OrchestratedVirtualMachineScaleSetAdditionalCapabilities `pulumi:"additionalCapabilities"`
 	// An `automaticInstanceRepair` block as defined below.
+	//
+	// > **NOTE:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair `pulumi:"automaticInstanceRepair"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *OrchestratedVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+	//
+	// > **NOTE:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
@@ -348,6 +396,8 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+	//
+	// > **NOTE:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
 	ExtensionOperationsEnabled *bool `pulumi:"extensionOperationsEnabled"`
 	// One or more `extension` blocks as defined below
 	Extensions []OrchestratedVirtualMachineScaleSetExtension `pulumi:"extensions"`
@@ -374,6 +424,8 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	// A `plan` block as documented below. Changing this forces a new resource to be created.
 	Plan *OrchestratedVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
 	PlatformFaultDomainCount int `pulumi:"platformFaultDomainCount"`
 	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority *string `pulumi:"priority"`
@@ -398,8 +450,12 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+	//
+	// > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -408,10 +464,16 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrInput
 	// An `automaticInstanceRepair` block as defined below.
+	//
+	// > **NOTE:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+	//
+	// > **NOTE:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
 	CapacityReservationGroupId pulumi.StringPtrInput
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks OrchestratedVirtualMachineScaleSetDataDiskArrayInput
@@ -420,6 +482,8 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+	//
+	// > **NOTE:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
 	ExtensionOperationsEnabled pulumi.BoolPtrInput
 	// One or more `extension` blocks as defined below
 	Extensions OrchestratedVirtualMachineScaleSetExtensionArrayInput
@@ -446,6 +510,8 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	// A `plan` block as documented below. Changing this forces a new resource to be created.
 	Plan OrchestratedVirtualMachineScaleSetPlanPtrInput
 	// Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
 	PlatformFaultDomainCount pulumi.IntInput
 	// The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
 	Priority pulumi.StringPtrInput
@@ -470,8 +536,12 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 pulumi.StringPtrInput
 	// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
 	ZoneBalance pulumi.BoolPtrInput
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+	//
+	// > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
 	Zones pulumi.StringArrayInput
 }
 
@@ -570,6 +640,8 @@ func (o OrchestratedVirtualMachineScaleSetOutput) AdditionalCapabilities() Orche
 }
 
 // An `automaticInstanceRepair` block as defined below.
+//
+// > **NOTE:** To enable the `automaticInstanceRepair`, the Orchestrated Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 func (o OrchestratedVirtualMachineScaleSetOutput) AutomaticInstanceRepair() OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput {
 		return v.AutomaticInstanceRepair
@@ -584,6 +656,10 @@ func (o OrchestratedVirtualMachineScaleSetOutput) BootDiagnostics() Orchestrated
 }
 
 // Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+//
+// > **NOTE:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
 func (o OrchestratedVirtualMachineScaleSetOutput) CapacityReservationGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput {
 		return v.CapacityReservationGroupId
@@ -608,6 +684,8 @@ func (o OrchestratedVirtualMachineScaleSetOutput) EvictionPolicy() pulumi.String
 }
 
 // Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+//
+// > **NOTE:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
 func (o OrchestratedVirtualMachineScaleSetOutput) ExtensionOperationsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolOutput { return v.ExtensionOperationsEnabled }).(pulumi.BoolOutput)
 }
@@ -685,6 +763,8 @@ func (o OrchestratedVirtualMachineScaleSetOutput) Plan() OrchestratedVirtualMach
 }
 
 // Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
 func (o OrchestratedVirtualMachineScaleSetOutput) PlatformFaultDomainCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.IntOutput { return v.PlatformFaultDomainCount }).(pulumi.IntOutput)
 }
@@ -756,11 +836,15 @@ func (o OrchestratedVirtualMachineScaleSetOutput) UserDataBase64() pulumi.String
 }
 
 // Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
 func (o OrchestratedVirtualMachineScaleSetOutput) ZoneBalance() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.ZoneBalance }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+//
+// > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
 func (o OrchestratedVirtualMachineScaleSetOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

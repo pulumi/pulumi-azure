@@ -66,6 +66,8 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
 
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to SFTP Linked Service:
      */
     public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -196,6 +198,8 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
 export interface LinkedServiceSftpState {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to SFTP Linked Service:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -258,6 +262,8 @@ export interface LinkedServiceSftpState {
 export interface LinkedServiceSftpArgs {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to SFTP Linked Service:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

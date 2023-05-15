@@ -18,12 +18,16 @@ public final class PortalTenantConfigurationState extends com.pulumi.resources.R
     /**
      * Is the private tile markdown storage which used to display custom dynamic and static content enabled?
      * 
+     * &gt; **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
+     * 
      */
     @Import(name="privateMarkdownStorageEnforced")
     private @Nullable Output<Boolean> privateMarkdownStorageEnforced;
 
     /**
      * @return Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+     * 
+     * &gt; **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
      * 
      */
     public Optional<Output<Boolean>> privateMarkdownStorageEnforced() {
@@ -57,6 +61,8 @@ public final class PortalTenantConfigurationState extends com.pulumi.resources.R
         /**
          * @param privateMarkdownStorageEnforced Is the private tile markdown storage which used to display custom dynamic and static content enabled?
          * 
+         * &gt; **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
+         * 
          * @return builder
          * 
          */
@@ -67,6 +73,8 @@ public final class PortalTenantConfigurationState extends com.pulumi.resources.R
 
         /**
          * @param privateMarkdownStorageEnforced Is the private tile markdown storage which used to display custom dynamic and static content enabled?
+         * 
+         * &gt; **Note:** When `private_markdown_storage_enforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
          * 
          * @return builder
          * 

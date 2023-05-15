@@ -142,6 +142,8 @@ export class Service extends pulumi.CustomResource {
     public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
     /**
      * Whether to enable public network access? Defaults to `true`.
+     *
+     * > **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -182,6 +184,8 @@ export class Service extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether to request client certificate during TLS handshake? Defaults to `false`.
+     *
+     * > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
      */
     public readonly tlsClientCertEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -340,6 +344,8 @@ export interface ServiceState {
     primaryConnectionString?: pulumi.Input<string>;
     /**
      * Whether to enable public network access? Defaults to `true`.
+     *
+     * > **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -380,6 +386,8 @@ export interface ServiceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to request client certificate during TLS handshake? Defaults to `false`.
+     *
+     * > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
      */
     tlsClientCertEnabled?: pulumi.Input<boolean>;
     /**
@@ -440,6 +448,8 @@ export interface ServiceArgs {
     name?: pulumi.Input<string>;
     /**
      * Whether to enable public network access? Defaults to `true`.
+     *
+     * > **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -464,6 +474,8 @@ export interface ServiceArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to request client certificate during TLS handshake? Defaults to `false`.
+     *
+     * > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
      */
     tlsClientCertEnabled?: pulumi.Input<boolean>;
     /**

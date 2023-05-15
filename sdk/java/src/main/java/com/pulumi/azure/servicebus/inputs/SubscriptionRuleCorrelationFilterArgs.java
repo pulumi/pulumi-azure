@@ -79,12 +79,16 @@ public final class SubscriptionRuleCorrelationFilterArgs extends com.pulumi.reso
     /**
      * A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
      * 
+     * &gt; **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
+     * 
      */
     @Import(name="properties")
     private @Nullable Output<Map<String,String>> properties;
 
     /**
      * @return A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+     * 
+     * &gt; **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
      * 
      */
     public Optional<Output<Map<String,String>>> properties() {
@@ -270,6 +274,8 @@ public final class SubscriptionRuleCorrelationFilterArgs extends com.pulumi.reso
         /**
          * @param properties A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
          * 
+         * &gt; **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
+         * 
          * @return builder
          * 
          */
@@ -280,6 +286,8 @@ public final class SubscriptionRuleCorrelationFilterArgs extends com.pulumi.reso
 
         /**
          * @param properties A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+         * 
+         * &gt; **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
          * 
          * @return builder
          * 

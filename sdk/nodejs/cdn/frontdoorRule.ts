@@ -194,6 +194,8 @@ export class FrontdoorRule extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
+     *
+     * ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
      */
     public readonly order!: pulumi.Output<number>;
 
@@ -271,6 +273,8 @@ export interface FrontdoorRuleState {
     name?: pulumi.Input<string>;
     /**
      * The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
+     *
+     * ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
      */
     order?: pulumi.Input<number>;
 }
@@ -301,6 +305,8 @@ export interface FrontdoorRuleArgs {
     name?: pulumi.Input<string>;
     /**
      * The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
+     *
+     * ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
      */
     order: pulumi.Input<number>;
 }

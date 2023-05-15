@@ -29,7 +29,6 @@ public final class DatasetParquetHttpServerLocation {
     private String filename;
     /**
      * @return The folder path to the file on the web server.
-     * ---
      * 
      */
     private @Nullable String path;
@@ -63,7 +62,6 @@ public final class DatasetParquetHttpServerLocation {
     }
     /**
      * @return The folder path to the file on the web server.
-     * ---
      * 
      */
     public Optional<String> path() {

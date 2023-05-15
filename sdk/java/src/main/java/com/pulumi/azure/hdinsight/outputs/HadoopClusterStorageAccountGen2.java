@@ -18,10 +18,16 @@ public final class HadoopClusterStorageAccountGen2 {
     /**
      * @return Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+     * 
+     * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+     * 
      */
     private Boolean isDefault;
     /**
      * @return The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This can be obtained from the `id` of the `azure.storage.Container` resource.
      * 
      */
     private String managedIdentityResourceId;
@@ -42,12 +48,18 @@ public final class HadoopClusterStorageAccountGen2 {
     /**
      * @return Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+     * 
+     * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+     * 
      */
     public Boolean isDefault() {
         return this.isDefault;
     }
     /**
      * @return The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This can be obtained from the `id` of the `azure.storage.Container` resource.
      * 
      */
     public String managedIdentityResourceId() {

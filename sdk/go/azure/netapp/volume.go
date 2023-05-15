@@ -62,6 +62,8 @@ type Volume struct {
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Throughput of this volume in Mibps.
 	ThroughputInMibps pulumi.Float64Output `pulumi:"throughputInMibps"`
@@ -158,6 +160,8 @@ type volumeState struct {
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
 	Tags map[string]string `pulumi:"tags"`
 	// Throughput of this volume in Mibps.
 	ThroughputInMibps *float64 `pulumi:"throughputInMibps"`
@@ -205,6 +209,8 @@ type VolumeState struct {
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
 	Tags pulumi.StringMapInput
 	// Throughput of this volume in Mibps.
 	ThroughputInMibps pulumi.Float64PtrInput
@@ -254,6 +260,8 @@ type volumeArgs struct {
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
 	Tags map[string]string `pulumi:"tags"`
 	// Throughput of this volume in Mibps.
 	ThroughputInMibps *float64 `pulumi:"throughputInMibps"`
@@ -300,6 +308,8 @@ type VolumeArgs struct {
 	// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
 	// A mapping of tags to assign to the resource.
+	//
+	// > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
 	Tags pulumi.StringMapInput
 	// Throughput of this volume in Mibps.
 	ThroughputInMibps pulumi.Float64PtrInput
@@ -487,6 +497,8 @@ func (o VolumeOutput) SubnetId() pulumi.StringOutput {
 }
 
 // A mapping of tags to assign to the resource.
+//
+// > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
 func (o VolumeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -22,6 +22,8 @@ public final class KafkaClusterRoles {
     /**
      * @return A `kafka_management_node` block as defined below.
      * 
+     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0.
+     * 
      */
     private @Nullable KafkaClusterRolesKafkaManagementNode kafkaManagementNode;
     /**
@@ -45,6 +47,8 @@ public final class KafkaClusterRoles {
     }
     /**
      * @return A `kafka_management_node` block as defined below.
+     * 
+     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0.
      * 
      */
     public Optional<KafkaClusterRolesKafkaManagementNode> kafkaManagementNode() {

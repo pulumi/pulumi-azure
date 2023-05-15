@@ -50,12 +50,16 @@ public final class KubernetesClusterApiServerAccessProfileArgs extends com.pulum
     /**
      * Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
      * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
+     * 
      */
     @Import(name="vnetIntegrationEnabled")
     private @Nullable Output<Boolean> vnetIntegrationEnabled;
 
     /**
      * @return Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
      * 
      */
     public Optional<Output<Boolean>> vnetIntegrationEnabled() {
@@ -143,6 +147,8 @@ public final class KubernetesClusterApiServerAccessProfileArgs extends com.pulum
         /**
          * @param vnetIntegrationEnabled Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
          * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
+         * 
          * @return builder
          * 
          */
@@ -153,6 +159,8 @@ public final class KubernetesClusterApiServerAccessProfileArgs extends com.pulum
 
         /**
          * @param vnetIntegrationEnabled Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
          * 
          * @return builder
          * 

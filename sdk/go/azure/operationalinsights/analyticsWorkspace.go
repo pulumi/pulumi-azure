@@ -66,6 +66,8 @@ type AnalyticsWorkspace struct {
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced pulumi.BoolPtrOutput `pulumi:"cmkForQueryForced"`
 	// The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
+	//
+	// > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
 	DailyQuotaGb pulumi.Float64PtrOutput `pulumi:"dailyQuotaGb"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrOutput `pulumi:"internetIngestionEnabled"`
@@ -80,6 +82,8 @@ type AnalyticsWorkspace struct {
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey pulumi.StringOutput `pulumi:"primarySharedKey"`
 	// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+	//
+	// > **NOTE:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay pulumi.IntOutput `pulumi:"reservationCapacityInGbPerDay"`
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -88,8 +92,14 @@ type AnalyticsWorkspace struct {
 	// The Secondary shared key for the Log Analytics Workspace.
 	SecondarySharedKey pulumi.StringOutput `pulumi:"secondarySharedKey"`
 	// Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+	//
+	// > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+	//
+	// > **NOTE:** The `Free` SKU has a default `dailyQuotaGb` value of `0.5` (GB).
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Workspace (or Customer) ID for the Log Analytics Workspace.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
@@ -137,6 +147,8 @@ type analyticsWorkspaceState struct {
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced *bool `pulumi:"cmkForQueryForced"`
 	// The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
+	//
+	// > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
 	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
@@ -151,6 +163,8 @@ type analyticsWorkspaceState struct {
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey *string `pulumi:"primarySharedKey"`
 	// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+	//
+	// > **NOTE:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay *int `pulumi:"reservationCapacityInGbPerDay"`
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -159,8 +173,14 @@ type analyticsWorkspaceState struct {
 	// The Secondary shared key for the Log Analytics Workspace.
 	SecondarySharedKey *string `pulumi:"secondarySharedKey"`
 	// Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+	//
+	// > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+	//
+	// > **NOTE:** The `Free` SKU has a default `dailyQuotaGb` value of `0.5` (GB).
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// The Workspace (or Customer) ID for the Log Analytics Workspace.
 	WorkspaceId *string `pulumi:"workspaceId"`
@@ -172,6 +192,8 @@ type AnalyticsWorkspaceState struct {
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced pulumi.BoolPtrInput
 	// The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
+	//
+	// > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
 	DailyQuotaGb pulumi.Float64PtrInput
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrInput
@@ -186,6 +208,8 @@ type AnalyticsWorkspaceState struct {
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey pulumi.StringPtrInput
 	// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+	//
+	// > **NOTE:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay pulumi.IntPtrInput
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -194,8 +218,14 @@ type AnalyticsWorkspaceState struct {
 	// The Secondary shared key for the Log Analytics Workspace.
 	SecondarySharedKey pulumi.StringPtrInput
 	// Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+	//
+	// > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+	//
+	// > **NOTE:** The `Free` SKU has a default `dailyQuotaGb` value of `0.5` (GB).
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
+	//
+	// > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
 	Tags pulumi.StringMapInput
 	// The Workspace (or Customer) ID for the Log Analytics Workspace.
 	WorkspaceId pulumi.StringPtrInput
@@ -211,6 +241,8 @@ type analyticsWorkspaceArgs struct {
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced *bool `pulumi:"cmkForQueryForced"`
 	// The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
+	//
+	// > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
 	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
@@ -223,14 +255,22 @@ type analyticsWorkspaceArgs struct {
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+	//
+	// > **NOTE:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay *int `pulumi:"reservationCapacityInGbPerDay"`
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+	//
+	// > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+	//
+	// > **NOTE:** The `Free` SKU has a default `dailyQuotaGb` value of `0.5` (GB).
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
+	//
+	// > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -241,6 +281,8 @@ type AnalyticsWorkspaceArgs struct {
 	// Is Customer Managed Storage mandatory for query management?
 	CmkForQueryForced pulumi.BoolPtrInput
 	// The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
+	//
+	// > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
 	DailyQuotaGb pulumi.Float64PtrInput
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrInput
@@ -253,14 +295,22 @@ type AnalyticsWorkspaceArgs struct {
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+	//
+	// > **NOTE:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay pulumi.IntPtrInput
 	// The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
 	RetentionInDays pulumi.IntPtrInput
 	// Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+	//
+	// > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+	//
+	// > **NOTE:** The `Free` SKU has a default `dailyQuotaGb` value of `0.5` (GB).
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
+	//
+	// > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
 	Tags pulumi.StringMapInput
 }
 
@@ -362,6 +412,8 @@ func (o AnalyticsWorkspaceOutput) CmkForQueryForced() pulumi.BoolPtrOutput {
 }
 
 // The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
+//
+// > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
 func (o AnalyticsWorkspaceOutput) DailyQuotaGb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.Float64PtrOutput { return v.DailyQuotaGb }).(pulumi.Float64PtrOutput)
 }
@@ -397,6 +449,8 @@ func (o AnalyticsWorkspaceOutput) PrimarySharedKey() pulumi.StringOutput {
 }
 
 // The capacity reservation level in GB for this workspace. Must be in increments of 100 between 100 and 5000.
+//
+// > **NOTE:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 func (o AnalyticsWorkspaceOutput) ReservationCapacityInGbPerDay() pulumi.IntOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.IntOutput { return v.ReservationCapacityInGbPerDay }).(pulumi.IntOutput)
 }
@@ -417,11 +471,17 @@ func (o AnalyticsWorkspaceOutput) SecondarySharedKey() pulumi.StringOutput {
 }
 
 // Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+//
+// > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+//
+// > **NOTE:** The `Free` SKU has a default `dailyQuotaGb` value of `0.5` (GB).
 func (o AnalyticsWorkspaceOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource.
+//
+// > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
 func (o AnalyticsWorkspaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -80,10 +80,14 @@ type DataConnectorMicrosoftThreatIntelligence struct {
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate pulumi.StringPtrOutput `pulumi:"microsoftEmergingThreatFeedLookbackDate"`
 	// The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 }
 
@@ -124,10 +128,14 @@ type dataConnectorMicrosoftThreatIntelligenceState struct {
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate *string `pulumi:"microsoftEmergingThreatFeedLookbackDate"`
 	// The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -137,10 +145,14 @@ type DataConnectorMicrosoftThreatIntelligenceState struct {
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate pulumi.StringPtrInput
 	// The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -154,10 +166,14 @@ type dataConnectorMicrosoftThreatIntelligenceArgs struct {
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate *string `pulumi:"microsoftEmergingThreatFeedLookbackDate"`
 	// The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -168,10 +184,14 @@ type DataConnectorMicrosoftThreatIntelligenceArgs struct {
 	// The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringInput
 	// The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+	//
+	// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 	MicrosoftEmergingThreatFeedLookbackDate pulumi.StringPtrInput
 	// The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+	//
+	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -277,6 +297,8 @@ func (o DataConnectorMicrosoftThreatIntelligenceOutput) LogAnalyticsWorkspaceId(
 }
 
 // The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
+//
+// > **NOTE:** At least one of `bingSafetyPhishingUrlLookbackDate` and `microsoftEmergingThreatFeedLookbackDate` must be specified.
 func (o DataConnectorMicrosoftThreatIntelligenceOutput) MicrosoftEmergingThreatFeedLookbackDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataConnectorMicrosoftThreatIntelligence) pulumi.StringPtrOutput {
 		return v.MicrosoftEmergingThreatFeedLookbackDate
@@ -289,6 +311,8 @@ func (o DataConnectorMicrosoftThreatIntelligenceOutput) Name() pulumi.StringOutp
 }
 
 // The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
+//
+// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 func (o DataConnectorMicrosoftThreatIntelligenceOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnectorMicrosoftThreatIntelligence) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }

@@ -64,9 +64,6 @@ export class IPGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === IPGroup.__pulumiType;
     }
 
-    /**
-     * A list of CIDRs or IP addresses.
-     */
     public readonly cidrs!: pulumi.Output<string[] | undefined>;
     /**
      * A `firewallIds` block as defined below.
@@ -135,9 +132,6 @@ export class IPGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IPGroup resources.
  */
 export interface IPGroupState {
-    /**
-     * A list of CIDRs or IP addresses.
-     */
     cidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `firewallIds` block as defined below.
@@ -169,9 +163,6 @@ export interface IPGroupState {
  * The set of arguments for constructing a IPGroup resource.
  */
 export interface IPGroupArgs {
-    /**
-     * A list of CIDRs or IP addresses.
-     */
     cidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

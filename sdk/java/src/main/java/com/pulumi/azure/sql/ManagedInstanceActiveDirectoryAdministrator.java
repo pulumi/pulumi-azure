@@ -16,6 +16,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Allows you to set a user or group as the AD administrator for an Azure SQL Managed Instance.
+ * 
+ * &gt; **Note:** The `azure.sql.ManagedInstanceActiveDirectoryAdministrator` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstanceActiveDirectoryAdministrator` resource instead.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

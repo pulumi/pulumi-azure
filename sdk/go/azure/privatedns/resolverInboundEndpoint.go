@@ -45,7 +45,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = privatedns.NewResolver(ctx, "test", &privatedns.ResolverArgs{
+//			exampleResolver, err := privatedns.NewResolver(ctx, "exampleResolver", &privatedns.ResolverArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //				VirtualNetworkId:  exampleVirtualNetwork.ID(),
@@ -54,8 +54,8 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  pulumi.Any(azurerm_resource_group.Test.Name),
-//				VirtualNetworkName: pulumi.Any(azurerm_virtual_network.Test.Name),
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/28"),
 //				},
@@ -75,8 +75,8 @@ import (
 //				return err
 //			}
 //			_, err = privatedns.NewResolverInboundEndpoint(ctx, "exampleResolverInboundEndpoint", &privatedns.ResolverInboundEndpointArgs{
-//				PrivateDnsResolverId: pulumi.Any(azurerm_private_dns_resolver.Example.Id),
-//				Location:             pulumi.Any(azurerm_private_dns_resolver.Example.Location),
+//				PrivateDnsResolverId: exampleResolver.ID(),
+//				Location:             exampleResolver.Location,
 //				IpConfigurations: privatedns.ResolverInboundEndpointIpConfigurationArray{
 //					&privatedns.ResolverInboundEndpointIpConfigurationArgs{
 //						PrivateIpAllocationMethod: pulumi.String("Dynamic"),

@@ -86,6 +86,8 @@ type ContainerStorageAccount struct {
 	// Name of the resource group where the vault is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
+	//
+	// > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 }
 
@@ -132,6 +134,8 @@ type containerStorageAccountState struct {
 	// Name of the resource group where the vault is located. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
+	//
+	// > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
 	StorageAccountId *string `pulumi:"storageAccountId"`
 }
 
@@ -141,6 +145,8 @@ type ContainerStorageAccountState struct {
 	// Name of the resource group where the vault is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
+	//
+	// > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
 	StorageAccountId pulumi.StringPtrInput
 }
 
@@ -154,6 +160,8 @@ type containerStorageAccountArgs struct {
 	// Name of the resource group where the vault is located. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
+	//
+	// > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
 	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
@@ -164,6 +172,8 @@ type ContainerStorageAccountArgs struct {
 	// Name of the resource group where the vault is located. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Storage Account to be registered Changing this forces a new resource to be created.
+	//
+	// > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
 	StorageAccountId pulumi.StringInput
 }
 
@@ -265,6 +275,8 @@ func (o ContainerStorageAccountOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The ID of the Storage Account to be registered Changing this forces a new resource to be created.
+//
+// > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
 func (o ContainerStorageAccountOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerStorageAccount) pulumi.StringOutput { return v.StorageAccountId }).(pulumi.StringOutput)
 }

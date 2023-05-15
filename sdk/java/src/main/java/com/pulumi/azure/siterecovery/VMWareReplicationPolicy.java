@@ -48,8 +48,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(&#34;Standard&#34;)
  *             .classicVmwareReplicationEnabled(true)
  *             .softDeleteEnabled(false)

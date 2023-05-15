@@ -97,6 +97,8 @@ type AlertRuleMsSecurityIncident struct {
 	// The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
 	ProductFilter pulumi.StringOutput `pulumi:"productFilter"`
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+	//
+	// > **NOTE** At least one of the severity filters need to be set.
 	SeverityFilters pulumi.StringArrayOutput `pulumi:"severityFilters"`
 }
 
@@ -160,6 +162,8 @@ type alertRuleMsSecurityIncidentState struct {
 	// The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
 	ProductFilter *string `pulumi:"productFilter"`
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+	//
+	// > **NOTE** At least one of the severity filters need to be set.
 	SeverityFilters []string `pulumi:"severityFilters"`
 }
 
@@ -183,6 +187,8 @@ type AlertRuleMsSecurityIncidentState struct {
 	// The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
 	ProductFilter pulumi.StringPtrInput
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+	//
+	// > **NOTE** At least one of the severity filters need to be set.
 	SeverityFilters pulumi.StringArrayInput
 }
 
@@ -210,6 +216,8 @@ type alertRuleMsSecurityIncidentArgs struct {
 	// The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
 	ProductFilter string `pulumi:"productFilter"`
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+	//
+	// > **NOTE** At least one of the severity filters need to be set.
 	SeverityFilters []string `pulumi:"severityFilters"`
 }
 
@@ -234,6 +242,8 @@ type AlertRuleMsSecurityIncidentArgs struct {
 	// The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
 	ProductFilter pulumi.StringInput
 	// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+	//
+	// > **NOTE** At least one of the severity filters need to be set.
 	SeverityFilters pulumi.StringArrayInput
 }
 
@@ -370,6 +380,8 @@ func (o AlertRuleMsSecurityIncidentOutput) ProductFilter() pulumi.StringOutput {
 }
 
 // Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
+//
+// > **NOTE** At least one of the severity filters need to be set.
 func (o AlertRuleMsSecurityIncidentOutput) SeverityFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleMsSecurityIncident) pulumi.StringArrayOutput { return v.SeverityFilters }).(pulumi.StringArrayOutput)
 }

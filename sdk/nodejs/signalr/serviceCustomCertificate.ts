@@ -118,6 +118,8 @@ export class ServiceCustomCertificate extends pulumi.CustomResource {
     public /*out*/ readonly certificateVersion!: pulumi.Output<string>;
     /**
      * The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      */
     public readonly customCertificateId!: pulumi.Output<string>;
     /**
@@ -126,6 +128,8 @@ export class ServiceCustomCertificate extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      */
     public readonly signalrServiceId!: pulumi.Output<string>;
 
@@ -174,6 +178,8 @@ export interface ServiceCustomCertificateState {
     certificateVersion?: pulumi.Input<string>;
     /**
      * The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      */
     customCertificateId?: pulumi.Input<string>;
     /**
@@ -182,6 +188,8 @@ export interface ServiceCustomCertificateState {
     name?: pulumi.Input<string>;
     /**
      * The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      */
     signalrServiceId?: pulumi.Input<string>;
 }
@@ -192,6 +200,8 @@ export interface ServiceCustomCertificateState {
 export interface ServiceCustomCertificateArgs {
     /**
      * The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      */
     customCertificateId: pulumi.Input<string>;
     /**
@@ -200,6 +210,8 @@ export interface ServiceCustomCertificateArgs {
     name?: pulumi.Input<string>;
     /**
      * The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      */
     signalrServiceId: pulumi.Input<string>;
 }

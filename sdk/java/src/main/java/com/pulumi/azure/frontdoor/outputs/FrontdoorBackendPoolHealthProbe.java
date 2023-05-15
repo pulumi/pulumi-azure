@@ -41,6 +41,8 @@ public final class FrontdoorBackendPoolHealthProbe {
     /**
      * @return Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
      * 
+     * &gt; **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
+     * 
      */
     private @Nullable String probeMethod;
     /**
@@ -87,6 +89,8 @@ public final class FrontdoorBackendPoolHealthProbe {
     }
     /**
      * @return Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
+     * 
+     * &gt; **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
      * 
      */
     public Optional<String> probeMethod() {

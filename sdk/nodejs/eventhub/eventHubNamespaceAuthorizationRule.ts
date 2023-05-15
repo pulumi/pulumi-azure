@@ -98,6 +98,8 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** At least one of the 3 permissions below needs to be set.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -204,6 +206,8 @@ export interface EventHubNamespaceAuthorizationRuleState {
     primaryKey?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** At least one of the 3 permissions below needs to be set.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -246,6 +250,8 @@ export interface EventHubNamespaceAuthorizationRuleArgs {
     namespaceName: pulumi.Input<string>;
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+     *
+     * > **NOTE** At least one of the 3 permissions below needs to be set.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

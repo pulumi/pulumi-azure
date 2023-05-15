@@ -145,12 +145,16 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * The DNS label/name for the container group&#39;s IP. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** DNS label/name is not supported when deploying to virtual networks.
+     * 
      */
     @Export(name="dnsNameLabel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dnsNameLabel;
 
     /**
      * @return The DNS label/name for the container group&#39;s IP. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** DNS label/name is not supported when deploying to virtual networks.
      * 
      */
     public Output<Optional<String>> dnsNameLabel() {
@@ -173,12 +177,16 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
+     * 
      */
     @Export(name="exposedPorts", refs={List.class,GroupExposedPort.class}, tree="[0,1]")
     private Output<List<GroupExposedPort>> exposedPorts;
 
     /**
      * @return Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
      * 
      */
     public Output<List<GroupExposedPort>> exposedPorts() {
@@ -257,12 +265,16 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
      * 
+     * &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
+     * 
      */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipAddressType;
 
     /**
      * @return Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+     * 
+     * &gt; **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
      * 
      */
     public Output<Optional<String>> ipAddressType() {
@@ -325,12 +337,16 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+     * 
      */
     @Export(name="osType", refs={String.class}, tree="[0]")
     private Output<String> osType;
 
     /**
      * @return The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
      * 
      */
     public Output<String> osType() {

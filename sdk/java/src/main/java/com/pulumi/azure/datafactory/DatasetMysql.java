@@ -85,12 +85,16 @@ public class DatasetMysql extends com.pulumi.resources.CustomResource {
     /**
      * A map of additional properties to associate with the Data Factory Dataset MySQL.
      * 
+     * The following supported arguments are specific to MySQL Dataset:
+     * 
      */
     @Export(name="additionalProperties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> additionalProperties;
 
     /**
      * @return A map of additional properties to associate with the Data Factory Dataset MySQL.
+     * 
+     * The following supported arguments are specific to MySQL Dataset:
      * 
      */
     public Output<Optional<Map<String,String>>> additionalProperties() {

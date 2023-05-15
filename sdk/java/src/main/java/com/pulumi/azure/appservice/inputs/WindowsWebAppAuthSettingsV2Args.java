@@ -90,12 +90,16 @@ public final class WindowsWebAppAuthSettingsV2Args extends com.pulumi.resources.
     /**
      * The path to the App Auth settings.
      * 
+     * * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
+     * 
      */
     @Import(name="configFilePath")
     private @Nullable Output<String> configFilePath;
 
     /**
      * @return The path to the App Auth settings.
+     * 
+     * * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
      * 
      */
     public Optional<Output<String>> configFilePath() {
@@ -120,12 +124,16 @@ public final class WindowsWebAppAuthSettingsV2Args extends com.pulumi.resources.
     /**
      * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
      * 
+     * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * 
      */
     @Import(name="defaultProvider")
     private @Nullable Output<String> defaultProvider;
 
     /**
      * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+     * 
+     * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     public Optional<Output<String>> defaultProvider() {
@@ -489,6 +497,8 @@ public final class WindowsWebAppAuthSettingsV2Args extends com.pulumi.resources.
         /**
          * @param configFilePath The path to the App Auth settings.
          * 
+         * * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
+         * 
          * @return builder
          * 
          */
@@ -499,6 +509,8 @@ public final class WindowsWebAppAuthSettingsV2Args extends com.pulumi.resources.
 
         /**
          * @param configFilePath The path to the App Auth settings.
+         * 
+         * * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
          * 
          * @return builder
          * 
@@ -541,6 +553,8 @@ public final class WindowsWebAppAuthSettingsV2Args extends com.pulumi.resources.
         /**
          * @param defaultProvider The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          * 
+         * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+         * 
          * @return builder
          * 
          */
@@ -551,6 +565,8 @@ public final class WindowsWebAppAuthSettingsV2Args extends com.pulumi.resources.
 
         /**
          * @param defaultProvider The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+         * 
+         * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
          * 
          * @return builder
          * 

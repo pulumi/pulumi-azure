@@ -35,6 +35,8 @@ public final class SubscriptionRuleCorrelationFilter {
     /**
      * @return A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
      * 
+     * &gt; **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
+     * 
      */
     private @Nullable Map<String,String> properties;
     /**
@@ -89,6 +91,8 @@ public final class SubscriptionRuleCorrelationFilter {
     }
     /**
      * @return A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+     * 
+     * &gt; **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
      * 
      */
     public Map<String,String> properties() {

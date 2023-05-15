@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Cdn.Inputs
     {
         /// <summary>
         /// Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** Content won't be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
         /// </summary>
         [Input("compressionEnabled")]
         public Input<bool>? CompressionEnabled { get; set; }
@@ -32,6 +34,8 @@ namespace Pulumi.Azure.Cdn.Inputs
 
         /// <summary>
         /// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+        /// 
+        /// &gt; **NOTE:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
         /// </summary>
         [Input("queryStringCachingBehavior")]
         public Input<string>? QueryStringCachingBehavior { get; set; }

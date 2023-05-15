@@ -57,6 +57,119 @@ import (
 //	}
 //
 // ```
+// ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:                 exampleResourceGroup.Location,
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				EnabledForDiskEncryption: pulumi.Bool(true),
+//				TenantId:                 exampleUserAssignedIdentity.TenantId,
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
+//				PurgeProtectionEnabled:   pulumi.Bool(true),
+//				SkuName:                  pulumi.String("standard"),
+//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: *pulumi.String(current.TenantId),
+//						ObjectId: *pulumi.String(current.ObjectId),
+//						KeyPermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("List"),
+//							pulumi.String("Create"),
+//							pulumi.String("Delete"),
+//							pulumi.String("Update"),
+//							pulumi.String("Recover"),
+//							pulumi.String("Purge"),
+//							pulumi.String("GetRotationPolicy"),
+//						},
+//					},
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: exampleUserAssignedIdentity.TenantId,
+//						ObjectId: exampleUserAssignedIdentity.PrincipalId,
+//						KeyPermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("WrapKey"),
+//							pulumi.String("UnwrapKey"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("wrapKey"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleKeyVault,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("Example-Administrator"),
+//				AdministratorLoginPassword: pulumi.String("Example_Password!"),
+//				MinimumTlsVersion:          pulumi.String("1.2"),
+//				AzureadAdministrator: &mssql.ServerAzureadAdministratorArgs{
+//					LoginUsername: exampleUserAssignedIdentity.Name,
+//					ObjectId:      exampleUserAssignedIdentity.PrincipalId,
+//				},
+//				Identity: &mssql.ServerIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
+//				},
+//				PrimaryUserAssignedIdentityId:          exampleUserAssignedIdentity.ID(),
+//				TransparentDataEncryptionKeyVaultKeyId: exampleKey.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -85,6 +198,8 @@ type Server struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+	//
+	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -100,6 +215,16 @@ type Server struct {
 	RestorableDroppedDatabaseIds pulumi.StringArrayOutput `pulumi:"restorableDroppedDatabaseIds"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+	//
+	// > **NOTE:**  To use `transparentDataEncryptionKeyVaultKeyId` a User Assigned identity must be specified in `primaryUserAssignedIdentityId`. System Assigned Identities are not supported.
+	//
+	// > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+	//
+	// > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+	//
+	// > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+	TransparentDataEncryptionKeyVaultKeyId pulumi.StringPtrOutput `pulumi:"transparentDataEncryptionKeyVaultKeyId"`
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
@@ -161,6 +286,8 @@ type serverState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+	//
+	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -176,6 +303,16 @@ type serverState struct {
 	RestorableDroppedDatabaseIds []string `pulumi:"restorableDroppedDatabaseIds"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+	//
+	// > **NOTE:**  To use `transparentDataEncryptionKeyVaultKeyId` a User Assigned identity must be specified in `primaryUserAssignedIdentityId`. System Assigned Identities are not supported.
+	//
+	// > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+	//
+	// > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+	//
+	// > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+	TransparentDataEncryptionKeyVaultKeyId *string `pulumi:"transparentDataEncryptionKeyVaultKeyId"`
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version *string `pulumi:"version"`
 }
@@ -196,6 +333,8 @@ type ServerState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+	//
+	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -211,6 +350,16 @@ type ServerState struct {
 	RestorableDroppedDatabaseIds pulumi.StringArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+	//
+	// > **NOTE:**  To use `transparentDataEncryptionKeyVaultKeyId` a User Assigned identity must be specified in `primaryUserAssignedIdentityId`. System Assigned Identities are not supported.
+	//
+	// > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+	//
+	// > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+	//
+	// > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+	TransparentDataEncryptionKeyVaultKeyId pulumi.StringPtrInput
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version pulumi.StringPtrInput
 }
@@ -233,6 +382,8 @@ type serverArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+	//
+	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -246,6 +397,16 @@ type serverArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+	//
+	// > **NOTE:**  To use `transparentDataEncryptionKeyVaultKeyId` a User Assigned identity must be specified in `primaryUserAssignedIdentityId`. System Assigned Identities are not supported.
+	//
+	// > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+	//
+	// > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+	//
+	// > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+	TransparentDataEncryptionKeyVaultKeyId *string `pulumi:"transparentDataEncryptionKeyVaultKeyId"`
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version string `pulumi:"version"`
 }
@@ -265,6 +426,8 @@ type ServerArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+	//
+	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -278,6 +441,16 @@ type ServerArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+	//
+	// > **NOTE:**  To use `transparentDataEncryptionKeyVaultKeyId` a User Assigned identity must be specified in `primaryUserAssignedIdentityId`. System Assigned Identities are not supported.
+	//
+	// > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+	//
+	// > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+	//
+	// > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+	TransparentDataEncryptionKeyVaultKeyId pulumi.StringPtrInput
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version pulumi.StringInput
 }
@@ -405,6 +578,8 @@ func (o ServerOutput) Location() pulumi.StringOutput {
 }
 
 // The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
+//
+// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
 func (o ServerOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -442,6 +617,19 @@ func (o ServerOutput) RestorableDroppedDatabaseIds() pulumi.StringArrayOutput {
 // A mapping of tags to assign to the resource.
 func (o ServerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+//
+// > **NOTE:**  To use `transparentDataEncryptionKeyVaultKeyId` a User Assigned identity must be specified in `primaryUserAssignedIdentityId`. System Assigned Identities are not supported.
+//
+// > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+//
+// > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+//
+// > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+func (o ServerOutput) TransparentDataEncryptionKeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.TransparentDataEncryptionKeyVaultKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.

@@ -74,6 +74,8 @@ namespace Pulumi.Azure.NotificationHub
 
         /// <summary>
         /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         /// </summary>
         [Output("manage")]
         public Output<bool?> Manage { get; private set; } = null!;
@@ -174,6 +176,8 @@ namespace Pulumi.Azure.NotificationHub
 
         /// <summary>
         /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }
@@ -224,6 +228,8 @@ namespace Pulumi.Azure.NotificationHub
 
         /// <summary>
         /// Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }

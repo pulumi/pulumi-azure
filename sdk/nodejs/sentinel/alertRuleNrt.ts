@@ -104,6 +104,8 @@ export class AlertRuleNrt extends pulumi.CustomResource {
     public readonly entityMappings!: pulumi.Output<outputs.sentinel.AlertRuleNrtEntityMapping[] | undefined>;
     /**
      * A `eventGrouping` block as defined below.
+     *
+     * > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
      */
     public readonly eventGrouping!: pulumi.Output<outputs.sentinel.AlertRuleNrtEventGrouping>;
     /**
@@ -124,6 +126,8 @@ export class AlertRuleNrt extends pulumi.CustomResource {
     public readonly query!: pulumi.Output<string>;
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
+     *
+     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
      */
     public readonly sentinelEntityMappings!: pulumi.Output<outputs.sentinel.AlertRuleNrtSentinelEntityMapping[] | undefined>;
     /**
@@ -256,6 +260,8 @@ export interface AlertRuleNrtState {
     entityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleNrtEntityMapping>[]>;
     /**
      * A `eventGrouping` block as defined below.
+     *
+     * > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
      */
     eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleNrtEventGrouping>;
     /**
@@ -276,6 +282,8 @@ export interface AlertRuleNrtState {
     query?: pulumi.Input<string>;
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
+     *
+     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
      */
     sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleNrtSentinelEntityMapping>[]>;
     /**
@@ -338,6 +346,8 @@ export interface AlertRuleNrtArgs {
     entityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleNrtEntityMapping>[]>;
     /**
      * A `eventGrouping` block as defined below.
+     *
+     * > **NOTE:** `eventGrouping` will be required in the next major version of the AzureRM Provider.
      */
     eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleNrtEventGrouping>;
     /**
@@ -358,6 +368,8 @@ export interface AlertRuleNrtArgs {
     query: pulumi.Input<string>;
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
+     *
+     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
      */
     sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleNrtSentinelEntityMapping>[]>;
     /**

@@ -30,8 +30,12 @@ class FrontdoorFirewallPolicyArgs:
         """
         The set of arguments for constructing a FrontdoorFirewallPolicy resource.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+               
+               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         :param pulumi.Input[str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
@@ -66,6 +70,8 @@ class FrontdoorFirewallPolicyArgs:
     def mode(self) -> pulumi.Input[str]:
         """
         The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+
+        > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         """
         return pulumi.get(self, "mode")
 
@@ -90,6 +96,8 @@ class FrontdoorFirewallPolicyArgs:
     def sku_name(self) -> pulumi.Input[str]:
         """
         The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         """
         return pulumi.get(self, "sku_name")
 
@@ -218,10 +226,14 @@ class _FrontdoorFirewallPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+               
+               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
         if custom_block_response_body is not None:
@@ -326,6 +338,8 @@ class _FrontdoorFirewallPolicyState:
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
         The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+
+        > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         """
         return pulumi.get(self, "mode")
 
@@ -374,6 +388,8 @@ class _FrontdoorFirewallPolicyState:
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
         The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         """
         return pulumi.get(self, "sku_name")
 
@@ -541,10 +557,14 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFirewallPolicyManagedRuleArgs']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+               
+               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
         ...
@@ -764,10 +784,14 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFirewallPolicyManagedRuleArgs']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+               
+               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -841,6 +865,8 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     def mode(self) -> pulumi.Output[str]:
         """
         The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
+
+        > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         """
         return pulumi.get(self, "mode")
 
@@ -873,6 +899,8 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     def sku_name(self) -> pulumi.Output[str]:
         """
         The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
+
+        > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         """
         return pulumi.get(self, "sku_name")
 

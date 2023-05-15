@@ -133,12 +133,16 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
     /**
      * Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
      * 
+     * &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
+     * 
      */
     @Export(name="fileCopyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> fileCopyEnabled;
 
     /**
      * @return Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+     * 
+     * &gt; **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`.
      * 
      */
     public Output<Optional<Boolean>> fileCopyEnabled() {
@@ -161,12 +165,16 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
     /**
      * Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
      * 
+     * &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
+     * 
      */
     @Export(name="ipConnectEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ipConnectEnabled;
 
     /**
      * @return Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+     * 
+     * &gt; **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`.
      * 
      */
     public Output<Optional<Boolean>> ipConnectEnabled() {
@@ -217,12 +225,16 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
     /**
      * The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
      * 
+     * &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
+     * 
      */
     @Export(name="scaleUnits", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> scaleUnits;
 
     /**
      * @return The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+     * 
+     * &gt; **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`.
      * 
      */
     public Output<Optional<Integer>> scaleUnits() {
@@ -231,12 +243,16 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
     /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
      * 
+     * &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
+     * 
      */
     @Export(name="shareableLinkEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> shareableLinkEnabled;
 
     /**
      * @return Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+     * 
+     * &gt; **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`.
      * 
      */
     public Output<Optional<Boolean>> shareableLinkEnabled() {
@@ -273,12 +289,16 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
     /**
      * Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
      * 
+     * &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
+     * 
      */
     @Export(name="tunnelingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> tunnelingEnabled;
 
     /**
      * @return Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+     * 
+     * &gt; **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
      * 
      */
     public Output<Optional<Boolean>> tunnelingEnabled() {

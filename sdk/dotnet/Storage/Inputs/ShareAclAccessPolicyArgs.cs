@@ -20,6 +20,8 @@ namespace Pulumi.Azure.Storage.Inputs
 
         /// <summary>
         /// The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+        /// 
+        /// &gt; **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
         /// </summary>
         [Input("permissions", required: true)]
         public Input<string> Permissions { get; set; } = null!;

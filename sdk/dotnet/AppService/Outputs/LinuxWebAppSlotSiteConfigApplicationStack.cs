@@ -31,6 +31,8 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string? GoVersion;
         /// <summary>
         /// The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+        /// 
+        /// &gt; **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
         /// </summary>
         public readonly string? JavaServer;
         /// <summary>
@@ -39,14 +41,20 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string? JavaServerVersion;
         /// <summary>
         /// The Version of Java to use. Possible values include `8`, `11`, and `17`.
+        /// 
+        /// &gt; **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>
         /// The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
+        /// 
+        /// &gt; **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         /// </summary>
         public readonly string? NodeVersion;
         /// <summary>
         /// The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+        /// 
+        /// &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         /// </summary>
         public readonly string? PhpVersion;
         /// <summary>

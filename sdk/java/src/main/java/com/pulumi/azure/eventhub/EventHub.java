@@ -97,12 +97,16 @@ public class EventHub extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the number of days to retain the events for this Event Hub.
      * 
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
+     * 
      */
     @Export(name="messageRetention", refs={Integer.class}, tree="[0]")
     private Output<Integer> messageRetention;
 
     /**
      * @return Specifies the number of days to retain the events for this Event Hub.
+     * 
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
      * 
      */
     public Output<Integer> messageRetention() {
@@ -139,12 +143,20 @@ public class EventHub extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
      * 
+     * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+     * 
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
+     * 
      */
     @Export(name="partitionCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> partitionCount;
 
     /**
      * @return Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+     * 
+     * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+     * 
+     * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      * 
      */
     public Output<Integer> partitionCount() {

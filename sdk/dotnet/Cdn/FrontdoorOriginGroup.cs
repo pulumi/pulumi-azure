@@ -92,6 +92,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+        /// 
+        /// &gt; **NOTE:** This property is currently not used, but will be in the near future.
         /// </summary>
         [Output("restoreTrafficTimeToHealedOrNewEndpointInMinutes")]
         public Output<int?> RestoreTrafficTimeToHealedOrNewEndpointInMinutes { get; private set; } = null!;
@@ -174,6 +176,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+        /// 
+        /// &gt; **NOTE:** This property is currently not used, but will be in the near future.
         /// </summary>
         [Input("restoreTrafficTimeToHealedOrNewEndpointInMinutes")]
         public Input<int>? RestoreTrafficTimeToHealedOrNewEndpointInMinutes { get; set; }
@@ -218,6 +222,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
+        /// 
+        /// &gt; **NOTE:** This property is currently not used, but will be in the near future.
         /// </summary>
         [Input("restoreTrafficTimeToHealedOrNewEndpointInMinutes")]
         public Input<int>? RestoreTrafficTimeToHealedOrNewEndpointInMinutes { get; set; }

@@ -35,6 +35,8 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         public readonly string? Path;
         /// <summary>
         /// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
+        /// 
+        /// &gt; **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
         /// </summary>
         public readonly string? ProbeMethod;
         /// <summary>

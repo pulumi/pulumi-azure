@@ -49,12 +49,16 @@ public final class PortalDashboardState extends com.pulumi.resources.ResourceArg
     /**
      * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      * 
      */
     public Optional<Output<String>> name() {
@@ -164,6 +168,8 @@ public final class PortalDashboardState extends com.pulumi.resources.ResourceArg
         /**
          * @param name Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
+         * 
          * @return builder
          * 
          */
@@ -174,6 +180,8 @@ public final class PortalDashboardState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param name Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
          * 
          * @return builder
          * 

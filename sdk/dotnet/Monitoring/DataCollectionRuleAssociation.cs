@@ -159,6 +159,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// The ID of the Data Collection Rule which will be associated to the target resource.
+        /// 
+        /// &gt; **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
         /// </summary>
         [Output("dataCollectionRuleId")]
         public Output<string?> DataCollectionRuleId { get; private set; } = null!;
@@ -171,6 +173,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
+        /// 
+        /// &gt; **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -235,6 +239,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// The ID of the Data Collection Rule which will be associated to the target resource.
+        /// 
+        /// &gt; **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
         /// </summary>
         [Input("dataCollectionRuleId")]
         public Input<string>? DataCollectionRuleId { get; set; }
@@ -247,6 +253,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
+        /// 
+        /// &gt; **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -273,6 +281,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// The ID of the Data Collection Rule which will be associated to the target resource.
+        /// 
+        /// &gt; **NOTE** Exactly one of `data_collection_endpoint_id` and `data_collection_rule_id` blocks must be specified.
         /// </summary>
         [Input("dataCollectionRuleId")]
         public Input<string>? DataCollectionRuleId { get; set; }
@@ -285,6 +295,8 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
+        /// 
+        /// &gt; **NOTE** `name` is required when `data_collection_rule_id` is specified. And when `data_collection_endpoint_id` is specified, the `name` is populated with `configurationAccessEndpoint`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

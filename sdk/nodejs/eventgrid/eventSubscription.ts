@@ -85,6 +85,8 @@ export class EventSubscription extends pulumi.CustomResource {
     public readonly azureFunctionEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionAzureFunctionEndpoint | undefined>;
     /**
      * A `deadLetterIdentity` block as defined below.
+     *
+     * > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
      */
     public readonly deadLetterIdentity!: pulumi.Output<outputs.eventgrid.EventSubscriptionDeadLetterIdentity | undefined>;
     /**
@@ -153,6 +155,8 @@ export class EventSubscription extends pulumi.CustomResource {
     public readonly subjectFilter!: pulumi.Output<outputs.eventgrid.EventSubscriptionSubjectFilter | undefined>;
     /**
      * A `webhookEndpoint` block as defined below.
+     *
+     * > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
      */
     public readonly webhookEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionWebhookEndpoint | undefined>;
 
@@ -242,6 +246,8 @@ export interface EventSubscriptionState {
     azureFunctionEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionAzureFunctionEndpoint>;
     /**
      * A `deadLetterIdentity` block as defined below.
+     *
+     * > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
      */
     deadLetterIdentity?: pulumi.Input<inputs.eventgrid.EventSubscriptionDeadLetterIdentity>;
     /**
@@ -310,6 +316,8 @@ export interface EventSubscriptionState {
     subjectFilter?: pulumi.Input<inputs.eventgrid.EventSubscriptionSubjectFilter>;
     /**
      * A `webhookEndpoint` block as defined below.
+     *
+     * > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
      */
     webhookEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionWebhookEndpoint>;
 }
@@ -332,6 +340,8 @@ export interface EventSubscriptionArgs {
     azureFunctionEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionAzureFunctionEndpoint>;
     /**
      * A `deadLetterIdentity` block as defined below.
+     *
+     * > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
      */
     deadLetterIdentity?: pulumi.Input<inputs.eventgrid.EventSubscriptionDeadLetterIdentity>;
     /**
@@ -400,6 +410,8 @@ export interface EventSubscriptionArgs {
     subjectFilter?: pulumi.Input<inputs.eventgrid.EventSubscriptionSubjectFilter>;
     /**
      * A `webhookEndpoint` block as defined below.
+     *
+     * > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
      */
     webhookEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionWebhookEndpoint>;
 }

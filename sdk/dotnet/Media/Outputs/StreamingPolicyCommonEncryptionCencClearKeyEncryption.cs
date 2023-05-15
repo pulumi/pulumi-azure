@@ -15,6 +15,8 @@ namespace Pulumi.Azure.Media.Outputs
     {
         /// <summary>
         /// The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+        /// 
+        /// &gt; **Note** Either `clear_key_encryption` or `drm` must be specified.
         /// </summary>
         public readonly string CustomKeysAcquisitionUrlTemplate;
 

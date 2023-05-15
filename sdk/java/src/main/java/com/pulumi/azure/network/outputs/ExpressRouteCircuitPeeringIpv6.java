@@ -31,6 +31,8 @@ public final class ExpressRouteCircuitPeeringIpv6 {
     /**
      * @return The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
      * 
+     * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * 
      */
     private @Nullable String routeFilterId;
     /**
@@ -63,6 +65,8 @@ public final class ExpressRouteCircuitPeeringIpv6 {
     }
     /**
      * @return The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+     * 
+     * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
      * 
      */
     public Optional<String> routeFilterId() {

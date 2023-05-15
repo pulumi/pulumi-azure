@@ -137,6 +137,8 @@ namespace Pulumi.Azure.SignalR
 
         /// <summary>
         /// The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         /// </summary>
         [Output("customCertificateId")]
         public Output<string> CustomCertificateId { get; private set; } = null!;
@@ -149,6 +151,8 @@ namespace Pulumi.Azure.SignalR
 
         /// <summary>
         /// The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         /// </summary>
         [Output("signalrServiceId")]
         public Output<string> SignalrServiceId { get; private set; } = null!;
@@ -201,6 +205,8 @@ namespace Pulumi.Azure.SignalR
     {
         /// <summary>
         /// The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         /// </summary>
         [Input("customCertificateId", required: true)]
         public Input<string> CustomCertificateId { get; set; } = null!;
@@ -213,6 +219,8 @@ namespace Pulumi.Azure.SignalR
 
         /// <summary>
         /// The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         /// </summary>
         [Input("signalrServiceId", required: true)]
         public Input<string> SignalrServiceId { get; set; } = null!;
@@ -233,6 +241,8 @@ namespace Pulumi.Azure.SignalR
 
         /// <summary>
         /// The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Self assigned certificate is not supported and the provisioning status will fail.
         /// </summary>
         [Input("customCertificateId")]
         public Input<string>? CustomCertificateId { get; set; }
@@ -245,6 +255,8 @@ namespace Pulumi.Azure.SignalR
 
         /// <summary>
         /// The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         /// </summary>
         [Input("signalrServiceId")]
         public Input<string>? SignalrServiceId { get; set; }

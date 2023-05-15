@@ -50,6 +50,8 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// A `gpu` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** Gpu resources are currently only supported in Linux containers.
         /// </summary>
         [Input("gpu")]
         public Input<Inputs.GroupContainerGpuArgs>? Gpu { get; set; }

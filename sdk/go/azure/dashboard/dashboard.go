@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a shared dashboard in the Azure Portal.
+//
+// !> **Note:** The `portal.Dashboard` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `portal.PortalDashboard` resource instead.
+//
 // ## Example Usage
 //
 // ```go
@@ -199,6 +203,8 @@ type Dashboard struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+	//
+	// > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -243,6 +249,8 @@ type dashboardState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+	//
+	// > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -256,6 +264,8 @@ type DashboardState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+	//
+	// > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -273,6 +283,8 @@ type dashboardArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+	//
+	// > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -287,6 +299,8 @@ type DashboardArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+	//
+	// > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -392,6 +406,8 @@ func (o DashboardOutput) Location() pulumi.StringOutput {
 }
 
 // Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
+//
+// > **Note**: You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
 func (o DashboardOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

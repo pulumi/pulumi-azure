@@ -212,6 +212,8 @@ public class Connection extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+     * 
      * @deprecated
      * This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
      * 
@@ -222,6 +224,8 @@ public class Connection extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

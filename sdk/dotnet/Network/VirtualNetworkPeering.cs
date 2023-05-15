@@ -115,11 +115,16 @@ namespace Pulumi.Azure.Network
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+        /// </summary>
         [Output("triggers")]
         public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
 
         /// <summary>
         /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
         /// </summary>
         [Output("useRemoteGateways")]
         public Output<bool?> UseRemoteGateways { get; private set; } = null!;
@@ -214,6 +219,10 @@ namespace Pulumi.Azure.Network
 
         [Input("triggers")]
         private InputMap<string>? _triggers;
+
+        /// <summary>
+        /// A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+        /// </summary>
         public InputMap<string> Triggers
         {
             get => _triggers ?? (_triggers = new InputMap<string>());
@@ -222,6 +231,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
         /// </summary>
         [Input("useRemoteGateways")]
         public Input<bool>? UseRemoteGateways { get; set; }
@@ -278,6 +289,10 @@ namespace Pulumi.Azure.Network
 
         [Input("triggers")]
         private InputMap<string>? _triggers;
+
+        /// <summary>
+        /// A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
+        /// </summary>
         public InputMap<string> Triggers
         {
             get => _triggers ?? (_triggers = new InputMap<string>());
@@ -286,6 +301,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** `use_remote_gateways` must be set to `false` if using Global Virtual Network Peerings.
         /// </summary>
         [Input("useRemoteGateways")]
         public Input<bool>? UseRemoteGateways { get; set; }

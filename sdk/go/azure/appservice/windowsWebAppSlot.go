@@ -115,7 +115,7 @@ type WindowsWebAppSlot struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// A `logs` block as defined below.
 	Logs WindowsWebAppSlotLogsPtrOutput `pulumi:"logs"`
-	// The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+	// The Site Credentials Username used for publishing.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"outboundIpAddressLists"`
@@ -132,10 +132,11 @@ type WindowsWebAppSlot struct {
 	// A `siteCredential` block as defined below.
 	SiteCredentials WindowsWebAppSlotSiteCredentialArrayOutput `pulumi:"siteCredentials"`
 	// One or more `storageAccount` blocks as defined below.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts WindowsWebAppSlotStorageAccountArrayOutput `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	ZipDeployFile pulumi.StringOutput `pulumi:"zipDeployFile"`
@@ -219,7 +220,7 @@ type windowsWebAppSlotState struct {
 	Kind *string `pulumi:"kind"`
 	// A `logs` block as defined below.
 	Logs *WindowsWebAppSlotLogs `pulumi:"logs"`
-	// The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+	// The Site Credentials Username used for publishing.
 	Name *string `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
@@ -236,11 +237,12 @@ type windowsWebAppSlotState struct {
 	// A `siteCredential` block as defined below.
 	SiteCredentials []WindowsWebAppSlotSiteCredential `pulumi:"siteCredentials"`
 	// One or more `storageAccount` blocks as defined below.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts []WindowsWebAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
-	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
@@ -284,7 +286,7 @@ type WindowsWebAppSlotState struct {
 	Kind pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs WindowsWebAppSlotLogsPtrInput
-	// The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+	// The Site Credentials Username used for publishing.
 	Name pulumi.StringPtrInput
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayInput
@@ -301,10 +303,11 @@ type WindowsWebAppSlotState struct {
 	// A `siteCredential` block as defined below.
 	SiteCredentials WindowsWebAppSlotSiteCredentialArrayInput
 	// One or more `storageAccount` blocks as defined below.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts WindowsWebAppSlotStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
-	Tags pulumi.StringMapInput
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	ZipDeployFile pulumi.StringPtrInput
@@ -345,18 +348,19 @@ type windowsWebAppSlotArgs struct {
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// A `logs` block as defined below.
 	Logs *WindowsWebAppSlotLogs `pulumi:"logs"`
-	// The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+	// The Site Credentials Username used for publishing.
 	Name *string `pulumi:"name"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
 	ServicePlanId *string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig WindowsWebAppSlotSiteConfig `pulumi:"siteConfig"`
 	// One or more `storageAccount` blocks as defined below.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts []WindowsWebAppSlotStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
-	Tags map[string]string `pulumi:"tags"`
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
@@ -393,17 +397,18 @@ type WindowsWebAppSlotArgs struct {
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs WindowsWebAppSlotLogsPtrInput
-	// The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+	// The Site Credentials Username used for publishing.
 	Name pulumi.StringPtrInput
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
 	ServicePlanId pulumi.StringPtrInput
 	// A `siteConfig` block as defined below.
 	SiteConfig WindowsWebAppSlotSiteConfigInput
 	// One or more `storageAccount` blocks as defined below.
+	//
+	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 	StorageAccounts WindowsWebAppSlotStorageAccountArrayInput
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
-	Tags pulumi.StringMapInput
-	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	ZipDeployFile pulumi.StringPtrInput
@@ -591,7 +596,7 @@ func (o WindowsWebAppSlotOutput) Logs() WindowsWebAppSlotLogsPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) WindowsWebAppSlotLogsPtrOutput { return v.Logs }).(WindowsWebAppSlotLogsPtrOutput)
 }
 
-// The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
+// The Site Credentials Username used for publishing.
 func (o WindowsWebAppSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -632,6 +637,8 @@ func (o WindowsWebAppSlotOutput) SiteCredentials() WindowsWebAppSlotSiteCredenti
 }
 
 // One or more `storageAccount` blocks as defined below.
+//
+// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
 func (o WindowsWebAppSlotOutput) StorageAccounts() WindowsWebAppSlotStorageAccountArrayOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) WindowsWebAppSlotStorageAccountArrayOutput { return v.StorageAccounts }).(WindowsWebAppSlotStorageAccountArrayOutput)
 }
@@ -641,7 +648,6 @@ func (o WindowsWebAppSlotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 func (o WindowsWebAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }

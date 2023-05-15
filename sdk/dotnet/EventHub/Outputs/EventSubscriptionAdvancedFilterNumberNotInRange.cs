@@ -19,6 +19,8 @@ namespace Pulumi.Azure.EventHub.Outputs
         public readonly string Key;
         /// <summary>
         /// Specifies an array of values to compare to when using a multiple values operator.
+        /// 
+        /// &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
         /// </summary>
         public readonly ImmutableArray<ImmutableArray<double>> Values;
 

@@ -28,6 +28,8 @@ class EndpointCustomDomainArgs:
         :param pulumi.Input['EndpointCustomDomainCdnManagedHttpsArgs'] cdn_managed_https: A `cdn_managed_https` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs'] user_managed_https: A `user_managed_https` block as defined below.
+               
+               > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
         pulumi.set(__self__, "cdn_endpoint_id", cdn_endpoint_id)
         pulumi.set(__self__, "host_name", host_name)
@@ -91,6 +93,8 @@ class EndpointCustomDomainArgs:
     def user_managed_https(self) -> Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']]:
         """
         A `user_managed_https` block as defined below.
+
+        > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
         return pulumi.get(self, "user_managed_https")
 
@@ -114,6 +118,8 @@ class _EndpointCustomDomainState:
         :param pulumi.Input[str] host_name: The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input[str] name: The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs'] user_managed_https: A `user_managed_https` block as defined below.
+               
+               > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
         if cdn_endpoint_id is not None:
             pulumi.set(__self__, "cdn_endpoint_id", cdn_endpoint_id)
@@ -179,6 +185,8 @@ class _EndpointCustomDomainState:
     def user_managed_https(self) -> Optional[pulumi.Input['EndpointCustomDomainUserManagedHttpsArgs']]:
         """
         A `user_managed_https` block as defined below.
+
+        > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
         return pulumi.get(self, "user_managed_https")
 
@@ -252,6 +260,8 @@ class EndpointCustomDomain(pulumi.CustomResource):
         :param pulumi.Input[str] host_name: The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input[str] name: The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input[pulumi.InputType['EndpointCustomDomainUserManagedHttpsArgs']] user_managed_https: A `user_managed_https` block as defined below.
+               
+               > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
         ...
     @overload
@@ -371,6 +381,8 @@ class EndpointCustomDomain(pulumi.CustomResource):
         :param pulumi.Input[str] host_name: The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input[str] name: The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input[pulumi.InputType['EndpointCustomDomainUserManagedHttpsArgs']] user_managed_https: A `user_managed_https` block as defined below.
+               
+               > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -420,6 +432,8 @@ class EndpointCustomDomain(pulumi.CustomResource):
     def user_managed_https(self) -> pulumi.Output[Optional['outputs.EndpointCustomDomainUserManagedHttps']]:
         """
         A `user_managed_https` block as defined below.
+
+        > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
         return pulumi.get(self, "user_managed_https")
 

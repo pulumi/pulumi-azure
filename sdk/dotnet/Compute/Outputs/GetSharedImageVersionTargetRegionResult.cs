@@ -15,6 +15,8 @@ namespace Pulumi.Azure.Compute.Outputs
     {
         /// <summary>
         /// The name of the Image Version.
+        /// 
+        /// &gt; **Note:** You may specify `latest` to obtain the latest version or `recent` to obtain the most recently updated version.
         /// </summary>
         public readonly string Name;
         /// <summary>

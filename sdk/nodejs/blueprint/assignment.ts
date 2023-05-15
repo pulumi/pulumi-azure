@@ -154,10 +154,14 @@ export class Assignment extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * a JSON string to supply Blueprint Assignment parameter values.
+     *
+     * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
     public readonly parameterValues!: pulumi.Output<string | undefined>;
     /**
      * a JSON string to supply the Blueprint Resource Group information.
+     *
+     * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
     public readonly resourceGroups!: pulumi.Output<string | undefined>;
     /**
@@ -273,10 +277,14 @@ export interface AssignmentState {
     name?: pulumi.Input<string>;
     /**
      * a JSON string to supply Blueprint Assignment parameter values.
+     *
+     * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
     parameterValues?: pulumi.Input<string>;
     /**
      * a JSON string to supply the Blueprint Resource Group information.
+     *
+     * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
     resourceGroups?: pulumi.Input<string>;
     /**
@@ -323,10 +331,14 @@ export interface AssignmentArgs {
     name?: pulumi.Input<string>;
     /**
      * a JSON string to supply Blueprint Assignment parameter values.
+     *
+     * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
     parameterValues?: pulumi.Input<string>;
     /**
      * a JSON string to supply the Blueprint Resource Group information.
+     *
+     * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
     resourceGroups?: pulumi.Input<string>;
     /**

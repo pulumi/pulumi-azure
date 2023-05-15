@@ -62,12 +62,16 @@ public final class GetEncryptedValuePlainArgs extends com.pulumi.resources.Invok
     /**
      * The plain-text value which should be Encrypted into `encrypted_data`.
      * 
+     * &gt; **Note:** One of either `encrypted_data` or `plain_text_value` must be specified and is used to populate the encrypted/decrypted value for the other field.
+     * 
      */
     @Import(name="plainTextValue")
     private @Nullable String plainTextValue;
 
     /**
      * @return The plain-text value which should be Encrypted into `encrypted_data`.
+     * 
+     * &gt; **Note:** One of either `encrypted_data` or `plain_text_value` must be specified and is used to populate the encrypted/decrypted value for the other field.
      * 
      */
     public Optional<String> plainTextValue() {
@@ -136,6 +140,8 @@ public final class GetEncryptedValuePlainArgs extends com.pulumi.resources.Invok
 
         /**
          * @param plainTextValue The plain-text value which should be Encrypted into `encrypted_data`.
+         * 
+         * &gt; **Note:** One of either `encrypted_data` or `plain_text_value` must be specified and is used to populate the encrypted/decrypted value for the other field.
          * 
          * @return builder
          * 

@@ -15,6 +15,10 @@ public final class GroupIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
      * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
+     * &gt; **NOTE:** Currently you can&#39;t use a managed identity in a container group deployed to a virtual network.
+     * 
      */
     private @Nullable List<String> identityIds;
     /**
@@ -30,12 +34,18 @@ public final class GroupIdentity {
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
+     * &gt; **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+     * 
      */
     private String type;
 
     private GroupIdentity() {}
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
+     * &gt; **NOTE:** Currently you can&#39;t use a managed identity in a container group deployed to a virtual network.
      * 
      */
     public List<String> identityIds() {
@@ -57,6 +67,8 @@ public final class GroupIdentity {
     }
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * 
+     * &gt; **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
      * 
      */
     public String type() {

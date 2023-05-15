@@ -61,17 +61,9 @@ public final class ApiConnectionArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
-     * 
-     */
     @Import(name="parameterValues")
     private @Nullable Output<Map<String,String>> parameterValues;
 
-    /**
-     * @return A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
-     * 
-     */
     public Optional<Output<Map<String,String>>> parameterValues() {
         return Optional.ofNullable(this.parameterValues);
     }
@@ -198,23 +190,11 @@ public final class ApiConnectionArgs extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
-        /**
-         * @param parameterValues A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterValues(@Nullable Output<Map<String,String>> parameterValues) {
             $.parameterValues = parameterValues;
             return this;
         }
 
-        /**
-         * @param parameterValues A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterValues(Map<String,String> parameterValues) {
             return parameterValues(Output.of(parameterValues));
         }

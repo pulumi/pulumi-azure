@@ -26,6 +26,8 @@ namespace Pulumi.Azure.DataFactory.Inputs
 
         /// <summary>
         /// Specifies the global parameter value.
+        /// 
+        /// &gt; **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

@@ -79,12 +79,16 @@ public final class VirtualHubRouteTableRouteArgs extends com.pulumi.resources.Re
     /**
      * The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
      * 
+     * &gt; **Note:** The Routes can alternatively be created using the virtual_hub_route_table_route resource. Using both inline and external routes is not supported and may result in unexpected configuration.
+     * 
      */
     @Import(name="nextHopType")
     private @Nullable Output<String> nextHopType;
 
     /**
      * @return The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+     * 
+     * &gt; **Note:** The Routes can alternatively be created using the virtual_hub_route_table_route resource. Using both inline and external routes is not supported and may result in unexpected configuration.
      * 
      */
     public Optional<Output<String>> nextHopType() {
@@ -216,6 +220,8 @@ public final class VirtualHubRouteTableRouteArgs extends com.pulumi.resources.Re
         /**
          * @param nextHopType The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
          * 
+         * &gt; **Note:** The Routes can alternatively be created using the virtual_hub_route_table_route resource. Using both inline and external routes is not supported and may result in unexpected configuration.
+         * 
          * @return builder
          * 
          */
@@ -226,6 +232,8 @@ public final class VirtualHubRouteTableRouteArgs extends com.pulumi.resources.Re
 
         /**
          * @param nextHopType The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
+         * 
+         * &gt; **Note:** The Routes can alternatively be created using the virtual_hub_route_table_route resource. Using both inline and external routes is not supported and may result in unexpected configuration.
          * 
          * @return builder
          * 

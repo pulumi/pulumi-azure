@@ -52,12 +52,16 @@ public final class VirtualMachineOsProfileWindowsConfigArgs extends com.pulumi.r
     /**
      * Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
      * 
+     * &gt; **NOTE:** This is different from the Default value used for this field within Azure.
+     * 
      */
     @Import(name="provisionVmAgent")
     private @Nullable Output<Boolean> provisionVmAgent;
 
     /**
      * @return Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
+     * 
+     * &gt; **NOTE:** This is different from the Default value used for this field within Azure.
      * 
      */
     public Optional<Output<Boolean>> provisionVmAgent() {
@@ -177,6 +181,8 @@ public final class VirtualMachineOsProfileWindowsConfigArgs extends com.pulumi.r
         /**
          * @param provisionVmAgent Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
          * 
+         * &gt; **NOTE:** This is different from the Default value used for this field within Azure.
+         * 
          * @return builder
          * 
          */
@@ -187,6 +193,8 @@ public final class VirtualMachineOsProfileWindowsConfigArgs extends com.pulumi.r
 
         /**
          * @param provisionVmAgent Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
+         * 
+         * &gt; **NOTE:** This is different from the Default value used for this field within Azure.
          * 
          * @return builder
          * 

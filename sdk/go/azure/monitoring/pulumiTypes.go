@@ -818,6 +818,8 @@ type ActionGroupEventHubReceiver struct {
 	// The name of the EventHub Receiver, must be unique within action group.
 	Name string `pulumi:"name"`
 	// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+	//
+	// > **NOTE:** `eventHubId` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `eventHubName`, `eventHubName`,and `subscriptionId` instead. And `eventHubName`, `eventHubName` will be required properties in version 4.0.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Tenant ID for the subscription containing this Event Hub.
 	TenantId *string `pulumi:"tenantId"`
@@ -848,6 +850,8 @@ type ActionGroupEventHubReceiverArgs struct {
 	// The name of the EventHub Receiver, must be unique within action group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+	//
+	// > **NOTE:** `eventHubId` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `eventHubName`, `eventHubName`,and `subscriptionId` instead. And `eventHubName`, `eventHubName` will be required properties in version 4.0.
 	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
 	// The Tenant ID for the subscription containing this Event Hub.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
@@ -929,6 +933,8 @@ func (o ActionGroupEventHubReceiverOutput) Name() pulumi.StringOutput {
 }
 
 // The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+//
+// > **NOTE:** `eventHubId` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `eventHubName`, `eventHubName`,and `subscriptionId` instead. And `eventHubName`, `eventHubName` will be required properties in version 4.0.
 func (o ActionGroupEventHubReceiverOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionGroupEventHubReceiver) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
@@ -969,6 +975,8 @@ type ActionGroupItsmReceiver struct {
 	// The name of the ITSM receiver.
 	Name string `pulumi:"name"`
 	// The region of the workspace.
+	//
+	// > **NOTE** `ticketConfiguration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
 	Region string `pulumi:"region"`
 	// A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 	TicketConfiguration string `pulumi:"ticketConfiguration"`
@@ -993,6 +1001,8 @@ type ActionGroupItsmReceiverArgs struct {
 	// The name of the ITSM receiver.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The region of the workspace.
+	//
+	// > **NOTE** `ticketConfiguration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
 	Region pulumi.StringInput `pulumi:"region"`
 	// A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
@@ -1062,6 +1072,8 @@ func (o ActionGroupItsmReceiverOutput) Name() pulumi.StringOutput {
 }
 
 // The region of the workspace.
+//
+// > **NOTE** `ticketConfiguration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
 func (o ActionGroupItsmReceiverOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupItsmReceiver) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -1452,6 +1464,8 @@ func (o ActionGroupVoiceReceiverArrayOutput) Index(i pulumi.IntInput) ActionGrou
 
 type ActionGroupWebhookReceiver struct {
 	// The `aadAuth` block as defined below
+	//
+	// > **NOTE:** Before adding a secure webhook receiver by setting `aadAuth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
 	AadAuth *ActionGroupWebhookReceiverAadAuth `pulumi:"aadAuth"`
 	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name string `pulumi:"name"`
@@ -1474,6 +1488,8 @@ type ActionGroupWebhookReceiverInput interface {
 
 type ActionGroupWebhookReceiverArgs struct {
 	// The `aadAuth` block as defined below
+	//
+	// > **NOTE:** Before adding a secure webhook receiver by setting `aadAuth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
 	AadAuth ActionGroupWebhookReceiverAadAuthPtrInput `pulumi:"aadAuth"`
 	// The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1535,6 +1551,8 @@ func (o ActionGroupWebhookReceiverOutput) ToActionGroupWebhookReceiverOutputWith
 }
 
 // The `aadAuth` block as defined below
+//
+// > **NOTE:** Before adding a secure webhook receiver by setting `aadAuth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
 func (o ActionGroupWebhookReceiverOutput) AadAuth() ActionGroupWebhookReceiverAadAuthPtrOutput {
 	return o.ApplyT(func(v ActionGroupWebhookReceiver) *ActionGroupWebhookReceiverAadAuth { return v.AadAuth }).(ActionGroupWebhookReceiverAadAuthPtrOutput)
 }
@@ -5878,6 +5896,8 @@ type AlertProcessingRuleActionGroupCondition struct {
 	// A `targetResourceGroup` block as defined below.
 	TargetResourceGroup *AlertProcessingRuleActionGroupConditionTargetResourceGroup `pulumi:"targetResourceGroup"`
 	// A `targetResourceType` block as defined below.
+	//
+	// > **Note:** At least one of the `alertContext`, `alertRuleId`, `alertRuleName`, `description`, `monitorCondition`, `monitorService`, `severity`, `signalType`, `targetResource`, `targetResourceGroup`, `targetResourceType` must be specified.
 	TargetResourceType *AlertProcessingRuleActionGroupConditionTargetResourceType `pulumi:"targetResourceType"`
 }
 
@@ -5914,6 +5934,8 @@ type AlertProcessingRuleActionGroupConditionArgs struct {
 	// A `targetResourceGroup` block as defined below.
 	TargetResourceGroup AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrInput `pulumi:"targetResourceGroup"`
 	// A `targetResourceType` block as defined below.
+	//
+	// > **Note:** At least one of the `alertContext`, `alertRuleId`, `alertRuleName`, `description`, `monitorCondition`, `monitorService`, `severity`, `signalType`, `targetResource`, `targetResourceGroup`, `targetResourceType` must be specified.
 	TargetResourceType AlertProcessingRuleActionGroupConditionTargetResourceTypePtrInput `pulumi:"targetResourceType"`
 }
 
@@ -6065,6 +6087,8 @@ func (o AlertProcessingRuleActionGroupConditionOutput) TargetResourceGroup() Ale
 }
 
 // A `targetResourceType` block as defined below.
+//
+// > **Note:** At least one of the `alertContext`, `alertRuleId`, `alertRuleName`, `description`, `monitorCondition`, `monitorService`, `severity`, `signalType`, `targetResource`, `targetResourceGroup`, `targetResourceType` must be specified.
 func (o AlertProcessingRuleActionGroupConditionOutput) TargetResourceType() AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionTargetResourceType {
 		return v.TargetResourceType
@@ -6196,6 +6220,8 @@ func (o AlertProcessingRuleActionGroupConditionPtrOutput) TargetResourceGroup() 
 }
 
 // A `targetResourceType` block as defined below.
+//
+// > **Note:** At least one of the `alertContext`, `alertRuleId`, `alertRuleName`, `description`, `monitorCondition`, `monitorService`, `severity`, `signalType`, `targetResource`, `targetResourceGroup`, `targetResourceType` must be specified.
 func (o AlertProcessingRuleActionGroupConditionPtrOutput) TargetResourceType() AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput {
 	return o.ApplyT(func(v *AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionTargetResourceType {
 		if v == nil {
@@ -11986,6 +12012,8 @@ type AutoscaleSettingProfileCapacity struct {
 	// The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
 	Default int `pulumi:"default"`
 	// The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+	//
+	// > **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
 	Maximum int `pulumi:"maximum"`
 	// The minimum number of instances for this resource. Valid values are between `0` and `1000`.
 	Minimum int `pulumi:"minimum"`
@@ -12006,6 +12034,8 @@ type AutoscaleSettingProfileCapacityArgs struct {
 	// The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
 	Default pulumi.IntInput `pulumi:"default"`
 	// The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+	//
+	// > **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
 	Maximum pulumi.IntInput `pulumi:"maximum"`
 	// The minimum number of instances for this resource. Valid values are between `0` and `1000`.
 	Minimum pulumi.IntInput `pulumi:"minimum"`
@@ -12043,6 +12073,8 @@ func (o AutoscaleSettingProfileCapacityOutput) Default() pulumi.IntOutput {
 }
 
 // The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+//
+// > **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
 func (o AutoscaleSettingProfileCapacityOutput) Maximum() pulumi.IntOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileCapacity) int { return v.Maximum }).(pulumi.IntOutput)
 }
@@ -12533,6 +12565,8 @@ type AutoscaleSettingProfileRuleMetricTrigger struct {
 	// Whether to enable metric divide by instance count.
 	DivideByInstanceCount *bool `pulumi:"divideByInstanceCount"`
 	// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+	//
+	// > **NOTE:** The allowed value of `metricName` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
 	MetricName string `pulumi:"metricName"`
 	// The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
 	MetricNamespace *string `pulumi:"metricNamespace"`
@@ -12569,6 +12603,8 @@ type AutoscaleSettingProfileRuleMetricTriggerArgs struct {
 	// Whether to enable metric divide by instance count.
 	DivideByInstanceCount pulumi.BoolPtrInput `pulumi:"divideByInstanceCount"`
 	// The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+	//
+	// > **NOTE:** The allowed value of `metricName` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
 	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
@@ -12627,6 +12663,8 @@ func (o AutoscaleSettingProfileRuleMetricTriggerOutput) DivideByInstanceCount() 
 }
 
 // The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+//
+// > **NOTE:** The allowed value of `metricName` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoscaleSettingProfileRuleMetricTrigger) string { return v.MetricName }).(pulumi.StringOutput)
 }
@@ -14690,6 +14728,8 @@ type DataCollectionRuleDataSourcesSyslog struct {
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name string `pulumi:"name"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+	//
+	// > **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `["Microsoft-Syslog"]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
 	Streams []string `pulumi:"streams"`
 }
 
@@ -14712,6 +14752,8 @@ type DataCollectionRuleDataSourcesSyslogArgs struct {
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+	//
+	// > **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `["Microsoft-Syslog"]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
 }
 
@@ -14782,6 +14824,8 @@ func (o DataCollectionRuleDataSourcesSyslogOutput) Name() pulumi.StringOutput {
 }
 
 // Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+//
+// > **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `["Microsoft-Syslog"]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
 func (o DataCollectionRuleDataSourcesSyslogOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesSyslog) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -15043,6 +15087,10 @@ type DataCollectionRuleDestinations struct {
 	// One or more `storageBlob` blocks as defined below.
 	StorageBlobs []DataCollectionRuleDestinationsStorageBlob `pulumi:"storageBlobs"`
 	// One or more `storageTableDirect` blocks as defined below.
+	//
+	// > **NOTE** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
+	//
+	// > **NOTE** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
 	StorageTableDirects []DataCollectionRuleDestinationsStorageTableDirect `pulumi:"storageTableDirects"`
 }
 
@@ -15073,6 +15121,10 @@ type DataCollectionRuleDestinationsArgs struct {
 	// One or more `storageBlob` blocks as defined below.
 	StorageBlobs DataCollectionRuleDestinationsStorageBlobArrayInput `pulumi:"storageBlobs"`
 	// One or more `storageTableDirect` blocks as defined below.
+	//
+	// > **NOTE** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
+	//
+	// > **NOTE** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
 	StorageTableDirects DataCollectionRuleDestinationsStorageTableDirectArrayInput `pulumi:"storageTableDirects"`
 }
 
@@ -15201,6 +15253,10 @@ func (o DataCollectionRuleDestinationsOutput) StorageBlobs() DataCollectionRuleD
 }
 
 // One or more `storageTableDirect` blocks as defined below.
+//
+// > **NOTE** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
+//
+// > **NOTE** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
 func (o DataCollectionRuleDestinationsOutput) StorageTableDirects() DataCollectionRuleDestinationsStorageTableDirectArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDestinations) []DataCollectionRuleDestinationsStorageTableDirect {
 		return v.StorageTableDirects
@@ -15302,6 +15358,10 @@ func (o DataCollectionRuleDestinationsPtrOutput) StorageBlobs() DataCollectionRu
 }
 
 // One or more `storageTableDirect` blocks as defined below.
+//
+// > **NOTE** `eventHubDirect`, `storageBlobDirect`, and `storageTableDirect` are only available for rules of kind `AgentDirectToStore`.
+//
+// > **NOTE** At least one of `azureMonitorMetrics`, `eventHub`, `eventHubDirect`, `logAnalytics`, `monitorAccount`, `storageBlob`, `storageBlobDirect`,and `storageTableDirect` blocks must be specified.
 func (o DataCollectionRuleDestinationsPtrOutput) StorageTableDirects() DataCollectionRuleDestinationsStorageTableDirectArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleDestinations) []DataCollectionRuleDestinationsStorageTableDirect {
 		if v == nil {
@@ -16319,6 +16379,8 @@ func (o DataCollectionRuleDestinationsStorageTableDirectArrayOutput) Index(i pul
 
 type DataCollectionRuleIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -16341,6 +16403,8 @@ type DataCollectionRuleIdentityInput interface {
 
 type DataCollectionRuleIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -16428,6 +16492,8 @@ func (o DataCollectionRuleIdentityOutput) ToDataCollectionRuleIdentityPtrOutputW
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 func (o DataCollectionRuleIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -16472,6 +16538,8 @@ func (o DataCollectionRuleIdentityPtrOutput) Elem() DataCollectionRuleIdentityOu
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 func (o DataCollectionRuleIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataCollectionRuleIdentity) []string {
 		if v == nil {
@@ -16727,8 +16795,12 @@ func (o DataCollectionRuleStreamDeclarationColumnArrayOutput) Index(i pulumi.Int
 
 type DiagnosticSettingEnabledLog struct {
 	// The name of a Diagnostic Log Category for this Resource.
+	//
+	// > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
 	Category *string `pulumi:"category"`
 	// The name of a Diagnostic Log Category Group for this Resource.
+	//
+	// > **NOTE:** Not all resources have category groups available.****
 	CategoryGroup *string `pulumi:"categoryGroup"`
 	// A `retentionPolicy` block as defined below.
 	RetentionPolicy *DiagnosticSettingEnabledLogRetentionPolicy `pulumi:"retentionPolicy"`
@@ -16747,8 +16819,12 @@ type DiagnosticSettingEnabledLogInput interface {
 
 type DiagnosticSettingEnabledLogArgs struct {
 	// The name of a Diagnostic Log Category for this Resource.
+	//
+	// > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
 	Category pulumi.StringPtrInput `pulumi:"category"`
 	// The name of a Diagnostic Log Category Group for this Resource.
+	//
+	// > **NOTE:** Not all resources have category groups available.****
 	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
 	// A `retentionPolicy` block as defined below.
 	RetentionPolicy DiagnosticSettingEnabledLogRetentionPolicyPtrInput `pulumi:"retentionPolicy"`
@@ -16806,11 +16882,15 @@ func (o DiagnosticSettingEnabledLogOutput) ToDiagnosticSettingEnabledLogOutputWi
 }
 
 // The name of a Diagnostic Log Category for this Resource.
+//
+// > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
 func (o DiagnosticSettingEnabledLogOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingEnabledLog) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
 // The name of a Diagnostic Log Category Group for this Resource.
+//
+// > **NOTE:** Not all resources have category groups available.****
 func (o DiagnosticSettingEnabledLogOutput) CategoryGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingEnabledLog) *string { return v.CategoryGroup }).(pulumi.StringPtrOutput)
 }
@@ -16844,6 +16924,8 @@ func (o DiagnosticSettingEnabledLogArrayOutput) Index(i pulumi.IntInput) Diagnos
 
 type DiagnosticSettingEnabledLogRetentionPolicy struct {
 	// The number of days for which this Retention Policy should apply.
+	//
+	// > **NOTE:** Setting this to `0` will retain the events indefinitely.
 	Days *int `pulumi:"days"`
 	// Is this Retention Policy enabled?
 	Enabled bool `pulumi:"enabled"`
@@ -16862,6 +16944,8 @@ type DiagnosticSettingEnabledLogRetentionPolicyInput interface {
 
 type DiagnosticSettingEnabledLogRetentionPolicyArgs struct {
 	// The number of days for which this Retention Policy should apply.
+	//
+	// > **NOTE:** Setting this to `0` will retain the events indefinitely.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 	// Is this Retention Policy enabled?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -16945,6 +17029,8 @@ func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) ToDiagnosticSettingEna
 }
 
 // The number of days for which this Retention Policy should apply.
+//
+// > **NOTE:** Setting this to `0` will retain the events indefinitely.
 func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingEnabledLogRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -16979,6 +17065,8 @@ func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Elem() DiagnosticSe
 }
 
 // The number of days for which this Retention Policy should apply.
+//
+// > **NOTE:** Setting this to `0` will retain the events indefinitely.
 func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DiagnosticSettingEnabledLogRetentionPolicy) *int {
 		if v == nil {
@@ -17000,8 +17088,12 @@ func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Enabled() pulumi.Bo
 
 type DiagnosticSettingLog struct {
 	// The name of a Diagnostic Log Category for this Resource.
+	//
+	// > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
 	Category *string `pulumi:"category"`
 	// The name of a Diagnostic Log Category Group for this Resource.
+	//
+	// > **NOTE:** Not all resources have category groups available.
 	CategoryGroup *string `pulumi:"categoryGroup"`
 	// Is this Diagnostic Log enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -17022,8 +17114,12 @@ type DiagnosticSettingLogInput interface {
 
 type DiagnosticSettingLogArgs struct {
 	// The name of a Diagnostic Log Category for this Resource.
+	//
+	// > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
 	Category pulumi.StringPtrInput `pulumi:"category"`
 	// The name of a Diagnostic Log Category Group for this Resource.
+	//
+	// > **NOTE:** Not all resources have category groups available.
 	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
 	// Is this Diagnostic Log enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -17083,11 +17179,15 @@ func (o DiagnosticSettingLogOutput) ToDiagnosticSettingLogOutputWithContext(ctx 
 }
 
 // The name of a Diagnostic Log Category for this Resource.
+//
+// > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
 func (o DiagnosticSettingLogOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingLog) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
 // The name of a Diagnostic Log Category Group for this Resource.
+//
+// > **NOTE:** Not all resources have category groups available.
 func (o DiagnosticSettingLogOutput) CategoryGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingLog) *string { return v.CategoryGroup }).(pulumi.StringPtrOutput)
 }
@@ -17124,6 +17224,8 @@ func (o DiagnosticSettingLogArrayOutput) Index(i pulumi.IntInput) DiagnosticSett
 
 type DiagnosticSettingLogRetentionPolicy struct {
 	// The number of days for which this Retention Policy should apply.
+	//
+	// > **NOTE:** Setting this to `0` will retain the events indefinitely.
 	Days *int `pulumi:"days"`
 	// Is this Retention Policy enabled?
 	Enabled bool `pulumi:"enabled"`
@@ -17142,6 +17244,8 @@ type DiagnosticSettingLogRetentionPolicyInput interface {
 
 type DiagnosticSettingLogRetentionPolicyArgs struct {
 	// The number of days for which this Retention Policy should apply.
+	//
+	// > **NOTE:** Setting this to `0` will retain the events indefinitely.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 	// Is this Retention Policy enabled?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -17225,6 +17329,8 @@ func (o DiagnosticSettingLogRetentionPolicyOutput) ToDiagnosticSettingLogRetenti
 }
 
 // The number of days for which this Retention Policy should apply.
+//
+// > **NOTE:** Setting this to `0` will retain the events indefinitely.
 func (o DiagnosticSettingLogRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingLogRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -17259,6 +17365,8 @@ func (o DiagnosticSettingLogRetentionPolicyPtrOutput) Elem() DiagnosticSettingLo
 }
 
 // The number of days for which this Retention Policy should apply.
+//
+// > **NOTE:** Setting this to `0` will retain the events indefinitely.
 func (o DiagnosticSettingLogRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DiagnosticSettingLogRetentionPolicy) *int {
 		if v == nil {
@@ -17280,6 +17388,8 @@ func (o DiagnosticSettingLogRetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOu
 
 type DiagnosticSettingMetric struct {
 	// The name of a Diagnostic Metric Category for this Resource.
+	//
+	// > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
 	Category string `pulumi:"category"`
 	// Is this Diagnostic Metric enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -17300,6 +17410,8 @@ type DiagnosticSettingMetricInput interface {
 
 type DiagnosticSettingMetricArgs struct {
 	// The name of a Diagnostic Metric Category for this Resource.
+	//
+	// > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
 	Category pulumi.StringInput `pulumi:"category"`
 	// Is this Diagnostic Metric enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -17359,6 +17471,8 @@ func (o DiagnosticSettingMetricOutput) ToDiagnosticSettingMetricOutputWithContex
 }
 
 // The name of a Diagnostic Metric Category for this Resource.
+//
+// > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
 func (o DiagnosticSettingMetricOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetric) string { return v.Category }).(pulumi.StringOutput)
 }
@@ -17395,6 +17509,8 @@ func (o DiagnosticSettingMetricArrayOutput) Index(i pulumi.IntInput) DiagnosticS
 
 type DiagnosticSettingMetricRetentionPolicy struct {
 	// The number of days for which this Retention Policy should apply.
+	//
+	// > **NOTE:** Setting this to `0` will retain the events indefinitely.
 	Days *int `pulumi:"days"`
 	// Is this Retention Policy enabled?
 	Enabled bool `pulumi:"enabled"`
@@ -17413,6 +17529,8 @@ type DiagnosticSettingMetricRetentionPolicyInput interface {
 
 type DiagnosticSettingMetricRetentionPolicyArgs struct {
 	// The number of days for which this Retention Policy should apply.
+	//
+	// > **NOTE:** Setting this to `0` will retain the events indefinitely.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 	// Is this Retention Policy enabled?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -17496,6 +17614,8 @@ func (o DiagnosticSettingMetricRetentionPolicyOutput) ToDiagnosticSettingMetricR
 }
 
 // The number of days for which this Retention Policy should apply.
+//
+// > **NOTE:** Setting this to `0` will retain the events indefinitely.
 func (o DiagnosticSettingMetricRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetricRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -17530,6 +17650,8 @@ func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) Elem() DiagnosticSettin
 }
 
 // The number of days for which this Retention Policy should apply.
+//
+// > **NOTE:** Setting this to `0` will retain the events indefinitely.
 func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DiagnosticSettingMetricRetentionPolicy) *int {
 		if v == nil {
@@ -17901,6 +18023,8 @@ func (o LogzMonitorPlanPtrOutput) UsageType() pulumi.StringPtrOutput {
 
 type LogzMonitorUser struct {
 	// Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+	//
+	// > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
 	Email string `pulumi:"email"`
 	// First Name of the user. Changing this forces a new logz Monitor to be created.
 	FirstName string `pulumi:"firstName"`
@@ -17923,6 +18047,8 @@ type LogzMonitorUserInput interface {
 
 type LogzMonitorUserArgs struct {
 	// Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+	//
+	// > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
 	Email pulumi.StringInput `pulumi:"email"`
 	// First Name of the user. Changing this forces a new logz Monitor to be created.
 	FirstName pulumi.StringInput `pulumi:"firstName"`
@@ -18010,6 +18136,8 @@ func (o LogzMonitorUserOutput) ToLogzMonitorUserPtrOutputWithContext(ctx context
 }
 
 // Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+//
+// > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
 func (o LogzMonitorUserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LogzMonitorUser) string { return v.Email }).(pulumi.StringOutput)
 }
@@ -18054,6 +18182,8 @@ func (o LogzMonitorUserPtrOutput) Elem() LogzMonitorUserOutput {
 }
 
 // Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+//
+// > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
 func (o LogzMonitorUserPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogzMonitorUser) *string {
 		if v == nil {
@@ -18210,6 +18340,8 @@ func (o LogzSubAccountTagRuleTagFilterArrayOutput) Index(i pulumi.IntInput) Logz
 
 type LogzSubAccountUser struct {
 	// Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+	//
+	// > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
 	Email string `pulumi:"email"`
 	// First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
 	FirstName string `pulumi:"firstName"`
@@ -18232,6 +18364,8 @@ type LogzSubAccountUserInput interface {
 
 type LogzSubAccountUserArgs struct {
 	// Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+	//
+	// > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
 	Email pulumi.StringInput `pulumi:"email"`
 	// First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
 	FirstName pulumi.StringInput `pulumi:"firstName"`
@@ -18319,6 +18453,8 @@ func (o LogzSubAccountUserOutput) ToLogzSubAccountUserPtrOutputWithContext(ctx c
 }
 
 // Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+//
+// > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
 func (o LogzSubAccountUserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LogzSubAccountUser) string { return v.Email }).(pulumi.StringOutput)
 }
@@ -18363,6 +18499,8 @@ func (o LogzSubAccountUserPtrOutput) Elem() LogzSubAccountUserOutput {
 }
 
 // Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+//
+// > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
 func (o LogzSubAccountUserPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogzSubAccountUser) *string {
 		if v == nil {
@@ -20474,6 +20612,10 @@ type ScheduledQueryRulesAlertV2CriteriaFailingPeriods struct {
 	// Specifies the number of violations to trigger an alert. Should be smaller or equal to `numberOfEvaluationPeriods`. Possible value is integer between 1 and 6.
 	MinimumFailingPeriodsToTriggerAlert int `pulumi:"minimumFailingPeriodsToTriggerAlert"`
 	// Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+	//
+	// > **Note** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
+	//
+	// > **Note** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
 	NumberOfEvaluationPeriods int `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -20492,6 +20634,10 @@ type ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs struct {
 	// Specifies the number of violations to trigger an alert. Should be smaller or equal to `numberOfEvaluationPeriods`. Possible value is integer between 1 and 6.
 	MinimumFailingPeriodsToTriggerAlert pulumi.IntInput `pulumi:"minimumFailingPeriodsToTriggerAlert"`
 	// Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+	//
+	// > **Note** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
+	//
+	// > **Note** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
 	NumberOfEvaluationPeriods pulumi.IntInput `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -20580,6 +20726,10 @@ func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput) MinimumFailingPe
 }
 
 // Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+//
+// > **Note** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
+//
+// > **Note** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
 func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput) NumberOfEvaluationPeriods() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertV2CriteriaFailingPeriods) int { return v.NumberOfEvaluationPeriods }).(pulumi.IntOutput)
 }
@@ -20619,6 +20769,10 @@ func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) MinimumFailin
 }
 
 // Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+//
+// > **Note** The query look back which is `windowDuration`*`numberOfEvaluationPeriods` cannot exceed 48 hours.
+//
+// > **Note** `numberOfEvaluationPeriods` must be `1` for queries that do not project timestamp column
 func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) NumberOfEvaluationPeriods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2CriteriaFailingPeriods) *int {
 		if v == nil {

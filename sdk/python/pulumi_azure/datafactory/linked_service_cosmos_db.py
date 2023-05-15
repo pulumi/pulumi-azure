@@ -31,6 +31,8 @@ class LinkedServiceCosmosDbArgs:
         :param pulumi.Input[str] account_endpoint: The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[str] account_key: The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
+               
+               The following supported arguments are specific to CosmosDB Linked Service:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] connection_string: The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
         :param pulumi.Input[str] database: The name of the database. Required if `connection_string` is unspecified.
@@ -102,6 +104,8 @@ class LinkedServiceCosmosDbArgs:
     def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of additional properties to associate with the Data Factory Linked Service.
+
+        The following supported arguments are specific to CosmosDB Linked Service:
         """
         return pulumi.get(self, "additional_properties")
 
@@ -213,6 +217,8 @@ class _LinkedServiceCosmosDbState:
         :param pulumi.Input[str] account_endpoint: The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[str] account_key: The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
+               
+               The following supported arguments are specific to CosmosDB Linked Service:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] connection_string: The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -274,6 +280,8 @@ class _LinkedServiceCosmosDbState:
     def additional_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of additional properties to associate with the Data Factory Linked Service.
+
+        The following supported arguments are specific to CosmosDB Linked Service:
         """
         return pulumi.get(self, "additional_properties")
 
@@ -430,6 +438,8 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
         :param pulumi.Input[str] account_endpoint: The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[str] account_key: The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
+               
+               The following supported arguments are specific to CosmosDB Linked Service:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] connection_string: The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -556,6 +566,8 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
         :param pulumi.Input[str] account_endpoint: The endpoint of the Azure CosmosDB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[str] account_key: The account key of the Azure Cosmos DB account. Required if `connection_string` is unspecified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
+               
+               The following supported arguments are specific to CosmosDB Linked Service:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] connection_string: The connection string. Required if `account_endpoint`, `account_key`, and `database` are unspecified.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -603,6 +615,8 @@ class LinkedServiceCosmosDb(pulumi.CustomResource):
     def additional_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of additional properties to associate with the Data Factory Linked Service.
+
+        The following supported arguments are specific to CosmosDB Linked Service:
         """
         return pulumi.get(self, "additional_properties")
 

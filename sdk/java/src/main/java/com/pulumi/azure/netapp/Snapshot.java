@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .poolName(examplePool.name())
  *             .volumePath(&#34;my-unique-file-path&#34;)
  *             .serviceLevel(&#34;Premium&#34;)
- *             .subnetId(azurerm_subnet.test().id())
+ *             .subnetId(exampleSubnet.id())
  *             .storageQuotaInGb(&#34;100&#34;)
  *             .build());
  * 

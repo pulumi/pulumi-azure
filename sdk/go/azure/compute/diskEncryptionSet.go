@@ -162,6 +162,11 @@ type DiskEncryptionSet struct {
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityOutput `pulumi:"identity"`
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+	//
+	// > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+	//
+	// > **NOTE** A KeyVault using enableRbacAuthorization requires to use `authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+	// In this case, `keyvault.AccessPolicy` is not needed.
 	KeyVaultKeyId pulumi.StringOutput `pulumi:"keyVaultKeyId"`
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -220,6 +225,11 @@ type diskEncryptionSetState struct {
 	// An `identity` block as defined below.
 	Identity *DiskEncryptionSetIdentity `pulumi:"identity"`
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+	//
+	// > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+	//
+	// > **NOTE** A KeyVault using enableRbacAuthorization requires to use `authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+	// In this case, `keyvault.AccessPolicy` is not needed.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -241,6 +251,11 @@ type DiskEncryptionSetState struct {
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityPtrInput
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+	//
+	// > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+	//
+	// > **NOTE** A KeyVault using enableRbacAuthorization requires to use `authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+	// In this case, `keyvault.AccessPolicy` is not needed.
 	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -266,6 +281,11 @@ type diskEncryptionSetArgs struct {
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentity `pulumi:"identity"`
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+	//
+	// > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+	//
+	// > **NOTE** A KeyVault using enableRbacAuthorization requires to use `authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+	// In this case, `keyvault.AccessPolicy` is not needed.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -288,6 +308,11 @@ type DiskEncryptionSetArgs struct {
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityInput
 	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+	//
+	// > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+	//
+	// > **NOTE** A KeyVault using enableRbacAuthorization requires to use `authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+	// In this case, `keyvault.AccessPolicy` is not needed.
 	KeyVaultKeyId pulumi.StringInput
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -407,6 +432,11 @@ func (o DiskEncryptionSetOutput) Identity() DiskEncryptionSetIdentityOutput {
 }
 
 // Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+//
+// > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+//
+// > **NOTE** A KeyVault using enableRbacAuthorization requires to use `authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+// In this case, `keyvault.AccessPolicy` is not needed.
 func (o DiskEncryptionSetOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringOutput { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }

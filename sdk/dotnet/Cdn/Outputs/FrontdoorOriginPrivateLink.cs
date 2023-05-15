@@ -19,6 +19,8 @@ namespace Pulumi.Azure.Cdn.Outputs
         public readonly string Location;
         /// <summary>
         /// The ID of the Azure Resource to connect to via the Private Link.
+        /// 
+        /// &gt; **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
         /// </summary>
         public readonly string PrivateLinkTargetId;
         /// <summary>
@@ -27,6 +29,8 @@ namespace Pulumi.Azure.Cdn.Outputs
         public readonly string? RequestMessage;
         /// <summary>
         /// Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+        /// 
+        /// &gt; **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
         /// </summary>
         public readonly string? TargetType;
 

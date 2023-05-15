@@ -126,7 +126,6 @@ public final class ServicesCommunicationsGatewayState extends com.pulumi.resourc
 
     /**
      * This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-     * ---
      * 
      */
     @Import(name="microsoftTeamsVoicemailPilotNumber")
@@ -134,7 +133,6 @@ public final class ServicesCommunicationsGatewayState extends com.pulumi.resourc
 
     /**
      * @return This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-     * ---
      * 
      */
     public Optional<Output<String>> microsoftTeamsVoicemailPilotNumber() {
@@ -427,7 +425,6 @@ public final class ServicesCommunicationsGatewayState extends com.pulumi.resourc
 
         /**
          * @param microsoftTeamsVoicemailPilotNumber This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-         * ---
          * 
          * @return builder
          * 
@@ -439,7 +436,6 @@ public final class ServicesCommunicationsGatewayState extends com.pulumi.resourc
 
         /**
          * @param microsoftTeamsVoicemailPilotNumber This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
-         * ---
          * 
          * @return builder
          * 

@@ -95,11 +95,15 @@ type VnpGatewayNatRule struct {
 
 	// (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
 	//
+	// > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
+	//
 	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings pulumi.StringArrayOutput `pulumi:"externalAddressSpaceMappings"`
 	// One or more `externalMapping` blocks as documented below.
 	ExternalMappings VnpGatewayNatRuleExternalMappingArrayOutput `pulumi:"externalMappings"`
 	// (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+	//
+	// > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	//
 	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings pulumi.StringArrayOutput `pulumi:"internalAddressSpaceMappings"`
@@ -156,11 +160,15 @@ func GetVnpGatewayNatRule(ctx *pulumi.Context,
 type vnpGatewayNatRuleState struct {
 	// (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
 	//
+	// > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
+	//
 	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings []string `pulumi:"externalAddressSpaceMappings"`
 	// One or more `externalMapping` blocks as documented below.
 	ExternalMappings []VnpGatewayNatRuleExternalMapping `pulumi:"externalMappings"`
 	// (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+	//
+	// > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	//
 	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings []string `pulumi:"internalAddressSpaceMappings"`
@@ -183,11 +191,15 @@ type vnpGatewayNatRuleState struct {
 type VnpGatewayNatRuleState struct {
 	// (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
 	//
+	// > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
+	//
 	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings pulumi.StringArrayInput
 	// One or more `externalMapping` blocks as documented below.
 	ExternalMappings VnpGatewayNatRuleExternalMappingArrayInput
 	// (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+	//
+	// > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	//
 	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings pulumi.StringArrayInput
@@ -214,11 +226,15 @@ func (VnpGatewayNatRuleState) ElementType() reflect.Type {
 type vnpGatewayNatRuleArgs struct {
 	// (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
 	//
+	// > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
+	//
 	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings []string `pulumi:"externalAddressSpaceMappings"`
 	// One or more `externalMapping` blocks as documented below.
 	ExternalMappings []VnpGatewayNatRuleExternalMapping `pulumi:"externalMappings"`
 	// (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+	//
+	// > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	//
 	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings []string `pulumi:"internalAddressSpaceMappings"`
@@ -242,11 +258,15 @@ type vnpGatewayNatRuleArgs struct {
 type VnpGatewayNatRuleArgs struct {
 	// (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
 	//
+	// > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
+	//
 	// Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
 	ExternalAddressSpaceMappings pulumi.StringArrayInput
 	// One or more `externalMapping` blocks as documented below.
 	ExternalMappings VnpGatewayNatRuleExternalMappingArrayInput
 	// (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+	//
+	// > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 	//
 	// Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
 	InternalAddressSpaceMappings pulumi.StringArrayInput
@@ -355,6 +375,8 @@ func (o VnpGatewayNatRuleOutput) ToVnpGatewayNatRuleOutputWithContext(ctx contex
 
 // (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
 //
+// > **NOTE:** `externalAddressSpaceMappings` is deprecated and will be removed in favour of the property `externalMapping` in version 4.0 of the AzureRM Provider.
+//
 // Deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
 func (o VnpGatewayNatRuleOutput) ExternalAddressSpaceMappings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VnpGatewayNatRule) pulumi.StringArrayOutput { return v.ExternalAddressSpaceMappings }).(pulumi.StringArrayOutput)
@@ -366,6 +388,8 @@ func (o VnpGatewayNatRuleOutput) ExternalMappings() VnpGatewayNatRuleExternalMap
 }
 
 // (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
+//
+// > **NOTE:** `internalAddressSpaceMappings` is deprecated and will be removed in favour of the property `internalMapping` in version 4.0 of the AzureRM Provider.
 //
 // Deprecated: `internal_address_space_mappings` will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
 func (o VnpGatewayNatRuleOutput) InternalAddressSpaceMappings() pulumi.StringArrayOutput {

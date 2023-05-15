@@ -78,6 +78,8 @@ type DatasetHttp struct {
 	pulumi.CustomResourceState
 
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to HTTP Dataset:
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
@@ -139,6 +141,8 @@ func GetDatasetHttp(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DatasetHttp resources.
 type datasetHttpState struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to HTTP Dataset:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
@@ -166,6 +170,8 @@ type datasetHttpState struct {
 
 type DatasetHttpState struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to HTTP Dataset:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
@@ -197,6 +203,8 @@ func (DatasetHttpState) ElementType() reflect.Type {
 
 type datasetHttpArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to HTTP Dataset:
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
@@ -225,6 +233,8 @@ type datasetHttpArgs struct {
 // The set of arguments for constructing a DatasetHttp resource.
 type DatasetHttpArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset.
+	//
+	// The following supported arguments are specific to HTTP Dataset:
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
@@ -338,6 +348,8 @@ func (o DatasetHttpOutput) ToDatasetHttpOutputWithContext(ctx context.Context) D
 }
 
 // A map of additional properties to associate with the Data Factory Dataset.
+//
+// The following supported arguments are specific to HTTP Dataset:
 func (o DatasetHttpOutput) AdditionalProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DatasetHttp) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
 }

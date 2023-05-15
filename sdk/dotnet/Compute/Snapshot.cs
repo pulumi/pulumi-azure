@@ -59,7 +59,9 @@ namespace Pulumi.Azure.Compute
     public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        /// 
+        /// &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         /// </summary>
         [Output("createOption")]
         public Output<string> CreateOption { get; private set; } = null!;
@@ -72,6 +74,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A `encryption_settings` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         /// </summary>
         [Output("encryptionSettings")]
         public Output<Outputs.SnapshotEncryptionSettings?> EncryptionSettings { get; private set; } = null!;
@@ -177,7 +181,9 @@ namespace Pulumi.Azure.Compute
     public sealed class SnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        /// 
+        /// &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
@@ -190,6 +196,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A `encryption_settings` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.SnapshotEncryptionSettingsArgs>? EncryptionSettings { get; set; }
@@ -257,7 +265,9 @@ namespace Pulumi.Azure.Compute
     public sealed class SnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        /// Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. 
+        /// 
+        /// &gt; **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         /// </summary>
         [Input("createOption")]
         public Input<string>? CreateOption { get; set; }
@@ -270,6 +280,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A `encryption_settings` block as defined below.
+        /// 
+        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.SnapshotEncryptionSettingsGetArgs>? EncryptionSettings { get; set; }

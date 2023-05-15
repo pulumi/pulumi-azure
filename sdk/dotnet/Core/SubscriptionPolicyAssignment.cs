@@ -83,6 +83,8 @@ namespace Pulumi.Azure.Core
 
         /// <summary>
         /// An `identity` block as defined below.
+        /// 
+        /// &gt; **Note:** The `location` field must also be specified when `identity` is specified.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.SubscriptionPolicyAssignmentIdentity?> Identity { get; private set; } = null!;
@@ -213,6 +215,8 @@ namespace Pulumi.Azure.Core
 
         /// <summary>
         /// An `identity` block as defined below.
+        /// 
+        /// &gt; **Note:** The `location` field must also be specified when `identity` is specified.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SubscriptionPolicyAssignmentIdentityArgs>? Identity { get; set; }
@@ -329,6 +333,8 @@ namespace Pulumi.Azure.Core
 
         /// <summary>
         /// An `identity` block as defined below.
+        /// 
+        /// &gt; **Note:** The `location` field must also be specified when `identity` is specified.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.SubscriptionPolicyAssignmentIdentityGetArgs>? Identity { get; set; }

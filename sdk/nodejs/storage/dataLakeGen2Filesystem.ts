@@ -76,6 +76,8 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
     public readonly aces!: pulumi.Output<outputs.storage.DataLakeGen2FilesystemAce[]>;
     /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
+     *
+     * > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
      */
     public readonly group!: pulumi.Output<string>;
     /**
@@ -141,6 +143,8 @@ export interface DataLakeGen2FilesystemState {
     aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2FilesystemAce>[]>;
     /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
+     *
+     * > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
      */
     group?: pulumi.Input<string>;
     /**
@@ -171,6 +175,8 @@ export interface DataLakeGen2FilesystemArgs {
     aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2FilesystemAce>[]>;
     /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
+     *
+     * > **NOTE:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
      */
     group?: pulumi.Input<string>;
     /**

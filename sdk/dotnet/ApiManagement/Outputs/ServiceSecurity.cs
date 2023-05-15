@@ -15,70 +15,104 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     {
         /// <summary>
         /// Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
         /// </summary>
         public readonly bool? EnableBackendSsl30;
         /// <summary>
         /// Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
         /// </summary>
         public readonly bool? EnableBackendTls10;
         /// <summary>
         /// Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
         /// </summary>
         public readonly bool? EnableBackendTls11;
         /// <summary>
         /// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
         /// </summary>
         public readonly bool? EnableFrontendSsl30;
         /// <summary>
         /// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
         /// </summary>
         public readonly bool? EnableFrontendTls10;
         /// <summary>
         /// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
         /// </summary>
         public readonly bool? EnableFrontendTls11;
         /// <summary>
         /// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
         /// </summary>
         public readonly bool? TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled;
         /// <summary>
         /// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
         /// </summary>
         public readonly bool? TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled;
         /// <summary>
         /// Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
         /// </summary>
         public readonly bool? TlsEcdheRsaWithAes128CbcShaCiphersEnabled;
         /// <summary>
         /// Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
         /// </summary>
         public readonly bool? TlsEcdheRsaWithAes256CbcShaCiphersEnabled;
         /// <summary>
         /// Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
         /// </summary>
         public readonly bool? TlsRsaWithAes128CbcSha256CiphersEnabled;
         /// <summary>
         /// Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
         /// </summary>
         public readonly bool? TlsRsaWithAes128CbcShaCiphersEnabled;
         /// <summary>
         /// Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
         /// </summary>
         public readonly bool? TlsRsaWithAes128GcmSha256CiphersEnabled;
         /// <summary>
         /// Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
         /// </summary>
         public readonly bool? TlsRsaWithAes256CbcSha256CiphersEnabled;
         /// <summary>
         /// Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
         /// </summary>
         public readonly bool? TlsRsaWithAes256CbcShaCiphersEnabled;
         /// <summary>
         /// Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
         /// </summary>
         public readonly bool? TlsRsaWithAes256GcmSha384CiphersEnabled;
         /// <summary>
-        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
+        /// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+        /// 
+        /// &gt; **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         /// </summary>
         public readonly bool? TripleDesCiphersEnabled;
 

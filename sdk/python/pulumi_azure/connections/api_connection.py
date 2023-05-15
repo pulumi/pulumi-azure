@@ -26,7 +26,6 @@ class ApiConnectionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] display_name: A display name for this API Connection. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] name: The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameter_values: A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the API Connection.
         """
         pulumi.set(__self__, "managed_api_id", managed_api_id)
@@ -91,9 +90,6 @@ class ApiConnectionArgs:
     @property
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
-        """
         return pulumi.get(self, "parameter_values")
 
     @parameter_values.setter
@@ -127,7 +123,6 @@ class _ApiConnectionState:
         :param pulumi.Input[str] display_name: A display name for this API Connection. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] managed_api_id: The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] name: The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameter_values: A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the API Connection.
         """
@@ -183,9 +178,6 @@ class _ApiConnectionState:
     @property
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
-        """
         return pulumi.get(self, "parameter_values")
 
     @parameter_values.setter
@@ -270,7 +262,6 @@ class ApiConnection(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: A display name for this API Connection. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] managed_api_id: The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] name: The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameter_values: A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the API Connection.
         """
@@ -382,7 +373,6 @@ class ApiConnection(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: A display name for this API Connection. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] managed_api_id: The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] name: The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameter_values: A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the API Connection.
         """
@@ -425,9 +415,6 @@ class ApiConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created.
-        """
         return pulumi.get(self, "parameter_values")
 
     @property

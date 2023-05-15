@@ -107,6 +107,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `is_default` can only be set to `true` on update.
         /// </summary>
         [Output("isDefault")]
         public Output<bool?> IsDefault { get; private set; } = null!;
@@ -125,6 +127,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        /// 
+        /// &gt; **Note:**  One of `account_key` or `shared_access_signature` must be specified.
         /// </summary>
         [Output("sharedAccessSignature")]
         public Output<string?> SharedAccessSignature { get; private set; } = null!;
@@ -222,6 +226,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `is_default` can only be set to `true` on update.
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
@@ -243,6 +249,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        /// 
+        /// &gt; **Note:**  One of `account_key` or `shared_access_signature` must be specified.
         /// </summary>
         public Input<string>? SharedAccessSignature
         {
@@ -310,6 +318,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** `is_default` can only be set to `true` on update.
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
@@ -331,6 +341,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
+        /// 
+        /// &gt; **Note:**  One of `account_key` or `shared_access_signature` must be specified.
         /// </summary>
         public Input<string>? SharedAccessSignature
         {

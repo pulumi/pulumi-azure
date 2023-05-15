@@ -94,6 +94,8 @@ type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 
 	// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+	//
+	// > **NOTE:** If `ignoreMissingVnetServiceEndpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `serviceEndpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrOutput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the SQL virtual network rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -139,6 +141,8 @@ func GetVirtualNetworkRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VirtualNetworkRule resources.
 type virtualNetworkRuleState struct {
 	// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+	//
+	// > **NOTE:** If `ignoreMissingVnetServiceEndpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `serviceEndpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the SQL virtual network rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -150,6 +154,8 @@ type virtualNetworkRuleState struct {
 
 type VirtualNetworkRuleState struct {
 	// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+	//
+	// > **NOTE:** If `ignoreMissingVnetServiceEndpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `serviceEndpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput
 	// The name of the SQL virtual network rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -165,6 +171,8 @@ func (VirtualNetworkRuleState) ElementType() reflect.Type {
 
 type virtualNetworkRuleArgs struct {
 	// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+	//
+	// > **NOTE:** If `ignoreMissingVnetServiceEndpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `serviceEndpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the SQL virtual network rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -177,6 +185,8 @@ type virtualNetworkRuleArgs struct {
 // The set of arguments for constructing a VirtualNetworkRule resource.
 type VirtualNetworkRuleArgs struct {
 	// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+	//
+	// > **NOTE:** If `ignoreMissingVnetServiceEndpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `serviceEndpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput
 	// The name of the SQL virtual network rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -274,6 +284,8 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 }
 
 // Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+//
+// > **NOTE:** If `ignoreMissingVnetServiceEndpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `serviceEndpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
 func (o VirtualNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.BoolPtrOutput { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }

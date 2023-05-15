@@ -91,6 +91,8 @@ export class BastionHost extends pulumi.CustomResource {
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
      * Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
      */
     public readonly fileCopyEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -99,6 +101,8 @@ export class BastionHost extends pulumi.CustomResource {
     public readonly ipConfiguration!: pulumi.Output<outputs.compute.BastionHostIpConfiguration | undefined>;
     /**
      * Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
      */
     public readonly ipConnectEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -115,10 +119,14 @@ export class BastionHost extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+     *
+     * > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
      */
     public readonly scaleUnits!: pulumi.Output<number | undefined>;
     /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
      */
     public readonly shareableLinkEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -131,6 +139,8 @@ export class BastionHost extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
      */
     public readonly tunnelingEnabled!: pulumi.Output<boolean | undefined>;
 
@@ -198,6 +208,8 @@ export interface BastionHostState {
     dnsName?: pulumi.Input<string>;
     /**
      * Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
      */
     fileCopyEnabled?: pulumi.Input<boolean>;
     /**
@@ -206,6 +218,8 @@ export interface BastionHostState {
     ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration>;
     /**
      * Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
      */
     ipConnectEnabled?: pulumi.Input<boolean>;
     /**
@@ -222,10 +236,14 @@ export interface BastionHostState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+     *
+     * > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
      */
     scaleUnits?: pulumi.Input<number>;
     /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
      */
     shareableLinkEnabled?: pulumi.Input<boolean>;
     /**
@@ -238,6 +256,8 @@ export interface BastionHostState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
      */
     tunnelingEnabled?: pulumi.Input<boolean>;
 }
@@ -252,6 +272,8 @@ export interface BastionHostArgs {
     copyPasteEnabled?: pulumi.Input<boolean>;
     /**
      * Is File Copy feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `fileCopyEnabled` is only supported when `sku` is `Standard`.
      */
     fileCopyEnabled?: pulumi.Input<boolean>;
     /**
@@ -260,6 +282,8 @@ export interface BastionHostArgs {
     ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration>;
     /**
      * Is IP Connect feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `ipConnectEnabled` is only supported when `sku` is `Standard`.
      */
     ipConnectEnabled?: pulumi.Input<boolean>;
     /**
@@ -276,10 +300,14 @@ export interface BastionHostArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`.
+     *
+     * > **Note:** `scaleUnits` only can be changed when `sku` is `Standard`. `scaleUnits` is always `2` when `sku` is `Basic`.
      */
     scaleUnits?: pulumi.Input<number>;
     /**
      * Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `shareableLinkEnabled` is only supported when `sku` is `Standard`.
      */
     shareableLinkEnabled?: pulumi.Input<boolean>;
     /**
@@ -292,6 +320,8 @@ export interface BastionHostArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Is Tunneling feature enabled for the Bastion Host. Defaults to `false`.
+     *
+     * > **Note:** `tunnelingEnabled` is only supported when `sku` is `Standard`.
      */
     tunnelingEnabled?: pulumi.Input<boolean>;
 }

@@ -126,12 +126,16 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
      * 
      */
     public Output<String> name() {
@@ -140,12 +144,16 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the Relative Path used for this Request.
      * 
+     * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+     * 
      */
     @Export(name="relativePath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> relativePath;
 
     /**
      * @return Specifies the Relative Path used for this Request.
+     * 
+     * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
      * 
      */
     public Output<Optional<String>> relativePath() {

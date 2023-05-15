@@ -126,7 +126,7 @@ def get_network_slice(mobile_network_id: Optional[str] = None,
     example_network = azure.mobile.get_network(name="example-mn",
         resource_group_name="example-rg")
     example_network_slice = azure.mobile.get_network_slice(name="example-mns",
-        mobile_network_id=data["azurerm_mobile_network"]["test"]["id"])
+        mobile_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -165,7 +165,7 @@ def get_network_slice_output(mobile_network_id: Optional[pulumi.Input[str]] = No
     example_network = azure.mobile.get_network(name="example-mn",
         resource_group_name="example-rg")
     example_network_slice = azure.mobile.get_network_slice(name="example-mns",
-        mobile_network_id=data["azurerm_mobile_network"]["test"]["id"])
+        mobile_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

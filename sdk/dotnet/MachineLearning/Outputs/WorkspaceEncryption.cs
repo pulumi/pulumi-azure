@@ -23,6 +23,8 @@ namespace Pulumi.Azure.MachineLearning.Outputs
         public readonly string KeyVaultId;
         /// <summary>
         /// The Key Vault URI to access the encryption key.
+        /// 
+        /// &gt; **Note**: `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
         /// </summary>
         public readonly string? UserAssignedIdentityId;
 

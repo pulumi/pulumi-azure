@@ -499,12 +499,16 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
     /**
      * One or more `storage_account` blocks as defined below.
      * 
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
+     * 
      */
     @Export(name="storageAccounts", refs={List.class,WindowsWebAppStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WindowsWebAppStorageAccount>> storageAccounts;
 
     /**
      * @return One or more `storage_account` blocks as defined below.
+     * 
+     * &gt; **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      * 
      */
     public Output<Optional<List<WindowsWebAppStorageAccount>>> storageAccounts() {
@@ -524,22 +528,16 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     * 
-     */
     @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
-    /**
-     * @return The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
-     * 
-     */
     public Output<Optional<String>> virtualNetworkSubnetId() {
         return Codegen.optional(this.virtualNetworkSubnetId);
     }
     /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     * 
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
      * 
      */
     @Export(name="zipDeployFile", refs={String.class}, tree="[0]")
@@ -547,6 +545,8 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The local path and filename of the Zip packaged application to deploy to this Windows Web App.
+     * 
+     * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
      * 
      */
     public Output<String> zipDeployFile() {

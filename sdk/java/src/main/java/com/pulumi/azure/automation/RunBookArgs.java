@@ -40,12 +40,16 @@ public final class RunBookArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The desired content of the runbook.
      * 
+     * &gt; **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
+     * 
      */
     @Import(name="content")
     private @Nullable Output<String> content;
 
     /**
      * @return The desired content of the runbook.
+     * 
+     * &gt; **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
      * 
      */
     public Optional<Output<String>> content() {
@@ -285,6 +289,8 @@ public final class RunBookArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param content The desired content of the runbook.
          * 
+         * &gt; **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
+         * 
          * @return builder
          * 
          */
@@ -295,6 +301,8 @@ public final class RunBookArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param content The desired content of the runbook.
+         * 
+         * &gt; **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
          * 
          * @return builder
          * 

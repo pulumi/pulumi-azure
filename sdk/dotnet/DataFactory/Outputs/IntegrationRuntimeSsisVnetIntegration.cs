@@ -19,6 +19,8 @@ namespace Pulumi.Azure.DataFactory.Outputs
         public readonly ImmutableArray<string> PublicIps;
         /// <summary>
         /// id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        /// 
+        /// &gt; **NOTE** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>

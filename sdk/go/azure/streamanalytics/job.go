@@ -71,6 +71,8 @@ type Job struct {
 	pulumi.CustomResourceState
 
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+	//
+	// > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
 	CompatibilityLevel pulumi.StringOutput `pulumi:"compatibilityLevel"`
 	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
 	ContentStoragePolicy pulumi.StringPtrOutput `pulumi:"contentStoragePolicy"`
@@ -99,12 +101,16 @@ type Job struct {
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId pulumi.StringPtrOutput `pulumi:"streamAnalyticsClusterId"`
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+	//
+	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
 	StreamingUnits pulumi.IntPtrOutput `pulumi:"streamingUnits"`
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 	TransformationQuery pulumi.StringOutput `pulumi:"transformationQuery"`
 	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -144,6 +150,8 @@ func GetJob(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Job resources.
 type jobState struct {
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+	//
+	// > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
 	ContentStoragePolicy *string `pulumi:"contentStoragePolicy"`
@@ -172,17 +180,23 @@ type jobState struct {
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId *string `pulumi:"streamAnalyticsClusterId"`
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+	//
+	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
 	StreamingUnits *int `pulumi:"streamingUnits"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 	TransformationQuery *string `pulumi:"transformationQuery"`
 	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
 	Type *string `pulumi:"type"`
 }
 
 type JobState struct {
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+	//
+	// > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
 	CompatibilityLevel pulumi.StringPtrInput
 	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
 	ContentStoragePolicy pulumi.StringPtrInput
@@ -211,12 +225,16 @@ type JobState struct {
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId pulumi.StringPtrInput
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+	//
+	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
 	StreamingUnits pulumi.IntPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 	TransformationQuery pulumi.StringPtrInput
 	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
 	Type pulumi.StringPtrInput
 }
 
@@ -226,6 +244,8 @@ func (JobState) ElementType() reflect.Type {
 
 type jobArgs struct {
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+	//
+	// > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
 	ContentStoragePolicy *string `pulumi:"contentStoragePolicy"`
@@ -252,18 +272,24 @@ type jobArgs struct {
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId *string `pulumi:"streamAnalyticsClusterId"`
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+	//
+	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
 	StreamingUnits *int `pulumi:"streamingUnits"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 	TransformationQuery string `pulumi:"transformationQuery"`
 	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
 	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
 	// Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+	//
+	// > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
 	CompatibilityLevel pulumi.StringPtrInput
 	// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
 	ContentStoragePolicy pulumi.StringPtrInput
@@ -290,12 +316,16 @@ type JobArgs struct {
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId pulumi.StringPtrInput
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+	//
+	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
 	StreamingUnits pulumi.IntPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
 	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 	TransformationQuery pulumi.StringInput
 	// The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
 	Type pulumi.StringPtrInput
 }
 
@@ -387,6 +417,8 @@ func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
 }
 
 // Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`.
+//
+// > **NOTE:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
 func (o JobOutput) CompatibilityLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.CompatibilityLevel }).(pulumi.StringOutput)
 }
@@ -457,6 +489,8 @@ func (o JobOutput) StreamAnalyticsClusterId() pulumi.StringPtrOutput {
 }
 
 // Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+//
+// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
 func (o JobOutput) StreamingUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.IntPtrOutput { return v.StreamingUnits }).(pulumi.IntPtrOutput)
 }
@@ -472,6 +506,8 @@ func (o JobOutput) TransformationQuery() pulumi.StringOutput {
 }
 
 // The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
 func (o JobOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

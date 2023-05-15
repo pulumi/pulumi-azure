@@ -64,12 +64,16 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
     /**
      * The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+     * 
      */
     @Import(name="targetDiskEncryptionSetId")
     private @Nullable Output<String> targetDiskEncryptionSetId;
 
     /**
      * @return The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
      * 
      */
     public Optional<Output<String>> targetDiskEncryptionSetId() {
@@ -217,6 +221,8 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         /**
          * @param targetDiskEncryptionSetId The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+         * 
          * @return builder
          * 
          */
@@ -227,6 +233,8 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
 
         /**
          * @param targetDiskEncryptionSetId The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
          * 
          * @return builder
          * 

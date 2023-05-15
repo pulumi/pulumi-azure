@@ -35,18 +35,18 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
      * 
      */
     private @Nullable Boolean enableAutomaticUpdates;
-    /**
-     * @return Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
-     * 
-     */
     private @Nullable Boolean hotpatchingEnabled;
     /**
      * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * 
+     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
     private @Nullable String patchAssessmentMode;
     /**
      * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     * 
+     * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
      * 
      */
     private @Nullable String patchMode;
@@ -100,15 +100,13 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     public Optional<Boolean> enableAutomaticUpdates() {
         return Optional.ofNullable(this.enableAutomaticUpdates);
     }
-    /**
-     * @return Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
-     * 
-     */
     public Optional<Boolean> hotpatchingEnabled() {
         return Optional.ofNullable(this.hotpatchingEnabled);
     }
     /**
      * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * 
+     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
     public Optional<String> patchAssessmentMode() {
@@ -116,6 +114,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     }
     /**
      * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     * 
+     * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
      * 
      */
     public Optional<String> patchMode() {

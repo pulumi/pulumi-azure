@@ -65,6 +65,8 @@ export class LinkedServiceCosmosDbMongoApi extends pulumi.CustomResource {
 
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to CosmosDB Linked Service:
      */
     public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -156,6 +158,8 @@ export class LinkedServiceCosmosDbMongoApi extends pulumi.CustomResource {
 export interface LinkedServiceCosmosDbMongoApiState {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to CosmosDB Linked Service:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -202,6 +206,8 @@ export interface LinkedServiceCosmosDbMongoApiState {
 export interface LinkedServiceCosmosDbMongoApiArgs {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
+     *
+     * The following supported arguments are specific to CosmosDB Linked Service:
      */
     additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

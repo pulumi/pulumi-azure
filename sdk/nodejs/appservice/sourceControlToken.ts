@@ -59,6 +59,8 @@ export class SourceControlToken extends pulumi.CustomResource {
     public readonly token!: pulumi.Output<string>;
     /**
      * The Access Token Secret.
+     *
+     * > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      */
     public readonly tokenSecret!: pulumi.Output<string | undefined>;
     /**
@@ -111,6 +113,8 @@ export interface SourceControlTokenState {
     token?: pulumi.Input<string>;
     /**
      * The Access Token Secret.
+     *
+     * > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      */
     tokenSecret?: pulumi.Input<string>;
     /**
@@ -129,6 +133,8 @@ export interface SourceControlTokenArgs {
     token: pulumi.Input<string>;
     /**
      * The Access Token Secret.
+     *
+     * > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      */
     tokenSecret?: pulumi.Input<string>;
     /**

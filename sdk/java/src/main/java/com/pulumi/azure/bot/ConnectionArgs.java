@@ -154,6 +154,8 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+     * 
      * @deprecated
      * This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
      * 
@@ -164,6 +166,8 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
      * 
      * @deprecated
      * This property has been deprecated as the API no longer supports tags and will be removed in version 4.0 of the provider.
@@ -399,6 +403,8 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
+         * &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -413,6 +419,8 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags A mapping of tags to assign to the resource.
+         * 
+         * &gt; **Note:** `tags` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
          * 
          * @return builder
          * 

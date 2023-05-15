@@ -34,12 +34,16 @@ public final class FrontdoorOriginGroupHealthProbeArgs extends com.pulumi.resour
     /**
      * Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
      * 
+     * &gt; **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `health_probe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
+     * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
      * @return Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+     * 
+     * &gt; **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `health_probe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
      * 
      */
     public Optional<Output<String>> path() {
@@ -127,6 +131,8 @@ public final class FrontdoorOriginGroupHealthProbeArgs extends com.pulumi.resour
         /**
          * @param path Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
          * 
+         * &gt; **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `health_probe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
+         * 
          * @return builder
          * 
          */
@@ -137,6 +143,8 @@ public final class FrontdoorOriginGroupHealthProbeArgs extends com.pulumi.resour
 
         /**
          * @param path Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+         * 
+         * &gt; **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `health_probe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
          * 
          * @return builder
          * 

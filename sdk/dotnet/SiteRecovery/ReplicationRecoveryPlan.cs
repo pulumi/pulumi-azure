@@ -22,48 +22,240 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sourceResourceGroup = new Azure.Core.ResourceGroup("sourceResourceGroup", new()
+    ///     var primaryResourceGroup = new Azure.Core.ResourceGroup("primaryResourceGroup", new()
     ///     {
-    ///         Location = "west us",
+    ///         Location = "West US",
     ///     });
     /// 
-    ///     var targetResourceGroup = new Azure.Core.ResourceGroup("targetResourceGroup", new()
+    ///     var secondaryResourceGroup = new Azure.Core.ResourceGroup("secondaryResourceGroup", new()
     ///     {
-    ///         Location = "east us",
+    ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
+    ///     var primaryVirtualNetwork = new Azure.Network.VirtualNetwork("primaryVirtualNetwork", new()
     ///     {
-    ///         Location = targetResourceGroup.Location,
-    ///         ResourceGroupName = targetResourceGroup.Name,
+    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "192.168.1.0/24",
+    ///         },
+    ///         Location = primaryResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var primarySubnet = new Azure.Network.Subnet("primarySubnet", new()
+    ///     {
+    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         VirtualNetworkName = primaryVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "192.168.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var primaryPublicIp = new Azure.Network.PublicIp("primaryPublicIp", new()
+    ///     {
+    ///         AllocationMethod = "Static",
+    ///         Location = primaryResourceGroup.Location,
+    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         Sku = "Basic",
+    ///     });
+    /// 
+    ///     var vmNetworkInterface = new Azure.Network.NetworkInterface("vmNetworkInterface", new()
+    ///     {
+    ///         Location = primaryResourceGroup.Location,
+    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "vm",
+    ///                 SubnetId = primarySubnet.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///                 PublicIpAddressId = primaryPublicIp.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var vmVirtualMachine = new Azure.Compute.VirtualMachine("vmVirtualMachine", new()
+    ///     {
+    ///         Location = primaryResourceGroup.Location,
+    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         VmSize = "Standard_B1s",
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             vmNetworkInterface.Id,
+    ///         },
+    ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
+    ///         {
+    ///             Publisher = "OpenLogic",
+    ///             Offer = "CentOS",
+    ///             Sku = "7.5",
+    ///             Version = "latest",
+    ///         },
+    ///         StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
+    ///         {
+    ///             Name = "vm-os-disk",
+    ///             OsType = "Linux",
+    ///             Caching = "ReadWrite",
+    ///             CreateOption = "FromImage",
+    ///             ManagedDiskType = "Premium_LRS",
+    ///         },
+    ///         OsProfile = new Azure.Compute.Inputs.VirtualMachineOsProfileArgs
+    ///         {
+    ///             AdminUsername = "test-admin-123",
+    ///             AdminPassword = "test-pwd-123",
+    ///             ComputerName = "vm",
+    ///         },
+    ///         OsProfileLinuxConfig = new Azure.Compute.Inputs.VirtualMachineOsProfileLinuxConfigArgs
+    ///         {
+    ///             DisablePasswordAuthentication = false,
+    ///         },
+    ///     });
+    /// 
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = secondaryResourceGroup.Location,
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var sourceFabric = new Azure.SiteRecovery.Fabric("sourceFabric", new()
+    ///     var primaryFabric = new Azure.SiteRecovery.Fabric("primaryFabric", new()
     ///     {
-    ///         ResourceGroupName = azurerm_resource_group.Example.Name,
-    ///         RecoveryVaultName = exampleVault.Name,
-    ///         Location = sourceResourceGroup.Location,
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         Location = primaryResourceGroup.Location,
     ///     });
     /// 
-    ///     var targetFabric = new Azure.SiteRecovery.Fabric("targetFabric", new()
+    ///     var secondaryFabric = new Azure.SiteRecovery.Fabric("secondaryFabric", new()
     ///     {
-    ///         ResourceGroupName = targetResourceGroup.Name,
-    ///         RecoveryVaultName = exampleVault.Name,
-    ///         Location = targetResourceGroup.Location,
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         Location = secondaryResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var primaryProtectionContainer = new Azure.SiteRecovery.ProtectionContainer("primaryProtectionContainer", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         RecoveryFabricName = primaryFabric.Name,
+    ///     });
+    /// 
+    ///     var secondaryProtectionContainer = new Azure.SiteRecovery.ProtectionContainer("secondaryProtectionContainer", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         RecoveryFabricName = secondaryFabric.Name,
+    ///     });
+    /// 
+    ///     var policy = new Azure.SiteRecovery.ReplicationPolicy("policy", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         RecoveryPointRetentionInMinutes = 24 * 60,
+    ///         ApplicationConsistentSnapshotFrequencyInMinutes = 4 * 60,
+    ///     });
+    /// 
+    ///     var container_mapping = new Azure.SiteRecovery.ProtectionContainerMapping("container-mapping", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         RecoveryFabricName = primaryFabric.Name,
+    ///         RecoverySourceProtectionContainerName = primaryProtectionContainer.Name,
+    ///         RecoveryTargetProtectionContainerId = secondaryProtectionContainer.Id,
+    ///         RecoveryReplicationPolicyId = policy.Id,
+    ///     });
+    /// 
+    ///     var secondaryVirtualNetwork = new Azure.Network.VirtualNetwork("secondaryVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "192.168.2.0/24",
+    ///         },
+    ///         Location = secondaryResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var network_mapping = new Azure.SiteRecovery.NetworkMapping("network-mapping", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         SourceRecoveryFabricName = primaryFabric.Name,
+    ///         TargetRecoveryFabricName = secondaryFabric.Name,
+    ///         SourceNetworkId = primaryVirtualNetwork.Id,
+    ///         TargetNetworkId = secondaryVirtualNetwork.Id,
+    ///     });
+    /// 
+    ///     var primaryAccount = new Azure.Storage.Account("primaryAccount", new()
+    ///     {
+    ///         Location = primaryResourceGroup.Location,
+    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var secondarySubnet = new Azure.Network.Subnet("secondarySubnet", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         VirtualNetworkName = secondaryVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "192.168.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var secondaryPublicIp = new Azure.Network.PublicIp("secondaryPublicIp", new()
+    ///     {
+    ///         AllocationMethod = "Static",
+    ///         Location = secondaryResourceGroup.Location,
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Sku = "Basic",
+    ///     });
+    /// 
+    ///     var vm_replication = new Azure.SiteRecovery.ReplicatedVM("vm-replication", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         SourceRecoveryFabricName = primaryFabric.Name,
+    ///         SourceVmId = vmVirtualMachine.Id,
+    ///         RecoveryReplicationPolicyId = policy.Id,
+    ///         SourceRecoveryProtectionContainerName = primaryProtectionContainer.Name,
+    ///         TargetResourceGroupId = secondaryResourceGroup.Id,
+    ///         TargetRecoveryFabricId = secondaryFabric.Id,
+    ///         TargetRecoveryProtectionContainerId = secondaryProtectionContainer.Id,
+    ///         ManagedDisks = new[]
+    ///         {
+    ///             new Azure.SiteRecovery.Inputs.ReplicatedVMManagedDiskArgs
+    ///             {
+    ///                 DiskId = vmVirtualMachine.StorageOsDisk.Apply(storageOsDisk =&gt; storageOsDisk.ManagedDiskId),
+    ///                 StagingStorageAccountId = primaryAccount.Id,
+    ///                 TargetResourceGroupId = secondaryResourceGroup.Id,
+    ///                 TargetDiskType = "Premium_LRS",
+    ///                 TargetReplicaDiskType = "Premium_LRS",
+    ///             },
+    ///         },
+    ///         NetworkInterfaces = new[]
+    ///         {
+    ///             new Azure.SiteRecovery.Inputs.ReplicatedVMNetworkInterfaceArgs
+    ///             {
+    ///                 SourceNetworkInterfaceId = vmNetworkInterface.Id,
+    ///                 TargetSubnetName = secondarySubnet.Name,
+    ///                 RecoveryPublicIpAddressId = secondaryPublicIp.Id,
+    ///             },
+    ///         },
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn = new[]
     ///         {
-    ///             sourceFabric,
+    ///             container_mapping,
+    ///             network_mapping,
     ///         },
     ///     });
     /// 
-    ///     var exampleReplicationRecoveryPlan = new Azure.SiteRecovery.ReplicationRecoveryPlan("exampleReplicationRecoveryPlan", new()
+    ///     var example = new Azure.SiteRecovery.ReplicationRecoveryPlan("example", new()
     ///     {
-    ///         RecoveryVaultId = azurerm_recovery_services_vault.Target.Id,
-    ///         SourceRecoveryFabricId = sourceFabric.Id,
-    ///         TargetRecoveryFabricId = targetFabric.Id,
+    ///         RecoveryVaultId = vault.Id,
+    ///         SourceRecoveryFabricId = primaryFabric.Id,
+    ///         TargetRecoveryFabricId = secondaryFabric.Id,
     ///         RecoveryGroups = new[]
     ///         {
     ///             new Azure.SiteRecovery.Inputs.ReplicationRecoveryPlanRecoveryGroupArgs
@@ -71,7 +263,7 @@ namespace Pulumi.Azure.SiteRecovery
     ///                 Type = "Boot",
     ///                 ReplicatedProtectedItems = new[]
     ///                 {
-    ///                     azurerm_site_recovery_replicated_vm.Test.Id,
+    ///                     vm_replication.Id,
     ///                 },
     ///             },
     ///             new Azure.SiteRecovery.Inputs.ReplicationRecoveryPlanRecoveryGroupArgs

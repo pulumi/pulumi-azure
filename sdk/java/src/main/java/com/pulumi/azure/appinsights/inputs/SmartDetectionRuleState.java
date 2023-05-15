@@ -20,12 +20,16 @@ public final class SmartDetectionRuleState extends com.pulumi.resources.Resource
     /**
      * Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
      * 
+     * &gt; **Note:** At least one read or write permission must be defined.
+     * 
      */
     @Import(name="additionalEmailRecipients")
     private @Nullable Output<List<String>> additionalEmailRecipients;
 
     /**
      * @return Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+     * 
+     * &gt; **Note:** At least one read or write permission must be defined.
      * 
      */
     public Optional<Output<List<String>>> additionalEmailRecipients() {
@@ -123,6 +127,8 @@ public final class SmartDetectionRuleState extends com.pulumi.resources.Resource
         /**
          * @param additionalEmailRecipients Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
          * 
+         * &gt; **Note:** At least one read or write permission must be defined.
+         * 
          * @return builder
          * 
          */
@@ -134,6 +140,8 @@ public final class SmartDetectionRuleState extends com.pulumi.resources.Resource
         /**
          * @param additionalEmailRecipients Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
          * 
+         * &gt; **Note:** At least one read or write permission must be defined.
+         * 
          * @return builder
          * 
          */
@@ -143,6 +151,8 @@ public final class SmartDetectionRuleState extends com.pulumi.resources.Resource
 
         /**
          * @param additionalEmailRecipients Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
+         * 
+         * &gt; **Note:** At least one read or write permission must be defined.
          * 
          * @return builder
          * 

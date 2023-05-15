@@ -99,6 +99,8 @@ type Server struct {
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku). Possible values are `B_Gen5_1`, `B_Gen5_2`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8` and `MO_Gen5_16`.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+	//
+	// > **NOTE:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
 	SslEnforcementEnabled pulumi.BoolOutput `pulumi:"sslEnforcementEnabled"`
 	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
 	SslMinimalTlsVersionEnforced pulumi.StringPtrOutput `pulumi:"sslMinimalTlsVersionEnforced"`
@@ -187,6 +189,8 @@ type serverState struct {
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku). Possible values are `B_Gen5_1`, `B_Gen5_2`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8` and `MO_Gen5_16`.
 	SkuName *string `pulumi:"skuName"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+	//
+	// > **NOTE:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
 	SslEnforcementEnabled *bool `pulumi:"sslEnforcementEnabled"`
 	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
 	SslMinimalTlsVersionEnforced *string `pulumi:"sslMinimalTlsVersionEnforced"`
@@ -228,6 +232,8 @@ type ServerState struct {
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku). Possible values are `B_Gen5_1`, `B_Gen5_2`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8` and `MO_Gen5_16`.
 	SkuName pulumi.StringPtrInput
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+	//
+	// > **NOTE:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
 	SslEnforcementEnabled pulumi.BoolPtrInput
 	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
 	SslMinimalTlsVersionEnforced pulumi.StringPtrInput
@@ -271,6 +277,8 @@ type serverArgs struct {
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku). Possible values are `B_Gen5_1`, `B_Gen5_2`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8` and `MO_Gen5_16`.
 	SkuName string `pulumi:"skuName"`
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+	//
+	// > **NOTE:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
 	SslEnforcementEnabled bool `pulumi:"sslEnforcementEnabled"`
 	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
 	SslMinimalTlsVersionEnforced *string `pulumi:"sslMinimalTlsVersionEnforced"`
@@ -311,6 +319,8 @@ type ServerArgs struct {
 	// Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku). Possible values are `B_Gen5_1`, `B_Gen5_2`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8` and `MO_Gen5_16`.
 	SkuName pulumi.StringInput
 	// Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+	//
+	// > **NOTE:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
 	SslEnforcementEnabled pulumi.BoolInput
 	// The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
 	SslMinimalTlsVersionEnforced pulumi.StringPtrInput
@@ -480,6 +490,8 @@ func (o ServerOutput) SkuName() pulumi.StringOutput {
 }
 
 // Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+//
+// > **NOTE:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
 func (o ServerOutput) SslEnforcementEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolOutput { return v.SslEnforcementEnabled }).(pulumi.BoolOutput)
 }

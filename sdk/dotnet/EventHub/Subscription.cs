@@ -79,6 +79,8 @@ namespace Pulumi.Azure.EventHub
 
         /// <summary>
         /// whether the subscription is scoped to a client id. Defaults to `False`.
+        /// 
+        /// &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         /// </summary>
         [Output("clientScopedSubscriptionEnabled")]
         public Output<bool?> ClientScopedSubscriptionEnabled { get; private set; } = null!;
@@ -215,6 +217,8 @@ namespace Pulumi.Azure.EventHub
 
         /// <summary>
         /// whether the subscription is scoped to a client id. Defaults to `False`.
+        /// 
+        /// &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         /// </summary>
         [Input("clientScopedSubscriptionEnabled")]
         public Input<bool>? ClientScopedSubscriptionEnabled { get; set; }
@@ -313,6 +317,8 @@ namespace Pulumi.Azure.EventHub
 
         /// <summary>
         /// whether the subscription is scoped to a client id. Defaults to `False`.
+        /// 
+        /// &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         /// </summary>
         [Input("clientScopedSubscriptionEnabled")]
         public Input<bool>? ClientScopedSubscriptionEnabled { get; set; }

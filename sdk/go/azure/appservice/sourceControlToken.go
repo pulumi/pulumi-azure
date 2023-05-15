@@ -53,6 +53,8 @@ type SourceControlToken struct {
 	// The Access Token.
 	Token pulumi.StringOutput `pulumi:"token"`
 	// The Access Token Secret.
+	//
+	// > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
 	TokenSecret pulumi.StringPtrOutput `pulumi:"tokenSecret"`
 	// The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -107,6 +109,8 @@ type sourceControlTokenState struct {
 	// The Access Token.
 	Token *string `pulumi:"token"`
 	// The Access Token Secret.
+	//
+	// > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
 	TokenSecret *string `pulumi:"tokenSecret"`
 	// The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
 	Type *string `pulumi:"type"`
@@ -116,6 +120,8 @@ type SourceControlTokenState struct {
 	// The Access Token.
 	Token pulumi.StringPtrInput
 	// The Access Token Secret.
+	//
+	// > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
 	TokenSecret pulumi.StringPtrInput
 	// The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
 	Type pulumi.StringPtrInput
@@ -129,6 +135,8 @@ type sourceControlTokenArgs struct {
 	// The Access Token.
 	Token string `pulumi:"token"`
 	// The Access Token Secret.
+	//
+	// > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
 	TokenSecret *string `pulumi:"tokenSecret"`
 	// The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
 	Type string `pulumi:"type"`
@@ -139,6 +147,8 @@ type SourceControlTokenArgs struct {
 	// The Access Token.
 	Token pulumi.StringInput
 	// The Access Token Secret.
+	//
+	// > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
 	TokenSecret pulumi.StringPtrInput
 	// The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
 	Type pulumi.StringInput
@@ -237,6 +247,8 @@ func (o SourceControlTokenOutput) Token() pulumi.StringOutput {
 }
 
 // The Access Token Secret.
+//
+// > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
 func (o SourceControlTokenOutput) TokenSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceControlToken) pulumi.StringPtrOutput { return v.TokenSecret }).(pulumi.StringPtrOutput)
 }

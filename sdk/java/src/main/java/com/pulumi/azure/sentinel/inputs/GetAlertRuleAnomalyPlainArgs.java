@@ -17,12 +17,16 @@ public final class GetAlertRuleAnomalyPlainArgs extends com.pulumi.resources.Inv
     /**
      * The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
      * 
+     * &gt; **NOTE** One of `name` or `display_name` must be specified.
+     * 
      */
     @Import(name="displayName")
     private @Nullable String displayName;
 
     /**
      * @return The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+     * 
+     * &gt; **NOTE** One of `name` or `display_name` must be specified.
      * 
      */
     public Optional<String> displayName() {
@@ -87,6 +91,8 @@ public final class GetAlertRuleAnomalyPlainArgs extends com.pulumi.resources.Inv
 
         /**
          * @param displayName The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
+         * 
+         * &gt; **NOTE** One of `name` or `display_name` must be specified.
          * 
          * @return builder
          * 

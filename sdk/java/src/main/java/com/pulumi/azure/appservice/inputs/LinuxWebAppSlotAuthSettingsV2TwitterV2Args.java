@@ -31,12 +31,16 @@ public final class LinuxWebAppSlotAuthSettingsV2TwitterV2Args extends com.pulumi
     /**
      * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
      * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * 
      */
     @Import(name="consumerSecretSettingName", required=true)
     private Output<String> consumerSecretSettingName;
 
     /**
      * @return The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+     * 
+     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Output<String> consumerSecretSettingName() {
@@ -92,6 +96,8 @@ public final class LinuxWebAppSlotAuthSettingsV2TwitterV2Args extends com.pulumi
         /**
          * @param consumerSecretSettingName The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * 
          * @return builder
          * 
          */
@@ -102,6 +108,8 @@ public final class LinuxWebAppSlotAuthSettingsV2TwitterV2Args extends com.pulumi
 
         /**
          * @param consumerSecretSettingName The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+         * 
+         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 

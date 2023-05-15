@@ -21,7 +21,11 @@ class ManagedPrivateEndpointArgs:
         """
         The set of arguments for constructing a ManagedPrivateEndpoint resource.
         :param pulumi.Input[str] subresource_name: Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+               
+               > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
         :param pulumi.Input[str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         """
@@ -36,6 +40,8 @@ class ManagedPrivateEndpointArgs:
     def subresource_name(self) -> pulumi.Input[str]:
         """
         Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+
+        > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         """
         return pulumi.get(self, "subresource_name")
 
@@ -48,6 +54,8 @@ class ManagedPrivateEndpointArgs:
     def synapse_workspace_id(self) -> pulumi.Input[str]:
         """
         The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+
+        > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
         """
         return pulumi.get(self, "synapse_workspace_id")
 
@@ -91,7 +99,11 @@ class _ManagedPrivateEndpointState:
         Input properties used for looking up and filtering ManagedPrivateEndpoint resources.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subresource_name: Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+               
+               > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
         :param pulumi.Input[str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
         """
         if name is not None:
@@ -120,6 +132,8 @@ class _ManagedPrivateEndpointState:
     def subresource_name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+
+        > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         """
         return pulumi.get(self, "subresource_name")
 
@@ -132,6 +146,8 @@ class _ManagedPrivateEndpointState:
     def synapse_workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+
+        > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
         """
         return pulumi.get(self, "synapse_workspace_id")
 
@@ -219,7 +235,11 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subresource_name: Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+               
+               > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
         :param pulumi.Input[str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
         """
         ...
@@ -342,7 +362,11 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subresource_name: Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+               
+               > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
         :param pulumi.Input[str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -368,6 +392,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     def subresource_name(self) -> pulumi.Output[str]:
         """
         Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+
+        > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         """
         return pulumi.get(self, "subresource_name")
 
@@ -376,6 +402,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     def synapse_workspace_id(self) -> pulumi.Output[str]:
         """
         The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+
+        > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
         """
         return pulumi.get(self, "synapse_workspace_id")
 

@@ -160,12 +160,18 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+     * **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+     * 
      */
     @Export(name="adminPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminPassword;
 
     /**
      * @return The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+     * **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
      * 
      */
     public Output<Optional<String>> adminPassword() {
@@ -174,12 +180,16 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+     * 
      */
     @Export(name="adminSshKeys", refs={List.class,LinuxVirtualMachineAdminSshKey.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LinuxVirtualMachineAdminSshKey>> adminSshKeys;
 
     /**
      * @return One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
      * 
      */
     public Output<Optional<List<LinuxVirtualMachineAdminSshKey>>> adminSshKeys() {
@@ -244,12 +254,16 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      * 
+     * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+     * 
      */
     @Export(name="capacityReservationGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> capacityReservationGroupId;
 
     /**
      * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
+     * 
+     * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
      * 
      */
     public Output<Optional<String>> capacityReservationGroupId() {
@@ -314,12 +328,20 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      * 
+     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * 
+     * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+     * 
      */
     @Export(name="disablePasswordAuthentication", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disablePasswordAuthentication;
 
     /**
      * @return Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * 
+     * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
      * 
      */
     public Output<Optional<Boolean>> disablePasswordAuthentication() {
@@ -356,12 +378,16 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * 
      */
     @Export(name="evictionPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> evictionPolicy;
 
     /**
      * @return Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     public Output<Optional<String>> evictionPolicy() {
@@ -440,12 +466,16 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
      * 
+     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * 
      */
     @Export(name="maxBidPrice", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> maxBidPrice;
 
     /**
      * @return The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+     * 
+     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     public Output<Optional<Double>> maxBidPrice() {
@@ -496,12 +526,16 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
+     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+     * 
      */
     @Export(name="patchAssessmentMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> patchAssessmentMode;
 
     /**
      * @return Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * 
+     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
     public Output<Optional<String>> patchAssessmentMode() {
@@ -510,12 +544,16 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
+     * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
+     * 
      */
     @Export(name="patchMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> patchMode;
 
     /**
      * @return Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     * 
+     * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
      * 
      */
     public Output<Optional<String>> patchMode() {
@@ -594,12 +632,16 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+     * 
      */
     @Export(name="provisionVmAgent", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> provisionVmAgent;
 
     /**
      * @return Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
      * 
      */
     public Output<Optional<Boolean>> provisionVmAgent() {
@@ -706,12 +748,16 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
+     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * 
      */
     @Export(name="sourceImageId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceImageId;
 
     /**
      * @return The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     * 
+     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     public Output<Optional<String>> sourceImageId() {
@@ -720,12 +766,16 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * 
      */
     @Export(name="sourceImageReference", refs={LinuxVirtualMachineSourceImageReference.class}, tree="[0]")
     private Output</* @Nullable */ LinuxVirtualMachineSourceImageReference> sourceImageReference;
 
     /**
      * @return A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     public Output<Optional<LinuxVirtualMachineSourceImageReference>> sourceImageReference() {
@@ -790,12 +840,16 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+     * 
      */
     @Export(name="virtualMachineScaleSetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualMachineScaleSetId;
 
     /**
      * @return Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      * 
      */
     public Output<Optional<String>> virtualMachineScaleSetId() {

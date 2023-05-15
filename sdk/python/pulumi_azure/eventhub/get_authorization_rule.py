@@ -197,9 +197,9 @@ def get_authorization_rule(eventhub_name: Optional[str] = None,
     import pulumi_azure as azure
 
     test = azure.eventhub.get_authorization_rule(name="test",
-        namespace_name=azurerm_eventhub_namespace["test"]["name"],
-        eventhub_name=azurerm_eventhub["test"]["name"],
-        resource_group_name=azurerm_resource_group["test"]["name"])
+        namespace_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        eventhub_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -255,9 +255,9 @@ def get_authorization_rule_output(eventhub_name: Optional[pulumi.Input[str]] = N
     import pulumi_azure as azure
 
     test = azure.eventhub.get_authorization_rule(name="test",
-        namespace_name=azurerm_eventhub_namespace["test"]["name"],
-        eventhub_name=azurerm_eventhub["test"]["name"],
-        resource_group_name=azurerm_resource_group["test"]["name"])
+        namespace_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        eventhub_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

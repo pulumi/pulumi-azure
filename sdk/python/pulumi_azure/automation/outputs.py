@@ -130,6 +130,8 @@ class AccountIdentity(dict):
         """
         :param str type: The type of identity used for this Automation Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param Sequence[str] identity_ids: The ID of the User Assigned Identity which should be assigned to this Automation Account.
+               
+               > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -154,6 +156,8 @@ class AccountIdentity(dict):
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
         The ID of the User Assigned Identity which should be assigned to this Automation Account.
+
+        > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

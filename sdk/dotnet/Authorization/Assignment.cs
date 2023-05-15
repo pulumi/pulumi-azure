@@ -204,6 +204,8 @@ namespace Pulumi.Azure.Authorization
 
         /// <summary>
         /// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** this field is only used in cross tenant scenario.
         /// </summary>
         [Output("delegatedManagedIdentityResourceId")]
         public Output<string?> DelegatedManagedIdentityResourceId { get; private set; } = null!;
@@ -222,6 +224,8 @@ namespace Pulumi.Azure.Authorization
 
         /// <summary>
         /// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
         /// </summary>
         [Output("principalId")]
         public Output<string> PrincipalId { get; private set; } = null!;
@@ -252,6 +256,8 @@ namespace Pulumi.Azure.Authorization
 
         /// <summary>
         /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
         /// </summary>
         [Output("skipServicePrincipalAadCheck")]
         public Output<bool> SkipServicePrincipalAadCheck { get; private set; } = null!;
@@ -320,6 +326,8 @@ namespace Pulumi.Azure.Authorization
 
         /// <summary>
         /// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** this field is only used in cross tenant scenario.
         /// </summary>
         [Input("delegatedManagedIdentityResourceId")]
         public Input<string>? DelegatedManagedIdentityResourceId { get; set; }
@@ -338,6 +346,8 @@ namespace Pulumi.Azure.Authorization
 
         /// <summary>
         /// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
         /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
@@ -362,6 +372,8 @@ namespace Pulumi.Azure.Authorization
 
         /// <summary>
         /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
         /// </summary>
         [Input("skipServicePrincipalAadCheck")]
         public Input<bool>? SkipServicePrincipalAadCheck { get; set; }
@@ -388,6 +400,8 @@ namespace Pulumi.Azure.Authorization
 
         /// <summary>
         /// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** this field is only used in cross tenant scenario.
         /// </summary>
         [Input("delegatedManagedIdentityResourceId")]
         public Input<string>? DelegatedManagedIdentityResourceId { get; set; }
@@ -406,6 +420,8 @@ namespace Pulumi.Azure.Authorization
 
         /// <summary>
         /// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
@@ -436,6 +452,8 @@ namespace Pulumi.Azure.Authorization
 
         /// <summary>
         /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
         /// </summary>
         [Input("skipServicePrincipalAadCheck")]
         public Input<bool>? SkipServicePrincipalAadCheck { get; set; }

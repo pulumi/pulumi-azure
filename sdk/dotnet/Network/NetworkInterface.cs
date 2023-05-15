@@ -84,6 +84,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+        /// 
+        /// &gt; **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         /// </summary>
         [Output("dnsServers")]
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
@@ -96,6 +98,10 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// Should Accelerated Networking be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+        /// 
+        /// &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         /// </summary>
         [Output("enableAcceleratedNetworking")]
         public Output<bool?> EnableAcceleratedNetworking { get; private set; } = null!;
@@ -223,6 +229,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+        /// 
+        /// &gt; **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         /// </summary>
         public InputList<string> DnsServers
         {
@@ -238,6 +246,10 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// Should Accelerated Networking be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+        /// 
+        /// &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         /// </summary>
         [Input("enableAcceleratedNetworking")]
         public Input<bool>? EnableAcceleratedNetworking { get; set; }
@@ -321,6 +333,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+        /// 
+        /// &gt; **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         /// </summary>
         public InputList<string> DnsServers
         {
@@ -336,6 +350,10 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// Should Accelerated Networking be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+        /// 
+        /// &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
         /// </summary>
         [Input("enableAcceleratedNetworking")]
         public Input<bool>? EnableAcceleratedNetworking { get; set; }

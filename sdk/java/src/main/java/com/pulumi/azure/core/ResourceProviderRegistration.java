@@ -96,17 +96,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:core/resourceProviderRegistration:ResourceProviderRegistration")
 public class ResourceProviderRegistration extends com.pulumi.resources.CustomResource {
-    /**
-     * A list of `feature` blocks as defined below.
-     * 
-     */
     @Export(name="features", refs={List.class,ResourceProviderRegistrationFeature.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourceProviderRegistrationFeature>> features;
 
-    /**
-     * @return A list of `feature` blocks as defined below.
-     * 
-     */
     public Output<Optional<List<ResourceProviderRegistrationFeature>>> features() {
         return Codegen.optional(this.features);
     }

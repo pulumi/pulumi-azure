@@ -930,6 +930,8 @@ type ContentKeyPolicyPolicyOption struct {
 	// A `tokenRestriction` block as defined below.
 	TokenRestriction *ContentKeyPolicyPolicyOptionTokenRestriction `pulumi:"tokenRestriction"`
 	// The Widevine template.
+	//
+	// > **NOTE:** Each policyOption can only have one type of configuration: `fairplayConfiguration`, `clearKeyConfigurationEnabled`, `playreadyConfigurationLicense` or `widevineConfigurationTemplate`. And is possible to assign only one type of restriction: `openRestrictionEnabled` or `tokenRestriction`.
 	WidevineConfigurationTemplate *string `pulumi:"widevineConfigurationTemplate"`
 }
 
@@ -960,6 +962,8 @@ type ContentKeyPolicyPolicyOptionArgs struct {
 	// A `tokenRestriction` block as defined below.
 	TokenRestriction ContentKeyPolicyPolicyOptionTokenRestrictionPtrInput `pulumi:"tokenRestriction"`
 	// The Widevine template.
+	//
+	// > **NOTE:** Each policyOption can only have one type of configuration: `fairplayConfiguration`, `clearKeyConfigurationEnabled`, `playreadyConfigurationLicense` or `widevineConfigurationTemplate`. And is possible to assign only one type of restriction: `openRestrictionEnabled` or `tokenRestriction`.
 	WidevineConfigurationTemplate pulumi.StringPtrInput `pulumi:"widevineConfigurationTemplate"`
 }
 
@@ -1056,6 +1060,8 @@ func (o ContentKeyPolicyPolicyOptionOutput) TokenRestriction() ContentKeyPolicyP
 }
 
 // The Widevine template.
+//
+// > **NOTE:** Each policyOption can only have one type of configuration: `fairplayConfiguration`, `clearKeyConfigurationEnabled`, `playreadyConfigurationLicense` or `widevineConfigurationTemplate`. And is possible to assign only one type of restriction: `openRestrictionEnabled` or `tokenRestriction`.
 func (o ContentKeyPolicyPolicyOptionOutput) WidevineConfigurationTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPolicyOption) *string { return v.WidevineConfigurationTemplate }).(pulumi.StringPtrOutput)
 }
@@ -1482,6 +1488,8 @@ type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense struct {
 	// Specifies that the content key ID is in the PlayReady header.
 	ContentKeyLocationFromHeaderEnabled *bool `pulumi:"contentKeyLocationFromHeaderEnabled"`
 	// The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+	//
+	// > **NOTE:** You can only specify one content key location. For example if you specify `contentKeyLocationFromHeaderEnabled` in true, you shouldn't specify `contentKeyLocationFromKeyId` and vice versa.
 	ContentKeyLocationFromKeyId *string `pulumi:"contentKeyLocationFromKeyId"`
 	// The PlayReady content type. Supported values are `UltraVioletDownload`, `UltraVioletStreaming` or `Unspecified`.
 	ContentType *string `pulumi:"contentType"`
@@ -1520,6 +1528,8 @@ type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs struct {
 	// Specifies that the content key ID is in the PlayReady header.
 	ContentKeyLocationFromHeaderEnabled pulumi.BoolPtrInput `pulumi:"contentKeyLocationFromHeaderEnabled"`
 	// The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+	//
+	// > **NOTE:** You can only specify one content key location. For example if you specify `contentKeyLocationFromHeaderEnabled` in true, you shouldn't specify `contentKeyLocationFromKeyId` and vice versa.
 	ContentKeyLocationFromKeyId pulumi.StringPtrInput `pulumi:"contentKeyLocationFromKeyId"`
 	// The PlayReady content type. Supported values are `UltraVioletDownload`, `UltraVioletStreaming` or `Unspecified`.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
@@ -1608,6 +1618,8 @@ func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) Content
 }
 
 // The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+//
+// > **NOTE:** You can only specify one content key location. For example if you specify `contentKeyLocationFromHeaderEnabled` in true, you shouldn't specify `contentKeyLocationFromKeyId` and vice versa.
 func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) ContentKeyLocationFromKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense) *string {
 		return v.ContentKeyLocationFromKeyId
@@ -2249,6 +2261,8 @@ type ContentKeyPolicyPolicyOptionTokenRestriction struct {
 	// One or more `requiredClaim` blocks as defined above.
 	RequiredClaims []ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim `pulumi:"requiredClaims"`
 	// The type of token. Supported values are `Jwt` or `Swt`.
+	//
+	// > **NOTE:** Each tokenRestriction can only have one type of primary verification key: if you want to use RSA you must provide `primaryRsaTokenKeyExponent` and `primaryRsaTokenKeyModulus`, if you want to use symmetric you need to provide `primarySymmetricTokenKey` and for x509 you must provide `primaryX509TokenKeyRaw`. For more information about Token access please refer to <https://docs.microsoft.com/azure/media-services/latest/content-protection-overview#controlling-content-access>
 	TokenType *string `pulumi:"tokenType"`
 }
 
@@ -2283,6 +2297,8 @@ type ContentKeyPolicyPolicyOptionTokenRestrictionArgs struct {
 	// One or more `requiredClaim` blocks as defined above.
 	RequiredClaims ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayInput `pulumi:"requiredClaims"`
 	// The type of token. Supported values are `Jwt` or `Swt`.
+	//
+	// > **NOTE:** Each tokenRestriction can only have one type of primary verification key: if you want to use RSA you must provide `primaryRsaTokenKeyExponent` and `primaryRsaTokenKeyModulus`, if you want to use symmetric you need to provide `primarySymmetricTokenKey` and for x509 you must provide `primaryX509TokenKeyRaw`. For more information about Token access please refer to <https://docs.microsoft.com/azure/media-services/latest/content-protection-overview#controlling-content-access>
 	TokenType pulumi.StringPtrInput `pulumi:"tokenType"`
 }
 
@@ -2413,6 +2429,8 @@ func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) RequiredClaims() Con
 }
 
 // The type of token. Supported values are `Jwt` or `Swt`.
+//
+// > **NOTE:** Each tokenRestriction can only have one type of primary verification key: if you want to use RSA you must provide `primaryRsaTokenKeyExponent` and `primaryRsaTokenKeyModulus`, if you want to use symmetric you need to provide `primarySymmetricTokenKey` and for x509 you must provide `primaryX509TokenKeyRaw`. For more information about Token access please refer to <https://docs.microsoft.com/azure/media-services/latest/content-protection-overview#controlling-content-access>
 func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) TokenType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestriction) *string { return v.TokenType }).(pulumi.StringPtrOutput)
 }
@@ -2532,6 +2550,8 @@ func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) RequiredClaims() 
 }
 
 // The type of token. Supported values are `Jwt` or `Swt`.
+//
+// > **NOTE:** Each tokenRestriction can only have one type of primary verification key: if you want to use RSA you must provide `primaryRsaTokenKeyExponent` and `primaryRsaTokenKeyModulus`, if you want to use symmetric you need to provide `primarySymmetricTokenKey` and for x509 you must provide `primaryX509TokenKeyRaw`. For more information about Token access please refer to <https://docs.microsoft.com/azure/media-services/latest/content-protection-overview#controlling-content-access>
 func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) TokenType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPolicyOptionTokenRestriction) *string {
 		if v == nil {
@@ -2549,6 +2569,8 @@ type ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey struct {
 	// The key value of the key. Specifies a symmetric key for token validation.
 	SymmetricTokenKey *string `pulumi:"symmetricTokenKey"`
 	// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+	//
+	// > **NOTE:** Each `alternateKey` block can only have one type of primary verification key: if you want to use RSA you must provide `rsaTokenKeyExponent` and `rsaTokenKeyModulus`, if you want to use symmetric you need to provide `symmetricTokenKey` and for x509 you must provide `x509TokenKeyRaw`.
 	X509TokenKeyRaw *string `pulumi:"x509TokenKeyRaw"`
 }
 
@@ -2571,6 +2593,8 @@ type ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs struct {
 	// The key value of the key. Specifies a symmetric key for token validation.
 	SymmetricTokenKey pulumi.StringPtrInput `pulumi:"symmetricTokenKey"`
 	// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+	//
+	// > **NOTE:** Each `alternateKey` block can only have one type of primary verification key: if you want to use RSA you must provide `rsaTokenKeyExponent` and `rsaTokenKeyModulus`, if you want to use symmetric you need to provide `symmetricTokenKey` and for x509 you must provide `x509TokenKeyRaw`.
 	X509TokenKeyRaw pulumi.StringPtrInput `pulumi:"x509TokenKeyRaw"`
 }
 
@@ -2641,6 +2665,8 @@ func (o ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyOutput) Symmetri
 }
 
 // The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+//
+// > **NOTE:** Each `alternateKey` block can only have one type of primary verification key: if you want to use RSA you must provide `rsaTokenKeyExponent` and `rsaTokenKeyModulus`, if you want to use symmetric you need to provide `symmetricTokenKey` and for x509 you must provide `x509TokenKeyRaw`.
 func (o ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyOutput) X509TokenKeyRaw() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey) *string { return v.X509TokenKeyRaw }).(pulumi.StringPtrOutput)
 }
@@ -3197,6 +3223,8 @@ type LiveEventEncoding struct {
 	// Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
 	StretchMode *string `pulumi:"stretchMode"`
 	// Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+	//
+	// > [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
 	Type *string `pulumi:"type"`
 }
 
@@ -3219,6 +3247,8 @@ type LiveEventEncodingArgs struct {
 	// Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
 	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
 	// Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+	//
+	// > [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -3315,6 +3345,8 @@ func (o LiveEventEncodingOutput) StretchMode() pulumi.StringPtrOutput {
 }
 
 // Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+//
+// > [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
 func (o LiveEventEncodingOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncoding) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3374,6 +3406,8 @@ func (o LiveEventEncodingPtrOutput) StretchMode() pulumi.StringPtrOutput {
 }
 
 // Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+//
+// > [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
 func (o LiveEventEncodingPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncoding) *string {
 		if v == nil {
@@ -4935,6 +4969,8 @@ type ServiceAccountStorageAccount struct {
 	// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
 	Id string `pulumi:"id"`
 	// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+	//
+	// > **NOTE:** Whilst multiple `storageAccount` blocks can be specified - one of them must be set to the primary
 	IsPrimary *bool `pulumi:"isPrimary"`
 	// A `managedIdentity` block as defined below.
 	ManagedIdentity *ServiceAccountStorageAccountManagedIdentity `pulumi:"managedIdentity"`
@@ -4955,6 +4991,8 @@ type ServiceAccountStorageAccountArgs struct {
 	// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+	//
+	// > **NOTE:** Whilst multiple `storageAccount` blocks can be specified - one of them must be set to the primary
 	IsPrimary pulumi.BoolPtrInput `pulumi:"isPrimary"`
 	// A `managedIdentity` block as defined below.
 	ManagedIdentity ServiceAccountStorageAccountManagedIdentityPtrInput `pulumi:"managedIdentity"`
@@ -5017,6 +5055,8 @@ func (o ServiceAccountStorageAccountOutput) Id() pulumi.StringOutput {
 }
 
 // Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+//
+// > **NOTE:** Whilst multiple `storageAccount` blocks can be specified - one of them must be set to the primary
 func (o ServiceAccountStorageAccountOutput) IsPrimary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceAccountStorageAccount) *bool { return v.IsPrimary }).(pulumi.BoolPtrOutput)
 }
@@ -6197,6 +6237,8 @@ func (o StreamingPolicyCommonEncryptionCbcsPtrOutput) EnabledProtocols() Streami
 
 type StreamingPolicyCommonEncryptionCbcsClearKeyEncryption struct {
 	// The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+	//
+	// > **Note** Either `clearKeyEncryption` or `drm` must be specified.
 	CustomKeysAcquisitionUrlTemplate string `pulumi:"customKeysAcquisitionUrlTemplate"`
 }
 
@@ -6213,6 +6255,8 @@ type StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionInput interface {
 
 type StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs struct {
 	// The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+	//
+	// > **Note** Either `clearKeyEncryption` or `drm` must be specified.
 	CustomKeysAcquisitionUrlTemplate pulumi.StringInput `pulumi:"customKeysAcquisitionUrlTemplate"`
 }
 
@@ -6294,6 +6338,8 @@ func (o StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionOutput) ToStreaming
 }
 
 // The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+//
+// > **Note** Either `clearKeyEncryption` or `drm` must be specified.
 func (o StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionOutput) CustomKeysAcquisitionUrlTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsClearKeyEncryption) string {
 		return v.CustomKeysAcquisitionUrlTemplate
@@ -6325,6 +6371,8 @@ func (o StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrOutput) Elem() S
 }
 
 // The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+//
+// > **Note** Either `clearKeyEncryption` or `drm` must be specified.
 func (o StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrOutput) CustomKeysAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCbcsClearKeyEncryption) *string {
 		if v == nil {
@@ -7109,6 +7157,8 @@ func (o StreamingPolicyCommonEncryptionCencPtrOutput) EnabledProtocols() Streami
 
 type StreamingPolicyCommonEncryptionCencClearKeyEncryption struct {
 	// The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+	//
+	// > **Note** Either `clearKeyEncryption` or `drm` must be specified.
 	CustomKeysAcquisitionUrlTemplate string `pulumi:"customKeysAcquisitionUrlTemplate"`
 }
 
@@ -7125,6 +7175,8 @@ type StreamingPolicyCommonEncryptionCencClearKeyEncryptionInput interface {
 
 type StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs struct {
 	// The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+	//
+	// > **Note** Either `clearKeyEncryption` or `drm` must be specified.
 	CustomKeysAcquisitionUrlTemplate pulumi.StringInput `pulumi:"customKeysAcquisitionUrlTemplate"`
 }
 
@@ -7206,6 +7258,8 @@ func (o StreamingPolicyCommonEncryptionCencClearKeyEncryptionOutput) ToStreaming
 }
 
 // The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+//
+// > **Note** Either `clearKeyEncryption` or `drm` must be specified.
 func (o StreamingPolicyCommonEncryptionCencClearKeyEncryptionOutput) CustomKeysAcquisitionUrlTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencClearKeyEncryption) string {
 		return v.CustomKeysAcquisitionUrlTemplate
@@ -7237,6 +7291,8 @@ func (o StreamingPolicyCommonEncryptionCencClearKeyEncryptionPtrOutput) Elem() S
 }
 
 // The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+//
+// > **Note** Either `clearKeyEncryption` or `drm` must be specified.
 func (o StreamingPolicyCommonEncryptionCencClearKeyEncryptionPtrOutput) CustomKeysAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyCommonEncryptionCencClearKeyEncryption) *string {
 		if v == nil {
@@ -9042,6 +9098,8 @@ type TransformOutputType struct {
 	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
 	RelativePriority *string `pulumi:"relativePriority"`
 	// A `videoAnalyzerPreset` block as defined below.
+	//
+	// > **NOTE:** Each output can only have one type of preset: `builtinPreset`, `audioAnalyzerPreset`, `customPreset`, `faceDetectorPreset` or `videoAnalyzerPreset`. If you need to apply different presets you must create one output for each one.
 	VideoAnalyzerPreset *TransformOutputVideoAnalyzerPreset `pulumi:"videoAnalyzerPreset"`
 }
 
@@ -9070,6 +9128,8 @@ type TransformOutputTypeArgs struct {
 	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
 	RelativePriority pulumi.StringPtrInput `pulumi:"relativePriority"`
 	// A `videoAnalyzerPreset` block as defined below.
+	//
+	// > **NOTE:** Each output can only have one type of preset: `builtinPreset`, `audioAnalyzerPreset`, `customPreset`, `faceDetectorPreset` or `videoAnalyzerPreset`. If you need to apply different presets you must create one output for each one.
 	VideoAnalyzerPreset TransformOutputVideoAnalyzerPresetPtrInput `pulumi:"videoAnalyzerPreset"`
 }
 
@@ -9155,6 +9215,8 @@ func (o TransformOutputTypeOutput) RelativePriority() pulumi.StringPtrOutput {
 }
 
 // A `videoAnalyzerPreset` block as defined below.
+//
+// > **NOTE:** Each output can only have one type of preset: `builtinPreset`, `audioAnalyzerPreset`, `customPreset`, `faceDetectorPreset` or `videoAnalyzerPreset`. If you need to apply different presets you must create one output for each one.
 func (o TransformOutputTypeOutput) VideoAnalyzerPreset() TransformOutputVideoAnalyzerPresetPtrOutput {
 	return o.ApplyT(func(v TransformOutputType) *TransformOutputVideoAnalyzerPreset { return v.VideoAnalyzerPreset }).(TransformOutputVideoAnalyzerPresetPtrOutput)
 }
@@ -9969,6 +10031,8 @@ type TransformOutputCustomPresetCodec struct {
 	// A `h264Video` block as defined below.
 	H264Video *TransformOutputCustomPresetCodecH264Video `pulumi:"h264Video"`
 	// A `h265Video` block as defined below.
+	//
+	// > **NOTE:** Each codec can only have one type: `aacAudio`, `copyAudio`, `copyVideo`, `ddAudio`, `h264Video` or `h265Video`. If you need to apply different codec you must create one codec for each one.
 	H265Video *TransformOutputCustomPresetCodecH265Video `pulumi:"h265Video"`
 }
 
@@ -9995,6 +10059,8 @@ type TransformOutputCustomPresetCodecArgs struct {
 	// A `h264Video` block as defined below.
 	H264Video TransformOutputCustomPresetCodecH264VideoPtrInput `pulumi:"h264Video"`
 	// A `h265Video` block as defined below.
+	//
+	// > **NOTE:** Each codec can only have one type: `aacAudio`, `copyAudio`, `copyVideo`, `ddAudio`, `h264Video` or `h265Video`. If you need to apply different codec you must create one codec for each one.
 	H265Video TransformOutputCustomPresetCodecH265VideoPtrInput `pulumi:"h265Video"`
 }
 
@@ -10081,6 +10147,8 @@ func (o TransformOutputCustomPresetCodecOutput) H264Video() TransformOutputCusto
 }
 
 // A `h265Video` block as defined below.
+//
+// > **NOTE:** Each codec can only have one type: `aacAudio`, `copyAudio`, `copyVideo`, `ddAudio`, `h264Video` or `h265Video`. If you need to apply different codec you must create one codec for each one.
 func (o TransformOutputCustomPresetCodecOutput) H265Video() TransformOutputCustomPresetCodecH265VideoPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodec) *TransformOutputCustomPresetCodecH265Video {
 		return v.H265Video
@@ -12692,6 +12760,8 @@ type TransformOutputCustomPresetFilterOverlay struct {
 	// An `audio` block as defined above.
 	Audio *TransformOutputCustomPresetFilterOverlayAudio `pulumi:"audio"`
 	// A `video` block as defined below.
+	//
+	// > **NOTE:** Each overlay can only have one type: `audio` or `video`. If you need to apply different type you must create one overlay for each one.
 	Video *TransformOutputCustomPresetFilterOverlayVideo `pulumi:"video"`
 }
 
@@ -12710,6 +12780,8 @@ type TransformOutputCustomPresetFilterOverlayArgs struct {
 	// An `audio` block as defined above.
 	Audio TransformOutputCustomPresetFilterOverlayAudioPtrInput `pulumi:"audio"`
 	// A `video` block as defined below.
+	//
+	// > **NOTE:** Each overlay can only have one type: `audio` or `video`. If you need to apply different type you must create one overlay for each one.
 	Video TransformOutputCustomPresetFilterOverlayVideoPtrInput `pulumi:"video"`
 }
 
@@ -12772,6 +12844,8 @@ func (o TransformOutputCustomPresetFilterOverlayOutput) Audio() TransformOutputC
 }
 
 // A `video` block as defined below.
+//
+// > **NOTE:** Each overlay can only have one type: `audio` or `video`. If you need to apply different type you must create one overlay for each one.
 func (o TransformOutputCustomPresetFilterOverlayOutput) Video() TransformOutputCustomPresetFilterOverlayVideoPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterOverlay) *TransformOutputCustomPresetFilterOverlayVideo {
 		return v.Video
@@ -13715,6 +13789,8 @@ type TransformOutputCustomPresetFormat struct {
 	// A `mp4` block as defined below.
 	Mp4 *TransformOutputCustomPresetFormatMp4 `pulumi:"mp4"`
 	// A `transportStream` block as defined below.
+	//
+	// > **NOTE:** Each format can only have one type: `mp4` or `transportStream`. If you need to apply different type you must create one format for each one.
 	TransportStream *TransformOutputCustomPresetFormatTransportStream `pulumi:"transportStream"`
 }
 
@@ -13733,6 +13809,8 @@ type TransformOutputCustomPresetFormatArgs struct {
 	// A `mp4` block as defined below.
 	Mp4 TransformOutputCustomPresetFormatMp4PtrInput `pulumi:"mp4"`
 	// A `transportStream` block as defined below.
+	//
+	// > **NOTE:** Each format can only have one type: `mp4` or `transportStream`. If you need to apply different type you must create one format for each one.
 	TransportStream TransformOutputCustomPresetFormatTransportStreamPtrInput `pulumi:"transportStream"`
 }
 
@@ -13793,6 +13871,8 @@ func (o TransformOutputCustomPresetFormatOutput) Mp4() TransformOutputCustomPres
 }
 
 // A `transportStream` block as defined below.
+//
+// > **NOTE:** Each format can only have one type: `mp4` or `transportStream`. If you need to apply different type you must create one format for each one.
 func (o TransformOutputCustomPresetFormatOutput) TransportStream() TransformOutputCustomPresetFormatTransportStreamPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFormat) *TransformOutputCustomPresetFormatTransportStream {
 		return v.TransportStream

@@ -105,8 +105,8 @@ def get_service_endpoint_connections(resource_group_name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.privatelink.get_service_endpoint_connections(service_id=azurerm_private_link_service["example"]["id"],
-        resource_group_name=azurerm_resource_group["example"]["name"])
+    example = azure.privatelink.get_service_endpoint_connections(service_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("privateEndpointStatus", example.private_endpoint_connections[0].status)
     ```
 
@@ -142,8 +142,8 @@ def get_service_endpoint_connections_output(resource_group_name: Optional[pulumi
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.privatelink.get_service_endpoint_connections(service_id=azurerm_private_link_service["example"]["id"],
-        resource_group_name=azurerm_resource_group["example"]["name"])
+    example = azure.privatelink.get_service_endpoint_connections(service_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        resource_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("privateEndpointStatus", example.private_endpoint_connections[0].status)
     ```
 

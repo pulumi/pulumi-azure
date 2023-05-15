@@ -216,6 +216,8 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
         :param str assignment_type: The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
         :param str content_hash: The content hash for the Guest Configuration package.
         :param str content_uri: The content URI where the Guest Configuration package is stored.
+               
+               > **NOTE:** When deploying a Custom Guest Configuration package the `content_hash` and `content_uri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `content_hash` and `content_uri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
         :param Sequence['VirtualMachineConfigurationAssignmentConfigurationParameterArgs'] parameters: One or more `parameter` blocks as defined below which define what configuration parameters and values against.
         :param str version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         """
@@ -251,6 +253,8 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
     def content_uri(self) -> Optional[str]:
         """
         The content URI where the Guest Configuration package is stored.
+
+        > **NOTE:** When deploying a Custom Guest Configuration package the `content_hash` and `content_uri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `content_hash` and `content_uri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
         """
         return pulumi.get(self, "content_uri")
 
@@ -393,6 +397,8 @@ class GetPolicySetDefinitionPolicyDefinitionGroupResult(dict):
         :param str category: The category of this policy definition group.
         :param str description: The description of this policy definition group.
         :param str display_name: Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+               
+               **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
         :param str name: Specifies the name of the Policy Set Definition. Conflicts with `display_name`.
         """
         pulumi.set(__self__, "additional_metadata_resource_id", additional_metadata_resource_id)
@@ -430,6 +436,8 @@ class GetPolicySetDefinitionPolicyDefinitionGroupResult(dict):
     def display_name(self) -> str:
         """
         Specifies the display name of the Policy Set Definition. Conflicts with `name`.
+
+        **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
         """
         return pulumi.get(self, "display_name")
 

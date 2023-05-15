@@ -21,8 +21,8 @@ namespace Pulumi.Azure.Orbital.Inputs
         /// <summary>
         /// IP address of an end point.
         /// </summary>
-        [Input("ipAddress", required: true)]
-        public Input<string> IpAddress { get; set; } = null!;
+        [Input("ipAddress")]
+        public Input<string>? IpAddress { get; set; }
 
         /// <summary>
         /// TCP port to listen on to receive data.

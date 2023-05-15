@@ -74,6 +74,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -162,6 +164,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -212,6 +216,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

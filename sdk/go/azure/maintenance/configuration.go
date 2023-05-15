@@ -66,6 +66,8 @@ type Configuration struct {
 	// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
 	InGuestUserPatchMode pulumi.StringPtrOutput `pulumi:"inGuestUserPatchMode"`
 	// An `installPatches` block as defined below.
+	//
+	// > **NOTE:** `installPatches` must be specified when `scope` is `InGuestPatch`.
 	InstallPatches ConfigurationInstallPatchesPtrOutput `pulumi:"installPatches"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -123,6 +125,8 @@ type configurationState struct {
 	// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
 	InGuestUserPatchMode *string `pulumi:"inGuestUserPatchMode"`
 	// An `installPatches` block as defined below.
+	//
+	// > **NOTE:** `installPatches` must be specified when `scope` is `InGuestPatch`.
 	InstallPatches *ConfigurationInstallPatches `pulumi:"installPatches"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -146,6 +150,8 @@ type ConfigurationState struct {
 	// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
 	InGuestUserPatchMode pulumi.StringPtrInput
 	// An `installPatches` block as defined below.
+	//
+	// > **NOTE:** `installPatches` must be specified when `scope` is `InGuestPatch`.
 	InstallPatches ConfigurationInstallPatchesPtrInput
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -173,6 +179,8 @@ type configurationArgs struct {
 	// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
 	InGuestUserPatchMode *string `pulumi:"inGuestUserPatchMode"`
 	// An `installPatches` block as defined below.
+	//
+	// > **NOTE:** `installPatches` must be specified when `scope` is `InGuestPatch`.
 	InstallPatches *ConfigurationInstallPatches `pulumi:"installPatches"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -197,6 +205,8 @@ type ConfigurationArgs struct {
 	// The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
 	InGuestUserPatchMode pulumi.StringPtrInput
 	// An `installPatches` block as defined below.
+	//
+	// > **NOTE:** `installPatches` must be specified when `scope` is `InGuestPatch`.
 	InstallPatches ConfigurationInstallPatchesPtrInput
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -309,6 +319,8 @@ func (o ConfigurationOutput) InGuestUserPatchMode() pulumi.StringPtrOutput {
 }
 
 // An `installPatches` block as defined below.
+//
+// > **NOTE:** `installPatches` must be specified when `scope` is `InGuestPatch`.
 func (o ConfigurationOutput) InstallPatches() ConfigurationInstallPatchesPtrOutput {
 	return o.ApplyT(func(v *Configuration) ConfigurationInstallPatchesPtrOutput { return v.InstallPatches }).(ConfigurationInstallPatchesPtrOutput)
 }
